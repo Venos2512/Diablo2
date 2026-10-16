@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import {build} from 'esbuild';
+import {readFile,access} from 'node:fs/promises';
+import {filterMonsters,normalize} from '../src/lib/state.js';
+const compiled=await build({entryPoints:[new URL('../src/data/catalog.js',import.meta.url).pathname.replace(/^\/([A-Z]:)/,'$1')],bundle:true,platform:'node',format:'esm',write:false});
+const {monsters,groups}=await import('data:text/javascript;base64,'+Buffer.from(compiled.outputFiles[0].text).toString('base64'));
+assert.equal(monsters.length,34);assert.equal(new Set(monsters.map(m=>m.id)).size,34);assert.equal(groups.length,8);
+assert.deepEqual(groups.map(g=>monsters.filter(m=>m.group===g.id).length),[5,6,7,2,3,5,3,3]);
+assert.equal(monsters.filter(m=>m.kind==='regular').length,21);assert.equal(monsters.filter(m=>m.kind==='unique').length,12);assert.equal(monsters.filter(m=>m.kind==='boss').length,1);
+for(const m of monsters){assert(m.image?.src.startsWith('data:image/'),m.name);assert(m.description&&m.art&&m.motions.length,m.name);await access(new URL('../'+m.image.file,import.meta.url));}
+assert.equal(filterMonsters(monsters,{query:'ANDARIEL'}).length,1);assert.equal(filterMonsters(monsters,{kind:'special'}).length,13);assert.equal(filterMonsters(monsters,{query:'NO_MATCH_123'}).length,0);assert.equal(normalize('Đánh gần'),'danh gan');
+const html=await readFile(new URL('../dist/index.html',import.meta.url),'utf8');assert(!html.includes('/*__JS__*/'));assert(!/<script[^>]+src=/i.test(html));assert(html.includes('Sanctuary Databook'));assert(html.includes('lang="en"'));
+const {queryAssets}=await import('../src/lib/databook.js');
+const state={collection:'all',group:'all',kind:'all',status:'all',query:'',sort:'catalog',saved:false}, workspace={notes:{},favorites:['andariel'],statuses:{andariel:'progress'}};
+assert.equal(queryAssets(monsters,state,workspace).length,34);
+assert.equal(queryAssets(monsters,{...state,collection:'environment'},workspace).length,0);
+assert.equal(queryAssets(monsters,{...state,saved:true},workspace)[0].id,'andariel');
+assert.equal(queryAssets(monsters,{...state,status:'progress'},workspace).length,1);
+assert.equal(queryAssets(monsters,{...state,group:'brutes'},workspace).length,5);
+assert.equal(queryAssets(monsters,{...state,query:'jail'},workspace)[0].id,'pitspawn-fouldog');
+assert(monsters.every(m=>m.type==='creature'&&m.media.clips.length===0&&m.media.model===null));
+assert(!/[ăâđêôơưĂÂĐÊÔƠƯ]/u.test(JSON.stringify(monsters.map(({image,...m})=>m))));
+console.log('PASS: 34 records, 8 groups, 34 embedded images, filter logic, source files and standalone bundle.');
