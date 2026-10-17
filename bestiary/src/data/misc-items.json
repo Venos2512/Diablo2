@@ -1,0 +1,425 @@
+[
+  {
+    "name": "Chipped Skull",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedskull.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Skull",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedskull.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Skull",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/skull.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Amethyst",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedamethyst.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Amethyst",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedamethyst.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Amethyst",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/amethyst.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Sapphire",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedsaphire.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Sapphire",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedsaphire.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Sapphire",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/saphire.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Emerald",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedemerald.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Emerald",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedemerald.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Emerald",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/emerald.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Ruby",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedruby.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Ruby",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedruby.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Ruby",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/ruby.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Diamond",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippeddiamond.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Diamond",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flaweddiamond.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Diamond",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/diamond.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Chipped Topaz",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedtopaz.gif",
+    "requiredLevel": 1,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Flawed Topaz",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedtopaz.gif",
+    "requiredLevel": 5,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Topaz",
+    "group": "socketable",
+    "family": "Gem",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/topaz.gif",
+    "requiredLevel": 12,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "El Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEl.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Eld Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEld.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Tir Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeTir.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Nef Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeNef.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Eth Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEth.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Ith Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeIth.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Tal Rune",
+    "group": "socketable",
+    "family": "Rune",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeTal.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Healing Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/healing.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Greater Healing Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/greaterhealing.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Super Healing Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/superhealing.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Mana Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/mana.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Greater Mana Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/greatermana.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Super Mana Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/supermana.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Full Rejuvenation Potion",
+    "group": "consumable",
+    "family": "Potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/fullrejuv.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Fulminating Potion",
+    "group": "consumable",
+    "family": "Throwing potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/fulm.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Strangling Gas Potion",
+    "group": "consumable",
+    "family": "Throwing potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/strangling2.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Exploding Potion",
+    "group": "consumable",
+    "family": "Throwing potion",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/exploding.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Scroll of Town Portal",
+    "group": "utility",
+    "family": "Scroll",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/scroll-blue.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Scroll of Identify",
+    "group": "utility",
+    "family": "Scroll",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/scroll-red.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Tome of Town Portal",
+    "group": "utility",
+    "family": "Tome",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/tome-blue.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Tome of Identify",
+    "group": "utility",
+    "family": "Tome",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/tome-red.gif",
+    "requiredLevel": null,
+    "label": "Official item illustration"
+  },
+  {
+    "name": "Ring",
+    "group": "accessory",
+    "family": "Jewelry",
+    "source": "https://classic.battle.net/diablo2exp/items/ringsnamulets.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/ra/ring1.gif",
+    "requiredLevel": 1,
+    "label": "Representative icon variant; appearance can vary"
+  },
+  {
+    "name": "Amulet",
+    "group": "accessory",
+    "family": "Jewelry",
+    "source": "https://classic.battle.net/diablo2exp/items/ringsnamulets.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/ra/amu1.gif",
+    "requiredLevel": 1,
+    "label": "Representative icon variant; appearance can vary"
+  },
+  {
+    "name": "Key",
+    "group": "utility",
+    "family": "Key",
+    "source": "https://classic.battle.net/diablo2exp/items/basics.shtml",
+    "url": null,
+    "requiredLevel": null,
+    "label": "No verified icon linked"
+  },
+  {
+    "name": "Arrows",
+    "group": "utility",
+    "family": "Ammunition",
+    "source": "https://classic.battle.net/diablo2exp/items/basics.shtml",
+    "url": null,
+    "requiredLevel": null,
+    "label": "No verified icon linked"
+  },
+  {
+    "name": "Bolts",
+    "group": "utility",
+    "family": "Ammunition",
+    "source": "https://classic.battle.net/diablo2exp/items/basics.shtml",
+    "url": null,
+    "requiredLevel": null,
+    "label": "No verified icon linked"
+  }
+]

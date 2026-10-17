@@ -1,0 +1,26 @@
+[
+  {
+    "id": "dungeon-siege-bear",
+    "source": "https://dungeonsiege.fandom.com/wiki/Bear",
+    "reason": "The wiki explicitly requests a character image and contains zero article images. Verified in browser on 2026-10-16. No confirmed image located; do not substitute another game or species.",
+    "followupResearch": {
+      "date": "2026-10-16",
+      "coverage": [
+        "English wiki/fan-wiki search",
+        "German Baer/B\u00e4r queries",
+        "French ours queries",
+        "Russian medved/\u043c\u0435\u0434\u0432\u0435\u0434\u044c queries",
+        "Altan leather and bear cave search"
+      ],
+      "result": "No credible alternate wiki image for the Kingdom of Ehb Bear was found. Search results led to text-only walkthroughs, mods, and the Legends of Aranna Yellow Eye bear. DS2/expansion images were excluded.",
+      "excludedSources": [
+        "https://www.gamebanshee.com/dungeonsiege/loawalkthrough/chapterone.php",
+        "https://www.nexusmods.com/dungeonsiege1/mods/162"
+      ],
+      "textOnlyEvidence": [
+        "https://gamefaqs.gamespot.com/pc/913965-dungeon-siege/faqs/21869",
+        "https://download.gamestar.de/public/31300/31361/06_2002_tipps_dungeonsiege.pdf"
+      ]
+    }
+  }
+]

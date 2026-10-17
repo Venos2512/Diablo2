@@ -1,0 +1,58 @@
+{
+  "note": "Sample assets embedded in the offline build. Files live in assets/samples/. Textures of lantern, pot-of-coals and candle-holder were re-encoded to 1024 px (JPEG/PNG) to keep the build small; geometry is unchanged.",
+  "assets": [
+    {
+      "id": "shader-ball", "name": "USD Shader Ball", "kind": "model", "file": "samples/shader-ball.glb", "role": "lookdev",
+      "license": "CC-BY-4.0",
+      "credit": "Geometry and textures: Chris Rydalch; original specification and validation: André Mazzone; original scene, inspiration and consultation: Thomas Anagnostou; glTF conversion: Eric Chadwick",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/USDShaderBallForGltf"
+    },
+    {
+      "id": "lantern", "name": "Lantern", "kind": "model", "file": "samples/lantern.glb", "role": "prop",
+      "license": "CC0-1.0", "credit": "sbtron (Microsoft); Frank Galligan",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Lantern"
+    },
+    {
+      "id": "pot-of-coals", "name": "Pot of Coals", "kind": "model", "file": "samples/pot-of-coals.glb", "role": "prop",
+      "license": "CC-BY-4.0", "credit": "Eric Chadwick / Darmstadt Graphics Group GmbH (Khronos logo is a trademark of the Khronos Group)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/PotOfCoals"
+    },
+    {
+      "id": "candle-holder", "name": "Glass Hurricane Candle Holder", "kind": "model", "file": "samples/candle-holder.glb", "role": "prop",
+      "license": "CC-BY-4.0", "credit": "Eric Chadwick / Wayfair, LLC (Khronos logo is a trademark of the Khronos Group)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/GlassHurricaneCandleHolder"
+    },
+    {
+      "id": "compare-roughness", "name": "Compare Roughness", "kind": "model", "file": "samples/compare-roughness.glb", "role": "validation",
+      "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareRoughness"
+    },
+    {
+      "id": "compare-metallic", "name": "Compare Metallic", "kind": "model", "file": "samples/compare-metallic.glb", "role": "validation",
+      "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareMetallic"
+    },
+    {
+      "id": "fox", "name": "Fox (animated)", "kind": "model", "file": "samples/fox.glb", "role": "character", "height": 0.75,
+      "license": "CC0-1.0 + CC-BY-4.0", "credit": "Model: PixelMannen (CC0); rigging and animation: tomkranis (CC-BY 4.0); glTF conversion: @AsoboStudio and @scurest (CC-BY 4.0)",
+      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Fox"
+    },
+    {
+      "id": "robot", "name": "Robot Expressive (animated)", "kind": "model", "file": "samples/robot-expressive.glb", "role": "character", "height": 1.8,
+      "license": "CC0-1.0", "credit": "Tomás Laulhé (Quaternius); modifications by Don McCurdy",
+      "source": "https://github.com/mrdoob/three.js/tree/r180/examples/models/gltf/RobotExpressive"
+    },
+    {
+      "id": "hdri-night", "name": "Moonless Golf (night)", "kind": "hdri", "file": "samples/moonless_golf_1k.hdr",
+      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/moonless_golf"
+    },
+    {
+      "id": "hdri-overcast", "name": "Quarry 01 (overcast)", "kind": "hdri", "file": "samples/quarry_01_1k.hdr",
+      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/quarry_01"
+    },
+    {
+      "id": "hdri-sun", "name": "Royal Esplanade (sun)", "kind": "hdri", "file": "samples/royal_esplanade_1k.hdr",
+      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/royal_esplanade"
+    }
+  ]
+}

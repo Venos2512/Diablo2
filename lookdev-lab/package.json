@@ -1,0 +1,19 @@
+{
+  "name": "sanctuary-lookdev-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Three.js r180 test bed for shaders, lighting, VFX, model lookdev and Act I environments — WebGL2/GLSL and WebGPU/TSL side by side.",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}

@@ -1,0 +1,793 @@
+[
+  {
+    "id": "grim-dawn-fleshwarped-butcher",
+    "name": "Fleshwarped Butcher",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Wightmire"
+  },
+  {
+    "id": "grim-dawn-mireborn-bloodgorger",
+    "name": "Mireborn Bloodgorger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-insectoid",
+    "source": "https://grimdawn.fandom.com/wiki/Wightmire"
+  },
+  {
+    "id": "grim-dawn-corruption",
+    "name": "Corruption",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-overmind",
+    "name": "Overmind",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-fury",
+    "name": "Fury",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-cold-one",
+    "name": "Cold One",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-rotting-emberguard",
+    "name": "Rotting Emberguard",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-corpsefiend",
+    "name": "Corpsefiend",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-tainted-hound",
+    "name": "Tainted Hound",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-fleshwarped-thrasher",
+    "name": "Fleshwarped Thrasher",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-aether-crystal-cluster",
+    "name": "Aether Crystal Cluster",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aetherial",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Village"
+  },
+  {
+    "id": "grim-dawn-dominator",
+    "name": "Dominator",
+    "game": "grim-dawn",
+    "group": "grim-dawn-aether-corruption",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-dreadweave-arachnid",
+    "name": "Dreadweave Arachnid",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-dreadweave-spitter",
+    "name": "Dreadweave Spitter",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-dreadweave-leaper",
+    "name": "Dreadweave Leaper",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-dreadweave-widow",
+    "name": "Dreadweave Widow",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-dreadweave-matriarch",
+    "name": "Dreadweave Matriarch",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-spiderling",
+    "name": "Spiderling",
+    "game": "grim-dawn",
+    "group": "grim-dawn-arachnid",
+    "source": "https://grimdawn.fandom.com/wiki/Ominous_Lair"
+  },
+  {
+    "id": "grim-dawn-boneback",
+    "name": "Boneback",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/Lower_Crossing"
+  },
+  {
+    "id": "grim-dawn-boneback-gnasher",
+    "name": "Boneback Gnasher",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/Lower_Crossing"
+  },
+  {
+    "id": "grim-dawn-rabid-boneback",
+    "name": "Rabid Boneback",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/Lower_Crossing"
+  },
+  {
+    "id": "grim-dawn-boneback-plaguebearer",
+    "name": "Boneback Plaguebearer",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/Lower_Crossing"
+  },
+  {
+    "id": "grim-dawn-scavenger",
+    "name": "Scavenger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-frenzied-scavenger",
+    "name": "Frenzied Scavenger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-scavenger-alpha",
+    "name": "Scavenger Alpha",
+    "game": "grim-dawn",
+    "group": "grim-dawn-beast",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-deepmire-vanguard",
+    "name": "Deepmire Vanguard",
+    "game": "grim-dawn",
+    "group": "grim-dawn-slith-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-deepmire-champion",
+    "name": "Deepmire Champion",
+    "game": "grim-dawn",
+    "group": "grim-dawn-slith-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-deepmire-scourge-tamer",
+    "name": "Deepmire Scourge-Tamer",
+    "game": "grim-dawn",
+    "group": "grim-dawn-slith-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-deepmire-evocator",
+    "name": "Deepmire Evocator",
+    "game": "grim-dawn",
+    "group": "grim-dawn-slith-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/River_Passage"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-scavenger",
+    "name": "Groble ~ Snake Clan Scavenger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-tracker",
+    "name": "Groble ~ Snake Clan Tracker",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-warrior",
+    "name": "Groble ~ Snake Clan Warrior",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-champion",
+    "name": "Groble ~ Snake Clan Champion",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-witchdoctor",
+    "name": "Groble ~ Snake Clan Witchdoctor",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-groble-snake-clan-venomancer",
+    "name": "Groble ~ Snake Clan Venomancer",
+    "game": "grim-dawn",
+    "group": "grim-dawn-groble-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-dranghoul-enforcer",
+    "name": "Dranghoul Enforcer",
+    "game": "grim-dawn",
+    "group": "grim-dawn-dranghoul-beastkin",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-bloodsworn-priest",
+    "name": "Bloodsworn Priest",
+    "game": "grim-dawn",
+    "group": "grim-dawn-bloodsworn-cultist",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-bloodsworn-summoner",
+    "name": "Bloodsworn Summoner",
+    "game": "grim-dawn",
+    "group": "grim-dawn-bloodsworn-cultist",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-bloodsworn-void-caller",
+    "name": "Bloodsworn Void-Caller",
+    "game": "grim-dawn",
+    "group": "grim-dawn-bloodsworn-cultist",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-bloodsworn-doomsayer",
+    "name": "Bloodsworn Doomsayer",
+    "game": "grim-dawn",
+    "group": "grim-dawn-bloodsworn-cultist",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-chthonian-harbinger",
+    "name": "Chthonian Harbinger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-salazar-s-harbinger",
+    "name": "Salazar's Harbinger",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-obsidian-shaleborn",
+    "name": "Obsidian Shaleborn",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-voidfiend",
+    "name": "Voidfiend",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-voidfiend-incinerator",
+    "name": "Voidfiend Incinerator",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-voidfiend-hellion",
+    "name": "Voidfiend Hellion",
+    "game": "grim-dawn",
+    "group": "grim-dawn-chthonic",
+    "source": "https://grimdawn.fandom.com/wiki/Depraved_Sanctuary"
+  },
+  {
+    "id": "grim-dawn-mireborn-bloodfiend",
+    "name": "Mireborn Bloodfiend",
+    "game": "grim-dawn",
+    "group": "grim-dawn-insectoid",
+    "source": "https://grimdawn.fandom.com/wiki/The_Flooded_Passage"
+  },
+  {
+    "id": "grim-dawn-devouring-swarm",
+    "name": "Devouring Swarm",
+    "game": "grim-dawn",
+    "group": "grim-dawn-insectoid",
+    "source": "https://grimdawn.fandom.com/wiki/The_Flooded_Passage"
+  },
+  {
+    "id": "grim-dawn-briarthorn-horror",
+    "name": "Briarthorn Horror",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-briarthorn-terror",
+    "name": "Briarthorn Terror",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-carrion-raptor-hatchling",
+    "name": "Carrion Raptor ~ Hatchling",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-carrion-raptor-hunter",
+    "name": "Carrion Raptor ~ Hunter",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-carrion-raptor-screecher",
+    "name": "Carrion Raptor ~ Screecher",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-carrion-raptor-viper-lord",
+    "name": "Carrion Raptor ~ Viper Lord",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/Burrwitch_Outskirts"
+  },
+  {
+    "id": "grim-dawn-rifthound-howler",
+    "name": "Rifthound - Howler",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/The_Flooded_Passage"
+  },
+  {
+    "id": "grim-dawn-rifthound-azure-matriarch",
+    "name": "Rifthound - Azure Matriarch",
+    "game": "grim-dawn",
+    "group": "grim-dawn-riftspawn",
+    "source": "https://grimdawn.fandom.com/wiki/The_Flooded_Passage"
+  },
+  {
+    "id": "grim-dawn-scrapheap-rift-scourge",
+    "name": "Scrapheap Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-acidbile-rift-scourge",
+    "name": "Acidbile Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-stormscale-rift-scourge",
+    "name": "Stormscale Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-bladespine-rift-scourge",
+    "name": "Bladespine Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-infested-rift-scourge",
+    "name": "Infested Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-swarmborn-rift-scourge",
+    "name": "Swarmborn Rift Scourge",
+    "game": "grim-dawn",
+    "group": "grim-dawn-rift-scourge",
+    "source": "https://grimdawn.fandom.com/wiki/Hidden_Laboratory"
+  },
+  {
+    "id": "grim-dawn-viloth-the-corruptor",
+    "name": "Viloth, the Corruptor",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "grim-dawn-kyzogg-the-reanimator",
+    "name": "Kyzogg the Reanimator",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "grim-dawn-pusquill-the-hoarder",
+    "name": "Pusquill the Hoarder",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "grim-dawn-high-priest-rolderathis",
+    "name": "High Priest Rolderathis",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "grim-dawn-balegor-the-swamp-king",
+    "name": "Balegor, the Swamp King",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "grim-dawn-kalis-ka-the-bonehunter",
+    "name": "Kalis Ka, the Bonehunter",
+    "game": "grim-dawn",
+    "group": "grim-dawn-named-encounter",
+    "source": "https://grimdawn.fandom.com/wiki/Creatures"
+  },
+  {
+    "id": "titan-quest-harpy",
+    "name": "Harpy",
+    "game": "titan-quest",
+    "group": "titan-quest-mythic-beast",
+    "source": "https://titanquest.fandom.com/wiki/Category:Act_I_Hero_Monsters"
+  },
+  {
+    "id": "titan-quest-automatoi",
+    "name": "Automatoi",
+    "game": "titan-quest",
+    "group": "titan-quest-construct",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-boar",
+    "name": "Boar",
+    "game": "titan-quest",
+    "group": "titan-quest-beast",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-boarman",
+    "name": "Boarman",
+    "game": "titan-quest",
+    "group": "titan-quest-beastman",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-carrion-bird",
+    "name": "Carrion Bird",
+    "game": "titan-quest",
+    "group": "titan-quest-beast",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-cave-bat",
+    "name": "Cave Bat",
+    "game": "titan-quest",
+    "group": "titan-quest-beast",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-cyclops",
+    "name": "Cyclops",
+    "game": "titan-quest",
+    "group": "titan-quest-giant",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-eurynomus",
+    "name": "Eurynomus",
+    "game": "titan-quest",
+    "group": "titan-quest-demon",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-giant-turtle",
+    "name": "Giant Turtle",
+    "game": "titan-quest",
+    "group": "titan-quest-beast",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-ichthian",
+    "name": "Ichthian",
+    "game": "titan-quest",
+    "group": "titan-quest-beastman",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-skeleton",
+    "name": "Skeleton",
+    "game": "titan-quest",
+    "group": "titan-quest-undead",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-spider",
+    "name": "Spider",
+    "game": "titan-quest",
+    "group": "titan-quest-arachnid",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-trap",
+    "name": "Trap",
+    "game": "titan-quest",
+    "group": "titan-quest-construct",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-wraith",
+    "name": "Wraith",
+    "game": "titan-quest",
+    "group": "titan-quest-undead",
+    "source": "https://titanquest.fandom.com/wiki/Category:Monster_(Greece)"
+  },
+  {
+    "id": "titan-quest-arachne",
+    "name": "Arachne",
+    "game": "titan-quest",
+    "group": "titan-quest-arachnid",
+    "source": "https://titanquest.fandom.com/wiki/Majestic_Chest"
+  },
+  {
+    "id": "titan-quest-alastor",
+    "name": "Alastor",
+    "game": "titan-quest",
+    "group": "titan-quest-undead",
+    "source": "https://titanquest.fandom.com/wiki/Majestic_Chest"
+  },
+  {
+    "id": "titan-quest-talos",
+    "name": "Talos",
+    "game": "titan-quest",
+    "group": "titan-quest-construct",
+    "source": "https://titanquest.fandom.com/wiki/Majestic_Chest"
+  },
+  {
+    "id": "titan-quest-lernean-hydra",
+    "name": "Lernean Hydra",
+    "game": "titan-quest",
+    "group": "titan-quest-mythic-beast",
+    "source": "https://titanquest.fandom.com/wiki/Majestic_Chest"
+  },
+  {
+    "id": "titan-quest-dark-satyr-shaman",
+    "name": "Dark Satyr ~ Shaman",
+    "game": "titan-quest",
+    "group": "titan-quest-beastman",
+    "source": "https://titanquest.fandom.com/wiki/Helos_Woods"
+  },
+  {
+    "id": "torchlight-rock-troll",
+    "name": "Rock Troll",
+    "game": "torchlight",
+    "group": "torchlight-troll",
+    "source": "https://torchlight.fandom.com/wiki/Orden_Mines"
+  },
+  {
+    "id": "torchlight-blood-disciple",
+    "name": "Blood Disciple",
+    "game": "torchlight",
+    "group": "torchlight-cultist",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-burrower",
+    "name": "Burrower",
+    "game": "torchlight",
+    "group": "torchlight-burrowing-beast",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-construct",
+    "name": "Construct",
+    "game": "torchlight",
+    "group": "torchlight-construct",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-crawler",
+    "name": "Crawler",
+    "game": "torchlight",
+    "group": "torchlight-crawler",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-cursed-sword",
+    "name": "Cursed Sword",
+    "game": "torchlight",
+    "group": "torchlight-animated-object",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-dark-zealot",
+    "name": "Dark Zealot",
+    "game": "torchlight",
+    "group": "torchlight-cultist",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-dragonkin",
+    "name": "Dragonkin",
+    "game": "torchlight",
+    "group": "torchlight-dragonkin",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-dwarf",
+    "name": "Dwarf",
+    "game": "torchlight",
+    "group": "torchlight-dwarf",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-elemental",
+    "name": "Elemental",
+    "game": "torchlight",
+    "group": "torchlight-elemental",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-felwing",
+    "name": "Felwing",
+    "game": "torchlight",
+    "group": "torchlight-flying-creature",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-goblin",
+    "name": "Goblin",
+    "game": "torchlight",
+    "group": "torchlight-goblin",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-goblin-hound",
+    "name": "Goblin Hound",
+    "game": "torchlight",
+    "group": "torchlight-goblin-beast",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-goblin-hunter",
+    "name": "Goblin Hunter",
+    "game": "torchlight",
+    "group": "torchlight-goblin",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-lich",
+    "name": "Lich",
+    "game": "torchlight",
+    "group": "torchlight-undead",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-mechanical-construct",
+    "name": "Mechanical Construct",
+    "game": "torchlight",
+    "group": "torchlight-construct",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-mimic",
+    "name": "Mimic",
+    "game": "torchlight",
+    "group": "torchlight-mimic",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-phase-beast",
+    "name": "Phase Beast",
+    "game": "torchlight",
+    "group": "torchlight-phase-beast",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-skeleton",
+    "name": "Skeleton",
+    "game": "torchlight",
+    "group": "torchlight-undead",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-spectre",
+    "name": "Spectre",
+    "game": "torchlight",
+    "group": "torchlight-undead",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-strider",
+    "name": "Strider",
+    "game": "torchlight",
+    "group": "torchlight-strider",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-tattered-lurker",
+    "name": "Tattered Lurker",
+    "game": "torchlight",
+    "group": "torchlight-undead",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-troll",
+    "name": "Troll",
+    "game": "torchlight",
+    "group": "torchlight-troll",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-tu-tara",
+    "name": "Tu'tara",
+    "game": "torchlight",
+    "group": "torchlight-reptilian",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "torchlight-zombie",
+    "name": "Zombie",
+    "game": "torchlight",
+    "group": "torchlight-undead",
+    "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+  },
+  {
+    "id": "dungeon-siege-bear",
+    "name": "Bear",
+    "game": "dungeon-siege",
+    "group": "dungeon-siege-wildlife",
+    "source": "https://dungeonsiege.fandom.com/wiki/Unique_drop"
+  }
+]

@@ -1,0 +1,920 @@
+{
+  "Short Sword": {
+    "file": "assets/items/short-sword.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortsword.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Item icon"
+  },
+  "Sabre": {
+    "file": "assets/items/sabre.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/saber.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Item icon"
+  },
+  "Hand Axe": {
+    "file": "assets/items/hand-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/handaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Item icon"
+  },
+  "Axe": {
+    "file": "assets/items/axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/axe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Item icon"
+  },
+  "Club": {
+    "file": "assets/items/club.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/club.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "label": "Item icon"
+  },
+  "Spiked Club": {
+    "file": "assets/items/spiked-club.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/spikedclub.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "label": "Item icon"
+  },
+  "Dagger": {
+    "file": "assets/items/dagger.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/dagger.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "label": "Item icon"
+  },
+  "Dirk": {
+    "file": "assets/items/dirk.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/dirk.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "label": "Item icon"
+  },
+  "Short Bow": {
+    "file": "assets/items/short-bow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "label": "Item icon"
+  },
+  "Hunter's Bow": {
+    "file": "assets/items/hunter-s-bow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/huntersbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "label": "Item icon"
+  },
+  "Short Staff": {
+    "file": "assets/items/short-staff.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortstaff.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "label": "Item icon"
+  },
+  "Wand": {
+    "file": "assets/items/wand.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/wand.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "label": "Item icon"
+  },
+  "Cap": {
+    "file": "assets/items/cap.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/cap.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "label": "Item icon"
+  },
+  "Quilted Armor": {
+    "file": "assets/items/quilted-armor.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/quilted.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Item icon"
+  },
+  "Leather Armor": {
+    "file": "assets/items/leather-armor.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leather.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Item icon"
+  },
+  "Buckler": {
+    "file": "assets/items/buckler.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/buckler.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "label": "Item icon"
+  },
+  "Small Shield": {
+    "file": "assets/items/small-shield.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/smallshield.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "label": "Item icon"
+  },
+  "Leather Gloves": {
+    "file": "assets/items/leather-gloves.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leathergloves.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "label": "Item icon"
+  },
+  "Boots": {
+    "file": "assets/items/boots.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leatherboots.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "label": "Item icon"
+  },
+  "Sash": {
+    "file": "assets/items/sash.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/sash.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "label": "Item icon"
+  },
+  "Minor Healing Potion": {
+    "file": "assets/items/minor-healing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/minorhealing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Light Healing Potion": {
+    "file": "assets/items/light-healing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/lighthealing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Minor Mana Potion": {
+    "file": "assets/items/minor-mana-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/minormana.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Light Mana Potion": {
+    "file": "assets/items/light-mana-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/lightmana.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Stamina Potion": {
+    "file": "assets/items/stamina-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/stamina.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Antidote Potion": {
+    "file": "assets/items/antidote-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/antidote.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Thawing Potion": {
+    "file": "assets/items/thawing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/thawing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Rejuvenation Potion": {
+    "file": "assets/items/rejuvenation-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/rejuv.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Item icon"
+  },
+  "Tree of Inifuss Bark": {
+    "file": "assets/items/tree-of-inifuss-bark.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/quests/act1q3.gif",
+    "source": "https://classic.battle.net/diablo2exp/quests/act1.shtml",
+    "label": "Quest illustration (not inventory icon)"
+  },
+  "Horadric Malus": {
+    "file": "assets/items/horadric-malus.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/quests/act1q5.gif",
+    "source": "https://classic.battle.net/diablo2exp/quests/act1.shtml",
+    "label": "Quest illustration (not inventory icon)"
+  },
+  "Skull Cap": {
+    "file": "assets/items/skull-cap.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/skullcap.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Helm": {
+    "file": "assets/items/helm.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/helm.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Full Helm": {
+    "file": "assets/items/full-helm.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/fullhelm.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Hard Leather Armor": {
+    "file": "assets/items/hard-leather-armor.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/hardleather.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Studded Leather": {
+    "file": "assets/items/studded-leather.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/studdedleather.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Ring Mail": {
+    "file": "assets/items/ring-mail.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/ringmail.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Scale Mail": {
+    "file": "assets/items/scale-mail.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/scalemail.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Breast Plate": {
+    "file": "assets/items/breast-plate.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/breastplate.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Chain Mail": {
+    "file": "assets/items/chain-mail.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chainmail.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Large Shield": {
+    "file": "assets/items/large-shield.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/largeshield.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Kite Shield": {
+    "file": "assets/items/kite-shield.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/kiteshield.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Spiked Shield": {
+    "file": "assets/items/spiked-shield.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/spikedshield.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Heavy Gloves": {
+    "file": "assets/items/heavy-gloves.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/heavygloves.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Chain Gloves": {
+    "file": "assets/items/chain-gloves.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chaingloves.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Heavy Boots": {
+    "file": "assets/items/heavy-boots.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/heavyboots.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Chain Boots": {
+    "file": "assets/items/chain-boots.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chainboots.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Light Belt": {
+    "file": "assets/items/light-belt.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/lightbelt.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Belt": {
+    "file": "assets/items/belt.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/belt.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Jawbone Cap": {
+    "file": "assets/items/jawbone-cap.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/jawbonecap.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Fanged Helm": {
+    "file": "assets/items/fanged-helm.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/fangedhelm.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Horned Helm": {
+    "file": "assets/items/horned-helm.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/hornedhelm.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Wolf Head": {
+    "file": "assets/items/wolf-head.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/wolfhead.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Hawk Helm": {
+    "file": "assets/items/hawk-helm.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/falconmask.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Antlers": {
+    "file": "assets/items/antlers.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/antlers.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Targe": {
+    "file": "assets/items/targe.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/targe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Rondache": {
+    "file": "assets/items/rondache.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/rondache.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Heraldic Shield": {
+    "file": "assets/items/heraldic-shield.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/heraldicshield.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Preserved Head": {
+    "file": "assets/items/preserved-head.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/preservedhead.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Zombie Head": {
+    "file": "assets/items/zombie-head.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/zombiehead.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Unraveller Head": {
+    "file": "assets/items/unraveller-head.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/unravellerhead.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Double Axe": {
+    "file": "assets/items/double-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/doubleaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Large Axe": {
+    "file": "assets/items/large-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/largeaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Broad Axe": {
+    "file": "assets/items/broad-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/broadaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Battle Axe": {
+    "file": "assets/items/battle-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/battleaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Long Bow": {
+    "file": "assets/items/long-bow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/longbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Composite Bow": {
+    "file": "assets/items/composite-bow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/compositebow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Short Battle Bow": {
+    "file": "assets/items/short-battle-bow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortbattlebow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Light Crossbow": {
+    "file": "assets/items/light-crossbow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/lightcrossbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/crossbows.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Crossbow": {
+    "file": "assets/items/crossbow.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/crossbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/crossbows.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Kris": {
+    "file": "assets/items/kris.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/kriss.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Javelin": {
+    "file": "assets/items/javelin.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/javelin.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Pilum": {
+    "file": "assets/items/pilum.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/pilum.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Short Spear": {
+    "file": "assets/items/short-spear.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortspear.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Mace": {
+    "file": "assets/items/mace.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/mace.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Morning Star": {
+    "file": "assets/items/morning-star.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/morningstar.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Bardiche": {
+    "file": "assets/items/bardiche.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/bardiche.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Voulge": {
+    "file": "assets/items/voulge.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/voulge.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Scythe": {
+    "file": "assets/items/scythe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scythe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Scepter": {
+    "file": "assets/items/scepter.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scepter.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/scepters.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Grand Scepter": {
+    "file": "assets/items/grand-scepter.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/grandscepter.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/scepters.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Spear": {
+    "file": "assets/items/spear.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/spear.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Trident": {
+    "file": "assets/items/trident.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/trident.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Brandistock": {
+    "file": "assets/items/brandistock.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/brandistock.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Long Staff": {
+    "file": "assets/items/long-staff.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/longstaff.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Gnarled Staff": {
+    "file": "assets/items/gnarled-staff.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/gnarledstaff.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Battle Staff": {
+    "file": "assets/items/battle-staff.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/battlestaff.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Scimitar": {
+    "file": "assets/items/scimitar.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scimitar.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Falchion": {
+    "file": "assets/items/falchion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/falchion.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Crystal Sword": {
+    "file": "assets/items/crystal-sword.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/crystalsword.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Broad Sword": {
+    "file": "assets/items/broad-sword.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/broadsword.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Two-handed Sword": {
+    "file": "assets/items/two-handed-sword.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/2hsword.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Claymore": {
+    "file": "assets/items/claymore.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/claymore.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Throwing Knife": {
+    "file": "assets/items/throwing-knife.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/throwingknife.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Balanced Knife": {
+    "file": "assets/items/balanced-knife.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/balancedknife.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Throwing Axe": {
+    "file": "assets/items/throwing-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/throwingaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Balanced Axe": {
+    "file": "assets/items/balanced-axe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/balancedaxe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Yew Wand": {
+    "file": "assets/items/yew-wand.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/yewwand.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Bone Wand": {
+    "file": "assets/items/bone-wand.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/bonewand.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Stag Bow": {
+    "file": "assets/items/stag-bow.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/stagbow.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/amazonweapons.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Maiden Spear": {
+    "file": "assets/items/maiden-spear.gif",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/maidenspear.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/amazonweapons.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Katar": {
+    "file": "assets/items/katar.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/katar.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Wrist Blade": {
+    "file": "assets/items/wrist-blade.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/katar.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Hatchet Hands": {
+    "file": "assets/items/hatchet-hands.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/hatchethands.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Cestus": {
+    "file": "assets/items/cestus.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/hatchethands.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Claws": {
+    "file": "assets/items/claws.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/claws.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Eagle Orb": {
+    "file": "assets/items/eagle-orb.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/eagleorb.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Sacred Globe": {
+    "file": "assets/items/sacred-globe.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/sacredglobe.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Smoked Sphere": {
+    "file": "assets/items/smoked-sphere.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/smokedsphere.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Clasped Orb": {
+    "file": "assets/items/clasped-orb.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/claspedorb.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "label": "Official normal base-item illustration"
+  },
+  "Chipped Skull": {
+    "file": "assets/items/chipped-skull.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedskull.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Skull": {
+    "file": "assets/items/flawed-skull.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedskull.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Skull": {
+    "file": "assets/items/skull.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/skull.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Amethyst": {
+    "file": "assets/items/chipped-amethyst.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedamethyst.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Amethyst": {
+    "file": "assets/items/flawed-amethyst.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedamethyst.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Amethyst": {
+    "file": "assets/items/amethyst.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/amethyst.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Sapphire": {
+    "file": "assets/items/chipped-sapphire.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedsaphire.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Sapphire": {
+    "file": "assets/items/flawed-sapphire.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedsaphire.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Sapphire": {
+    "file": "assets/items/sapphire.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/saphire.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Emerald": {
+    "file": "assets/items/chipped-emerald.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedemerald.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Emerald": {
+    "file": "assets/items/flawed-emerald.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedemerald.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Emerald": {
+    "file": "assets/items/emerald.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/emerald.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Ruby": {
+    "file": "assets/items/chipped-ruby.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedruby.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Ruby": {
+    "file": "assets/items/flawed-ruby.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedruby.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Ruby": {
+    "file": "assets/items/ruby.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/ruby.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Diamond": {
+    "file": "assets/items/chipped-diamond.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippeddiamond.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Diamond": {
+    "file": "assets/items/flawed-diamond.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flaweddiamond.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Diamond": {
+    "file": "assets/items/diamond.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/diamond.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Chipped Topaz": {
+    "file": "assets/items/chipped-topaz.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/chippedtopaz.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Flawed Topaz": {
+    "file": "assets/items/flawed-topaz.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/flawedtopaz.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "Topaz": {
+    "file": "assets/items/topaz.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/gems/topaz.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/gems.shtml",
+    "label": "Official item illustration"
+  },
+  "El Rune": {
+    "file": "assets/items/el-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEl.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Eld Rune": {
+    "file": "assets/items/eld-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEld.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Tir Rune": {
+    "file": "assets/items/tir-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeTir.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Nef Rune": {
+    "file": "assets/items/nef-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeNef.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Eth Rune": {
+    "file": "assets/items/eth-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeEth.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Ith Rune": {
+    "file": "assets/items/ith-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeIth.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Tal Rune": {
+    "file": "assets/items/tal-rune.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/runes/runeTal.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/runes.shtml",
+    "label": "Official item illustration"
+  },
+  "Healing Potion": {
+    "file": "assets/items/healing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/healing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Greater Healing Potion": {
+    "file": "assets/items/greater-healing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/greaterhealing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Super Healing Potion": {
+    "file": "assets/items/super-healing-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/superhealing.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Mana Potion": {
+    "file": "assets/items/mana-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/mana.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Greater Mana Potion": {
+    "file": "assets/items/greater-mana-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/greatermana.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Super Mana Potion": {
+    "file": "assets/items/super-mana-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/supermana.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Full Rejuvenation Potion": {
+    "file": "assets/items/full-rejuvenation-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/fullrejuv.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Scroll of Town Portal": {
+    "file": "assets/items/scroll-of-town-portal.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/scroll-blue.gif",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "label": "Official item illustration"
+  },
+  "Scroll of Identify": {
+    "file": "assets/items/scroll-of-identify.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/scroll-red.gif",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "label": "Official item illustration"
+  },
+  "Tome of Town Portal": {
+    "file": "assets/items/tome-of-town-portal.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/tome-blue.gif",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "label": "Official item illustration"
+  },
+  "Tome of Identify": {
+    "file": "assets/items/tome-of-identify.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/tome-red.gif",
+    "source": "https://classic.battle.net/diablo2exp/basics/",
+    "label": "Official item illustration"
+  },
+  "Ring": {
+    "file": "assets/items/ring.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/ra/ring1.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/ringsnamulets.shtml",
+    "label": "Representative icon variant; appearance can vary"
+  },
+  "Amulet": {
+    "file": "assets/items/amulet.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/ra/amu1.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/ringsnamulets.shtml",
+    "label": "Representative icon variant; appearance can vary"
+  },
+  "Fulminating Potion": {
+    "file": "assets/items/fulminating-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/fulm.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Strangling Gas Potion": {
+    "file": "assets/items/strangling-gas-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/strangling2.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  },
+  "Exploding Potion": {
+    "file": "assets/items/exploding-potion.gif",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/potions/exploding.gif",
+    "source": "https://classic.battle.net/diablo2exp/items/potions.shtml",
+    "label": "Official item illustration"
+  }
+}

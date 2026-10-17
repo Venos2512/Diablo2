@@ -9,16 +9,16 @@ Every asset has a globally unique, stable `id`. IDs anchor notes and saved items
 | type | `creature`, `environment`, `npc`, `item`, `model`, `animation`, or `effect` |
 | act | Display scope, e.g. `Act I` |
 | index | Optional catalog ordering number |
-| group | Optional creature family ID; non-creatures can omit it |
+| group | Optional group ID for creatures, items or NPCs; other types can omit it |
 | role | Optional short subtype: melee, tileset, armor, vendor, etc. |
 | description | Appearance or purpose |
 | art | Production observations |
 | location | Place or scope |
 | base | Suggested base comparison, not a verified rig relationship |
-| kind | Creature-only `regular`, `unique` or `boss` |
+| kind | Creature `regular`, `unique` or `boss`; item `quest` or `base` |
 | status | Default `reference`, `todo`, `progress` or `approved` |
 | tags | Searchable string array |
-| image | Optional `{src, file, url, source}`; `src` should be a data URI for standalone delivery |
+| image | Optional `{src, file, url, source, label}`; `src` should be a data URI for standalone delivery |
 | media.model | Reserved model metadata or null; not automatically loaded by the current UI |
 | media.clips | Verified clip metadata only; use an empty array until audited |
 | motions | Suggested checklist strings, separate from verified clips |
@@ -29,7 +29,7 @@ Every asset has a globally unique, stable `id`. IDs anchor notes and saved items
 export const environments = [{
   id: 'env-rogue-camp-ground',
   name: 'Rogue Encampment — Ground',
-  type: 'environment', act: 'Act I', index: 35,
+  type: 'environment', act: 'Act I', index: 66,
   role: 'Terrain tileset', status: 'todo',
   description: 'Describe the reference after reviewing the source.',
   art: 'Document tile transitions, scale and ground material variation.',
@@ -39,7 +39,7 @@ export const environments = [{
 }];
 ```
 
-This is an illustrative schema example, not an included asset. Add real records to the corresponding array in collections.js. The registry combines arrays and the UI computes counts dynamically. Reference images and source links must be provided and checked before calling a record complete.
+This is an illustrative schema example, not an included asset. Add real records to the corresponding array in collections.js, or extend items.js for item records. The registry combines arrays and the UI computes counts dynamically. Reference images and source links must be provided and checked before calling a record complete.
 
 ## Model and animation roadmap
 

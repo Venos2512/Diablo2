@@ -1,0 +1,794 @@
+[
+  {
+    "name": "Cap",
+    "group": "armor",
+    "family": "helms",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/cap.gif"
+  },
+  {
+    "name": "Skull Cap",
+    "group": "armor",
+    "family": "helms",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/skullcap.gif"
+  },
+  {
+    "name": "Helm",
+    "group": "armor",
+    "family": "helms",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/helm.gif"
+  },
+  {
+    "name": "Full Helm",
+    "group": "armor",
+    "family": "helms",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/helms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/fullhelm.gif"
+  },
+  {
+    "name": "Quilted Armor",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/quilted.gif"
+  },
+  {
+    "name": "Leather Armor",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leather.gif"
+  },
+  {
+    "name": "Hard Leather Armor",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/hardleather.gif"
+  },
+  {
+    "name": "Studded Leather",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/studdedleather.gif"
+  },
+  {
+    "name": "Ring Mail",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/ringmail.gif"
+  },
+  {
+    "name": "Scale Mail",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 13,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/scalemail.gif"
+  },
+  {
+    "name": "Breast Plate",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/breastplate.gif"
+  },
+  {
+    "name": "Chain Mail",
+    "group": "armor",
+    "family": "armor",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/armor.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chainmail.gif"
+  },
+  {
+    "name": "Buckler",
+    "group": "armor",
+    "family": "shields",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/buckler.gif"
+  },
+  {
+    "name": "Small Shield",
+    "group": "armor",
+    "family": "shields",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/smallshield.gif"
+  },
+  {
+    "name": "Large Shield",
+    "group": "armor",
+    "family": "shields",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/largeshield.gif"
+  },
+  {
+    "name": "Kite Shield",
+    "group": "armor",
+    "family": "shields",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/kiteshield.gif"
+  },
+  {
+    "name": "Spiked Shield",
+    "group": "armor",
+    "family": "shields",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shields.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/spikedshield.gif"
+  },
+  {
+    "name": "Leather Gloves",
+    "group": "armor",
+    "family": "gloves",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leathergloves.gif"
+  },
+  {
+    "name": "Heavy Gloves",
+    "group": "armor",
+    "family": "gloves",
+    "qualityLevel": 7,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/heavygloves.gif"
+  },
+  {
+    "name": "Chain Gloves",
+    "group": "armor",
+    "family": "gloves",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/gloves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chaingloves.gif"
+  },
+  {
+    "name": "Boots",
+    "group": "armor",
+    "family": "boots",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/leatherboots.gif"
+  },
+  {
+    "name": "Heavy Boots",
+    "group": "armor",
+    "family": "boots",
+    "qualityLevel": 7,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/heavyboots.gif"
+  },
+  {
+    "name": "Chain Boots",
+    "group": "armor",
+    "family": "boots",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/boots.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/chainboots.gif"
+  },
+  {
+    "name": "Sash",
+    "group": "armor",
+    "family": "belts",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/sash.gif"
+  },
+  {
+    "name": "Light Belt",
+    "group": "armor",
+    "family": "belts",
+    "qualityLevel": 7,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/lightbelt.gif"
+  },
+  {
+    "name": "Belt",
+    "group": "armor",
+    "family": "belts",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/belts.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/armor/belt.gif"
+  },
+  {
+    "name": "Jawbone Cap",
+    "group": "armor",
+    "family": "barbhelms",
+    "qualityLevel": 4,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/jawbonecap.gif"
+  },
+  {
+    "name": "Fanged Helm",
+    "group": "armor",
+    "family": "barbhelms",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/fangedhelm.gif"
+  },
+  {
+    "name": "Horned Helm",
+    "group": "armor",
+    "family": "barbhelms",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/barbhelms.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/hornedhelm.gif"
+  },
+  {
+    "name": "Wolf Head",
+    "group": "armor",
+    "family": "druidpelts",
+    "qualityLevel": 4,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/wolfhead.gif"
+  },
+  {
+    "name": "Hawk Helm",
+    "group": "armor",
+    "family": "druidpelts",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/falconmask.gif"
+  },
+  {
+    "name": "Antlers",
+    "group": "armor",
+    "family": "druidpelts",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/druidpelts.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/antlers.gif"
+  },
+  {
+    "name": "Targe",
+    "group": "armor",
+    "family": "paladinshields",
+    "qualityLevel": 4,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/targe.gif"
+  },
+  {
+    "name": "Rondache",
+    "group": "armor",
+    "family": "paladinshields",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/rondache.gif"
+  },
+  {
+    "name": "Heraldic Shield",
+    "group": "armor",
+    "family": "paladinshields",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/paladinshields.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/heraldicshield.gif"
+  },
+  {
+    "name": "Preserved Head",
+    "group": "armor",
+    "family": "shrunkenheads",
+    "qualityLevel": 4,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/preservedhead.gif"
+  },
+  {
+    "name": "Zombie Head",
+    "group": "armor",
+    "family": "shrunkenheads",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/zombiehead.gif"
+  },
+  {
+    "name": "Unraveller Head",
+    "group": "armor",
+    "family": "shrunkenheads",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/shrunkenheads.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/unravellerhead.gif"
+  },
+  {
+    "name": "Hand Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/handaxe.gif"
+  },
+  {
+    "name": "Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 7,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/axe.gif"
+  },
+  {
+    "name": "Double Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 13,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/doubleaxe.gif"
+  },
+  {
+    "name": "Large Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 6,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/largeaxe.gif"
+  },
+  {
+    "name": "Broad Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/broadaxe.gif"
+  },
+  {
+    "name": "Battle Axe",
+    "group": "weapon",
+    "family": "axes",
+    "qualityLevel": 17,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/axes.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/battleaxe.gif"
+  },
+  {
+    "name": "Short Bow",
+    "group": "weapon",
+    "family": "bows",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortbow.gif"
+  },
+  {
+    "name": "Hunter's Bow",
+    "group": "weapon",
+    "family": "bows",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/huntersbow.gif"
+  },
+  {
+    "name": "Long Bow",
+    "group": "weapon",
+    "family": "bows",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/longbow.gif"
+  },
+  {
+    "name": "Composite Bow",
+    "group": "weapon",
+    "family": "bows",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/compositebow.gif"
+  },
+  {
+    "name": "Short Battle Bow",
+    "group": "weapon",
+    "family": "bows",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/bows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortbattlebow.gif"
+  },
+  {
+    "name": "Light Crossbow",
+    "group": "weapon",
+    "family": "crossbows",
+    "qualityLevel": 6,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/crossbows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/lightcrossbow.gif"
+  },
+  {
+    "name": "Crossbow",
+    "group": "weapon",
+    "family": "crossbows",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/crossbows.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/crossbow.gif"
+  },
+  {
+    "name": "Dagger",
+    "group": "weapon",
+    "family": "daggers",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/dagger.gif"
+  },
+  {
+    "name": "Dirk",
+    "group": "weapon",
+    "family": "daggers",
+    "qualityLevel": 9,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/dirk.gif"
+  },
+  {
+    "name": "Kris",
+    "group": "weapon",
+    "family": "daggers",
+    "qualityLevel": 17,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/daggers.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/kriss.gif"
+  },
+  {
+    "name": "Javelin",
+    "group": "weapon",
+    "family": "javelins",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/javelin.gif"
+  },
+  {
+    "name": "Pilum",
+    "group": "weapon",
+    "family": "javelins",
+    "qualityLevel": 10,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/pilum.gif"
+  },
+  {
+    "name": "Short Spear",
+    "group": "weapon",
+    "family": "javelins",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/javelins.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortspear.gif"
+  },
+  {
+    "name": "Club",
+    "group": "weapon",
+    "family": "maces",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/club.gif"
+  },
+  {
+    "name": "Spiked Club",
+    "group": "weapon",
+    "family": "maces",
+    "qualityLevel": 4,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/spikedclub.gif"
+  },
+  {
+    "name": "Mace",
+    "group": "weapon",
+    "family": "maces",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/mace.gif"
+  },
+  {
+    "name": "Morning Star",
+    "group": "weapon",
+    "family": "maces",
+    "qualityLevel": 13,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/maces.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/morningstar.gif"
+  },
+  {
+    "name": "Bardiche",
+    "group": "weapon",
+    "family": "polearms",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/bardiche.gif"
+  },
+  {
+    "name": "Voulge",
+    "group": "weapon",
+    "family": "polearms",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/voulge.gif"
+  },
+  {
+    "name": "Scythe",
+    "group": "weapon",
+    "family": "polearms",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/polearms.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scythe.gif"
+  },
+  {
+    "name": "Scepter",
+    "group": "weapon",
+    "family": "scepters",
+    "qualityLevel": 3,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/scepters.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scepter.gif"
+  },
+  {
+    "name": "Grand Scepter",
+    "group": "weapon",
+    "family": "scepters",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/scepters.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/grandscepter.gif"
+  },
+  {
+    "name": "Spear",
+    "group": "weapon",
+    "family": "spears",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/spear.gif"
+  },
+  {
+    "name": "Trident",
+    "group": "weapon",
+    "family": "spears",
+    "qualityLevel": 9,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/trident.gif"
+  },
+  {
+    "name": "Brandistock",
+    "group": "weapon",
+    "family": "spears",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/spears.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/brandistock.gif"
+  },
+  {
+    "name": "Short Staff",
+    "group": "weapon",
+    "family": "staves",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortstaff.gif"
+  },
+  {
+    "name": "Long Staff",
+    "group": "weapon",
+    "family": "staves",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/longstaff.gif"
+  },
+  {
+    "name": "Gnarled Staff",
+    "group": "weapon",
+    "family": "staves",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/gnarledstaff.gif"
+  },
+  {
+    "name": "Battle Staff",
+    "group": "weapon",
+    "family": "staves",
+    "qualityLevel": 17,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/staves.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/battlestaff.gif"
+  },
+  {
+    "name": "Short Sword",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/shortsword.gif"
+  },
+  {
+    "name": "Scimitar",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 5,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/scimitar.gif"
+  },
+  {
+    "name": "Sabre",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/saber.gif"
+  },
+  {
+    "name": "Falchion",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/falchion.gif"
+  },
+  {
+    "name": "Crystal Sword",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 11,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/crystalsword.gif"
+  },
+  {
+    "name": "Broad Sword",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/broadsword.gif"
+  },
+  {
+    "name": "Two-handed Sword",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 10,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/2hsword.gif"
+  },
+  {
+    "name": "Claymore",
+    "group": "weapon",
+    "family": "swords",
+    "qualityLevel": 17,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/swords.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/claymore.gif"
+  },
+  {
+    "name": "Throwing Knife",
+    "group": "weapon",
+    "family": "throw",
+    "qualityLevel": 2,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/throwingknife.gif"
+  },
+  {
+    "name": "Balanced Knife",
+    "group": "weapon",
+    "family": "throw",
+    "qualityLevel": 13,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/balancedknife.gif"
+  },
+  {
+    "name": "Throwing Axe",
+    "group": "weapon",
+    "family": "throw",
+    "qualityLevel": 7,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/throwingaxe.gif"
+  },
+  {
+    "name": "Balanced Axe",
+    "group": "weapon",
+    "family": "throw",
+    "qualityLevel": 16,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/throw.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/balancedaxe.gif"
+  },
+  {
+    "name": "Wand",
+    "group": "weapon",
+    "family": "wands",
+    "qualityLevel": 2,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/wand.gif"
+  },
+  {
+    "name": "Yew Wand",
+    "group": "weapon",
+    "family": "wands",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/yewwand.gif"
+  },
+  {
+    "name": "Bone Wand",
+    "group": "weapon",
+    "family": "wands",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/wands.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/weapons/bonewand.gif"
+  },
+  {
+    "name": "Stag Bow",
+    "group": "weapon",
+    "family": "amazonweapons",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/amazonweapons.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/stagbow.gif"
+  },
+  {
+    "name": "Maiden Spear",
+    "group": "weapon",
+    "family": "amazonweapons",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/amazonweapons.shtml",
+    "url": "https://classic.battle.net/diablo2exp/images/items/classspecific/maidenspear.gif"
+  },
+  {
+    "name": "Katar",
+    "group": "weapon",
+    "family": "katars",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/katar.gif"
+  },
+  {
+    "name": "Wrist Blade",
+    "group": "weapon",
+    "family": "katars",
+    "qualityLevel": 9,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/katar.gif"
+  },
+  {
+    "name": "Hatchet Hands",
+    "group": "weapon",
+    "family": "katars",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/hatchethands.gif"
+  },
+  {
+    "name": "Cestus",
+    "group": "weapon",
+    "family": "katars",
+    "qualityLevel": 15,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/hatchethands.gif"
+  },
+  {
+    "name": "Claws",
+    "group": "weapon",
+    "family": "katars",
+    "qualityLevel": 18,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/katars.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/claws.gif"
+  },
+  {
+    "name": "Eagle Orb",
+    "group": "weapon",
+    "family": "orbs",
+    "qualityLevel": 1,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/eagleorb.gif"
+  },
+  {
+    "name": "Sacred Globe",
+    "group": "weapon",
+    "family": "orbs",
+    "qualityLevel": 8,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/sacredglobe.gif"
+  },
+  {
+    "name": "Smoked Sphere",
+    "group": "weapon",
+    "family": "orbs",
+    "qualityLevel": 12,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/smokedsphere.gif"
+  },
+  {
+    "name": "Clasped Orb",
+    "group": "weapon",
+    "family": "orbs",
+    "qualityLevel": 17,
+    "source": "https://classic.battle.net/diablo2exp/items/normal/orbs.shtml",
+    "url": "https://classic.battle.net/images/battle/diablo2exp/images/items/classspecific/claspedorb.gif"
+  }
+]

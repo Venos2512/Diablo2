@@ -1,6 +1,6 @@
 # Sanctuary Databook
 
-An English-language asset reference library for Diablo II Classic, starting with Act I. Includes 34 creature records and a shared structure for environments, NPCs, items, 3D models, animation clips and VFX.
+An English-language cross-game asset reference library for five action RPGs, with a game-wide Torchlight I species index. Includes 34 Diablo II Act I creature records, 181 curated enemy records from Grim Dawn, Titan Quest, Torchlight and Dungeon Siege, 157 Diablo II item references, 7 named Act I NPCs and a Rogue Scout hireling archetype. Environments, 3D models, animation clips and VFX have a shared structure for later expansion. The item section combines quest objects and an early-game reference selection; it is not a verified Act I drop table. Lord of Destruction-only records are labeled.
 
 ## Open
 
@@ -15,7 +15,7 @@ Open `../Sanctuary_Databook.html` in a modern browser. The file embeds applicati
 - Workspace JSON export/import, including legacy bestiary note backups.
 - Metadata catalog export for planning and future integrations.
 - Three.js GLB inspector: orbit, zoom, fit, embedded clip selection, play/pause, speed and timeline.
-- Empty future collections clearly labeled; no fabricated production assets or clip counts.
+- Future collections clearly labeled; no fabricated production assets or clip counts.
 
 ## Develop
 
@@ -34,22 +34,35 @@ Preview at http://127.0.0.1:4173. Build updates all HTML entry points. Dependenc
 
 ```text
 src/data/catalog.js       Existing creature records and family definitions
-src/data/collections.js   Future collection arrays
+src/data/multiverse.js    Opening-chapter enemies for four additional games
+src/data/multiverse-images.json  Embedded wiki and official-manual image references
+src/data/collections.js   Collection arrays, including Act I items
 src/data/registry.js      Collection registry and unified asset lookup
-src/data/images.json      Embedded reference images with source metadata
+src/data/images.json      Embedded creature images with source metadata
+src/data/items.js        Item records, scope labels and groups
+src/data/early-gear.json  Normal base gear selected at Quality Level 18 or below
+src/data/misc-items.json  Gems, runes, potions, utility items and jewelry
+src/data/npcs.js         Act I named NPCs and hireling archetype
+src/data/item-images.json Embedded item images with source metadata
 src/lib/databook.js       Generic querying, workspace persistence, JSON export
 src/lib/state.js          Text normalization and legacy note compatibility
 src/viewer/model.js       Three.js self-contained GLB and animation inspector
 src/main.js               Library, record dialogs and interaction wiring
 src/template.html         Semantic English UI and built-in guide
-src/styles.css            Responsive light databook design
+src/styles.css            Responsive dark Book of Cain theme
 assets/references/        Original reference images
-assets/SOURCES.json       Per-image provenance
+assets/SOURCES.json       Creature image provenance
+assets/ITEM_SOURCES.json  Item image provenance
+assets/MULTIVERSE_IMAGE_SOURCES.json  Cross-game image provenance and exact/family labels
+assets/NPC_SOURCES.json   NPC image provenance
 scripts/                  Asset retrieval, build, preview and checks
 docs/SCHEMA.md            Shared data contract and extension example
 docs/DEVELOPMENT.md       Implementation and lifecycle notes
 docs/CONTENT.md           Content boundaries and source interpretation
 docs/VALIDATION.md        Verification evidence and remaining limits
+docs/NPCS.md              Act I NPC roles, art inventory and source boundaries
+docs/ITEMS.md             Item selection, group counts, edition and source limits
+docs/MULTIVERSE.md        Game scopes, enemy counts and source limits
 ```
 
 ## Workspace data
@@ -62,4 +75,4 @@ Open a record, select **3D & animation**, then **Open GLB**. Choose a self-conta
 
 ## Attribution
 
-Diablo II reference images belong to Blizzard Entertainment and originate from The Arreat Summit. They are research references, not a grant to redistribute them in a commercial game. See `assets/SOURCES.json`. Three.js uses the MIT license; see `THIRD_PARTY_LICENSES.txt`. Production descriptions and checklist notes are original project annotations.
+Diablo II reference images belong to Blizzard Entertainment and originate from The Arreat Summit. They are research references, not a grant to redistribute them in a commercial game. See `assets/SOURCES.json`, `assets/ITEM_SOURCES.json` and `assets/NPC_SOURCES.json`. Three.js uses the MIT license; see `THIRD_PARTY_LICENSES.txt`. Production descriptions and checklist notes are original project annotations.

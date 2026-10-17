@@ -1,0 +1,922 @@
+{
+  "reviewedAt": "2026-10-16",
+  "startingMissing": 113,
+  "added": 111,
+  "addedKinds": {
+    "exact": 94,
+    "family": 17
+  },
+  "crossgameIllustrated": 179,
+  "overallIllustrated": 374,
+  "referenceKinds": {
+    "exact": 144,
+    "manual": 4,
+    "family": 31
+  },
+  "resolved": [
+    {
+      "id": "grim-dawn-fleshwarped-butcher",
+      "name": "Fleshwarped Butcher",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Fleshwarped_Butcher.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-mireborn-bloodgorger",
+      "name": "Mireborn Bloodgorger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-insectoid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Mireborn_Bloodgorger.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-corruption",
+      "name": "Corruption",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Corruption.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-overmind",
+      "name": "Overmind",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Overmind.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-fury",
+      "name": "Fury",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Fury.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-cold-one",
+      "name": "Cold One",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Cold_One.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-rotting-emberguard",
+      "name": "Rotting Emberguard",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Rotting_Emberguard.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-corpsefiend",
+      "name": "Corpsefiend",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Corpsefiend.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-tainted-hound",
+      "name": "Tainted Hound",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Tainted_Hound.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-fleshwarped-thrasher",
+      "name": "Fleshwarped Thrasher",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.fandom.com/wiki/File:Fleshwarped_Thrasher.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-aether-crystal-cluster",
+      "name": "Aether Crystal Cluster",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aetherial",
+      "source": "https://grimdawn.fandom.com/ru/wiki/File:Aether_Crystal_Formation.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-dominator",
+      "name": "Dominator",
+      "game": "grim-dawn",
+      "group": "grim-dawn-aether-corruption",
+      "source": "https://grimdawn.huijiwiki.com/wiki/赏金：支配者(死亡守夜人教团)",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-dreadweave-arachnid",
+      "name": "Dreadweave Arachnid",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Dreadweave_Arachnid.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-dreadweave-spitter",
+      "name": "Dreadweave Spitter",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Dreadweave_Spitter.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-dreadweave-leaper",
+      "name": "Dreadweave Leaper",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/ru/wiki/File:Dreadweave_Spitter.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-dreadweave-widow",
+      "name": "Dreadweave Widow",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/ru/wiki/File:Dreadweave_Matriarch.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-dreadweave-matriarch",
+      "name": "Dreadweave Matriarch",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Dreadweave_Matriarch.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-spiderling",
+      "name": "Spiderling",
+      "game": "grim-dawn",
+      "group": "grim-dawn-arachnid",
+      "source": "https://grimdawn.fandom.com/ru/wiki/File:Spiderling.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-boneback",
+      "name": "Boneback",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Boneback.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-boneback-gnasher",
+      "name": "Boneback Gnasher",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Boneback_Gnasher.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-rabid-boneback",
+      "name": "Rabid Boneback",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Rabid_Boneback.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-boneback-plaguebearer",
+      "name": "Boneback Plaguebearer",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Boneback_Plaguebearer.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-scavenger",
+      "name": "Scavenger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Scavenger.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-frenzied-scavenger",
+      "name": "Frenzied Scavenger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Frenzied_Scavenger.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-scavenger-alpha",
+      "name": "Scavenger Alpha",
+      "game": "grim-dawn",
+      "group": "grim-dawn-beast",
+      "source": "https://grimdawn.fandom.com/wiki/File:Scavenger_Alpha.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-deepmire-vanguard",
+      "name": "Deepmire Vanguard",
+      "game": "grim-dawn",
+      "group": "grim-dawn-slith-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/File:Deepmire_Vanguard.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-deepmire-champion",
+      "name": "Deepmire Champion",
+      "game": "grim-dawn",
+      "group": "grim-dawn-slith-beastkin",
+      "source": "https://grimdawn.fandom.com/ru/wiki/File:Deepmire_Pureblood.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-deepmire-scourge-tamer",
+      "name": "Deepmire Scourge-Tamer",
+      "game": "grim-dawn",
+      "group": "grim-dawn-slith-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/File:Deepmire_Scourge-Tamer.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-deepmire-evocator",
+      "name": "Deepmire Evocator",
+      "game": "grim-dawn",
+      "group": "grim-dawn-slith-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/File:Deepmire_Evocator.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-scavenger",
+      "name": "Groble ~ Snake Clan Scavenger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-tracker",
+      "name": "Groble ~ Snake Clan Tracker",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-warrior",
+      "name": "Groble ~ Snake Clan Warrior",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-champion",
+      "name": "Groble ~ Snake Clan Champion",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-witchdoctor",
+      "name": "Groble ~ Snake Clan Witchdoctor",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-groble-snake-clan-venomancer",
+      "name": "Groble ~ Snake Clan Venomancer",
+      "game": "grim-dawn",
+      "group": "grim-dawn-groble-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/Groble",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-dranghoul-enforcer",
+      "name": "Dranghoul Enforcer",
+      "game": "grim-dawn",
+      "group": "grim-dawn-dranghoul-beastkin",
+      "source": "https://grimdawn.fandom.com/wiki/File:Dranghoul_Enforcer.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-bloodsworn-priest",
+      "name": "Bloodsworn Priest",
+      "game": "grim-dawn",
+      "group": "grim-dawn-bloodsworn-cultist",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ABloodsworn_Priest.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-bloodsworn-summoner",
+      "name": "Bloodsworn Summoner",
+      "game": "grim-dawn",
+      "group": "grim-dawn-bloodsworn-cultist",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ABloodsworn_Summoner.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-bloodsworn-void-caller",
+      "name": "Bloodsworn Void-Caller",
+      "game": "grim-dawn",
+      "group": "grim-dawn-bloodsworn-cultist",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ABloodsworn_Void-Caller.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-bloodsworn-doomsayer",
+      "name": "Bloodsworn Doomsayer",
+      "game": "grim-dawn",
+      "group": "grim-dawn-bloodsworn-cultist",
+      "source": "https://grimdawn.fandom.com/wiki/File:Bloodsworn_Doomsayer.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-chthonian-harbinger",
+      "name": "Chthonian Harbinger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AChthonian_Harbinger.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-salazar-s-harbinger",
+      "name": "Salazar's Harbinger",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AChthonian_Harbinger.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-obsidian-shaleborn",
+      "name": "Obsidian Shaleborn",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/wiki/File:Obsidian_Shaleborn.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-voidfiend",
+      "name": "Voidfiend",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/wiki/File:Voidfiend.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-voidfiend-incinerator",
+      "name": "Voidfiend Incinerator",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AVoidfiend_Hellion.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-voidfiend-hellion",
+      "name": "Voidfiend Hellion",
+      "game": "grim-dawn",
+      "group": "grim-dawn-chthonic",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AVoidfiend_Hellion.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-mireborn-bloodfiend",
+      "name": "Mireborn Bloodfiend",
+      "game": "grim-dawn",
+      "group": "grim-dawn-insectoid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Mireborn_Bloodfiend.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-devouring-swarm",
+      "name": "Devouring Swarm",
+      "game": "grim-dawn",
+      "group": "grim-dawn-insectoid",
+      "source": "https://grimdawn.fandom.com/wiki/File:Devouring_Swarm.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-briarthorn-horror",
+      "name": "Briarthorn Horror",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ABriarthorn_Horror.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-briarthorn-terror",
+      "name": "Briarthorn Terror",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ABriarthorn_Terror.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-carrion-raptor-hatchling",
+      "name": "Carrion Raptor ~ Hatchling",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ACarrion_Raptor_-_Hatchling.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-carrion-raptor-hunter",
+      "name": "Carrion Raptor ~ Hunter",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ACarrion_Raptor_-_Hunter.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-carrion-raptor-screecher",
+      "name": "Carrion Raptor ~ Screecher",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ACarrion_Raptor_-_Screecher.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-carrion-raptor-viper-lord",
+      "name": "Carrion Raptor ~ Viper Lord",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ACarrion_Raptor_-_Viper_Lord.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-rifthound-howler",
+      "name": "Rifthound - Howler",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ARifthound_-_Howler.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-rifthound-azure-matriarch",
+      "name": "Rifthound - Azure Matriarch",
+      "game": "grim-dawn",
+      "group": "grim-dawn-riftspawn",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ARifthound_-_Azure_Matriarch.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-scrapheap-rift-scourge",
+      "name": "Scrapheap Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Scrapheap_Rift_Scourge.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-acidbile-rift-scourge",
+      "name": "Acidbile Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Acidbile_Rift_Scourge.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-stormscale-rift-scourge",
+      "name": "Stormscale Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Stormscale_Rift_Scourge.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-bladespine-rift-scourge",
+      "name": "Bladespine Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Bladespine_Rift_Scourge.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-infested-rift-scourge",
+      "name": "Infested Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Infested_Rift_Scourge.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-swarmborn-rift-scourge",
+      "name": "Swarmborn Rift Scourge",
+      "game": "grim-dawn",
+      "group": "grim-dawn-rift-scourge",
+      "source": "https://grimdawn.fandom.com/wiki/File:Scrapheap_Rift_Scourge.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "grim-dawn-viloth-the-corruptor",
+      "name": "Viloth, the Corruptor",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3A%D0%92%D0%B8%D0%BB%D0%BE%D1%81_%D0%9E%D1%82%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E%D1%89%D0%B0%D1%8F.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-kyzogg-the-reanimator",
+      "name": "Kyzogg the Reanimator",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AKyzogg_zoom.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-pusquill-the-hoarder",
+      "name": "Pusquill the Hoarder",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3A%D0%9F%D0%B8%D1%81%D0%BA%D0%B2%D0%B8%D0%BB%D0%BB_%D0%97%D0%B0%D0%BF%D0%B0%D1%81%D0%BB%D0%B8%D0%B2%D1%8B%D0%B9.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-high-priest-rolderathis",
+      "name": "High Priest Rolderathis",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3ARolderathis.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-balegor-the-swamp-king",
+      "name": "Balegor, the Swamp King",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3A%D0%91%D0%B0%D0%BB%D0%B5%D0%B3%D0%BE%D1%80_%D0%A6%D0%B0%D1%80%D1%8C_%D0%B1%D0%BE%D0%BB%D0%BE%D1%82.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "grim-dawn-kalis-ka-the-bonehunter",
+      "name": "Kalis Ka, the Bonehunter",
+      "game": "grim-dawn",
+      "group": "grim-dawn-named-encounter",
+      "source": "https://grimdawn.fandom.com/ru/wiki/%D0%A4%D0%B0%D0%B9%D0%BB%3AKalisKa_3.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-harpy",
+      "name": "Harpy",
+      "game": "titan-quest",
+      "group": "titan-quest-mythic-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Harpy_TQ_01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-automatoi",
+      "name": "Automatoi",
+      "game": "titan-quest",
+      "group": "titan-quest-construct",
+      "source": "https://titanquest.fandom.com/wiki/File:Automatoi3.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-boar",
+      "name": "Boar",
+      "game": "titan-quest",
+      "group": "titan-quest-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:Boars.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-boarman",
+      "name": "Boarman",
+      "game": "titan-quest",
+      "group": "titan-quest-beastman",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Boarman_TQ_01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-carrion-bird",
+      "name": "Carrion Bird",
+      "game": "titan-quest",
+      "group": "titan-quest-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:Carrion_Birds.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-cave-bat",
+      "name": "Cave Bat",
+      "game": "titan-quest",
+      "group": "titan-quest-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:Bat.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-cyclops",
+      "name": "Cyclops",
+      "game": "titan-quest",
+      "group": "titan-quest-giant",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Cyclops_TQ_01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-eurynomus",
+      "name": "Eurynomus",
+      "game": "titan-quest",
+      "group": "titan-quest-demon",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Euronymous_ingame01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-giant-turtle",
+      "name": "Giant Turtle",
+      "game": "titan-quest",
+      "group": "titan-quest-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:Giant-turtle-character.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-ichthian",
+      "name": "Ichthian",
+      "game": "titan-quest",
+      "group": "titan-quest-beastman",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Ichthian_TQ_01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-skeleton",
+      "name": "Skeleton",
+      "game": "titan-quest",
+      "group": "titan-quest-undead",
+      "source": "https://titanquest.fandom.com/wiki/File:Skelett.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-spider",
+      "name": "Spider",
+      "game": "titan-quest",
+      "group": "titan-quest-arachnid",
+      "source": "https://titanquest.fandom.com/wiki/File:Spiders.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-trap",
+      "name": "Trap",
+      "game": "titan-quest",
+      "group": "titan-quest-construct",
+      "source": "https://titanquest.fandom.com/wiki/File:Traps.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-wraith",
+      "name": "Wraith",
+      "game": "titan-quest",
+      "group": "titan-quest-undead",
+      "source": "https://titanquest.fandom.com/wiki/File:Wraith_Drowned_Sailor.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-arachne",
+      "name": "Arachne",
+      "game": "titan-quest",
+      "group": "titan-quest-arachnid",
+      "source": "https://titanquest.fandom.com/wiki/File:Arachnea_1.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-alastor",
+      "name": "Alastor",
+      "game": "titan-quest",
+      "group": "titan-quest-undead",
+      "source": "https://titanquest.fandom.com/wiki/File:Alastor_Scourge_of_Acheron_1.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-talos",
+      "name": "Talos",
+      "game": "titan-quest",
+      "group": "titan-quest-construct",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Talos_ingame01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-lernean-hydra",
+      "name": "Lernean Hydra",
+      "game": "titan-quest",
+      "group": "titan-quest-mythic-beast",
+      "source": "https://titanquest.fandom.com/wiki/File:IL_Hydra01.jpg",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "titan-quest-dark-satyr-shaman",
+      "name": "Dark Satyr ~ Shaman",
+      "game": "titan-quest",
+      "group": "titan-quest-beastman",
+      "source": "https://titanquest.fandom.com/wiki/File:Dark_Satyr_Shaman.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-rock-troll",
+      "name": "Rock Troll",
+      "game": "torchlight",
+      "group": "torchlight-troll",
+      "source": "https://torchlight.fandom.com/wiki/File:Troll_%28T1%29.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "torchlight-blood-disciple",
+      "name": "Blood Disciple",
+      "game": "torchlight",
+      "group": "torchlight-cultist",
+      "source": "https://torchlight.fandom.com/wiki/File:Disciple.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-burrower",
+      "name": "Burrower",
+      "game": "torchlight",
+      "group": "torchlight-burrowing-beast",
+      "source": "https://torchlight.fandom.com/wiki/File:Burrower.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-construct",
+      "name": "Construct",
+      "game": "torchlight",
+      "group": "torchlight-construct",
+      "source": "https://torchlight.fandom.com/wiki/File:Construct.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-crawler",
+      "name": "Crawler",
+      "game": "torchlight",
+      "group": "torchlight-crawler",
+      "source": "https://torchlight.fandom.com/wiki/File:Crawler_1.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-dark-zealot",
+      "name": "Dark Zealot",
+      "game": "torchlight",
+      "group": "torchlight-cultist",
+      "source": "https://torchlight.fandom.com/wiki/File:Dark_Zealot_1.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-dragonkin",
+      "name": "Dragonkin",
+      "game": "torchlight",
+      "group": "torchlight-dragonkin",
+      "source": "https://torchlight.fandom.com/wiki/File:Dragonkin.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-dwarf",
+      "name": "Dwarf",
+      "game": "torchlight",
+      "group": "torchlight-dwarf",
+      "source": "https://torchlight.fandom.com/wiki/File:Soulless_Cutter.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "torchlight-elemental",
+      "name": "Elemental",
+      "game": "torchlight",
+      "group": "torchlight-elemental",
+      "source": "https://torchlight.fandom.com/wiki/File:Elemental.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-felwing",
+      "name": "Felwing",
+      "game": "torchlight",
+      "group": "torchlight-flying-creature",
+      "source": "https://torchlight.fandom.com/wiki/File:Felwing_2.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-goblin",
+      "name": "Goblin",
+      "game": "torchlight",
+      "group": "torchlight-goblin",
+      "source": "https://torchlight.fandom.com/wiki/File:Goblin_Hunter.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "torchlight-goblin-hound",
+      "name": "Goblin Hound",
+      "game": "torchlight",
+      "group": "torchlight-goblin-beast",
+      "source": "https://torchlight.fandom.com/wiki/File:Goblin_Hound.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-goblin-hunter",
+      "name": "Goblin Hunter",
+      "game": "torchlight",
+      "group": "torchlight-goblin",
+      "source": "https://torchlight.fandom.com/wiki/File:Goblin_Hunter.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-lich",
+      "name": "Lich",
+      "game": "torchlight",
+      "group": "torchlight-undead",
+      "source": "https://torchlight.fandom.com/wiki/File:Lich.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-mechanical-construct",
+      "name": "Mechanical Construct",
+      "game": "torchlight",
+      "group": "torchlight-construct",
+      "source": "https://torchlight.fandom.com/wiki/File:Mechanical_Construct_1_%28T1%29.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-mimic",
+      "name": "Mimic",
+      "game": "torchlight",
+      "group": "torchlight-mimic",
+      "source": "https://torchlight.fandom.com/wiki/File:Mimic.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-phase-beast",
+      "name": "Phase Beast",
+      "game": "torchlight",
+      "group": "torchlight-phase-beast",
+      "source": "https://torchlight.fandom.com/wiki/File:Phasebeast.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-skeleton",
+      "name": "Skeleton",
+      "game": "torchlight",
+      "group": "torchlight-undead",
+      "source": "https://torchlight.fandom.com/wiki/File:Skeleton.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-spectre",
+      "name": "Spectre",
+      "game": "torchlight",
+      "group": "torchlight-undead",
+      "source": "https://torchlight.fandom.com/wiki/File:Spectre.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-strider",
+      "name": "Strider",
+      "game": "torchlight",
+      "group": "torchlight-strider",
+      "source": "https://torchlight.fandom.com/wiki/File:Strider.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-tattered-lurker",
+      "name": "Tattered Lurker",
+      "game": "torchlight",
+      "group": "torchlight-undead",
+      "source": "https://torchlight.fandom.com/wiki/File:Tattered_Lurker_2.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-troll",
+      "name": "Troll",
+      "game": "torchlight",
+      "group": "torchlight-troll",
+      "source": "https://torchlight.fandom.com/wiki/File:Troll_%28T1%29.png",
+      "referenceKind": "exact"
+    },
+    {
+      "id": "torchlight-tu-tara",
+      "name": "Tu'tara",
+      "game": "torchlight",
+      "group": "torchlight-reptilian",
+      "source": "https://torchlight.fandom.com/wiki/File:Tu%27Tara_Edgebreaker.png",
+      "referenceKind": "family"
+    },
+    {
+      "id": "torchlight-zombie",
+      "name": "Zombie",
+      "game": "torchlight",
+      "group": "torchlight-undead",
+      "source": "https://torchlight.fandom.com/wiki/File:Zombie.png",
+      "referenceKind": "exact"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "torchlight-cursed-sword",
+      "name": "Cursed Sword",
+      "game": "torchlight",
+      "group": "torchlight-animated-object",
+      "source": "https://torchlight.fandom.com/wiki/Category:Monsters_(T1)"
+    },
+    {
+      "id": "dungeon-siege-bear",
+      "name": "Bear",
+      "game": "dungeon-siege",
+      "group": "dungeon-siege-wildlife",
+      "source": "https://dungeonsiege.fandom.com/wiki/Unique_drop"
+    }
+  ]
+}

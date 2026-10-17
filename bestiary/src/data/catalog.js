@@ -48,7 +48,7 @@ const rows=[
 ];
 export const monsters=rows.map((r,i)=>{
  const [name,group,role,description,art,special,location,base]=r;
- return {id:name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),index:i+1,name,type:'creature',act:'Act I',group,role,description,art,location:location||'Act I bestiary index',base,kind:name==='Andariel'?'boss':location?'unique':'regular',
+ return {id:name.toLowerCase().replace(/[^a-z0-9]+/g,'-'),index:i+1,name,type:'creature',game:'diablo-ii',act:'Act I',group,role,description,art,location:location||'Act I bestiary index',base,kind:name==='Andariel'?'boss':location?'unique':'regular',
  motions:['Spawner','Trap'].includes(role)?['Idle',...special.split(';')]:['Idle','Move','Attack','Hit reaction — verify','Death',...special.split(';')],
  image:images[name],media:{model:null,clips:[]},tags:[role,group],status:'reference',scope:'Reference index; exact spawns by version and difficulty have not been audited.'};
 });

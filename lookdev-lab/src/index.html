@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Sanctuary Lookdev Lab</title>
+<!--LAB:STYLE-->
+</head>
+<body>
+<div id="app" class="app">
+	<header class="topbar">
+		<div class="brand" title="Sanctuary Lookdev Lab">
+			<span class="brand-mark">II</span>
+			<span class="brand-text">Sanctuary<small>Lookdev Lab</small></span>
+		</div>
+		<nav class="tabs" id="tabs" role="tablist" aria-label="Workspaces"></nav>
+		<div class="top-actions">
+			<label class="select-field" title="Scene">
+				<span>Scene</span>
+				<select id="scene-select" aria-label="Scene"></select>
+			</label>
+			<label class="select-field renderer-field" title="Renderer (switching reloads the page)">
+				<span>Renderer</span>
+				<select id="renderer-select" aria-label="Renderer"></select>
+			</label>
+			<button class="icon-button" id="btn-screenshot" title="Screenshot (P)" aria-label="Screenshot">⤓</button>
+			<button class="icon-button" id="btn-compare" title="A/B compare (C)" aria-label="A/B compare">⧉</button>
+			<button class="icon-button" id="btn-ui" title="Hide UI (H)" aria-label="Hide UI">◱</button>
+			<button class="icon-button" id="btn-help" title="Shortcuts & credits (?)" aria-label="Help">?</button>
+		</div>
+	</header>
+
+	<aside class="rail" id="rail" aria-label="Assets">
+		<section class="rail-section">
+			<h2>Samples</h2>
+			<div id="sample-list" class="sample-list"></div>
+		</section>
+		<section class="rail-section">
+			<h2>Loaded</h2>
+			<div id="object-list" class="object-list"><p class="muted">Nothing yet.</p></div>
+		</section>
+		<section class="rail-section drop-hint">
+			<h2>Your files</h2>
+			<p>Drop <b>GLB / glTF</b> (with .bin + textures), <b>FBX</b>, <b>OBJ</b>, <b>HDR / EXR</b>, a Substance <b>texture set</b> or a <b>.cube</b> LUT anywhere on the viewport.</p>
+			<button class="button" id="btn-open-file">Open files…</button>
+			<input type="file" id="file-input" multiple hidden>
+		</section>
+	</aside>
+
+	<main class="viewport" id="viewport">
+		<div class="viewport-badges" id="badges"></div>
+		<div class="legend" id="legend" hidden></div>
+		<div class="compare" id="compare" hidden>
+			<img id="compare-image" alt="Snapshot A">
+			<div class="compare-handle" id="compare-handle"><span>A</span><span>B</span></div>
+		</div>
+		<div class="hud" id="hud"></div>
+		<div class="castbar" id="castbar" hidden></div>
+		<div class="drop-overlay" id="drop-overlay" hidden><div>Drop to load</div></div>
+		<div class="error-overlay" id="error-overlay" hidden></div>
+		<div class="boot" id="boot"><div class="boot-mark">II</div><p id="boot-status">Preparing renderer…</p></div>
+	</main>
+
+	<aside class="panel" id="panel" aria-label="Settings"></aside>
+	<div class="toasts" id="toasts" aria-live="polite"></div>
+	<dialog class="help" id="help"></dialog>
+</div>
+<!--LAB:ASSETS-->
+<!--LAB:SCRIPT-->
+</body>
+</html>

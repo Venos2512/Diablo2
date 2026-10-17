@@ -1,14 +1,19 @@
 import {assets,collections,collectionById,assetById} from './data/registry.js';
 import {groups,groupById} from './data/catalog.js';
+import {itemGroups,itemGroupById} from './data/items.js';
+import {npcGroups,npcGroupById} from './data/npcs.js';
+import {games,multiverseGroups,multiverseGroupById} from './data/multiverse.js';
 import {readWorkspace,persist,queryAssets,downloadJSON} from './lib/databook.js';
 import {createModelViewer} from './viewer/model.js';
 
 const $=id=>document.getElementById(id),workspace=readWorkspace();
-const state={collection:'all',group:'all',kind:'all',status:'all',sort:'catalog',query:'',saved:false,view:'grid'};
+const state={collection:'all',game:'all',group:'all',kind:'all',status:'all',sort:'catalog',query:'',saved:false,view:'grid'};
+const gameById=Object.fromEntries(games.map(game=>[game.id,game]));
 const statusLabels={reference:'Reference',todo:'To do',progress:'In progress',approved:'Approved'};
 let visible=[],selected=null,viewer=null,toastTimer,loadSequence=0;
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;};
-const countType=id=>id==='all'?assets.length:assets.filter(a=>a.type===id).length;
+const inGame=a=>state.game==='all'||(a.game||'diablo-ii')===state.game;
+const countType=id=>assets.filter(a=>inGame(a)&&(id==='all'||a.type===id)).length;
 function toast(text){$('toast').textContent=text;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3500);}
 function store(){const ok=persist(workspace);if(!ok)toast('Storage is unavailable. Export your workspace to keep a backup.');return ok;}
 function status(a){return workspace.statuses[a.id]||a.status||'reference';}
@@ -16,25 +21,31 @@ function saved(id){return workspace.favorites.includes(id);}
 function toggleSaved(id){workspace.favorites=saved(id)?workspace.favorites.filter(x=>x!==id):[...workspace.favorites,id];store();render();if(selected?.id===id)updateSaved();}
 function updateSaved(){const on=saved(selected.id);$('record-save').textContent=on?'★':'☆';$('record-save').setAttribute('aria-pressed',String(on));$('record-save').setAttribute('aria-label',on?'Remove saved asset':'Save asset');}
 
+const gameOptions=[{id:'all',name:'All worlds',scope:'Five-game archive'},...games];
+gameOptions.forEach(game=>{const b=el('button','game-tab');b.type='button';b.dataset.game=game.id;b.setAttribute('aria-pressed','false');b.append(el('span','game-tab-title',game.name),el('small','',game.scope));b.addEventListener('click',()=>{state.game=game.id;state.collection='all';state.saved=false;resetFilters();render();});$('game-tabs').append(b);});
 collections.forEach(c=>{const b=el('button','nav-button');b.dataset.collection=c.id;b.append(el('span','nav-icon',c.symbol),el('span','',c.name),el('span','count',String(countType(c.id))));b.addEventListener('click',()=>{state.collection=c.id;state.saved=false;resetFilters();render();});$('collections').append(b);});
-groups.forEach(g=>{const option=el('option','',g.name);option.value=g.id;$('group').append(option);});
+function groupName(a){return ({...groupById,...multiverseGroupById,...itemGroupById,...npcGroupById})[a.group]?.name||a.role||collectionById[a.type]?.name;}
+function syncGroupFilter(){const groupSet=state.collection==='item'?itemGroups:state.collection==='npc'?npcGroups:state.game==='diablo-ii'?groups:state.game==='all'?[...groups,...multiverseGroups]:multiverseGroups.filter(g=>g.id.startsWith(state.game+'-'));$('group').replaceChildren(new Option(state.collection==='item'?'All item groups':state.collection==='npc'?'All NPC groups':'All families','all'),...groupSet.map(g=>new Option(g.name,g.id)));$('group').value=state.group;}
 $('total').textContent=assets.length;$('reference-total').textContent=assets.filter(a=>a.image?.src).length;$('model-total').textContent=assets.filter(a=>a.media?.model).length;$('clip-total').textContent=assets.reduce((n,a)=>n+(a.media?.clips?.length||0),0);
-function resetFilters(){Object.assign(state,{group:'all',kind:'all',status:'all',query:''});['group','kind','status'].forEach(id=>$(id).value='all');$('search').value='';}
+function resetFilters(){Object.assign(state,{group:'all',kind:'all',status:'all',query:''});['group','kind','status'].forEach(id=>$(id).value='all');$('search').value='';syncGroupFilter();}
 function makeStatus(a){return el('span','status '+status(a),statusLabels[status(a)]||'Reference');}
-function thumbnail(a){const i=new Image();if(a.image?.src)i.src=a.image.src;i.alt=a.name;i.loading='lazy';return i;}
+function thumbnail(a){if(!a.image?.src)return el('span','asset-placeholder','◇');const i=new Image();i.src=a.image.src;i.alt=a.name;i.loading='lazy';return i;}
 function makeCard(a){
  const card=el('article','asset-card '+(a.kind||''));const b=el('button','asset-open');b.setAttribute('aria-label','Open '+a.name);
- const picture=el('div','thumb');picture.append(thumbnail(a),el('span','thumb-label',a.kind==='boss'?'ACT BOSS':a.kind==='unique'?'UNIQUE':collectionById[a.type]?.name.toUpperCase()||'ASSET'));
- const copy=el('div','card-copy');copy.append(el('h2','',a.name),el('p','',groupById[a.group]?.name||a.role||collectionById[a.type]?.name));const meta=el('div','card-meta');meta.append(el('span','',a.act||'Unassigned'),makeStatus(a));copy.append(meta);b.append(picture,copy);b.addEventListener('click',()=>openRecord(a.id));
+ const picture=el('div','thumb');picture.append(thumbnail(a),el('span','thumb-label',a.image?.referenceKind==='family'?'FAMILY IMAGE':a.image?.referenceKind==='manual'?'MANUAL ART':a.kind==='boss'?'BOSS':a.kind==='unique'?'UNIQUE':collectionById[a.type]?.name.toUpperCase()||'ASSET'));
+ const copy=el('div','card-copy');copy.append(el('h2','',a.name),el('p','',groupName(a)));const meta=el('div','card-meta');meta.append(el('span','',gameById[a.game||'diablo-ii']?.name+' · '+(a.act||'Unassigned')),makeStatus(a));copy.append(meta);b.append(picture,copy);b.addEventListener('click',()=>openRecord(a.id));
  const favorite=el('button','favorite',saved(a.id)?'★':'☆');favorite.setAttribute('aria-label',(saved(a.id)?'Unsave ':'Save ')+a.name);favorite.setAttribute('aria-pressed',String(saved(a.id)));favorite.addEventListener('click',()=>toggleSaved(a.id));card.append(b,favorite);return card;
 }
-function makeRow(a){const tr=el('tr');const first=el('td'),button=el('button','table-asset');button.setAttribute('aria-label','Open '+a.name);const text=el('span','',a.name);text.append(el('small','',a.id));button.append(thumbnail(a),text);button.addEventListener('click',()=>openRecord(a.id));first.append(button);const type=el('td','',collectionById[a.type]?.name||a.type);type.append(el('small','',groupById[a.group]?.name||''));const s=el('td');s.append(makeStatus(a));const f=el('td'),fav=el('button','table-save',saved(a.id)?'★':'☆');fav.setAttribute('aria-label',(saved(a.id)?'Unsave ':'Save ')+a.name);fav.setAttribute('aria-pressed',String(saved(a.id)));fav.addEventListener('click',()=>toggleSaved(a.id));f.append(fav);tr.append(first,type,el('td','',a.role||'—'),el('td','',a.media?.model?'3D model':a.image?.src?'Image reference':'Not linked'),s,f);return tr;}
+function makeRow(a){const tr=el('tr');const first=el('td'),button=el('button','table-asset');button.setAttribute('aria-label','Open '+a.name);const text=el('span','',a.name);text.append(el('small','',a.id));button.append(thumbnail(a),text);button.addEventListener('click',()=>openRecord(a.id));first.append(button);const type=el('td','',collectionById[a.type]?.name||a.type);type.append(el('small','',groupName(a)));const s=el('td');s.append(makeStatus(a));const f=el('td'),fav=el('button','table-save',saved(a.id)?'★':'☆');fav.setAttribute('aria-label',(saved(a.id)?'Unsave ':'Save ')+a.name);fav.setAttribute('aria-pressed',String(saved(a.id)));fav.addEventListener('click',()=>toggleSaved(a.id));f.append(fav);tr.append(first,type,el('td','',a.role||'—'),el('td','',a.media?.model?'3D model':a.image?.src?'Image reference':'Not linked'),s,f);return tr;}
 function render(){
  visible=queryAssets(assets,state,workspace);const collection=collectionById[state.collection];
+ document.querySelectorAll('[data-game]').forEach(b=>{const active=b.dataset.game===state.game;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
  document.querySelectorAll('[data-collection]').forEach(b=>{const active=b.dataset.collection===state.collection&&!state.saved;b.classList.toggle('active',active);b.setAttribute('aria-current',active?'page':'false');});
+ document.querySelectorAll('[data-collection] .count').forEach(n=>{n.textContent=String(countType(n.parentElement.dataset.collection));});
+ const gameAssets=assets.filter(inGame);$('total').textContent=gameAssets.length;$('reference-total').textContent=gameAssets.filter(a=>a.image?.src).length;$('model-total').textContent=gameAssets.filter(a=>a.media?.model).length;$('clip-total').textContent=gameAssets.reduce((n,a)=>n+(a.media?.clips?.length||0),0);
  $('saved').classList.toggle('active',state.saved);$('saved-count').textContent=workspace.favorites.filter(id=>assetById[id]).length;
- const title=state.saved?'Saved assets':collection.name;$('title').replaceChildren(document.createTextNode(title),el('span','','.'));$('crumb').textContent=title;$('subtitle').textContent=state.saved?'Your shortlist of references and production assets.':collection.description;
- const supportsCreatures=['all','creature'].includes(state.collection);$('group').hidden=!supportsCreatures;$('kind').hidden=!supportsCreatures;
+ const selectedGame=gameById[state.game];const title=state.saved?'Saved assets':state.collection==='all'&&selectedGame?selectedGame.name:collection.name;$('title').replaceChildren(document.createTextNode(title),el('span','','.'));$('crumb').textContent=title;$('subtitle').textContent=state.saved?'Your shortlist of references and production assets.':state.collection==='all'&&selectedGame?selectedGame.scope+' · '+countType('creature')+' enemy references':collection.description;
+ const supportsCreatures=['all','creature'].includes(state.collection);$('group').hidden=!['all','creature','item','npc'].includes(state.collection);$('kind').hidden=!supportsCreatures;
  $('results').textContent=`${visible.length} ${visible.length===1?'asset':'assets'}${visible.length!==countType(state.collection)?' shown':''}`;
  $('cards').hidden=state.view!=='grid'||!visible.length;$('table-wrap').hidden=state.view!=='table'||!visible.length;
  $('grid-view').setAttribute('aria-pressed',String(state.view==='grid'));$('table-view').setAttribute('aria-pressed',String(state.view==='table'));
@@ -52,13 +63,16 @@ function switchMedia(name){document.querySelectorAll('[data-media]').forEach(b=>
 function openRecord(id){
  selected=assetById[id];if(!selected)return;const a=selected;resetModel();switchMedia('reference');
  $('record-code').textContent=`${collectionById[a.type]?.name||'ASSET'} / ${String(a.index||assets.indexOf(a)+1).padStart(3,'0')}`;
- $('record-family').textContent=groupById[a.group]?.name||a.type;$('record-name').textContent=a.name;$('description').textContent=a.description||'Description not added yet.';
- $('record-tags').replaceChildren(...[a.act,a.role,a.kind==='boss'?'Act boss':a.kind==='unique'?'Unique enemy':null].filter(Boolean).map(t=>el('span','',t)));
+ $('record-family').textContent=groupName(a);$('record-name').textContent=a.name;$('description').textContent=a.description||'Description not added yet.';
+ $('record-tags').replaceChildren(...[gameById[a.game||'diablo-ii']?.name,a.act,a.role,...(a.quests||[]),a.kind==='boss'?'Boss':a.kind==='unique'?'Unique enemy':null].filter(Boolean).map(t=>el('span','',t)));
  $('record-type').textContent=collectionById[a.type]?.name||a.type;$('location').textContent=a.location||'Not documented';$('base').textContent=a.base||'No base reference linked';
+ $('encounter-condition').textContent=a.condition||a.scope||'No additional condition documented';
+ $('content-source').hidden=!(a.source||a.image?.source);if(a.source||a.image?.source)$('content-source').href=a.source||a.image.source;
+ $('image-credit').textContent=(gameById[a.game||'diablo-ii']?.name||'')+' · '+(a.image?.label||'Reference image')+' · Rights belong to the respective owners.';
  $('record-status').value=status(a);$('art').textContent=a.art||'Production notes have not been added.';$('motions').replaceChildren(...(a.motions||[]).map(m=>el('span','',m)));
  $('note').value=typeof workspace.notes[a.id]==='string'?workspace.notes[a.id]:'';$('save-status').textContent='Stored locally';
- $('reference-image').src=a.image?.src||'';$('reference-image').alt=a.name+' reference';$('reference-image').hidden=!a.image?.src;$('expand-image').disabled=!a.image?.src;
- $('image-caption').textContent=a.image?.src?'Image reference · see source':'No image reference linked';$('source').hidden=!a.image?.source;if(a.image?.source)$('source').href=a.image.source;
+ $('reference-image').src=a.image?.src||'';$('reference-image').alt=a.name+' reference';$('reference-image').hidden=!a.image?.src;$('reference-placeholder').hidden=!!a.image?.src;$('expand-image').disabled=!a.image?.src;
+ $('image-caption').textContent=a.image?.src?(a.image.label||'Official reference image'):'No verified image linked';$('source').hidden=!a.image?.source;if(a.image?.source)$('source').href=a.image.source;
  $('large-image').src=a.image?.src||'';$('large-image').alt=a.name;$('image-title').textContent=a.name;updateSaved();updateNav();
  if(!$('record-dialog').open)$('record-dialog').showModal();
 }
@@ -87,4 +101,4 @@ $('model-file').addEventListener('change',async e=>{
 });
 $('fit-model').addEventListener('click',()=>viewer?.fit());$('clip').addEventListener('change',e=>{$('timeline').max=String(viewer?.choose(Number(e.target.value))||1);$('timeline').value='0';});$('play').addEventListener('click',()=>{$('play').textContent=viewer?.play()?'Pause':'Play';});$('speed').addEventListener('change',e=>viewer?.speed(Number(e.target.value)));$('timeline').addEventListener('input',e=>viewer?.seek(Number(e.target.value)));
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!document.querySelector('dialog[open]')&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();$('search').focus();}});
-window.addEventListener('pagehide',resetModel);render();
+window.addEventListener('pagehide',resetModel);syncGroupFilter();render();

@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Blizzard Entertainment - DOCUMENT NOT FOUND</title>
+	<link rel="stylesheet" type="text/css" href="/includes/blizzard.css">
+</head>
+
+<body bgcolor="#000000" text="#45acf6" link="#45acf6" vlink="#aaaaaa" marginwidth=0 marginheight=0 topmargin=0 leftmargin=0>
+
+<!-------Image Maps -------------------------------------------------------------------------------//-->
+
+<MAP NAME="metal_bnetlogo2_Map">
+<AREA SHAPE="poly" ALT="Battle.net" COORDS="2,25, 2,43, 59,43, 83,54, 102,59, 115,57, 117,50, 115,44, 149,44, 149,26, 92,26, 75,18, 53,11, 39,10, 31,15, 32,25" HREF="http://www.battle.net">
+</MAP>
+
+
+<MAP NAME="vertad_top_Map">
+<AREA SHAPE="rect" ALT="Blizzard Entertainment" COORDS="52,10,129,26" HREF="http://www.blizzard.com">
+</MAP>
+
+<MAP NAME="blizzlogo_Map">
+<AREA SHAPE="rect" ALT="Blizzard Entertainment" COORDS="52,0,129,27" HREF="http://www.blizzard.com">
+</MAP>
+
+<script language="JavaScript" src="/includes-new/detection.js"></script>	
+
+<script language="javascript">
+<!--
+		var nsBool = (is_nav 	&& !is_nav5up) || 
+					(is_ie 		&& !is_ie5up) ||
+					(is_opera 	&& !is_opera5up)
+	
+	
+	if (nsBool) {
+		
+		window.location="/browsernotsupported.shtml";
+	
+	}
+
+
+	
+//-->
+</script>	
+
+
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td width="100%">
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+
+
+	<td width = "50%" bgcolor="#000000" valign="top">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-image: url('/images/alt_leftbg.jpg'); background-position:right; background-repeat: repeat-x;" valign="top">
+		<tr>
+		<td><img src="/images/pixel.gif" width = "1" height = "148"></td>
+		</tr>
+		</table>
+	</td>
+
+
+	<td valign="top">
+		<table cellspacing="0" cellpadding="0" border="0">
+		<tr>
+		<td width="955" align="center">
+			<table width="955" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+			<td width="202" height="148" background="images/alt_logo.jpg" rowspan="3"><a href="http://www.battle.net">
+			  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="202" height="148">
+                <param name="movie" value="/swf/alt_logo.swf">
+                <param name="quality" value="high">
+				<param name='menu' value='false'>
+                <embed src="/swf/alt_logo.swf" menu="false" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="202" height="148"></embed>
+			    </object>
+			</a></td>
+			<td width="728" height="10" background="images/alt_adtop.gif"></td>
+			<td width="25" height="148" background="images/alt_adright.jpg" rowspan="3"></td>
+			</tr>
+			<tr>
+			<td width="728" height="90" bgcolor="#FFFFFF"><iframe width=728 height=90 marginwidth=0 marginheight=0 frameborder=0 bordercolor=000000 scrolling=no src="/advertising/adframe.html?site=website&page=toppage&adsize=768x90"></iframe></td>
+			</tr>
+			<tr>
+			<td width="728" height="48">
+				<table cellspacing="0" cellpadding="0" border="0" width="728" height="48" width="728">
+				<tr>
+				<td width="9" height="48" background="images/alt_menuleft.gif"></td>
+				<td width="132" height="48" background="images/alt_bnettab.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'bnet')"><img src="images/pixel.gif" width="132" height="48" border="0"></a><br><div id="bnet" class="anylinkcss" style="width:132; position:absolute;">
+<a href ="/index.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/intro.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Battle.net Intro</a>
+<a href ="/support.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Help and Support</a>
+<a href ="/files.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Files and Links</a>
+<a href ="/forums/board.aspx?ForumName=general" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+
+   
+   				</td>
+				<td width="133" height="48" background="images/alt_wctab.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'wc')"><img src="images/pixel.gif" width="133" height="48" border="0"></a><br><div id="wc" class="anylinkcss" style="width:133; position:absolute;">
+<a href ="/war3/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/war3/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="/war3/ladder/game-select.aspx" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Ladder</a>
+<a href ="/files.shtml#wc" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Files</a>
+<a href ="/forums/war3/board.aspx?ForumName=war3-general" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+
+   
+  				</td>
+				<td width="133" height="48" background="images/alt_dtab.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'dia')"><img src="images/pixel.gif" width="133" height="48" border="0"></a><br><div id="dia" class="anylinkcss" style="width:133; position:absolute;">
+<a href ="/diablo2exp/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/diablo2exp/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="/diablo2exp/faq/ladder.shtml" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Ladder FAQ</a>
+<a href ="/files.shtml#d" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Files</a>
+<a href ="/forums/board.aspx?ForumName=d2-general" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+  				</td>
+   
+   
+				<td width="134" height="48" background="images/alt_sctab.gif" style="cursor:pointer;"><a href="" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'sc')"><img src="images/pixel.gif" width="134" height="48" border="0"></a><br><div id="sc" class="anylinkcss" style="width:134; position:absolute;">
+
+<a href ="/scc/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> News</a>
+<a href ="/scc/" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Strategy</a>
+<a href ="/files.shtml#sc" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Files</a>
+<a href ="/forums/board.aspx?ForumName=sc-general" style="color:#FFAC04;"><b style="font-size:9px;">+</b> Forums</a>
+</div>
+
+ 				</td>
+   
+   
+				<td width="187" height="48" background="images/alt_menuright.jpg"></td>
+				</tr>
+				</table>
+			</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</td>
+	
+	<td width = "50%" bgcolor="#000000" valign="top">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%" style="background-image: url('/images/alt_rightbg.jpg'); background-position:left; background-repeat: repeat-x;" valign="top">
+		<tr>
+		<td><img src="/images/pixel.gif" width = "1" height = "148"></td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table> 
+<!--- MAIN CONTENT ----------------------------------->
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td background=0 valign=top align=right width=100>
+	<img src="/images/blank.gif" border=0 width=100 height=5><br>
+	
+	<table border=0 cellpadding=5 cellspacing=0 width=100%>
+	<tr>
+	<td background=0 valign=top align=right>
+	<font face="arial,helvetica" size=1><small>
+	<br>
+	</small></font>
+	</td>
+	</tr>
+	</table>
+</td>
+
+<td background=0 valign=top align=right width=100%>
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/inblizz-header.jpg" width=100%><img src="/images/blank.gif" border=0 width=1 height=150></td>
+	</tr>
+	</table>
+
+	<table border=0 cellpadding=20 cellspacing=0 width=100%>
+	<tr>
+	<td background=0 valign=top align=left>
+		<font face="arial,helvetica" size=-1><span>
+
+
+<font size=+2 color="#FFFFFF" face="arial,helvetica">Document Not Found</font>
+<P>
+
+The document you requested was not found.  If you reached this page via a bad link on our web site (either on www.battle.net/ or www.blizzard.com/) 
+please email us at <a href="mailto:blizzsite@blizzard.com?subject=404 Not Found">blizzsite@blizzard.com</a> and 
+include a link to the page with the broken link and explain what the problem was.
+<P>
+Example Report: 
+<blockquote>
+		The page located at http://www.blizzard.com has a broken link to the Warcraft III demo file.
+</blockquote>
+
+Please only report bad links found at the Battle.net (www.battle.net) or Blizzard (www.blizzard.com) web sites. You do not need to 
+report bad links found at other people's web sites. Thanks for your help. This email address is only for web site related issues. 
+If you have another question please <a href="http://www.blizzard.com/support/?id=msi0281p">Contact Blizzard Technical Support</a>.
+<P>
+<B>Visit</B>
+
+<blockquote>
+<font face="arial,helvetica">
+<a href="http://www.blizzard.com"><size=+1>www.blizzard.com</font></a><BR>
+<a href="http://www.battle.net"><size=+1>www.battle.net</font></a>
+</font>
+</blockquote>
+
+
+</td>
+</tr>
+<!--- END MAIN CONTENT ------------------------------->
+
+<tr>
+<td background=0 align=center width=100% colspan=3><p>
+<center>
+<br/>
+<br>
+<font face="arial,helvetica" size=1><small>
+<a class="tiny" href="http://us.blizzard.com/en-us/company/about/privacy.html">Online Privacy Policy</a><br>
+<a class="tiny" href="/tou.shtml">Battle.net Terms of Use Agreement</a><br>
+<a class="tiny" href="http://us.blizzard.com/en-us/company/about/legal-faq.html">&copy;2019 Blizzard Entertainment. All rights reserved.</a>
+</small></font>
+</center>
+<!--- Google Analytics -------------------------------->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-544112-16");
+pageTracker._setDomainName("battle.net");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<div style="display:none;">
+<iframe src="http://view.atdmt.com/NTB/iview/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01?click=" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="1" height="1">
+<script language="JavaScript" type="text/javascript">
+document.write('<a href="http://clk.atdmt.com/NTB/go/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" target="_blank"><img src="http://view.atdmt.com/NTB/view/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/"/></a>');
+</script>
+<noscript>
+<a href="http://clk.atdmt.com/NTB/go/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" target="_blank">
+<img border="0" src="http://view.atdmt.com/NTB/view/48a2358b5be444d995caf135b19a1389/direct;wi.1;hi.1/01/" />
+</a>
+</noscript>
+</iframe>
+</div></td>
+</tr>
+
+<tr>
+<td background=0 width=100% colspan=3>
+	<table border=0 cellpadding=0 cellspacing=0 width=100%>
+	<tr>
+	<td background="/images/gen-bot-back.gif" align=left><img src="/images/gen-bot-left.gif" border=0 width=204 height=53></td>
+	<td background="/images/gen-bot-back.gif" align=right><img src="/images/gen-bot-right.gif" border=0 width=224 height=53></td>
+	</tr>
+	</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
