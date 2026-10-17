@@ -49,3 +49,21 @@ export function setOptions(controller, options) {
 	controller.options(options);
 	return controller;
 }
+
+/** Proxy that shows/edits a THREE.Color as an sRGB hex string (lil-gui expects display values). */
+export function colorProxy(color) {
+	return {
+		get hex() {
+			return '#' + color.getHexString();
+		},
+		set hex(v) {
+			color.set(v);
+		},
+	};
+}
+
+/** Remove a folder's controllers, sub-folders and the note / readout rows added by these helpers. */
+export function clearFolder(folder) {
+	for (const child of [...folder.children]) child.destroy();
+	for (const el of [...folder.$children.querySelectorAll(':scope > .lab-note, :scope > .lab-readout')]) el.remove();
+}

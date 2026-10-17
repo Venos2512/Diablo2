@@ -34,6 +34,8 @@ export class GraveyardScene {
 		this.app = app;
 		this.id = 'graveyard';
 		this.label = 'Act I · Burial grounds (exterior)';
+		this.moodKind = 'exterior';
+		this.mood = null; // Act I mood block (lighting/moods.js) driving the lights while set
 		this.scene = new THREE.Scene();
 		this.scene.name = 'Graveyard';
 		this.settings = app.settings.adopt('graveyard');
@@ -150,6 +152,7 @@ export class GraveyardScene {
 		const path = new THREE.Mesh(pg, this.mat.cobble);
 		path.receiveShadow = true;
 		path.name = 'Path';
+		this.pathMesh = path;
 		this.scene.add(path);
 	}
 
@@ -392,12 +395,53 @@ export class GraveyardScene {
 
 	applyTorchSettings() {
 		const s = this.settings;
-		this.flames.lightScale = s.torchIntensity;
+		this.flames.lightScale = s.torchIntensity * (this.mood?.torches.scale ?? 1);
 		this.torchLights.forEach((l, i) => (l.castShadow = s.torchShadows && (i < 2 || i === this.torchLights.length - 1)));
 	}
 
 	applyRigIntensity() {
 		for (const l of this.lights) l.light.intensity = l.base;
+	}
+
+	setTorchKelvin(kelvin) {
+		const color = kelvinToColor(kelvin);
+		for (const light of this.torchLights) light.color.copy(color);
+	}
+
+	/** Act I mood (lighting/moods.js exterior block) or null to go back to the time-of-day lighting. */
+	async applyMood(block) {
+		this.mood = block;
+		this.setTorchKelvin(block ? block.torches.kelvin : 1850);
+		this.applyTorchSettings();
+		if (!block) {
+			await this.applyTime();
+			return;
+		}
+		const elev = THREE.MathUtils.degToRad(block.moon.elevation);
+		const az = THREE.MathUtils.degToRad(block.moon.azimuth);
+		const dir = new THREE.Vector3(Math.cos(elev) * Math.sin(az), Math.sin(elev), Math.cos(elev) * Math.cos(az));
+		this.moon.position.copy(dir).multiplyScalar(60);
+		this.moon.color.copy(kelvinToColor(block.moon.kelvin));
+		this.lights[0].kelvin = block.moon.kelvin;
+		this.lights[0].base = block.moon.lux;
+		this.hemi.color.set(block.sky.color);
+		this.hemi.groundColor.set(block.sky.ground);
+		this.lights[1].base = block.sky.intensity;
+		this.applyRigIntensity();
+		this.sun.direction.copy(dir);
+		this.sun.color.copy(this.moon.color).multiplyScalar(block.sun);
+		const env = this.app.backend.envFromEquirect(await this.app.loader.loadSample(block.env.id));
+		if (this.mood !== block) return;
+		this.scene.environment = env;
+		this.scene.background = env;
+		this.scene.environmentIntensity = block.env.intensity;
+		this.scene.backgroundIntensity = block.env.background;
+		this.scene.backgroundBlurriness = block.env.blur;
+	}
+
+	/** Surfaces that get wet in a rain mood. */
+	wetRoots() {
+		return [this.ground, this.pathMesh, this.staticGroup, ...this.trees, this.grass];
 	}
 
 	async applyTime() {
@@ -410,6 +454,8 @@ export class GraveyardScene {
 		this.lights[0].kelvin = t.moonK;
 		this.lights[0].base = t.moon;
 		this.lights[1].base = t.hemi;
+		this.hemi.color.set(0x2a3656);
+		this.hemi.groundColor.set(0x0d0b08);
 		this.applyRigIntensity();
 		this.sun.direction.copy(dir);
 		this.sun.color.copy(this.moon.color).multiplyScalar(this.settings.time === 'dusk' ? 0.8 : 0.12);
@@ -442,6 +488,7 @@ export class GraveyardScene {
 		for (const t of keepTrees) this.scene.remove(t);
 		this.buildStatic();
 		this.app.backend.prepareObject(this.scene);
+		this.app.mood?.onSceneRebuilt(this);
 	}
 
 	rebuildGrass() {
@@ -451,12 +498,13 @@ export class GraveyardScene {
 		this.buildGrass();
 		this.grass.material = this.windGrass.apply(this.grass.material);
 		this.app.backend.prepareObject(this.grass);
+		this.app.mood?.onSceneRebuilt(this);
 	}
 
 	buildLightingControls(folder, rebuildLights) {
 		const s = this.settings;
 		const save = () => this.app.settings.changed('graveyard');
-		folder.add(s, 'time', Object.fromEntries(Object.entries(GRAVEYARD_TIMES).map(([id, t]) => [t.label, id]))).name('Time of day').onChange(async () => {
+		if (!this.mood) folder.add(s, 'time', Object.fromEntries(Object.entries(GRAVEYARD_TIMES).map(([id, t]) => [t.label, id]))).name('Time of day').onChange(async () => {
 			save();
 			await this.applyTime();
 			this.app.applyScenePost(this, true);

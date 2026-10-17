@@ -5,7 +5,7 @@
 // The `#region` markers are read by the Shaders panel to show each effect's glue code.
 import * as THREE from 'three';
 import { EFFECTS, defaultParams } from '../../effects/registry.js';
-import { addPatch, removePatch, after, replace } from './patches.js';
+import { addPatch, removePatch, after, before, replace } from './patches.js';
 import { hotMaterial } from './hot.js';
 import windEntry from '../../shaders/effects/wind.glsl';
 import flameVert from '../../shaders/effects/flame.vert.glsl';
@@ -17,6 +17,10 @@ import liquidEntry from '../../shaders/effects/liquid.glsl';
 import quadVert from '../../shaders/effects/vfx_quad.vert.glsl';
 import portalFrag from '../../shaders/effects/portal.frag.glsl';
 import runesFrag from '../../shaders/effects/runes.frag.glsl';
+import cutawayEntry from '../../shaders/effects/cutaway.glsl';
+import heroRimEntry from '../../shaders/effects/hero_rim.glsl';
+import terrainEntry from '../../shaders/effects/terrain.glsl';
+import shadowFillEntry from '../../shaders/effects/shadow_fill.glsl';
 
 /** Shared animation clock, updated by the backend every frame. */
 export const labTime = { value: 0 };
@@ -197,12 +201,13 @@ export function createGLSLEffects(backend) {
 						uRippleScale: u.rippleScale,
 						uRippleSpeed: u.rippleSpeed,
 						uLiquidRoughness: u.roughness,
+						uLiquidWetness: u.wetness,
 					});
 					shader.fragmentShader = withSource(shader.fragmentShader, liquidEntry);
 					shader.fragmentShader = after(shader.fragmentShader, '#include <map_fragment>', `
 	float labPuddle = labPuddleMask();
 	diffuseColor.rgb = labLiquidAlbedo( diffuseColor.rgb, labPuddle );`);
-					shader.fragmentShader = after(shader.fragmentShader, '#include <roughnessmap_fragment>', 'roughnessFactor = mix( roughnessFactor, uLiquidRoughness, labPuddle );');
+					shader.fragmentShader = after(shader.fragmentShader, '#include <roughnessmap_fragment>', 'roughnessFactor = labLiquidRoughness( roughnessFactor, labPuddle );');
 					shader.fragmentShader = after(shader.fragmentShader, '#include <metalnessmap_fragment>', 'metalnessFactor *= 1.0 - labPuddle;');
 					shader.fragmentShader = after(shader.fragmentShader, '#include <normal_fragment_maps>', `
 	vec3 labRippleView = ( viewMatrix * vec4( labRippleNormal( vLabWorldPos.xz ), 0.0 ) ).xyz;
@@ -286,5 +291,129 @@ export function createGLSLEffects(backend) {
 		update(elapsed) {
 			labTime.value = elapsed;
 		},
+		/**
+		 * Character see-through circle (not a shader-lab effect): one shared instance, uniforms
+		 * { center: Vector3, radius, feet, on } updated by the character controller every frame.
+		 */
+		createCutaway() {
+			const u = { center: { value: new THREE.Vector3() }, radius: { value: 0.3 }, feet: { value: 0 }, on: { value: 0 } };
+			return {
+				uniforms: u,
+				...surface(
+					{
+						id: 'lab-cutaway',
+						order: 5,
+						needs: ['worldPos'],
+						apply(shader) {
+							Object.assign(shader.uniforms, { uCutCenter: u.center, uCutRadius: u.radius, uCutFeet: u.feet, uCutOn: u.on });
+							shader.fragmentShader = withSource(shader.fragmentShader, cutawayEntry);
+							shader.fragmentShader = after(shader.fragmentShader, '#include <clipping_planes_fragment>', 'labCutaway( -vViewPosition, vLabWorldPos.y );');
+						},
+					},
+					(m) => !!m?.isMeshStandardMaterial && !m.transparent,
+				),
+			};
+		},
+		/** Character rim light of the Act I moods (src/lighting/moodController.js); uniforms { color, intensity, power, bias }. */
+		createHeroRim() {
+			const u = { color: { value: new THREE.Color(0x8fb2ff) }, intensity: { value: 0 }, power: { value: 3 }, bias: { value: 0.6 } };
+			return {
+				uniforms: u,
+				...surface({
+					id: 'lab-hero-rim',
+					order: 41,
+					apply(shader) {
+						Object.assign(shader.uniforms, { uHeroRimColor: u.color, uHeroRimIntensity: u.intensity, uHeroRimPower: u.power, uHeroRimBias: u.bias });
+						shader.fragmentShader = withSource(shader.fragmentShader, heroRimEntry);
+						shader.fragmentShader = after(shader.fragmentShader, '#include <emissivemap_fragment>', 'totalEmissiveRadiance += labHeroRim( normal );');
+					},
+				}),
+			};
+		},
+		/**
+		 * Terrain splat material (src/env/terrain.js): `layers` = three forged sets (dirt, wet dirt, grass; height in
+		 * normal alpha), `splat` = RGBA DataTexture (R wet, G grass) covering `rect` (Vector4: origin x, z, 1/size, 1/size).
+		 * Uniforms { tile: Vector3, softness, heightBlend, water, waterRough, damp, ao, variation, macro, edgeNoise, debug, rect }; setLayers(sets) swaps the sets.
+		 */
+		createTerrain({ layers, splat, rect }) {
+			const u = {
+				tile: { value: new THREE.Vector3(...layers.map((l) => 1 / l.recipe.tile)) },
+				softness: { value: 0.12 },
+				heightBlend: { value: 0.6 },
+				water: { value: 0.3 },
+				waterRough: { value: 0.05 },
+				variation: { value: 1 },
+				macro: { value: 0.3 },
+				edgeNoise: { value: 0.5 },
+				damp: { value: 0.25 },
+				ao: { value: 0.6 },
+				debug: { value: 0 },
+				grassShadow: { value: 0 },
+				grassLift: { value: 0 },
+				grassShadowOffset: { value: new THREE.Vector2() },
+				rect: { value: rect },
+			};
+			const textures = {};
+			const setLayers = (sets) => sets.forEach((l, i) => {
+				for (const [slot, key] of [['Albedo', 'map'], ['Normal', 'normalMap'], ['Orm', 'ormMap']]) (textures[`uTerrain${slot}${i}`] ??= { value: null }).value = l[key];
+			});
+			setLayers(layers);
+			return {
+				uniforms: u,
+				setLayers,
+				...surface({
+					id: 'lab-terrain',
+					order: 2,
+					needs: ['worldPos', 'worldNormal'],
+					apply(shader) {
+						Object.assign(shader.uniforms, textures, {
+							uTerrainSplat: { value: splat },
+							uTerrainRect: u.rect,
+							uTerrainTile: u.tile,
+							uTerrainSoftness: u.softness,
+							uTerrainHeightBlend: u.heightBlend,
+							uTerrainWater: u.water,
+							uTerrainWaterRough: u.waterRough,
+							uTerrainVariation: u.variation,
+							uTerrainMacro: u.macro,
+							uTerrainEdgeNoise: u.edgeNoise,
+							uTerrainDamp: u.damp,
+							uTerrainAo: u.ao,
+							uTerrainDebug: u.debug,
+							uTerrainGrassShadow: u.grassShadow,
+							uTerrainGrassLift: u.grassLift,
+							uTerrainGrassShadowOffset: u.grassShadowOffset,
+						});
+						shader.fragmentShader = withSource(shader.fragmentShader, terrainEntry);
+						shader.fragmentShader = after(shader.fragmentShader, '#include <map_fragment>', `
+	LabTerrain labTer = labTerrain( vLabWorldPos, vLabWorldNormal );
+	diffuseColor.rgb *= labTer.albedo;`);
+						shader.fragmentShader = after(shader.fragmentShader, '#include <roughnessmap_fragment>', 'roughnessFactor *= labTer.rough;');
+						shader.fragmentShader = after(shader.fragmentShader, '#include <normal_fragment_maps>', 'normal = normalize( ( viewMatrix * vec4( labTer.normal, 0.0 ) ).xyz );');
+					},
+				}),
+			};
+		},
+		/**
+		 * Shadow fill for scene assets (shaders/effects/shadow_fill.glsl): dark lit results are lifted toward a tinted
+		 * fraction of the albedo. One shared instance; uniforms { color, strength, threshold }.
+		 */
+		createShadowFill() {
+			const u = { color: { value: new THREE.Color(0x3c5248) }, strength: { value: 0 }, threshold: { value: 0.05 } };
+			return {
+				uniforms: u,
+				...surface({
+					id: 'lab-shadow-fill',
+					order: 90,
+					apply(shader) {
+						Object.assign(shader.uniforms, { uFillColor: u.color, uFillStrength: u.strength, uFillThreshold: u.threshold });
+						shader.fragmentShader = withSource(shader.fragmentShader, shadowFillEntry);
+						shader.fragmentShader = before(shader.fragmentShader, '#include <opaque_fragment>', 'outgoingLight = labShadowFill( outgoingLight, diffuseColor.rgb );');
+					},
+				}),
+			};
+		},
+		/** Source material of a mesh's material (WebGL patches materials in place: always itself). */
+		sourceOf: (material) => material,
 	};
 }

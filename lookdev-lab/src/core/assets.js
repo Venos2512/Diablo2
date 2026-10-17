@@ -27,6 +27,7 @@ function mimeFor(file) {
 	if (file.endsWith('.js')) return 'text/javascript';
 	if (file.endsWith('.wasm')) return 'application/wasm';
 	if (file.endsWith('.glb')) return 'model/gltf-binary';
+	if (file.endsWith('.png')) return 'image/png';
 	return 'application/octet-stream';
 }
 
@@ -79,6 +80,35 @@ export class AssetLoader {
 		const url = assetUrl(entry.file);
 		if (entry.kind === 'hdri') return this.loadHDR(url);
 		return this.loadGLTF(url);
+	}
+
+	/**
+	 * Shared sample files (animation libraries, the props library): loaded once and cached. Clips and
+	 * prop meshes are shared between every character that uses them (clone props before attaching).
+	 */
+	loadLibrary(id) {
+		this.libraries ??= new Map();
+		if (!this.libraries.has(id)) {
+			const promise = this.loadSample(id).catch((error) => {
+				this.libraries.delete(id);
+				throw error;
+			});
+			this.libraries.set(id, promise);
+		}
+		return this.libraries.get(id);
+	}
+
+	/** Pixels of a bundled image sample (kind 'texture') as ImageData, no colour conversion. */
+	async loadImageData(id) {
+		const entry = sampleById(id);
+		if (!entry) throw new Error(`Unknown sample "${id}"`);
+		const blob = await (await fetch(assetUrl(entry.file))).blob();
+		const bitmap = await createImageBitmap(blob, { colorSpaceConversion: 'none', premultiplyAlpha: 'none' });
+		const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+		const ctx = canvas.getContext('2d', { willReadFrequently: true });
+		ctx.drawImage(bitmap, 0, 0);
+		bitmap.close();
+		return ctx.getImageData(0, 0, canvas.width, canvas.height);
 	}
 
 	async loadGLTF(url) {

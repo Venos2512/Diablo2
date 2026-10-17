@@ -333,7 +333,54 @@ button { cursor: pointer; }
 	position: absolute; left: 0; top: 0; font: 700 18px var(--serif); letter-spacing: .5px;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, .9), 0 0 8px rgba(0, 0, 0, .6); will-change: transform, opacity;
 }
+/* Skill castbar: element tint on the key, cooldown sweep from the top, lit border while an aura is on. */
+.castbar.skills { gap: 4px; max-width: calc(100% - 24px); }
+.castbar.skills .cast { min-width: 52px; padding: 5px 5px 4px; font-size: 10.5px; position: relative; overflow: hidden; }
+.cast.skill kbd { color: var(--el, var(--gold)); }
+.cast.skill .cd { position: absolute; left: 0; right: 0; top: 0; height: calc(var(--cd, 0) * 100%); background: rgba(0, 0, 0, .62); pointer-events: none; }
+.cast.skill.cooling { color: var(--muted); }
+.cast.skill.on { border-color: var(--el, var(--gold)); box-shadow: inset 0 0 10px color-mix(in srgb, var(--el, var(--gold)) 45%, transparent); }
+.cast.el-fire { --el: #ff9a4a; }
+.cast.el-cold { --el: #9fd4ff; }
+.cast.el-lightning { --el: #c8d6ff; }
+.cast.el-poison { --el: #9fdc50; }
+.cast.el-magic { --el: #c9a8ff; }
 @media (max-width: 760px) {
 	.castbar { max-width: calc(100% - 24px); overflow-x: auto; }
 	.cast { min-width: 54px; font-size: 10px; }
 }
+
+/* Texture editor (Character + Lookdev tabs) -------------------------------------------------------- */
+.panel .lil-gui .tex-editor { padding: 6px var(--padding) 8px; display: flex; flex-direction: column; gap: 8px; }
+.tex-empty { color: var(--muted); font-size: 11px; margin: 0; }
+.tex-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.tex-head b { color: var(--ink-2); font-weight: 600; }
+.tex-head select { background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 4px; font-size: 11px; max-width: 100%; }
+.tex-mat { flex-basis: 100%; }
+.tex-strip { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
+.panel .lil-gui button.tex-slot {
+	display: flex; flex-direction: column; align-items: center; gap: 3px; width: 70px; height: auto; padding: 3px;
+	line-height: 1.15; background: var(--panel-2); border: 1px solid var(--line); border-radius: 5px; font-size: 9.5px; color: var(--muted);
+}
+.tex-slot canvas { width: 62px; height: 62px; border-radius: 3px; image-rendering: pixelated; display: block; }
+.tex-slot span { line-height: 1.1; text-align: center; }
+.panel .lil-gui button.tex-slot:hover { border-color: var(--gold-dim); background: var(--panel-3); }
+.panel .lil-gui button.tex-slot.active { border-color: var(--gold); color: var(--gold-2); }
+.tex-slot.edited span::after { content: ' •'; color: var(--gold); }
+.tex-add { align-self: center; background: var(--panel-2); border: 1px dashed var(--line-2); border-radius: 5px; padding: 4px 6px; font-size: 11px; color: var(--ink-2); }
+.tex-preview canvas { width: 100%; aspect-ratio: 1; display: block; border: 1px solid var(--line); border-radius: 4px; background: #0b0d0c; image-rendering: pixelated; }
+.tex-info { font: 10.5px var(--mono); color: var(--muted); margin-top: 3px; }
+.tex-actions { display: flex; flex-wrap: wrap; gap: 5px; }
+.button.small { padding: 3px 8px; font-size: 11px; }
+.panel .lil-gui .tex-actions .button { width: auto; height: auto; line-height: 1.3; padding: 4px 9px; font-size: 11px; background: var(--panel-2); border-color: var(--line-2); border-radius: 5px; }
+.panel .lil-gui .tex-actions .button:hover { border-color: var(--gold-dim); color: var(--gold-2); }
+.panel .lil-gui .tex-actions .button.danger:hover { border-color: var(--danger); color: var(--danger); }
+
+/* Scale reference labels ----------------------------------------------------------------------------- */
+.scale-label-layer { position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
+.scale-label {
+	position: absolute; left: 0; top: 0; padding: 2px 7px; border-radius: 10px; white-space: nowrap;
+	background: rgba(10, 12, 11, .78); border: 1px solid var(--line-2); color: var(--ink-2); font-size: 10.5px;
+}
+.scale-label b { margin-left: 5px; color: var(--gold-2); font-weight: 600; }
+.scale-label.character { border-color: var(--gold-dim); }

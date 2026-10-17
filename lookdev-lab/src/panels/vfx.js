@@ -2,6 +2,7 @@
 // controls (slow motion, overdraw), the WebGPU compute particle field and the sources behind them.
 import { createGUI, intro, note, readout } from '../ui/gui.js';
 import { SPELLS, SPELL_ORDER } from '../vfx/spells.js';
+import { SKILLS, SKILL_ORDER, SKILL_KEYS } from '../skills/skills.js';
 import { CodeViewer } from '../ui/codeViewer.js';
 import { toast } from '../ui/toast.js';
 import particleVert from '../shaders/vfx/particle.vert.glsl';
@@ -9,6 +10,9 @@ import particleFrag from '../shaders/vfx/particle.frag.glsl';
 import tslVfxSource from '../backends/webgpu/vfx.js?raw';
 import spellsSource from '../vfx/spells.js?raw';
 import particlesSource from '../vfx/particles.js?raw';
+import skillsSource from '../skills/skills.js?raw';
+import skillFxSource from '../skills/fx.js?raw';
+import skillRuntimeSource from '../skills/runtime.js?raw';
 import { setOverride, isOverridden } from '../core/shaderOverrides.js';
 import { getShader } from '../core/shaderRegistry.js';
 
@@ -20,6 +24,17 @@ function region(source, name) {
 	const lines = source.slice(start + marker.length, end).replace(/\s+$/, '').split('\n');
 	const indent = Math.min(...lines.filter((l) => l.trim()).map((l) => l.match(/^\t*/)[0].length));
 	return lines.map((l) => l.slice(indent)).join('\n');
+}
+
+/** Play a quarks editor export at the VFX cursor (or the character when nothing is under the cursor). */
+export function importQuarks(app, json, name) {
+	try {
+		const entry = app.vfxLab.importQuarks(json, name);
+		toast(`three.quarks: ${name} · ${entry.systems.length} system${entry.systems.length > 1 ? 's' : ''}`, 'ok');
+	} catch (e) {
+		console.error(e);
+		toast(`${name}: ${e.message}`, 'error', 6000);
+	}
 }
 
 export function buildVfxPanel(app, el) {
@@ -47,9 +62,9 @@ export function buildVfxPanel(app, el) {
 	// Play mode ----------------------------------------------------------------------------------------
 	const fPlay = gui.addFolder('Play mode');
 	const play = { get play() { return !!lab.playing; }, set play(v) { lab.setPlay(v); } };
-	fPlay.add(play, 'play').name('Play mode (follow camera)').listen();
-	fPlay.add(s, 'moveSpeed', 1, 8, 0.1).name('Move speed (m/s)').onChange(() => lab.save());
-	note(fPlay, 'Left click the ground to walk, click a dummy (or right click anywhere) to cast the selected spell. Animated models switch between idle / run / attack clips — try <b>Robot Expressive</b> or <b>Fox</b>.');
+	fPlay.add(play, 'play').name('Play mode (character controller)').listen();
+	fPlay.add({ open: () => app.panels.show('character') }, 'open').name('Character tab (speeds, clips, camera)…');
+	note(fPlay, 'Same controller as the <b>Character</b> tab: WASD or left click to walk, click a dummy to attack it, right click or <kbd>1</kbd>–<kbd>9</kbd> casts the selected spell (the character plays its cast clip). Try a <b>KayKit</b> character.');
 
 	// Dummies --------------------------------------------------------------------------------------------
 	const fDummies = gui.addFolder('Training dummies');
@@ -68,6 +83,34 @@ export function buildVfxPanel(app, el) {
 		app.backend.vfx.setOverdraw(v && lab.armed);
 	});
 	const stats = readout(fSim);
+
+	// Skills (three.quarks) ---------------------------------------------------------------------------------
+	const fSkills = gui.addFolder('Skills (three.quarks)');
+	if (lab.skillsSupported) {
+		const mode = { get skills() { return s.castMode === 'skills'; }, set skills(v) { lab.setCastMode(v ? 'skills' : 'spells'); } };
+		fSkills.add(mode, 'skills').name('Castbar shows skills').listen();
+		const skillOptions = Object.fromEntries(SKILL_ORDER.map((id, i) => [`${SKILL_KEYS[i]} · ${SKILLS[id].label} (${SKILLS[id].class})`, id]));
+		const skillPick = { get skill() { return s.skill; }, set skill(v) { lab.selectSkill(v); skillSummary.innerHTML = describe(v); } };
+		const describe = (id) => { const k = SKILLS[id]; return `<b>${k.element}</b> · cast ${k.castTime}s · cooldown ${k.cooldown}s${k.toggle ? ' · toggle' : ''}<br>${k.summary}`; };
+		fSkills.add(skillPick, 'skill', skillOptions).name('Selected (right click / Q)').listen();
+		const skillSummary = note(fSkills, describe(s.skill));
+		fSkills.add({ cast: () => lab.castSkill(s.skill) }, 'cast').name('Cast at cursor');
+		fSkills.add(s, 'skillLevel', 1, 4, 0.25).name('Skill level').onChange((v) => lab.setSkillLevel(v));
+		fSkills.add({ get soft() { return s.quarksSoft; }, set soft(v) { lab.setQuarksSoft(v); } }, 'soft').name('Soft particles (scene depth)');
+		const input = document.createElement('input');
+		input.type = 'file';
+		input.accept = '.json,application/json';
+		input.addEventListener('change', async () => {
+			const file = input.files?.[0];
+			input.value = '';
+			if (file) importQuarks(app, await file.text(), file.name);
+		});
+		fSkills.add({ load: () => input.click() }, 'load').name('Load quarks editor JSON…');
+		fSkills.add({ again: () => (lab.lastImport ? importQuarks(app, lab.lastImport.json, lab.lastImport.name) : toast('Load a quarks JSON first', 'info', 1500)) }, 'again').name('Replay last JSON at cursor');
+		note(fSkills, 'With <b>Castbar shows skills</b> on, keys <kbd>1</kbd>–<kbd>9</kbd> <kbd>0</kbd> <kbd>-</kbd> <kbd>=</kbd> cast the 12 skills, right click / <kbd>Q</kbd> the selected one; the buttons show cooldowns. A cast plays a charge effect at the hand for its cast time, then the skill runs: projectiles, a homing spirit, an expanding nova, a chain between targets, ticking areas, an aura that follows the caster. Kills play an elemental death (fire ash, cold shatter, shock, poison, bone). <b>Skill level</b> multiplies damage and scales the effects by √level — same look, bigger.<br>Engine: <a href="https://github.com/Alchemist0823/three.quarks" target="_blank" rel="noopener">three.quarks</a> (MIT) — effects are pooled and every system sharing a material is one draw (see the stats below). Design new effects in the <a href="https://quarks.art" target="_blank" rel="noopener">quarks editor</a> and drop the exported <code>.json</code> on the viewport.');
+	} else {
+		note(fSkills, 'The skill system runs on <b>three.quarks</b>, which builds GLSL <code>ShaderMaterial</code>s — <code>WebGPURenderer</code> cannot run them. Switch the renderer at the top to <b>WebGL2 · GLSL</b>.');
+	}
 
 	// Compute field ------------------------------------------------------------------------------------------
 	const fCompute = gui.addFolder('GPU compute particles');
@@ -116,10 +159,14 @@ export function buildVfxPanel(app, el) {
 			{ id: 'tsl-compute', label: 'TSL compute field', text: region(tslVfxSource, 'compute'), filename: 'compute.tsl.js', note: 'WebGPU-only: compute shaders written in TSL.' },
 			{ id: 'spells', label: 'spells.js', text: spellsSource, filename: 'spells.js', note: '<code>src/vfx/spells.js</code> — every preset is data for the emitters below plus a little gameplay glue.' },
 			{ id: 'particles', label: 'particles.js', text: particlesSource, filename: 'particles.js', note: '<code>src/vfx/particles.js</code> — CPU simulation, instance attributes, one draw per emitter.' },
+			{ id: 'skills', label: 'skills/skills.js', text: skillsSource, filename: 'skills.js', note: '<code>src/skills/skills.js</code> — the 12 skills: numbers + run(ctx).' },
+			{ id: 'skill-fx', label: 'skills/fx.js', text: skillFxSource, filename: 'fx.js', note: '<code>src/skills/fx.js</code> — three.quarks effect library (one line per particle system) and the pooled runtime.' },
+			{ id: 'skill-runtime', label: 'skills/runtime.js', text: skillRuntimeSource, filename: 'runtime.js', note: '<code>src/skills/runtime.js</code> — cast flow, motions (projectile, nova, area), damage and elemental deaths, host interface.' },
 		],
 	});
 	fSource.add({ o: () => open(particleFrag.path) }, 'o').name('Particle shader (GLSL / TSL)…');
 	fSource.add({ o: () => open('spells') }, 'o').name('Spell presets (spells.js)…');
+	fSource.add({ o: () => open('skills') }, 'o').name('Skills + three.quarks effects…');
 	if (webgpu) fSource.add({ o: () => open('tsl-compute') }, 'o').name('Compute field (TSL)…');
 	fSource.close();
 
@@ -130,7 +177,9 @@ export function buildVfxPanel(app, el) {
 		}
 		const emitters = lab.particles ? lab.particles.emitters.size : 0;
 		const lights = lab.lights ? lab.lights.slots.filter((x) => x.light.intensity > 0.01).length : 0;
-		stats(`${(lab.particles?.count || 0).toLocaleString()} CPU particles · ${emitters} emitters (draws)\n${lab.compute ? lab.compute.count.toLocaleString() + ' GPU particles · ' : ''}${lights}/4 lights lit · ${lab.actors.size} actors · ${lab.casts} casts`);
+		const k = lab.skills?.stats;
+		const q = k ? `${k.particles.toLocaleString()} quarks particles · ${k.live}/${k.systems} systems live in ${k.batches} batches (draws) · ${k.instances} effects · ${k.bolts} bolts\n` : '';
+		stats(`${(lab.particles?.count || 0).toLocaleString()} CPU particles · ${emitters} emitters (draws)\n${q}${lab.compute ? lab.compute.count.toLocaleString() + ' GPU particles · ' : ''}${lights}/4 lights lit · ${lab.actors.size} actors · ${lab.casts} casts`);
 	}
 	let timer = 0;
 	app.on('update', (dt) => {

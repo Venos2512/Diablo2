@@ -79,8 +79,18 @@ function install(material, list) {
 	}
 }
 
+// A material that arrives with its own onBeforeCompile (e.g. the procedural characters' shader) keeps it:
+// it becomes the first patch of the list instead of being overwritten by labOnBeforeCompile.
+function ownPatch(material) {
+	const own = material.onBeforeCompile;
+	if (registry.has(material) || own === labOnBeforeCompile || own === THREE.Material.prototype.onBeforeCompile) return null;
+	const ownKey = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey ? 'own' : 'own:' + material.customProgramCacheKey();
+	return { id: 'material-own', order: -1000, key: ownKey, apply: (shader, m, renderer) => own.call(m, shader, renderer) };
+}
+
 export function addPatch(material, patch) {
-	const list = [...(registry.get(material) || [])];
+	const own = ownPatch(material);
+	const list = [...(registry.get(material) || (own ? [own] : []))];
 	const index = list.findIndex((p) => p.id === patch.id);
 	if (index >= 0) list[index] = patch;
 	else list.push(patch);

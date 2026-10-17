@@ -1,0 +1,114 @@
+{
+  "generator": "Pillow/NumPy; original, deterministic; no downloads",
+  "size": [
+    1800,
+    1200
+  ],
+  "value_formula": "Rec.601 encoded RGB luma / 255 * 100",
+  "palette": {
+    "dark": "#1B1F1C",
+    "mid": "#3E4638",
+    "light": "#6F6F5C",
+    "wood": "#454A40",
+    "woodlight": "#696B59",
+    "moss": "#515B43",
+    "char": "#303942",
+    "ash": "#70777B",
+    "deepchar": "#171C22",
+    "fire": "#D9822B",
+    "core": "#E7C890",
+    "ground": "#343C32",
+    "hero": "#929586"
+  },
+  "palette_values": {
+    "dark": 11.55,
+    "mid": 25.89,
+    "light": 42.68,
+    "wood": 27.99,
+    "woodlight": 40.92,
+    "moss": 33.44,
+    "char": 21.7,
+    "ash": 46.02,
+    "deepchar": 10.66,
+    "fire": 57.29,
+    "core": 79.56,
+    "ground": 22.14,
+    "hero": 57.41
+  },
+  "files": {
+    "01_act1_dead_trees.png": {
+      "size": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    "02_dry_branches_debris.png": {
+      "size": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    "03_burned_trees.png": {
+      "size": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    "04_landmark_tree.png": {
+      "size": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    "05_readability_check.png": {
+      "size": [
+        1800,
+        1200
+      ],
+      "mode": "RGB",
+      "opens": true
+    }
+  },
+  "wood_value_audit": {
+    "sapling": {
+      "p05": 24.13,
+      "p50": 31.62,
+      "p95": 36.53,
+      "fraction_V20_45": 0.9986
+    },
+    "medium": {
+      "p05": 23.99,
+      "p50": 31.89,
+      "p95": 36.12,
+      "fraction_V20_45": 0.9977
+    },
+    "tall": {
+      "p05": 24.04,
+      "p50": 31.89,
+      "p95": 36.28,
+      "fraction_V20_45": 0.9974
+    },
+    "leaning": {
+      "p05": 21.34,
+      "p50": 31.82,
+      "p95": 36.53,
+      "fraction_V20_45": 0.9582
+    },
+    "landmark": {
+      "p05": 22.86,
+      "p50": 31.89,
+      "p95": 37.06,
+      "fraction_V20_45": 0.9751
+    }
+  },
+  "fresh_ember_area_percent": 1.497,
+  "hero_height_pixels": 75
+}

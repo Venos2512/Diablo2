@@ -78,7 +78,7 @@ export const EFFECTS = {
 	liquid: {
 		label: 'Puddle (water / blood)',
 		kind: 'surface',
-		summary: 'Thin liquid layer on upward-facing surfaces: noise-shaped puddles, darkened tinted albedo, glossy dielectric response, rain ripples via analytic normals.',
+		summary: 'Thin liquid layer on upward-facing surfaces: noise-shaped puddles, darkened tinted albedo, glossy dielectric response, rain ripples via analytic normals. Wetness darkens and glosses everything else (rain).',
 		lab: { target: 'disc' },
 		params: {
 			tint: color('#2a0606', 'Tint (blood → try #0c1114 for water)'),
@@ -86,6 +86,7 @@ export const EFFECTS = {
 			rippleScale: num(3, 0.2, 12, 0.01, 'Ripple scale'),
 			rippleSpeed: num(1, 0, 4, 0.01, 'Ripple speed'),
 			roughness: num(0.04, 0, 1, 0.01, 'Roughness'),
+			wetness: num(0, 0, 1, 0.01, 'Surface wetness (rain)'),
 		},
 	},
 	portal: {

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Diablo II — Palette & Value Board</title>
+<style>
+  :root { --bg:#0d0b0a; --panel:#17130f; --line:#3a2f24; --text:#d8cbb3; --muted:#8c7f6a; --gold:#c7b377; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 "Times New Roman", "Noto Serif", serif; padding:32px; }
+  h1 { font-size:26px; color:var(--gold); letter-spacing:.06em; margin:0 0 4px; font-weight:normal; text-transform:uppercase; }
+  .sub { color:var(--muted); margin-bottom:28px; font-size:13px; }
+  .act { background:var(--panel); border:1px solid var(--line); padding:18px 20px; margin-bottom:18px; display:grid; grid-template-columns:230px 1fr 260px; gap:22px; align-items:center; }
+  .act h2 { margin:0; font-size:18px; color:var(--gold); font-weight:normal; }
+  .act p { margin:6px 0 0; font-size:13px; color:var(--muted); }
+  .sw { display:flex; gap:6px; }
+  .c { flex:1; min-width:0; }
+  .c div { height:64px; border:1px solid #000; }
+  .c span { display:block; font:11px/1.3 Consolas, monospace; color:var(--muted); margin-top:4px; }
+  .c b { display:block; font:11px/1.2 "Times New Roman", serif; color:var(--text); font-weight:normal; }
+  .w85 { flex:2.6; } .w10 { flex:1; } .w5 { flex:.7; }
+  .scene { height:96px; border:1px solid #000; position:relative; overflow:hidden; }
+  .scene .hero { position:absolute; left:46%; bottom:22%; width:12px; height:30px; border-radius:6px 6px 2px 2px; }
+  .scene .fx { position:absolute; right:22%; top:32%; width:16px; height:16px; border-radius:50%; }
+  .scene .lr { position:absolute; left:50%; bottom:20%; width:150px; height:90px; transform:translateX(-50%); border-radius:50%; }
+  .scene.gray { filter:grayscale(1); }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .pair small { display:block; text-align:center; font-size:11px; color:var(--muted); }
+  .legend { display:grid; grid-template-columns:repeat(9,1fr); gap:8px; background:var(--panel); border:1px solid var(--line); padding:18px 20px; margin-bottom:18px; }
+  .legend .it { text-align:center; font-size:13px; background:#0a0807; border:1px solid #2a221a; padding:10px 4px; }
+  .legend .it span { display:block; font:10px Consolas, monospace; color:var(--muted); margin-top:3px; }
+  h3 { color:var(--gold); font-weight:normal; font-size:15px; letter-spacing:.05em; text-transform:uppercase; margin:26px 0 10px; }
+  .vals { display:flex; height:38px; border:1px solid #000; margin-bottom:6px; }
+  .vals div { flex:1; display:flex; align-items:center; justify-content:center; font:11px Consolas, monospace; }
+  .note { font-size:12px; color:var(--muted); }
+  @media (max-width:760px) {
+    .act { grid-template-columns:1fr; gap:12px; }
+    .legend { grid-template-columns:repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+<h1>Diablo II — Palette &amp; Value Board</h1>
+<div class="sub">Màu xấp xỉ do AD đề xuất, không trích từ file palette gốc · Tỷ lệ diện tích: nền 85% · nguồn sáng 10% · màu kẻ lạ ≤ 5% · Cột phải: cảnh mô phỏng — màu và đen trắng</div>
+
+<div id="acts"></div>
+
+<h3>Cấu trúc giá trị sáng — 3 tầng</h3>
+<div class="vals">
+  <div style="background:#000;color:#666;flex:.6">rìa 0–8</div>
+  <div style="background:#3b3b3b;color:#999;flex:2">nền 15–35</div>
+  <div style="background:#5a5a5a;color:#ccc;flex:1.4">tường 20–45</div>
+  <div style="background:#8a8a8a;color:#111;flex:1.6">nhân vật 35–65</div>
+  <div style="background:#e8e8e8;color:#111;flex:1.2">lửa/phép/loot 70–100</div>
+</div>
+<div class="note">Nhân vật phải sáng hơn nền ít nhất 15 điểm. Ngoại lệ: sa mạc Act II và tuyết Act V — nhân vật tối hơn nền rõ rệt, bóng đổ đậm.</div>
+
+<h3>Màu chữ vật phẩm</h3>
+<div class="legend" id="items"></div>
+
+<script>
+const acts = [
+  { n:"Act I", t:"Đồng hoang & tu viện", d:"Lạnh ẩm, âm u. Lửa là hơi ấm duy nhất.",
+    c:[["#1B1F1C","nền tối"],["#3E4638","nền trung"],["#6F6F5C","nền sáng"],["#D9822B","lửa"],["#6E1414","máu"]] },
+  { n:"Act II", t:"Sa mạc & lăng mộ", d:"Ngoài trời chói vàng; trong mộ tối lạnh. Arcane là kẻ lạ.",
+    c:[["#2A1E14","bóng mộ"],["#8A6A42","sa thạch"],["#CDB07A","cát nắng"],["#F2D59A","nắng"],["#5B3C8C","arcane"]] },
+  { n:"Act III", t:"Rừng mưa & Zakarum", d:"Đặc quánh, mục rữa. Durance chuyển sang đỏ thịt.",
+    c:[["#141C14","tán rừng"],["#34452A","rêu"],["#6A7A4C","đá đền"],["#E0A040","đuốc"],["#7FA04A","bệnh"]] },
+  { n:"Act IV", t:"Địa ngục", d:"Đỏ hắt từ dưới. Pháo đài thiên thần lam lạnh đối lập.",
+    c:[["#120808","bazan"],["#3A1A12","đất cháy"],["#6A3A22","đá nung"],["#FF6A1A","dung nham"],["#8FB4D9","thiên đường"]] },
+  { n:"Act V", t:"Tuyết & thành lũy", d:"Trắng lạnh phản xạ; lò rèn ấm. Worldstone lam ngọc.",
+    c:[["#1C2228","đá đêm"],["#5E6A72","đá xám"],["#C8D2D8","tuyết"],["#E8913A","lò rèn"],["#6FD0C8","worldstone"]] },
+];
+const w = ["w85","w85","w85","w10","w5"];
+document.getElementById("acts").innerHTML = acts.map(a => {
+  const [dk, md, lt, light, odd] = a.c.map(x => x[0]);
+  const isBright = a.n === "Act II" || a.n === "Act V";
+  const heroCol = isBright ? "#2a2420" : "#9a8c74";
+  const scene = cls => `<div class="scene ${cls}" style="background:linear-gradient(180deg,${md} 0%,${dk} 100%)">
+      <div class="lr" style="background:radial-gradient(closest-side, ${lt}66, transparent)"></div>
+      <div class="hero" style="background:${heroCol};box-shadow:0 0 0 1px ${isBright ? "#000" : lt}"></div>
+      <div class="fx" style="background:${light};box-shadow:0 0 18px 6px ${light}99"></div>
+    </div>`;
+  return `<div class="act">
+    <div><h2>${a.n} — ${a.t}</h2><p>${a.d}</p></div>
+    <div class="sw">${a.c.map((x,i)=>`<div class="c ${w[i]}"><div style="background:${x[0]}"></div><b>${x[1]}</b><span>${x[0]}</span></div>`).join("")}</div>
+    <div class="pair"><div>${scene("")}<small>màu</small></div><div>${scene("gray")}<small>đen trắng</small></div></div>
+  </div>`;
+}).join("");
+
+const items = [["Normal","#E0E0E0"],["Xám / Ethereal","#8A8A8A"],["Magic","#6969FF"],["Rare","#FFFF64"],["Set","#00C400"],["Unique","#C7B377"],["Crafted","#FFA800"],["Rune","#FFA800"],["Không đủ YC","#FF4D4D"]];
+document.getElementById("items").innerHTML = items.map(([n,c]) => `<div class="it" style="color:${c}">${n}<span>${c}</span></div>`).join("");
+</script>
+</body>
+</html>

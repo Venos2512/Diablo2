@@ -1,5 +1,6 @@
 // The model being looked at: normalisation, turntable, animation clips and asset statistics.
 import * as THREE from 'three';
+import { SHARED } from '../core/shared.js';
 
 export class Subject {
 	constructor() {
@@ -17,9 +18,21 @@ export class Subject {
 		this.turntable = false;
 		this.turntableSpeed = 20;
 		this.sourceId = null;
+		// The character controller drives the mixer itself (weights, synced locomotion) while it is active.
+		this.externalMixer = false;
+		// Procedural character (src/procedural CharacterModel): animates its own bones, no mixer / clips.
+		this.procedural = null;
+		this.locoSpeed = 0; // m/s fed to its locomotion auto-select (idle / walk / run)
 	}
 
-	set(object, animations = [], name = 'Model', sourceId = null) {
+	setProcedural(model, name, sourceId) {
+		// Built in metres at game scale (bats and imps are meant to be small): no size normalisation.
+		this.set(model.root, [], name, sourceId, { normalize: false });
+		this.procedural = model;
+		return this;
+	}
+
+	set(object, animations = [], name = 'Model', sourceId = null, { normalize = true } = {}) {
 		this.clear();
 		this.name = name;
 		this.sourceId = sourceId;
@@ -27,14 +40,16 @@ export class Subject {
 		const box = new THREE.Box3().setFromObject(object);
 		const size = box.getSize(new THREE.Vector3());
 		const maxDim = Math.max(size.x, size.y, size.z) || 1;
-		const scale = maxDim > 6 || maxDim < 0.3 ? 1.6 / maxDim : 1;
+		const scale = normalize && (maxDim > 6 || maxDim < 0.3) ? 1.6 / maxDim : 1;
 		this.scale = scale;
 		const holder = new THREE.Group();
 		holder.name = name;
 		holder.add(object);
 		holder.scale.setScalar(scale);
 		holder.updateMatrixWorld(true);
-		const scaled = new THREE.Box3().setFromObject(holder);
+		// Characters stand on their own feet: centre and ground them on the skinned body, not on the
+		// weapons / props they carry (a sword in front would put the pivot outside the body).
+		const scaled = bodyBounds(holder);
 		const center = scaled.getCenter(new THREE.Vector3());
 		holder.position.set(-center.x, -scaled.min.y, -center.z);
 		holder.traverse((o) => {
@@ -51,7 +66,9 @@ export class Subject {
 		this.clips = animations;
 		if (animations.length) {
 			this.mixer = new THREE.AnimationMixer(object);
-			this.play(0);
+			const idle = animations.findIndex((c) => /^idle$/i.test(c.name));
+			const anyIdle = animations.findIndex((c) => /idle|survey/i.test(c.name));
+			this.play(idle >= 0 ? idle : anyIdle >= 0 ? anyIdle : 0);
 		}
 		return this;
 	}
@@ -82,12 +99,22 @@ export class Subject {
 	}
 
 	update(delta) {
-		if (this.mixer) this.mixer.update(delta * this.speed);
+		if (this.mixer && !this.externalMixer) this.mixer.update(delta * this.speed);
+		if (this.procedural) {
+			const dt = this.playing ? delta * this.speed : 0;
+			SHARED.uniforms.uTime.value += dt;
+			this.procedural.update(dt, { speed: this.locoSpeed });
+		}
 		if (this.turntable) this.pivot.rotation.y += THREE.MathUtils.degToRad(this.turntableSpeed) * delta;
 	}
 
 	clear() {
 		this.mixer?.stopAllAction();
+		// Its geometry is a shared, cached template: dispose only the instance (material, skeleton, cape).
+		if (this.procedural) {
+			this.procedural.dispose();
+			this.procedural = null;
+		}
 		if (this.model) {
 			this.pivot.remove(this.model);
 			disposeTree(this.model);
@@ -97,6 +124,7 @@ export class Subject {
 		this.clips = [];
 		this.action = null;
 		this.pivot.rotation.set(0, 0, 0);
+		this.pivot.scale.set(1, 1, 1);
 	}
 
 	stats() {
@@ -146,6 +174,8 @@ export class Subject {
 
 export function disposeTree(root) {
 	root.traverse((o) => {
+		// Items held by the character (props library clones) share geometry / materials: keep them.
+		for (let p = o; p && p !== root.parent; p = p.parent) if (p.userData.labItem) return;
 		o.geometry?.dispose();
 		if (o.material) {
 			for (const m of Array.isArray(o.material) ? o.material : [o.material]) {
@@ -154,4 +184,18 @@ export function disposeTree(root) {
 			}
 		}
 	});
+}
+
+/** Bounds of the skinned meshes when there are any (the body), else of everything. */
+export function bodyBounds(root) {
+	root.updateMatrixWorld(true);
+	const box = new THREE.Box3();
+	let skinned = false;
+	root.traverse((o) => {
+		if (!o.isSkinnedMesh || !o.visible) return;
+		skinned = true;
+		o.computeBoundingBox();
+		box.union(o.boundingBox.clone().applyMatrix4(o.matrixWorld));
+	});
+	return skinned && !box.isEmpty() ? box : new THREE.Box3().setFromObject(root);
 }

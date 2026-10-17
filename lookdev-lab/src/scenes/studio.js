@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { registerDefaults } from '../core/settings.js';
 import { createBalls, createColorChecker } from '../lookdev/references.js';
-import { STUDIO_RIGS, buildStudioRig, flicker } from '../lighting/studioRigs.js';
+import { STUDIO_RIGS, buildStudioRig, buildMoodRig, flicker } from '../lighting/studioRigs.js';
 import { kelvinToColor } from '../core/grading.js';
 
 registerDefaults('studio', {
@@ -36,6 +36,8 @@ export class StudioScene {
 		this.app = app;
 		this.id = 'studio';
 		this.label = 'Studio';
+		this.moodKind = 'studio';
+		this.mood = null; // Act I mood block (lighting/moods.js) replacing the rig while set
 		this.scene = new THREE.Scene();
 		this.scene.name = 'Studio';
 		this.settings = app.settings.adopt('studio');
@@ -113,8 +115,8 @@ export class StudioScene {
 			this.rig.group.traverse((o) => o.dispose?.());
 		}
 		const s = this.settings;
-		this.rig = buildStudioRig(s.rig);
-		this.rig.group.rotation.y = THREE.MathUtils.degToRad(s.rigRotation);
+		this.rig = this.mood ? buildMoodRig(this.mood) : buildStudioRig(s.rig);
+		this.rig.group.rotation.y = this.mood ? 0 : THREE.MathUtils.degToRad(s.rigRotation);
 		this.scene.add(this.rig.group);
 		this.lights = this.rig.lights;
 		for (const l of this.lights) l.base = l.intensity;
@@ -122,16 +124,34 @@ export class StudioScene {
 		const sunLight = this.lights.find((l) => l.light.isDirectionalLight);
 		if (sunLight) {
 			this.sun.direction.copy(sunLight.light.position).normalize();
-			this.sun.color.copy(sunLight.light.color).multiplyScalar(0.25);
+			this.sun.color.copy(sunLight.light.color).multiplyScalar(this.mood ? this.mood.sun ?? 0 : 0.25);
 		} else this.sun.color.setRGB(0, 0, 0);
 		this.app.onLightsChanged?.();
 	}
 
 	applyRigIntensity() {
 		const s = this.settings;
-		for (const l of this.lights) l.light.intensity = l.base * s.rigIntensity;
-		this.rig.group.rotation.y = THREE.MathUtils.degToRad(s.rigRotation);
+		for (const l of this.lights) l.light.intensity = l.base * this.rigScale;
+		this.rig.group.rotation.y = this.mood ? 0 : THREE.MathUtils.degToRad(s.rigRotation);
 		this.applyEnvIntensity();
+	}
+
+	/** Rig intensity multiplier (a mood rig is art-directed as is). */
+	get rigScale() {
+		return this.mood ? 1 : this.settings.rigIntensity;
+	}
+
+	/** Act I mood (lighting/moods.js studio block) or null for the regular rig and environment. */
+	async applyMood(block) {
+		this.mood = block;
+		this.applyRig();
+		this.app.backend.prepareObject(this.scene);
+		await this.applyEnvironment();
+	}
+
+	/** Surfaces that get wet in a rain mood. */
+	wetRoots() {
+		return [this.floor, this.pedestal];
 	}
 
 	setLightKelvin(entry, kelvin) {
@@ -156,7 +176,7 @@ export class StudioScene {
 
 	async applyEnvironment() {
 		const s = this.settings;
-		const env = await this.environmentTexture(s.env);
+		const env = await this.environmentTexture(this.mood ? this.mood.env.id : s.env);
 		this.scene.environment = env;
 		this.applyEnvIntensity();
 		this.applyBackground(env);
@@ -171,7 +191,7 @@ export class StudioScene {
 	applyEnvIntensity() {
 		const s = this.settings;
 		const rigFactor = STUDIO_RIGS[s.rig]?.env ?? 1;
-		this.scene.environmentIntensity = s.envIntensity * rigFactor;
+		this.scene.environmentIntensity = this.mood ? this.mood.env.intensity : s.envIntensity * rigFactor;
 		const rot = THREE.MathUtils.degToRad(s.envRotation);
 		this.scene.environmentRotation.set(0, rot, 0);
 		this.scene.backgroundRotation.set(0, rot, 0);
@@ -179,6 +199,16 @@ export class StudioScene {
 
 	applyBackground(env = this.scene.environment) {
 		const s = this.settings;
+		const mood = this.mood;
+		if (mood) {
+			if (mood.background) this.scene.background = new THREE.Color(mood.background);
+			else {
+				this.scene.background = env;
+				this.scene.backgroundBlurriness = mood.env.blur;
+				this.scene.backgroundIntensity = mood.env.background;
+			}
+			return;
+		}
 		if (s.background === 'color') {
 			this.scene.background = new THREE.Color(s.bgColor);
 		} else {
@@ -190,7 +220,7 @@ export class StudioScene {
 
 	update(delta, elapsed) {
 		for (const l of this.lights) {
-			if (l.flicker !== undefined) l.light.intensity = l.base * this.settings.rigIntensity * (1 + (flicker(elapsed, l.flicker) - 1) * (l.flickerAmount ?? 1));
+			if (l.flicker !== undefined) l.light.intensity = l.base * this.rigScale * (1 + (flicker(elapsed, l.flicker) - 1) * (l.flickerAmount ?? 1));
 		}
 	}
 

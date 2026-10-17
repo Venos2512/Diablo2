@@ -10,6 +10,7 @@ export const CAMERA_MODES = {
 	game: 'Game ¾ (perspective)',
 	iso: 'Isometric 2:1 (orthographic)',
 	play: 'Play (follow, click to move)',
+	chase: 'Third person (follow)',
 };
 
 export class CameraRig {
@@ -26,8 +27,10 @@ export class CameraRig {
 		this.mode = 'orbit';
 		this.aspect = 1;
 		this.orthoHeight = 14;
-		this.follow = null; // Object3D followed in play mode
+		this.follow = null; // Object3D followed (play mode, character preview)
+		this.followHeight = 0.9;
 		this.gameDistance = 16;
+		this.chaseDistance = 4.2;
 		this.saved = {};
 		this.controls.update();
 	}
@@ -85,6 +88,15 @@ export class CameraRig {
 			c.maxDistance = 40;
 			this.place(this.persp, target, polar, 45 * DEG, this.gameDistance);
 			if (mode === 'play') c.mouseButtons = { LEFT: null, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: null }; // left moves, right casts
+		} else if (mode === 'chase') {
+			// Behind-the-shoulder follow camera: right-drag orbits, wheel zooms (left click is for moving).
+			c.minDistance = 1.2;
+			c.maxDistance = 14;
+			c.minPolarAngle = 25 * DEG;
+			c.maxPolarAngle = 88 * DEG;
+			c.enablePan = false;
+			c.mouseButtons = { LEFT: null, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.ROTATE };
+			this.place(this.persp, target, 66 * DEG, this.chaseAzimuth ?? Math.PI, this.chaseDistance);
 		} else if (mode === 'iso') {
 			const polar = 60 * DEG; // 30° elevation -> ground plane squashed 2:1
 			c.minPolarAngle = c.maxPolarAngle = polar;
@@ -138,15 +150,27 @@ export class CameraRig {
 	}
 
 	update(delta) {
-		if (this.mode === 'play' && this.follow) {
+		if (this.follow) {
+			// Every mode can follow: the focus point and the camera move together.
 			const c = this.controls;
 			const goal = this.follow.getWorldPosition(new THREE.Vector3());
-			goal.y += 0.9;
-			const step = goal.sub(c.target).multiplyScalar(1 - Math.exp(-delta * 6));
+			goal.y += this.followHeight;
+			const step = goal.sub(c.target).multiplyScalar(1 - Math.exp(-delta * (this.mode === 'chase' ? 9 : 6)));
 			c.target.add(step);
-			this.persp.position.add(step);
+			this.camera.position.add(step);
 		}
 		this.controls.update(delta);
+	}
+
+	/** Rotate the camera around the focus point (yaw, radians) — chase-camera auto-align, gamepad. */
+	orbitBy(yaw, pitch = 0) {
+		const c = this.controls;
+		const offset = this.camera.position.clone().sub(c.target);
+		const s = new THREE.Spherical().setFromVector3(offset);
+		s.theta += yaw;
+		s.phi = THREE.MathUtils.clamp(s.phi + pitch, c.minPolarAngle + 1e-3, c.maxPolarAngle - 1e-3);
+		this.camera.position.copy(c.target).add(new THREE.Vector3().setFromSpherical(s));
+		this.camera.lookAt(c.target);
 	}
 
 	state() {

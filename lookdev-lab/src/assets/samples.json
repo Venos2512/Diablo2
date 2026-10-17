@@ -1,58 +1,50 @@
 {
-  "note": "Sample assets embedded in the offline build. Files live in assets/samples/. Textures of lantern, pot-of-coals and candle-holder were re-encoded to 1024 px (JPEG/PNG) to keep the build small; geometry is unchanged.",
+  "note": "Sample assets embedded in the offline build. Files live in assets/samples/. Textures of lantern, pot-of-coals and candle-holder were re-encoded to 1024 px (JPEG/PNG) to keep the build small; geometry is unchanged. KayKit characters were split by scripts/prepare-kaykit.py: meshes in kaykit-<name>.glb, one shared, pruned animation library per rig (kind 'animations'), weapons and shields merged into kaykit-props.glb (kind 'props').",
   "assets": [
-    {
-      "id": "shader-ball", "name": "USD Shader Ball", "kind": "model", "file": "samples/shader-ball.glb", "role": "lookdev",
-      "license": "CC-BY-4.0",
-      "credit": "Geometry and textures: Chris Rydalch; original specification and validation: André Mazzone; original scene, inspiration and consultation: Thomas Anagnostou; glTF conversion: Eric Chadwick",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/USDShaderBallForGltf"
-    },
-    {
-      "id": "lantern", "name": "Lantern", "kind": "model", "file": "samples/lantern.glb", "role": "prop",
-      "license": "CC0-1.0", "credit": "sbtron (Microsoft); Frank Galligan",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Lantern"
-    },
-    {
-      "id": "pot-of-coals", "name": "Pot of Coals", "kind": "model", "file": "samples/pot-of-coals.glb", "role": "prop",
-      "license": "CC-BY-4.0", "credit": "Eric Chadwick / Darmstadt Graphics Group GmbH (Khronos logo is a trademark of the Khronos Group)",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/PotOfCoals"
-    },
-    {
-      "id": "candle-holder", "name": "Glass Hurricane Candle Holder", "kind": "model", "file": "samples/candle-holder.glb", "role": "prop",
-      "license": "CC-BY-4.0", "credit": "Eric Chadwick / Wayfair, LLC (Khronos logo is a trademark of the Khronos Group)",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/GlassHurricaneCandleHolder"
-    },
-    {
-      "id": "compare-roughness", "name": "Compare Roughness", "kind": "model", "file": "samples/compare-roughness.glb", "role": "validation",
-      "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareRoughness"
-    },
-    {
-      "id": "compare-metallic", "name": "Compare Metallic", "kind": "model", "file": "samples/compare-metallic.glb", "role": "validation",
-      "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareMetallic"
-    },
-    {
-      "id": "fox", "name": "Fox (animated)", "kind": "model", "file": "samples/fox.glb", "role": "character", "height": 0.75,
-      "license": "CC0-1.0 + CC-BY-4.0", "credit": "Model: PixelMannen (CC0); rigging and animation: tomkranis (CC-BY 4.0); glTF conversion: @AsoboStudio and @scurest (CC-BY 4.0)",
-      "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Fox"
-    },
-    {
-      "id": "robot", "name": "Robot Expressive (animated)", "kind": "model", "file": "samples/robot-expressive.glb", "role": "character", "height": 1.8,
-      "license": "CC0-1.0", "credit": "Tomás Laulhé (Quaternius); modifications by Don McCurdy",
-      "source": "https://github.com/mrdoob/three.js/tree/r180/examples/models/gltf/RobotExpressive"
-    },
-    {
-      "id": "hdri-night", "name": "Moonless Golf (night)", "kind": "hdri", "file": "samples/moonless_golf_1k.hdr",
-      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/moonless_golf"
-    },
-    {
-      "id": "hdri-overcast", "name": "Quarry 01 (overcast)", "kind": "hdri", "file": "samples/quarry_01_1k.hdr",
-      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/quarry_01"
-    },
-    {
-      "id": "hdri-sun", "name": "Royal Esplanade (sun)", "kind": "hdri", "file": "samples/royal_esplanade_1k.hdr",
-      "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/royal_esplanade"
-    }
+    {"id": "shader-ball", "name": "USD Shader Ball", "kind": "model", "file": "samples/shader-ball.glb", "role": "lookdev", "license": "CC-BY-4.0", "credit": "Geometry and textures: Chris Rydalch; original specification and validation: André Mazzone; original scene, inspiration and consultation: Thomas Anagnostou; glTF conversion: Eric Chadwick", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/USDShaderBallForGltf"},
+    {"id": "lantern", "name": "Lantern", "kind": "model", "file": "samples/lantern.glb", "role": "prop", "license": "CC0-1.0", "credit": "sbtron (Microsoft); Frank Galligan", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Lantern"},
+    {"id": "pot-of-coals", "name": "Pot of Coals", "kind": "model", "file": "samples/pot-of-coals.glb", "role": "prop", "license": "CC-BY-4.0", "credit": "Eric Chadwick / Darmstadt Graphics Group GmbH (Khronos logo is a trademark of the Khronos Group)", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/PotOfCoals"},
+    {"id": "candle-holder", "name": "Glass Hurricane Candle Holder", "kind": "model", "file": "samples/candle-holder.glb", "role": "prop", "license": "CC-BY-4.0", "credit": "Eric Chadwick / Wayfair, LLC (Khronos logo is a trademark of the Khronos Group)", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/GlassHurricaneCandleHolder"},
+    {"id": "compare-roughness", "name": "Compare Roughness", "kind": "model", "file": "samples/compare-roughness.glb", "role": "validation", "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareRoughness"},
+    {"id": "compare-metallic", "name": "Compare Metallic", "kind": "model", "file": "samples/compare-metallic.glb", "role": "validation", "license": "CC0-1.0", "credit": "Eric Chadwick and DGG (glTF logo is a trademark of the Khronos Group)", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CompareMetallic"},
+    {"id": "fox", "name": "Fox (animated)", "kind": "model", "file": "samples/fox.glb", "role": "character", "height": 0.75, "license": "CC0-1.0 + CC-BY-4.0", "credit": "Model: PixelMannen (CC0); rigging and animation: tomkranis (CC-BY 4.0); glTF conversion: @AsoboStudio and @scurest (CC-BY 4.0)", "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/Fox"},
+    {"id": "robot", "name": "Robot Expressive (animated)", "kind": "model", "file": "samples/robot-expressive.glb", "role": "character", "height": 1.8, "license": "CC0-1.0", "credit": "Tomás Laulhé (Quaternius); modifications by Don McCurdy", "source": "https://github.com/mrdoob/three.js/tree/r180/examples/models/gltf/RobotExpressive"},
+    {"id": "kaykit-knight", "name": "KayKit Knight", "kind": "model", "file": "samples/kaykit-knight.glb", "role": "character", "height": 1.8, "animations": "kaykit-anims-medium", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-barbarian", "name": "KayKit Barbarian", "kind": "model", "file": "samples/kaykit-barbarian.glb", "role": "character", "height": 1.85, "animations": "kaykit-anims-medium", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-mage", "name": "KayKit Mage", "kind": "model", "file": "samples/kaykit-mage.glb", "role": "character", "height": 1.8, "animations": "kaykit-anims-medium", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-rogue", "name": "KayKit Rogue", "kind": "model", "file": "samples/kaykit-rogue.glb", "role": "character", "height": 1.7, "animations": "kaykit-anims-rogue", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-anims-medium", "name": "KayKit animations (Knight / Barbarian / Mage rig)", "kind": "animations", "file": "samples/kaykit-anims-medium.glb", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-anims-rogue", "name": "KayKit animations (Rogue rig)", "kind": "animations", "file": "samples/kaykit-anims-rogue.glb", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "kaykit-props", "name": "KayKit weapons & shields", "kind": "props", "file": "samples/kaykit-props.glb", "license": "CC0-1.0", "credit": "Kay Lousberg (KayKit · Adventurers Character Pack 1.0)", "source": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0"},
+    {"id": "hdri-night", "name": "Moonless Golf (night)", "kind": "hdri", "file": "samples/moonless_golf_1k.hdr", "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/moonless_golf"},
+    {"id": "hdri-overcast", "name": "Quarry 01 (overcast)", "kind": "hdri", "file": "samples/quarry_01_1k.hdr", "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/quarry_01"},
+    {"id": "hdri-sun", "name": "Royal Esplanade (sun)", "kind": "hdri", "file": "samples/royal_esplanade_1k.hdr", "license": "CC0-1.0", "credit": "Poly Haven", "source": "https://polyhaven.com/a/royal_esplanade"},
+    {"id": "terrain-dirt", "name": "Painted terrain · dry dirt (albedo)", "kind": "texture", "file": "samples/terrain-dirt.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "terrain-dirt-h", "name": "Painted terrain · dry dirt (height)", "kind": "texture", "file": "samples/terrain-dirt-h.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "terrain-mud", "name": "Painted terrain · wet dirt + puddles (albedo)", "kind": "texture", "file": "samples/terrain-mud.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "terrain-mud-h", "name": "Painted terrain · wet dirt + puddles (height)", "kind": "texture", "file": "samples/terrain-mud-h.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "terrain-grass", "name": "Painted terrain · grass (albedo)", "kind": "texture", "file": "samples/terrain-grass.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "terrain-grass-h", "name": "Painted terrain · grass (height)", "kind": "texture", "file": "samples/terrain-grass-h.png", "license": "Project-internal", "credit": "Sanctuary art direction concept (art-direction/reference/moor_campfire_terrain_concept.png), cut and made tileable by scripts/prepare-terrain-swatches.py", "source": "art-direction/reference/moor_campfire_terrain_concept.png"},
+    {"id": "kit-wooden-fence", "name": "Wooden fence kit (15 pieces)", "kind": "kit", "file": "samples/kit-wooden-fence.glb", "license": "Project-internal", "credit": "Sanctuary project prop sheet (generated with Tripo), split into real-size pieces by scripts/prepare-prop-kit.py", "source": "project prop sheet: wooden fence kit (15 pieces)"},
+    {"id": "kit-palisade", "name": "Wooden palisade kit (15 pieces, PBR)", "kind": "kit", "file": "samples/kit-palisade.glb", "license": "Project-internal", "credit": "Sanctuary project prop sheet (generated with Tripo, base colour + metallic-roughness + normal maps), split into real-size pieces by scripts/prepare-prop-kit.py", "source": "project prop sheet: wooden palisade kit (15 pieces)"},
+    {"id": "kit-tents", "name": "Medieval tent kit (8 pieces, PBR)", "kind": "kit", "file": "samples/kit-tents.glb", "license": "Project-internal", "credit": "Sanctuary project prop sheet (generated with Tripo, base colour + metallic-roughness + normal maps), split into real-size pieces by scripts/prepare-prop-kit.py", "source": "project prop sheet: medieval tent set"},
+    {"id": "kit-shrubs", "name": "Stylized shrub kit (18 pieces)", "kind": "kit", "file": "samples/kit-shrubs.glb", "license": "Project-internal", "credit": "Sanctuary project prop sheet (generated with Tripo), split into real-size pieces by scripts/prepare-prop-kit.py --layout top", "source": "project prop sheet: stylized plant shrubs"},
+    {"id": "kit-rocks", "name": "Moor boulder (Tripo, on ground patch)", "kind": "model", "file": "samples/kit-rocks.glb", "role": "prop", "license": "Project-internal", "credit": "Sanctuary project concept asset_08 rock sheet (generated with Tripo: Smart Mesh + Smart UV + texture), split by scripts/prepare-prop-kit.py --height 2.0 into rock_01_boulder and rock_02_ground_patch", "source": "art-output/mmo-hub-bloodmoor/assets_2d/asset_08_rock_sheet.png"},
+    {"id": "terrain2-dirt", "name": "Painted tile · transition (dirt + grass) (albedo)", "kind": "texture", "file": "samples/terrain2-dirt.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain2-dirt-h", "name": "Painted tile · transition (dirt + grass) (height)", "kind": "texture", "file": "samples/terrain2-dirt-h.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain2-mud", "name": "Painted tile · mud + puddles (albedo)", "kind": "texture", "file": "samples/terrain2-mud.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain2-mud-h", "name": "Painted tile · mud + puddles (height)", "kind": "texture", "file": "samples/terrain2-mud-h.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain2-grass", "name": "Painted tile · grass (albedo)", "kind": "texture", "file": "samples/terrain2-grass.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain2-grass-h", "name": "Painted tile · grass (height)", "kind": "texture", "file": "samples/terrain2-grass-h.png", "license": "Project-internal", "credit": "Sanctuary art direction terrain tiles (art-direction/reference/terrain-tiles), made tileable by scripts/prepare-terrain-swatches.py --tiles", "source": "art-direction/reference/terrain-tiles"},
+    {"id": "terrain3-dirt", "name": "D2R moor · dry dirt + transition (albedo)", "kind": "texture", "file": "samples/terrain3-dirt.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-dirt-h", "name": "D2R moor · dry dirt + transition (height)", "kind": "texture", "file": "samples/terrain3-dirt-h.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-mud", "name": "D2R moor · wet dirt + puddles (albedo)", "kind": "texture", "file": "samples/terrain3-mud.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-mud-h", "name": "D2R moor · wet dirt + puddles (height)", "kind": "texture", "file": "samples/terrain3-mud-h.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-grass", "name": "D2R moor · grass pattern mix (albedo)", "kind": "texture", "file": "samples/terrain3-grass.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-grass-h", "name": "D2R moor · grass pattern mix (height)", "kind": "texture", "file": "samples/terrain3-grass-h.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-ruts", "name": "D2R moor · road wheel ruts (albedo + alpha)", "kind": "texture", "file": "samples/terrain3-ruts.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-ruts-h", "name": "D2R moor · road wheel ruts (height)", "kind": "texture", "file": "samples/terrain3-ruts-h.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-water", "name": "D2R moor · creek water (albedo)", "kind": "texture", "file": "samples/terrain3-water.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"},
+    {"id": "terrain3-grass-cards", "name": "D2R moor · grass cards (RGBA atlas)", "kind": "texture", "file": "samples/terrain3-grass-cards.png", "license": "Project-internal", "credit": "Generated with Codex image generation after a D2R Blood Moor screenshot (art-direction/reference/terrain-moor), made tileable and mixed by scripts/prepare-terrain-moor.py", "source": "art-direction/reference/terrain-moor"}
   ]
 }

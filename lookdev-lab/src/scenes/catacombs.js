@@ -36,11 +36,20 @@ export const CATACOMB_MAP = [
 const CELL = 3;
 const WALL_H = 3.4;
 
+/** The catacombs' own lighting (what an Act I mood replaces while it is set). */
+const DEFAULT_LIGHTING = {
+	ambient: { color: '#1a2233', ground: '#080605', intensity: 0.06 },
+	env: { intensity: 0.06, background: '#050403' },
+	torches: { kelvin: 1850, scale: 1 },
+};
+
 export class CatacombsScene {
 	constructor(app) {
 		this.app = app;
 		this.id = 'catacombs';
 		this.label = 'Act I · Catacombs (interior)';
+		this.moodKind = 'interior';
+		this.mood = null; // Act I mood block (lighting/moods.js interior block) while set
 		this.scene = new THREE.Scene();
 		this.scene.name = 'Catacombs';
 		this.settings = app.settings.adopt('catacombs');
@@ -81,8 +90,22 @@ export class CatacombsScene {
 		this.buildLights();
 		const env = this.app.backend.envFromEquirect(await this.app.loader.loadSample('hdri-night'));
 		this.scene.environment = env;
-		this.scene.environmentIntensity = 0.06;
-		this.scene.background = new THREE.Color(0x050403);
+		this.applyMood(this.mood);
+	}
+
+	/** Act I mood (interior block of lighting/moods.js) or null for the catacombs' own lighting. */
+	applyMood(block) {
+		this.mood = block;
+		const m = block || DEFAULT_LIGHTING;
+		const color = kelvinToColor(m.torches.kelvin);
+		for (const light of this.torchLights) light.color.copy(color);
+		this.hemi.color.set(m.ambient.color);
+		this.hemi.groundColor.set(m.ambient.ground);
+		this.lights[0].base = m.ambient.intensity;
+		this.scene.environmentIntensity = m.env.intensity;
+		this.scene.background = new THREE.Color(m.env.background);
+		this.applyTorchSettings();
+		this.applyRigIntensity();
 	}
 
 	buildStatic() {
@@ -200,6 +223,7 @@ export class CatacombsScene {
 		};
 		for (const p of this.torchSpots) add(p, { flame: { width: 0.24, height: 0.46 } });
 		for (const b of this.braziers) add(b.clone().setY(0.82), { intensity: 26, distance: 13, flame: { width: 0.6, height: 0.9, strength: 1.1 } });
+		this.hemi?.removeFromParent(); // rebuild() must not stack a second ambient light
 		this.hemi = new THREE.HemisphereLight(0x1a2233, 0x080605, 0.06);
 		this.hemi.name = 'Ambient bounce';
 		this.scene.add(this.hemi);
@@ -208,7 +232,7 @@ export class CatacombsScene {
 	}
 
 	applyTorchSettings() {
-		this.flames.lightScale = this.settings.torchIntensity;
+		this.flames.lightScale = this.settings.torchIntensity * (this.mood?.torches.scale ?? 1);
 		const shadowed = new Set(this.braziers.map((_, i) => this.torchSpots.length + i));
 		this.torchLights.forEach((l, i) => (l.castShadow = this.settings.torchShadows && shadowed.has(i)));
 	}
@@ -239,6 +263,7 @@ export class CatacombsScene {
 		this.vfx.add(this.flames.mesh);
 		this.buildStatic();
 		this.buildLights();
+		this.applyMood(this.mood);
 		this.app.backend.prepareObject(this.scene);
 		this.app.backend.prepareObject(this.vfx);
 	}

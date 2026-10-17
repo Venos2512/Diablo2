@@ -16,14 +16,25 @@ import { buildPanels } from '../panels/index.js';
 import { QUALITY_PRESETS } from '../core/quality.js';
 import { ShaderLab } from '../effects/lab.js';
 import { VfxLab } from '../vfx/vfxLab.js';
+import { importQuarks } from '../panels/vfx.js';
+import { CharacterController } from '../character/controller.js';
+import { MoodController } from '../lighting/moodController.js';
+import { measureHeight } from '../character/rig.js';
 import { StressTests } from './stress.js';
 import { Recorder, Presentation } from './capture.js';
 import * as bench from './bench.js';
 import { parseCubeLUT, generateLook, storeCustomLut, loadCustomLut, disposeLut } from '../core/lut.js';
 import { applyStoredOverrides, dropOverride } from '../core/shaderOverrides.js';
+import { PROCEDURAL, isProcedural, proceduralById, createProcedural, defaultOptions } from '../procedural/catalog.js';
+import { useNodeMaterial } from '../procedural/nodeMaterial.js';
+
+/** Grade values that belong to a scene's look (saved and restored per scene with exposure and fog). */
+const SCENE_GRADE_KEYS = ['vignette', 'contrast', 'saturation', 'lift', 'temperature', 'tint'];
+const SCENE_GRADE_DEFAULTS = { vignette: 0.22, contrast: 1, saturation: 1, lift: 0, temperature: 0, tint: 0 };
 
 registerDefaults('subject', { sample: 'shader-ball', turntable: false, turntableSpeed: 20, speed: 1 });
 registerDefaults('view', { mode: 'lit', renderScale: 1 });
+registerDefaults('procedural', defaultOptions());
 
 const $ = (id) => document.getElementById(id);
 
@@ -179,6 +190,8 @@ export class App {
 		this.shaderLab = new ShaderLab(this);
 		this.shaderLab.init();
 		this.vfxLab = new VfxLab(this);
+		this.character = new CharacterController(this);
+		this.mood = new MoodController(this);
 		this.stress = new StressTests(this);
 		this.recorder = new Recorder(this);
 		this.presentation = new Presentation(this);
@@ -186,6 +199,7 @@ export class App {
 		if (this.vfxLab.settings.armed && !this.vfxLab.armed) this.vfxLab.arm(true);
 		this.restoreSession();
 		this.applyLut();
+		await this.mood.init().catch((e) => console.warn('Mood:', e));
 		this.setView(s.view.mode, false);
 		this.updateBadges();
 		// ?frames=N stops the loop after N frames (used by headless screenshot checks).
@@ -243,6 +257,23 @@ export class App {
 				button.innerHTML = `<span>${asset.name}</span><span class="kind">${asset.license.split(' ')[0]}</span>`;
 				button.title = `${asset.credit}\n${asset.license}`;
 				button.addEventListener('click', () => (asset.kind === 'hdri' ? this.useStudioEnv(asset.id) : this.loadSample(asset.id)));
+				list.appendChild(button);
+			}
+		}
+		// Characters built in code (src/procedural): heroes, monsters, NPCs. Options live in the Procedural tab.
+		const groupTitles = { hero: 'Procedural · heroes', monster: 'Procedural · monsters', npc: 'Procedural · NPCs' };
+		for (const [group, title] of Object.entries(groupTitles)) {
+			const head = document.createElement('div');
+			head.className = 'sample-group';
+			head.textContent = title;
+			list.appendChild(head);
+			for (const entry of PROCEDURAL.filter((e) => e.group === group)) {
+				const button = document.createElement('button');
+				button.className = 'sample-item';
+				button.dataset.id = entry.id;
+				button.innerHTML = `<span>${entry.name}</span><span class="kind">code</span>`;
+				button.title = 'Procedural character (src/procedural) — options in the Procedural tab';
+				button.addEventListener('click', () => this.loadSample(entry.id));
 				list.appendChild(button);
 			}
 		}
@@ -317,6 +348,8 @@ export class App {
 					<tr><td><kbd>C</kbd></td><td>A/B compare (first press captures A)</td><td><kbd>Esc</kbd></td><td>Clear selection</td></tr>
 					<tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Cast a spell (VFX lab active)</td><td><kbd>Click</kbd></td><td>Select mesh → material inspector</td></tr>
 					<tr><td><kbd>Right click</kbd></td><td>Cast the selected spell at the cursor</td><td><kbd>Click</kbd> (play mode)</td><td>Walk there / attack a dummy</td></tr>
+					<tr><td><kbd>Enter</kbd></td><td>Character tab: play on / off</td><td><kbd>W A S D</kbd></td><td>Move (camera-relative), <kbd>Shift</kbd> walk, <kbd>R</kbd> walk ↔ run</td></tr>
+					<tr><td><kbd>Space</kbd> <kbd>E</kbd> <kbd>Q</kbd></td><td>Attack, attack 2, cast</td><td><kbd>B</kbd> <kbd>G</kbd> <kbd>K</kbd></td><td>Block (hold), get hit, death / revive</td></tr>
 				</table>
 				<h3>Workflow</h3>
 				<p class="muted">Shaders tab: every effect is written in GLSL and TSL with the same parameters — enable it, open the source viewer (GLSL, glue, TSL, compiled WGSL/GLSL), measure off vs on, then switch the renderer and measure again. Performance tab keeps the results of both renderers side by side.</p>
@@ -341,6 +374,7 @@ export class App {
 		this.settings.data.scene = id;
 		this.settings.changed('scene');
 		this.dom.sceneSelect.value = id;
+		const token = (this._sceneToken = (this._sceneToken || 0) + 1);
 		let entry = this.sceneCache.get(id);
 		if (!entry) {
 			entry = SCENES[id].create(this);
@@ -348,6 +382,7 @@ export class App {
 			await entry.init();
 			this.backend.prepareObject(entry.scene);
 		}
+		if (token !== this._sceneToken) return; // another scene was picked while this one loaded
 		if (this.current && this.current !== entry) {
 			this.saveScenePost(this.current);
 			this.current.deactivate?.();
@@ -366,13 +401,35 @@ export class App {
 		this.updateBadges();
 		this.updateRail();
 		this.emit('scene', entry);
+		await this.holdUntilCompiled(token);
 	}
 
-	/** Exposure and fog are per scene: remembered when leaving, restored (or defaulted) when entering. */
+	/**
+	 * Keep the previous frame on screen until the current scene's shaders are linked. Program keys include the
+	 * light setup, which the mood finishes asynchronously; a program first needed inside a frame is compiled
+	 * synchronously (seconds per PBR program on D3D11 with many lights), freezing the tab.
+	 */
+	async holdUntilCompiled(token) {
+		const hold = (async () => {
+			let timer = 0;
+			await Promise.race([this.mood?.pending, new Promise((resolve) => (timer = setTimeout(resolve, 8000)))]).catch(() => {});
+			clearTimeout(timer);
+			if (token !== this._sceneToken) return;
+			const scenes = [this.world.scene, this.world.vfxScene].filter(Boolean);
+			await Promise.all(scenes.map((s) => this.backend.compile(s, this.rig.camera))).catch((error) => console.warn('Shader precompile failed', error));
+		})();
+		this.renderHold = hold;
+		await hold;
+		if (this.renderHold === hold) this.renderHold = null;
+	}
+
+	/** Exposure, fog and the scene grade (SCENE_GRADE_KEYS) are per scene: remembered when leaving, restored (or defaulted) when entering. */
 	saveScenePost(entry) {
+		if (this.mood?.active) return; // the mood owns exposure and fog while it is set
 		const s = this.settings.data;
 		s.scenePost ??= {};
-		s.scenePost[entry.id] = { exposure: s.post.exposure, fog: { ...s.post.fog } };
+		const grade = Object.fromEntries(SCENE_GRADE_KEYS.map((k) => [k, s.post.grade[k]]));
+		s.scenePost[entry.id] = { exposure: s.post.exposure, fog: { ...s.post.fog }, grade };
 		this.settings.changed('scenePost');
 	}
 
@@ -382,6 +439,10 @@ export class App {
 		const source = saved || entry.postDefaults || { exposure: 0, fog: { enabled: false } };
 		s.post.exposure = source.exposure ?? 0;
 		Object.assign(s.post.fog, source.fog || {});
+		// The framing part of the grade (vignette, contrast, lift ...) is per scene too — unless a mood owns the grade.
+		if (!this.mood?.active) {
+			for (const k of SCENE_GRADE_KEYS) s.post.grade[k] = source.grade?.[k] ?? entry.postDefaults?.grade?.[k] ?? SCENE_GRADE_DEFAULTS[k];
+		}
 		this.settings.changed('post');
 		this.applyPost();
 		this.panels?.refresh();
@@ -396,23 +457,46 @@ export class App {
 	}
 
 	async loadSample(id, { frame = true } = {}) {
+		if (isProcedural(id)) return this.loadProcedural(id, { frame });
 		const entry = sampleById(id);
 		if (!entry || entry.kind !== 'model') return;
 		const gltf = await this.loader.loadSample(id);
-		// Characters get a real-world height (the raw files are 0.75 – 4.5 units tall).
+		// Characters that share a rig keep their clips in one animation library (see samples.json).
+		let animations = gltf.animations;
+		if (entry.animations) {
+			const library = await this.loader.loadLibrary(entry.animations);
+			animations = [...animations, ...library.animations];
+		}
+		// Characters get a real-world height (the raw files are 0.75 – 4.5 units tall), measured on the
+		// body only (weapons held above the head do not count).
 		if (entry.height) {
-			gltf.scene.updateMatrixWorld(true);
-			const h = new THREE.Box3().setFromObject(gltf.scene).getSize(new THREE.Vector3()).y;
+			const h = measureHeight(gltf.scene);
 			if (h > 0) gltf.scene.scale.multiplyScalar(entry.height / h);
 		}
-		this.setSubject(gltf.scene, gltf.animations, entry.name, id);
+		this.setSubject(gltf.scene, animations, entry.name, id);
 		this.settings.data.subject.sample = id;
 		this.settings.changed('subject');
 		if (frame) this.frameSubject();
 	}
 
-	setSubject(object, animations, name, sourceId = null) {
-		this.subject.set(object, animations, name, sourceId);
+	/** Builds a procedural character with the Procedural tab's options (settings.data.procedural). */
+	async loadProcedural(id, { frame = true } = {}) {
+		if (!proceduralById(id)) return;
+		const started = performance.now();
+		const { entry, model } = await createProcedural(id, this.settings.data.procedural);
+		// Its shader is an onBeforeCompile patch (GLSL); node materials need the TSL port.
+		if (this.backend.kind !== 'webgl') useNodeMaterial(model);
+		this.setSubject(model, [], entry.name, id, { procedural: true });
+		this.settings.data.subject.sample = id;
+		this.settings.changed('subject');
+		if (frame) this.frameSubject();
+		const ms = performance.now() - started;
+		if (ms > 1500) toast(`${entry.name}: sculpted live in ${(ms / 1000).toFixed(1)} s (this variant is not in the baked data)`, 'info', 4000);
+	}
+
+	setSubject(object, animations, name, sourceId = null, { procedural = false } = {}) {
+		if (procedural) this.subject.setProcedural(object, name, sourceId);
+		else this.subject.set(object, animations, name, sourceId);
 		this.subject.turntable = this.settings.data.subject.turntable;
 		this.subject.turntableSpeed = this.settings.data.subject.turntableSpeed;
 		this.subject.speed = this.settings.data.subject.speed;
@@ -529,6 +613,7 @@ export class App {
 		const elapsed = this.timer.getElapsed();
 		const frameMs = this.lastFrameTime ? timestamp - this.lastFrameTime : 16.7;
 		this.lastFrameTime = timestamp;
+		if (this.renderHold) return; // shaders still linking: the canvas keeps the last frame
 
 		this.backend.resetInfo();
 		this.rig.update(delta);
@@ -551,7 +636,7 @@ export class App {
 		}
 
 		const cpu = performance.now() - t0;
-		this.hud.frame(frameMs, cpu, this.backend.timings(), this.backend.info(), { particles: this.particleCount });
+		this.hud.frame(frameMs, cpu, this.backend.timings(), this.backend.info(), { particles: this.particleCount + (this.mood?.particleCount || 0) });
 	}
 
 	/** Resolves with a data URL of the next rendered frame. */
@@ -734,6 +819,9 @@ export class App {
 				toast(`Environment: ${r.name}`, 'ok');
 			} else if (r.kind === 'textures') {
 				this.applyTextureSet(r.textures);
+			} else if (r.kind === 'preset' && /"ParticleEmitter"/.test(r.text)) {
+				// three.quarks editor export (three.js Object JSON with ParticleEmitter nodes).
+				importQuarks(this, r.text, r.name);
 			} else if (r.kind === 'preset') {
 				try {
 					this.settings.import(r.text);

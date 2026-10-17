@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Diablo II — Act I Color Script</title>
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; padding:32px; background:#0d0b0a; color:#d8cbb3; font:14px/1.5 "Segoe UI", "Noto Sans", sans-serif; }
+  h1 { margin:0 0 4px; font-size:22px; color:#c7b377; font-weight:600; }
+  .sub { color:#8c7f6a; font-size:13px; margin-bottom:20px; }
+  .chap { display:flex; gap:4px; margin-bottom:6px; }
+  .chap div { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#8c7f6a; border-top:2px solid #3a2f24; padding-top:4px; }
+  .strip { display:flex; gap:4px; }
+  .k { flex:1; min-width:0; }
+  .frame { height:110px; border:1px solid #000; border-radius:4px; position:relative; overflow:hidden; }
+  .frame .acc { position:absolute; width:14px; height:14px; border-radius:50%; left:50%; top:46%; transform:translate(-50%,-50%); }
+  .frame .vig { position:absolute; inset:0; }
+  .k b { display:block; font-size:12px; font-weight:600; margin-top:6px; line-height:1.25; }
+  .k span { display:block; font:10px Consolas, monospace; color:#8c7f6a; }
+  .bar { display:flex; height:30px; margin-top:22px; border-radius:4px; overflow:hidden; border:1px solid #000; }
+  .bar div { flex:1; }
+  .lbl { display:flex; justify-content:space-between; font-size:11px; color:#8c7f6a; margin-top:4px; }
+  h3 { margin:26px 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:#c7b377; font-weight:600; }
+  @media (max-width:700px) { .strip { flex-wrap:wrap; } .k { flex:0 0 calc(25% - 3px); } .chap { display:none; } }
+</style>
+</head>
+<body>
+<h1>Act I — Color Script</h1>
+<div class="sub">Màu xấp xỉ do AD đề xuất. Mỗi khung: nền chủ + điểm nhấn + độ tối viền (vignette) theo mức đe dọa.</div>
+<div class="chap" id="chap"></div>
+<div class="strip" id="strip"></div>
+<h3>Độ sáng trung bình theo hành trình</h3>
+<div class="bar" id="bar"></div>
+<div class="lbl"><span>Trại (an toàn)</span><span>Tristram</span><span>Tu viện</span><span>Andariel</span></div>
+<h3>Mức kinh dị (1–5)</h3>
+<div class="bar" id="fear"></div>
+<script>
+const keys = [
+  ["Rogue Encampment","#4A3A2A","#E08A30",.25,1,"A"],
+  ["Blood Moor","#4C5440","#6E1414",.35,1.5,"A"],
+  ["Cold Plains","#46504A",null,.4,2,"A"],
+  ["Burial Grounds","#2E3540","#E0602A",.6,3,"A"],
+  ["Stony Field","#5A5040","#C02A2A",.4,2,"B"],
+  ["Tristram","#2A2420","#D0501E",.6,3,"B"],
+  ["Dark Wood","#1E2A1C",null,.65,2.5,"B"],
+  ["Black Marsh","#2C3326","#7A8070",.6,2.5,"B"],
+  ["Tamoe Highland","#555248",null,.4,2.5,"B"],
+  ["Outer Cloister","#5C5246","#7A1E1E",.45,3,"C"],
+  ["Jail","#2E2A26","#D98030",.7,3.5,"C"],
+  ["Inner Cloister","#6E665A","#8A96A0",.35,3,"C"],
+  ["Cathedral","#2C2228","#F0B050",.7,3.5,"C"],
+  ["Catacombs","#2A1414","#8A1010",.8,4,"C"],
+  ["Andariel","#2A1414","#7FB040",.85,4.5,"C"],
+];
+const chapNames = {A:"A · Vùng quê bị bỏ rơi",B:"B · Vùng hoang sâu",C:"C · Tu viện bị ô uế"};
+const counts = {}; keys.forEach(k => counts[k[5]] = (counts[k[5]]||0)+1);
+document.getElementById("chap").innerHTML = Object.keys(counts).map(c => `<div style="flex:${counts[c]}">${chapNames[c]}</div>`).join("");
+document.getElementById("strip").innerHTML = keys.map(([n,base,acc,vig]) => `
+  <div class="k"><div class="frame" style="background:${base}">
+    <div class="vig" style="background:radial-gradient(ellipse at 50% 55%, transparent 25%, rgba(0,0,0,${vig}) 80%)"></div>
+    ${acc ? `<div class="acc" style="background:${acc};box-shadow:0 0 16px 6px ${acc}88"></div>` : ""}
+  </div><b>${n}</b><span>${base}${acc ? " · "+acc : ""}</span></div>`).join("");
+const lum = h => { const n=parseInt(h.slice(1),16); return (0.2126*(n>>16)+0.7152*((n>>8)&255)+0.0722*(n&255)); };
+document.getElementById("bar").innerHTML = keys.map(k => { const l = Math.round(lum(k[1])*(1-k[3]*.5)); return `<div style="background:rgb(${l},${l},${l})" title="${k[0]}"></div>`; }).join("");
+document.getElementById("fear").innerHTML = keys.map(k => { const t=(k[4]-1)/4; const r=Math.round(60+t*120), g=Math.round(50-t*35), b=Math.round(45-t*30); return `<div style="background:rgb(${r},${g},${b})" title="${k[0]}: ${k[4]}"></div>`; }).join("");
+</script>
+</body>
+</html>

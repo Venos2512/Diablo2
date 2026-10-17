@@ -1,0 +1,211 @@
+uid=1_0 RootWebArea "Texturing 3D Model - Instant PBR Maps & Style Transfers, AI-powered" url="https://studio.tripo3d.ai/workspace/texture/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+  uid=8_0 generic
+  uid=8_1 main
+    uid=8_2 navigation
+      uid=8_3 link "tripo-logo" url="https://studio.tripo3d.ai/"
+        uid=8_4 image "tripo-logo" url="https://tripo-webapp-assets.tripo3d.ai/studio-prod/images/tripo-text.png"
+      uid=8_5 button "3D Workspace"
+        uid=8_6 link "3D Workspace" url="https://studio.tripo3d.ai/workspace/generate"
+      uid=8_7 link "Home" url="https://studio.tripo3d.ai/"
+      uid=8_9 link "Assets" url="https://studio.tripo3d.ai/assets"
+      uid=8_11 link "Creator Hub" url="https://studio.tripo3d.ai/creator-hub/mission-tripossible/"
+      uid=8_13 button "Resources"
+    uid=8_14 button "Creator level and rewards"
+    uid=8_15 button expandable haspopup="dialog"
+    uid=8_16 button expandable haspopup="dialog"
+    uid=8_17 link "Help Center" url="https://www.tripo3d.ai/help"
+    uid=8_18 button "19" expandable haspopup="dialog"
+    uid=8_19 link url="https://studio.tripo3d.ai/referral"
+    uid=8_20 "11595"
+    uid=8_21 button "Upgrade"
+    uid=8_22 button "DCC Bridge" expandable haspopup="dialog"
+      uid=8_23 region roledescription="carousel"
+        uid=8_24 group roledescription="slide"
+        uid=8_25 group roledescription="slide"
+        uid=8_26 group roledescription="slide"
+        uid=8_27 group roledescription="slide"
+        uid=8_28 group roledescription="slide"
+        uid=8_29 group roledescription="slide"
+        uid=8_30 group roledescription="slide"
+        uid=8_31 group roledescription="slide"
+        uid=8_32 group roledescription="slide"
+        uid=8_33 group roledescription="slide"
+        uid=8_34 group roledescription="slide"
+    uid=8_35 link "Image" url="https://studio.tripo3d.ai/workspace/generate-image/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_37 link "Model" url="https://studio.tripo3d.ai/workspace/generate/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_39 link "Segment" url="https://studio.tripo3d.ai/workspace/segmentation/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_41 link "Fill Parts" url="https://studio.tripo3d.ai/workspace/fill-parts/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_43 link "Retopo" url="https://studio.tripo3d.ai/workspace/retopology/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_45 link "Smart UV" url="https://studio.tripo3d.ai/workspace/smart-uv/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_47 link "Texture" url="https://studio.tripo3d.ai/workspace/texture/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_49 link "Edit" url="https://studio.tripo3d.ai/workspace/texture-edit/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_51 link "Upscale" url="https://studio.tripo3d.ai/workspace/texture-upscale/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_53 link "PBR" url="https://studio.tripo3d.ai/workspace/texture-pbr/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_55 link "Rig" url="https://studio.tripo3d.ai/workspace/rigging/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_57 link "Animate" url="https://studio.tripo3d.ai/workspace/animate/996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+    uid=8_59 heading "3D Model Texture Generator" level="2"
+    uid=8_60 button
+    uid=8_61 button
+    uid=8_62 button
+    uid=8_63 button
+    uid=8_64 button
+    uid=8_65 "Create Your Own Texture Style"
+    uid=8_66 button
+    uid=8_67 button "None"
+    uid=8_68 "Remove Lighting"
+    uid=8_69 button
+    uid=8_70 switch
+    uid=8_71 "Texture Resolution"
+    uid=8_72 button
+    uid=8_73 group
+      uid=8_74 button "2K"
+      uid=8_75 button "4K" pressed
+      uid=8_76 button "8K Trial ×1"
+    uid=8_77 button "Generate Texture 20"
+    uid=8_78 button disableable disabled
+    uid=8_79 button disableable disabled
+    uid=8_80 button
+    uid=8_81 button
+    uid=8_82 button "3D Print"
+    uid=8_83 button "Share coupon"
+    uid=8_84 button "Export"
+    uid=8_85 button "reference"
+    uid=8_86 button
+    uid=8_87 button
+    uid=8_88 button pressed
+    uid=8_89 button
+    uid=8_90 button pressed
+    uid=8_91 button
+    uid=8_92 button
+    uid=8_93 button
+    uid=8_94 "Topology"
+    uid=8_95 "Quad"
+    uid=8_96 "Faces"
+    uid=8_97 "4817"
+    uid=8_98 "Vertices"
+    uid=8_99 "5365"
+    uid=8_100 button expandable haspopup="dialog"
+      uid=8_101 button
+    uid=8_102 button
+    uid=8_103 button
+    uid=8_104 tablist orientation="horizontal"
+      uid=8_105 tab "Assets" selectable selected
+      uid=8_106 tab "Property" selectable
+    uid=8_107 tabpanel "Assets"
+      uid=8_108 tablist orientation="horizontal"
+        uid=8_109 tab selectable selected
+        uid=8_110 tab selectable
+      uid=8_111 button
+      uid=8_112 button "Manage" expandable haspopup="dialog"
+      uid=8_113 generic
+        uid=8_114 "Upload 3D Model"
+        uid=8_115 "OBJ, FBX, STL, GLB
+Size ≤150MB"
+        uid=8_116 button "Choose File" value="No file chosen"
+        uid=8_117 link "rock boulder 3d model 10-17 21:51" url="https://studio.tripo3d.ai/workspace/texture/boulder-with-cracked-rocky-surface-and-sparse-desert-grasses-996310cd-cd2b-42a6-a4a5-13b08a46cb35"
+          uid=8_118 image "rock boulder 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/11f20d3c-b7f8-44a5-ab22-04a3e9ca8885/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy8xMWYyMGQzYy1iN2Y4LTQ0YTUtYWIyMi0wNGEzZTljYTg4ODUvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=XyXwY2UzO7YRlD4oncCYEiORASPjzmT82xfbSHDtflxzm6v6fBfb~9LxhYh1QxJgI686NAgIKSQLysnsySvl02uvv2xiWgScI5MDDz8ZeXNutLmJuRTjOjXDU3x5hbMP4k65BRZxNFgRi~yrUKj8YP7zh13brp3yIAN5~pDLw81xiuDwtqHkOFfWxnf2QpsSR7fCyeGRh~R6YXMFe7Yk-eKIqVl~sdxgUAP5VEWEqNcQLuSyVswM7R7BHcyxw6crG-Y7nuO4-lDL5V8LcRR4bDeUM0mOGHs33mgWEN5Rn5POqv2-veaHpQ0dV5p10CsLu7~~FZqKwA8wUHd4VaP-NQ__"
+          uid=8_119 "10-17 21:51"
+          uid=8_120 button expandable haspopup="dialog"
+          uid=8_121 button
+          uid=8_122 button expandable haspopup="dialog"
+        uid=8_123 link "stylized plant shrub 3d model 10-17 18:45" url="https://studio.tripo3d.ai/workspace/texture/set-of-stylized-green-shrubs-for-environment-with-brown-dry-variants-a-dc0d13b4-2dae-41e5-b975-77042b6af86b"
+          uid=8_124 image "stylized plant shrub 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/316dbde0-29c3-40d0-98ba-ebf671c1d5f4/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy8zMTZkYmRlMC0yOWMzLTQwZDAtOThiYS1lYmY2NzFjMWQ1ZjQvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=jEj15Xj0Jx8i7RwsRgtp562C1ct22iCO2kEEjssOOC-Veb6rgk8DNbfl3FUfgfUZsdRGLmOWM4KZhkbPUWreDlH97zKzVGpGGEs~YPVA2TXCY8qDjAG0YMRk0xfhIc3oLrfwEUH9YShXGhNnmt7l0IxmjVoyNQiedwW7q6x5Jlfwcxh7Ly5SaNTkN0E6S3qD-NxribZKLhfrvcYoTNpvz8OTRv2vtwsowwKkt7mDcr0JzjNAaHvQkaMAFJbemhMGfVLk62TPrETjAS64v6pAPIgWicQYn1QPjv9p4seMKymb2wO1yhwC75CRDtbVLDrhKbgB-zhYWJAQZClA3UhTKQ__"
+          uid=8_125 "10-17 18:45"
+          uid=8_126 button expandable haspopup="dialog"
+          uid=8_127 button
+          uid=8_128 button expandable haspopup="dialog"
+        uid=8_129 link "medieval tent set 3d model 10-17 18:53" url="https://studio.tripo3d.ai/workspace/texture/tan-canvas-tents-with-wooden-poles-ropes-and-interior-camp-furnishin-b7541701-3399-406a-80ea-993aabab256f"
+          uid=8_130 image "medieval tent set 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/92804f4c-3b28-4602-8362-787c15f71360/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy85MjgwNGY0Yy0zYjI4LTQ2MDItODM2Mi03ODdjMTVmNzEzNjAvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=k-6qGUKNzLD8GzdJqlSrue2I5ZGCDBKq0RD2HW3pY8IcsBUIITM9vKxG~8rcoOCW5CVnVaFsi8Y-Zbk8On~DK1Zgop4qUQ6-xAbkoJLtsIPAF7jOUe51swLR8cyekOe2UCISmG-T0W1N1ycSZSpu18D9Nko54XSlsK~XfjhFd4LNoabXQ~BmUzbJfF3yXeBXqsIgr8xB1EPRJT0fHtwLqCkLM-kFuWWS22wvW1bKfyv1uPxx6McXlIvggV4DVFqZ6aWeVMhQ9CoDGEwTKrtCTjc2uh3VtmqMLlFMnwyQ2kQK6ODHVBqllxCh~lZPJ-6g~breOacUdG71dHBSrEyjtg__"
+          uid=8_131 "10-17 18:53"
+          uid=8_132 button expandable haspopup="dialog"
+          uid=8_133 button
+          uid=8_134 button expandable haspopup="dialog"
+        uid=8_135 link "wooden palisade fence 3d model 10-17 18:50" url="https://studio.tripo3d.ai/workspace/texture/wooden-palisade-fence-with-jagged-spikes-posts-and-gate-component-r-47045dc8-b6b9-44c8-a8fb-7ac57d175b32"
+          uid=8_136 image "wooden palisade fence 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/e835a758-1e45-4755-a069-264d2324ba53/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy9lODM1YTc1OC0xZTQ1LTQ3NTUtYTA2OS0yNjRkMjMyNGJhNTMvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=XQTSqkx9WgO5~fiOjdi6etN~JdxazQUAFeKOPSdwHn3xDNYvsjLw2SxeQt1hY6SLOFOYlSazfM-TSyGwjmj~a0rmapuLQ9WXxQkyLRy58y13OnB7K1D2MDfhkUtj9HX4hIyOkzXfha1kO-421puujZuHaQ5DecPRS0uMD339x4YgOY5jOkJW6qR9WpSnKdjanileH8Lzx6mkIUFB8CaR2dSjHKQ24bd6B5g3XNh1q1DzokB08YNsHmeSgxW0qVQjd6phbBiXjhP8Id4RbNSmeiJPBERrYBaxJQjliWlSM0G1aHfLmQlJJaMVr~a4NKX2WpPEucH-f~JKyxJMcAyMrw__"
+          uid=8_137 "10-17 18:50"
+          uid=8_138 button expandable haspopup="dialog"
+          uid=8_139 button
+          uid=8_140 button expandable haspopup="dialog"
+        uid=8_141 link "wooden fence 3d model 10-17 18:52" url="https://studio.tripo3d.ai/workspace/texture/wooden-fence-with-posts-and-planks-in-brown-wood-texture-c6b138fa-2940-4456-a172-ea57662df94c"
+          uid=8_142 image "wooden fence 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/1f9172a2-06f3-4cd3-b745-0cbd16119317/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy8xZjkxNzJhMi0wNmYzLTRjZDMtYjc0NS0wY2JkMTYxMTkzMTcvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=Fns8VoFGx7V0gstm2beOQz-2ZYjbsoVZ~t6U037o2iyXSaTs-3x6fHDEibViihncGD~vX0LbJdjGKXqG7eRCN0jx7SHRcbDP7TtgvZW6dcIqpEfdJueeHIRNXtkEYY3k9wuZVBDnek45KG3OjXNFXxwHixlDGzM0hSQBLdqPyPIHzD8AJsZeM4ukHMoAyA9bb5s4d22Yv2HCGB0kcGxKOu5NuAWeTM955fN1FOrLX2c6JOOA~~6Opvv831FMN7vvK3kAb8SswZIUPEagro32qJXJOEc9ATxOKgZdwK4PRt4kzZ4oc6mt7okJ~JnZizQtuHZjMY0uqQdKArAC2jQ9Gw__"
+          uid=8_143 "10-17 18:52"
+          uid=8_144 button expandable haspopup="dialog"
+          uid=8_145 button
+          uid=8_146 button expandable haspopup="dialog"
+        uid=8_147 link "wooden fence 3d model 10-17 17:34" url="https://studio.tripo3d.ai/workspace/texture/wooden-fence-segments-with-posts-in-various-angles-brown-wood-texture-d74d264e-556b-4742-bb8d-52b57c21858c"
+          uid=8_148 image "wooden fence 3d model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20261017/ef3f0cf7-b68d-43b0-917b-f82796020f0f/studio_wireframe.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MTAxNy9lZjNmMGNmNy1iNjhkLTQzYjAtOTE3Yi1mODI3OTYwMjBmMGYvc3R1ZGlvX3dpcmVmcmFtZS53ZWJwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkyMzY4MDAwfX19XX0_&Signature=qKxg0E-bB7G7w21zbPDWvMEg4QC5fkD7WZh0rIgRCT~GLbWLR83yWfnaLM2FjIHL1gOPQYJH6aCDPp1-PKC-JfAzttH7nrSY0dNf-pgcGYjtt5zYN9jrTXvAScrPjJazsG4brmGCYVfcK1VwLwlLpPV2PqKDGCFYFWNutT3sYfIToqBdEWIsHwf7Xp~0vLAXwx8jDzysMc067AkaFy2xi1rVsqCXMekRwFzbDLgLW-Hql9M2SB~4R3F36EXZsJaH9FVuICCwu-Uyj-rgvAd~n86lQBsDuHzY~Yy2EYIJU3h2ugkIRNjlvmjBik9gAoAMdxt7NpUsH4QB2x9qwbAlaA__"
+          uid=8_149 "10-17 17:34"
+          uid=8_150 button expandable haspopup="dialog"
+          uid=8_151 button
+          uid=8_152 button expandable haspopup="dialog"
+        uid=8_153 link "Tripo Demo Model 10-17 10:14" url="https://studio.tripo3d.ai/workspace/texture/383767c5-e172-483e-b244-365d234ff82a"
+          uid=8_154 image "Tripo Demo Model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20260721/f95cca3a-b82f-4770-84eb-dab5e38f7ced/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MDcyMS9mOTVjY2EzYS1iODJmLTQ3NzAtODRlYi1kYWI1ZTM4ZjdjZWQvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=JUCnlv7p87Dd13OrfgZygw6Rohpbwn5SmLVarwH00Ilrx5el3QgmF3Hg5tfFoEeCtPABOSpEYC3ecr9EP-Ontjt406o3R6mPg5OIexcptC0BEBgohCb4mo5w7M8z-Xt8Q~wkgejEYwvE2J~zk4hzNrHhJQ1gqHt0lgOufijAXsqo3zrEqU4Vhd9P9kTrISN-yMzTblpQqAumtk1ToFO1Ane2Cqi45T9Ojlu1DmU6M~AUA20VYfKIRpLUindP467WcDowaaIwucOuIT5tgvl~d2lQhElVorPnqP5x8-YiFQJEecHmI210jPDvT3qvhhyNReIR44b2o3UhinTAHlhxyg__"
+          uid=8_155 "10-17 10:14"
+          uid=8_156 button expandable haspopup="dialog"
+          uid=8_157 button
+          uid=8_158 button expandable haspopup="dialog"
+        uid=8_159 link "Tripo Demo Model 10-17 10:14" url="https://studio.tripo3d.ai/workspace/texture/9d1053a0-2822-4e33-aba4-2ebed0ea6203"
+          uid=8_160 image "Tripo Demo Model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20260721/8db9a4c7-d35e-4d29-8e06-eff79614fae3/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MDcyMS84ZGI5YTRjNy1kMzVlLTRkMjktOGUwNi1lZmY3OTYxNGZhZTMvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=s6Ex7IFOiLYhETe3agafzTU40NBfQ6kTwHJjqkJtbsXih-xZnpahHhVnRhLOcEnh7ZBIiFihU9FW-1vU8VyYshNNB9Iux9vNV6qPF7RL7E55BDVObbnD9hG39hsWO8aKD~CIZpa0zCvW5UzfoJaLTCEz3CvKh4GajaqhdYS13GvGM5w-FqFFZK6dVZ~lGjbQegHE3yYSSpnnpLLQLeoydvpJgig8foqLb6tiw3CYnQZAqF6Sei36Ke0IWvFplCeLiEaloGEL5LuxHpz8VfZXUxxZrjzIE0GqXjmGokMmHxvLTrjJTETMKlSoC2w1HP6Pn7vS8cCwvQ--4gJYt1TATg__"
+          uid=8_161 "10-17 10:14"
+          uid=8_162 button expandable haspopup="dialog"
+          uid=8_163 button
+          uid=8_164 button expandable haspopup="dialog"
+        uid=8_165 link "Tripo Demo Model 10-17 10:14" url="https://studio.tripo3d.ai/workspace/texture/117e2a0e-3daa-412e-aa0e-c8d17114a320"
+          uid=8_166 image "Tripo Demo Model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20260721/03adfada-621f-4c7e-adf4-5f175c2df560/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MDcyMS8wM2FkZmFkYS02MjFmLTRjN2UtYWRmNC01ZjE3NWMyZGY1NjAvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=qbTLH~rb-O8kHLhQRpSPWP1TcZENUW3b70KyOxcDq45zmJvSJ5ECIhKICACimvDF7K0nxnBR1G67bLStS7f0WUsB8f1kTkTkIZZPBgp-ZU8WInXOzdNSgf2OKZKZhDxNS~KBL8-8MXhC3iuaKmBGk-yL-fYW9juFl8UwMDjPOmc5nRgiB7~kHsCGFM5DY-1DqtqGMGd-FRI~r-sGoNguV906lxCGnNLphPnqz68oemQAp48x0Lpg3HPKzP1G0ozmWYy23qqouqfrRJUc0WGazAL1WFAblNgLE2L5UjPdQn~5VWpnqhgce3yQFrkdM5fdqZQifOkxqemM~7hUa5LjuQ__"
+          uid=8_167 "10-17 10:14"
+          uid=8_168 button expandable haspopup="dialog"
+          uid=8_169 button
+          uid=8_170 button expandable haspopup="dialog"
+        uid=8_171 link "Tripo Demo Model 10-17 10:14" url="https://studio.tripo3d.ai/workspace/texture/37218550-ab37-404b-b384-bb2417cfc530"
+          uid=8_172 image "Tripo Demo Model" url="https://tripo-data.rg1.data.tripo3d.com/tripo-studio/20260721/be5a9344-93a4-4b42-a52c-fb3b52d5aedd/studio_mesh.webp?Key-Pair-Id=K1676C64NMVM2J&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly90cmlwby1kYXRhLnJnMS5kYXRhLnRyaXBvM2QuY29tL3RyaXBvLXN0dWRpby8yMDI2MDcyMS9iZTVhOTM0NC05M2E0LTRiNDItYTUyYy1mYjNiNTJkNWFlZGQvc3R1ZGlvX21lc2gud2VicCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5MjM2ODAwMH19fV19&Signature=FWLtvw53IHh~JZoS~YwsrtIt5s11nO78HlsRfLclJ3lLJ~fF29CHFk9Z1UOBCAYkkVmSlSIuCm5EXkwnokeHjgpmCBG1OKUSXkPCfaWcrsIrCKGK965gLzUcxIJxHMdFI2wn7w93Z4ns3QR9LfLYvdHzhh0zHCKgkAUxvoDdLFChfUhsVIBxtah7Mszdn9K6qLLesZk60Ha7DAWgxQRotvOo0h-Zon10KfJkCXO16zGd4ijX8ALKOvQlnfuYI2fGYPMc~DRWA9qdJ7AYuh11nZYilLifM~ujEwWlCV-H9V8WTWkira0nkw6c3TMzaiQ7l7tXUQlKQTMAaWs-nwRivg__"
+          uid=8_173 "10-17 10:14"
+          uid=8_174 button expandable haspopup="dialog"
+          uid=8_175 button
+          uid=8_176 button expandable haspopup="dialog"
+    uid=8_177 button "Smart Mesh P2.0: Quads & Edit"
+    uid=8_178 region roledescription="carousel"
+      uid=8_179 group roledescription="slide"
+        uid=8_180 button "New Smart Mesh P2.0: Quads & Edit Try For Free"
+    uid=8_181 button "Close"
+  uid=1_1 generic atomic live="polite" relevant="additions text"
+  uid=1_2 region "Notifications alt+T" live="polite" relevant="additions text"
+    uid=1_3 list
+  uid=1_4 generic live="polite" relevant="additions text"
+  uid=8_182 dialog
+  uid=8_183 dialog
+    uid=8_184 "Guide"
+    uid=8_185 button
+    uid=8_186 "1."
+    uid=8_187 "How Tripo Studio Works"
+    uid=8_188 "2."
+    uid=8_189 "How to Segment?"
+    uid=8_190 "3."
+    uid=8_191 "How to Improve Textures?"
+    uid=8_192 "4."
+    uid=8_193 "Basic Operations"
+    uid=8_194 "5."
+    uid=8_195 "Shortcuts"
+  uid=8_196 dialog "Export"
+    uid=8_197 "Export"
+    uid=8_198 button
+    uid=8_199 "File Name"
+    uid=8_200 textbox value="rock boulder 3d model"
+    uid=8_201 "Format"
+    uid=8_202 combobox expandable focusable focused haspopup="listbox" value="GLB"
+    uid=8_203 "Texture Resolution"
+    uid=8_204 combobox expandable haspopup="listbox" value="4k Current"
+    uid=8_205 button "Send To"
+      uid=8_206 region roledescription="carousel"
+        uid=8_207 group roledescription="slide"
+        uid=8_208 group roledescription="slide"
+        uid=8_209 group roledescription="slide"
+        uid=8_210 group roledescription="slide"
+        uid=8_211 group roledescription="slide"
+        uid=8_212 group roledescription="slide"
+        uid=8_213 group roledescription="slide"
+        uid=8_214 group roledescription="slide"
+        uid=8_215 group roledescription="slide"
+        uid=8_216 group roledescription="slide"
+        uid=8_217 group roledescription="slide"
+    uid=8_218 button "Export"
+  uid=8_219 generic

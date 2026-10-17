@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept cây — Act I</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:var(--foreground,#d4d1c4);font:14px/1.5 var(--font-sans,Segoe UI,sans-serif)}
+nav{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}button{font:inherit;color:var(--muted-foreground,#969e8c);background:var(--secondary,#262e26);border:1px solid var(--border,#434a3c);padding:8px 12px;border-radius:6px;cursor:pointer}button[aria-pressed=true]{color:var(--foreground,#eee5c9);border-color:#9d8b63;background:var(--accent-surface,#3c4234)}
+figure{margin:0}img{display:block;width:100%;height:auto;border-radius:6px}figure[hidden]{display:none}figcaption{margin:10px 0 0;color:var(--muted-foreground,#969e8c)}
+.facts{display:flex;gap:16px;flex-wrap:wrap;margin:14px 0 0;font-size:13px;color:var(--muted-foreground,#969e8c)}.facts b{color:var(--foreground,#d4d1c4);font-weight:500}
+</style></head><body>
+<nav aria-label="Chọn sheet">
+<button type="button" aria-pressed="true" data-i="0">01 · Cây Act I</button>
+<button type="button" aria-pressed="false" data-i="1">02 · Cành &amp; gỗ</button>
+<button type="button" aria-pressed="false" data-i="2">03 · Cây cháy</button>
+<button type="button" aria-pressed="false" data-i="3">04 · Landmark</button>
+<button type="button" aria-pressed="false" data-i="4">05 · Đọc hình</button>
+</nav>
+<main>
+<figure><img src="01_act1_dead_trees.png" width="1800" height="1200" alt="Bốn dáng cây trụi và một gốc mục Act I, lục xám ẩm, có nhãn tỷ lệ"><figcaption>Chồi 1 H · cây quặp 1.8 H · cây xoắn 2.8 H · cây nghiêng 1.6 H · gốc 0.3 H.</figcaption></figure>
+<figure hidden><img src="02_dry_branches_debris.png" width="1800" height="1200" alt="Sáu mẫu gỗ chết, cành vụn, rễ và bụi gai, phân biệt decal và vật cản"><figcaption>Decal cành vụn không cản đường; gỗ đặc và bụi gai là prop thấp ≤0.5 H.</figcaption></figure>
+<figure hidden><img src="03_burned_trees.png" width="1800" height="1200" alt="Ba lớp thời gian từ cây vừa cháy đến than nguội và rêu trở lại"><figcaption>Vừa cháy → than nguội → thiên nhiên chiếm lại. Cam chỉ ở biến thể vừa cháy; không bloom.</figcaption></figure>
+<figure hidden><img src="04_landmark_tree.png" width="1800" height="1200" alt="Cây Giữ Lời hai thân rỗng với dây lễ cũ và hero tham chiếu"><figcaption>Cây Giữ Lời · 3.25 H · dấu thề, dây lễ cũ, cành bị chặt · thiết kế nguyên bản.</figcaption></figure>
+<figure hidden><img src="05_readability_check.png" width="1800" height="1200" alt="Cây cạnh hero 75 px, silhouette đen, grayscale và cây mờ khi che hero"><figcaption>Mở PNG ở 100% để đo hero 75 px; preview trong chat tự thu theo chiều rộng cửa sổ.</figcaption></figure>
+</main>
+<div class="facts"><span><b>5 PNG</b> · 1800 × 1200</span><span><b>Hero +35.3 V</b> so với đất</span><span><b>Than hồng 1.50%</b> diện tích cây mới cháy</span></div>
+<script>
+const buttons=[...document.querySelectorAll('button')],figures=[...document.querySelectorAll('figure')];
+for(const b of buttons)b.addEventListener('click',()=>{for(const [i,f] of figures.entries()){f.hidden=i!==Number(b.dataset.i);buttons[i].setAttribute('aria-pressed',String(!f.hidden));}});
+console.log('Tree gallery ready:',figures.length,'sheets');
+</script></body></html>

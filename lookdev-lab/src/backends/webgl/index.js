@@ -144,8 +144,21 @@ export async function createWebGLBackend({ container, onShaderError }) {
 			renderer.info.reset();
 		},
 
+		/** Link every program `scene` needs before it is shown (otherwise each one stalls the frame it first appears in). */
 		async compile(scene, camera) {
-			if (renderer.compileAsync) await renderer.compileAsync(scene, camera);
+			if (!renderer.compileAsync) return;
+			// Program keys depend on the bound target (linear output into the HDR buffer, sRGB on screen): compile
+			// against the scene target so the cached programs are the ones render() asks for. The target only matters
+			// for the synchronous part of compileAsync.
+			const previous = renderer.getRenderTarget();
+			renderer.setRenderTarget(pipeline.sceneRT);
+			const done = renderer.compileAsync(scene, camera);
+			renderer.setRenderTarget(previous);
+			// compileAsync polls each program until it reports ready; a material recompiled meanwhile leaves it
+			// polling a deleted program forever, so never wait longer than a few seconds.
+			let timer = 0;
+			await Promise.race([done, new Promise((resolve) => (timer = setTimeout(resolve, 4000)))]);
+			clearTimeout(timer);
 		},
 
 		/** Resolves when the GPU has finished every submitted command. */

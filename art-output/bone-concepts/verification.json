@@ -1,0 +1,21 @@
+{
+  "hero_height_px": 75,
+  "hero_luma_min": 63.41,
+  "bone_luma_max": 44.84,
+  "bone_luma_mean": 31.79,
+  "cortex_min_excluding_damp_band": 20,
+  "clear_path_sub": 3,
+  "sub_diamond_px": [
+    32,
+    16
+  ],
+  "corridor_cross_vector_px": [
+    48,
+    24
+  ],
+  "value_method": "Rec.709 luma on sRGB encoded RGB; 0-100, excludes sheet text",
+  "geometry_note": "Blocking carcasses lie outside |y/Sub| <= 1.5; decals have no collision.",
+  "hero_minus_bone_peak": 18.57,
+  "blocking_geometry_clearance_in_sub": 0.766,
+  "blocking_vertices_in_corridor": 0
+}

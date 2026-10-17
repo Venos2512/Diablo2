@@ -1,14 +1,18 @@
 // Workspace tabs. Each panel owns a lil-gui instance mounted in the right column.
 import { buildLookdevPanel } from './lookdev.js';
+import { buildCharacterPanel } from './character.js';
 import { buildLightingPanel } from './lighting.js';
 import { buildPostPanel } from './post.js';
 import { buildShadersPanel } from './shaders.js';
 import { buildVfxPanel } from './vfx.js';
 import { buildEnvironmentPanel } from './environment.js';
 import { buildPerfPanel } from './perf.js';
+import { buildProceduralPanel } from './procedural.js';
 
 const TABS = [
 	['lookdev', 'Lookdev', buildLookdevPanel],
+	['character', 'Character', buildCharacterPanel],
+	['procedural', 'Procedural', buildProceduralPanel],
 	['lighting', 'Lighting', buildLightingPanel],
 	['post', 'Post & camera', buildPostPanel],
 	['shaders', 'Shaders', buildShadersPanel],

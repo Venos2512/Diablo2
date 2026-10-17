@@ -3,7 +3,7 @@
 import * as esbuild from 'esbuild';
 import http from 'node:http';
 import { createHash } from 'node:crypto';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { watch } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -73,6 +73,14 @@ await ctx.watch();
 // GLSL hot swap: push new source to the page, then refresh the bundle silently so a later reload stays current.
 const shaderDir = path.join(root, 'src/shaders');
 const pending = new Map();
+// On Windows fs.watch also fires when a file is only read (esbuild rebuilds, searches, antivirus). Each push
+// recompiles every material using the chunk, so only push real edits.
+const shaderText = new Map();
+for (const entry of await readdir(shaderDir, { recursive: true, withFileTypes: true })) {
+	if (!entry.isFile() || !entry.name.endsWith('.glsl')) continue;
+	const file = path.join(entry.parentPath ?? entry.path, entry.name);
+	shaderText.set(path.relative(shaderDir, file), await readFile(file, 'utf8'));
+}
 watch(shaderDir, { recursive: true }, (event, filename) => {
 	if (!filename || !filename.endsWith('.glsl')) return;
 	clearTimeout(pending.get(filename));
@@ -80,6 +88,8 @@ watch(shaderDir, { recursive: true }, (event, filename) => {
 		pending.delete(filename);
 		try {
 			const code = await readFile(path.join(shaderDir, filename), 'utf8');
+			if (shaderText.get(filename) === code) return;
+			shaderText.set(filename, code);
 			const rel = 'shaders/' + filename.split(path.sep).join('/');
 			console.log(`[lab] shader ${rel}`);
 			broadcast({ type: 'glsl', path: rel, code });

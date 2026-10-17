@@ -1,0 +1,3492 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diablo II — Art Direction tổng hợp</title>
+<style>
+  :root { --bg:#0d0b0a; --panel:#17130f; --line:#3a2f24; --text:#d8cbb3; --muted:#8c7f6a; --gold:#c7b377; --blood:#8a1c1c; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.65 "Segoe UI", "Noto Sans", Arial, sans-serif; }
+  nav { position:fixed; top:0; left:0; bottom:0; width:290px; overflow-y:auto; background:var(--panel); border-right:1px solid var(--line); padding:22px 16px 40px; }
+  nav .brand { font:600 17px/1.3 "Times New Roman", serif; color:var(--gold); margin-bottom:4px; letter-spacing:.03em; }
+  nav .date { font-size:11px; color:var(--muted); margin-bottom:16px; }
+  nav a { display:block; color:var(--muted); text-decoration:none; padding:3px 6px; border-radius:4px; font-size:13px; line-height:1.35; }
+  nav a:hover { background:#221b15; color:var(--text); }
+  nav a.l1 { color:var(--text); font-weight:600; margin-top:10px; }
+  nav a.l2 { padding-left:16px; font-size:12px; }
+  main { margin-left:290px; padding:40px 56px 80px; max-width:1180px; }
+  header.cover { border:1px solid var(--line); background:linear-gradient(180deg,#1d1611,#0d0b0a); border-radius:10px; padding:36px 32px; margin-bottom:36px; }
+  header.cover h1 { margin:0; font:600 34px/1.2 "Times New Roman", serif; color:var(--gold); letter-spacing:.04em; border:0; padding:0; }
+  header.cover p { color:var(--muted); margin:10px 0 0; }
+  .chapter { border-top:1px solid var(--line); padding-top:12px; margin-top:44px; }
+  h1 { font:600 28px/1.25 "Times New Roman", serif; color:var(--gold); margin:18px 0 14px; scroll-margin-top:16px; }
+  h2 { font:600 20px/1.3 "Times New Roman", serif; color:var(--text); margin:30px 0 10px; padding-bottom:4px; border-bottom:1px solid var(--line); scroll-margin-top:16px; }
+  h3 { font-size:15px; color:var(--gold); margin:22px 0 8px; text-transform:uppercase; letter-spacing:.04em; }
+  a { color:#d7a85a; }
+  strong { color:#efe2c8; }
+  blockquote { margin:16px 0; padding:12px 18px; border-left:3px solid var(--blood); background:#1a1310; color:#e6d7bb; border-radius:0 6px 6px 0; }
+  blockquote p { margin:0; }
+  table { border-collapse:collapse; width:100%; margin:12px 0 18px; font-size:13.5px; display:block; overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:#211a14; color:var(--gold); font-weight:600; }
+  tr:nth-child(even) td { background:#120f0c; }
+  code { font:12.5px Consolas, monospace; background:#211a14; padding:1px 5px; border-radius:3px; color:#e8c98a; }
+  pre { background:#120f0c; border:1px solid var(--line); border-radius:6px; padding:14px; overflow-x:auto; }
+  pre code { background:none; padding:0; color:var(--text); }
+  li.todo { list-style:none; margin-left:-18px; }
+  li.todo::before { content:"☐  "; color:var(--gold); }
+  li.todo.done::before { content:"☑  "; }
+  hr { border:0; border-top:1px solid var(--line); }
+  figure.chart { margin:24px 0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:var(--bg); }
+  figure.chart figcaption { padding:8px 14px; background:var(--panel); color:var(--gold); font-size:13px; font-weight:600; }
+  figure.chart figcaption span { color:var(--muted); font-weight:normal; }
+  figure.chart iframe { width:100%; height:600px; border:0; display:block; }
+  @media (max-width:900px) { nav { position:static; width:auto; border-right:0; border-bottom:1px solid var(--line); max-height:50vh; } main { margin-left:0; padding:24px 18px 60px; } }
+  @media print { nav { display:none; } main { margin:0; max-width:none; } body { background:#fff; color:#111; } h1,h3 { color:#5a3b10; } th { background:#eee; color:#111; } tr:nth-child(even) td { background:#f7f7f7; } strong { color:#000; } blockquote { background:#f4eee4; color:#222; } .chapter { break-before:page; } }
+</style>
+</head>
+<body>
+<nav><div class="brand">Diablo II — Art Direction tổng hợp</div><div class="date">Tổng hợp 2026-10-17</div><a class="l1" href="#tóm-tắt-art-direction-diablo-ii">Tóm tắt Art Direction — Diablo II</a><a class="l2" href="#1-tầm-nhìn">1. Tầm nhìn</a><a class="l2" href="#2-sáu-trụ-cột-và-thứ-tự-ưu-tiên-ch01">2. Sáu trụ cột và thứ tự ưu tiên → Ch.01</a><a class="l2" href="#3-theme-giọng-kể-mức-kinh-dị-ch02">3. Theme, giọng kể, mức kinh dị → Ch.02</a><a class="l2" href="#4-năm-act-ch03-ch11">4. Năm Act → Ch.03, Ch.11</a><a class="l2" href="#5-màu-và-ánh-sáng-ch04">5. Màu và ánh sáng → Ch.04</a><a class="l2" href="#6-hình-khối-vật-liệu-camera-ch05-ch12">6. Hình khối, vật liệu, camera → Ch.05, Ch.12</a><a class="l2" href="#7-nhân-vật-và-quái-ch06-ch12">7. Nhân vật và quái → Ch.06, Ch.12</a><a class="l2" href="#8-combat-feel-và-vfx-ch07">8. Combat feel và VFX → Ch.07</a><a class="l2" href="#9-ui-loot-âm-thanh-ch08">9. UI, loot, âm thanh → Ch.08</a><a class="l2" href="#10-cảnh-quan-và-công-trình-ch12">10. Cảnh quan và công trình → Ch.12</a><a class="l2" href="#11-duyệt-ch09">11. Duyệt → Ch.09</a><a class="l2" href="#12-thứ-tự-sản-xuất-đề-xuất">12. Thứ tự sản xuất đề xuất</a><a class="l2" href="#13-việc-còn-phải-xác-minh">13. Việc còn phải xác minh</a><a class="l1" href="#01-tầm-nhìn-và-trụ-cột-hình-ảnh">01 — Tầm nhìn và trụ cột hình ảnh</a><a class="l2" href="#tầm-nhìn-một-câu">Tầm nhìn một câu</a><a class="l2" href="#cảm-giác-cốt-lõi-feel-5-tính-từ">Cảm giác cốt lõi (feel) — 5 tính từ</a><a class="l2" href="#sáu-trụ-cột-hình-ảnh">Sáu trụ cột hình ảnh</a><a class="l2" href="#thứ-tự-ưu-tiên-khi-các-trụ-cột-xung-đột">Thứ tự ưu tiên khi các trụ cột xung đột</a><a class="l2" href="#câu-hỏi-kiểm-tra-nhanh-dùng-trong-mọi-buổi-duyệt">Câu hỏi kiểm tra nhanh (dùng trong mọi buổi duyệt)</a><a class="l1" href="#02-theme-và-câu-chuyện-bằng-hình-ảnh">02 — Theme và câu chuyện bằng hình ảnh</a><a class="l2" href="#chủ-đề-lớn">Chủ đề lớn</a><a class="l2" href="#giọng-kể">Giọng kể</a><a class="l2" href="#motif-hình-ảnh-lặp-lại">Motif hình ảnh lặp lại</a><a class="l2" href="#mức-độ-kinh-dị-thang-đo-d2">Mức độ kinh dị — &quot;thang đo D2&quot;</a><a class="l2" href="#ảnh-hưởng-thẩm-mỹ-để-tìm-ref-diễn-giải-ad-không-phải-nguồn-blizzard-công-bố-trừ-chỗ-ghi-rõ">Ảnh hưởng thẩm mỹ để tìm ref [Diễn giải AD — không phải nguồn Blizzard công bố, trừ chỗ ghi rõ]</a><a class="l1" href="#03-mood-theo-act">03 — Mood theo Act</a><a class="l2" href="#đường-cong-cảm-xúc-toàn-game-diễn-giải-ad">Đường cong cảm xúc toàn game [Diễn giải AD]</a><a class="l2" href="#act-i-đồng-hoang-và-tu-viện-bị-ô-uế">Act I — &quot;Đồng hoang và tu viện bị ô uế&quot;</a><a class="l2" href="#act-ii-sa-mạc-của-những-lăng-mộ">Act II — &quot;Sa mạc của những lăng mộ&quot;</a><a class="l2" href="#act-iii-rừng-mưa-và-giáo-hội-mục-ruỗng">Act III — &quot;Rừng mưa và giáo hội mục ruỗng&quot;</a><a class="l2" href="#act-iv-bản-thân-địa-ngục">Act IV — &quot;Bản thân Địa ngục&quot;</a><a class="l2" href="#act-v-lod-thành-lũy-cuối-cùng-trên-tuyết">Act V (LoD) — &quot;Thành lũy cuối cùng trên tuyết&quot;</a><a class="l2" href="#bảng-so-sánh-nhanh">Bảng so sánh nhanh</a><a class="l2" href="#biến-thể-độ-khó-normal-nightmare-hell">Biến thể độ khó (Normal / Nightmare / Hell)</a><a class="l1" href="#04-màu-sắc-và-ánh-sáng">04 — Màu sắc và ánh sáng</a><a class="l2" href="#1-dữ-kiện-kỹ-thuật-của-bản-gốc">1. Dữ kiện kỹ thuật của bản gốc</a><a class="l2" href="#2-quy-tắc-palette-tổng-diễn-giải-ad">2. Quy tắc palette tổng [Diễn giải AD]</a><a class="l2" href="#3-cấu-trúc-giá-trị-sáng-value-structure">3. Cấu trúc giá trị sáng (value structure)</a><a class="l2" href="#4-palette-đề-xuất-theo-act-diễn-giải-ad-màu-xấp-xỉ">4. Palette đề xuất theo Act [Diễn giải AD — màu xấp xỉ]</a><a class="l2" href="#5-ánh-sáng">5. Ánh sáng</a><a class="l2" href="#6-màu-trong-các-hệ-thống">6. Màu trong các hệ thống</a><a class="l1" href="#05-hình-khối-vật-liệu-camera">05 — Hình khối, vật liệu, camera</a><a class="l2" href="#1-camera-và-tỷ-lệ">1. Camera và tỷ lệ</a><a class="l2" href="#2-shape-language">2. Shape language</a><a class="l2" href="#3-vật-liệu">3. Vật liệu</a><a class="l2" href="#4-môi-trường-module">4. Môi trường module</a><a class="l2" href="#5-bóng-đổ">5. Bóng đổ</a><a class="l1" href="#06-nhân-vật-quái-boss">06 — Nhân vật, quái, boss</a><a class="l2" href="#1-hero-người-thường-được-rèn-bởi-nghề">1. Hero — &quot;người thường được rèn bởi nghề&quot;</a><a class="l2" href="#2-quái-gia-đình-và-biến-thể">2. Quái — gia đình và biến thể</a><a class="l2" href="#3-boss-biểu-tượng-của-một-tội-lỗi">3. Boss — &quot;biểu tượng của một tội lỗi&quot;</a><a class="l2" href="#4-npc-thị-trấn">4. NPC thị trấn</a><a class="l2" href="#5-animation-feel">5. Animation feel</a><a class="l1" href="#07-combat-feel-và-vfx">07 — Combat feel và VFX</a><a class="l2" href="#1-vòng-lặp-một-cú-click-diễn-giải-ad">1. Vòng lặp một cú click [Diễn giải AD]</a><a class="l2" href="#2-impact">2. Impact</a><a class="l2" href="#3-chết-art-quan-trọng-nhất-của-quái">3. Chết — art quan trọng nhất của quái</a><a class="l2" href="#4-ngôn-ngữ-phép-theo-nguyên-tố">4. Ngôn ngữ phép theo nguyên tố</a><a class="l2" href="#5-máu-gore-kiểm-duyệt">5. Máu, gore, kiểm duyệt</a><a class="l2" href="#6-feedback-trạng-thái-trên-nhân-vật">6. Feedback trạng thái trên nhân vật</a><a class="l1" href="#08-ui-loot-và-âm-thanh">08 — UI, loot và âm thanh</a><a class="l2" href="#1-ui-đá-sắt-và-da">1. UI — &quot;đá, sắt và da&quot;</a><a class="l2" href="#2-loot-art-cốt-lõi">2. Loot — art cốt lõi</a><a class="l2" href="#3-âm-thanh-nửa-kia-của-hình-ảnh">3. Âm thanh — nửa kia của hình ảnh</a><a class="l1" href="#09-nên-không-nên-và-tiêu-chí-duyệt">09 — Nên / Không nên và tiêu chí duyệt</a><a class="l2" href="#1-nên-không-nên">1. Nên / Không nên</a><a class="l2" href="#2-rubric-duyệt-thang-15">2. Rubric duyệt (thang 1–5)</a><a class="l2" href="#3-red-flag-dừng-ngay">3. Red flag — dừng ngay</a><a class="l2" href="#4-quy-trình-duyệt-đề-xuất">4. Quy trình duyệt đề xuất</a><a class="l1" href="#11-act-i-phân-tích-chi-tiết">11 — Act I: phân tích chi tiết</a><a class="l2" href="#1-vai-trò-của-act-i-trong-toàn-game">1. Vai trò của Act I trong toàn game</a><a class="l2" href="#2-cấu-trúc-không-gian-và-nhịp">2. Cấu trúc không gian và nhịp</a><a class="l2" href="#3-phân-tích-từng-vùng">3. Phân tích từng vùng</a><a class="l2" href="#4-tu-viện-chuỗi-từ-công-cộng-tới-linh-thiêng-tới-cái-chết">4. Tu viện — chuỗi &quot;từ công cộng tới linh thiêng tới cái chết&quot;</a><a class="l2" href="#5-quái-act-i-đọc-theo-vai-trò">5. Quái Act I — đọc theo vai trò</a><a class="l2" href="#6-boss-andariel-maiden-of-anguish">6. Boss: Andariel — &quot;Maiden of Anguish&quot;</a><a class="l2" href="#7-blood-raven-nhân-vật-mang-theme-của-act">7. Blood Raven — nhân vật mang theme của Act</a><a class="l2" href="#8-rogue-encampment-thị-trấn-như-nhân-vật">8. Rogue Encampment — thị trấn như nhân vật</a><a class="l2" href="#9-âm-thanh-act-i">9. Âm thanh Act I</a><a class="l2" href="#10-color-script-act-i">10. Color script Act I</a><a class="l2" href="#11-bộ-tileset-act-i-cần-sản-xuất">11. Bộ tileset Act I cần sản xuất</a><a class="l2" href="#12-trải-nghiệm-10-phút-đầu-blood-moor-phải-đúng-tuyệt-đối">12. Trải nghiệm 10 phút đầu (Blood Moor) — phải đúng tuyệt đối</a><a class="l2" href="#13-checklist-duyệt-riêng-act-i">13. Checklist duyệt riêng Act I</a><a class="l2" href="#14-nguồn-cho-file-này">14. Nguồn cho file này</a><a class="l1" href="#12-quy-chuẩn-kích-thước-quái-bộ-quái-tạo-hình-quái-cảnh-quan-công-trình">12 — Quy chuẩn: kích thước quái, bộ quái, tạo hình quái, cảnh quan, công trình</a><a class="l2" href="#0-đơn-vị-đo-chung">0. Đơn vị đo chung</a><a class="l2" href="#1-kích-thước-quái">1. Kích thước quái</a><a class="l2" href="#2-bộ-quái-family-và-đội-hình">2. Bộ quái (family) và đội hình</a><a class="l2" href="#3-tạo-hình-quái">3. Tạo hình quái</a><a class="l2" href="#4-cảnh-quan-ngoài-trời">4. Cảnh quan (ngoài trời)</a><a class="l2" href="#5-công-trình">5. Công trình</a><a class="l2" href="#6-quy-định-bàn-giao-áp-cho-quái-cảnh-quan-công-trình">6. Quy định bàn giao (áp cho quái, cảnh quan, công trình)</a><a class="l2" href="#7-checklist-duyệt-nhanh">7. Checklist duyệt nhanh</a><a class="l1" href="#10-nguồn-tham-khảo">10 — Nguồn tham khảo</a><a class="l2" href="#nguồn-chính-đã-đọc-khi-soạn-tài-liệu">Nguồn chính (đã đọc khi soạn tài liệu)</a><a class="l2" href="#nguồn-trong-repo">Nguồn trong repo</a><a class="l2" href="#nguồn-nên-đọc-thêm">Nguồn nên đọc thêm</a></nav>
+<main>
+<header class="cover"><h1>Diablo II — Art Direction tổng hợp</h1><p>Visual · Theme · Mood · Feel · Quy chuẩn sản xuất. Nhãn độ tin cậy: [Đã xác minh]/[XM] nguồn Blizzard · [Quan sát]/[QS] kiểm tra được trong game · [Diễn giải AD] đề xuất của tài liệu. Mã HEX là màu xấp xỉ.</p></header>
+<section class="chapter"><h1 id="tóm-tắt-art-direction-diablo-ii">Tóm tắt Art Direction — Diablo II</h1>
+<blockquote>
+<p>Bản một trang cho lead và người mới. Mỗi mục chỉ về chương chi tiết. Nhãn: <strong>[XM]</strong> đã xác minh từ nguồn Blizzard · <strong>[QS]</strong> quan sát trong game · còn lại là quy định/đề xuất AD.</p>
+</blockquote>
+<h2 id="1-tầm-nhìn">1. Tầm nhìn</h2>
+<blockquote>
+<p><strong>"Một thế giới trung cổ đang mục rữa từ bên trong, nơi ánh sáng là thứ xa xỉ — người chơi là ngọn đuốc nhỏ đi xuyên bóng tối, và mỗi con quái gục xuống là một phần thưởng."</strong></p>
+</blockquote>
+<ul>
+<li><strong>Diablo II không "tối" — nó <em>thiếu sáng</em>.</strong> Bóng tối có nguồn, có giới hạn; thứ cần thấy luôn thấy được.</li>
+<li><strong>Cảm giác:</strong> Nặng · Cũ · Cô độc · Bị đe dọa · Thỏa mãn.</li>
+<li><strong>Không phải:</strong> fantasy anh hùng, cartoon, bão hòa, jump-scare, pháo hoa loot.</li>
+</ul>
+<h2 id="2-sáu-trụ-cột-và-thứ-tự-ưu-tiên-ch01">2. Sáu trụ cột và thứ tự ưu tiên → Ch.01</h2>
+<table>
+<thead>
+<tr>
+<th>Ưu tiên</th>
+<th>Trụ cột</th>
+<th>Một dòng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Đọc được trong hỗn loạn</strong></td>
+<td>Hero 75 px; 8 nhân vật + 30 quái + 100 đạn cùng lúc [XM] → silhouette và giá trị sáng gánh nhận diện</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Ánh sáng là tài nguyên</strong></td>
+<td>Light radius là cơ chế; dungeon tối thật</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Hiện thực u ám</strong></td>
+<td>Tỷ lệ gần thật, đồ có logic chế tác</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Mỗi vùng một văn hóa</strong></td>
+<td>Nhận ra Act qua một ảnh chụp; Act III tham chiếu Maya/Aztec [XM]</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>Tha hóa của cái thiêng</strong></td>
+<td>Mọi biểu tượng thiêng đều bị chiếm, vấy máu, phản bội</td>
+</tr>
+<tr>
+<td>—</td>
+<td><strong>Vòng lặp phần thưởng đẹp</strong></td>
+<td>Quái "chết kịch tính", "dòng phần thưởng liên tục" [XM]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-theme-giọng-kể-mức-kinh-dị-ch02">3. Theme, giọng kể, mức kinh dị → Ch.02</h2>
+<ul>
+<li>Chủ đề: <strong>sa ngã và tha hóa</strong>, kẻ lang thang bị chiếm hữu, hành trình về phía đông, con người nhỏ bé, hy vọng mong manh.</li>
+<li>Giọng kể: lời thú tội của Marius; kể bằng môi trường hơn bằng chữ; <strong>hiện thực trước, siêu nhiên sau</strong>.</li>
+<li>8 motif: xác như kiến trúc · lửa đơn lẻ · máu như sơn · cổng và ngưỡng · đá cổ khắc chữ · song sắt và xích · thiên nhiên chiếm lại · đổ nát sau chiến tranh.</li>
+<li>Thang kinh dị 1–5 (u buồn → bạo lực đã xảy ra → nghi lễ → thân xác biến dạng → địa ngục). <strong>Mỗi Act leo từ thấp lên cao.</strong> Gore có trọng lượng, không khoe khoang.</li>
+</ul>
+<h2 id="4-năm-act-ch03-ch11">4. Năm Act → Ch.03, Ch.11</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Act I</th>
+<th>Act II</th>
+<th>Act III</th>
+<th>Act IV</th>
+<th>Act V</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Một câu</td>
+<td>Chiều mưa ở vùng quê bị bỏ rơi</td>
+<td>Trưa chói chang — lạnh dưới mộ</td>
+<td>Mọi thứ rỉ nước và đang mục</td>
+<td>Rơi vào bụng sinh vật đang cháy</td>
+<td>Tuyết trên chiến trường còn khói</td>
+</tr>
+<tr>
+<td>Văn hóa</td>
+<td>Gothic châu Âu</td>
+<td>Ba Tư/Ai Cập</td>
+<td>Maya/Aztec</td>
+<td>Quỷ dữ</td>
+<td>Bắc Âu/Celt</td>
+</tr>
+<tr>
+<td>Màu chữ ký</td>
+<td>Xanh rêu xám</td>
+<td>Vàng cát</td>
+<td>Lục đầm lầy</td>
+<td>Đỏ-đen dung nham</td>
+<td>Trắng-lam băng</td>
+</tr>
+<tr>
+<td>Màu kẻ lạ</td>
+<td>Máu</td>
+<td>Tím Arcane</td>
+<td>Đỏ thịt Durance</td>
+<td>Lam thiên đường</td>
+<td>Lam ngọc Worldstone</td>
+</tr>
+</tbody>
+</table>
+<p>Nhịp mỗi Act: <strong>thị trấn (thở) → hoang dã (khám phá) → dungeon (áp lực) → boss (đỉnh)</strong>; đỉnh sau cao hơn đỉnh trước.</p>
+<p><strong>Act I</strong> (Ch.11): ba chương <em>vùng quê bị bỏ rơi → vùng hoang sâu → tu viện bị ô uế</em>; Tristram là nhịp buồn ở giữa; tu viện đi từ công cộng → linh thiêng → cái chết, tối dần và đỏ dần; Inner Cloister phải đẹp nhất; Blood Raven là hình ảnh tóm tắt theme.</p>
+<h2 id="5-màu-và-ánh-sáng-ch04">5. Màu và ánh sáng → Ch.04</h2>
+<ol>
+<li><strong>Nền khử bão hòa, điểm nhấn bão hòa có lý do.</strong> Diện tích: nền ~85%, nguồn sáng ~10%, màu kẻ lạ ≤ 5%.</li>
+<li><strong>Ba tầng giá trị:</strong> nền 15–35 · nhân vật 35–65 (sáng hơn nền ≥ 15) · lửa/phép/loot 70–100. Ngoại lệ sa mạc/tuyết: nhân vật tối hơn nền.</li>
+<li><strong>Tối không bằng đen</strong> — bóng ngả màu bổ sung của Act; đen tuyền chỉ ở rìa light radius.</li>
+<li><strong>Màu là thông tin:</strong> đỏ máu, lam mana/lạnh/portal, lục độc, vàng điện/hiếm. Không dùng làm trang trí gây nhầm.</li>
+<li><strong>Ánh sáng là điểm, không phải phủ.</strong> Phép là nguồn sáng (colored lights [XM]). Không god-ray, không bloom diện rộng.</li>
+<li>Bản gốc: 256 màu, palette riêng mỗi Act [QS] → dự án true-color phải <em>tự áp</em> giới hạn này.</li>
+</ol>
+<h2 id="6-hình-khối-vật-liệu-camera-ch05-ch12">6. Hình khối, vật liệu, camera → Ch.05, Ch.12</h2>
+<ul>
+<li>Isometric cố định; hero <strong>75 px = 1 H</strong>; hero 16 hướng, quái 8 hướng; pipeline 3D → render sprite [XM].</li>
+<li><strong>Silhouette trước, chi tiết sau</strong> — mỗi quái phải nhận ra khi tô đen ở kích thước thật.</li>
+<li>Vật liệu: mỗi chất liệu một kiểu hư hại riêng; không chrome, không grunge phủ chung, máu đỏ đậm gần nâu.</li>
+<li>Duyệt <strong>ở kích thước trong game</strong>, không duyệt trên render lớn.</li>
+</ul>
+<h2 id="7-nhân-vật-và-quái-ch06-ch12">7. Nhân vật và quái → Ch.06, Ch.12</h2>
+<ul>
+<li>Hero là <strong>nguyên mẫu văn hóa</strong>, không phải siêu anh hùng; giáp module light/medium/heavy, hàng trăm biến thể [XM]; giáp không được xóa silhouette lớp nhân vật.</li>
+<li><strong>Cấp kích thước:</strong> XS 0.25–0.45 H · S 0.5–0.75 H · M 0.85–1.15 H · L 1.25–1.6 H · XL 1.7–2.3 H · Boss 2–3.5 H.</li>
+<li><strong>Không phóng to quái tinh nhuệ</strong> — phân biệt bằng palette, aura, tên màu.</li>
+<li><strong>Bộ quái:</strong> 1 bộ hình gốc → 2–4 biến thể palette (đe dọa tăng dần) + biến thể vai trò + Super Unique. Mỗi vùng <strong>3–4 gia đình</strong>, khác nhau ở ≥ 2/3: cấp, dáng di chuyển, palette.</li>
+<li><strong>Quy tắc "một điều sai":</strong> quái Act đầu chỉ lệch 1–2 điểm so với tự nhiên; Act IV mới hoàn toàn phi tự nhiên.</li>
+<li>Boss: một ý niệm tội lỗi, silhouette độc nhất, phòng boss là khung tranh.</li>
+<li>Animation: trọng lượng trước tốc độ; anticipation rõ; hit recovery đọc được ở 75 px; chết đa dạng, xác ở lại.</li>
+</ul>
+<h2 id="8-combat-feel-và-vfx-ch07">8. Combat feel và VFX → Ch.07</h2>
+<ul>
+<li>Vòng lặp: <strong>click → lấy đà → impact → giật → chết → xác → đồ rơi (tiếng + nhãn màu)</strong>. Thiếu một bước là hỏng cảm giác.</li>
+<li>Phép theo nguyên tố: <strong>hình đọc được trước màu</strong> (lửa cuộn, lạnh nhọn, điện gấp khúc, độc mây).</li>
+<li>Additive tiết chế; màn hình đầy phép vẫn phải thấy quái. Không rung màn hình liên tục.</li>
+</ul>
+<h2 id="9-ui-loot-âm-thanh-ch08">9. UI, loot, âm thanh → Ch.08</h2>
+<ul>
+<li>UI là <strong>đá, sắt, da</strong>, trầm hơn gameplay — khung tranh, không phải tranh.</li>
+<li>Loot: icon túi đồ nổi khối đẹp; <strong>màu chữ + âm thanh rơi</strong> gánh cảm xúc; không cột sáng cho mọi đồ hiếm.</li>
+<li>Âm thanh "đóng góp rất lớn vào không khí" [XM]; nhạc Uelmen: guitar, bộ gõ, thu âm thật, ambient công nghiệp [XM]. <strong>Luôn duyệt animation kèm âm thanh.</strong></li>
+</ul>
+<h2 id="10-cảnh-quan-và-công-trình-ch12">10. Cảnh quan và công trình → Ch.12</h2>
+<table>
+<thead>
+<tr>
+<th>Quy định</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đường đi chính</td>
+<td>≥ 3 Sub</td>
+</tr>
+<tr>
+<td>Vùng mở chiến đấu</td>
+<td>≥ 8×8 Sub mỗi 1–2 màn hình</td>
+</tr>
+<tr>
+<td>Landmark</td>
+<td>1 cái mỗi 1–2 màn hình (bài học Act IV [XM])</td>
+</tr>
+<tr>
+<td>Cửa / cổng</td>
+<td>1.3–1.5 H, ≥ 2 Sub / 2–3 H, ≥ 3–4 Sub</td>
+</tr>
+<tr>
+<td>Tường trong / tường trước hero</td>
+<td>1.5–2 H / ≤ 0.5 H hoặc ẩn</td>
+</tr>
+<tr>
+<td>Phòng boss</td>
+<td>≥ 20×20 Sub</td>
+</tr>
+<tr>
+<td>3 lớp thời gian</td>
+<td>Xây gốc → thời gian → thảm họa gần đây (tăng dần khi vào sâu)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="11-duyệt-ch09">11. Duyệt → Ch.09</h2>
+<p><strong>Quy trình 5 bước:</strong> ảnh đen trắng → thu 25% → cảnh đông (≥ 20 quái + 3 phép) → so ref board Act → chạy kèm âm thanh.</p>
+<p><strong>Rubric 9 tiêu chí (1–5):</strong> đọc được · silhouette · giá trị sáng · palette Act · ánh sáng · vật liệu · theme · feel · kỹ thuật. Vertical slice cần trung bình ≥ 3.5, không tiêu chí nào &lt; 3, <em>đọc được</em> và <em>giá trị sáng</em> ≥ 4.</p>
+<p><strong>Red flag — dừng ngay:</strong> hero lẫn vào nền · màu gameplay dùng làm trang trí · Act đổi tên được mà không ai nhận ra · boss không nổi nhất phòng · cảnh đẹp mà "không có gì đã xảy ra ở đây".</p>
+<p><strong>5 bẫy khi làm giống D2:</strong> quá tối · quá nâu · quá chi tiết · copy D3/D4 · coi D2 là pixel art.</p>
+<h2 id="12-thứ-tự-sản-xuất-đề-xuất">12. Thứ tự sản xuất đề xuất</h2>
+<ol>
+<li><strong>Chốt quy chuẩn:</strong> H, Sub, hướng sáng, palette Act I, rubric (Ch.04, 12).</li>
+<li><strong>Vertical slice Act I:</strong> Rogue Encampment + Blood Moor + Den of Evil + 1 tầng Catacombs; Fallen, Shaman, Zombie, Corrupt Rogue; 1 hero; UI + loot + âm thanh. Đạt 7 khoảnh khắc "10 phút đầu" (Ch.11 §12).</li>
+<li><strong>Hoàn thiện Act I</strong> theo color script 15 khung.</li>
+<li>Mở rộng các Act theo bảng Ch.03, mỗi Act bắt đầu bằng ref board + palette + kit kiến trúc.</li>
+</ol>
+<h2 id="13-việc-còn-phải-xác-minh">13. Việc còn phải xác minh</h2>
+<ul>
+<li>Mã HEX: đều là xấp xỉ — trích từ <code>pal.dat</code> ACT1–5 nếu cần màu gốc.</li>
+<li>Tile 160×80 / 5×5 Sub, 25 fps, mode animation, <code>SizeX/SizeY</code>: đối chiếu công cụ mod / <code>MonStats2</code> / <code>levels.txt</code>.</li>
+<li>Area level của Crypt, Mausoleum, Forgotten Tower và chuỗi tu viện.</li>
+<li>Phân bố quái theo từng vùng và track nhạc theo vùng (ngoài "Rogue").</li>
+<li>Oral history USgamer chưa đọc được (503).</li>
+</ul></section>
+<section class="chapter"><h1 id="01-tầm-nhìn-và-trụ-cột-hình-ảnh">01 — Tầm nhìn và trụ cột hình ảnh</h1>
+<h2 id="tầm-nhìn-một-câu">Tầm nhìn một câu</h2>
+<blockquote>
+<p><strong>"Một thế giới trung cổ đang mục rữa từ bên trong, nơi ánh sáng là thứ xa xỉ — người chơi là ngọn đuốc nhỏ đi xuyên bóng tối, và mỗi con quái gục xuống là một phần thưởng."</strong> [Diễn giải AD]</p>
+</blockquote>
+<p>Nếu chỉ nhớ một điều: <strong>Diablo II không "tối" — nó <em>thiếu sáng</em>.</strong> Bóng tối có chủ ý, có nguồn, có giới hạn. Người chơi luôn thấy rõ thứ cần thấy.</p>
+<h2 id="cảm-giác-cốt-lõi-feel-5-tính-từ">Cảm giác cốt lõi (feel) — 5 tính từ</h2>
+<table>
+<thead>
+<tr>
+<th>Tính từ</th>
+<th>Nghĩa trong game</th>
+<th>Không phải là</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nặng (Heavy)</strong></td>
+<td>Giáp sắt, đá mòn, bước chân, đòn đánh có trọng lượng</td>
+<td>Chậm chạp, ì</td>
+</tr>
+<tr>
+<td><strong>Cũ (Aged)</strong></td>
+<td>Mọi thứ đã tồn tại lâu trước người chơi và đang hỏng dần</td>
+<td>Bẩn ngẫu nhiên, nhiễu đều</td>
+</tr>
+<tr>
+<td><strong>Cô độc (Lonely)</strong></td>
+<td>Hoang dã rộng, ít người, âm thanh xa</td>
+<td>Trống rỗng, nhàm</td>
+</tr>
+<tr>
+<td><strong>Bị đe dọa (Threatened)</strong></td>
+<td>Mép màn hình là bóng tối; luôn có thứ gì ngoài kia</td>
+<td>Jump-scare, kinh dị rẻ</td>
+</tr>
+<tr>
+<td><strong>Thỏa mãn (Rewarding)</strong></td>
+<td>Quái chết dứt khoát, đồ rơi lấp lánh, âm thanh rơi đồ</td>
+<td>Pháo hoa lòe loẹt, rối mắt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sáu-trụ-cột-hình-ảnh">Sáu trụ cột hình ảnh</h2>
+<h3 id="trụ-cột-1-hiện-thực-u-ám-không-phải-fantasy-anh-hùng">Trụ cột 1 — Hiện thực u ám, không phải fantasy anh hùng</h3>
+<p>Tỷ lệ người gần thật, trang phục có logic chế tác, kiến trúc có công năng. Phép thuật và quỷ dữ nổi bật <em>vì</em> nền đời thường đáng tin. [Diễn giải AD, dựa trên quan sát]</p>
+<ul>
+<li>Có: giáp xích, da thuộc, vải thô, tóc rối, sẹo.</li>
+<li>Không: vai giáp khổng lồ kiểu cartoon, màu bão hòa, vũ khí to gấp đôi người.</li>
+</ul>
+<h3 id="trụ-cột-2-ánh-sáng-là-tài-nguyên">Trụ cột 2 — Ánh sáng là tài nguyên</h3>
+<p>Người chơi mang theo vùng sáng quanh mình (light radius là chỉ số thật trong game, item có thể tăng/giảm). Dungeon tối thật sự; mép màn hình chìm vào đen. <strong>Bóng tối là cơ chế gameplay, không chỉ thẩm mỹ.</strong> [Quan sát]</p>
+<h3 id="trụ-cột-3-tha-hóa-của-cái-thiêng">Trụ cột 3 — Tha hóa của cái thiêng</h3>
+<p>Nhà thờ, tu viện, đền, lăng mộ, giáo hội — mọi biểu tượng thiêng đều đã bị chiếm, vấy máu, hoặc phản bội. Hình ảnh mạnh nhất là <em>cái đẹp bị làm ô uế</em>, không phải cái xấu thuần túy. [Diễn giải AD]</p>
+<h3 id="trụ-cột-4-đọc-được-trong-hỗn-loạn">Trụ cột 4 — Đọc được trong hỗn loạn</h3>
+<p>Nhân vật người chơi chỉ cao khoảng <strong>75 pixel</strong> trên màn hình [Đã xác minh — postmortem]. Engine phải hiện cùng lúc 8 nhân vật, 30+ quái, 100+ đạn/phép [Đã xác minh]. Vì vậy silhouette, chuyển động và độ tương phản giá trị phải gánh việc nhận diện — không phải chi tiết.</p>
+<h3 id="trụ-cột-5-mỗi-vùng-một-văn-hóa">Trụ cột 5 — Mỗi vùng một "văn hóa"</h3>
+<p>Kiến trúc Diablo "kết hợp nhiều nền văn hóa khác nhau"; Act III lấy tham chiếu Maya và Aztec [Đã xác minh — postmortem]. Mỗi Act là một chuyến đi tới vùng đất mới với vật liệu, khí hậu và palette riêng. Người chơi phải nhận ra Act chỉ qua một ảnh chụp màn hình.</p>
+<h3 id="trụ-cột-6-vòng-lặp-phần-thưởng-phải-đẹp">Trụ cột 6 — Vòng lặp phần thưởng phải đẹp</h3>
+<p>Quái "chết một cách kịch tính" và có "dòng phần thưởng liên tục" [Đã xác minh — postmortem]. Animation chết, âm thanh rơi đồ, icon vật phẩm trong túi đồ là art cốt lõi, không phải phụ.</p>
+<h2 id="thứ-tự-ưu-tiên-khi-các-trụ-cột-xung-đột">Thứ tự ưu tiên khi các trụ cột xung đột</h2>
+<ol>
+<li><strong>Đọc được (4)</strong> thắng tất cả. Một cảnh đẹp mà không thấy quái là cảnh hỏng.</li>
+<li><strong>Ánh sáng (2)</strong> thắng chi tiết bề mặt.</li>
+<li><strong>Hiện thực u ám (1)</strong> thắng "cool factor".</li>
+<li><strong>Văn hóa vùng (5)</strong> thắng tái sử dụng asset cho tiện.</li>
+</ol>
+<h2 id="câu-hỏi-kiểm-tra-nhanh-dùng-trong-mọi-buổi-duyệt">Câu hỏi kiểm tra nhanh (dùng trong mọi buổi duyệt)</h2>
+<ol>
+<li>Thu nhỏ còn 25%: còn nhận ra đây là gì, ở Act nào không?</li>
+<li>Chuyển sang đen trắng: nhân vật và quái có tách khỏi nền không?</li>
+<li>Thứ này <em>cũ bao nhiêu năm</em>, <em>ai đã dùng nó</em>, <em>chuyện gì đã xảy ra với nó</em>?</li>
+<li>Nếu bỏ hết đèn trừ light radius của người chơi, cảnh còn đáng sợ không?</li>
+</ol></section>
+<section class="chapter"><h1 id="02-theme-và-câu-chuyện-bằng-hình-ảnh">02 — Theme và câu chuyện bằng hình ảnh</h1>
+<h2 id="chủ-đề-lớn">Chủ đề lớn</h2>
+<table>
+<thead>
+<tr>
+<th>Chủ đề</th>
+<th>Biểu hiện trong game [Quan sát]</th>
+<th>Hệ quả cho art [Diễn giải AD]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sa ngã và tha hóa</strong></td>
+<td>Hội Sisters of the Sightless Eye bị Andariel chiếm; giáo hội Zakarum bị Mephisto thao túng; Nihlathak phản bội Harrogath</td>
+<td>Biểu tượng thiêng luôn xuất hiện cùng dấu hiệu ô uế: máu trên bàn thờ, tượng thánh vỡ, cờ hội bị xé</td>
+</tr>
+<tr>
+<td><strong>Kẻ lang thang bị chiếm hữu</strong></td>
+<td>Dark Wanderer (người hùng Diablo I mang Diablo trong mình) đi trước người chơi về phía đông</td>
+<td>Người chơi luôn đến <em>sau</em> thảm họa: làng cháy, xác còn ấm, dấu vết để lại</td>
+</tr>
+<tr>
+<td><strong>Hành trình về phía đông</strong></td>
+<td>Khanduras → sa mạc Aranoch → rừng Kurast → Địa ngục → núi Arreat</td>
+<td>Mỗi Act đổi khí hậu, văn hóa, palette; cảm giác đi xa dần khỏi nhà</td>
+</tr>
+<tr>
+<td><strong>Con người nhỏ bé trước thế lực cổ</strong></td>
+<td>Tal Rasha, Horazon, các Prime Evil, Worldstone</td>
+<td>Kiến trúc cổ có quy mô lớn hơn người; nhân vật nhỏ trong khung hình</td>
+</tr>
+<tr>
+<td><strong>Hy vọng mong manh</strong></td>
+<td>Thị trấn là ốc đảo nhỏ: lửa trại, vài NPC, waypoint</td>
+<td>Thị trấn ấm hơn, sáng hơn nhưng vẫn nghèo, tạm bợ, có tường rào</td>
+</tr>
+</tbody>
+</table>
+<h2 id="giọng-kể">Giọng kể</h2>
+<ul>
+<li><strong>Người kể chuyện là kẻ đã thất bại.</strong> Cinematic giữa các Act do Marius kể lại — một người bình thường, sợ hãi, chứng kiến tội ác lớn. Giọng kể là <em>lời thú tội</em>, không phải sử thi chiến thắng. [Quan sát]</li>
+<li><strong>Kể bằng môi trường hơn bằng chữ.</strong> Thoại ngắn; câu chuyện nằm ở xác người trên cọc, nhà tù, phòng tra tấn, bàn thờ, nhật ký nhiệm vụ.</li>
+<li><strong>Hiện thực trước, siêu nhiên sau.</strong> Act I mở bằng đồng cỏ, hàng rào, nghĩa địa — rất đời thường — rồi dần xuống tu viện, hầm mộ và cuối cùng là Địa ngục. Cái siêu nhiên được <em>tăng liều</em> từ từ.</li>
+</ul>
+<h2 id="motif-hình-ảnh-lặp-lại">Motif hình ảnh lặp lại</h2>
+<p>Dùng như "vần" xuyên suốt dự án. Mỗi Act nên có ít nhất 4/8 motif.</p>
+<ol>
+<li><strong>Xác và xương như kiến trúc</strong> — xác treo, cọc, đống sọ, ghế xương.</li>
+<li><strong>Lửa đơn lẻ</strong> — đuốc, nến, lò, đống lửa trại; mỗi nguồn sáng là một "điểm nghỉ" cho mắt.</li>
+<li><strong>Máu như sơn</strong> — vũng, vệt kéo, bàn thờ; đỏ tối, không đỏ tươi bão hòa.</li>
+<li><strong>Cổng và ngưỡng</strong> — cửa hầm, cầu thang xuống, town portal xanh, red portal, waypoint.</li>
+<li><strong>Đá cổ khắc chữ</strong> — rune, biểu tượng hội, đá Cairn, phong ấn Chaos Sanctuary.</li>
+<li><strong>Song sắt và xích</strong> — nhà tù, lồng, gông, cửa chắn.</li>
+<li><strong>Thiên nhiên chiếm lại</strong> — rễ cây xuyên tường, cát lấp mộ, nước ngập đền, tuyết vùi chiến trường.</li>
+<li><strong>Đổ nát sau chiến tranh</strong> — xe đổ, lều cháy, công sự gãy, máy bắn đá.</li>
+</ol>
+<h2 id="mức-độ-kinh-dị-thang-đo-d2">Mức độ kinh dị — "thang đo D2"</h2>
+<table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Mô tả</th>
+<th>Dùng ở đâu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — U buồn</td>
+<td>Đổ nát, bỏ hoang, tro</td>
+<td>Đồng hoang, thị trấn</td>
+</tr>
+<tr>
+<td>2 — Bạo lực đã xảy ra</td>
+<td>Xác, máu khô, vũ khí rơi</td>
+<td>Vùng hoang dã, đường đi</td>
+</tr>
+<tr>
+<td>3 — Nghi lễ ghê rợn</td>
+<td>Bàn thờ máu, xác treo, tra tấn</td>
+<td>Dungeon, khu nhiệm vụ</td>
+</tr>
+<tr>
+<td>4 — Thân xác biến dạng</td>
+<td>Quái lai, thịt ghép, tường thịt</td>
+<td>Durance of Hate, Địa ngục</td>
+</tr>
+<tr>
+<td>5 — Địa ngục thuần túy</td>
+<td>Dung nham, kiến trúc xương, phong ấn</td>
+<td>Chaos Sanctuary, boss</td>
+</tr>
+</tbody>
+</table>
+<p>Quy tắc: <strong>mỗi Act đi từ mức thấp lên mức cao</strong>, kết thúc ở hang boss. Không mở đầu Act bằng mức 4–5. [Diễn giải AD]</p>
+<p>Kinh dị của D2 là <strong>gore có trọng lượng và bầu không khí</strong>, không phải gore khoe khoang: máu đọng, xác nằm yên, không có cận cảnh nội tạng. Camera xa tự tiết chế.</p>
+<h2 id="ảnh-hưởng-thẩm-mỹ-để-tìm-ref-diễn-giải-ad-không-phải-nguồn-blizzard-công-bố-trừ-chỗ-ghi-rõ">Ảnh hưởng thẩm mỹ để tìm ref [Diễn giải AD — không phải nguồn Blizzard công bố, trừ chỗ ghi rõ]</h2>
+<ul>
+<li>Tranh khắc Gustave Doré (Inferno của Dante) — quy mô, bóng tối, đám đông thân xác.</li>
+<li>Hieronymus Bosch, Pieter Bruegel ("The Triumph of Death") — Địa ngục có trật tự, chi tiết khổ hình.</li>
+<li>Kiến trúc Gothic và Romanesque châu Âu, tu viện đổ nát.</li>
+<li>Phim kinh dị Hammer, phim trung cổ bụi bặm ("Excalibur", "The Name of the Rose").</li>
+<li>Ba Tư/Ai Cập/Bắc Phi (Act II); <strong>Maya/Aztec (Act III — đã xác minh trong postmortem)</strong>; pháo đài Bắc Âu/Celt (Act V).</li>
+<li>Bìa album heavy metal thập niên 80–90 — đầu lâu, lửa, quỷ dữ. (Associate Art Director của D2R, Dustin King, được mô tả là một "metalhead".)</li>
+</ul></section>
+<section class="chapter"><h1 id="03-mood-theo-act">03 — Mood theo Act</h1>
+<h2 id="đường-cong-cảm-xúc-toàn-game-diễn-giải-ad">Đường cong cảm xúc toàn game [Diễn giải AD]</h2>
+<p>Mỗi Act là một sóng: <strong>thị trấn (nghỉ) → hoang dã (khám phá) → dungeon (áp lực) → boss (đỉnh)</strong>. Đỉnh sau cao hơn đỉnh trước.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Act I</th>
+<th>Act II</th>
+<th>Act III</th>
+<th>Act IV</th>
+<th>Act V</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Áp lực đỉnh (1–5)</td>
+<td>3</td>
+<td>3.5</td>
+<td>4</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Độ dài cảm nhận</td>
+<td>Dài, nhiều vùng mở</td>
+<td>Dài</td>
+<td>Dài, rối</td>
+<td><strong>Ngắn, dữ dội</strong></td>
+<td>Trung bình</td>
+</tr>
+<tr>
+<td>Thị trấn</td>
+<td>Trại lính</td>
+<td>Thành phố cảng</td>
+<td>Bến tàu rừng</td>
+<td>Pháo đài thiên thần</td>
+<td>Thành lũy núi</td>
+</tr>
+</tbody>
+</table>
+<p>Nguyên tắc: <strong>thị trấn là nhịp thở</strong>. Thị trấn luôn ấm hơn, sáng hơn, có âm nhạc dễ chịu hơn so với vùng xung quanh. (Act IV là ngoại lệ có chủ ý: thị trấn lạnh, thiêng, xa lạ.)</p>
+<hr />
+<h2 id="act-i-đồng-hoang-và-tu-viện-bị-ô-uế">Act I — "Đồng hoang và tu viện bị ô uế"</h2>
+<ul>
+<li><strong>Cảm xúc chủ đạo:</strong> cô độc, lạnh, ẩm, u buồn; nỗi sợ quen thuộc của vùng quê châu Âu trung cổ.</li>
+<li><strong>Một câu:</strong> <em>Chiều tối mưa phùn ở một vùng quê đã bị bỏ rơi.</em></li>
+<li><strong>Thị trấn:</strong> Rogue Encampment — trại lính tạm bợ, rào gỗ nhọn, lều vải, lửa trại trung tâm. Nghèo nhưng có tổ chức.</li>
+<li><strong>Hoang dã:</strong> Blood Moor, Cold Plains, Stony Field, Dark Wood, Black Marsh, Tamoe Highland — cỏ úa, đá rêu, cây trụi, hàng rào, đá Cairn, Burial Grounds, Tristram cháy rụi.</li>
+<li><strong>Dungeon:</strong> Den of Evil, hang, Forgotten Tower, Monastery → Barracks → Jail → Cathedral → Catacombs.</li>
+<li><strong>Đỉnh:</strong> Catacombs và Andariel — tu viện Gothic thành lò mổ; nến, máu, cột đá.</li>
+<li><strong>Ánh sáng:</strong> trời âm u, ánh sáng khuếch tán lạnh, không có nắng gắt; nguồn ấm duy nhất là lửa.</li>
+<li><strong>Vật liệu chính:</strong> cỏ chết, bùn, đá xám rêu, gỗ ẩm sẫm, vải thô, đá tu viện xám-nâu.</li>
+<li><strong>Từ khóa tìm ref:</strong> <em>Scottish moor dusk, ruined abbey, medieval palisade camp, Gothic cathedral candlelight, foggy graveyard, burned village.</em></li>
+</ul>
+<h2 id="act-ii-sa-mạc-của-những-lăng-mộ">Act II — "Sa mạc của những lăng mộ"</h2>
+<ul>
+<li><strong>Cảm xúc chủ đạo:</strong> nóng, khô, rộng, cổ xưa; bí ẩn của cái chết được ướp xác.</li>
+<li><strong>Một câu:</strong> <em>Giữa trưa chói chang trên sa mạc — và cái lạnh dưới lòng đất.</em></li>
+<li><strong>Thị trấn:</strong> Lut Gholein — thành phố cảng giàu có nhất game, sa thạch, mái vòm, chợ, cung điện. Nơi "văn minh" nhất.</li>
+<li><strong>Hoang dã:</strong> Rocky Waste, Dry Hills, Far Oasis, Lost City, Valley of Snakes, Canyon of the Magi — cát, đá, tàn tích thành cổ.</li>
+<li><strong>Dungeon:</strong> Sewers, Harem/Palace Cellar, Halls of the Dead, Maggot Lair, Claw Viper Temple, 7 ngôi mộ Tal Rasha.</li>
+<li><strong>Đột phá:</strong> <strong>Arcane Sanctuary</strong> — sàn đá lơ lửng giữa hư vô sao tím-xanh; phá vỡ hoàn toàn palette ấm của Act II.</li>
+<li><strong>Đỉnh:</strong> Duriel trong phòng mộ thật — chật, tối, đột ngột.</li>
+<li><strong>Tương phản cốt lõi:</strong> ngoài trời <strong>sáng, ấm, vàng</strong>; trong mộ <strong>tối, lạnh, ngột ngạt</strong>. Act II sống bằng sự đảo chiều này.</li>
+<li><strong>Từ khóa tìm ref:</strong> <em>Persian bazaar, Egyptian tomb hieroglyph, Petra, desert ruins noon, sandstone dome palace, sarcophagus chamber.</em></li>
+</ul>
+<h2 id="act-iii-rừng-mưa-và-giáo-hội-mục-ruỗng">Act III — "Rừng mưa và giáo hội mục ruỗng"</h2>
+<ul>
+<li><strong>Cảm xúc chủ đạo:</strong> ngột ngạt, ẩm ướt, côn trùng, bệnh tật; một đế chế tôn giáo thối từ bên trong.</li>
+<li><strong>Một câu:</strong> <em>Không khí đặc quánh, mọi thứ rỉ nước và có thứ gì đang mục.</em></li>
+<li><strong>Thị trấn:</strong> Kurast Docks — bến tàu gỗ, nhà sàn, cầu nối, nước đục. Thị trấn ít "an toàn" nhất về cảm giác.</li>
+<li><strong>Hoang dã:</strong> Spider Forest, Great Marsh, Flayer Jungle, Lower/Upper Kurast, Kurast Causeway.</li>
+<li><strong>Dungeon:</strong> Spider Cavern, Flayer Dungeon, Kurast Sewers, các đền đổ, Travincal (Hội đồng Zakarum).</li>
+<li><strong>Đỉnh:</strong> <strong>Durance of Hate</strong> — kiến trúc Zakarum hóa thịt, mạch máu, xương; Mephisto.</li>
+<li><strong>Kiến trúc:</strong> tham chiếu Maya/Aztec [Đã xác minh — postmortem]; nhà ở Kurast được phác chi tiết trước khi model [Đã xác minh].</li>
+<li><strong>Từ khóa tìm ref:</strong> <em>Mayan temple overgrown jungle, Angkor roots, mangrove swamp, stilt village dock, Aztec stone carving, bayou fog.</em></li>
+</ul>
+<h2 id="act-iv-bản-thân-địa-ngục">Act IV — "Bản thân Địa ngục"</h2>
+<ul>
+<li><strong>Cảm xúc chủ đạo:</strong> tuyệt vọng, áp đảo, tận cùng. Không còn thiên nhiên, chỉ còn khổ hình.</li>
+<li><strong>Một câu:</strong> <em>Bước khỏi pháo đài cuối cùng của Thiên đường là rơi vào bụng một sinh vật đang cháy.</em></li>
+<li><strong>Thị trấn:</strong> Pandemonium Fortress — thành trì thiên thần, đá lạnh, ánh sáng trắng-lam tinh khiết; nhỏ, trang nghiêm, xa lạ.</li>
+<li><strong>Vùng:</strong> Outer Steppes, Plains of Despair, City of the Damned, River of Flame.</li>
+<li><strong>Đỉnh:</strong> <strong>Chaos Sanctuary</strong> — đền hình ngôi sao, năm phong ấn, đá đen và dung nham; Diablo.</li>
+<li><strong>Tương phản cốt lõi:</strong> pháo đài <strong>lạnh-lam-thiêng</strong> đối lập Địa ngục <strong>đen-đỏ-cam</strong>.</li>
+<li><strong>Bài học từ postmortem:</strong> layout Act IV bị làm lại muộn vì "quá trống và giống nhau" [Đã xác minh]. Địa ngục cần landmark và nhịp; không được chỉ là nền đỏ đồng đều.</li>
+<li><strong>Từ khóa tìm ref:</strong> <em>Doré Inferno engraving, Bosch hell panel, volcanic basalt, lava river night, bone ossuary, obsidian.</em></li>
+</ul>
+<h2 id="act-v-lod-thành-lũy-cuối-cùng-trên-tuyết">Act V (LoD) — "Thành lũy cuối cùng trên tuyết"</h2>
+<ul>
+<li><strong>Cảm xúc chủ đạo:</strong> lạnh, kiên cường, chiến tranh bao vây; lòng dũng cảm của người sống.</li>
+<li><strong>Một câu:</strong> <em>Tuyết rơi trên chiến trường còn khói; người Barbarian giữ cổng thành cuối cùng.</em></li>
+<li><strong>Thị trấn:</strong> Harrogath — đá xám, gỗ, lò rèn; ấm cúng giữa cái lạnh.</li>
+<li><strong>Hoang dã:</strong> Bloody Foothills (chiến trường, máy bắn đá, xác lính), Frigid Highlands, Arreat Plateau, Glacial Trail, Frozen Tundra.</li>
+<li><strong>Dungeon:</strong> Crystalline Passage, Nihlathak's Temple / Halls of Pain, Ancients' Way.</li>
+<li><strong>Đỉnh:</strong> Arreat Summit → <strong>Worldstone Keep</strong> — công trình cổ thiêng liêng bị Baal làm ô uế; Throne of Destruction.</li>
+<li><strong>Từ khóa tìm ref:</strong> <em>Norse fortress snow, Celtic stone carving, winter siege battlefield, glacier ice cave, longhall forge fire.</em></li>
+</ul>
+<hr />
+<h2 id="bảng-so-sánh-nhanh">Bảng so sánh nhanh</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Act I</th>
+<th>Act II</th>
+<th>Act III</th>
+<th>Act IV</th>
+<th>Act V</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nhiệt độ cảm nhận</td>
+<td>Lạnh ẩm</td>
+<td>Nóng khô</td>
+<td>Nóng ẩm</td>
+<td>Cháy bỏng</td>
+<td>Băng giá</td>
+</tr>
+<tr>
+<td>Ánh sáng ngoài trời</td>
+<td>Âm u khuếch tán</td>
+<td>Nắng gắt</td>
+<td>Lốm đốm dưới tán</td>
+<td>Đỏ hắt từ dưới</td>
+<td>Trắng lạnh phản xạ</td>
+</tr>
+<tr>
+<td>Văn hóa</td>
+<td>Gothic châu Âu</td>
+<td>Ba Tư/Ai Cập</td>
+<td>Maya/Aztec</td>
+<td>Quỷ dữ</td>
+<td>Bắc Âu/Celt</td>
+</tr>
+<tr>
+<td>Ác quỷ chủ</td>
+<td>Andariel — Thống khổ</td>
+<td>Duriel — Đau đớn</td>
+<td>Mephisto — Hận thù</td>
+<td>Diablo — Khiếp sợ</td>
+<td>Baal — Hủy diệt</td>
+</tr>
+<tr>
+<td>Màu "chữ ký"</td>
+<td>Xanh rêu xám</td>
+<td>Vàng cát</td>
+<td>Lục đầm lầy</td>
+<td>Đỏ-đen dung nham</td>
+<td>Trắng-lam băng</td>
+</tr>
+</tbody>
+</table>
+<h2 id="biến-thể-độ-khó-normal-nightmare-hell">Biến thể độ khó (Normal / Nightmare / Hell)</h2>
+<p>Game gốc không đổi môi trường theo độ khó; khác biệt nằm ở quái và chỉ số [Quan sát]. Nếu dự án muốn biểu đạt độ khó bằng hình ảnh, đề xuất [Diễn giải AD]: giảm nhẹ light radius cảm nhận, tăng mật độ xác/máu decal, đẩy palette quái về tông đậm hơn — <strong>không</strong> đổi tileset.</p></section>
+<section class="chapter"><h1 id="04-màu-sắc-và-ánh-sáng">04 — Màu sắc và ánh sáng</h1>
+<h2 id="1-dữ-kiện-kỹ-thuật-của-bản-gốc">1. Dữ kiện kỹ thuật của bản gốc</h2>
+<ul>
+<li>Diablo II dùng <strong>màu chỉ mục 8-bit (256 màu)</strong>, mỗi Act có palette riêng (thư mục <code>data/global/palette/ACT1…ACT5</code>). [Quan sát — cấu trúc file game]</li>
+<li>Nhiều biến thể quái dùng <strong>cùng sprite, khác bảng ánh xạ màu</strong> (palette shift/colormap) — ví dụ các dòng Fallen, Zombie, Skeleton. [Quan sát]</li>
+<li>Postmortem nêu các nâng cấp đồ họa: <strong>trong suốt thật, nguồn sáng có màu, chế độ phối cảnh bán-3D</strong>. [Đã xác minh]</li>
+<li>Vùng ngoài trời có <strong>chu kỳ ngày/đêm</strong>; người chơi có <strong>light radius</strong> (chỉ số tầm sáng). [Quan sát]</li>
+</ul>
+<p>Hệ quả: palette bị giới hạn khiến mỗi Act <strong>tự động thống nhất màu</strong>. Một dự án hiện đại (true-color) phải <em>tự áp đặt</em> giới hạn này, nếu không sẽ mất chất D2. [Diễn giải AD]</p>
+<h2 id="2-quy-tắc-palette-tổng-diễn-giải-ad">2. Quy tắc palette tổng [Diễn giải AD]</h2>
+<ol>
+<li><strong>Nền khử bão hòa, điểm nhấn bão hòa.</strong> Môi trường có độ bão hòa thấp (S ≈ 10–35%). Chỉ lửa, phép, cổng, item hiếm và máu tươi được vượt ngưỡng.</li>
+<li><strong>Một Act — một nhóm màu nền chủ đạo + một màu "kẻ lạ".</strong> Ví dụ Act II: vàng cát chủ đạo, tím Arcane là kẻ lạ.</li>
+<li><strong>Tối không bằng đen.</strong> Bóng đổ ngả về màu bổ sung của Act (Act I bóng xanh-xám, Act II bóng nâu-tím, Act IV bóng đỏ-nâu). Đen tuyền chỉ dành cho rìa ngoài light radius và hư vô.</li>
+<li><strong>Ấm = an toàn/sự sống, Lạnh = cái chết/siêu nhiên</strong> — trừ Act IV đảo ngược: lam lạnh là Thiên đường, đỏ ấm là Địa ngục.</li>
+<li><strong>Màu là thông tin.</strong> Đỏ máu = sát thương; xanh lam = mana/lạnh/town portal; xanh lục = độc; vàng = điện/hiếm; cam-đỏ = lửa. Không dùng các màu này làm trang trí môi trường nếu nó gây nhầm với gameplay.</li>
+</ol>
+<h2 id="3-cấu-trúc-giá-trị-sáng-value-structure">3. Cấu trúc giá trị sáng (value structure)</h2>
+<p>Đây là phần quan trọng hơn màu. Đo bằng ảnh chuyển đen trắng.</p>
+<table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Giá trị (0 = đen, 100 = trắng)</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rìa tối ngoài light radius</td>
+<td>0–8</td>
+<td>Gần đen, có thể còn chút màu bóng</td>
+</tr>
+<tr>
+<td>Nền đất/sàn</td>
+<td>15–35</td>
+<td>Thấp, ít tương phản nội bộ</td>
+</tr>
+<tr>
+<td>Tường, vật thể lớn</td>
+<td>20–45</td>
+<td>Mặt hướng sáng có thể lên 50</td>
+</tr>
+<tr>
+<td>Nhân vật người chơi</td>
+<td>35–65</td>
+<td><strong>Phải có rim/edge sáng hơn nền ≥ 15 điểm</strong></td>
+</tr>
+<tr>
+<td>Quái</td>
+<td>25–60</td>
+<td>Quái thường tối hơn hero nhẹ; elite có viền sáng/màu</td>
+</tr>
+<tr>
+<td>Lửa, phép, item rơi</td>
+<td>70–100</td>
+<td>Điểm sáng nhất màn hình</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Khung 10–30, chữ 70–95</td>
+<td>UI tối để không cạnh tranh với gameplay</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Luật 3 tầng:</strong> nền tối → nhân vật trung bình → hiệu ứng sáng. Không bao giờ để nền sáng hơn nhân vật trong vùng chơi chính. (Ngoại lệ có kiểm soát: sa mạc Act II và tuyết Act V — khi đó nhân vật phải <em>tối hơn</em> nền rõ rệt và đổ bóng đậm.)</p>
+<h2 id="4-palette-đề-xuất-theo-act-diễn-giải-ad-màu-xấp-xỉ">4. Palette đề xuất theo Act [Diễn giải AD — màu xấp xỉ]</h2>
+<p>Xem trực quan ở <code>palette_board.html</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Act</th>
+<th>Nền tối</th>
+<th>Nền trung</th>
+<th>Nền sáng</th>
+<th>Nguồn sáng</th>
+<th>Màu kẻ lạ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I — Moor &amp; Monastery</td>
+<td><code>#1B1F1C</code></td>
+<td><code>#3E4638</code></td>
+<td><code>#6F6F5C</code></td>
+<td>Lửa <code>#D9822B</code></td>
+<td>Máu <code>#6E1414</code></td>
+</tr>
+<tr>
+<td>II — Desert &amp; Tomb</td>
+<td><code>#2A1E14</code></td>
+<td><code>#8A6A42</code></td>
+<td><code>#CDB07A</code></td>
+<td>Nắng <code>#F2D59A</code></td>
+<td>Arcane <code>#5B3C8C</code></td>
+</tr>
+<tr>
+<td>III — Jungle &amp; Zakarum</td>
+<td><code>#141C14</code></td>
+<td><code>#34452A</code></td>
+<td><code>#6A7A4C</code></td>
+<td>Đuốc <code>#E0A040</code></td>
+<td>Độc/bệnh <code>#7FA04A</code> + Durance <code>#7A1E2A</code></td>
+</tr>
+<tr>
+<td>IV — Hell</td>
+<td><code>#120808</code></td>
+<td><code>#3A1A12</code></td>
+<td><code>#6A3A22</code></td>
+<td>Dung nham <code>#FF6A1A</code></td>
+<td>Thiên đường <code>#8FB4D9</code></td>
+</tr>
+<tr>
+<td>V — Snow &amp; Siege</td>
+<td><code>#1C2228</code></td>
+<td><code>#5E6A72</code></td>
+<td><code>#C8D2D8</code></td>
+<td>Lò rèn <code>#E8913A</code></td>
+<td>Worldstone <code>#6FD0C8</code></td>
+</tr>
+</tbody>
+</table>
+<p>Cách dùng: nền 3 tông chiếm ~85% diện tích; nguồn sáng ~10%; màu kẻ lạ ≤ 5% và chỉ ở khu đặc biệt.</p>
+<h2 id="5-ánh-sáng">5. Ánh sáng</h2>
+<h3 id="nguyên-tắc">Nguyên tắc</h3>
+<ul>
+<li><strong>Light radius quanh người chơi là nguồn sáng chính trong dungeon.</strong> Vòng sáng mềm, rìa mờ dần vào đen; tầm nhìn ≈ một nửa màn hình. [Diễn giải AD dựa trên quan sát]</li>
+<li><strong>Nguồn sáng môi trường là điểm, không phải phủ.</strong> Đuốc, nến, lửa, cửa sổ — mỗi cái tạo một vũng sáng riêng; giữa các vũng là tối.</li>
+<li><strong>Ánh sáng màu kể chuyện:</strong> lửa ấm cam ở chỗ người từng sống; lam lạnh ở chỗ ma thuật; đỏ ở chỗ quỷ; lục ở chỗ bệnh.</li>
+<li><strong>Phép là nguồn sáng.</strong> Fireball, Lightning, Frozen Orb soi sáng tường và quái khi bay qua — đây là một phần cảm giác "mạnh".</li>
+<li><strong>Không có ánh sáng toàn cục đẹp như tranh.</strong> Không god-ray, không bloom diện rộng, không fog màu kẹo.</li>
+</ul>
+<h3 id="ngoài-trời">Ngoài trời</h3>
+<ul>
+<li>Ánh sáng chính từ trên-trái (theo hướng đổ bóng nhất quán cho sprite) [Diễn giải AD — chốt một hướng duy nhất cho cả dự án].</li>
+<li>Ngày: tương phản thấp ở Act I, cao ở Act II/V.</li>
+<li>Đêm: giảm sáng toàn cục, palette dịch về lam; light radius quan trọng hơn.</li>
+</ul>
+<h3 id="trong-nhàdungeon">Trong nhà/dungeon</h3>
+<ul>
+<li>Ambient gần như bằng 0. Sáng = light radius + đèn đặt tay.</li>
+<li>Phòng boss có ánh sáng thiết kế riêng (nến quanh Andariel, dung nham quanh Diablo).</li>
+</ul>
+<h2 id="6-màu-trong-các-hệ-thống">6. Màu trong các hệ thống</h2>
+<table>
+<thead>
+<tr>
+<th>Hệ thống</th>
+<th>Màu</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Máu (HP)</td>
+<td>Cầu đỏ</td>
+<td>Trái màn hình</td>
+</tr>
+<tr>
+<td>Mana</td>
+<td>Cầu lam</td>
+<td>Phải màn hình</td>
+</tr>
+<tr>
+<td>Độc</td>
+<td>Xanh lục</td>
+<td>Quái bị độc/hero bị độc ngả lục</td>
+</tr>
+<tr>
+<td>Lạnh</td>
+<td>Lam nhạt</td>
+<td>Quái bị đóng băng/chậm ngả lam; chết lạnh có thể vỡ vụn</td>
+</tr>
+<tr>
+<td>Town Portal</td>
+<td>Cột sáng lam</td>
+<td>Đặc trưng nhận diện "lối thoát"</td>
+</tr>
+<tr>
+<td>Red Portal</td>
+<td>Đỏ</td>
+<td>Lối vào khu đặc biệt (Cow Level, Uber, Nihlathak...)</td>
+</tr>
+<tr>
+<td>Tên quái Champion</td>
+<td>Lam</td>
+<td></td>
+</tr>
+<tr>
+<td>Tên quái Unique/Super Unique</td>
+<td>Vàng-kim</td>
+<td></td>
+</tr>
+<tr>
+<td>Tên minion</td>
+<td>Trắng/xám</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Màu chữ vật phẩm: xem file 08.</p><figure class="chart"><figcaption>Palette & value board theo Act <span>(palette_board.html)</span></figcaption><iframe srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;vi&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Diablo II — Palette &amp; Value Board&lt;/title&gt;
+&lt;style&gt;
+  :root { --bg:#0d0b0a; --panel:#17130f; --line:#3a2f24; --text:#d8cbb3; --muted:#8c7f6a; --gold:#c7b377; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 &quot;Times New Roman&quot;, &quot;Noto Serif&quot;, serif; padding:32px; }
+  h1 { font-size:26px; color:var(--gold); letter-spacing:.06em; margin:0 0 4px; font-weight:normal; text-transform:uppercase; }
+  .sub { color:var(--muted); margin-bottom:28px; font-size:13px; }
+  .act { background:var(--panel); border:1px solid var(--line); padding:18px 20px; margin-bottom:18px; display:grid; grid-template-columns:230px 1fr 260px; gap:22px; align-items:center; }
+  .act h2 { margin:0; font-size:18px; color:var(--gold); font-weight:normal; }
+  .act p { margin:6px 0 0; font-size:13px; color:var(--muted); }
+  .sw { display:flex; gap:6px; }
+  .c { flex:1; min-width:0; }
+  .c div { height:64px; border:1px solid #000; }
+  .c span { display:block; font:11px/1.3 Consolas, monospace; color:var(--muted); margin-top:4px; }
+  .c b { display:block; font:11px/1.2 &quot;Times New Roman&quot;, serif; color:var(--text); font-weight:normal; }
+  .w85 { flex:2.6; } .w10 { flex:1; } .w5 { flex:.7; }
+  .scene { height:96px; border:1px solid #000; position:relative; overflow:hidden; }
+  .scene .hero { position:absolute; left:46%; bottom:22%; width:12px; height:30px; border-radius:6px 6px 2px 2px; }
+  .scene .fx { position:absolute; right:22%; top:32%; width:16px; height:16px; border-radius:50%; }
+  .scene .lr { position:absolute; left:50%; bottom:20%; width:150px; height:90px; transform:translateX(-50%); border-radius:50%; }
+  .scene.gray { filter:grayscale(1); }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .pair small { display:block; text-align:center; font-size:11px; color:var(--muted); }
+  .legend { display:grid; grid-template-columns:repeat(9,1fr); gap:8px; background:var(--panel); border:1px solid var(--line); padding:18px 20px; margin-bottom:18px; }
+  .legend .it { text-align:center; font-size:13px; background:#0a0807; border:1px solid #2a221a; padding:10px 4px; }
+  .legend .it span { display:block; font:10px Consolas, monospace; color:var(--muted); margin-top:3px; }
+  h3 { color:var(--gold); font-weight:normal; font-size:15px; letter-spacing:.05em; text-transform:uppercase; margin:26px 0 10px; }
+  .vals { display:flex; height:38px; border:1px solid #000; margin-bottom:6px; }
+  .vals div { flex:1; display:flex; align-items:center; justify-content:center; font:11px Consolas, monospace; }
+  .note { font-size:12px; color:var(--muted); }
+  @media (max-width:760px) {
+    .act { grid-template-columns:1fr; gap:12px; }
+    .legend { grid-template-columns:repeat(3,1fr); }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Diablo II — Palette &amp;amp; Value Board&lt;/h1&gt;
+&lt;div class=&quot;sub&quot;&gt;Màu xấp xỉ do AD đề xuất, không trích từ file palette gốc · Tỷ lệ diện tích: nền 85% · nguồn sáng 10% · màu kẻ lạ ≤ 5% · Cột phải: cảnh mô phỏng — màu và đen trắng&lt;/div&gt;
+
+&lt;div id=&quot;acts&quot;&gt;&lt;/div&gt;
+
+&lt;h3&gt;Cấu trúc giá trị sáng — 3 tầng&lt;/h3&gt;
+&lt;div class=&quot;vals&quot;&gt;
+  &lt;div style=&quot;background:#000;color:#666;flex:.6&quot;&gt;rìa 0–8&lt;/div&gt;
+  &lt;div style=&quot;background:#3b3b3b;color:#999;flex:2&quot;&gt;nền 15–35&lt;/div&gt;
+  &lt;div style=&quot;background:#5a5a5a;color:#ccc;flex:1.4&quot;&gt;tường 20–45&lt;/div&gt;
+  &lt;div style=&quot;background:#8a8a8a;color:#111;flex:1.6&quot;&gt;nhân vật 35–65&lt;/div&gt;
+  &lt;div style=&quot;background:#e8e8e8;color:#111;flex:1.2&quot;&gt;lửa/phép/loot 70–100&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;note&quot;&gt;Nhân vật phải sáng hơn nền ít nhất 15 điểm. Ngoại lệ: sa mạc Act II và tuyết Act V — nhân vật tối hơn nền rõ rệt, bóng đổ đậm.&lt;/div&gt;
+
+&lt;h3&gt;Màu chữ vật phẩm&lt;/h3&gt;
+&lt;div class=&quot;legend&quot; id=&quot;items&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+const acts = [
+  { n:&quot;Act I&quot;, t:&quot;Đồng hoang &amp; tu viện&quot;, d:&quot;Lạnh ẩm, âm u. Lửa là hơi ấm duy nhất.&quot;,
+    c:[[&quot;#1B1F1C&quot;,&quot;nền tối&quot;],[&quot;#3E4638&quot;,&quot;nền trung&quot;],[&quot;#6F6F5C&quot;,&quot;nền sáng&quot;],[&quot;#D9822B&quot;,&quot;lửa&quot;],[&quot;#6E1414&quot;,&quot;máu&quot;]] },
+  { n:&quot;Act II&quot;, t:&quot;Sa mạc &amp; lăng mộ&quot;, d:&quot;Ngoài trời chói vàng; trong mộ tối lạnh. Arcane là kẻ lạ.&quot;,
+    c:[[&quot;#2A1E14&quot;,&quot;bóng mộ&quot;],[&quot;#8A6A42&quot;,&quot;sa thạch&quot;],[&quot;#CDB07A&quot;,&quot;cát nắng&quot;],[&quot;#F2D59A&quot;,&quot;nắng&quot;],[&quot;#5B3C8C&quot;,&quot;arcane&quot;]] },
+  { n:&quot;Act III&quot;, t:&quot;Rừng mưa &amp; Zakarum&quot;, d:&quot;Đặc quánh, mục rữa. Durance chuyển sang đỏ thịt.&quot;,
+    c:[[&quot;#141C14&quot;,&quot;tán rừng&quot;],[&quot;#34452A&quot;,&quot;rêu&quot;],[&quot;#6A7A4C&quot;,&quot;đá đền&quot;],[&quot;#E0A040&quot;,&quot;đuốc&quot;],[&quot;#7FA04A&quot;,&quot;bệnh&quot;]] },
+  { n:&quot;Act IV&quot;, t:&quot;Địa ngục&quot;, d:&quot;Đỏ hắt từ dưới. Pháo đài thiên thần lam lạnh đối lập.&quot;,
+    c:[[&quot;#120808&quot;,&quot;bazan&quot;],[&quot;#3A1A12&quot;,&quot;đất cháy&quot;],[&quot;#6A3A22&quot;,&quot;đá nung&quot;],[&quot;#FF6A1A&quot;,&quot;dung nham&quot;],[&quot;#8FB4D9&quot;,&quot;thiên đường&quot;]] },
+  { n:&quot;Act V&quot;, t:&quot;Tuyết &amp; thành lũy&quot;, d:&quot;Trắng lạnh phản xạ; lò rèn ấm. Worldstone lam ngọc.&quot;,
+    c:[[&quot;#1C2228&quot;,&quot;đá đêm&quot;],[&quot;#5E6A72&quot;,&quot;đá xám&quot;],[&quot;#C8D2D8&quot;,&quot;tuyết&quot;],[&quot;#E8913A&quot;,&quot;lò rèn&quot;],[&quot;#6FD0C8&quot;,&quot;worldstone&quot;]] },
+];
+const w = [&quot;w85&quot;,&quot;w85&quot;,&quot;w85&quot;,&quot;w10&quot;,&quot;w5&quot;];
+document.getElementById(&quot;acts&quot;).innerHTML = acts.map(a =&gt; {
+  const [dk, md, lt, light, odd] = a.c.map(x =&gt; x[0]);
+  const isBright = a.n === &quot;Act II&quot; || a.n === &quot;Act V&quot;;
+  const heroCol = isBright ? &quot;#2a2420&quot; : &quot;#9a8c74&quot;;
+  const scene = cls =&gt; `&lt;div class=&quot;scene ${cls}&quot; style=&quot;background:linear-gradient(180deg,${md} 0%,${dk} 100%)&quot;&gt;
+      &lt;div class=&quot;lr&quot; style=&quot;background:radial-gradient(closest-side, ${lt}66, transparent)&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;hero&quot; style=&quot;background:${heroCol};box-shadow:0 0 0 1px ${isBright ? &quot;#000&quot; : lt}&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;fx&quot; style=&quot;background:${light};box-shadow:0 0 18px 6px ${light}99&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;`;
+  return `&lt;div class=&quot;act&quot;&gt;
+    &lt;div&gt;&lt;h2&gt;${a.n} — ${a.t}&lt;/h2&gt;&lt;p&gt;${a.d}&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;sw&quot;&gt;${a.c.map((x,i)=&gt;`&lt;div class=&quot;c ${w[i]}&quot;&gt;&lt;div style=&quot;background:${x[0]}&quot;&gt;&lt;/div&gt;&lt;b&gt;${x[1]}&lt;/b&gt;&lt;span&gt;${x[0]}&lt;/span&gt;&lt;/div&gt;`).join(&quot;&quot;)}&lt;/div&gt;
+    &lt;div class=&quot;pair&quot;&gt;&lt;div&gt;${scene(&quot;&quot;)}&lt;small&gt;màu&lt;/small&gt;&lt;/div&gt;&lt;div&gt;${scene(&quot;gray&quot;)}&lt;small&gt;đen trắng&lt;/small&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;`;
+}).join(&quot;&quot;);
+
+const items = [[&quot;Normal&quot;,&quot;#E0E0E0&quot;],[&quot;Xám / Ethereal&quot;,&quot;#8A8A8A&quot;],[&quot;Magic&quot;,&quot;#6969FF&quot;],[&quot;Rare&quot;,&quot;#FFFF64&quot;],[&quot;Set&quot;,&quot;#00C400&quot;],[&quot;Unique&quot;,&quot;#C7B377&quot;],[&quot;Crafted&quot;,&quot;#FFA800&quot;],[&quot;Rune&quot;,&quot;#FFA800&quot;],[&quot;Không đủ YC&quot;,&quot;#FF4D4D&quot;]];
+document.getElementById(&quot;items&quot;).innerHTML = items.map(([n,c]) =&gt; `&lt;div class=&quot;it&quot; style=&quot;color:${c}&quot;&gt;${n}&lt;span&gt;${c}&lt;/span&gt;&lt;/div&gt;`).join(&quot;&quot;);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" loading="lazy" onload="fit(this)"></iframe></figure></section>
+<section class="chapter"><h1 id="05-hình-khối-vật-liệu-camera">05 — Hình khối, vật liệu, camera</h1>
+<h2 id="1-camera-và-tỷ-lệ">1. Camera và tỷ lệ</h2>
+<table>
+<thead>
+<tr>
+<th>Thông số</th>
+<th>Bản gốc</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Góc nhìn</td>
+<td>Isometric/top-down cố định, không xoay</td>
+<td>Có tùy chọn phối cảnh bán-3D [Đã xác minh]</td>
+</tr>
+<tr>
+<td>Độ phân giải</td>
+<td>640×480 (D2), thêm 800×600 (LoD)</td>
+<td>[Quan sát]</td>
+</tr>
+<tr>
+<td>Chiều cao hero trên màn</td>
+<td>~75 px</td>
+<td>[Đã xác minh — postmortem]</td>
+</tr>
+<tr>
+<td>Hướng render</td>
+<td>Hero 16 hướng, quái 8 hướng</td>
+<td>[Đã xác minh]</td>
+</tr>
+<tr>
+<td>Pipeline</td>
+<td>Model 3D Studio Max → render sprite; texture/UI bằng Photoshop</td>
+<td>[Đã xác minh]</td>
+</tr>
+<tr>
+<td>Nền</td>
+<td>Render nền → cắt tile → ghép phòng module, engine ráp ngẫu nhiên</td>
+<td>[Đã xác minh]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hệ quả AD:</strong></p>
+<ul>
+<li>Duyệt mọi asset ở <strong>đúng kích thước hiển thị</strong> trên màn hình mục tiêu. Render lớn đẹp không có nghĩa là sprite đẹp.</li>
+<li>Hero chiếm khoảng 1/6 chiều cao màn hình → <strong>tỷ lệ cảnh rộng, nhân vật nhỏ</strong>: cảm giác lạc lõng trong thế giới.</li>
+<li>Tỷ lệ tham chiếu đề xuất [Diễn giải AD]: Fallen ≈ 0.6 hero; người ≈ 1.0; Zombie ≈ 1.0; Overseer/Megademon ≈ 1.4–1.6; boss Act ≈ 2–3; cửa ≈ 1.3; tường ≈ 1.5–2.</li>
+</ul>
+<h2 id="2-shape-language">2. Shape language</h2>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Hình khối chủ đạo</th>
+<th>Cảm giác</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hero</td>
+<td>Cân đối, đứng thẳng, khối rõ đầu–vai–vũ khí</td>
+<td>Kiên định, con người</td>
+</tr>
+<tr>
+<td>Quái nhỏ (Fallen, Imp)</td>
+<td>Còng lưng, đầu to, chân ngắn, hình tam giác lộn</td>
+<td>Bầy đàn, láu nháo</td>
+</tr>
+<tr>
+<td>Undead</td>
+<td>Thẳng đứng nhưng gãy khúc, khớp lệch</td>
+<td>Cứng, giật</td>
+</tr>
+<tr>
+<td>Quái lớn</td>
+<td>Khối lưng/vai nặng, đầu thấp, tay dài</td>
+<td>Trọng lượng, đe dọa</td>
+</tr>
+<tr>
+<td>Quỷ (Act IV)</td>
+<td>Gai, sừng, góc nhọn, bất đối xứng</td>
+<td>Thù địch, không con người</td>
+</tr>
+<tr>
+<td>Boss</td>
+<td>Silhouette độc nhất, nhận ra chỉ bằng bóng</td>
+<td>Biểu tượng</td>
+</tr>
+<tr>
+<td>Kiến trúc thiêng</td>
+<td>Vòm nhọn, trụ thẳng, đối xứng</td>
+<td>Trật tự (đã bị phá vỡ)</td>
+</tr>
+<tr>
+<td>Kiến trúc quỷ</td>
+<td>Gai, xương, cong như sừng</td>
+<td>Hữu cơ, sai lệch</td>
+</tr>
+</tbody>
+</table>
+<p>Quy tắc: <strong>silhouette trước, chi tiết sau</strong>. Mỗi quái phải phân biệt được khi tô đen hoàn toàn ở kích thước 64 px. [Diễn giải AD]</p>
+<h2 id="3-vật-liệu">3. Vật liệu</h2>
+<p>Mỗi vật liệu phải có <strong>cấu trúc riêng</strong>, không phủ một lớp grunge chung. [Diễn giải AD]</p>
+<table>
+<thead>
+<tr>
+<th>Vật liệu</th>
+<th>Đặc tính D2</th>
+<th>Tránh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đá</td>
+<td>Mòn cạnh, vết nứt lớn, rêu ở chân tường, khối to</td>
+<td>Đá bóng, cạnh sắc như mới</td>
+</tr>
+<tr>
+<td>Gỗ</td>
+<td>Sẫm, ẩm, vân rõ, đầu mục, đinh sắt</td>
+<td>Gỗ vàng tươi sạch sẽ</td>
+</tr>
+<tr>
+<td>Kim loại</td>
+<td>Sắt xỉn, gỉ ở mép, phản xạ hẹp và tối</td>
+<td>Chrome, kim loại sáng bóng</td>
+</tr>
+<tr>
+<td>Vàng/đồng</td>
+<td>Mờ, cũ, chỉ sáng ở cạnh</td>
+<td>Vàng kim lấp lánh khắp nơi</td>
+</tr>
+<tr>
+<td>Vải/da</td>
+<td>Thô, rách mép, phai màu, bám bẩn ở gấu</td>
+<td>Vải lụa sạch, màu tươi</td>
+</tr>
+<tr>
+<td>Xương</td>
+<td>Ngà-vàng bẩn, vết nứt, khớp đen</td>
+<td>Trắng tinh</td>
+</tr>
+<tr>
+<td>Thịt/quỷ</td>
+<td>Đỏ-nâu ướt, phản xạ nhờn</td>
+<td>Đỏ hồng cartoon</td>
+</tr>
+<tr>
+<td>Máu</td>
+<td>Đỏ đậm gần nâu, đọng thành vũng, mép sẫm</td>
+<td>Đỏ tươi bão hòa, bắn tóe kiểu hoạt hình</td>
+</tr>
+<tr>
+<td>Cát</td>
+<td>Ấm, hạt mịn, gợn nhẹ</td>
+<td>Vàng chanh</td>
+</tr>
+<tr>
+<td>Tuyết/băng</td>
+<td>Lam xám, giẫm bẩn gần đường đi</td>
+<td>Trắng tinh không bóng đổ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="độ-chi-tiết-theo-khoảng-cách">Độ chi tiết theo khoảng cách</h3>
+<ul>
+<li><strong>Kích thước lớn (&gt;1 tile):</strong> thông tin hình khối + 1–2 vết hư hại lớn kể chuyện.</li>
+<li><strong>Kích thước trung:</strong> chất liệu đọc được qua 2–3 giá trị sáng.</li>
+<li><strong>Kích thước nhỏ:</strong> chỉ cần màu và silhouette; bỏ texture nhỏ hơn 2 px trên màn hình.</li>
+</ul>
+<h2 id="4-môi-trường-module">4. Môi trường module</h2>
+<ul>
+<li>Bộ tile phải ghép ngẫu nhiên mà không lộ đường nối → biên tile trung tính, chi tiết kể chuyện đặt bằng prop riêng. [Đã xác minh pipeline; Diễn giải AD về cách làm]</li>
+<li>Mỗi tileset cần: sàn cơ bản + 3–5 biến thể, tường thẳng/góc/đầu tường, cửa, ngưỡng chuyển vùng, mép vực, prop lớn landmark, prop nhỏ phá lặp.</li>
+<li><strong>Landmark mỗi 1–2 màn hình</strong>: tượng, xác lớn, cây khổng lồ, đền nhỏ. Bài học Act IV: thiếu landmark = "trống và giống nhau".</li>
+<li><strong>Tường che nhân vật</strong> phải có quy tắc mờ/ẩn rõ ràng; hero không bao giờ bị khuất hoàn toàn.</li>
+</ul>
+<h2 id="5-bóng-đổ">5. Bóng đổ</h2>
+<ul>
+<li>Sprite có bóng tiếp xúc đậm ở chân; bóng đổ dài hơn ở ngoài trời.</li>
+<li>Một hướng sáng thống nhất cho mọi sprite render sẵn; nếu engine có ánh sáng động, chỉ bổ sung, không mâu thuẫn hướng bake.</li>
+</ul></section>
+<section class="chapter"><h1 id="06-nhân-vật-quái-boss">06 — Nhân vật, quái, boss</h1>
+<h2 id="1-hero-người-thường-được-rèn-bởi-nghề">1. Hero — "người thường được rèn bởi nghề"</h2>
+<p>Mỗi lớp nhân vật là một <strong>nguyên mẫu văn hóa</strong> của Sanctuary, không phải siêu anh hùng. [Diễn giải AD dựa trên quan sát]</p>
+<table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Nguồn gốc/văn hóa</th>
+<th>Silhouette</th>
+<th>Palette nền (trang bị cơ bản)</th>
+<th>Từ khóa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon</td>
+<td>Quần đảo Skovos, chiến binh Hy Lạp</td>
+<td>Cao, thon, chân dài, giáo/cung</td>
+<td>Da rám, da thuộc nâu, đồng</td>
+<td>Huntress, Spartan</td>
+</tr>
+<tr>
+<td>Barbarian</td>
+<td>Núi Arreat, bộ lạc phương bắc</td>
+<td>Rộng vai, cơ bắp, tóc dài, vũ khí đôi</td>
+<td>Da trần, lông thú, sắt</td>
+<td>Berserker, Celt</td>
+</tr>
+<tr>
+<td>Necromancer</td>
+<td>Rừng Kehjistan, tu sĩ Rathma</td>
+<td>Gầy, khom nhẹ, tóc trắng, áo ôm</td>
+<td>Xám bạc, đen, xương ngà</td>
+<td>Bone, ascetic</td>
+</tr>
+<tr>
+<td>Paladin</td>
+<td>Hiệp sĩ Zakarum</td>
+<td>Đứng thẳng, khiên lớn, giáp sáng hơn</td>
+<td>Bạc, trắng, vàng mờ, đỏ thẫm</td>
+<td>Crusader, Templar</td>
+</tr>
+<tr>
+<td>Sorceress</td>
+<td>Hội phù thủy phương đông</td>
+<td>Mảnh, tư thế thi triển, gậy</td>
+<td>Lục ngọc, vàng, da sáng</td>
+<td>Mage, Byzantine</td>
+</tr>
+<tr>
+<td>Assassin (LoD)</td>
+<td>Viz-jaq'taar</td>
+<td>Gọn, thấp, móng vuốt</td>
+<td>Đen, đỏ thẫm, da</td>
+<td>Monk-killer</td>
+</tr>
+<tr>
+<td>Druid (LoD)</td>
+<td>Bộ tộc Scosglen</td>
+<td>Đậm, áo choàng lông, biến hình</td>
+<td>Nâu đất, lục rêu, lông</td>
+<td>Celtic shaman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hệ-thống-trang-bị-nhìn-thấy">Hệ thống trang bị nhìn thấy</h3>
+<ul>
+<li>Giáp chia module <strong>light / medium / heavy</strong>, ghép tự do tạo <strong>hàng trăm biến thể</strong> (bản gốc Diablo chỉ có 3 ngoại hình/lớp). [Đã xác minh]</li>
+<li>Bộ phận hiển thị [Quan sát]: đầu, thân, tay phải, tay trái (vũ khí/khiên), chân, hai vai (một số lớp).</li>
+<li><strong>Quy tắc AD:</strong> hero luôn nhận ra lớp nhân vật kể cả khi mặc giáp nặng nhất. Silhouette cơ thể và tư thế chờ là chữ ký; giáp không được xóa nó.</li>
+<li>Trang bị tiến triển: cấp thấp vải/da nâu xám → cấp cao kim loại chạm khắc, màu đậm hơn — nhưng vẫn <strong>xỉn, không lòe loẹt</strong>.</li>
+</ul>
+<h2 id="2-quái-gia-đình-và-biến-thể">2. Quái — gia đình và biến thể</h2>
+<h3 id="cấu-trúc-gia-đình">Cấu trúc gia đình</h3>
+<ul>
+<li>Một <strong>base model/sprite</strong> → nhiều biến thể bằng <strong>đổi palette</strong> + đổi tên + đổi kỹ năng. [Quan sát]</li>
+<li>Ví dụ: Fallen → Carver → Devilkin → Dark One → Warped Fallen; Zombie → Hungry Dead → Ghoul → Drowned Carcass → Plague Dead.</li>
+<li>Postmortem: quái có <strong>14 nhóm animation</strong>; chỉ Diablo dùng đủ cả 14. [Đã xác minh] Animation chết và âm thanh chết được mở rộng vì người chơi giết cùng loại quái rất nhiều lần. [Đã xác minh]</li>
+</ul>
+<h3 id="quy-tắc-thiết-kế-quái-diễn-giải-ad">Quy tắc thiết kế quái [Diễn giải AD]</h3>
+<ol>
+<li><strong>Vai trò đọc bằng hình khối và chuyển động</strong>, không chỉ màu: đánh gần lao tới; bắn xa giữ khoảng cách; caster đứng sau, động tác vung tay; summoner/hồi sinh có tư thế đặc biệt (Fallen Shaman giơ tay, lửa).</li>
+<li><strong>Palette biến thể tăng dần độ "nguy hiểm"</strong>: biến thể cao hơn đậm hơn, lạ hơn (xám → nâu → đỏ → tím/lam).</li>
+<li><strong>Quái mang dấu văn hóa của Act</strong>: Act I quỷ đồng hoang và kẻ phản bội; Act II xác ướp, bọ, rắn; Act III tộc lùn rừng (Fetish/Flayer), nhện, thú lai; Act IV quỷ thuần; Act V quái băng, tay sai Baal.</li>
+<li><strong>Kẻ phản bội là con người</strong>: Corrupt Rogue, Blood Raven, giáo sĩ Zakarum, Nihlathak — giữ ngoại hình <em>người</em> với dấu hiệu tha hóa (da tái, mắt sáng, máu).</li>
+</ol>
+<h3 id="quái-đặc-biệt">Quái đặc biệt</h3>
+<ul>
+<li><strong>Champion</strong>: cùng sprite, tên lam, mạnh hơn. <strong>Unique/Super Unique</strong>: tên vàng-kim, có minion và aura/hiệu ứng; nhiều Super Unique có palette riêng. [Quan sát]</li>
+<li>Elite cần <strong>tín hiệu thị giác ở rìa</strong>: hào quang, màu lạ, hiệu ứng aura dưới chân — đọc được trong đám đông.</li>
+</ul>
+<h2 id="3-boss-biểu-tượng-của-một-tội-lỗi">3. Boss — "biểu tượng của một tội lỗi"</h2>
+<table>
+<thead>
+<tr>
+<th>Boss</th>
+<th>Ý niệm</th>
+<th>Silhouette</th>
+<th>Không gian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Andariel</td>
+<td>Thống khổ — nữ tính bị bóp méo</td>
+<td>Thân trên người, gai sau lưng, chân cong</td>
+<td>Catacombs, nến, máu</td>
+</tr>
+<tr>
+<td>Duriel</td>
+<td>Đau đớn — khối thịt nặng</td>
+<td>Thấp, rộng, giòi bọ, càng</td>
+<td>Phòng mộ chật, tối</td>
+</tr>
+<tr>
+<td>Mephisto</td>
+<td>Hận thù — trí tuệ lạnh</td>
+<td>Lơ lửng, xương sống lộ, đuôi</td>
+<td>Durance, tường thịt</td>
+</tr>
+<tr>
+<td>Diablo</td>
+<td>Khiếp sợ — quỷ thuần</td>
+<td>Cao, sừng, gai lưng đỏ</td>
+<td>Chaos Sanctuary, ngôi sao</td>
+</tr>
+<tr>
+<td>Baal</td>
+<td>Hủy diệt — dị dạng</td>
+<td>Xúc tu, nhiều khối, không đối xứng</td>
+<td>Throne of Destruction</td>
+</tr>
+</tbody>
+</table>
+<p>Quy tắc: <strong>phòng boss là khung tranh cho boss</strong>. Ánh sáng, bố cục và màu nền được thiết kế để silhouette boss nổi nhất màn hình.</p>
+<h2 id="4-npc-thị-trấn">4. NPC thị trấn</h2>
+<ul>
+<li>Thực dụng, nghèo, có nghề: lính, thợ rèn, thầy thuốc, thương nhân.</li>
+<li>Animation chờ chậm, lặp, đời thường. NPC là "nhịp thở" — không được có tư thế anh hùng.</li>
+<li>Mỗi thị trấn có trang phục theo văn hóa Act.</li>
+</ul>
+<h2 id="5-animation-feel">5. Animation feel</h2>
+<ul>
+<li><strong>Trọng lượng trước tốc độ.</strong> Có anticipation rõ (lấy đà), impact dứt khoát, recovery ngắn.</li>
+<li>Hero: tư thế chờ thở nhẹ, vũ khí hạ thấp; đi/chạy có nhún đầu.</li>
+<li>Hit recovery (giật khi trúng đòn) là phản hồi chính của sát thương — phải đọc được ở 75 px.</li>
+<li>Death: đa dạng, dứt khoát, xác để lại nằm trên đất (xác còn là tài nguyên cho Necromancer/Barbarian). [Quan sát]</li>
+</ul></section>
+<section class="chapter"><h1 id="07-combat-feel-và-vfx">07 — Combat feel và VFX</h1>
+<blockquote>
+<p>Postmortem: combat được thiết kế để "ngoạn mục", quái "chết kịch tính" và có "dòng phần thưởng liên tục". [Đã xác minh]</p>
+</blockquote>
+<h2 id="1-vòng-lặp-một-cú-click-diễn-giải-ad">1. Vòng lặp một cú click [Diễn giải AD]</h2>
+<pre><code>Click → anticipation (lấy đà) → impact (máu/tia lửa + âm thanh) → hit recovery của quái
+     → chết (animation + âm thanh) → xác nằm lại → đồ rơi (âm thanh rơi + nhãn màu) → nhặt
+</code></pre>
+<p>Mỗi bước phải có <strong>phản hồi hình + tiếng</strong>. Thiếu một bước, cảm giác "click thỏa mãn" sụp đổ.</p>
+<h2 id="2-impact">2. Impact</h2>
+<ul>
+<li><strong>Máu là phản hồi chính</strong> của đòn vật lý: vài hạt đỏ đậm, bắn ngắn, rơi xuống đất. Không bắn tóe kiểu anime.</li>
+<li>Quái bị trúng giật lùi (hit recovery) — ngắn, rõ.</li>
+<li>Đòn chí mạng/đòn mạnh có thể đẩy lùi (knockback) — quái bị hất khỏi vị trí là một phần thưởng thị giác.</li>
+<li><strong>Không screen shake liên tục.</strong> Rung màn hình chỉ dành cho sự kiện lớn (boss, nổ lớn). [Diễn giải AD]</li>
+</ul>
+<h2 id="3-chết-art-quan-trọng-nhất-của-quái">3. Chết — art quan trọng nhất của quái</h2>
+<ul>
+<li>Mỗi gia đình quái có animation chết riêng; chết phải <strong>dứt khoát và nặng</strong>.</li>
+<li><strong>Chết theo nguyên tố</strong> [Quan sát]: quái bị đóng băng chết có thể vỡ vụn (shatter); quái chết do lửa/điện/độc có tông màu và hiệu ứng riêng.</li>
+<li>Xác để lại trên đất là <strong>tài nguyên gameplay</strong> (Corpse Explosion, Raise Skeleton, Find Item…), nên xác phải đọc được là xác, không biến mất ngay.</li>
+<li>Một số quái để lại hậu quả khi chết (nổ, sinh quái nhỏ) — cần "tell" thị giác trước đó.</li>
+</ul>
+<h2 id="4-ngôn-ngữ-phép-theo-nguyên-tố">4. Ngôn ngữ phép theo nguyên tố</h2>
+<table>
+<thead>
+<tr>
+<th>Nguyên tố</th>
+<th>Màu</th>
+<th>Hình</th>
+<th>Cảm giác</th>
+<th>Ví dụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lửa</td>
+<td>Cam → vàng lõi trắng, khói đen</td>
+<td>Cuộn, liếm, tàn bay</td>
+<td>Nóng, phá hủy</td>
+<td>Fireball, Inferno, Fire Wall</td>
+</tr>
+<tr>
+<td>Lạnh</td>
+<td>Lam nhạt → trắng</td>
+<td>Tinh thể, mảnh nhọn, sương</td>
+<td>Sắc, tĩnh, chậm</td>
+<td>Frozen Orb, Blizzard, Glacial Spike</td>
+</tr>
+<tr>
+<td>Điện</td>
+<td>Trắng-lam/vàng</td>
+<td>Gấp khúc, nhánh, chớp tắt</td>
+<td>Nhanh, giật</td>
+<td>Chain Lightning, Nova, Charged Bolt</td>
+</tr>
+<tr>
+<td>Độc</td>
+<td>Lục vàng bẩn</td>
+<td>Mây, bong bóng, nhỏ giọt</td>
+<td>Bệnh, chậm, thối</td>
+<td>Poison Nova, Poison Dagger</td>
+</tr>
+<tr>
+<td>Ma thuật</td>
+<td>Tím/lam/trắng</td>
+<td>Vòng, rune, tia</td>
+<td>Siêu nhiên</td>
+<td>Teleport, Bone Spirit</td>
+</tr>
+<tr>
+<td>Thánh (Paladin)</td>
+<td>Vàng-trắng</td>
+<td>Vòng aura dưới chân, ánh sáng hướng lên</td>
+<td>Trang nghiêm</td>
+<td>Holy Fire/Freeze/Shock aura, Fist of the Heavens</td>
+</tr>
+<tr>
+<td>Xương/chết (Necro)</td>
+<td>Ngà, xám, lục mờ</td>
+<td>Gai, lồng, tường</td>
+<td>Lạnh, nghi lễ</td>
+<td>Bone Spear, Bone Prison, Curses</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quy-tắc-vfx-diễn-giải-ad">Quy tắc VFX [Diễn giải AD]</h3>
+<ol>
+<li><strong>Phép là nguồn sáng</strong> — VFX soi sáng môi trường (colored lights là nâng cấp được xác minh của D2).</li>
+<li><strong>Alpha/additive tiết chế.</strong> Trong suốt thật được dùng [Đã xác minh], nhưng một màn hình đầy phép vẫn phải thấy quái. Giới hạn diện tích additive.</li>
+<li><strong>Hình dạng đọc được trước màu.</strong> Người mù màu phải phân biệt lửa và lạnh qua hình (cuộn vs nhọn).</li>
+<li><strong>Kỹ năng cao cấp = cùng ngôn ngữ, quy mô lớn hơn</strong>, không đổi phong cách.</li>
+<li><strong>Aura/curse dưới chân</strong> dùng biểu tượng hình tròn/rune quay chậm; curse trên đầu quái dùng icon nhỏ.</li>
+</ol>
+<h2 id="5-máu-gore-kiểm-duyệt">5. Máu, gore, kiểm duyệt</h2>
+<ul>
+<li>Mức gore D2: máu và xác rõ, không cận cảnh. Camera xa là bộ lọc tự nhiên.</li>
+<li>Có tùy chọn giảm máu nếu thị trường yêu cầu: máu → bụi/tia lửa, giữ nguyên nhịp phản hồi.</li>
+</ul>
+<h2 id="6-feedback-trạng-thái-trên-nhân-vật">6. Feedback trạng thái trên nhân vật</h2>
+<ul>
+<li>Độc: tint lục.</li>
+<li>Lạnh/chậm: tint lam.</li>
+<li>Curse: icon trên đầu.</li>
+<li>Aura: vòng dưới chân + màu.</li>
+<li>Nhận sát thương: hero giật (nếu hit recovery), cầu máu thay đổi; tránh flash đỏ toàn màn hình.</li>
+</ul></section>
+<section class="chapter"><h1 id="08-ui-loot-và-âm-thanh">08 — UI, loot và âm thanh</h1>
+<h2 id="1-ui-đá-sắt-và-da">1. UI — "đá, sắt và da"</h2>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Đặc tính [Quan sát]</th>
+<th>Quy tắc AD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thanh dưới</td>
+<td>Khung đá/kim loại tối, hai cầu Máu (đỏ, trái) và Mana (lam, phải), ô kỹ năng, belt thuốc</td>
+<td>UI phải là <em>vật thể trong thế giới</em>, không phẳng/hiện đại</td>
+</tr>
+<tr>
+<td>Cầu máu/mana</td>
+<td>Chất lỏng trong cầu thủy tinh, rút dần</td>
+<td>Đọc được bằng mắt ngoại vi</td>
+</tr>
+<tr>
+<td>Túi đồ</td>
+<td>Lưới ô, mỗi item chiếm kích thước hình học thật (1×1 → 2×4)</td>
+<td>Tetris túi đồ là một phần feel</td>
+</tr>
+<tr>
+<td>Panel</td>
+<td>Nền da/đá tối, viền kim loại, chữ serif khắc</td>
+<td>Không gradient sặc, không icon phẳng</td>
+</tr>
+<tr>
+<td>Bản đồ</td>
+<td>Automap đường nét đơn giản phủ trong suốt</td>
+<td>Tối giản để không che gameplay</td>
+</tr>
+<tr>
+<td>Font</td>
+<td>Serif cổ (kiểu khắc), chữ trắng/xám trên nền tối</td>
+<td>Ưu tiên đọc được hơn trang trí</td>
+</tr>
+</tbody>
+</table>
+<p>UI tối và trầm hơn gameplay — <strong>khung tranh</strong>, không phải tranh.</p>
+<h2 id="2-loot-art-cốt-lõi">2. Loot — art cốt lõi</h2>
+<h3 id="màu-chữ-vật-phẩm-quan-sát">Màu chữ vật phẩm [Quan sát]</h3>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Màu chữ</th>
+<th>HEX đề xuất [Diễn giải AD]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thường (Normal)</td>
+<td>Trắng</td>
+<td><code>#E0E0E0</code></td>
+</tr>
+<tr>
+<td>Có lỗ / Ethereal / Low quality</td>
+<td>Xám</td>
+<td><code>#8A8A8A</code></td>
+</tr>
+<tr>
+<td>Magic</td>
+<td>Lam</td>
+<td><code>#6969FF</code></td>
+</tr>
+<tr>
+<td>Rare</td>
+<td>Vàng</td>
+<td><code>#FFFF64</code></td>
+</tr>
+<tr>
+<td>Set</td>
+<td>Xanh lục</td>
+<td><code>#00C400</code></td>
+</tr>
+<tr>
+<td>Unique</td>
+<td>Vàng-kim/nâu</td>
+<td><code>#C7B377</code></td>
+</tr>
+<tr>
+<td>Crafted</td>
+<td>Cam</td>
+<td><code>#FFA800</code></td>
+</tr>
+<tr>
+<td>Rune / Runeword</td>
+<td>Cam (rune) / vàng-kim (runeword)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Không đủ yêu cầu</td>
+<td>Đỏ</td>
+<td><code>#FF4D4D</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="đồ-hoạ-vật-phẩm">Đồ hoạ vật phẩm</h3>
+<ul>
+<li>Icon túi đồ (inventory art) <strong>render nổi khối, ánh sáng mạnh từ trên</strong>, đẹp hơn sprite trong game — đây là "khoảnh khắc trưng bày" phần thưởng.</li>
+<li>Item rơi có <strong>animation lật (flippy)</strong> và <strong>âm thanh rơi riêng</strong> theo loại (vàng, nhẫn, bùa, rune, giáp, vũ khí). [Quan sát]</li>
+<li>Unique/Set có thể có icon riêng; vật phẩm hiếm khác dùng icon cơ bản → <strong>màu chữ</strong> và <strong>âm thanh</strong> gánh cảm xúc.</li>
+<li>Vật phẩm ethereal có tông trong suốt/nhạt.</li>
+<li>Item trên người hero hiện bằng hệ thống component — món đồ càng hiếm, hình trên người càng khác (một phần).</li>
+</ul>
+<h3 id="quy-tắc-ad">Quy tắc AD</h3>
+<ol>
+<li>Vàng tiền rơi: cụm xu lấp lánh nhỏ — quá phổ biến nên phải khiêm tốn.</li>
+<li>Rune, charm, jewel: nhỏ nhưng <strong>có âm thanh nhận diện cực mạnh</strong> — người chơi ngoảnh lại vì tiếng, không vì hình.</li>
+<li>Đồ hiếm không được phát hào quang chói khắp màn hình (đó là phong cách hậu D2). Nhãn màu khi nhấn Alt là đủ.</li>
+</ol>
+<h2 id="3-âm-thanh-nửa-kia-của-hình-ảnh">3. Âm thanh — nửa kia của hình ảnh</h2>
+<blockquote>
+<p>Postmortem: âm nhạc và hiệu ứng âm thanh "đóng góp rất lớn vào không khí của game". [Đã xác minh] Kỹ sư âm thanh làm video AVI từ animation để đồng bộ tiếng với chuyển động. [Đã xác minh]</p>
+</blockquote>
+<h3 id="âm-nhạc-matt-uelmen">Âm nhạc (Matt Uelmen)</h3>
+<ul>
+<li>Chủ đề Tristram: guitar 12 dây, ảnh hưởng folk-rock đầu thập niên 70 và chất "trung cổ" [Đã xác minh — phỏng vấn Uelmen].</li>
+<li>Nhạc dungeon: bộ gõ lớn, tiếng guitar dày, không đi theo "fantasy dàn nhạc" truyền thống [Đã xác minh — phỏng vấn].</li>
+<li>Mỗi Act có màu nhạc theo văn hóa (Act II nhạc cụ Trung Đông, Act III bộ gõ rừng) [Quan sát].</li>
+<li>Thu âm thật, nhạc cụ chiết trung thay vì âm thanh "Hollywood" [Đã xác minh — Shacknews].</li>
+</ul>
+<h3 id="âm-thanh-môi-trường">Âm thanh môi trường</h3>
+<ul>
+<li>Hoang dã: gió, côn trùng, tiếng xa; <strong>khoảng lặng nhiều</strong>.</li>
+<li>Dungeon: nước nhỏ giọt, tiếng vọng, tiếng rên xa — âm thanh của thứ <em>không thấy</em>.</li>
+<li>Thị trấn: tiếng người, lửa, búa rèn — ấm, có sự sống.</li>
+</ul>
+<h3 id="phối-hợp-hìnhtiếng-diễn-giải-ad">Phối hợp hình–tiếng [Diễn giải AD]</h3>
+<ul>
+<li>Mỗi gia đình quái có tiếng "tell" khi phát hiện người chơi; người chơi nghe trước khi thấy.</li>
+<li>Tiếng chết đa dạng như animation chết.</li>
+<li>Âm thanh rơi item là UI quan trọng nhất của loot.</li>
+<li>Khi duyệt animation, <strong>luôn duyệt kèm âm thanh</strong> — đúng cách Blizzard North làm.</li>
+</ul></section>
+<section class="chapter"><h1 id="09-nên-không-nên-và-tiêu-chí-duyệt">09 — Nên / Không nên và tiêu chí duyệt</h1>
+<h2 id="1-nên-không-nên">1. Nên / Không nên</h2>
+<table>
+<thead>
+<tr>
+<th>Chủ đề</th>
+<th>✅ NÊN</th>
+<th>❌ KHÔNG NÊN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tổng thể</td>
+<td>Hiện thực u ám, thế giới cũ và mục</td>
+<td>Fantasy anh hùng sáng sủa, cartoon</td>
+</tr>
+<tr>
+<td>Màu</td>
+<td>Nền khử bão hòa, điểm nhấn bão hòa có lý do</td>
+<td>Bão hòa đều, màu kẹo, tím-hồng neon trang trí</td>
+</tr>
+<tr>
+<td>Giá trị</td>
+<td>Nền tối, nhân vật trung, hiệu ứng sáng</td>
+<td>Nền sáng hơn nhân vật</td>
+</tr>
+<tr>
+<td>Ánh sáng</td>
+<td>Light radius + nguồn điểm, giữa là tối</td>
+<td>Ambient phủ đều, bloom toàn màn hình, god-ray</td>
+</tr>
+<tr>
+<td>Hình khối</td>
+<td>Silhouette rõ ở 64 px</td>
+<td>Chi tiết nhỏ gánh nhận diện</td>
+</tr>
+<tr>
+<td>Tỷ lệ</td>
+<td>Gần thực tế; vũ khí/giáp hợp lý</td>
+<td>Vai giáp khổng lồ, vũ khí to hơn người</td>
+</tr>
+<tr>
+<td>Vật liệu</td>
+<td>Mỗi vật liệu một cấu trúc hư hại riêng</td>
+<td>Grunge overlay chung cho mọi thứ</td>
+</tr>
+<tr>
+<td>Gore</td>
+<td>Máu đậm, xác nằm yên, kể chuyện</td>
+<td>Gore khoe khoang, cận cảnh, máu đỏ tươi</td>
+</tr>
+<tr>
+<td>Kinh dị</td>
+<td>Tăng dần trong Act, cái thiêng bị ô uế</td>
+<td>Jump-scare, quái dị ngay từ đầu</td>
+</tr>
+<tr>
+<td>VFX</td>
+<td>Phép là nguồn sáng, hình đọc trước màu</td>
+<td>Màn hình phủ particle che quái</td>
+</tr>
+<tr>
+<td>Loot</td>
+<td>Nhãn màu + âm thanh + icon túi đồ đẹp</td>
+<td>Cột sáng/hào quang lớn cho mọi đồ hiếm</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>Đá, sắt, da, serif; trầm hơn gameplay</td>
+<td>UI phẳng hiện đại, gradient, icon flat</td>
+</tr>
+<tr>
+<td>Act</td>
+<td>Mỗi Act một văn hóa, palette, khí hậu</td>
+<td>Tái dùng tileset Act khác cho tiện</td>
+</tr>
+<tr>
+<td>Thị trấn</td>
+<td>Ấm, tạm bợ, nhịp thở</td>
+<td>Thành phố hoành tráng sáng rực</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bẫy-thường-gặp-khi-làm-giống-d2">Bẫy thường gặp khi "làm giống D2"</h3>
+<ol>
+<li><strong>Làm quá tối.</strong> D2 tối có nguồn; nếu người chơi phải tăng gamma để thấy quái, cảnh sai.</li>
+<li><strong>Làm quá nâu.</strong> Mỗi Act có màu riêng; nếu 5 Act đều nâu xám, mất nhận diện.</li>
+<li><strong>Làm quá chi tiết.</strong> Texture đẹp ở 4K nhưng nhiễu ở kích thước chơi.</li>
+<li><strong>Copy D3/D4 thay vì D2.</strong> D3 sáng, bão hòa, nét vẽ tay hơn; D4 painterly. D2 là <em>render 3D cuối thập niên 90 trong palette giới hạn</em>: mềm, hơi mờ, khối nặng.</li>
+<li><strong>Coi D2 là pixel art.</strong> Sprite D2 là render từ 3D [Đã xác minh], không vẽ pixel tay viền cứng.</li>
+</ol>
+<h2 id="2-rubric-duyệt-thang-15">2. Rubric duyệt (thang 1–5)</h2>
+<p>Chấm <strong>ở kích thước trong game</strong>, trong cảnh thật có hero + quái + VFX + UI.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tiêu chí</th>
+<th>1 (hỏng)</th>
+<th>3 (đạt)</th>
+<th>5 (đúng chất D2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Đọc được</td>
+<td>Không thấy quái/hero</td>
+<td>Thấy khi dừng lại nhìn</td>
+<td>Đọc ngay trong hỗn chiến</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Silhouette</td>
+<td>Lẫn vào nền</td>
+<td>Nhận ra loại</td>
+<td>Nhận ra vai trò và loại chỉ bằng bóng</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Giá trị sáng</td>
+<td>Nền sáng hơn nhân vật</td>
+<td>3 tầng có nhưng yếu</td>
+<td>3 tầng rõ ở ảnh đen trắng</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Palette Act</td>
+<td>Lạc tông</td>
+<td>Hợp tông</td>
+<td>Nhận ra Act chỉ qua ảnh</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ánh sáng</td>
+<td>Phủ đều/không nguồn</td>
+<td>Có nguồn</td>
+<td>Bóng tối là mối đe dọa, ánh sáng là an toàn</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Vật liệu</td>
+<td>Nhựa/mới/grunge chung</td>
+<td>Đọc được chất</td>
+<td>Cũ, có lịch sử, có câu chuyện</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Theme</td>
+<td>Không liên quan</td>
+<td>Có motif</td>
+<td>Cái thiêng bị ô uế rõ ràng</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Feel</td>
+<td>Nhẹ, không phản hồi</td>
+<td>Có phản hồi</td>
+<td>Nặng, dứt khoát, thỏa mãn</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Kỹ thuật</td>
+<td>Lỗi cắt, sai neo, sai hướng</td>
+<td>Đúng spec</td>
+<td>Ghép module không lộ, đủ hướng</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ngưỡng:</strong> P0 (vertical slice) cần trung bình ≥ 3.5 và <strong>không tiêu chí nào &lt; 3</strong>. Tiêu chí 1 và 3 phải ≥ 4.</p>
+<h2 id="3-red-flag-dừng-ngay">3. Red flag — dừng ngay</h2>
+<ul>
+<li>Hero không đọc được trên nền ở bất kỳ vùng nào.</li>
+<li>Màu gameplay (đỏ máu, lam mana, lục độc) dùng làm trang trí gây nhầm.</li>
+<li>Một Act có thể đổi tên thành Act khác mà không ai nhận ra.</li>
+<li>Boss không nổi nhất phòng boss.</li>
+<li>Cảnh đẹp nhưng "không có gì đã xảy ra ở đây".</li>
+</ul>
+<h2 id="4-quy-trình-duyệt-đề-xuất">4. Quy trình duyệt đề xuất</h2>
+<ol>
+<li><strong>Ảnh đen trắng</strong> → kiểm tra giá trị.</li>
+<li><strong>Thu 25%</strong> → kiểm tra silhouette.</li>
+<li><strong>Cảnh đông</strong> (≥ 20 quái + 3 phép) → kiểm tra đọc được.</li>
+<li><strong>So với ref board Act</strong> → kiểm tra palette.</li>
+<li><strong>Chạy kèm âm thanh</strong> → kiểm tra feel.</li>
+</ol></section>
+<section class="chapter"><h1 id="11-act-i-phân-tích-chi-tiết">11 — Act I: phân tích chi tiết</h1>
+<blockquote>
+<p>"Đồng hoang và tu viện bị ô uế." Đọc kèm file 03 (mood tổng) và 04 (palette). Nhãn độ tin cậy giống README: <strong>[Đã xác minh] / [Quan sát] / [Diễn giải AD]</strong>.</p>
+</blockquote>
+<h2 id="1-vai-trò-của-act-i-trong-toàn-game">1. Vai trò của Act I trong toàn game</h2>
+<p>Act I là <strong>ấn tượng đầu tiên</strong> và là nơi người chơi <em>học cảm giác</em> Diablo II. Nó phải làm được 4 việc [Diễn giải AD]:</p>
+<ol>
+<li><strong>Đặt chuẩn "thế giới thật":</strong> cỏ, bùn, hàng rào, nghĩa địa — trước khi siêu nhiên xuất hiện.</li>
+<li><strong>Dạy ngôn ngữ ánh sáng:</strong> ngoài trời âm u; hang đầu tiên (Den of Evil) dạy rằng <em>bóng tối = nguy hiểm, light radius = an toàn</em>.</li>
+<li><strong>Kết nối với Diablo I:</strong> Tristram cháy rụi, Deckard Cain, Griswold, Wirt — sự hoài niệm chuyển thành nỗi buồn.</li>
+<li><strong>Dựng chủ đề tha hóa của cái thiêng:</strong> hội nữ chiến binh Rogue (Sisters of the Sightless Eye) bị Andariel chiếm tu viện, chị em cũ thành Corrupt Rogue, chỉ huy cũ Blood Raven thành kẻ thù.</li>
+</ol>
+<p><strong>Lý do câu chuyện tồn tại:</strong> tu viện nằm trên đèo — cổng duy nhất đi về phía đông. Andariel chiếm tu viện = chặn đường. Toàn bộ Act là hành trình <strong>đi tới và đi xuyên qua tu viện</strong>. [Quan sát]</p>
+<h2 id="2-cấu-trúc-không-gian-và-nhịp">2. Cấu trúc không gian và nhịp</h2>
+<h3 id="chuỗi-vùng-chính">Chuỗi vùng chính</h3>
+<pre><code>Rogue Encampment
+ └ Blood Moor ──── Den of Evil (hang, Q1)
+    └ Cold Plains [WP] ── The Cave L1–2
+       ├ Burial Grounds (Q2 Blood Raven) ── Crypt · Mausoleum
+       └ Stony Field [WP] ── Cairn Stones ⇒ Tristram (Q3)
+          └ Underground Passage L1 (L2 ẩn)
+             └ Dark Wood [WP] ── Tree of Inifuss (Q3)
+                └ Black Marsh [WP] ── Forgotten Tower L1–5 (Q4 Countess) · The Hole L1–2
+                   └ Tamoe Highland ── The Pit L1–2
+                      └ Monastery Gate → Outer Cloister [WP]
+                         → Barracks (Q5 The Smith / Horadric Malus)
+                         → Jail L1 [WP] → L2 → L3
+                         → Inner Cloister [WP] → Cathedral
+                         → Catacombs L1 → L2 [WP] → L3 → L4 (Q6 Andariel)
+</code></pre>
+<p>[Quan sát; nhiệm vụ và vị trí đối chiếu với Arreat Summit — classic.battle.net]</p>
+<h3 id="ba-chương-trong-một-act-diễn-giải-ad">Ba chương trong một Act [Diễn giải AD]</h3>
+<table>
+<thead>
+<tr>
+<th>Chương</th>
+<th>Vùng</th>
+<th>Cảm giác</th>
+<th>Mức kinh dị (thang file 02)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. Vùng quê bị bỏ rơi</strong></td>
+<td>Blood Moor → Cold Plains → Burial Grounds</td>
+<td>Cô độc, buồn, bạo lực đã xảy ra</td>
+<td>1 → 2 → 3 (nghĩa địa)</td>
+</tr>
+<tr>
+<td><strong>B. Vùng hoang sâu</strong></td>
+<td>Stony Field → Dark Wood → Black Marsh → Tamoe</td>
+<td>Hoang dã, cổ xưa, ma thuật dân gian (đá Cairn, cây Inifuss, tháp Countess)</td>
+<td>2 → 3</td>
+</tr>
+<tr>
+<td><strong>C. Tu viện bị ô uế</strong></td>
+<td>Monastery Gate → Catacombs</td>
+<td>Ngột ngạt, nghi lễ, khép kín</td>
+<td>3 → 4</td>
+</tr>
+</tbody>
+</table>
+<p>Điểm giữa là <strong>Tristram</strong> — một "flashback" về Diablo I: thị trấn cũ cháy đen, xác dân làng, Wirt chết, Griswold thành undead. Đây là nhịp cảm xúc <em>buồn</em>, không phải <em>sợ</em>.</p>
+<h3 id="quy-luật-mật-độ-sáng-theo-nhịp">Quy luật mật độ sáng theo nhịp</h3>
+<ul>
+<li><strong>Ngoài trời:</strong> sáng nhất là Blood Moor, tối dần khi tiến sâu (Dark Wood tán cây che, Black Marsh sương ẩm).</li>
+<li><strong>Hang/hầm phụ</strong> chen giữa mỗi vùng ngoài trời → nhịp sáng/tối lặp lại, như thở.</li>
+<li><strong>Tu viện:</strong> chuỗi nội thất dài liên tục, càng xuống càng tối và đỏ.</li>
+</ul>
+<h2 id="3-phân-tích-từng-vùng">3. Phân tích từng vùng</h2>
+<p>Area level ghi theo Normal / Nightmare / Hell [Quan sát — Diablo Wiki; cần đối chiếu <code>levels.txt</code> đúng phiên bản].</p>
+<table>
+<thead>
+<tr>
+<th>Vùng</th>
+<th>Lvl</th>
+<th>Mood một dòng</th>
+<th>Landmark/kể chuyện</th>
+<th>Ánh sáng &amp; palette</th>
+<th>Quái chính [Quan sát]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rogue Encampment</strong></td>
+<td>—</td>
+<td>Trại tạm ấm áp giữa vùng đe dọa</td>
+<td>Lửa trại trung tâm, rào cọc, lều, xe Warriv</td>
+<td>Lửa cam ở tâm, viền tối</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Blood Moor</strong></td>
+<td>1/36/67</td>
+<td>Cánh đồng úa vừa bị tấn công</td>
+<td>Xác lính Rogue, hàng rào gãy, lối Den of Evil</td>
+<td>Âm u sáng nhất Act; lục-xám</td>
+<td>Fallen, Fallen Shaman, Zombie, Quill Rat</td>
+</tr>
+<tr>
+<td><strong>Den of Evil</strong></td>
+<td>1/36/79</td>
+<td>Bài học bóng tối đầu tiên</td>
+<td>Hang đất, Corpsefire</td>
+<td>Gần đen, chỉ light radius</td>
+<td>Fallen, Zombie, Corpsefire</td>
+</tr>
+<tr>
+<td><strong>Cold Plains</strong></td>
+<td>2/36/68</td>
+<td>Đồng trống lạnh, gió</td>
+<td>Waypoint, lối nghĩa địa, Bishibosh</td>
+<td>Lạnh hơn, khử bão hòa</td>
+<td>Fallen, Shaman, Zombie, Dark Hunter, Foul Crow</td>
+</tr>
+<tr>
+<td><strong>Burial Grounds</strong></td>
+<td>3/36/80</td>
+<td>Nghĩa địa của các chị em</td>
+<td>Bia mộ Rogue, Blood Raven giữa mộ</td>
+<td>Đêm nghĩa địa, lam-xám; mũi tên lửa của Raven là điểm sáng</td>
+<td>Zombie, Blood Raven</td>
+</tr>
+<tr>
+<td><strong>Crypt / Mausoleum</strong></td>
+<td>—</td>
+<td>Lăng mộ đá ngột ngạt</td>
+<td>Quan tài, Bonebreaker</td>
+<td>Đá lạnh, xanh xám</td>
+<td>Skeleton, Wraith/Ghost</td>
+</tr>
+<tr>
+<td><strong>Stony Field</strong></td>
+<td>4/37/68</td>
+<td>Bãi đá cổ, siêu nhiên dân gian</td>
+<td>5 đá Cairn (đỏ), Rakanishu, Moldy Tome</td>
+<td>Ấm-nâu hơn; đá Cairn và portal đỏ nổi bật</td>
+<td>Fallen (Carver), Quill Rat, Zombie</td>
+</tr>
+<tr>
+<td><strong>Tristram</strong></td>
+<td>6/39/76</td>
+<td>Đám tang của Diablo I</td>
+<td>Nhà cháy, xác dân, lồng Cain, Wirt, Griswold</td>
+<td>Tro, than hồng, khói; nâu-đen + cam</td>
+<td>Undead, Griswold</td>
+</tr>
+<tr>
+<td><strong>Underground Passage</strong></td>
+<td>4/37/69</td>
+<td>Hang nối tiếp</td>
+<td>Hang đất</td>
+<td>Tối</td>
+<td>Hỗn hợp hang</td>
+</tr>
+<tr>
+<td><strong>Dark Wood</strong></td>
+<td>5/38/68</td>
+<td>Rừng tối, sợ bị theo dõi</td>
+<td>Tree of Inifuss (cuộn giấy), Treehead Woodfist</td>
+<td>Tán cây chặn sáng, lục đậm</td>
+<td>Brute (Wendigo), Goatman, Blood Hawk</td>
+</tr>
+<tr>
+<td><strong>Black Marsh</strong></td>
+<td>6/38/69</td>
+<td>Đầm lầy ẩm, sương</td>
+<td>Forgotten Tower (tháp đơn độc trên nền ngầm)</td>
+<td>Lục bùn, nước đen</td>
+<td>Goatman, Blood Hawk, Fallen</td>
+</tr>
+<tr>
+<td><strong>Forgotten Tower</strong></td>
+<td>—</td>
+<td>Tội ác quý tộc (Countess tắm máu)</td>
+<td>5 tầng xuống sâu, rương vàng</td>
+<td>Tối, đỏ dần</td>
+<td>Tainted, Ghost, Dark Stalker; The Countess</td>
+</tr>
+<tr>
+<td><strong>The Hole / The Pit</strong></td>
+<td>5/38/80 · 7/39/85</td>
+<td>Hang phụ sâu</td>
+<td>Rương</td>
+<td>Gần đen</td>
+<td>Hỗn hợp</td>
+</tr>
+<tr>
+<td><strong>Tamoe Highland</strong></td>
+<td>8/39/69</td>
+<td>Cao nguyên đá, ngưỡng tu viện</td>
+<td>Đường lên Monastery Gate</td>
+<td>Mở, gió; nhìn thấy tường tu viện</td>
+<td>Goatman, Tainted (Afflicted), Fallen</td>
+</tr>
+<tr>
+<td><strong>Monastery Gate</strong></td>
+<td>~9</td>
+<td>Cổng thánh bị chiếm</td>
+<td>Cổng đá lớn, tường cao</td>
+<td>Chuyển ngoài → trong</td>
+<td>Corrupt Rogue</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Các mục "—" và "~" chưa đối chiếu area level trong lần nghiên cứu này.</p>
+</blockquote>
+<h2 id="4-tu-viện-chuỗi-từ-công-cộng-tới-linh-thiêng-tới-cái-chết">4. Tu viện — chuỗi "từ công cộng tới linh thiêng tới cái chết"</h2>
+<p>Đây là phần thiết kế mạnh nhất của Act I. Người chơi đi <strong>sâu dần vào đời sống của hội</strong>, mỗi tầng là một không gian xã hội khác nhau, mỗi tầng tha hóa một kiểu. [Diễn giải AD dựa trên quan sát]</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Không gian</th>
+<th>Chức năng xưa</th>
+<th>Tha hóa hiện tại</th>
+<th>Ngôn ngữ hình ảnh</th>
+<th>Điểm nhấn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Outer Cloister</strong></td>
+<td>Sân ngoài, đón khách</td>
+<td>Bị chiếm, xác lính</td>
+<td>Vòm đá, sân lát, cột; ngoài trời nửa kín</td>
+<td>WP</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Barracks</strong></td>
+<td>Doanh trại, lò rèn</td>
+<td>Kho vũ khí của quỷ</td>
+<td>Phòng hàng loạt, giường, giá vũ khí, lò</td>
+<td>The Smith, Horadric Malus, kiếm bay (Flying Scimitar)</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Jail L1–3</strong></td>
+<td>Nhà giam</td>
+<td>Phòng tra tấn</td>
+<td>Song sắt, xích, buồng giam, máu</td>
+<td>Pitspawn Fouldog (L2)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Inner Cloister</strong></td>
+<td>Sân trong, thiền tịnh</td>
+<td>Khoảng thở giả</td>
+<td>Sân đẹp nhất, cân đối — <strong>khoảng lặng cuối</strong> trước nhà thờ</td>
+<td>WP</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Cathedral</strong></td>
+<td>Nơi thờ phụng</td>
+<td>Nghi lễ quỷ</td>
+<td>Gian giữa dài, hàng cột, bàn thờ, kính màu tối, nến</td>
+<td>Bone Ash</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Catacombs L1–4</strong></td>
+<td>Hầm mộ</td>
+<td>Lò mổ, ổ của Andariel</td>
+<td>Hành lang thấp, hốc xác, nến, máu; đỏ dần</td>
+<td>Andariel (L4)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quy-tắc-dựng-tu-viện-diễn-giải-ad">Quy tắc dựng tu viện [Diễn giải AD]</h3>
+<ol>
+<li><strong>Kiến trúc Romanesque/Gothic sớm, nặng:</strong> tường dày, vòm tròn và vòm nhọn thấp, cột to — tu viện quân sự, không phải nhà thờ lớn tinh tế.</li>
+<li><strong>Vật liệu xuyên suốt:</strong> đá xám-nâu mài mòn, sàn đá lát, gỗ sẫm, sắt rèn. Màu biểu tượng hội (đỏ thẫm/nâu) trên cờ, thảm rách.</li>
+<li><strong>Mỗi tầng giảm ánh sáng ngoài trời một bậc:</strong> Outer Cloister còn trời → Barracks cửa sổ → Jail đuốc → Cathedral nến → Catacombs nến + máu.</li>
+<li><strong>Đỏ tăng dần:</strong> máu ít ở Outer Cloister, đọng nhiều ở Jail, thành nghi lễ ở Cathedral, phủ khắp Catacombs.</li>
+<li><strong>Inner Cloister phải đẹp:</strong> người chơi cần thấy tu viện <em>đã từng</em> thiêng liêng thế nào để thấy mất mát.</li>
+</ol>
+<h2 id="5-quái-act-i-đọc-theo-vai-trò">5. Quái Act I — đọc theo vai trò</h2>
+<p>Danh mục Bestiary Act I có 21 mục + 13 đặc biệt (xem <code>../ACT1_MONSTER_ANIMATION_VI.md</code>). Arreat Summit mô tả sinh vật vùng Western Kingdoms là <strong>"phiên bản méo mó, hung hãn của dạng tự nhiên"</strong> [Đã xác minh]. Đây là chìa khóa thiết kế: quái Act I là <em>thứ quen thuộc bị hỏng</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Gia đình</th>
+<th>Vai trò</th>
+<th>Silhouette</th>
+<th>Hành vi tạo feel</th>
+<th>Ghi chú AD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fallen</strong></td>
+<td>Bầy nhỏ đánh gần</td>
+<td>Lùn, đầu to, còng</td>
+<td><strong>Bỏ chạy hoảng loạn khi đồng loại chết</strong> [Quan sát]</td>
+<td>Quái "đầu tiên" — phải buồn cười-đáng ghét, không đáng sợ</td>
+</tr>
+<tr>
+<td><strong>Fallen Shaman</strong></td>
+<td>Hồi sinh + bắn lửa</td>
+<td>Như Fallen, gậy, tư thế giơ tay</td>
+<td>Hồi sinh Fallen chết</td>
+<td>Dạy ưu tiên mục tiêu; tia lửa là nguồn sáng</td>
+</tr>
+<tr>
+<td><strong>Zombie</strong></td>
+<td>Chậm, trâu</td>
+<td>Người, dáng lê, tay vươn</td>
+<td>Đi chậm, đánh nặng</td>
+<td>Undead đầu tiên, nhịp chậm</td>
+</tr>
+<tr>
+<td><strong>Quill Rat / Spike Fiend</strong></td>
+<td>Bắn xa nhỏ</td>
+<td>Thấp, gai lưng</td>
+<td>Bắn gai</td>
+<td>Thú hoang biến dạng</td>
+</tr>
+<tr>
+<td><strong>Corrupt Rogue (3 dạng)</strong></td>
+<td>Kẻ phản bội</td>
+<td>Người nữ, cung/giáo/kiếm</td>
+<td>Như Rogue thật</td>
+<td><strong>Phải giống Rogue trong trại</strong> + da tái, mắt sáng, máu</td>
+</tr>
+<tr>
+<td><strong>Skeleton (3 dạng)</strong></td>
+<td>Đánh gần / cung / phép</td>
+<td>Thẳng, gầy, khớp</td>
+<td>Giật cục</td>
+<td>Gắn với Crypt, Cathedral</td>
+</tr>
+<tr>
+<td><strong>Wraith/Ghost</strong></td>
+<td>Bay xuyên, hút mana</td>
+<td>Mờ, trong suốt</td>
+<td>Trôi</td>
+<td>Dùng trong suốt thật [Đã xác minh là tính năng engine]</td>
+</tr>
+<tr>
+<td><strong>Brute (Wendigo)</strong></td>
+<td>Quái lớn đánh gần</td>
+<td>To, lông, tay dài</td>
+<td>Đánh nặng</td>
+<td>Mốc "quái lớn" đầu tiên</td>
+</tr>
+<tr>
+<td><strong>Goatman</strong></td>
+<td>Bầy chiến binh</td>
+<td>Đầu dê, đứng thẳng, vũ khí</td>
+<td>Theo nhóm</td>
+<td>Biểu tượng dị giáo dân gian châu Âu</td>
+</tr>
+<tr>
+<td><strong>Blood Hawk + Nest</strong></td>
+<td>Bay nhanh / ổ sinh</td>
+<td>Chim; ổ đứng yên</td>
+<td>Lao xuống</td>
+<td>Ổ là "kiến trúc sống"</td>
+</tr>
+<tr>
+<td><strong>Tainted</strong></td>
+<td>Caster</td>
+<td>Dị dạng, lùn</td>
+<td>Bắn tia</td>
+<td>Tầng Jail, Tower</td>
+</tr>
+<tr>
+<td><strong>Giant Spider</strong></td>
+<td>Đánh nhanh</td>
+<td>Thấp, rộng</td>
+<td>Lao</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Vampire</strong></td>
+<td>Caster mạnh</td>
+<td>Người cao, áo choàng</td>
+<td>Bắn lửa</td>
+<td>Đỉnh Catacombs</td>
+</tr>
+<tr>
+<td><strong>Flying Scimitar</strong></td>
+<td>Vũ khí bị ám</td>
+<td>Kiếm bay</td>
+<td>Lao</td>
+<td>Barracks — vũ khí tự sống</td>
+</tr>
+<tr>
+<td><strong>Gargoyle Trap</strong></td>
+<td>Bẫy</td>
+<td>Tượng</td>
+<td>Bắn</td>
+<td>Kiến trúc biết tấn công</td>
+</tr>
+</tbody>
+</table>
+<h3 id="super-unique-mỗi-con-là-một-câu-chuyện-địa-điểm">Super Unique — mỗi con là một "câu chuyện địa điểm"</h3>
+<table>
+<thead>
+<tr>
+<th>Tên</th>
+<th>Gốc [Đã xác minh]</th>
+<th>Nơi</th>
+<th>Thuộc tính</th>
+<th>Gợi ý thị giác [Diễn giải AD]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corpsefire</td>
+<td>Zombie</td>
+<td>Den of Evil</td>
+<td>Spectral Hit</td>
+<td>Zombie palette lạ; hit lóe màu nguyên tố</td>
+</tr>
+<tr>
+<td>Bishibosh</td>
+<td>Fallen Shaman</td>
+<td>Cold Plains</td>
+<td>Magic Res., Fire Enchanted</td>
+<td>Shaman với aura lửa</td>
+</tr>
+<tr>
+<td>Bonebreaker</td>
+<td>Skeleton</td>
+<td>Crypt</td>
+<td>Extra Strong, Magic Res.</td>
+<td>Xương to sẫm</td>
+</tr>
+<tr>
+<td><strong>Blood Raven</strong></td>
+<td>Corrupt Rogue Archer</td>
+<td>Burial Grounds</td>
+<td>Fire Arrow, hồi sinh xác thành zombie</td>
+<td>Cựu chỉ huy Rogue; tóc đỏ, giáp đỏ sẫm, mũi tên lửa; đứng giữa mộ chị em</td>
+</tr>
+<tr>
+<td>Coldcrow</td>
+<td>Dark Ranger</td>
+<td>The Cave</td>
+<td>Cold Enchanted</td>
+<td>Tông lam lạnh</td>
+</tr>
+<tr>
+<td>Rakanishu</td>
+<td>Carver</td>
+<td>Stony Field</td>
+<td>Lightning Ench., Extra Fast</td>
+<td>Tia điện quanh thân</td>
+</tr>
+<tr>
+<td>Treehead Woodfist</td>
+<td>Brute</td>
+<td>Dark Wood</td>
+<td>Extra Strong, Extra Fast</td>
+<td>Như "cây" biết đi</td>
+</tr>
+<tr>
+<td>Griswold</td>
+<td>Nhân vật Diablo I</td>
+<td>Tristram</td>
+<td>Cursed</td>
+<td>Thợ rèn Tristram thành undead — nỗi buồn</td>
+</tr>
+<tr>
+<td><strong>The Countess</strong></td>
+<td>Dark Stalker</td>
+<td>Forgotten Tower</td>
+<td>Fire Enchanted</td>
+<td>Quý tộc tắm máu; đáy tháp đỏ</td>
+</tr>
+<tr>
+<td>Pitspawn Fouldog</td>
+<td>Tainted</td>
+<td>Jail L2</td>
+<td>Cursed, Cold Ench.</td>
+<td></td>
+</tr>
+<tr>
+<td>Bone Ash</td>
+<td>Burning Dead Mage</td>
+<td>Cathedral</td>
+<td>Extra Strong, Cold Ench., Magic Res.</td>
+<td>Pháp sư xương giữa thánh đường</td>
+</tr>
+<tr>
+<td>The Smith</td>
+<td>Đặc biệt</td>
+<td>Barracks</td>
+<td>Extra Strong</td>
+<td>Thợ rèn khổng lồ, búa, lò rèn đỏ</td>
+</tr>
+<tr>
+<td><strong>Andariel</strong></td>
+<td>Act Boss</td>
+<td>Catacombs L4</td>
+<td>Poison Strike, Poison Cloud</td>
+<td>Xem mục 6</td>
+</tr>
+</tbody>
+</table>
+<p>Nguồn bảng: Arreat Summit — Act I Super Unique Monsters.</p>
+<h2 id="6-boss-andariel-maiden-of-anguish">6. Boss: Andariel — "Maiden of Anguish"</h2>
+<ul>
+<li><strong>Ý niệm:</strong> Thống khổ (Anguish). Hình thể nữ bị bóp méo, đặt trong tu viện của một hội nữ — <strong>sự tha hóa phản chiếu chính những người bị tha hóa</strong>. [Diễn giải AD]</li>
+<li><strong>Silhouette:</strong> thân trên người nữ, các gai/chi dài vươn từ lưng, chân cong dị dạng. Cao hơn hero ~2 lần. Nhận ra ngay bằng bóng.</li>
+<li><strong>Màu:</strong> da tái ấm, đỏ thịt; <strong>độc màu lục</strong> là nguồn màu đối lập duy nhất trong phòng đỏ → đọc đòn rõ ràng.</li>
+<li><strong>Phòng boss:</strong> cuối Catacombs L4, không gian rộng hơn hành lang, nến bao quanh, sàn máu. Ánh sáng tập trung vào boss.</li>
+<li><strong>Feel trận đấu:</strong> Poison Cloud phủ đất lục, người chơi phải di chuyển; Poison Strike đánh gần. Hình độc phải rõ trên nền đỏ tối.</li>
+</ul>
+<h2 id="7-blood-raven-nhân-vật-mang-theme-của-act">7. Blood Raven — nhân vật mang theme của Act</h2>
+<p>Blood Raven là <strong>cầu nối cảm xúc</strong>: Kashya nhờ người chơi giết cựu chị em của mình. Raven đứng giữa nghĩa địa của chính hội, hồi sinh xác chị em thành zombie. Đây là hình ảnh tóm tắt cả Act: <strong>cái thiêng (hội Rogue, nghĩa địa) bị biến thành vũ khí của cái ác</strong>. Khi duyệt art Burial Grounds, câu hỏi kiểm tra là: <em>người chơi có thấy đây từng là nơi chị em yêu thương chôn nhau không?</em> (bia đá chăm chút, hoa khô, cờ hội…). [Diễn giải AD]</p>
+<h2 id="8-rogue-encampment-thị-trấn-như-nhân-vật">8. Rogue Encampment — thị trấn như nhân vật</h2>
+<table>
+<thead>
+<tr>
+<th>NPC</th>
+<th>Vai trò [Quan sát]</th>
+<th>Ngôn ngữ hình ảnh [Diễn giải AD]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Akara</td>
+<td>Nữ tư tế, chữa trị, bán đồ phép</td>
+<td>Áo choàng tím/xanh trầm, tư thế bình thản</td>
+</tr>
+<tr>
+<td>Kashya</td>
+<td>Chỉ huy Rogue, thuê lính</td>
+<td>Giáp nhẹ, cung, đứng thẳng — "quân đội"</td>
+</tr>
+<tr>
+<td>Charsi</td>
+<td>Thợ rèn</td>
+<td>Cơ bắp, búa, đe; lò rèn là nguồn sáng thứ hai của trại</td>
+</tr>
+<tr>
+<td>Gheed</td>
+<td>Thương nhân cờ bạc</td>
+<td>Bụng phệ, áo sặc hơn mọi người — người duy nhất "khá giả", hơi đáng ngờ</td>
+</tr>
+<tr>
+<td>Warriv</td>
+<td>Trưởng đoàn xe</td>
+<td>Xe ngựa ở rìa trại — biểu tượng "lối đi tiếp"</td>
+</tr>
+<tr>
+<td>Deckard Cain</td>
+<td>Hiền giả (sau khi cứu)</td>
+<td>Áo choàng nâu, gậy, già yếu</td>
+</tr>
+<tr>
+<td>Lính Rogue</td>
+<td>Lính đánh thuê</td>
+<td>Đứng gác quanh rào</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bố cục trại:</strong> hình tròn thô, rào cọc gỗ bao quanh, lửa trại ở giữa, NPC tỏa ra theo chức năng, lối ra phía Blood Moor rõ ràng. Mood: <em>nơi trú ẩn của những người thua cuộc nhưng chưa bỏ cuộc</em>. Nhạc "Rogue" tái dùng hòa âm chủ đề thị trấn Diablo I [Quan sát — Wikipedia]; guitar ấm.</p>
+<h2 id="9-âm-thanh-act-i">9. Âm thanh Act I</h2>
+<p>Album soundtrack CD (Matt Uelmen, 2000) có các track: Wilderness, <strong>Rogue</strong> (chủ đề trại, xác minh là Act I), Sisters, Spider, Jungle, Zakarum, Desert, Toru, Sanctuary, <strong>Crypt</strong> (dùng câu hợp xướng "Miserere"), Tombs, <strong>Monastery</strong>, <strong>Cave</strong>, Mesa, Leoric, Coda, Roger and Me. Chủ đề Tristram không có trong CD. [Đã xác minh — Wikipedia]</p>
+<p>Gắn track với vùng theo tên [Quan sát — cần nghe lại trong game để xác nhận]:</p>
+<table>
+<thead>
+<tr>
+<th>Không gian</th>
+<th>Track</th>
+<th>Cảm giác</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rogue Encampment</td>
+<td>Rogue</td>
+<td>Guitar ấm, hoài niệm</td>
+</tr>
+<tr>
+<td>Vùng ngoài trời</td>
+<td>Wilderness</td>
+<td>Rộng, thưa, ambient công nghiệp</td>
+</tr>
+<tr>
+<td>Burial Grounds/nghĩa địa</td>
+<td>Sisters (?)</td>
+<td>Tang tóc</td>
+</tr>
+<tr>
+<td>Hang</td>
+<td>Cave</td>
+<td>Vọng, nhỏ giọt</td>
+</tr>
+<tr>
+<td>Crypt/Mausoleum/Catacombs</td>
+<td>Crypt</td>
+<td>Hợp xướng tang lễ</td>
+</tr>
+<tr>
+<td>Tu viện</td>
+<td>Monastery</td>
+<td>Nghi lễ, nặng</td>
+</tr>
+<tr>
+<td>Tristram</td>
+<td>Tristram</td>
+<td>Chủ đề D1 biến tấu</td>
+</tr>
+</tbody>
+</table>
+<p>Phong cách chung album: ambient industrial, thử nghiệm; trộn sample thư viện + thu âm thật (guitar, sáo, bộ gõ) + nhạc điện tử. [Đã xác minh — Wikipedia]</p>
+<h2 id="10-color-script-act-i">10. Color script Act I</h2>
+<p>Xem <code>act1_color_script.html</code>. Tóm tắt [Diễn giải AD — màu xấp xỉ]:</p>
+<table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Vùng</th>
+<th>Màu chủ</th>
+<th>Điểm nhấn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Rogue Encampment</td>
+<td>Nâu gỗ <code>#4A3A2A</code></td>
+<td>Lửa <code>#E08A30</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blood Moor</td>
+<td>Lục-xám úa <code>#4C5440</code></td>
+<td>Máu <code>#6E1414</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cold Plains</td>
+<td>Xám-lục lạnh <code>#46504A</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Burial Grounds</td>
+<td>Lam-xám đêm <code>#2E3540</code></td>
+<td>Lửa tên Raven <code>#E0602A</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Stony Field</td>
+<td>Nâu đá <code>#5A5040</code></td>
+<td>Portal đỏ <code>#C02A2A</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tristram</td>
+<td>Tro <code>#2A2420</code></td>
+<td>Than hồng <code>#D0501E</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Dark Wood</td>
+<td>Lục đậm <code>#1E2A1C</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Black Marsh</td>
+<td>Lục bùn <code>#2C3326</code></td>
+<td>Sương <code>#7A8070</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Tamoe Highland</td>
+<td>Xám đá <code>#555248</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Outer Cloister</td>
+<td>Đá tu viện <code>#5C5246</code></td>
+<td>Cờ đỏ <code>#7A1E1E</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Jail</td>
+<td>Đá tối <code>#2E2A26</code></td>
+<td>Đuốc <code>#D98030</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Inner Cloister</td>
+<td>Đá sáng <code>#6E665A</code></td>
+<td>Trời <code>#8A96A0</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Cathedral</td>
+<td>Nâu-tím tối <code>#2C2228</code></td>
+<td>Nến <code>#F0B050</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Catacombs</td>
+<td>Đỏ-nâu <code>#2A1414</code></td>
+<td>Máu <code>#8A1010</code> + độc <code>#7FB040</code></td>
+</tr>
+</tbody>
+</table>
+<p>Đọc theo chuỗi: <strong>ấm (trại) → lục úa → lạnh lam (nghĩa địa) → nâu → đen tro (Tristram) → lục tối (rừng) → xám → đá ấm (tu viện) → tối dần → đỏ (Catacombs)</strong>. Act kết thúc ở màu đỏ — màu sẽ trở lại ở Act IV.</p>
+<h2 id="11-bộ-tileset-act-i-cần-sản-xuất">11. Bộ tileset Act I cần sản xuất</h2>
+<table>
+<thead>
+<tr>
+<th>Tileset</th>
+<th>Dùng cho</th>
+<th>Thành phần chính</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wilderness (biến thể theo vùng)</td>
+<td>Blood Moor → Tamoe</td>
+<td>Cỏ úa, đất, đá, đường mòn, hàng rào, cây, vách đá, mép nước, nghĩa địa</td>
+</tr>
+<tr>
+<td>Cave</td>
+<td>Den, Cave, Passage, Hole, Pit</td>
+<td>Đất đá, thạch nhũ, mép hang</td>
+</tr>
+<tr>
+<td>Crypt/Mausoleum</td>
+<td>Burial Grounds</td>
+<td>Đá lăng, quan tài, hốc tường</td>
+</tr>
+<tr>
+<td>Forgotten Tower</td>
+<td>Black Marsh</td>
+<td>Tháp ngoài, nội thất tầng ngầm</td>
+</tr>
+<tr>
+<td>Tristram</td>
+<td>Tristram</td>
+<td>Nhà cháy, giếng, Cairn portal, lồng Cain</td>
+</tr>
+<tr>
+<td>Monastery exterior</td>
+<td>Gate, Outer/Inner Cloister</td>
+<td>Tường lớn, cổng, sân lát, cột, vòm</td>
+</tr>
+<tr>
+<td>Barracks/Jail</td>
+<td>Barracks, Jail</td>
+<td>Phòng, giường, giá vũ khí, buồng giam, song sắt</td>
+</tr>
+<tr>
+<td>Cathedral</td>
+<td>Cathedral</td>
+<td>Gian giữa, cột, bàn thờ, ghế, kính màu</td>
+</tr>
+<tr>
+<td>Catacombs</td>
+<td>Catacombs</td>
+<td>Hành lang thấp, hốc xác, nến, máu</td>
+</tr>
+</tbody>
+</table>
+<p>Ưu tiên cho vertical slice [Diễn giải AD]: <strong>Wilderness + Cave + Catacombs</strong> — đủ để chứng minh ngoài trời, bóng tối và đỉnh kinh dị.</p>
+<h2 id="12-trải-nghiệm-10-phút-đầu-blood-moor-phải-đúng-tuyệt-đối">12. Trải nghiệm 10 phút đầu (Blood Moor) — phải đúng tuyệt đối</h2>
+<ol>
+<li>Ra khỏi cổng trại: thế giới rộng, âm u, nhạc lắng xuống — <em>cảm giác bước ra khỏi chỗ an toàn</em>.</li>
+<li>Vài bước: xác lính Rogue → <em>bạo lực đã xảy ra</em>.</li>
+<li>Bầy Fallen: chém một con, cả bầy hoảng loạn bỏ chạy → <em>người chơi thấy mình mạnh</em>.</li>
+<li>Shaman hồi sinh Fallen → <em>học ưu tiên mục tiêu</em>.</li>
+<li>Đồ rơi đầu tiên: tiếng rơi + nhãn màu → <em>móc câu loot</em>.</li>
+<li>Den of Evil: bóng tối thật sự lần đầu → <em>học light radius</em>.</li>
+<li>Hoàn thành Den, quay về trại: lửa trại, nhạc Rogue → <em>thở</em>.</li>
+</ol>
+<p>Nếu art không phục vụ được 7 khoảnh khắc này, Act I chưa đạt. [Diễn giải AD]</p>
+<h2 id="13-checklist-duyệt-riêng-act-i">13. Checklist duyệt riêng Act I</h2>
+<ul>
+<li class="todo">Ảnh chụp bất kỳ vùng ngoài trời: nhận ra là Act I (lục-xám âm u, châu Âu) không phải Act khác.</li>
+<li class="todo">Corrupt Rogue nhìn ra là chị em của Rogue trong trại.</li>
+<li class="todo">Đá Cairn và portal đỏ Tristram là điểm màu mạnh nhất Stony Field.</li>
+<li class="todo">Tristram đọc là <em>thị trấn Diablo I đã chết</em>, có nỗi buồn, không chỉ là bãi đổ nát.</li>
+<li class="todo">Inner Cloister là không gian đẹp nhất tu viện.</li>
+<li class="todo">Chuỗi tu viện tối dần và đỏ dần; Catacombs đỏ nhất.</li>
+<li class="todo">Đòn độc của Andariel đọc rõ trên nền phòng boss.</li>
+<li class="todo">Fallen hoảng loạn bỏ chạy đọc được ở 75 px.</li>
+<li class="todo">Ngày/đêm ngoài trời không làm hero mất tương phản.</li>
+</ul>
+<h2 id="14-nguồn-cho-file-này">14. Nguồn cho file này</h2>
+<ul>
+<li><a href="https://classic.battle.net/diablo2exp/quests/act1.shtml">Arreat Summit — Act I Quests</a></li>
+<li><a href="https://classic.battle.net/diablo2exp/monsters/act1.shtml">Arreat Summit — Act I Monsters</a></li>
+<li><a href="https://classic.battle.net/diablo2exp/monsters/act1-superuniques.shtml">Arreat Summit — Act I Super Uniques</a></li>
+<li><a href="https://diablo2.diablowiki.net/Alvl">Diablo Wiki — Area Level</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Diablo_II_Soundtrack">Wikipedia — Diablo II Soundtrack</a></li>
+<li>Postmortem Diablo II (xem file 10)</li>
+</ul><figure class="chart"><figcaption>Color script Act I <span>(act1_color_script.html)</span></figcaption><iframe srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;vi&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Diablo II — Act I Color Script&lt;/title&gt;
+&lt;style&gt;
+  * { box-sizing:border-box; }
+  body { margin:0; padding:32px; background:#0d0b0a; color:#d8cbb3; font:14px/1.5 &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, sans-serif; }
+  h1 { margin:0 0 4px; font-size:22px; color:#c7b377; font-weight:600; }
+  .sub { color:#8c7f6a; font-size:13px; margin-bottom:20px; }
+  .chap { display:flex; gap:4px; margin-bottom:6px; }
+  .chap div { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#8c7f6a; border-top:2px solid #3a2f24; padding-top:4px; }
+  .strip { display:flex; gap:4px; }
+  .k { flex:1; min-width:0; }
+  .frame { height:110px; border:1px solid #000; border-radius:4px; position:relative; overflow:hidden; }
+  .frame .acc { position:absolute; width:14px; height:14px; border-radius:50%; left:50%; top:46%; transform:translate(-50%,-50%); }
+  .frame .vig { position:absolute; inset:0; }
+  .k b { display:block; font-size:12px; font-weight:600; margin-top:6px; line-height:1.25; }
+  .k span { display:block; font:10px Consolas, monospace; color:#8c7f6a; }
+  .bar { display:flex; height:30px; margin-top:22px; border-radius:4px; overflow:hidden; border:1px solid #000; }
+  .bar div { flex:1; }
+  .lbl { display:flex; justify-content:space-between; font-size:11px; color:#8c7f6a; margin-top:4px; }
+  h3 { margin:26px 0 8px; font-size:13px; text-transform:uppercase; letter-spacing:.05em; color:#c7b377; font-weight:600; }
+  @media (max-width:700px) { .strip { flex-wrap:wrap; } .k { flex:0 0 calc(25% - 3px); } .chap { display:none; } }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Act I — Color Script&lt;/h1&gt;
+&lt;div class=&quot;sub&quot;&gt;Màu xấp xỉ do AD đề xuất. Mỗi khung: nền chủ + điểm nhấn + độ tối viền (vignette) theo mức đe dọa.&lt;/div&gt;
+&lt;div class=&quot;chap&quot; id=&quot;chap&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;strip&quot; id=&quot;strip&quot;&gt;&lt;/div&gt;
+&lt;h3&gt;Độ sáng trung bình theo hành trình&lt;/h3&gt;
+&lt;div class=&quot;bar&quot; id=&quot;bar&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;lbl&quot;&gt;&lt;span&gt;Trại (an toàn)&lt;/span&gt;&lt;span&gt;Tristram&lt;/span&gt;&lt;span&gt;Tu viện&lt;/span&gt;&lt;span&gt;Andariel&lt;/span&gt;&lt;/div&gt;
+&lt;h3&gt;Mức kinh dị (1–5)&lt;/h3&gt;
+&lt;div class=&quot;bar&quot; id=&quot;fear&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+const keys = [
+  [&quot;Rogue Encampment&quot;,&quot;#4A3A2A&quot;,&quot;#E08A30&quot;,.25,1,&quot;A&quot;],
+  [&quot;Blood Moor&quot;,&quot;#4C5440&quot;,&quot;#6E1414&quot;,.35,1.5,&quot;A&quot;],
+  [&quot;Cold Plains&quot;,&quot;#46504A&quot;,null,.4,2,&quot;A&quot;],
+  [&quot;Burial Grounds&quot;,&quot;#2E3540&quot;,&quot;#E0602A&quot;,.6,3,&quot;A&quot;],
+  [&quot;Stony Field&quot;,&quot;#5A5040&quot;,&quot;#C02A2A&quot;,.4,2,&quot;B&quot;],
+  [&quot;Tristram&quot;,&quot;#2A2420&quot;,&quot;#D0501E&quot;,.6,3,&quot;B&quot;],
+  [&quot;Dark Wood&quot;,&quot;#1E2A1C&quot;,null,.65,2.5,&quot;B&quot;],
+  [&quot;Black Marsh&quot;,&quot;#2C3326&quot;,&quot;#7A8070&quot;,.6,2.5,&quot;B&quot;],
+  [&quot;Tamoe Highland&quot;,&quot;#555248&quot;,null,.4,2.5,&quot;B&quot;],
+  [&quot;Outer Cloister&quot;,&quot;#5C5246&quot;,&quot;#7A1E1E&quot;,.45,3,&quot;C&quot;],
+  [&quot;Jail&quot;,&quot;#2E2A26&quot;,&quot;#D98030&quot;,.7,3.5,&quot;C&quot;],
+  [&quot;Inner Cloister&quot;,&quot;#6E665A&quot;,&quot;#8A96A0&quot;,.35,3,&quot;C&quot;],
+  [&quot;Cathedral&quot;,&quot;#2C2228&quot;,&quot;#F0B050&quot;,.7,3.5,&quot;C&quot;],
+  [&quot;Catacombs&quot;,&quot;#2A1414&quot;,&quot;#8A1010&quot;,.8,4,&quot;C&quot;],
+  [&quot;Andariel&quot;,&quot;#2A1414&quot;,&quot;#7FB040&quot;,.85,4.5,&quot;C&quot;],
+];
+const chapNames = {A:&quot;A · Vùng quê bị bỏ rơi&quot;,B:&quot;B · Vùng hoang sâu&quot;,C:&quot;C · Tu viện bị ô uế&quot;};
+const counts = {}; keys.forEach(k =&gt; counts[k[5]] = (counts[k[5]]||0)+1);
+document.getElementById(&quot;chap&quot;).innerHTML = Object.keys(counts).map(c =&gt; `&lt;div style=&quot;flex:${counts[c]}&quot;&gt;${chapNames[c]}&lt;/div&gt;`).join(&quot;&quot;);
+document.getElementById(&quot;strip&quot;).innerHTML = keys.map(([n,base,acc,vig]) =&gt; `
+  &lt;div class=&quot;k&quot;&gt;&lt;div class=&quot;frame&quot; style=&quot;background:${base}&quot;&gt;
+    &lt;div class=&quot;vig&quot; style=&quot;background:radial-gradient(ellipse at 50% 55%, transparent 25%, rgba(0,0,0,${vig}) 80%)&quot;&gt;&lt;/div&gt;
+    ${acc ? `&lt;div class=&quot;acc&quot; style=&quot;background:${acc};box-shadow:0 0 16px 6px ${acc}88&quot;&gt;&lt;/div&gt;` : &quot;&quot;}
+  &lt;/div&gt;&lt;b&gt;${n}&lt;/b&gt;&lt;span&gt;${base}${acc ? &quot; · &quot;+acc : &quot;&quot;}&lt;/span&gt;&lt;/div&gt;`).join(&quot;&quot;);
+const lum = h =&gt; { const n=parseInt(h.slice(1),16); return (0.2126*(n&gt;&gt;16)+0.7152*((n&gt;&gt;8)&amp;255)+0.0722*(n&amp;255)); };
+document.getElementById(&quot;bar&quot;).innerHTML = keys.map(k =&gt; { const l = Math.round(lum(k[1])*(1-k[3]*.5)); return `&lt;div style=&quot;background:rgb(${l},${l},${l})&quot; title=&quot;${k[0]}&quot;&gt;&lt;/div&gt;`; }).join(&quot;&quot;);
+document.getElementById(&quot;fear&quot;).innerHTML = keys.map(k =&gt; { const t=(k[4]-1)/4; const r=Math.round(60+t*120), g=Math.round(50-t*35), b=Math.round(45-t*30); return `&lt;div style=&quot;background:rgb(${r},${g},${b})&quot; title=&quot;${k[0]}: ${k[4]}&quot;&gt;&lt;/div&gt;`; }).join(&quot;&quot;);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" loading="lazy" onload="fit(this)"></iframe></figure></section>
+<section class="chapter"><h1 id="12-quy-chuẩn-kích-thước-quái-bộ-quái-tạo-hình-quái-cảnh-quan-công-trình">12 — Quy chuẩn: kích thước quái, bộ quái, tạo hình quái, cảnh quan, công trình</h1>
+<blockquote>
+<p>Đây là <strong>quy chuẩn sản xuất</strong> để team làm theo. Phần lớn là <strong>[Diễn giải AD]</strong> suy ra từ quan sát Diablo II; các dữ kiện gốc được gắn nhãn riêng. Mọi con số là mặc định của dự án — được phép đổi, nhưng phải đổi ở đây trước, không đổi ngầm trong asset.</p>
+</blockquote>
+<hr />
+<h2 id="0-đơn-vị-đo-chung">0. Đơn vị đo chung</h2>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Định nghĩa</th>
+<th>Gốc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H</strong></td>
+<td>Chiều cao hero đứng thẳng (không mũ, không vũ khí giơ cao) trên màn hình = <strong>75 px</strong> ở độ phân giải mục tiêu</td>
+<td>75 px [Đã xác minh — postmortem]</td>
+</tr>
+<tr>
+<td><strong>Tile</strong></td>
+<td>Ô sàn isometric 2:1. Bản gốc: tile sàn <strong>160×80 px</strong>, chia <strong>5×5 subtile</strong> (mỗi subtile 32×16 px)</td>
+<td>[Quan sát — định dạng DT1; cần đối chiếu công cụ mod]</td>
+</tr>
+<tr>
+<td><strong>Sub</strong></td>
+<td>1 subtile = đơn vị va chạm/đứng của nhân vật</td>
+<td>[Quan sát]</td>
+</tr>
+<tr>
+<td><strong>fps</strong></td>
+<td>Animation phát ở <strong>25 khung/giây</strong></td>
+<td>[Quan sát — engine D2]</td>
+</tr>
+</tbody>
+</table>
+<p>Quy ước: mọi kích thước dưới đây ghi theo <strong>H</strong> (chiều cao) và <strong>Sub</strong> (chiếm chỗ dưới chân). Nếu dự án đổi độ phân giải, chỉ cần đổi giá trị px của H.</p>
+<hr />
+<h2 id="1-kích-thước-quái">1. Kích thước quái</h2>
+<h3 id="11-bảng-cấp-kích-thước">1.1 Bảng cấp kích thước</h3>
+<table>
+<thead>
+<tr>
+<th>Cấp</th>
+<th>Chiều cao</th>
+<th>px (H = 75)</th>
+<th>Chiếm chỗ (Sub)</th>
+<th>Ví dụ D2 [Quan sát]</th>
+<th>Cảm giác</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>XS — Sâu bọ</strong></td>
+<td>0.25–0.45 H</td>
+<td>19–34</td>
+<td>1×1</td>
+<td>Quill Rat, dơi, giòi nhỏ</td>
+<td>Bầy, phiền, chết nhanh</td>
+</tr>
+<tr>
+<td><strong>S — Nhỏ</strong></td>
+<td>0.5–0.75 H</td>
+<td>38–56</td>
+<td>1×1</td>
+<td>Fallen, Fetish, Imp</td>
+<td>Láu nháo, đông</td>
+</tr>
+<tr>
+<td><strong>M — Người</strong></td>
+<td>0.85–1.15 H</td>
+<td>64–86</td>
+<td>1×1</td>
+<td>Zombie, Skeleton, Corrupt Rogue, Goatman</td>
+<td>Ngang hàng hero</td>
+</tr>
+<tr>
+<td><strong>L — Lớn</strong></td>
+<td>1.25–1.6 H</td>
+<td>94–120</td>
+<td>2×2</td>
+<td>Brute/Wendigo, Overseer, Megademon</td>
+<td>Nặng, đe dọa</td>
+</tr>
+<tr>
+<td><strong>XL — Khổng lồ</strong></td>
+<td>1.7–2.3 H</td>
+<td>128–173</td>
+<td>2×2 – 3×3</td>
+<td>Gargantuan Beast, Oblivion Knight, quái nhiệm vụ lớn</td>
+<td>Mini-boss</td>
+</tr>
+<tr>
+<td><strong>Boss</strong></td>
+<td>2.0–3.5 H</td>
+<td>150–260</td>
+<td>3×3</td>
+<td>Andariel, Duriel (rộng), Diablo, Baal</td>
+<td>Biểu tượng</td>
+</tr>
+</tbody>
+</table>
+<p>Ghi chú [Quan sát]: bản gốc quy định chỗ chiếm của quái bằng cột <code>SizeX/SizeY</code> (1–3) trong MonStats2. Cần đối chiếu bảng đó khi cần số chính xác cho từng quái.</p>
+<h3 id="12-quy-tắc-kích-thước">1.2 Quy tắc kích thước</h3>
+<ol>
+<li><strong>Không phóng to quái tinh nhuệ.</strong> Champion/Unique dùng <strong>cùng kích thước</strong>, phân biệt bằng palette, aura, tên màu. Không có phiên bản "to hơn 20%". [Quan sát + quy định]</li>
+<li><strong>Mỗi cấp cách nhau rõ rệt.</strong> Hai quái khác cấp phải khác nhau ≥ 25% chiều cao hoặc khác hẳn bề rộng — người chơi phân biệt vai trò bằng khối.</li>
+<li><strong>Boss rộng hoặc cao, không cần cả hai.</strong> Duriel thấp-rộng, Diablo cao-gầy. Chọn một trục để phóng.</li>
+<li><strong>Quái bay</strong> đo chiều cao từ bóng dưới đất tới đỉnh; điểm neo (anchor) đặt ở <strong>bóng</strong>, không ở thân.</li>
+<li><strong>Trần trên của quái cỡ L trở lên ≤ 2.3 H</strong> trong khu thường, để không bị cắt ở mép trên màn hình khi hero đứng giữa.</li>
+<li><strong>Tầm đánh khớp với khối:</strong> quái L có tay/vũ khí với tới ~1.5 Sub; quái S đánh gần ~1 Sub. Hình phải "giải thích" được tầm đánh.</li>
+</ol>
+<h3 id="13-diện-tích-đọc-được-tối-thiểu">1.3 Diện tích đọc được tối thiểu</h3>
+<ul>
+<li>Silhouette tô đen của quái S trở lên phải nhận ra ở <strong>kích thước thật</strong>.</li>
+<li>Quái XS chỉ cần đọc được dạng chung + chuyển động; không đặt chi tiết nhận diện nhỏ hơn 3 px.</li>
+<li>Bộ phận tấn công (vũ khí, móng, miệng, tay phép) phải chiếm ≥ 10% silhouette trong khung tấn công.</li>
+</ul>
+<hr />
+<h2 id="2-bộ-quái-family-và-đội-hình">2. Bộ quái (family) và đội hình</h2>
+<h3 id="21-cấu-trúc-một-bộ-quái">2.1 Cấu trúc một bộ quái</h3>
+<pre><code>Gia đình (family)
+ ├── Base rig/model — 1 bộ hình, 1 bộ animation
+ ├── Biến thể palette 1…5 (tên khác, chỉ số khác, màu khác)       ← rẻ
+ ├── Biến thể vai trò (cung / phép / giáo…) dùng chung khung xương ← trung bình
+ ├── Super Unique — palette riêng + aura/thuộc tính                ← rẻ
+ └── (tùy chọn) Biến thể hình mới                                  ← đắt, cần duyệt
+</code></pre>
+<p>[Quan sát: D2 dùng nhiều biến thể bằng palette, ví dụ Fallen → Carver → Devilkin → Dark One; Corrupt Rogue → Archer → Spearwoman dùng chung thân.]</p>
+<h3 id="22-quy-tắc-bộ-quái">2.2 Quy tắc bộ quái</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Quy tắc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mỗi gia đình có <strong>một vai trò chính</strong> (bầy cận chiến, bắn xa, caster, nặng, đặc biệt). Biến thể không đổi vai trò cốt lõi trừ khi đổi vũ khí/tư thế rõ ràng.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Biến thể palette tăng dần đe dọa:</strong> nhạt/đất → nâu → đỏ → tím/lam/đen. Biến thể cao hơn bão hòa và tương phản hơn một bậc.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Không dùng màu gameplay làm palette quái thường:</strong> lục độc, lam lạnh, vàng điện chỉ dùng cho quái thật sự có thuộc tính đó.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mỗi gia đình có <strong>2–4 biến thể palette</strong> trong toàn game; nếu cần nhiều hơn, xem xét gia đình mới.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Biến thể vai trò (cung/phép) phải đổi <strong>tư thế chờ và tư thế tấn công</strong>, không chỉ đổi vũ khí trong tay.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Gia đình phải mang <strong>dấu văn hóa của Act sinh ra nó</strong>; khi xuất hiện lại ở Act khác, chỉ đổi palette.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-đội-hình-trong-một-vùng">2.3 Đội hình trong một vùng</h3>
+<p>Đề xuất [Diễn giải AD; D2 thường chọn vài loại quái ngẫu nhiên cho mỗi lần tạo vùng — cần đối chiếu <code>levels.txt</code>]:</p>
+<table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Vai trò</th>
+<th>Ví dụ Act I</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lõi</td>
+<td>Bầy cận chiến S/M</td>
+<td>Fallen, Zombie</td>
+</tr>
+<tr>
+<td>Hỗ trợ</td>
+<td>Caster/hồi sinh</td>
+<td>Fallen Shaman</td>
+</tr>
+<tr>
+<td>Áp lực xa</td>
+<td>Bắn xa</td>
+<td>Quill Rat, Corrupt Rogue Archer</td>
+</tr>
+<tr>
+<td>Nặng</td>
+<td>Quái L</td>
+<td>Brute</td>
+</tr>
+<tr>
+<td>Điểm nhấn</td>
+<td>Super Unique / tổ / bẫy</td>
+<td>Bishibosh, Blood Hawk Nest</td>
+</tr>
+</tbody>
+</table>
+<p>Quy định:</p>
+<ul>
+<li><strong>3–4 gia đình mỗi vùng</strong>, không hơn — người chơi phải học được hệ sinh thái của vùng.</li>
+<li>Trong một cảnh không có quá <strong>2 quái cùng cấp L trở lên</strong> ở khu thường.</li>
+<li>Mỗi gia đình trong cùng vùng phải khác nhau ít nhất ở <strong>2 trong 3</strong>: cấp kích thước, dáng di chuyển, palette chủ.</li>
+<li>Bầy cận chiến: 4–8 con/nhóm; caster đi kèm 1–2 con đứng sau.</li>
+</ul>
+<h3 id="24-bảng-kiểm-kê-bộ-quái-mẫu">2.4 Bảng kiểm kê bộ quái (mẫu)</h3>
+<table>
+<thead>
+<tr>
+<th>Gia đình</th>
+<th>Vai trò</th>
+<th>Cấp</th>
+<th>Sub</th>
+<th>Biến thể palette</th>
+<th>Biến thể vai trò</th>
+<th>Super Unique</th>
+<th>Act</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fallen</td>
+<td>Bầy cận chiến</td>
+<td>S</td>
+<td>1×1</td>
+<td>4–5</td>
+<td>Shaman (caster)</td>
+<td>Bishibosh, Rakanishu</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Corrupt Rogue</td>
+<td>Người phản bội</td>
+<td>M</td>
+<td>1×1</td>
+<td>3–4</td>
+<td>Archer, Spearwoman</td>
+<td>Blood Raven, Coldcrow</td>
+<td>I</td>
+</tr>
+<tr>
+<td>Brute</td>
+<td>Nặng</td>
+<td>L</td>
+<td>2×2</td>
+<td>3–4</td>
+<td>—</td>
+<td>Treehead Woodfist</td>
+<td>I</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-tạo-hình-quái">3. Tạo hình quái</h2>
+<h3 id="31-quy-trình-duyệt-tạo-hình">3.1 Quy trình duyệt tạo hình</h3>
+<ol>
+<li><strong>Brief vai trò:</strong> cấp kích thước, vai trò, Act, văn hóa, câu chuyện 1 dòng ("Rogue bị Andariel tha hóa").</li>
+<li><strong>Thumbnail silhouette:</strong> ≥ 6 phương án tô đen, duyệt ở kích thước thật.</li>
+<li><strong>Đặt cạnh hero và 2 quái cùng vùng</strong> → kiểm tra phân biệt.</li>
+<li><strong>Concept màu:</strong> dùng palette Act + palette biến thể (file 04).</li>
+<li><strong>Bảng tư thế chính:</strong> chờ, đi, tấn công, chết — vẽ ở 3/4 isometric đúng camera.</li>
+<li><strong>Model/render thử 8 hướng</strong> ở kích thước thật trên nền 3 vùng (sáng, trung, tối).</li>
+<li>Duyệt bằng rubric file 09.</li>
+</ol>
+<h3 id="32-năm-gốc-giải-phẫu">3.2 Năm gốc giải phẫu</h3>
+<table>
+<thead>
+<tr>
+<th>Gốc</th>
+<th>Đặc điểm</th>
+<th>Biến dạng cho phép</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Người</strong></td>
+<td>Tỷ lệ 7–7.5 đầu</td>
+<td>Gầy hoặc phì; da tái; tư thế lệch; vũ khí thật</td>
+</tr>
+<tr>
+<td><strong>Thú</strong></td>
+<td>Dựa trên thú thật</td>
+<td>Phóng đại một bộ phận (gai, hàm, tay); bỏ đối xứng nhẹ</td>
+</tr>
+<tr>
+<td><strong>Côn trùng/bò sát</strong></td>
+<td>Nhiều chân, vỏ</td>
+<td>Phóng to; vỏ bóng ướt</td>
+</tr>
+<tr>
+<td><strong>Undead</strong></td>
+<td>Người chết</td>
+<td>Khớp lệch, thịt thiếu mảng, xương lộ; cử động giật</td>
+</tr>
+<tr>
+<td><strong>Quỷ</strong></td>
+<td>Lai người-thú</td>
+<td>Sừng, gai, cơ phình, da nứt sáng; chỉ ở Act sau hoặc khu sâu</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quy tắc "một điều sai"</strong> [Diễn giải AD]: quái Act đầu chỉ có <strong>1–2 điểm sai lệch</strong> so với dạng tự nhiên (Arreat Summit: quái vùng Western Kingdoms là "phiên bản méo mó, hung hãn của dạng tự nhiên" [Đã xác minh]). Càng về sau, số điểm sai càng nhiều. Act IV mới được phép hoàn toàn phi tự nhiên.</p>
+<h3 id="33-quy-tắc-hình-khối">3.3 Quy tắc hình khối</h3>
+<ul>
+<li><strong>Tỷ lệ đầu–thân</strong> nói lên tính cách: đầu to = nhỏ, láu (Fallen); đầu nhỏ thấp = nặng, ngu (Brute); đầu cao = trí tuệ/caster (Vampire).</li>
+<li><strong>Trọng tâm:</strong> quái nặng có trọng tâm thấp, chân rộng; quái nhanh trọng tâm cao, chân hẹp.</li>
+<li><strong>Điểm nhận diện chính</strong> đặt ở <strong>nửa trên</strong> silhouette (đầu, vai, vũ khí) vì nửa dưới hay bị quái khác che.</li>
+<li><strong>Không có chi tiết bay lơ lửng mỏng</strong> (dải vải, lông vũ dài) dưới 2 px — sẽ nhấp nháy khi render.</li>
+<li>Vũ khí cầm tay <strong>tối đa 0.8 H</strong> cho quái M; vũ khí to hơn chỉ cho quái L+.</li>
+</ul>
+<h3 id="34-quy-tắc-màu-và-vật-liệu-quái">3.4 Quy tắc màu và vật liệu quái</h3>
+<ul>
+<li><strong>3 khối giá trị:</strong> sáng (điểm nhận diện) – trung (thân) – tối (bóng/chi dưới).</li>
+<li><strong>Màu chủ của quái tương phản với nền vùng</strong> nó sống: vùng lục → quái nâu-đỏ/xám; vùng cát → quái tối; vùng tuyết → quái tối hoặc lam đậm.</li>
+<li>Vật liệu theo bảng file 05: không bóng, không sạch.</li>
+<li><strong>Mắt/miệng phát sáng</strong> chỉ dành cho caster, undead cấp cao hoặc quỷ — không cho mọi quái.</li>
+</ul>
+<h3 id="35-animation-mode-và-tiêu-chuẩn">3.5 Animation: mode và tiêu chuẩn</h3>
+<p>Bản gốc dùng hệ mode cho quái (ví dụ NU chờ, WL đi, RN chạy, A1/A2 tấn công, SC phép, S1–S4 kỹ năng, GH trúng đòn, BL đỡ, KB bị hất, DT chết, DD xác…) [Quan sát — định dạng COF]. Postmortem ghi <strong>14 nhóm animation</strong>, chỉ Diablo dùng đủ [Đã xác minh].</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Bắt buộc</th>
+<th>Khung đề xuất @25 fps [Diễn giải AD]</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chờ (NU)</td>
+<td>✅</td>
+<td>8–16, lặp</td>
+<td>Có "thở"</td>
+</tr>
+<tr>
+<td>Đi (WL)</td>
+<td>✅</td>
+<td>8–12, lặp</td>
+<td>Bước khớp tốc độ di chuyển — không trượt chân</td>
+</tr>
+<tr>
+<td>Chạy (RN)</td>
+<td>Tùy</td>
+<td>8–10</td>
+<td></td>
+</tr>
+<tr>
+<td>Tấn công 1 (A1)</td>
+<td>✅</td>
+<td>12–18</td>
+<td>Anticipation ≥ 30% khung đầu; impact rõ</td>
+</tr>
+<tr>
+<td>Tấn công 2 / Phép (A2/SC)</td>
+<td>Theo vai trò</td>
+<td>12–20</td>
+<td>Caster: tư thế tay rõ</td>
+</tr>
+<tr>
+<td>Trúng đòn (GH)</td>
+<td>✅</td>
+<td>4–8</td>
+<td>Ngắn, đọc được</td>
+</tr>
+<tr>
+<td>Chết (DT)</td>
+<td>✅</td>
+<td>16–28</td>
+<td>Nặng, đa dạng giữa các gia đình</td>
+</tr>
+<tr>
+<td>Xác (DD)</td>
+<td>✅</td>
+<td>1</td>
+<td>Giữ trên sàn</td>
+</tr>
+<tr>
+<td>Đặc thù (S1–S4)</td>
+<td>Theo cơ chế</td>
+<td>—</td>
+<td>Hồi sinh, đẻ quái, đào đất…</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Hướng:</strong> quái <strong>8 hướng</strong>, hero <strong>16 hướng</strong> [Đã xác minh].</li>
+<li>Điểm neo: giữa hai chân trên mặt sàn; cố định qua mọi mode.</li>
+<li>Hướng sáng bake: thống nhất cho toàn dự án (file 04).</li>
+</ul>
+<h3 id="36-danh-sách-cấm-khi-tạo-hình-quái">3.6 Danh sách "cấm" khi tạo hình quái</h3>
+<ul>
+<li>Quái cartoon, mắt to dễ thương, màu kẹo.</li>
+<li>Thiết kế phụ thuộc vào chi tiết khuôn mặt (không đọc được ở 75 px).</li>
+<li>Hai gia đình trong cùng vùng có silhouette gần giống nhau.</li>
+<li>Quái phát sáng toàn thân không có lý do thuộc tính.</li>
+<li>Nội tạng cận cảnh hoặc gore mang tính khoe khoang.</li>
+</ul>
+<hr />
+<h2 id="4-cảnh-quan-ngoài-trời">4. Cảnh quan (ngoài trời)</h2>
+<h3 id="41-lưới-và-khối-xây">4.1 Lưới và khối xây</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Quy định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Góc nhìn</td>
+<td>Isometric 2:1 cố định, không xoay</td>
+</tr>
+<tr>
+<td>Đơn vị</td>
+<td>Tile sàn 160×80 px = 5×5 Sub (theo bản gốc)</td>
+</tr>
+<tr>
+<td>Hướng sáng</td>
+<td>Một hướng duy nhất cho mọi tile và prop bake</td>
+</tr>
+<tr>
+<td>Biến thể sàn</td>
+<td>Mỗi chất liệu sàn ≥ 4 biến thể + chuyển tiếp sang 2 chất liệu lân cận</td>
+</tr>
+<tr>
+<td>Ghép ngẫu nhiên</td>
+<td>Biên tile trung tính; chi tiết kể chuyện đặt bằng prop riêng [pipeline ghép phòng module — Đã xác minh]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-lớp-cảnh-quan-từ-dưới-lên">4.2 Lớp cảnh quan (từ dưới lên)</h3>
+<ol>
+<li><strong>Sàn nền</strong> — cỏ, đất, đá, cát, tuyết; độ tương phản nội bộ thấp.</li>
+<li><strong>Chuyển tiếp</strong> — mép cỏ/đất, đường mòn, vũng.</li>
+<li><strong>Chi tiết sàn (decal)</strong> — đá vụn, lá, máu, xương; không cản đường.</li>
+<li><strong>Prop thấp (≤ 0.5 H)</strong> — bụi, đá nhỏ, mộ thấp; có thể cản hoặc không.</li>
+<li><strong>Prop cao (0.5–3 H)</strong> — cây, tảng đá, cọc, bia; cản đường, có bóng.</li>
+<li><strong>Vách/mép</strong> — vách đá, mép vực, mép nước; ranh giới vùng chơi.</li>
+<li><strong>Landmark (≥ 2 H hoặc độc đáo)</strong> — cây khổng lồ, đá Cairn, tháp, đền.</li>
+</ol>
+<h3 id="43-quy-tắc-mật-độ-và-nhịp">4.3 Quy tắc mật độ và nhịp</h3>
+<table>
+<thead>
+<tr>
+<th>Quy tắc</th>
+<th>Giá trị đề xuất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đường đi chính rộng</td>
+<td>≥ 3 Sub (đủ hero + lính thuê + quái đi kèm)</td>
+</tr>
+<tr>
+<td>Khoảng trống chiến đấu</td>
+<td>Mỗi 1–2 màn hình có một vùng mở ≥ 8×8 Sub</td>
+</tr>
+<tr>
+<td>Landmark</td>
+<td>1 cái mỗi 1–2 màn hình di chuyển (bài học Act IV "trống và giống nhau" [Đã xác minh])</td>
+</tr>
+<tr>
+<td>Prop cao che tầm nhìn</td>
+<td>≤ 25% diện tích màn hình</td>
+</tr>
+<tr>
+<td>Decal kể chuyện</td>
+<td>Cụm 3–7 vật, không rải đều</td>
+</tr>
+<tr>
+<td>Cụm prop</td>
+<td>Theo luật 1 lớn – 2 trung – 3+ nhỏ</td>
+</tr>
+</tbody>
+</table>
+<h3 id="44-ranh-giới-và-đọc-đường">4.4 Ranh giới và đọc đường</h3>
+<ul>
+<li>Ranh giới vùng chơi phải <strong>tự nhiên</strong> (vách, rừng dày, nước, hàng rào) — không có tường vô hình mà không có lý do thị giác.</li>
+<li><strong>Lối ra/vào</strong> (hang, cổng, cầu thang) phải là điểm tương phản: miệng hang tối hơn, khung đá sáng hơn, có prop đánh dấu (đuốc, cọc, xác).</li>
+<li>Nước và vực: mép rõ, giá trị khác sàn ≥ 15 điểm.</li>
+<li>Cây/tảng đá có phần thân che hero → hero luôn hiện viền/được thấy (xem 5.4).</li>
+</ul>
+<h3 id="45-cảnh-quan-theo-act-tóm-tắt">4.5 Cảnh quan theo Act (tóm tắt)</h3>
+<table>
+<thead>
+<tr>
+<th>Act</th>
+<th>Sàn chính</th>
+<th>Prop đặc trưng</th>
+<th>Landmark mẫu</th>
+<th>Ranh giới</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>Cỏ úa, bùn, đá rêu</td>
+<td>Hàng rào gỗ, cây trụi, mộ, cọc xác</td>
+<td>Đá Cairn, cây Inifuss, tháp</td>
+<td>Vách đá, rừng dày</td>
+</tr>
+<tr>
+<td>II</td>
+<td>Cát, đá sa thạch</td>
+<td>Xương thú, cột đổ, lều</td>
+<td>Tàn tích thành, ốc đảo</td>
+<td>Vách núi, cồn cát</td>
+</tr>
+<tr>
+<td>III</td>
+<td>Bùn, cỏ rừng, nước</td>
+<td>Rễ, cây to, cầu gỗ, nhà sàn</td>
+<td>Kim tự tháp bậc, tượng</td>
+<td>Rừng rậm, nước</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Đá đen, dung nham, xương</td>
+<td>Gai, xác, cột lửa</td>
+<td>Phong ấn, cổng</td>
+<td>Vực, sông lửa</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Tuyết, đá, băng</td>
+<td>Công sự, máy bắn đá, xác lính</td>
+<td>Tượng Ancient, cổng đá</td>
+<td>Vách núi tuyết</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-công-trình">5. Công trình</h2>
+<h3 id="51-tỷ-lệ-kiến-trúc">5.1 Tỷ lệ kiến trúc</h3>
+<table>
+<thead>
+<tr>
+<th>Thành phần</th>
+<th>Kích thước</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cửa đơn</td>
+<td>Cao 1.3–1.5 H, rộng ≥ 2 Sub</td>
+<td>Hero + lính thuê đi lọt</td>
+</tr>
+<tr>
+<td>Cổng lớn</td>
+<td>Cao 2–3 H, rộng ≥ 3–4 Sub</td>
+<td>Cổng tu viện, cổng thành</td>
+</tr>
+<tr>
+<td>Tường nội thất</td>
+<td>Cao 1.5–2 H</td>
+<td>Thấp hơn thực tế để giữ tầm nhìn</td>
+</tr>
+<tr>
+<td>Tường ngoài/thành</td>
+<td>Cao 2–3 H</td>
+<td>Chỉ ở phía sau (bắc/tây màn hình)</td>
+</tr>
+<tr>
+<td>Hành lang</td>
+<td>Rộng ≥ 3 Sub</td>
+<td>Catacombs có thể 3 Sub để tạo ngột ngạt</td>
+</tr>
+<tr>
+<td>Phòng thường</td>
+<td>≥ 8×8 Sub</td>
+<td></td>
+</tr>
+<tr>
+<td>Phòng boss</td>
+<td>≥ 20×20 Sub</td>
+<td>Khung tranh cho boss</td>
+</tr>
+<tr>
+<td>Cầu thang/lối xuống</td>
+<td>Rộng ≥ 3 Sub</td>
+<td>Phải là điểm sáng/tối khác biệt</td>
+</tr>
+<tr>
+<td>Cột</td>
+<td>Đường kính 0.5–1 Sub</td>
+<td>Không đặt cột che lối đi chính</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-quy-tắc-che-khuất">5.2 Quy tắc che khuất</h3>
+<ul>
+<li>[Quan sát] Bản gốc ưu tiên tường cao ở phía sau (trên-trái/trên-phải màn hình); tường phía trước thường thấp hoặc ẩn để không che nhân vật.</li>
+<li><strong>Quy định:</strong> tường/công trình phía trước hero (nam/đông màn hình) cao <strong>≤ 0.5 H</strong> hoặc tự mờ/ẩn khi hero ở sau.</li>
+<li>Mái nhà ngoài trời: hero đi sau nhà phải hiện viền hoặc mái mờ.</li>
+<li>Không có công trình nào che <strong>toàn bộ</strong> hero quá 0.5 giây khi di chuyển bình thường.</li>
+</ul>
+<h3 id="53-bộ-module-công-trình-kit">5.3 Bộ module công trình (kit)</h3>
+<p>Mỗi phong cách kiến trúc cần:</p>
+<table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Thành phần</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tường</td>
+<td>Thẳng (2 hướng), góc trong, góc ngoài, đầu tường, tường vỡ, tường thấp (phía trước)</td>
+</tr>
+<tr>
+<td>Lối</td>
+<td>Cửa, cửa vòm, cổng, cửa song sắt (mở/đóng), cầu thang lên/xuống</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td>Lát đá, gỗ, thảm; ≥ 4 biến thể; chuyển tiếp</td>
+</tr>
+<tr>
+<td>Cấu trúc</td>
+<td>Cột, vòm, trụ đỡ, xà</td>
+</tr>
+<tr>
+<td>Nội thất chức năng</td>
+<td>Theo loại phòng (xem 5.5)</td>
+</tr>
+<tr>
+<td>Hư hại</td>
+<td>Đống đổ nát, tường sập, lửa cháy, máu</td>
+</tr>
+<tr>
+<td>Ánh sáng</td>
+<td>Đuốc tường, nến, lò, cửa sổ</td>
+</tr>
+<tr>
+<td>Landmark</td>
+<td>1–3 mảnh độc nhất cho mỗi khu</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-quy-tắc-lão-hóa-và-hư-hại">5.4 Quy tắc lão hóa và hư hại</h3>
+<p>Mọi công trình có <strong>3 lớp thời gian</strong> [Diễn giải AD]:</p>
+<ol>
+<li><strong>Xây dựng gốc</strong> — phong cách văn hóa, vật liệu tốt, chạm khắc (cho thấy công trình <em>từng</em> đẹp).</li>
+<li><strong>Thời gian</strong> — mòn cạnh, rêu, nứt, phai màu.</li>
+<li><strong>Thảm họa gần đây</strong> — cháy, máu, xác, đồ đạc đổ, biểu tượng bị phá.</li>
+</ol>
+<p>Tỷ lệ lớp 3 tăng dần khi vào sâu (theo thang kinh dị file 02). Inner Cloister lớp 1 rõ nhất; Catacombs lớp 3 phủ nhiều nhất.</p>
+<h3 id="55-loại-phòng-và-đồ-nội-thất">5.5 Loại phòng và đồ nội thất</h3>
+<table>
+<thead>
+<tr>
+<th>Loại</th>
+<th>Nội thất bắt buộc</th>
+<th>Kể chuyện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doanh trại</td>
+<td>Giường, giá vũ khí, bàn, rương</td>
+<td>Lính đã chết khi đang ngủ</td>
+</tr>
+<tr>
+<td>Nhà tù</td>
+<td>Buồng giam, song sắt, xích, gông</td>
+<td>Tù nhân, dụng cụ tra tấn</td>
+</tr>
+<tr>
+<td>Nhà thờ</td>
+<td>Gian giữa, hàng ghế, bàn thờ, cột, kính màu</td>
+<td>Bàn thờ bị ô uế</td>
+</tr>
+<tr>
+<td>Hầm mộ</td>
+<td>Hốc xác, quan tài, nến</td>
+<td>Xác bị lôi ra</td>
+</tr>
+<tr>
+<td>Lò rèn</td>
+<td>Đe, lò, ống bễ, vũ khí dở</td>
+<td>Lửa vẫn cháy</td>
+</tr>
+<tr>
+<td>Thư viện/phòng phép</td>
+<td>Kệ sách, bàn, sách mở</td>
+<td>Nghi lễ dở dang</td>
+</tr>
+</tbody>
+</table>
+<h3 id="56-ngôn-ngữ-kiến-trúc-theo-act">5.6 Ngôn ngữ kiến trúc theo Act</h3>
+<table>
+<thead>
+<tr>
+<th>Act</th>
+<th>Phong cách</th>
+<th>Vật liệu</th>
+<th>Hình học</th>
+<th>Ánh sáng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>Romanesque/Gothic sớm, tu viện quân sự; gỗ dân gian</td>
+<td>Đá xám-nâu, gỗ sẫm, sắt</td>
+<td>Vòm tròn/nhọn thấp, tường dày</td>
+<td>Đuốc, nến</td>
+</tr>
+<tr>
+<td>II</td>
+<td>Ba Tư/Ai Cập/Bắc Phi</td>
+<td>Sa thạch, gạch, vải</td>
+<td>Mái vòm, cột, cửa vòm nhọn, khối vuông</td>
+<td>Nắng; trong mộ: đuốc</td>
+</tr>
+<tr>
+<td>III</td>
+<td>Maya/Aztec [Đã xác minh] + nhà sàn</td>
+<td>Đá chạm, gỗ ẩm</td>
+<td>Bậc, khối nặng, phù điêu</td>
+<td>Đuốc vàng trong ẩm</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Pháo đài thiên thần / kiến trúc quỷ</td>
+<td>Đá lam / đá đen, xương</td>
+<td>Đối xứng thánh / gai hữu cơ</td>
+<td>Trắng lam / đỏ dung nham</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Bắc Âu/Celt</td>
+<td>Đá xám, gỗ, lông thú</td>
+<td>Khối thấp chắc, đá chạm Celt</td>
+<td>Lò rèn, đuốc trong tuyết</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-quy-định-bàn-giao-áp-cho-quái-cảnh-quan-công-trình">6. Quy định bàn giao (áp cho quái, cảnh quan, công trình)</h2>
+<table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Quy định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tên file</td>
+<td><code>act{N}_{loai}_{ten}_{bienthe}_{mode}_{huong}</code> — ví dụ <code>act1_mon_fallen_v02_A1_d3</code></td>
+</tr>
+<tr>
+<td>Nền</td>
+<td>Trong suốt, không viền halo màu nền</td>
+</tr>
+<tr>
+<td>Điểm neo</td>
+<td>Giữa chân trên mặt sàn; cố định qua mọi frame</td>
+</tr>
+<tr>
+<td>Bóng</td>
+<td>Tách layer bóng nếu engine hỗ trợ</td>
+</tr>
+<tr>
+<td>Kiểm tra</td>
+<td>Ảnh chụp trong cảnh thật: nền sáng, trung, tối + cạnh hero + cạnh 2 quái cùng vùng</td>
+</tr>
+<tr>
+<td>Kèm theo</td>
+<td>Bảng thông số: cấp, Sub, số hướng, số frame từng mode, palette biến thể</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-checklist-duyệt-nhanh">7. Checklist duyệt nhanh</h2>
+<p><strong>Quái</strong></p>
+<ul>
+<li class="todo">Đúng cấp kích thước, đo bằng H.</li>
+<li class="todo">Silhouette phân biệt với mọi gia đình cùng vùng.</li>
+<li class="todo">Vai trò đọc được bằng khối + chuyển động.</li>
+<li class="todo">Biến thể palette tăng đe dọa, không lấn màu gameplay.</li>
+<li class="todo">Đủ mode bắt buộc, 8 hướng, neo cố định.</li>
+</ul>
+<p><strong>Cảnh quan</strong></p>
+<ul>
+<li class="todo">Đường chính ≥ 3 Sub, có vùng mở chiến đấu.</li>
+<li class="todo">Landmark mỗi 1–2 màn hình.</li>
+<li class="todo">Ranh giới có lý do thị giác.</li>
+<li class="todo">Ghép ngẫu nhiên không lộ đường nối.</li>
+</ul>
+<p><strong>Công trình</strong></p>
+<ul>
+<li class="todo">Cửa ≥ 2 Sub, hành lang ≥ 3 Sub.</li>
+<li class="todo">Tường phía trước thấp/ẩn, hero không bị che.</li>
+<li class="todo">Đủ 3 lớp thời gian, đúng mức hư hại theo độ sâu.</li>
+<li class="todo">Đúng phong cách văn hóa Act.</li>
+</ul><figure class="chart"><figcaption>Bảng tỷ lệ quái và công trình <span>(scale_chart.html)</span></figcaption><iframe srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;vi&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Diablo II — Bảng tỷ lệ quái và công trình&lt;/title&gt;
+&lt;style&gt;
+  body { margin:0; padding:32px; background:#0d0b0a; color:#d8cbb3; font:14px/1.5 &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, sans-serif; }
+  h1 { margin:0 0 4px; font-size:22px; color:#c7b377; font-weight:600; }
+  .sub { color:#8c7f6a; font-size:13px; margin-bottom:16px; }
+  svg { width:100%; height:auto; display:block; background:#17130f; border:1px solid #3a2f24; border-radius:8px; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Bảng tỷ lệ — quái và công trình&lt;/h1&gt;
+&lt;div class=&quot;sub&quot;&gt;1 H = chiều cao hero = 75 px. Silhouette là sơ đồ minh họa, không phải thiết kế.&lt;/div&gt;
+&lt;svg id=&quot;chart&quot; viewBox=&quot;0 0 1080 380&quot;&gt;&lt;/svg&gt;
+&lt;script&gt;
+const H = 75, ground = 330, svg = document.getElementById(&quot;chart&quot;);
+const ns = &quot;http://www.w3.org/2000/svg&quot;;
+const el = (t, a) =&gt; { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+for (let i = 0; i &lt;= 4; i++) {
+  const y = ground - i * H;
+  el(&quot;line&quot;, { x1: 40, x2: 1070, y1: y, y2: y, stroke: i ? &quot;#3a2f24&quot; : &quot;#6a5a44&quot;, &quot;stroke-dasharray&quot;: i ? &quot;4 4&quot; : &quot;&quot; });
+  el(&quot;text&quot;, { x: 8, y: y + 4, fill: &quot;#8c7f6a&quot;, &quot;font-size&quot;: 12 }).textContent = i + &quot;H&quot;;
+}
+const figs = [
+  { n: &quot;XS&quot;, d: &quot;0.35H&quot;, h: .35, w: .45, x: 80, kind: &quot;beast&quot;, c: &quot;#6b5a48&quot; },
+  { n: &quot;S&quot;, d: &quot;0.65H&quot;, h: .65, w: .4, x: 150, kind: &quot;imp&quot;, c: &quot;#8a4a3a&quot; },
+  { n: &quot;HERO&quot;, d: &quot;1H&quot;, h: 1, w: .32, x: 225, kind: &quot;man&quot;, c: &quot;#c7b377&quot; },
+  { n: &quot;M&quot;, d: &quot;1H&quot;, h: 1, w: .34, x: 295, kind: &quot;man&quot;, c: &quot;#6e7a62&quot; },
+  { n: &quot;L&quot;, d: &quot;1.45H&quot;, h: 1.45, w: .7, x: 390, kind: &quot;brute&quot;, c: &quot;#7a6a5a&quot; },
+  { n: &quot;XL&quot;, d: &quot;2H&quot;, h: 2, w: .95, x: 510, kind: &quot;brute&quot;, c: &quot;#6a3a2a&quot; },
+  { n: &quot;BOSS&quot;, d: &quot;2.8H&quot;, h: 2.8, w: 1.1, x: 650, kind: &quot;boss&quot;, c: &quot;#8a2a2a&quot; },
+];
+function figure(f) {
+  const h = f.h * H, w = f.w * H, x = f.x, top = ground - h;
+  const g = { fill: f.c };
+  if (f.kind === &quot;beast&quot;) {
+    el(&quot;ellipse&quot;, { cx: x, cy: ground - h * .45, rx: w / 2, ry: h * .45, ...g });
+    el(&quot;circle&quot;, { cx: x + w * .45, cy: ground - h * .6, r: h * .3, ...g });
+  } else if (f.kind === &quot;imp&quot;) {
+    el(&quot;rect&quot;, { x: x - w * .35, y: top + h * .38, width: w * .7, height: h * .45, rx: 6, ...g });
+    el(&quot;circle&quot;, { cx: x, cy: top + h * .22, r: h * .22, ...g });
+    el(&quot;rect&quot;, { x: x - w * .3, y: ground - h * .2, width: w * .2, height: h * .2, ...g });
+    el(&quot;rect&quot;, { x: x + w * .1, y: ground - h * .2, width: w * .2, height: h * .2, ...g });
+  } else if (f.kind === &quot;man&quot;) {
+    el(&quot;circle&quot;, { cx: x, cy: top + h * .08, r: h * .08, ...g });
+    el(&quot;rect&quot;, { x: x - w / 2, y: top + h * .17, width: w, height: h * .4, rx: 4, ...g });
+    el(&quot;rect&quot;, { x: x - w / 2, y: top + h * .57, width: w * .42, height: h * .43, ...g });
+    el(&quot;rect&quot;, { x: x + w * .08, y: top + h * .57, width: w * .42, height: h * .43, ...g });
+  } else if (f.kind === &quot;brute&quot;) {
+    el(&quot;path&quot;, { d: `M${x - w / 2} ${ground - h * .3} Q${x - w / 2} ${top + h * .1} ${x} ${top + h * .05} Q${x + w / 2} ${top + h * .1} ${x + w / 2} ${ground - h * .3} Z`, ...g });
+    el(&quot;circle&quot;, { cx: x + w * .1, cy: top + h * .15, r: h * .09, ...g });
+    el(&quot;rect&quot;, { x: x - w * .35, y: ground - h * .32, width: w * .25, height: h * .32, ...g });
+    el(&quot;rect&quot;, { x: x + w * .1, y: ground - h * .32, width: w * .25, height: h * .32, ...g });
+    el(&quot;rect&quot;, { x: x - w * .62, y: top + h * .25, width: w * .14, height: h * .55, rx: 5, ...g });
+  } else {
+    el(&quot;path&quot;, { d: `M${x - w * .3} ${ground} L${x - w * .15} ${top + h * .35} L${x - w * .55} ${top + h * .05} L${x - w * .1} ${top + h * .2} L${x} ${top} L${x + w * .1} ${top + h * .2} L${x + w * .55} ${top + h * .05} L${x + w * .15} ${top + h * .35} L${x + w * .3} ${ground} Z`, ...g });
+  }
+  el(&quot;text&quot;, { x, y: ground + 20, fill: &quot;#d8cbb3&quot;, &quot;font-size&quot;: 13, &quot;text-anchor&quot;: &quot;middle&quot;, &quot;font-weight&quot;: 600 }).textContent = f.n;
+  el(&quot;text&quot;, { x, y: ground + 36, fill: &quot;#8c7f6a&quot;, &quot;font-size&quot;: 11, &quot;text-anchor&quot;: &quot;middle&quot; }).textContent = f.d;
+}
+figs.forEach(figure);
+// structures
+const sx = 780;
+el(&quot;rect&quot;, { x: sx, y: ground - 1.4 * H, width: 46, height: 1.4 * H, fill: &quot;#0a0807&quot;, stroke: &quot;#8c7f6a&quot; });
+el(&quot;text&quot;, { x: sx + 23, y: ground + 20, fill: &quot;#d8cbb3&quot;, &quot;font-size&quot;: 13, &quot;text-anchor&quot;: &quot;middle&quot;, &quot;font-weight&quot;: 600 }).textContent = &quot;Cửa&quot;;
+el(&quot;text&quot;, { x: sx + 23, y: ground + 36, fill: &quot;#8c7f6a&quot;, &quot;font-size&quot;: 11, &quot;text-anchor&quot;: &quot;middle&quot; }).textContent = &quot;1.3–1.5H&quot;;
+el(&quot;rect&quot;, { x: 875, y: ground - 2 * H, width: 40, height: 2 * H, fill: &quot;#4a4038&quot; });
+el(&quot;text&quot;, { x: 895, y: ground + 20, fill: &quot;#d8cbb3&quot;, &quot;font-size&quot;: 13, &quot;text-anchor&quot;: &quot;middle&quot;, &quot;font-weight&quot;: 600 }).textContent = &quot;Tường trong&quot;;
+el(&quot;text&quot;, { x: 895, y: ground + 36, fill: &quot;#8c7f6a&quot;, &quot;font-size&quot;: 11, &quot;text-anchor&quot;: &quot;middle&quot; }).textContent = &quot;1.5–2H&quot;;
+el(&quot;rect&quot;, { x: 985, y: ground - .5 * H, width: 50, height: .5 * H, fill: &quot;#4a4038&quot;, opacity: .6 });
+el(&quot;text&quot;, { x: 1010, y: ground + 20, fill: &quot;#d8cbb3&quot;, &quot;font-size&quot;: 13, &quot;text-anchor&quot;: &quot;middle&quot;, &quot;font-weight&quot;: 600 }).textContent = &quot;Tường trước&quot;;
+el(&quot;text&quot;, { x: 1010, y: ground + 36, fill: &quot;#8c7f6a&quot;, &quot;font-size&quot;: 11, &quot;text-anchor&quot;: &quot;middle&quot; }).textContent = &quot;≤ 0.5H&quot;;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" loading="lazy" onload="fit(this)"></iframe></figure></section>
+<section class="chapter"><h1 id="10-nguồn-tham-khảo">10 — Nguồn tham khảo</h1>
+<h2 id="nguồn-chính-đã-đọc-khi-soạn-tài-liệu">Nguồn chính (đã đọc khi soạn tài liệu)</h2>
+<table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Dùng cho</th>
+<th>Độ tin cậy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Erich Schaefer, "Postmortem: Blizzard's Diablo II", <em>Game Developer</em>, 10/2000 — <a href="https://www.gamedeveloper.com/design/postmortem-blizzard-s-i-diablo-ii-i-">Game Developer</a>, <a href="https://www.cs.hmc.edu/~markk/SWE_copies/postmortem__diablo_ii.html">bản lưu HMC</a></td>
+<td>Pipeline 3D→sprite, 75 px, 8/16 hướng, 14 nhóm animation, component armor, colored light, transparency, Maya/Aztec Act III, Act IV làm lại, vai trò âm thanh</td>
+<td>Cao — nguồn trực tiếp. Schaefer là senior designer/art director/story writer của D2</td>
+</tr>
+<tr>
+<td><a href="https://80.lv/articles/game-developer-s-postmortem-on-diablo-ii">80.lv — tóm tắt postmortem</a></td>
+<td>Xác nhận các ý trên</td>
+<td>Trung bình — thứ cấp</td>
+</tr>
+<tr>
+<td><a href="https://www.usgamer.net/articles/in-their-own-words-an-oral-history-of-diablo-ii-with-david-brevik-max-schaefer-and-erich-schaefer">USgamer — Oral history Diablo II (Brevik, Max &amp; Erich Schaefer)</a></td>
+<td>Bối cảnh phát triển</td>
+<td>Cao (không truy cập được lúc soạn — 503)</td>
+</tr>
+<tr>
+<td><a href="https://www.dreadcentral.com/news/261440/stay-listen-interview-diablo-composer-matthew-uelmen/">Dread Central — phỏng vấn Matt Uelmen</a></td>
+<td>Ảnh hưởng folk-rock, bộ gõ, guitar</td>
+<td>Cao</td>
+</tr>
+<tr>
+<td><a href="https://www.shacknews.com/article/60997/from-tristram-to-torchlight-an">Shacknews — From Tristram to Torchlight</a></td>
+<td>Guitar 12 dây, thu âm thật</td>
+<td>Cao</td>
+</tr>
+<tr>
+<td><a href="https://www.dexerto.com/gaming/diablo-2-resurrected-devs-reveal-biggest-challenges-of-pulling-off-remaster-1520042/">Dexerto — D2R devs về thử thách remaster</a></td>
+<td>D2R lấy sprite gốc và kho file gốc làm chuẩn</td>
+<td>Trung bình–cao</td>
+</tr>
+<tr>
+<td><a href="https://www.redbull.com/in-en/diablo-2-resurrected-blizzard-insights">Red Bull — D2R Blizzard insights</a></td>
+<td>Cách D2R giữ look &amp; feel</td>
+<td>Trung bình</td>
+</tr>
+<tr>
+<td><a href="https://www.pcgamesn.com/diablo-4/diablo-2-art-style">PCGamesN — D4 quay về nét tối của D2</a></td>
+<td>So sánh D2 vs D4 (painterly)</td>
+<td>Trung bình</td>
+</tr>
+<tr>
+<td><a href="https://massivelyop.com/2021/09/27/first-impressions-revisiting-memorable-locales-in-diablo-ii-resurrected/">Massively OP — trải nghiệm D2R</a></td>
+<td>Vai trò màu đen và ánh sáng</td>
+<td>Thấp–trung bình (cảm nhận)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nguồn-trong-repo">Nguồn trong repo</h2>
+<ul>
+<li><code>../DIABLO_II_ART_CHECKLIST_VI.md</code> — checklist sản xuất.</li>
+<li><code>../ACT1_MONSTER_ANIMATION_VI.md</code> — số liệu quái Act I.</li>
+<li><code>../Diablo_II_Act1_Bestiary.html</code>, <code>../Sanctuary_Databook.html</code> — tham chiếu quái/dữ liệu.</li>
+</ul>
+<h2 id="nguồn-nên-đọc-thêm">Nguồn nên đọc thêm</h2>
+<ul>
+<li><em>The Art of Diablo</em> (Blizzard/Insight Editions) — concept art chính thức qua các phiên bản.</li>
+<li><em>Diablo II</em> Prima/BradyGames strategy guide (2000) — ảnh chụp màn hình gốc theo Act.</li>
+<li>Diablo Wiki / Arreat Summit (classic.battle.net, bản lưu) — danh mục quái, vùng, item.</li>
+<li>Ghi chú: mọi mã HEX và tỷ lệ trong bộ tài liệu là <strong>đề xuất sản xuất</strong>; nếu cần màu chuẩn gốc, trích trực tiếp từ file palette <code>ACT1–ACT5/pal.dat</code> của bản game hợp lệ mà team sở hữu.</li>
+</ul></section>
+</main>
+<script>
+function fit(f) {
+  try {
+    const d = f.contentDocument;
+    f.style.height = "10px";
+    const h = d.documentElement.scrollHeight;
+    if (h) f.style.height = h + 4 + "px";
+  } catch (e) {}
+}
+</script>
+</body>
+</html>

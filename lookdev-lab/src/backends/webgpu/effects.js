@@ -7,10 +7,10 @@
 import * as THREE from 'three/webgpu';
 import {
 	Fn, If, Discard, uniform, attribute, varying, vec2, vec3, vec4, float, uv, sin, cos, abs, mix, clamp, pow, dot, normalize,
-	length, floor, exp, step, atan, min, fract, smoothstep, select, screenUV, positionLocal, positionGeometry, positionWorld,
+	length, floor, exp, step, atan, min, max, fract, smoothstep, select, screenUV, screenCoordinate, positionLocal, positionGeometry, positionWorld,
 	positionView, positionViewDirection, normalView, normalWorldGeometry, modelWorldMatrix, modelWorldMatrixInverse, cameraPosition,
 	cameraViewMatrix, cameraProjectionMatrix, cameraNear, cameraFar, perspectiveDepthToViewZ, orthographicDepthToViewZ,
-	materialColor, materialEmissive, materialRoughness, materialMetalness, materialNormal,
+	materialColor, materialEmissive, materialRoughness, materialMetalness, materialNormal, texture, cross, dFdx, dFdy, output, diffuseColor,
 } from 'three/tsl';
 import { EFFECTS, defaultParams } from '../../effects/registry.js';
 import { labNoise3, labFbm3, labHash12, labHash13, labHash22 } from './tsl/noise.js';
@@ -73,7 +73,8 @@ function restoreSource(twin) {
 
 // -------------------------------------------------------------------------------------------------
 // Node patches: { id, order, position?(n), color?(n), roughness?(n), metalness?(n), emissive?(n),
-// normal?(n), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
+// normal?(n), output?(o), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
+// `output` is the final lit colour (vec4, the material's outputNode; the default reads the lit result).
 
 const SLOTS = [
 	['position', 'positionNode', positionLocal],
@@ -82,6 +83,7 @@ const SLOTS = [
 	['metalness', 'metalnessNode', materialMetalness],
 	['emissive', 'emissiveNode', materialEmissive],
 	['normal', 'normalNode', materialNormal],
+	['output', 'outputNode', output],
 ];
 
 const nodePatches = new WeakMap(); // node material -> [patch]
@@ -324,11 +326,13 @@ export function createTSLEffects(backend) {
 				const threshold = u.coverage.oneMinus();
 				return up.mul(smoothstep(threshold.sub(0.04), threshold.add(0.04), n));
 			})().toVar('labPuddle');
+			// Rain-soaked surface outside the puddles (tops wetter than walls).
+			const wet = u.wetness.mul(clamp(normalWorldGeometry.y, 0.0, 1.0).mul(0.45).add(0.55));
 			return surface({
 				id: 'lab-liquid',
 				order: 20,
-				color: (c) => vec4(mix(c.rgb, mix(c.rgb.mul(0.25), u.tint, 0.7), puddle), c.a),
-				roughness: (r) => mix(r, u.roughness, puddle),
+				color: (c) => vec4(mix(c.rgb.mul(wet.mul(0.45).oneMinus()), mix(c.rgb.mul(0.25), u.tint, 0.7), puddle), c.a),
+				roughness: (r) => mix(r.mul(wet.mul(0.55).oneMinus()), u.roughness, puddle),
 				metalness: (m) => m.mul(puddle.oneMinus()),
 				normal: (n) => normalize(mix(n, cameraViewMatrix.mul(vec4(rippleNormal(positionWorld.xz), 0.0)).xyz, puddle)),
 			});
@@ -465,5 +469,145 @@ export function createTSLEffects(backend) {
 		setCamera(camera) {
 			shared.ortho.value = camera.isOrthographicCamera ? 1 : 0;
 		},
+		/** Mirrors createCutaway() in ../webgl/effects.js and shaders/effects/cutaway.glsl. */
+		createCutaway() {
+			const u = { center: uniform(new THREE.Vector3()), radius: uniform(0.3), feet: uniform(0), on: uniform(0) };
+			const bayer2 = (a) => {
+				const f = floor(a);
+				return fract(f.x.mul(0.5).add(f.y.mul(f.y).mul(0.75)));
+			};
+			const depth = positionView.z.negate();
+			const s = select(shared.ortho.greaterThan(0.5), positionView.xy, positionView.xy.div(max(depth, 1e-4)));
+			const r = length(s.sub(u.center.xy)).div(u.radius);
+			const dither = bayer2(screenCoordinate.xy.mul(0.5)).mul(0.25).add(bayer2(screenCoordinate.xy));
+			const cut = u.on.greaterThan(0.5)
+				.and(r.lessThan(1.0))
+				.and(depth.lessThan(u.center.z.sub(0.4)))
+				.and(positionWorld.y.greaterThan(u.feet.add(0.35)))
+				.and(dither.greaterThanEqual(smoothstep(0.55, 1.0, r)));
+			return {
+				uniforms: u,
+				...surface({ id: 'lab-cutaway', order: 5, mask: () => cut.not() }, (m) => !!m && (m.isMeshStandardMaterial === true || m.isMeshStandardNodeMaterial === true) && !m.transparent),
+			};
+		},
+		/** Mirrors createHeroRim() in ../webgl/effects.js and shaders/effects/hero_rim.glsl. */
+		createHeroRim() {
+			const u = { color: uniform(new THREE.Color(0x8fb2ff)), intensity: uniform(0), power: uniform(3), bias: uniform(0.6) };
+			const rim = Fn(([viewNormal]) => {
+				const top = clamp(viewNormal.y.mul(0.5).add(0.5), 0.0, 1.0);
+				return u.color.mul(pow(fresnelTerm(viewNormal), u.power).mul(mix(1.0, top, u.bias)).mul(u.intensity));
+			});
+			return {
+				uniforms: u,
+				...surface({ id: 'lab-hero-rim', order: 41, emissive: (e) => e.add(rim(normalView)) }),
+			};
+		},
+		/** Mirrors createTerrain() in ../webgl/effects.js and shaders/effects/terrain.glsl. */
+		createTerrain({ layers, splat, rect }) {
+			const u = {
+				tile: uniform(new THREE.Vector3(...layers.map((l) => 1 / l.recipe.tile))),
+				softness: uniform(0.12),
+				heightBlend: uniform(0.6),
+				water: uniform(0.3),
+				waterRough: uniform(0.05),
+				damp: uniform(0.25),
+				ao: uniform(0.6),
+				variation: uniform(1),
+				macro: uniform(0.3),
+				edgeNoise: uniform(0.5),
+				debug: uniform(0),
+				grassShadow: uniform(0),
+				grassLift: uniform(0),
+				grassShadowOffset: uniform(new THREE.Vector2()),
+				rect: uniform(rect),
+			};
+			const mask = (weight, delta) => {
+				const x = weight.mul(u.heightBlend.mul(2.0).add(1.0)).sub(u.heightBlend).add(delta.mul(u.heightBlend));
+				return smoothstep(float(0.5).sub(u.softness), u.softness.add(0.5), x);
+			};
+			const breakup = (weight, n) => clamp(weight.add(n.mul(u.edgeNoise).mul(4.0).mul(weight).mul(weight.oneMinus())), 0.0, 1.0);
+			const st = vec2(positionWorld.x, positionWorld.z.negate());
+			const k = labNoise3(vec3(st.mul(0.09), 1.7)).mul(0.5).add(0.5).toVar('labTerK');
+			const macro = labNoise3(vec3(st.mul(0.035), 4.2));
+			const edge = labNoise3(vec3(st.mul(0.55), 9.1)).toVar('labTerEdge');
+			// labTerrainSample(): two reads with per-area offsets, cross-faded; gradients from the plain UV.
+			const l = k.mul(8.0);
+			const ia = floor(l);
+			const f = l.sub(ia);
+			const offA = sin(vec2(3.0, 7.0).mul(ia)).mul(u.variation);
+			const offB = sin(vec2(3.0, 7.0).mul(ia.add(1.0))).mul(u.variation);
+			const nodes = [];
+			const layer = (i) => {
+				const uv = st.mul(u.tile[['x', 'y', 'z'][i]]);
+				const dx = dFdx(uv);
+				const dy = dFdy(uv);
+				const read = (key, off) => {
+					const base = texture(layers[i][key], uv.add(off));
+					const node = base.grad(dx, dy);
+					nodes.push({ nodes: [base, node], i, key });
+					return node;
+				};
+				const aA = read('map', offA);
+				const aB = read('map', offB);
+				const w = smoothstep(0.2, 0.8, f.sub(dot(aA.rgb.sub(aB.rgb), vec3(1.0)).mul(0.1))).toVar(`labTerW${i}`);
+				return { a: mix(aA, aB, w), n: mix(read('normalMap', offA), read('normalMap', offB), w), o: mix(read('ormMap', offA), read('ormMap', offB), w) };
+			};
+			const L0 = layer(0);
+			const L1 = layer(1);
+			const L2 = layer(2);
+			const splatW = texture(splat, positionWorld.xz.sub(u.rect.xy).mul(u.rect.zw));
+			const wetWeight = breakup(splatW.r, edge);
+			const grassWeight = breakup(splatW.g, edge.negate());
+			const halo = u.damp.mul(smoothstep(0.0, 0.7, wetWeight));
+			const wet = mask(wetWeight, L1.n.a.sub(L0.n.a)).toVar('labTerWet');
+			const water = wet.mul(smoothstep(u.water.sub(0.05), u.water, L1.n.a).oneMinus()).mul(step(0.001, u.water)).toVar('labTerWater');
+			const h = mix(L0.n.a, L1.n.a, wet);
+			const grass = mask(grassWeight, L2.n.a.sub(h).add(u.grassLift)).toVar('labTerGrass');
+			// Contact shadow of the grass mat + darker roots at its edge (see terrain.glsl).
+			const towardLight = texture(splat, positionWorld.xz.add(u.grassShadowOffset).sub(u.rect.xy).mul(u.rect.zw)).g;
+			const under = max(smoothstep(0.08, 0.6, grassWeight), smoothstep(0.25, 0.8, towardLight).mul(0.85)).mul(grass.oneMinus());
+			const roots = grass.mul(grass.oneMinus()).mul(4.0).mul(L2.n.a.oneMinus());
+			// Same stacking as labTerrain(): dirt → wet dirt → standing water → grass.
+			const stack = (base0, v1, waterValue, v2) => mix(mix(mix(base0, v1, wet), waterValue, water), v2, grass);
+			const ao = stack(L0.o.r, L1.o.r, 1.0, L2.o.r);
+			const wetAlbedo = mix(L0.a.rgb.mul(halo.oneMinus()), L1.a.rgb, wet);
+			const albedo = mix(mix(wetAlbedo, wetAlbedo.mul(0.4), water).mul(u.grassShadow.mul(under).oneMinus()), L2.a.rgb.mul(u.grassShadow.mul(roots).oneMinus()), grass).mul(mix(1.0, ao, u.ao)).mul(macro.mul(u.macro).add(1.0));
+			const debugAlbedo = mix(mix(vec3(0.45, 0.28, 0.15), vec3(0.08, 0.22, 0.6), wet), vec3(0.2, 0.55, 0.12), grass);
+			const rough = stack(L0.o.g.mul(halo.mul(0.3).oneMinus()), L1.o.g, u.waterRough, L2.o.g);
+			const worldNormal = Fn(() => {
+				const N = normalWorldGeometry;
+				const T = normalize(vec3(1, 0, 0).sub(N.mul(N.x)));
+				const B = cross(N, T);
+				const tn = stack(L0.n.xyz, L1.n.xyz, vec3(0.5, 0.5, 1.0), L2.n.xyz).mul(2.0).sub(1.0);
+				return normalize(T.mul(tn.x).add(B.mul(tn.y)).add(N.mul(tn.z)));
+			});
+			return {
+				uniforms: u,
+				setLayers: (sets) => nodes.forEach(({ nodes: pair, i, key }) => pair.forEach((n) => (n.value = sets[i][key]))),
+				...surface({
+					id: 'lab-terrain',
+					order: 2,
+					// mix, not select(): select() becomes an if/else and the toVar masks would only be assigned in the branch built first.
+					color: (c) => vec4(c.rgb.mul(mix(albedo, debugAlbedo, step(0.5, u.debug))), c.a),
+					roughness: (r) => r.mul(rough),
+					normal: () => normalize(cameraViewMatrix.mul(vec4(worldNormal(), 0.0)).xyz),
+				}),
+			};
+		},
+		/** Mirrors createShadowFill() in ../webgl/effects.js and shaders/effects/shadow_fill.glsl. */
+		createShadowFill() {
+			const u = { color: uniform(new THREE.Color(0x3c5248)), strength: uniform(0), threshold: uniform(0.05) };
+			const fill = Fn(([lit, albedo]) => {
+				const dark = smoothstep(0.0, u.threshold, dot(lit, vec3(0.2126, 0.7152, 0.0722))).oneMinus();
+				const base = mix(albedo, vec3(dot(albedo, vec3(0.2126, 0.7152, 0.0722))), 0.5);
+				return lit.add(base.mul(u.color).mul(u.strength).mul(dark));
+			});
+			return {
+				uniforms: u,
+				...surface({ id: 'lab-shadow-fill', order: 90, output: (o) => vec4(fill(o.rgb, diffuseColor.rgb), o.a) }),
+			};
+		},
+		/** Built-in material a node twin was made from (or the material itself). */
+		sourceOf: (material) => sourceOf.get(material) || material,
 	};
 }

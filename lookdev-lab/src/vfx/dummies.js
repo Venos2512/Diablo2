@@ -6,9 +6,9 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { getForge } from '../env/materials.js';
 import { forgedMaterial } from '../env/forge.js';
 
-export const DAMAGE_COLORS = { fire: '#ff8a3d', cold: '#8fd8ff', poison: '#8dff6a', lightning: '#b9cdff', physical: '#f2e6d0' };
+export const DAMAGE_COLORS = { fire: '#ff8a3d', cold: '#8fd8ff', poison: '#8dff6a', lightning: '#b9cdff', magic: '#c9a8ff', physical: '#f2e6d0' };
 const STATUS_MODE = { cold: 1, fire: 2, poison: 3 };
-const DEATH_EDGE = { fire: '#ff6a1a', cold: '#7fd8ff', poison: '#7dff4a', lightning: '#9fc4ff', physical: '#ff3a1a' };
+const DEATH_EDGE = { fire: '#ff6a1a', cold: '#7fd8ff', poison: '#7dff4a', lightning: '#9fc4ff', magic: '#b890ff', physical: '#ff3a1a' };
 
 let sharedGeometry = null;
 

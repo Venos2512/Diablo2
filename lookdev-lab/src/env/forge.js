@@ -11,9 +11,15 @@ import grass from '../shaders/forge/grass.glsl';
 import wood from '../shaders/forge/wood.glsl';
 import iron from '../shaders/forge/iron.glsl';
 import stoneWeathered from '../shaders/forge/stone_weathered.glsl';
+import moorDirt from '../shaders/forge/moor_dirt.glsl';
+import moorMud from '../shaders/forge/moor_mud.glsl';
+import moorGrass from '../shaders/forge/moor_grass.glsl';
 import { onShaderChange } from '../core/shaderRegistry.js';
 
-/** tile = metres covered by one texture repeat; relief = height scale used to derive the normal map. */
+/**
+ * tile = metres covered by one texture repeat; relief = height scale used to derive the normal map;
+ * packHeight = store the height in the normal map's alpha (terrain splat layers blend by height).
+ */
 export const RECIPES = {
 	stoneBricks: { entry: stoneBricks, label: 'Stone bricks', tile: 3.0, relief: 0.012, seed: 1 },
 	cobblestone: { entry: cobblestone, label: 'Cobblestone', tile: 2.4, relief: 0.01, seed: 2 },
@@ -22,6 +28,9 @@ export const RECIPES = {
 	wood: { entry: wood, label: 'Weathered wood', tile: 1.6, relief: 0.006, seed: 5 },
 	iron: { entry: iron, label: 'Rusted iron', tile: 1.0, relief: 0.004, seed: 6 },
 	stoneWeathered: { entry: stoneWeathered, label: 'Weathered stone', tile: 1.6, relief: 0.006, seed: 7 },
+	moorDirt: { entry: moorDirt, label: 'Moor dirt', tile: 3.0, relief: 0.006, seed: 11, packHeight: true },
+	moorMud: { entry: moorMud, label: 'Moor wet dirt', tile: 3.5, relief: 0.005, seed: 12, packHeight: true },
+	moorGrass: { entry: moorGrass, label: 'Moor grass (top)', tile: 2.5, relief: 0.004, seed: 13, packHeight: true },
 };
 
 const VERT = `#version 300 es
@@ -35,6 +44,7 @@ uniform vec2 uRes;
 uniform float uSeed;
 uniform int uMode;
 uniform float uRelief;
+uniform bool uPackHeight;
 out vec4 outColor;
 ${prelude.code}
 ${recipeCode}
@@ -54,7 +64,7 @@ void main() {
 		float dx = ( heightAt( uv + vec2( t.x, 0.0 ) ) - heightAt( uv - vec2( t.x, 0.0 ) ) ) / ( 2.0 * t.x );
 		float dy = ( heightAt( uv + vec2( 0.0, t.y ) ) - heightAt( uv - vec2( 0.0, t.y ) ) ) / ( 2.0 * t.y );
 		vec3 n = normalize( vec3( - dx * uRelief, - dy * uRelief, 1.0 ) );
-		outColor = vec4( n * 0.5 + 0.5, 1.0 );
+		outColor = vec4( n * 0.5 + 0.5, uPackHeight ? clamp( h, 0.0, 1.0 ) : 1.0 );
 	} else {
 		outColor = vec4( clamp( ao, 0.0, 1.0 ), clamp( rough, 0.04, 1.0 ), clamp( metal, 0.0, 1.0 ), 1.0 );
 	}
@@ -129,6 +139,7 @@ export class TextureForge {
 		gl.uniform2f(gl.getUniformLocation(program, 'uRes'), size, size);
 		gl.uniform1f(gl.getUniformLocation(program, 'uSeed'), recipe.seed);
 		gl.uniform1f(gl.getUniformLocation(program, 'uRelief'), recipe.relief);
+		gl.uniform1i(gl.getUniformLocation(program, 'uPackHeight'), recipe.packHeight ? 1 : 0);
 		const modeLoc = gl.getUniformLocation(program, 'uMode');
 
 		let set = this.sets.get(id);

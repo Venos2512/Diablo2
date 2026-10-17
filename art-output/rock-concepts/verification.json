@@ -1,0 +1,65 @@
+{
+  "accent_area_percent": {
+    "blood_smear": 1.368,
+    "red_rune_10": 0.0,
+    "red_rune_13": 0.711,
+    "red_rune_18": 0.0,
+    "red_rune_20": 0.0,
+    "red_rune_25": 0.736,
+    "red_rune_29": 0.698
+  },
+  "variant_silhouette_identical": true,
+  "readability": {
+    "hero_height_px": 75,
+    "rock_value_min": 20.39,
+    "rock_value_max": 42.75,
+    "hero_value_min": 60.78,
+    "hero_value_max": 64.71,
+    "hero_min_minus_rock_max": 18.04,
+    "value_definition": "Pillow L / 255 × 100; opaque material pixels (alpha > 250), excluding shadows, labels and ground"
+  },
+  "png_checks": [
+    {
+      "file": "01_act1_rock_family.png",
+      "size": [
+        1800,
+        1260
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    {
+      "file": "02_cairn_landmark.png",
+      "size": [
+        1800,
+        1260
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    {
+      "file": "03_act_variants.png",
+      "size": [
+        1800,
+        1260
+      ],
+      "mode": "RGB",
+      "opens": true
+    },
+    {
+      "file": "04_readability_check.png",
+      "size": [
+        1800,
+        1260
+      ],
+      "mode": "RGB",
+      "opens": true
+    }
+  ],
+  "camera": {
+    "ground_ratio": "2:1",
+    "elevation_degrees": 30.0,
+    "projection": "orthographic",
+    "key_light": "upper-left"
+  }
+}

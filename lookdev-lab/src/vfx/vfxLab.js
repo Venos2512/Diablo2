@@ -1,6 +1,6 @@
 // VFX lab controller: particle system, pooled lights, training dummies, spell casting (castbar keys
-// 1–9, right click), play mode (click to move the model, camera follows), floating combat text, the
-// WebGPU compute particle field and the overdraw view. Backend-agnostic: materials come from
+// 1–9, right click), floating combat text, the WebGPU compute particle field and the overdraw view.
+// Play mode (walking the model around) is the character controller (src/character/controller.js). Backend-agnostic: materials come from
 // backend.vfx / backend.effects, so the same spells run in GLSL and TSL.
 import * as THREE from 'three';
 import { registerDefaults } from '../core/settings.js';
@@ -9,6 +9,8 @@ import { LightPool } from './lights.js';
 import { Dummy, DAMAGE_COLORS } from './dummies.js';
 import { SPELLS, SPELL_ORDER } from './spells.js';
 import { FlameField } from '../env/flames.js';
+import { SkillSystem } from '../skills/runtime.js';
+import { SKILLS, SKILL_ORDER, SKILL_KEYS } from '../skills/skills.js';
 import { toast } from '../ui/toast.js';
 
 registerDefaults('vfxLab', {
@@ -20,7 +22,10 @@ registerDefaults('vfxLab', {
 	computeCount: 50000,
 	timeScale: 1,
 	play: false,
-	moveSpeed: 3.2,
+	castMode: 'spells',
+	skill: 'fireball',
+	skillLevel: 1,
+	quarksSoft: true,
 });
 
 const UP = new THREE.Vector3(0, 1, 0);
@@ -43,13 +48,11 @@ export class VfxLab {
 		this.pointer = null;
 		this.cursor = { point: new THREE.Vector3(), ground: new THREE.Vector3(), dummy: null, valid: false };
 		this.groundCache = new Map();
-		this.move = null;
 		this.compute = null;
 		this.listeners = new Set();
 		this.texts = [];
 		this.casts = 0;
-		this.casting = 0;
-		this.playing = false;
+		this.skills = null;
 
 		const canvas = app.backend.canvas;
 		let rightDown = null;
@@ -70,7 +73,7 @@ export class VfxLab {
 			if (dragged) return;
 			this.pointer = { x: e.clientX, y: e.clientY };
 			this.updateCursor();
-			this.cast(this.settings.selected);
+			this.castSelected();
 		});
 		app.on('update', (dt, elapsed) => this.update(dt, elapsed));
 		app.on('key', (k) => this.onKey(k));
@@ -112,9 +115,10 @@ export class VfxLab {
 			if (this.settings.compute) this.setCompute(true);
 			app.backend.vfx.setOverdraw(this.settings.overdraw);
 		} else {
-			this.setPlay(false);
 			this.clearActors();
 			this.particles?.clear();
+			this.skills?.clear();
+			this.resetShake();
 			this.lightningEmitter = null;
 			this.lights?.reset();
 			this.stage.removeFromParent();
@@ -321,6 +325,12 @@ export class VfxLab {
 		this.playCastAnimation();
 	}
 
+	/** Right click / Q: the selected lab spell, or the selected skill when the castbar shows skills. */
+	castSelected() {
+		if (this.skillMode) this.castSkill(this.settings.skill);
+		else this.cast(this.settings.selected);
+	}
+
 	select(name) {
 		if (!SPELLS[name]) return;
 		this.settings.selected = name;
@@ -396,6 +406,7 @@ export class VfxLab {
 	resetEffects() {
 		this.clearActors();
 		this.particles?.clear();
+		this.skills?.clear();
 		this.lightningEmitter = this.armed ? this.createLightningEmitter() : null;
 	}
 
@@ -418,91 +429,44 @@ export class VfxLab {
 	}
 
 	// ---------------------------------------------------------------------------------------------
-	// Play mode: click to move the model, camera follows, clips switch between idle / run / cast.
+	// Play mode lives in the character controller; these keep the VFX tab's toggle and casting in sync.
+
+	get playing() {
+		return !!this.app.character?.active;
+	}
 
 	setPlay(on) {
-		const app = this.app;
-		on = !!on && this.armed;
-		if (this.playing === on) return;
-		this.playing = on;
-		this.settings.play = on;
+		if (on && !this.armed) this.arm(true);
+		this.app.character?.setActive(on);
+		this.settings.play = this.playing;
 		this.save();
-		const rig = app.rig;
-		if (on) {
-			this.prevCamera = rig.state();
-			rig.follow = app.subject.root;
-			rig.setMode('play');
-			this.clipState = null;
-			this.setClip('idle');
-			toast('Play mode: left click to move, right click or 1–9 to cast at the cursor', 'info', 4000);
-		} else {
-			this.move = null;
-			rig.follow = null;
-			if (this.prevCamera) {
-				rig.setMode(this.prevCamera.mode || 'orbit');
-				rig.restore(this.prevCamera);
-			}
-			app.subject.root.position.set(0, 0, 0);
-			app.subject.root.rotation.set(0, 0, 0);
-			app.shaderLab?.layout();
-		}
 		this.notify();
 	}
 
-	/** First clip matching the earliest pattern in the list (patterns are in priority order). */
-	findClip(patterns) {
-		for (const pattern of patterns) {
-			const index = this.app.subject.clips.findIndex((c) => pattern.test(c.name));
-			if (index >= 0) return index;
-		}
-		return -1;
-	}
-
-	setClip(state) {
-		const subject = this.app.subject;
-		if (!subject.clips.length || this.clipState === state) return;
-		const patterns = {
-			idle: [/idle/i, /survey/i, /stand/i],
-			run: [/run/i, /walk/i, /jog/i],
-			cast: [/punch/i, /attack/i, /cast/i, /wave/i, /yes/i, /jump/i],
-		};
-		let index = this.findClip(patterns[state]);
-		if (index < 0 && state !== 'idle') index = this.findClip(patterns.idle);
-		if (index < 0) return;
-		this.clipState = state;
-		subject.play(index);
-	}
-
 	playCastAnimation() {
-		if (!this.playing) return;
-		this.casting = 0.45;
-		this.clipState = null;
-		this.setClip('cast');
+		this.app.character?.onCast();
 	}
 
 	faceCursor() {
-		if (!this.playing || !this.cursor.valid) return;
-		const root = this.app.subject.root;
-		const p = root.getWorldPosition(new THREE.Vector3());
-		const d = this.cursor.point.clone().sub(p);
-		if (d.x * d.x + d.z * d.z > 1e-4) root.rotation.y = Math.atan2(d.x, d.z);
+		if (this.playing && this.cursor.valid) this.app.character.faceTowards(this.cursor.point);
 	}
 
 	onClick(event) {
 		if (!this.armed) return;
 		this.pointer = { x: event.clientX, y: event.clientY };
 		this.updateCursor();
-		if (!this.playing) return;
-		this.app.consumedClick = true;
-		if (this.cursor.dummy) {
-			this.cast(this.settings.selected);
-			return;
-		}
-		if (this.cursor.valid) this.move = this.cursor.ground.clone();
 	}
 
 	onKey(k) {
 		if (!this.armed) return;
+		if (this.skillMode) {
+			const id = SKILL_ORDER[SKILL_KEYS.indexOf(k)];
+			if (!id) return;
+			this.selectSkill(id);
+			this.updateCursor();
+			this.castSkill(id);
+			return;
+		}
 		const index = '123456789'.indexOf(k);
 		if (index < 0) return;
 		const name = SPELL_ORDER[index];
@@ -511,29 +475,163 @@ export class VfxLab {
 		this.cast(name);
 	}
 
-	updatePlay(dt) {
+	/** Melee / ranged impact from the character controller: the "Hit" spell aimed at `dummy`. */
+	strike(dummy, { from, damage = 10, kind = 'physical' } = {}) {
+		if (!this.armed || !dummy?.alive) return;
+		const ctx = this.context();
+		ctx.from = from || ctx.from;
+		ctx.target = dummy;
+		ctx.to = dummy.center();
+		ctx.hit = (d, _damage, k, opts = {}) => d.hit(damage, kind || k, { time: this.time, ...opts });
+		SPELLS.hit.cast(ctx);
+	}
+
+	// ---------------------------------------------------------------------------------------------
+	// Skills (src/skills, three.quarks — WebGL2 only: quarks builds GLSL ShaderMaterials)
+
+	get skillsSupported() {
+		return this.app.backend.language === 'GLSL';
+	}
+
+	get skillMode() {
+		return this.settings.castMode === 'skills' && this.skillsSupported;
+	}
+
+	/** The skill runtime with the lab as its host: dummies are the targets, the model is the caster. */
+	ensureSkills() {
+		if (this.skills || !this.skillsSupported) return this.skills;
+		const app = this.app;
+		const lab = this;
+		const targetOf = (d) =>
+			(d.skillTarget ??= {
+				get alive() {
+					return d.alive;
+				},
+				position: () => d.root.getWorldPosition(new THREE.Vector3()),
+				center: () => d.center(),
+				hitTest: (p, padding) => d.hitTest(p, padding),
+				hit: (amount, element, { direction } = {}) => d.hit(amount, element, { time: lab.time, direction }),
+			});
+		this.skills = new SkillSystem(
+			{
+				fxScene: app.world.vfxScene,
+				scene: this.stage,
+				camera: () => app.world.camera,
+				depthTexture: app.backend.pipeline?.sceneDepthTexture ?? null,
+				caster: {
+					position: () => lab.casterGround(),
+					hand: () => lab.casterHand(),
+					face: () => lab.faceCursor(),
+					onCast: () => lab.playCastAnimation(),
+					teleport: (p) => lab.teleportCaster(p),
+				},
+				targets: () => lab.dummies.map(targetOf),
+				groundAt: (x, z, y) => lab.groundAt(x, z, y),
+				light: {
+					flash: (p, color, intensity, opts) => lab.lights?.flash(p, color, intensity, opts),
+					hold: (get, color, intensity, opts) => lab.lights?.hold(get, color, intensity, opts),
+				},
+				shake: (s) => lab.shake(s),
+			},
+			{ soft: this.settings.quarksSoft },
+		);
+		this.skills.level = this.settings.skillLevel;
+		return this.skills;
+	}
+
+	castSkill(id) {
+		if (!this.armed) this.arm(true);
+		if (!this.ensureSkills()) {
+			toast('Skills run on three.quarks, which needs the WebGL2 · GLSL renderer.', 'error', 5000);
+			return;
+		}
+		if (!this.cursor.valid) this.updateCursor();
+		if (!this.cursor.valid && !SKILLS[id]?.toggle) {
+			toast('Point at the ground or a dummy to cast', 'info', 1500);
+			return;
+		}
+		const c = this.cursor;
+		const aim = { point: (c.valid ? c.point : this.casterGround()).clone(), ground: (c.valid ? c.ground : this.casterGround()).clone(), target: c.dummy ? this.skills.host.targets()[this.dummies.indexOf(c.dummy)] ?? null : null };
+		if (this.skills.cast(id, aim)) {
+			this.casts++;
+			this.highlight(id);
+		}
+	}
+
+	selectSkill(id) {
+		if (!SKILLS[id]) return;
+		this.settings.skill = id;
+		this.save();
+		this.highlight(id);
+		this.notify();
+	}
+
+	setCastMode(mode) {
+		this.settings.castMode = mode;
+		this.save();
+		this.buildCastbar();
+		this.notify();
+	}
+
+	setSkillLevel(level) {
+		this.settings.skillLevel = level;
+		this.save();
+		if (this.skills) this.skills.level = level;
+	}
+
+	setQuarksSoft(on) {
+		this.settings.quarksSoft = on;
+		this.save();
+		this.skills?.fx.setSoft(on);
+	}
+
+	/** Play a quarks editor export (.json) at the cursor. */
+	importQuarks(json, name = 'quarks.json') {
+		if (!this.armed) this.arm(true);
+		if (!this.ensureSkills()) throw new Error('three.quarks needs the WebGL2 · GLSL renderer');
+		this.updateCursor();
+		const entry = this.skills.fx.loadJSON(json, this.cursor.valid ? this.cursor.ground : this.casterGround());
+		this.lastImport = { json, name };
+		return entry;
+	}
+
+	/** Move the model (and the character controller) to `point` — Teleport. */
+	teleportCaster(point) {
 		const root = this.app.subject.root;
-		const anchor = this.anchorWorld();
-		if (this.casting > 0) {
-			this.casting -= dt;
-			if (this.casting <= 0) this.clipState = null;
+		root.position.copy(root.parent ? root.parent.worldToLocal(point.clone()) : point);
+		const c = this.app.character;
+		if (c) {
+			c.moveTarget = null;
+			c.attackTarget = null;
+			c.velocity?.set(0, 0, 0);
+			c.groundY = point.y;
 		}
-		if (this.move) {
-			const p = root.getWorldPosition(new THREE.Vector3());
-			const d = this.move.clone().sub(p).setY(0);
-			const dist = d.length();
-			const step = this.settings.moveSpeed * dt;
-			if (dist <= step + 0.02) {
-				this.move = null;
-			} else {
-				d.normalize();
-				p.addScaledVector(d, step);
-				p.y = this.groundAt(p.x, p.z, p.y);
-				root.position.copy(p.sub(anchor));
-				if (this.casting <= 0) root.rotation.y = Math.atan2(d.x, d.z);
-			}
+	}
+
+	/** Short decaying camera shake for big impacts only (art-direction/07 §2). Applied after the rig update and removed before the next one. */
+	shake(strength = 0.3) {
+		this.shakeAmount = Math.max(this.shakeAmount || 0, strength);
+	}
+
+	resetShake() {
+		if (this.shakeOffset) this.app.world.camera?.position.sub(this.shakeOffset);
+		this.shakeOffset = null;
+		this.shakeAmount = 0;
+	}
+
+	updateShake(dt) {
+		const cam = this.app.world.camera;
+		if (!cam) return;
+		if (this.shakeOffset) cam.position.sub(this.shakeOffset);
+		this.shakeAmount = Math.max(0, (this.shakeAmount || 0) - dt * 1.2);
+		if (this.shakeAmount <= 0) {
+			this.shakeOffset = null;
+			return;
 		}
-		if (this.casting <= 0) this.setClip(this.move ? 'run' : 'idle');
+		const a = this.shakeAmount * this.shakeAmount * 0.5;
+		this.shakeOffset = new THREE.Vector3((Math.random() - 0.5) * a, (Math.random() - 0.5) * a, (Math.random() - 0.5) * a);
+		cam.position.add(this.shakeOffset);
+		cam.updateMatrixWorld();
 	}
 
 	// ---------------------------------------------------------------------------------------------
@@ -568,6 +666,24 @@ export class VfxLab {
 		const bar = (this.castbar = this.app.dom.castbar);
 		bar.innerHTML = '';
 		this.castButtons = {};
+		bar.classList.toggle('skills', this.skillMode);
+		if (this.skillMode) {
+			SKILL_ORDER.forEach((id, i) => {
+				const skill = SKILLS[id];
+				const b = document.createElement('button');
+				b.className = `cast skill el-${skill.element}`;
+				b.title = `${skill.label} · ${skill.class}${skill.toggle ? ' · aura (toggle)' : ''}\n${skill.summary}`;
+				b.innerHTML = `<kbd>${SKILL_KEYS[i]}</kbd>${skill.label}<i class="cd"></i>`;
+				b.addEventListener('click', () => {
+					this.selectSkill(id);
+					this.castSkill(id);
+				});
+				bar.appendChild(b);
+				this.castButtons[id] = b;
+			});
+			this.highlight(this.settings.skill);
+			return;
+		}
 		for (const name of SPELL_ORDER) {
 			const spell = SPELLS[name];
 			const b = document.createElement('button');
@@ -585,12 +701,23 @@ export class VfxLab {
 	}
 
 	highlight(name) {
-		for (const [n, b] of Object.entries(this.castButtons || {})) b.classList.toggle('active', n === (this.settings.selected || name));
+		const selected = this.skillMode ? this.settings.skill : this.settings.selected;
+		for (const [n, b] of Object.entries(this.castButtons || {})) b.classList.toggle('active', n === (selected || name));
 		const b = this.castButtons?.[name];
 		if (!b) return;
 		b.classList.remove('pulse');
 		void b.offsetWidth;
 		b.classList.add('pulse');
+	}
+
+	/** Cooldown sweep and aura state on the skill buttons. */
+	updateSkillButtons() {
+		for (const [id, b] of Object.entries(this.castButtons || {})) {
+			const cd = this.skills.cooldown(id);
+			b.style.setProperty('--cd', cd.toFixed(3));
+			b.classList.toggle('cooling', cd > 0);
+			b.classList.toggle('on', this.skills.isToggled(id));
+		}
 	}
 
 	buildTextLayer() {
@@ -640,7 +767,6 @@ export class VfxLab {
 			this.cursorAge = 0;
 			this.updateCursor();
 		}
-		if (this.playing) this.updatePlay(dt);
 		for (const a of [...this.actors]) {
 			let keep = false;
 			try {
@@ -652,12 +778,17 @@ export class VfxLab {
 		}
 		for (const d of this.dummies) d.update(dt, this.time);
 		this.particles.update(dt);
+		if (this.skills) {
+			this.skills.update(dt);
+			if (this.skillMode) this.updateSkillButtons();
+		}
+		this.updateShake(rawDt);
 		this.lights.update(dt);
 		if (this.compute) {
 			this.compute.uniforms.center.value.copy(this.casterGround());
 			this.compute.update(dt);
 		}
 		this.updateTexts(rawDt);
-		this.app.particleCount = this.particles.count + (this.compute ? this.compute.count : 0);
+		this.app.particleCount = this.particles.count + (this.skills ? this.skills.fx.particleCount : 0) + (this.compute ? this.compute.count : 0);
 	}
 }

@@ -103,6 +103,42 @@ export function buildStudioRig(id) {
 	return { group, lights };
 }
 
+/**
+ * Studio rig for an Act I mood (lighting/moods.js → studio block): moon key with shadows, sky / ground
+ * ambient and lanterns or torches. Same { group, lights } shape as buildStudioRig.
+ */
+export function buildMoodRig(block, label = 'Act I mood') {
+	const group = new THREE.Group();
+	group.name = `Rig: ${label}`;
+	const lights = [];
+	const add = (name, light, kelvin, extra = {}) => {
+		light.name = name;
+		if (kelvin) light.color.copy(kelvinToColor(kelvin));
+		group.add(light);
+		lights.push({ name, light, kelvin, intensity: light.intensity, ...(extra.flicker !== undefined ? { flickerAmount: extra.flickerAmount ?? 1 } : {}), ...extra });
+		return light;
+	};
+	const moon = add('Moon / key', new THREE.DirectionalLight(0xffffff, block.moon.lux), block.moon.kelvin);
+	moon.position.fromArray(block.moon.position);
+	moon.target.position.set(0, 0.9, 0);
+	group.add(moon.target);
+	shadowed(moon);
+	const sky = new THREE.HemisphereLight(block.sky.color, block.sky.ground, block.sky.intensity);
+	add('Sky ambient', sky, 0);
+	for (const l of block.lanterns || []) {
+		const light = add(l.name, new THREE.PointLight(0xffffff, l.cd, 0, 2), l.kelvin, { flicker: Math.random() * 100, flickerAmount: l.flicker ? 1 : 0.35 });
+		light.position.fromArray(l.position);
+		if (l.shadow) {
+			light.castShadow = true;
+			light.shadow.mapSize.set(1024, 1024);
+			light.shadow.bias = -0.002;
+			light.shadow.normalBias = 0.02;
+			light.shadow.radius = 3;
+		}
+	}
+	return { group, lights };
+}
+
 /** Candle / torch flicker: layered sines + noise-like jitter, ~5 Hz main flutter. */
 export function flicker(t, seed) {
 	const a = Math.sin(t * 7.3 + seed) * 0.5 + Math.sin(t * 13.1 + seed * 1.7) * 0.3 + Math.sin(t * 23.7 + seed * 0.3) * 0.2;

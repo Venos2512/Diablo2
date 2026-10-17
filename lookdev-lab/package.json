@@ -8,10 +8,12 @@
     "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "start": "node scripts/serve.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "share": "node scripts/share.mjs"
   },
   "dependencies": {
-    "three": "0.180.0"
+    "three": "0.180.0",
+    "three.quarks": "0.16.0"
   },
   "devDependencies": {
     "esbuild": "0.25.10"

@@ -1,5 +1,6 @@
 // Puddle layer (water / blood): noise-shaped puddles on upward-facing surfaces, darkened tinted albedo,
-// glossy dielectric response and rain ripples as an analytic world-space normal (3x3 cells of rings).
+// glossy dielectric response and rain ripples as an analytic world-space normal (3x3 cells of rings);
+// `wetness` darkens and glosses the rest of the surface (rain).
 // Uses vLabWorldPos / vLabWorldNormal from the patch system. TSL twin: backends/webgpu/effects.js (#region liquid).
 #include <lab_noise>
 #include <lab_time>
@@ -8,6 +9,7 @@ uniform float uLiquidCoverage;
 uniform float uRippleScale;
 uniform float uRippleSpeed;
 uniform float uLiquidRoughness;
+uniform float uLiquidWetness;
 
 // 1 inside a puddle, 0 on dry ground.
 float labPuddleMask() {
@@ -17,8 +19,19 @@ float labPuddleMask() {
 	return up * smoothstep( threshold - 0.04, threshold + 0.04, n );
 }
 
+// Rain-soaked surface outside the puddles: tops get wetter than walls.
+float labWetAmount() {
+	return uLiquidWetness * ( 0.55 + 0.45 * clamp( normalize( vLabWorldNormal ).y, 0.0, 1.0 ) );
+}
+
+// Porous materials darken when wet; puddles show the tinted liquid.
 vec3 labLiquidAlbedo( vec3 albedo, float puddle ) {
-	return mix( albedo, mix( albedo * 0.25, uLiquidTint, 0.7 ), puddle );
+	return mix( albedo * ( 1.0 - 0.45 * labWetAmount() ), mix( albedo * 0.25, uLiquidTint, 0.7 ), puddle );
+}
+
+// Wet surfaces turn glossy; puddles take the liquid's roughness.
+float labLiquidRoughness( float roughness, float puddle ) {
+	return mix( roughness * ( 1.0 - 0.55 * labWetAmount() ), uLiquidRoughness, puddle );
 }
 
 vec3 labRippleNormal( vec2 xz ) {

@@ -1,27 +1,13 @@
 import * as THREE from 'three';
-import { createGUI, intro, note, readout } from '../ui/gui.js';
+import { createGUI, intro, note, readout, colorProxy, clearFolder } from '../ui/gui.js';
 import { VIEWS } from '../lookdev/views.js';
 import { SAMPLES } from '../core/assets.js';
 import { TONE_MAPPINGS } from '../core/grading.js';
 import { STUDIO_ENVS } from '../scenes/studio.js';
 import { toast } from '../ui/toast.js';
+import { buildTextureEditor } from '../lookdev/textureEditor.js';
 
-/** Proxy that shows/edits a THREE.Color as an sRGB hex string (lil-gui expects display values). */
-export function colorProxy(color) {
-	return {
-		get hex() {
-			return '#' + color.getHexString();
-		},
-		set hex(v) {
-			color.set(v);
-		},
-	};
-}
-
-export function clearFolder(folder) {
-	for (const child of [...folder.children]) child.destroy();
-	for (const el of [...folder.$children.querySelectorAll(':scope > .lab-note, :scope > .lab-readout')]) el.remove();
-}
+export { colorProxy, clearFolder } from '../ui/gui.js';
 
 export function buildLookdevPanel(app, el) {
 	const s = app.settings.data;
@@ -180,6 +166,8 @@ export function buildLookdevPanel(app, el) {
 			fp.add(m, 'anisotropy', 0, 1, 0.01);
 			fp.add(m, 'dispersion', 0, 10, 0.01);
 		}
+		const fTex = fMat.addFolder('Textures').close();
+		buildTextureEditor(fTex, app, () => ({ root: object, mesh: object, label: object.name || object.type }));
 		const fr = fMat.addFolder('Render state').close();
 		fr.add(m, 'side', { Front: THREE.FrontSide, Back: THREE.BackSide, Double: THREE.DoubleSide }).onChange(upd);
 		fr.add(m, 'transparent').onChange(upd);
