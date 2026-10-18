@@ -123,6 +123,29 @@ KayKit Adventurers (CC0, Kay Lousberg) được tách bằng `scripts/prepare-ka
 dùng chung cho mỗi bộ xương** (Knight, Barbarian, Mage giống hệt nhau) đã lược bỏ kênh của xương điều khiển IK và
 kênh đứng yên → 17,6 MB còn 3,5 MB.
 
+### Gameplay · Ashen Crown v1
+
+Khi bật **Play uses the v1 gameplay core** (mặc định bật), nút **▶ Play (Enter)** chạy lõi gameplay của dự án
+Ashen Crown v1 (`src/gameplay/`, chép từ `src/game/` của v1) trên scene và nhân vật đang preview:
+
+- **Điều khiển như v1:** chuột trái đi theo đường A* trên lưới nav (giữ chuột để lái), bấm vào quái để đánh (giữ
+  chuột để đánh liên tục), **Shift + chuột trái** đánh tại chỗ, **chuột phải** dùng kỹ năng đang chọn (**F1–F8**),
+  **R** đi bộ / chạy, **N** sinh một pack, **Enter** hồi sinh khi chết, **Esc** thoát.
+- **Quái:** chỉ số, pack (thường, champion, unique kèm minion và modifier), AI (aggro theo tầm nhìn, cả pack cùng
+  lao vào, imp bỏ chạy, cung thủ giữ khoảng cách, shaman hồi sinh đồng bọn) và công thức đánh trúng / chặn / kháng
+  đều giữ nguyên của v1. Chọn loại quái, kiểu pack, số lượng và level trong thư mục **Gameplay · Ashen Crown v1**,
+  hoặc bật **Endless waves** để quái tự kéo đến.
+- **Kích thước:** nhân vật đang preview (GLB như KayKit, Fox, Robot, hay hero procedural) được đưa về **1,8 m**
+  (*Hero height*) trong lúc chơi rồi trả lại khi thoát. Quái giữ chiều cao thật của v1 (zombie 1,72 m, skeleton
+  1,85 m, imp 0,92 m, Pit Fiend 2,6 m…) nên tỉ lệ với nhân vật đúng như trong game.
+- **Chỉ số nhân vật:** theo class (Barbarian / Sorceress / Necromancer, hero procedural tự lấy class của nó) và level,
+  theo công thức của v1, kèm một vũ khí khởi đầu. Không có đồ, túi hay bình máu; máu và mana tự hồi chậm.
+- **Kỹ năng chuột phải** dùng hệ kỹ năng three.quarks của tab VFX nên **chỉ chạy ở WebGL2 · GLSL**. Ở WebGPU,
+  chuột trái vẫn đánh bình thường.
+- **Lưới nav:** ô 1 m, loang từ điểm xuất phát trên collision của scene (bước cao tối đa 0,6 m, có tường hoặc đạo cụ
+  thì chặn), trong vùng 128 × 128 m. Đổi scene khi đang chơi thì lưới dựng lại và trận đấu bắt đầu lại.
+- Trong lúc chơi, hình nộm và castbar của tab VFX tạm tắt (để không giành chuột phải), rồi được bật lại khi thoát.
+
 ## 3a'. Tab Procedural — nhân vật dựng bằng code
 
 Các nhóm **Procedural · heroes / monsters / NPCs** ở cột trái (hoặc dropdown *Character* trong tab **Procedural**) nạp

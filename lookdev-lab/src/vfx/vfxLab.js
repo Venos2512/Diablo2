@@ -729,7 +729,7 @@ export class VfxLab {
 	combatText(position, amount, kind) {
 		const el = document.createElement('div');
 		el.className = 'combat-text';
-		el.textContent = Math.round(amount);
+		el.textContent = typeof amount === 'number' ? Math.round(amount) : amount; // gameplay also sends "Miss", "+12"…
 		el.style.color = DAMAGE_COLORS[kind] || '#fff';
 		this.textLayer.appendChild(el);
 		this.texts.push({ el, position: position.clone().add(new THREE.Vector3((Math.random() - 0.5) * 0.3, 0, 0)), age: 0 });

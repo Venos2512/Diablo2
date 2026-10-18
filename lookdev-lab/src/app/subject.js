@@ -100,7 +100,8 @@ export class Subject {
 
 	update(delta) {
 		if (this.mixer && !this.externalMixer) this.mixer.update(delta * this.speed);
-		if (this.procedural) {
+		if (this.procedural && !this.externalMixer) {
+			// externalMixer: gameplay drives the procedural character (and advances the shared time itself)
 			const dt = this.playing ? delta * this.speed : 0;
 			SHARED.uniforms.uTime.value += dt;
 			this.procedural.update(dt, { speed: this.locoSpeed });

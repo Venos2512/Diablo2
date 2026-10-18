@@ -384,3 +384,43 @@ button { cursor: pointer; }
 }
 .scale-label b { margin-left: 5px; color: var(--gold-2); font-weight: 600; }
 .scale-label.character { border-color: var(--gold-dim); }
+
+/* Gameplay preview HUD (src/gameplay/hud.js): life / mana orbs, XP, hovered target, death banner. */
+.gp-hud { position: absolute; inset: 0; pointer-events: none; z-index: 4; font-family: var(--serif); }
+.gp-hud[hidden] { display: none; }
+.gp-orb {
+	position: absolute; bottom: 14px; width: 92px; height: 92px; border-radius: 50%; overflow: hidden;
+	border: 2px solid #5a4a2e; background: radial-gradient(circle at 50% 40%, #1c1712, #070605);
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, .55), inset 0 0 14px rgba(0, 0, 0, .9);
+}
+/* Either side of the centre bar (the bottom-left corner belongs to the performance HUD). */
+.gp-life { right: calc(50% + min(23%, 260px) + 14px); }
+.gp-mana { left: calc(50% + min(23%, 260px) + 14px); }
+.gp-orb i { position: absolute; left: 0; right: 0; bottom: 0; transition: height .12s linear; }
+.gp-life i { background: radial-gradient(circle at 40% 30%, #ff5a4a, #8a0d0d 55%, #3a0404); }
+.gp-mana i { background: radial-gradient(circle at 40% 30%, #6f8cff, #1c2c9a 55%, #080c3a); }
+.gp-orb span {
+	position: absolute; inset: 0; display: grid; place-items: center; font-size: 12px; color: #f2e6d0;
+	text-shadow: 0 1px 2px #000, 0 0 6px #000;
+}
+.gp-center { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); width: min(46%, 520px); text-align: center; }
+.gp-skill { font-size: 13px; color: var(--gold-2); text-shadow: 0 1px 2px #000; margin-bottom: 4px; }
+.gp-xp { height: 5px; background: rgba(0, 0, 0, .6); border: 1px solid #4a3e28; border-radius: 3px; overflow: hidden; }
+.gp-xp i { display: block; height: 100%; background: linear-gradient(90deg, #8d7438, #e6c88c); }
+.gp-level { font-size: 11px; color: var(--ink-2); margin-top: 3px; text-shadow: 0 1px 2px #000; }
+.gp-target {
+	position: absolute; top: 12px; left: 50%; transform: translateX(-50%); min-width: 240px; text-align: center;
+	padding: 4px 12px 6px; background: rgba(8, 7, 6, .72); border: 1px solid #4a3e28; border-radius: 4px;
+}
+.gp-target[hidden] { display: none; }
+.gp-target-name { font-size: 15px; letter-spacing: .4px; }
+.gp-target-bar { height: 6px; margin-top: 4px; background: #1a0605; border-radius: 2px; overflow: hidden; }
+.gp-target-bar i { display: block; height: 100%; background: linear-gradient(90deg, #7a0c0c, #d23a2a); }
+.gp-target-mods { font-size: 11px; color: #7aa8ff; margin-top: 2px; }
+.gp-dead {
+	position: absolute; top: 38%; left: 0; right: 0; text-align: center; font-size: 34px; color: #d23a2a;
+	text-shadow: 0 2px 6px #000; letter-spacing: 1px;
+}
+.gp-dead[hidden] { display: none; }
+.gp-dead small { display: block; font-size: 13px; color: var(--ink-2); margin-top: 6px; letter-spacing: 0; }
+.gp-hurt { position: absolute; inset: 0; opacity: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(150, 0, 0, .75)); }

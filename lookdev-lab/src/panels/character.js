@@ -9,6 +9,10 @@ import { MARKERS } from '../character/scaleRef.js';
 import { buildTextureEditor } from '../lookdev/textureEditor.js';
 import { MOODS } from '../lighting/moods.js';
 import { toast } from '../ui/toast.js';
+import { SPAWNABLE, PACKS } from '../gameplay/host.js';
+import { CLASSES } from '../gameplay/player.js';
+import { MDEF } from '../gameplay/monsters.js';
+import { SKILLS, SKILL_ORDER } from '../skills/skills.js';
 
 export function buildCharacterPanel(app, el) {
 	const ctrl = app.character;
@@ -24,7 +28,11 @@ export function buildCharacterPanel(app, el) {
 	const sampleOptions = { '(your file)': '', ...Object.fromEntries(characterSamples.map((a) => [a.name, a.id])) };
 	const sampleCtl = fChar.add(pick, 'sample', sampleOptions).name('Character');
 	fChar.add({ open: () => document.getElementById('file-input').click() }, 'open').name('Open your character… (GLB/FBX)');
-	const play = { get on() { return ctrl.active; }, set on(v) { ctrl.setActive(v); } };
+	const game = app.gameplay;
+	const playing = () => ctrl.active || game.active;
+	// Play runs Ashen Crown v1's gameplay core when it is enabled, otherwise the lab's own controller.
+	const setPlaying = (v) => (game.settings.enabled ? game.setActive(v) : ctrl.setActive(v));
+	const play = { get on() { return playing(); }, set on(v) { setPlaying(v); } };
 	fChar.add(play, 'on').name('▶ Play (Enter)').listen();
 	fChar.add(s, 'camera', Object.fromEntries(Object.entries(CAMERAS).map(([id, label]) => [label, id]))).name('Camera').onChange((v) => ctrl.setCamera(v));
 	if (app.mood) {
@@ -33,6 +41,39 @@ export function buildCharacterPanel(app, el) {
 		fChar.add(mood, 'id', Object.fromEntries(Object.entries(MOODS).map(([id, m]) => [m.label, id]))).name('Lighting mood (D3 Act I)').listen();
 	}
 	const live = readout(fChar);
+
+	// Gameplay (Ashen Crown v1 core) ------------------------------------------------------------------
+	const gs = game.settings;
+	const gsave = () => game.save();
+	const fGame = gui.addFolder('Gameplay · Ashen Crown v1');
+	fGame.add(gs, 'enabled').name('Play uses the v1 gameplay core').onChange((v) => {
+		gsave();
+		if (!v && game.active) game.stop();
+	});
+	fGame.add(gs, 'cls', { 'Auto (procedural hero → its class, else Barbarian)': 'auto', ...Object.fromEntries(Object.entries(CLASSES).map(([id, c]) => [c.name, id])) }).name('Class (stats)').onChange(() => {
+		gsave();
+		if (game.active) game.restart();
+	});
+	fGame.add(gs, 'level', 1, 40, 1).name('Hero level').onFinishChange((v) => {
+		gsave();
+		game.player?.setLevel(v);
+	});
+	fGame.add(gs, 'heroHeight', 1.2, 2.6, 0.01).name('Hero height (m)').onFinishChange(() => {
+		gsave();
+		if (game.active) game.restart();
+	});
+	fGame.add(gs, 'right', Object.fromEntries(SKILL_ORDER.map((id, i) => [`${i < 8 ? `F${i + 1} · ` : ''}${SKILLS[id].label}`, id]))).name('Right-click skill').listen().onChange((v) => game.setRightSkill(v));
+	fGame.add(gs, 'monster', Object.fromEntries(SPAWNABLE.map((id) => [`${MDEF[id].name} (${id})`, id]))).name('Monster').onChange(gsave);
+	fGame.add(gs, 'pack', Object.fromEntries(Object.entries(PACKS).map(([id, label]) => [label, id]))).name('Pack').onChange(gsave);
+	fGame.add(gs, 'count', 1, 12, 1).name('Pack size').onChange(gsave);
+	fGame.add(gs, 'mlvl', 1, 40, 1).name('Monster level').onChange(gsave);
+	fGame.add({ spawn: () => (game.active ? game.spawn() : toast('Press Play first (Enter)', 'info', 1800)) }, 'spawn').name('Spawn pack (N)');
+	fGame.add({ clear: () => game.clearMonsters() }, 'clear').name('Clear monsters');
+	fGame.add(gs, 'waves').name('Endless waves').onChange(gsave);
+	fGame.add(gs, 'waveSize', 2, 30, 1).name('Wave: monsters alive').onChange(gsave);
+	fGame.add({ revive: () => game.revive() }, 'revive').name('Revive (Enter)');
+	const gameLive = readout(fGame);
+	note(fGame, 'Ashen Crown v1 rules: left click moves on an A* path (hold to steer) or attacks the monster under the cursor, Shift + click attacks in place, right click casts the selected skill (F1–F8). Monsters use v1 stats, packs (champions, uniques with modifiers) and AI (aggro, packs, flee, ranged kiting, shaman revives). Characters are scaled to the hero height; monsters keep their v1 sizes relative to it.');
 
 	// Movement ------------------------------------------------------------------------------------------
 	const fMove = gui.addFolder('Movement');
@@ -207,9 +248,15 @@ export function buildCharacterPanel(app, el) {
 	const timer = setInterval(() => {
 		if (el.hidden) return;
 		const st = ctrl.status;
-		const top = ctrl.active ? `${st.state} · ${st.speed.toFixed(2)} m/s · anim rate ×${st.rate.toFixed(2)}` : 'Not playing — press ▶ Play';
+		const top = ctrl.active ? `${st.state} · ${st.speed.toFixed(2)} m/s · anim rate ×${st.rate.toFixed(2)}` : game.active ? 'Playing · Ashen Crown v1 gameplay (below)' : 'Not playing — press ▶ Play';
 		const clip = ctrl.active ? ctrl.map[st.state] || '—' : '';
 		live(`${top}${clip ? `\nclip ${clip}` : ''}\nstance ${STANCES[ctrl.stance] || ctrl.stance}${ctrl.pad.connected ? ' · gamepad ✓' : ''}`);
+		const P = game.player;
+		gameLive(
+			game.active && P
+				? `${P.C.name} lv ${P.level} · life ${Math.ceil(P.life)}/${P.maxLife} · mana ${Math.floor(P.mana)}/${P.maxMana}\ndmg ${P.dmgMin.toFixed(0)}–${P.dmgMax.toFixed(0)} · AR ${P.ar.toFixed(0)} · def ${P.def} · height ${P.height.toFixed(2)} m\nmonsters alive ${game.monsterCount()} · kills ${P.kills} · nav ${game.navStats?.cells ?? 0} cells (${(game.navStats?.ms ?? 0).toFixed(0)} ms)`
+				: game.settings.enabled ? 'Not playing — press ▶ Play (Enter)' : 'Off: Play uses the lab controller',
+		);
 		const n = ctrl.natural;
 		const f = ctrl.foot.stats;
 		const fmt = (r) => (r ? `${r.speed.toFixed(2)} m/s (stride ${r.stride.toFixed(2)} m)` : 'not measured');
@@ -229,7 +276,8 @@ export function buildCharacterPanel(app, el) {
 	});
 	addEventListener('keydown', (e) => {
 		if (e.key !== 'Enter' || el.hidden || e.target.closest?.('input, select, textarea, button')) return;
-		ctrl.setActive(!ctrl.active);
+		if (game.active && game.player?.dead) return; // Enter revives (gameplay key handler)
+		setPlaying(!playing());
 	});
 	buildAnim();
 	buildEquip();

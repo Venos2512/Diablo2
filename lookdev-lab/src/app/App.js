@@ -18,6 +18,7 @@ import { ShaderLab } from '../effects/lab.js';
 import { VfxLab } from '../vfx/vfxLab.js';
 import { importQuarks } from '../panels/vfx.js';
 import { CharacterController } from '../character/controller.js';
+import { GameplayHost } from '../gameplay/host.js';
 import { MoodController } from '../lighting/moodController.js';
 import { measureHeight } from '../character/rig.js';
 import { StressTests } from './stress.js';
@@ -191,6 +192,7 @@ export class App {
 		this.shaderLab.init();
 		this.vfxLab = new VfxLab(this);
 		this.character = new CharacterController(this);
+		this.gameplay = new GameplayHost(this); // Ashen Crown v1 gameplay core for Play
 		this.mood = new MoodController(this);
 		this.stress = new StressTests(this);
 		this.recorder = new Recorder(this);
