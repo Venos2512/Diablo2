@@ -2,7 +2,7 @@ import { createGUI, intro, note } from '../ui/gui.js';
 import { TONE_MAPPINGS } from '../core/grading.js';
 import { CAMERA_MODES } from '../core/cameraRig.js';
 import { toast } from '../ui/toast.js';
-import { LOOKS, loadCustomLut } from '../core/lut.js';
+import { LOOKS, CHECK_VIEWS, loadCustomLut } from '../core/lut.js';
 
 export function buildPostPanel(app, el) {
 	const s = app.settings.data;
@@ -103,6 +103,13 @@ export function buildPostPanel(app, el) {
 		prev.destroy();
 		fLut.open();
 	});
+
+	const fCheck = gui.addFolder('Readability check · value & colour vision').close();
+	fCheck.add(p, 'check', Object.fromEntries(Object.entries(CHECK_VIEWS).map(([id, c]) => [c.label, id]))).name('Check view').onChange(() => {
+		app.settings.changed('post');
+		app.applyLut();
+	}).listen();
+	note(fCheck, 'The art checklist asks to judge combat at the real camera in greyscale (value structure) and with the common colour-vision deficiencies — gameplay signals must not rely on hue alone. Baked on top of the LUT look (Machado et al. 2009, full severity); bloom and grain stay as they are.');
 
 	const fRetro = gui.addFolder('Retro preview (readability test)').close();
 	fRetro.add(p.retro, 'enabled').name('Enabled').onChange(apply);

@@ -72,7 +72,7 @@ export function parseCubeLUT(text, name = 'LUT') {
 	if (!size || size < 2 || size > 128) throw new Error('Missing or invalid LUT_3D_SIZE.');
 	if (values.length !== size * size * size * 3) throw new Error(`Expected ${size ** 3} entries, found ${values.length / 3}.`);
 	if (domainMin.some((v) => v !== 0) || domainMax.some((v) => v !== 1)) console.warn(`${name}: DOMAIN_MIN/MAX other than 0..1 are ignored.`);
-	return { title, size, ...makeTextures(size, values) };
+	return { title, size, values: Float32Array.from(values), ...makeTextures(size, values) };
 }
 
 const luma = (r, g, b) => r * 0.2126 + g * 0.7152 + b * 0.0722;
@@ -210,7 +210,64 @@ export function generateLook(id, size = 33) {
 			}
 		}
 	}
-	return { title: look.label, size, ...makeTextures(size, rgb) };
+	return { title: look.label, size, values: rgb, ...makeTextures(size, rgb) };
+}
+
+// Readability check views (art checklist: judge value structure and colour-vision deficiencies at the real camera).
+// Applied after the creative look, in the same display-space LUT (no extra pass): out = check(look(x)).
+// Colour vision: Machado, Oliveira & Fernandes 2009, severity 1.0, applied in linear RGB.
+const toLinear = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+const toSrgb = (c) => {
+	const v = clamp01(c);
+	return v <= 0.0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - 0.055;
+};
+const CVD = {
+	protan: [[0.152286, 1.052583, -0.204868], [0.114503, 0.786281, 0.099216], [-0.003882, -0.048116, 1.051998]],
+	deutan: [[0.367322, 0.860646, -0.227968], [0.280085, 0.672501, 0.047413], [-0.01182, 0.04294, 0.968881]],
+	tritan: [[1.255528, -0.076749, -0.178779], [-0.078411, 0.930809, 0.147602], [0.004733, 0.691367, 0.3039]],
+};
+const simulate = (m) => (r, g, b) => {
+	const l = [toLinear(r), toLinear(g), toLinear(b)];
+	return m.map((row) => toSrgb(row[0] * l[0] + row[1] * l[1] + row[2] * l[2]));
+};
+
+export const CHECK_VIEWS = {
+	none: { label: 'Off' },
+	value: {
+		label: 'Value · greyscale (relative luminance)',
+		fn: (r, g, b) => {
+			const y = toSrgb(0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b));
+			return [y, y, y];
+		},
+	},
+	deutan: { label: 'Deuteranopia (no M cones · ~5% of men)', fn: simulate(CVD.deutan) },
+	protan: { label: 'Protanopia (no L cones · ~1% of men)', fn: simulate(CVD.protan) },
+	tritan: { label: 'Tritanopia (no S cones · rare)', fn: simulate(CVD.tritan) },
+};
+
+/**
+ * `lut` (generated look, a loaded .cube, or null = identity) blended at `intensity`, then the check view, baked into
+ * one LUT of the same size (33³ for identity). Shown at full strength by the pipelines while a check is active.
+ */
+export function withCheck(lut, checkId, intensity = 1) {
+	const check = CHECK_VIEWS[checkId];
+	if (!check?.fn) return lut;
+	const size = lut?.size ?? 33;
+	const rgb = new Float32Array(size * size * size * 3);
+	let i = 0;
+	for (let bz = 0; bz < size; bz++) {
+		for (let gy = 0; gy < size; gy++) {
+			for (let rx = 0; rx < size; rx++) {
+				const x = [rx / (size - 1), gy / (size - 1), bz / (size - 1)];
+				const looked = lut?.values ? x.map((v, c) => v + (lut.values[i + c] - v) * intensity) : x;
+				const out = check.fn(...looked);
+				rgb[i++] = clamp01(out[0]);
+				rgb[i++] = clamp01(out[1]);
+				rgb[i++] = clamp01(out[2]);
+			}
+		}
+	}
+	return { title: `${lut?.title ?? 'No LUT'} + ${check.label}`, size, values: rgb, check: checkId, ...makeTextures(size, rgb) };
 }
 
 /** Remembers the last custom .cube (when small enough) so it survives a reload / renderer switch. */

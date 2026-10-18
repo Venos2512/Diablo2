@@ -24,7 +24,7 @@ import { measureHeight } from '../character/rig.js';
 import { StressTests } from './stress.js';
 import { Recorder, Presentation } from './capture.js';
 import * as bench from './bench.js';
-import { parseCubeLUT, generateLook, storeCustomLut, loadCustomLut, disposeLut } from '../core/lut.js';
+import { parseCubeLUT, generateLook, storeCustomLut, loadCustomLut, disposeLut, withCheck } from '../core/lut.js';
 import { applyStoredOverrides, dropOverride } from '../core/shaderOverrides.js';
 import { PROCEDURAL, isProcedural, proceduralById, createProcedural, defaultOptions } from '../procedural/catalog.js';
 import { useNodeMaterial } from '../procedural/nodeMaterial.js';
@@ -532,9 +532,13 @@ export class App {
 		this.backend.configure(this.settings.data.post);
 	}
 
-	/** Display-space LUT from settings.post.lut.look ('none', a generated look id or 'custom'). */
+	/**
+	 * Display-space LUT from settings.post.lut.look ('none', a generated look id or 'custom'), with the readability
+	 * check view (settings.post.check: value / colour-vision simulation) baked on top when one is active.
+	 */
 	applyLut() {
-		const lutSettings = this.settings.data.post.lut;
+		const post = this.settings.data.post;
+		const lutSettings = post.lut;
 		let lut = null;
 		if (lutSettings.look === 'custom') {
 			lut = this.customLut ??= loadCustomLut();
@@ -542,6 +546,16 @@ export class App {
 		} else if (lutSettings.look !== 'none') {
 			this.lutCache ??= {};
 			lut = this.lutCache[lutSettings.look] ??= generateLook(lutSettings.look);
+		}
+		const check = post.check && post.check !== 'none' ? post.check : null;
+		const key = check && `${lut?.title ?? 'none'}|${check}|${lut ? lutSettings.intensity : 1}`;
+		if (this.checkLut && this.checkLut.key !== key) {
+			if (this.checkLut.lut?.check) disposeLut(this.checkLut.lut);
+			this.checkLut = null;
+		}
+		if (check) {
+			this.checkLut ??= { key, lut: withCheck(lut, check, lut ? lutSettings.intensity : 1) };
+			lut = this.checkLut.lut;
 		}
 		this.backend.setLut(lut);
 		this.applyPost();

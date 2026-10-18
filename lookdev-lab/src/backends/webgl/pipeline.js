@@ -187,7 +187,7 @@ export class WebGLPipeline {
 		this.bloom.threshold = post.bloom.threshold;
 
 		const f = this.final.uniforms;
-		f.uLutIntensity.value = this.lut && post.lut?.look !== 'none' ? post.lut.intensity : 0;
+		f.uLutIntensity.value = !this.lut ? 0 : this.lut.check ? 1 : post.lut?.look !== 'none' ? post.lut.intensity : 0; // check views (core/lut.js withCheck) are baked at full strength
 		f.uToneMapping.value = TONE_MAPPINGS[post.toneMapping]?.index ?? 5;
 		f.uExposure.value = exposureScale(post.exposure);
 		const g = post.grade;

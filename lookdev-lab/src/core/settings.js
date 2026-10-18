@@ -19,6 +19,7 @@ const defaults = {
 		falseColor: false,
 		retro: { enabled: false, height: 480, levels: 24, dither: 0.6 },
 		lut: { look: 'none', intensity: 1 },
+		check: 'none', // readability check view baked over the LUT (core/lut.js CHECK_VIEWS)
 		vfxResolution: 1,
 	},
 };

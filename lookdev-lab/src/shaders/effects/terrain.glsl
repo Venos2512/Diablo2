@@ -1,9 +1,11 @@
 // Terrain splat (Act I moor): three layers stacked bottom to top — dry dirt (base), wet dirt, grass —
-// driven by a world-space splat map (R = wet dirt, G = grass). Each layer's height sits in its normal map
+// driven by a world-space splat map (R = wet dirt, G = grass, B = blood-soaked). Each layer's height sits in its normal map
 // alpha, so transitions follow the relief: water fills the low spots of the dirt first, pebbles poke through
 // the mud, soil shows between grass blades at the edges. Standing water collects in the wet layer's hollows.
 // Anti-tiling: every layer is read twice with per-area UV offsets (labTerrainSample), large-scale brightness
 // varies with a world noise, and the splat weights are broken up by noise inside their transition zones.
+// Blood-soaked ground (B, the Remnant corruption of Weeping Fields) tints whatever lies underneath instead of
+// replacing it — the soil keeps its texture and value — and draws vein lines where it is soaked through.
 // Uses vLabWorldPos / vLabWorldNormal from the patch system. TSL twin: backends/webgpu/effects.js (createTerrain).
 #include <lab_noise>
 uniform sampler2D uTerrainSplat;
@@ -31,6 +33,9 @@ uniform float uTerrainDebug; // 1 = show layer weights (dirt brown, wet blue, gr
 uniform float uTerrainGrassShadow; // contact shadow of the grass mat on the ground around it + darker roots at its edge
 uniform float uTerrainGrassLift; // grass wins the height blend by this much: blades lie over the soil instead of mixing
 uniform vec2 uTerrainGrassShadowOffset; // world xz step toward the key light: grass there shades this spot
+uniform float uTerrainBlood; // strength of the blood-soaked layer (splat B; 0 = off)
+uniform vec3 uTerrainBloodColor; // multiplier on the soaked ground (linear): dark, desaturated red
+uniform vec3 uTerrainVeinColor; // vein lines inside the soaked ground
 
 struct LabTerrain {
 	vec3 albedo;
@@ -125,8 +130,16 @@ LabTerrain labTerrain( vec3 worldPos, vec3 worldNormal ) {
 	rough = mix( rough, L2.o.g, grass );
 	ao = mix( ao, L2.o.r, grass );
 
+	// Blood-soaked ground over everything: a tint (texture and value survive), a little wetter, vein lines
+	// (ridged noise) only where it is soaked through.
+	float soak = smoothstep( 0.15, 0.85, labTerrainBreakup( splat.b, edge * 0.7 ) ) * uTerrainBlood;
+	float vein = ( 1.0 - smoothstep( 0.0, 0.06, abs( labNoise3( vec3( st * 0.9, 3.3 ) ) ) ) ) * smoothstep( 0.45, 0.95, splat.b );
+	albedo = mix( albedo, albedo * uTerrainBloodColor, soak );
+	albedo = mix( albedo, uTerrainVeinColor, vein * soak );
+	rough *= mix( 1.0, 0.7, soak );
+
 	albedo *= mix( 1.0, ao, uTerrainAo ) * ( 1.0 + macro * uTerrainMacro );
-	if ( uTerrainDebug > 0.5 ) albedo = mix( mix( vec3( 0.45, 0.28, 0.15 ), vec3( 0.08, 0.22, 0.6 ), wet ), vec3( 0.2, 0.55, 0.12 ), grass );
+	if ( uTerrainDebug > 0.5 ) albedo = mix( mix( mix( vec3( 0.45, 0.28, 0.15 ), vec3( 0.08, 0.22, 0.6 ), wet ), vec3( 0.2, 0.55, 0.12 ), grass ), vec3( 0.6, 0.04, 0.05 ), soak );
 
 	// Tangent frame of a world-UV heightfield: T = +x, B = -z (follows the slope through N).
 	vec3 N = normalize( worldNormal );

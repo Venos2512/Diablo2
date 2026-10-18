@@ -28,6 +28,7 @@ Bổ sung cho `../DIABLO_II_ART_CHECKLIST_VI.md` (danh sách *cần làm gì*). 
 | `10_NGUON_THAM_KHAO.md` | Nguồn, mức độ tin cậy | Mọi người |
 | `11_ACT1_PHAN_TICH_CHI_TIET.md` | Act I sâu: cấu trúc vùng, tu viện, quái, boss, NPC, âm thanh, color script, tileset, 10 phút đầu | Team làm Act I |
 | `12_QUY_CHUAN_QUAI_CANH_QUAN_CONG_TRINH.md` | Quy chuẩn kích thước quái, bộ quái, tạo hình quái, cảnh quan, công trình, bàn giao | Character, env, level art |
+| `13_KIEM_TRA_QUY_TAC_MAU_GAMEPLAY.md` | Kiểm tra bộ quy tắc màu gameplay & môi trường (The Dying Gods · Act I) bằng số đo: va chạm màu, mù màu, tone mapping, đề xuất sửa (không nằm trong bản tổng hợp) | AD, VFX, env, tech art |
 | `scale_chart.html` | Bảng tỷ lệ quái và công trình theo đơn vị H | Mở bằng trình duyệt |
 | `palette_board.html` | Bảng màu và value board trực quan cho từng Act | Mở bằng trình duyệt |
 | `act1_color_script.html` | Color script 15 khung cho hành trình Act I | Mở bằng trình duyệt |

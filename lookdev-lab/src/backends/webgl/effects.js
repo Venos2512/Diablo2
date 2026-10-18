@@ -332,8 +332,9 @@ export function createGLSLEffects(backend) {
 		},
 		/**
 		 * Terrain splat material (src/env/terrain.js): `layers` = three forged sets (dirt, wet dirt, grass; height in
-		 * normal alpha), `splat` = RGBA DataTexture (R wet, G grass) covering `rect` (Vector4: origin x, z, 1/size, 1/size).
-		 * Uniforms { tile: Vector3, softness, heightBlend, water, waterRough, damp, ao, variation, macro, edgeNoise, debug, rect }; setLayers(sets) swaps the sets.
+		 * normal alpha), `splat` = RGBA DataTexture (R wet, G grass, B blood-soaked) covering `rect` (Vector4: origin x, z, 1/size, 1/size).
+		 * Uniforms { tile: Vector3, softness, heightBlend, water, waterRough, damp, ao, variation, macro, edgeNoise, debug, rect,
+		 * blood, bloodColor (linear multiplier), veinColor }; setLayers(sets) swaps the sets.
 		 */
 		createTerrain({ layers, splat, rect }) {
 			const u = {
@@ -351,6 +352,9 @@ export function createGLSLEffects(backend) {
 				grassShadow: { value: 0 },
 				grassLift: { value: 0 },
 				grassShadowOffset: { value: new THREE.Vector2() },
+				blood: { value: 1 },
+				bloodColor: { value: new THREE.Color(1, 0.55, 0.5) },
+				veinColor: { value: new THREE.Color('#5a1f21') },
 				rect: { value: rect },
 			};
 			const textures = {};
@@ -383,6 +387,9 @@ export function createGLSLEffects(backend) {
 							uTerrainGrassShadow: u.grassShadow,
 							uTerrainGrassLift: u.grassLift,
 							uTerrainGrassShadowOffset: u.grassShadowOffset,
+							uTerrainBlood: u.blood,
+							uTerrainBloodColor: u.bloodColor,
+							uTerrainVeinColor: u.veinColor,
 						});
 						shader.fragmentShader = withSource(shader.fragmentShader, terrainEntry);
 						shader.fragmentShader = after(shader.fragmentShader, '#include <map_fragment>', `

@@ -48,7 +48,8 @@ the page and keeps camera, settings and the A/B snapshot).
   lights, Kelvin colour, physical units, shadow filter/size/bias, height fog.
 - **Post & camera** — camera modes (orbit, game ¾, isometric 2:1, play), AA (FXAA, SMAA, MSAA, TRAA on WebGPU),
   bloom, GTAO, grade (white balance, contrast, lift/gamma/gain, vignette, grain, chromatic aberration),
-  **3D LUTs** (.cube or generated looks), retro low-res preview, VFX-layer resolution.
+  **3D LUTs** (.cube or generated looks), retro low-res preview, VFX-layer resolution, **readability check views**
+  (value / greyscale and deuteranopia, protanopia, tritanopia after Machado 2009 — baked over the LUT look, no extra pass).
 - **Shaders** — the shader lab: 8 effects written twice (GLSL + TSL) with one parameter schema:
   vertex wind, flame, dissolve, status overlays (frozen / burning / poisoned / hit flash), fresnel rim, puddles
   (water/blood with rain ripples), town portal, waypoint runes. Apply to the model or to probe shapes, stack them,
@@ -72,6 +73,15 @@ the page and keeps camera, settings and the A/B snapshot).
   paintable splat with brush / undo / PNG export, grass tufts follow the grass layer; texture set *Painted* = swatches cut from
   the concept sheet by `scripts/prepare-terrain-swatches.py`, or *Procedural* = forge recipes; *Campfire dusk* lighting preset;
   anti-tiling; wooden fence, palisade (PBR), tent (PBR) and shrub kits split from prop sheets by `scripts/prepare-prop-kit.py`);
+  *Act I · Weeping Fields (colour rules)* — the test map for The Dying Gods' gameplay / environment colour rules: Valdren
+  Core Kit farm with palette-locked materials (`src/env/valdren.js`), a farmhouse and its Remnant-corrupted twin (god-blood
+  veins from the well under the footing, up through the floor and wall cracks; blood-soaked ground = splat channel B), a
+  Redbound nest (hide tents, fence-board shack, bone stakes, torn banners, alarm drum, resonance pillar, blood sacs, ambush
+  nests), Blightbeast den / carcass / crows; *Rules* panel with checklist camera views, gameplay class view (obstacle /
+  destructible / interactive / hazard), looping telegraphs (danger shape + function-colour fill), interact glint by
+  proximity, the six function colours sampled on the grass, Redbound stand-in crowds, and display-matched signal colours
+  (`src/core/displayMatch.js`: the hex survives exposure / grade / tone mapping; a live table shows what each hex turns
+  into when drawn as a plain colour). Review with numbers: `art-direction/13_KIEM_TRA_QUY_TAC_MAU_GAMEPLAY.md`;
   procedural texture forge (tileable PBR sets baked from GLSL recipes, hot-reloaded).
 - **Performance** — renderer info, quality presets, render scale, live pass timings, **scene benchmark** and
   **feature cost** benchmark (comparison table across renderers), stress tests (model crowd, moving lights,
@@ -116,15 +126,17 @@ src/
     webgl/      WebGLRenderer pipeline, GPU timer, onBeforeCompile patch system, GLSL effects + VFX materials
     webgpu/     WebGPURenderer pipeline (PostProcessing/TSL), node-patch system, TSL effects, VFX + compute
       tsl/      TSL ports of the GLSL chunks (noise, common, post)
-  core/         settings, renderer modes, assets, camera rig, grading, LUTs, shader registry + overrides
+  core/         settings, renderer modes, assets, camera rig, grading, LUTs + readability checks, display-matched
+                colours (displayMatch.js), shader registry + overrides
   effects/      effect schemas (registry.js) and the shader-lab controller (lab.js)
-  env/          texture forge, Act I kit (StaticBatch), flames
+  env/          texture forge, Act I kit (StaticBatch), flames, terrain splat; valdren.js (palettes, palette lock,
+                Valdren / Redbound / Blightbeast kit builders), signals.js (telegraphs, interact rings, swatch discs)
   lighting/     studio rigs, Act I mood presets (moods.js) and the mood controller (hero light, rim, weather)
   lookdev/      view modes, reference objects, texture editor
   panels/       one file per tab
   procedural/   code-built characters (rig, SDF sculpt + decimation, clips, baked geometry) and the lab catalog;
                 core/util.js + core/shared.js are the small game modules they import
-  scenes/       studio, graveyard, catacombs
+  scenes/       studio, graveyard, catacombs, moor terrain, Weeping Fields (colour-rule test map)
   shaders/      every .glsl file (chunks/, effects/, post/, forge/, vfx/) — hot-swapped by the dev server
   vfx/          particle system, pooled lights, dummies, spells, VFX lab controller
 scripts/        dev server, build (single-file offline HTML), static checks, page server + Cloudflare share,

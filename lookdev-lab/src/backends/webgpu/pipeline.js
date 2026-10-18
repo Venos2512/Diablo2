@@ -92,7 +92,7 @@ export class WebGPUPipeline {
 		u.retroHeight.value = post.retro.height;
 		u.retroLevels.value = post.retro.levels;
 		u.retroDither.value = post.retro.dither;
-		u.lutIntensity.value = this.lut && post.lut?.look !== 'none' ? post.lut.intensity : 0;
+		u.lutIntensity.value = !this.lut ? 0 : this.lut.check ? 1 : post.lut?.look !== 'none' ? post.lut.intensity : 0; // check views (core/lut.js withCheck) are baked at full strength
 		this.applyNodeParams();
 	}
 

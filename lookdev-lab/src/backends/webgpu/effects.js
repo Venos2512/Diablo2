@@ -519,6 +519,9 @@ export function createTSLEffects(backend) {
 				grassShadow: uniform(0),
 				grassLift: uniform(0),
 				grassShadowOffset: uniform(new THREE.Vector2()),
+				blood: uniform(1),
+				bloodColor: uniform(new THREE.Color(1, 0.55, 0.5)),
+				veinColor: uniform(new THREE.Color('#5a1f21')),
 				rect: uniform(rect),
 			};
 			const mask = (weight, delta) => {
@@ -571,9 +574,14 @@ export function createTSLEffects(backend) {
 			const stack = (base0, v1, waterValue, v2) => mix(mix(mix(base0, v1, wet), waterValue, water), v2, grass);
 			const ao = stack(L0.o.r, L1.o.r, 1.0, L2.o.r);
 			const wetAlbedo = mix(L0.a.rgb.mul(halo.oneMinus()), L1.a.rgb, wet);
-			const albedo = mix(mix(wetAlbedo, wetAlbedo.mul(0.4), water).mul(u.grassShadow.mul(under).oneMinus()), L2.a.rgb.mul(u.grassShadow.mul(roots).oneMinus()), grass).mul(mix(1.0, ao, u.ao)).mul(macro.mul(u.macro).add(1.0));
-			const debugAlbedo = mix(mix(vec3(0.45, 0.28, 0.15), vec3(0.08, 0.22, 0.6), wet), vec3(0.2, 0.55, 0.12), grass);
-			const rough = stack(L0.o.g.mul(halo.mul(0.3).oneMinus()), L1.o.g, u.waterRough, L2.o.g);
+			const layered = mix(mix(wetAlbedo, wetAlbedo.mul(0.4), water).mul(u.grassShadow.mul(under).oneMinus()), L2.a.rgb.mul(u.grassShadow.mul(roots).oneMinus()), grass);
+			// Blood-soaked ground (splat B) over everything: tint, a little wetter, vein lines where soaked through (see terrain.glsl).
+			const soak = smoothstep(0.15, 0.85, breakup(splatW.b, edge.mul(0.7))).mul(u.blood).toVar('labTerSoak');
+			const vein = smoothstep(0.0, 0.06, abs(labNoise3(vec3(st.mul(0.9), 3.3)))).oneMinus().mul(smoothstep(0.45, 0.95, splatW.b));
+			const soaked = mix(mix(layered, layered.mul(u.bloodColor), soak), u.veinColor, vein.mul(soak));
+			const albedo = soaked.mul(mix(1.0, ao, u.ao)).mul(macro.mul(u.macro).add(1.0));
+			const debugAlbedo = mix(mix(mix(vec3(0.45, 0.28, 0.15), vec3(0.08, 0.22, 0.6), wet), vec3(0.2, 0.55, 0.12), grass), vec3(0.6, 0.04, 0.05), soak);
+			const rough = stack(L0.o.g.mul(halo.mul(0.3).oneMinus()), L1.o.g, u.waterRough, L2.o.g).mul(mix(1.0, 0.7, soak));
 			const worldNormal = Fn(() => {
 				const N = normalWorldGeometry;
 				const T = normalize(vec3(1, 0, 0).sub(N.mul(N.x)));

@@ -1,6 +1,7 @@
 // Terrain splat map: a world-space RGBA8 texture that says where the upper terrain layers cover the dry dirt
-// base (R = wet dirt, G = grass; B, A unused). Layers stack bottom to top — dirt → wet dirt → grass — so painting
-// wet dirt also clears grass, and painting dirt clears both. Shaded by the `terrain` surface patch
+// base (R = wet dirt, G = grass, B = blood-soaked; A unused). Layers stack bottom to top — dirt → wet dirt → grass —
+// so painting wet dirt also clears grass, and painting dirt clears everything. Blood (the Remnant corruption of the
+// Weeping Fields scene) tints whatever lies under it and kills grass. Shaded by the `terrain` surface patch
 // (shaders/effects/terrain.glsl and its TSL twin), which blends the three forged layer sets by height.
 import * as THREE from 'three';
 import { noise2 } from './kit.js';
@@ -223,6 +224,8 @@ export function proceduralSets(app) {
 }
 
 export const BRUSH_LAYERS = { 'Dirt (clears wet + grass)': 'dirt', 'Wet dirt': 'wet', Grass: 'grass' };
+/** Brush layers of scenes that use the blood-soaked channel (B). */
+export const BRUSH_LAYERS_BLOOD = { 'Dirt (clears all)': 'dirt', 'Wet dirt': 'wet', Grass: 'grass', 'Blood-soaked (Remnant)': 'blood' };
 
 const smooth = (e0, e1, x) => {
 	const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0)));
@@ -241,7 +244,7 @@ export class TerrainSplat {
 		this.blur = 2;
 		this.scratch = new Float32Array(size * size);
 		const tex = new THREE.DataTexture(this.smoothed, size, size, THREE.RGBAFormat, THREE.UnsignedByteType);
-		tex.name = 'Terrain splat (R wet, G grass)';
+		tex.name = 'Terrain splat (R wet, G grass, B blood)';
 		tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
 		tex.magFilter = THREE.LinearFilter;
 		tex.minFilter = THREE.LinearFilter;
@@ -259,29 +262,29 @@ export class TerrainSplat {
 		return [this.originX + (i + 0.5) * k, this.originZ + (j + 0.5) * k];
 	}
 
-	/** Fill from fn(x, z) -> [wet, grass] (0..1). */
+	/** Fill from fn(x, z) -> [wet, grass, blood = 0] (0..1). */
 	fill(fn) {
 		const { size, data } = this;
 		for (let j = 0; j < size; j++) {
 			for (let i = 0; i < size; i++) {
 				const [x, z] = this.worldOf(i, j);
-				const [wet, grass] = fn(x, z);
+				const [wet, grass, blood = 0] = fn(x, z);
 				const o = (j * size + i) * 4;
 				data[o] = Math.round(Math.min(1, Math.max(0, wet)) * 255);
 				data[o + 1] = Math.round(Math.min(1, Math.max(0, grass)) * 255);
-				data[o + 2] = 0;
+				data[o + 2] = Math.round(Math.min(1, Math.max(0, blood)) * 255);
 				data[o + 3] = 255;
 			}
 		}
 		this.refresh();
 	}
 
-	/** Rebuild the uploaded copy: separable box blur of R and G (running sums, O(texels)), then upload. */
+	/** Rebuild the uploaded copy: separable box blur of R, G and B (running sums, O(texels)), then upload. */
 	refresh() {
 		const { size, data, smoothed, scratch } = this;
 		const r = Math.max(0, Math.round(this.blur));
 		if (!r) smoothed.set(data);
-		for (let c = 0; c < 2 && r; c++) {
+		for (let c = 0; c < 3 && r; c++) {
 			const norm = 1 / (2 * r + 1);
 			for (let j = 0; j < size; j++) {
 				let sum = 0;
@@ -300,14 +303,11 @@ export class TerrainSplat {
 				}
 			}
 		}
-		for (let p = 0; p < size * size; p++) {
-			smoothed[p * 4 + 2] = 0;
-			smoothed[p * 4 + 3] = 255;
-		}
+		for (let p = 0; p < size * size; p++) smoothed[p * 4 + 3] = 255;
 		this.texture.needsUpdate = true;
 	}
 
-	/** Bilinear weights at world xz (of the smoothed copy the GPU sees): { wet, grass } in 0..1. */
+	/** Bilinear weights at world xz (of the smoothed copy the GPU sees): { wet, grass, blood } in 0..1. */
 	sample(x, z) {
 		const { size } = this;
 		const data = this.smoothed;
@@ -319,11 +319,11 @@ export class TerrainSplat {
 		const tz = fz - j;
 		const at = (ii, jj, c) => data[(jj * size + ii) * 4 + c];
 		const lerp2 = (c) => ((at(i, j, c) * (1 - tx) + at(i + 1, j, c) * tx) * (1 - tz) + (at(i, j + 1, c) * (1 - tx) + at(i + 1, j + 1, c) * tx) * tz) / 255;
-		return { wet: lerp2(0), grass: lerp2(1) };
+		return { wet: lerp2(0), grass: lerp2(1), blood: lerp2(2) };
 	}
 
 	/**
-	 * One brush dab at world xz. layer 'dirt' | 'wet' | 'grass'; radius in metres; strength 0..1 per dab;
+	 * One brush dab at world xz. layer 'dirt' | 'wet' | 'grass' | 'blood'; radius in metres; strength 0..1 per dab;
 	 * hardness 0..1 (falloff start); noise 0..1 breaks the edge up so strokes look organic. Call flush() to upload.
 	 */
 	paint(x, z, { layer, radius, strength, hardness = 0.4, noise = 0.5 }) {
@@ -348,17 +348,24 @@ export class TerrainSplat {
 				const o = (j * size + i) * 4;
 				let r = data[o] / 255;
 				let g = data[o + 1] / 255;
+				let b = data[o + 2] / 255;
 				if (layer === 'wet') {
 					r += (1 - r) * a;
 					g *= 1 - a;
 				} else if (layer === 'grass') {
 					g += (1 - g) * a;
+					b *= 1 - a * 0.5; // grass grows back over soaked ground
+				} else if (layer === 'blood') {
+					b += (1 - b) * a;
+					g *= 1 - a * 0.6; // and dies where it soaks in
 				} else {
 					r *= 1 - a;
 					g *= 1 - a;
+					b *= 1 - a;
 				}
 				data[o] = Math.round(Math.min(1, Math.max(0, r)) * 255);
 				data[o + 1] = Math.round(Math.min(1, Math.max(0, g)) * 255);
+				data[o + 2] = Math.round(Math.min(1, Math.max(0, b)) * 255);
 			}
 		}
 		this.dirty = true; // uploaded by flush(): one blur per pointer event, not per dab
@@ -396,7 +403,7 @@ export class TerrainSplat {
 		return c;
 	}
 
-	/** Load an image painted elsewhere (R wet, G grass), resampled to the splat size. */
+	/** Load an image painted elsewhere (R wet, G grass, B blood), resampled to the splat size. */
 	fromImage(image) {
 		const { size } = this;
 		const c = document.createElement('canvas');
@@ -408,7 +415,7 @@ export class TerrainSplat {
 		for (let p = 0; p < size * size; p++) {
 			this.data[p * 4] = px[p * 4];
 			this.data[p * 4 + 1] = px[p * 4 + 1];
-			this.data[p * 4 + 2] = 0;
+			this.data[p * 4 + 2] = px[p * 4 + 2];
 			this.data[p * 4 + 3] = 255;
 		}
 		this.refresh();

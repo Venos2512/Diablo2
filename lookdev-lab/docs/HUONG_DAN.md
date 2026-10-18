@@ -197,6 +197,9 @@ mang ảnh đã chỉnh vào game.
     LUT áp sau tone mapping + sRGB (đúng cách các LUT sáng tạo được xuất ra).
   - **Retro preview**: xem ở 480p/600p với số mức màu giới hạn + dither — kiểm tra silhouette, đồ rơi và hiệu ứng còn đọc
     được ở độ phân giải thấp không.
+  - **Readability check · value & colour vision**: *Value* (thang xám theo độ sáng tương đối) và mô phỏng mù màu
+    *Deuteranopia / Protanopia / Tritanopia* (Machado 2009, mức nặng nhất) — "nướng" chồng lên LUT đang dùng nên không
+    thêm pass nào, chạy ở mọi scene và cả hai renderer. Dùng để duyệt checklist "không dùng màu làm tín hiệu duy nhất".
 
 ---
 
@@ -362,6 +365,60 @@ Bật **VFX lab active** (tự bật khi mở tab). Ba hình nộm tập luyện
   vòng palisade kiểu trại Rogue sau lửa trại, cọc lẻ và khúc gỗ chắn đường; tất cả gộp chung draw call với props khác.
 - **Texture forge**: các bộ texture PBR lát gạch (gạch đá, đá cuội, đất, cỏ, gỗ, sắt, đá phong hoá, và 3 lớp terrain: đất khô, đất ướt, cỏ nhìn từ trên) được *nướng* từ công thức GLSL
   trong `src/shaders/forge/`. Sửa công thức khi đang chạy `npm run dev` → texture nướng lại ngay.
+- **Act I · Weeping Fields (colour rules)**: map kiểm tra bộ quy tắc màu gameplay & môi trường của The Dying Gods — xem mục 7b.
+
+---
+
+## 7b. Map Weeping Fields — kiểm tra bộ quy tắc màu
+
+Scene **Act I · Weeping Fields (colour rules)** dựng khu Weeping Fields đúng như bộ quy tắc ghép: *Valdren Core Kit*
+làm nền, *Redbound* + *Blightbeasts* ở những chỗ có lý do sinh thái. Báo cáo số liệu: `art-direction/13_KIEM_TRA_QUY_TAC_MAU_GAMEPLAY.md`.
+
+**Bố cục** (camera game nhìn từ đông-nam, nên công trình cao đứng ở phía bắc/tây):
+
+| Khu | Nội dung | Quy tắc minh hoạ |
+| --- | --- | --- |
+| Trang trại (giữa-bắc) | Hai nhà cùng một bản dựng: nhà thường (tây) và nhà bị thần huyết xâm thực (đông) — mái trước sập, cửa bị giật, sàn thủng, mạch huyết đi từ giếng → dưới móng → trồi qua sàn → leo theo vết nứt tường | II.2: giữ màu vật liệu gốc, khác biệt đến từ biến dạng có hướng |
+| Giếng thần huyết + tổ Redbound nhỏ | Lều da chắp vá, lán ghép từ ván hàng rào, cọc xương có sọ thú và vòng xương, cờ vải đỏ rách (lay theo gió), xương, liềm gỉ, xe kéo cháy; dấu tay đỏ, vết cào; trống xương báo động, cột cộng hưởng (tim đập theo nhịp Bellwether), túi huyết, ổ phục kích | III.1, VI |
+| Chuồng (bắc) | Chuồng gia súc bị chiếm, rào gãy, một cánh cửa bị giật | III.1 |
+| Đồng ruộng (tây) | Luống đất, gốc rạ, tường đá khô, đống rơm, bù nhìn | Valdren core |
+| Đồng cỏ (đông) | Bãi rêu phẳng cho bài test "12 Redbound" | VII |
+| Hang sói, xác bò, quạ (đông-bắc) | Đá, hốc tối, khúc gỗ đổ, xương mồi, lông rụng, đường thú chạy, chỗ lợn rừng ủi đất — không cọc xương, không bàn thờ | III.3 |
+| Đường chính + ven đường | Đường sáng hơn nền (không phát sáng), hàng rào gỗ xám, miếu ven đường, waypoint, cột đèn, biển chỉ đường | II.2, VI |
+
+**Bảng màu Valdren**: mỗi vật liệu được *khoá màu* — texture giữ chi tiết, màu trung bình được dời về đúng swatch
+(`src/env/valdren.js` → `VALDREN`, `DECOR`). Lớp terrain (đất, bùn, cỏ) cũng được khoá; tắt *Palette lock* trong
+*Terrain layers* để so với texture gốc. Đất nhiễm huyết là kênh **B** của splat (đỏ-nâu tối, giữ độ sáng của nền, có
+vân mạch), vẽ thêm bằng cọ *Blood-soaked (Remnant)*.
+
+**Environment → Rules · màu & khả năng đọc**:
+
+- Bảng swatch Valdren, 6 màu chức năng, thang nổi bật I.3.
+- **Góc kiểm tra (checklist)**: tổng quan, *đồng cỏ + 12 Redbound*, *Redbound trên nền nhiễm huyết*, *nhà thường ↔ nhà
+  bị xâm thực*, *tổ Redbound*, *Blightbeasts*, *điểm tương tác*, *bảng mẫu màu*. Camera đặt đúng góc ¾ của game.
+- **Readability check view**: cùng lựa chọn với tab Post & camera (thang xám, deutan, protan, tritan).
+- **Class view (VI)**: phủ màu theo loại vật thể — vật cản (xám), phá huỷ được (xanh ngọc), tương tác (ngà), nguy hiểm
+  (cam). Ổ phục kích (nguy hiểm) tách hẳn khỏi đống rơm (vật cản).
+- **Telegraph demo (I.5)**: Brute slam (đồng cỏ), Vessel burst (giếng, làm nổ túi huyết bên cạnh), Piercer volley (đường
+  thẳng ra phía đường), Disease cloud (hang sói). Ranh giới vùng đòn luôn là màu *Nguy hiểm* + vạch chỉ vào tâm (đọc được
+  không cần màu), phần lấp đầy mang màu chức năng của kỹ năng và lan dần theo thời gian chuẩn bị, độ phủ ≤ 45%.
+- **Bảng mẫu 6 màu** trên cỏ: chip đặc ở giữa (đúng hex trên màn hình), vùng phủ mờ (một vùng đòn trông ra sao trên cỏ),
+  viền highlight, nhãn tên + mã.
+- **Interact glint**: miếu, waypoint, rương ở nhà thường lóe viền ngà và hiện vòng dưới đất khi nhân vật lại gần.
+- **Màu tín hiệu = đúng hex trên màn hình**: decal tín hiệu được bù qua exposure / grade / tone mapping hiện tại
+  (`src/core/displayMatch.js`) để màn hình hiện đúng hex; bảng *Tín hiệu qua tone mapping* bên dưới cho biết hex đó nếu
+  vẽ thẳng sẽ thành màu gì (ΔE). Với AgX, Nguy hiểm `#E66A39`/`#FFB16B` nằm ngoài gam — chỉ đạt gần đúng.
+- **Stand-in Redbound**: 12 con trên đồng cỏ, 6 con trên nền nhiễm huyết — Groveling (đỏ gạch, nhỏ, gù) ≈ Scavenger,
+  Shaman ≈ Bellwether, Pit Fiend tắt vết nứt dung nham và nhuộm đỏ đô ≈ Brute; mỗi con thứ tư đi vòng (chuyển động đọc
+  trước màu). Chỉ để kiểm tra **màu/độ sáng trên nền**, không phải silhouette thật của Redbound.
+
+**Remnant corruption**: độ đậm đất nhiễm huyết, màu nhuộm, màu vân mạch, mạch 3D, nhịp sáng của giếng (môi trường:
+rất nhẹ). **Lighting** (khi không bật mood): *Overcast · neutral palette check* (mặc định, duyệt màu dưới ánh sáng trung
+tính), *Dusk · weeping fog*, *Night · light radius (D2R)*; *Burning cart* (lửa xe kéo — ca "quái đỏ dưới ánh lửa"),
+*Lanterns ×*. Mood Act I của tab Lighting cũng dùng được.
+
+**Chơi thử**: tab Character → ▶ Play với lõi gameplay v1 — điểm xuất phát ở đường cạnh waypoint, nhà và vật cản chặn
+lưới nav, phím **N** sinh bầy quái gần nhân vật.
 
 ---
 
@@ -437,14 +494,15 @@ máy ảo không có card đồ hoạ) không có ý nghĩa.
 src/app/        khung ứng dụng, model, benchmark, stress test, quay video
 src/character/  preview nhân vật: điều khiển, animator, map clip, va chạm, trang bị, trượt chân, mốc tỷ lệ, khoét tường
 src/backends/   webgl/ (GLSL) và webgpu/ (TSL) — pipeline, hiệu ứng, VFX, compute
-src/core/       thiết lập, renderer, asset, camera, grading, LUT, đăng ký shader
+src/core/       thiết lập, renderer, asset, camera, grading, LUT + readability check, khớp màu hiển thị, đăng ký shader
 src/lookdev/    chế độ xem, vật tham chiếu, trình chỉnh texture
 src/effects/    lược đồ hiệu ứng + bộ điều khiển phòng thí nghiệm shader
-src/env/        texture forge, bộ kit Act I, lửa
+src/env/        texture forge, bộ kit Act I, lửa, terrain splat; valdren.js (bảng màu + khoá màu + kit Valdren / Redbound /
+                Blightbeasts), signals.js (telegraph, vòng tương tác, bảng mẫu màu)
 src/lighting/   rig studio, preset mood Act I (moods.js), bộ điều khiển mood (hero light, rim, mưa, chớp)
 src/panels/     mỗi tab một file
 src/procedural/ nhân vật dựng bằng code (hero, quái, NPC): rig, nặn SDF, clip, dữ liệu bake, catalog cho lab
-src/scenes/     studio, nghĩa địa, hầm mộ
+src/scenes/     studio, nghĩa địa, hầm mộ, đồng hoang, Weeping Fields (map quy tắc màu)
 src/shaders/    mọi file .glsl (sửa là nạp lại ngay)
 src/vfx/        hệ hạt, đèn dùng chung, hình nộm, skill, VFX lab
 ```
