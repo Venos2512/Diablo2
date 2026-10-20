@@ -1,0 +1,44 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a157d8-e4a6-71a3-b14d-7b8142a26d79
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+Use case: stylized-concept. REVISION 2 of the production concept sheet for original ASHLAR monster B03 Ember-Pot, variant B. Original design, no copied Diablo creature.
+REFERENCE IMAGES (attached in this order): (1) E:/Diablo2/ashlar/art/map-01-concepts/monsters/B03_ember_pot/vB/concept.png - the previous sheet of this exact variant: IDENTITY ONLY (the concept, signature features, props and what makes variant B different). Do NOT copy its muted palette, passive pose, soft low-contrast rendering, its layout or its figure size (its scale was wrong). (2) E:/map01-batch/templates_r2/B03_B.png - the EXACT layout and scale template for the new sheet (see SCALE AND LAYOUT).
+REVISION DIRECTION (from the art lead; overrides any older note below): 1. Read clearly as a Diablo-series monster (Diablo Immortal / Diablo III family look). 2. Give it one clear PRIMARY and one clear SECONDARY colour plus a small accent (see COLOUR). 3. Sheet = one 3/4 view holding its weapon and the weapon drawn separately + four model views (LEFT, RIGHT, FRONT, BACK) in a T-pose with empty hands.
+SUBJECT (canon): A bloated Kiln-Shaman dragging an ember-pot as big as a cart. Keeps re-firing every Hodling around it until the pot is smashed. Optional mini-boss, counts bricks faster and faster.
+VARIANT B DESIGN: Bloated soot-faced shaman PUSHING the huge pot AHEAD of him from behind with both arms on a long wooden push-bar, the pot sits on a wooden skid, taller narrower tall-necked pot with a chimney spout and two side lugs, shaman partly hidden behind it in front view. Shaman crown 0.60H, pot L 1.60H, pot height 1.00H. DIFFERENTIATION: Pushed ahead from behind on a skid with a tall chimney pot (contrast: variant A is pulled behind on a chain with a round pot). Variant A is designed independently with a different silhouette, shape structure, cloth/armour construction and accessory placement; do not reuse any of it, and keep the same canonical identity, size and signature prop or behaviour. Pose words in this design describe the 3/4 view only.
+DIABLO DESIGN CUES: Diablo Fallen-imp language, original not copied: small hunched horned imps with big heads, big horns or ears, big hands and feet, crude weapons, cracked terracotta skin with kiln-orange light in the cracks; mischievous and menacing.
+COLOUR (clear colour blocking): PRIMARY (about 60% of the figure): giant dark-glazed pot #5A2A1E. SECONDARY (about 30%): soot-black shaman with terracotta skin #2A2224 / #9C4A2C. ACCENT (10% or less): kiln-orange glow #E2622B through the pot cracks and mouth. Primary and secondary must read as two clearly different colours at thumbnail size (different hue and value). Everything else stays muted, damp Act I Diablo II mood. The kiln-orange accent may glow softly in the cracks and pot mouth only; no particles, no bloom.
+PROP: in the 3/4 view the monster holds or uses the tall-necked pot on its wooden skid with the long push-bar naturally. In the four model views the hands are EMPTY and the body carries NONE of these separated items (worn straps, belts and gear named as staying on the body remain). Draw the tall-necked pot on its wooden skid with the long push-bar once more on its own in the PROP column: same scale as the monster, upright or lying flat on the baseline, not held by anyone, nothing else in that column.
+POSE: 3/4 = front-left three-quarter presentation view in a menacing, readable ready stance. LEFT, RIGHT, FRONT and BACK show the SAME body in a strict T-pose: arms straight out to the sides at shoulder height, palms down, hands EMPTY; legs straight, feet slightly apart and flat on the floor; head level. In the LEFT and RIGHT views the arms are seen END-ON: the near arm points straight at the viewer and the far arm straight away, so both read as short foreshortened shapes at the shoulder; they never hang down and never reach forward or backward along the facing direction. Keep the creature's own spine posture (a hunched creature stays hunched) so its top stays on the dashed line; only the arms change. Extra or oversized arms also extend straight out sideways without overlapping anything.
+SCALE AND LAYOUT (critical, measurable): reproduce image 2 exactly: the canvas shape, the title, every H silhouette (same position and same height), the baselines, the thin dashed height lines with their small labels (keep them as thin measurement guides in the final image), the length brackets and the column labels. Row 1: H, 3/4, PROP. Row 2: H, LEFT, RIGHT, FRONT, BACK. Draw each view standing on its baseline (or floating where stated) centred above its label. Size is set ONLY by the guides: dashed lines "shaman crown 0.60H" at 0.6H; "pot top 1.00H" at 1H; PROP: bracket "pot 1.60H". The monster has the same size in every view and every row; the T-pose arms do not change its height. Never enlarge a small creature or shrink a big one to fill a column: leave empty space instead.
+HUMAN SCALE FIGURE: the plain flat dark-grey featureless neutral human silhouette of image 2 (one per row), unchanged, labelled H.
+VIEWS: 3/4 = front-left three-quarter. LEFT = the anatomical left side toward the camera, facing image-left. RIGHT = the anatomical right side toward the camera, facing image-right: the TRUE opposite side, NOT a mirror of LEFT. FRONT = square-on front. BACK = square-on true back, not a mirrored front. Asymmetric details (long arm, pauldron, quiver, shawl, sack strap) stay on the same anatomical side in every view. Model views use an eye-level orthographic camera with no perspective. Complete hands, feet, tails and props, nothing cropped, nothing overlapping.
+STYLE: Diablo Immortal-inspired stylized painterly concept art: chunky exaggerated stylized proportions, a strong readable silhouette, bold value contrast, hand-painted broad planes with clean edges. Surfaces stay SIMPLE: no micro texture, pores, grain, noise, scratch maps, fine grunge or photoreal PBR; detail comes from big shapes (torn edges, plates, straps, bones, cracks), not from texture. Soft even neutral studio light (no strong rim light, no bloom), flat warm mid-grey backdrop exactly like image 2, no environment, minimal soft contact shadows. Every view is a body/prop design: no VFX, no particles.
+CONTENT: No smoke, no embers drawn; pot is a solid painted object. All humanoids are clothed or shrouded, scale is an adult human; no nudity, no anatomical detail, no gore emphasis, no blood splatter. Concept art only: NOT a sprite, NOT a 3D model sheet with wireframes. Where this conflicts with REVISION DIRECTION, COLOUR, RAGGED, WEAPON or POSE above, those sections win.
+TEXT (exact): title "B03 EMBER-POT — B"; column labels exactly as in image 2: "H", "3/4", "PROP", "LEFT", "RIGHT", "FRONT", "BACK"; keep the small dashed-line and bracket labels of image 2. No other text, no watermark.
+
+codex
+Tôi sẽ tạo đúng một ảnh bằng image_gen, dùng hai ảnh tham chiếu và toàn bộ prompt đã cung cấp.
+
+codex
+E:\map01-batch\home\generated_images\01a157d8-e4a6-71a3-b14d-7b8142a26d79\exec-524af7de-f018-4a85-a7db-1c494a8fdd26.png
+tokens used
+14,233
+E:\map01-batch\home\generated_images\01a157d8-e4a6-71a3-b14d-7b8142a26d79\exec-524af7de-f018-4a85-a7db-1c494a8fdd26.png

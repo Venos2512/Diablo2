@@ -1,0 +1,397 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a15704-4571-7940-ad2e-c0adbe4ac67e
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+Use case: stylized-concept. Create ONE production lineup sheet for original ASHLAR monster B02 Lullaby Man, variant A: one human scale silhouette plus five full-body views of the same monster on a shared ruler line. Original design, no copied Diablo creature.
+REFERENCE IMAGES (attached in this order): (1) E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg - style ONLY: brushwork simplification and broad material planes; never its terrain, panels or magenta. (2) E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png - mood ONLY: muted damp Act I Diablo II climate and palette; never its scene or placeholder hero. (3) E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png - the accepted U01 Shambler A lineup: LAYOUT and rendering style ONLY (one H human + five views on one baseline, broad low-detail painted planes). NEVER copy its anatomy, clothing, colours or design; this monster is a different creature.
+SUBJECT (canon, family Perfection-born (Mercy, boss)): A towering sewn 'nurse' of patched linen and stuffing, with a cage-cradle of sleepers strapped to its back. Heard long before it is seen. The cradle must not be hit or the sleepers inside die; it must have an obvious silhouette. MUST NOT resemble P07 Cradle-Warden (which is a squat broad bruiser with a low cradle).
+VARIANT A DESIGN: VERY TALL AND THIN stilt-limbed nurse: long narrow torso, extremely long thin arms folded in a cradling gesture, a long stitched apron-dress falling straight to the floor, a smooth linen-sack head wearing a tall nurse's wimple, and the cage-cradle carried HIGH on the upper back like a tall tower rising above the shoulders with an obvious open bar-cage outline with three sleeper bundles. Width 0.95H, crown 2.20H. DIFFERENTIATION: Tall thin stilt-limbed nurse with a high tower-cradle (contrast: variant B leans forward with a quilt skirt and a hanging crib). Variant B is designed independently with a different silhouette, shape structure, cloth/armour construction and accessory placement; do not reuse any of it, and keep the same canonical identity, size and signature prop or behaviour.
+SCALE (critical, measurable): a single orthographic elevation, NO perspective, NO depth offset, ONE common ruler for all figures. Every figure's soles/contact points rest on the SAME thin straight horizontal baseline (per row). Human height = 1H. SIZE OF THIS MONSTER: ALL five monster crowns at 2.20H (wimple top); cradle top 2.55H, cradle width 0.90H. The monster must have this exact size relative to the human in ALL five views: never enlarge the 3/4 view, never scale a figure to fit its column; side profiles simply occupy less width. Treat the sheet as a measured line-up against a ruler, not an editorial collage. On a 2172x724 canvas use baseline y=620; 1H = 184 px (the row is about 7.9H wide, so this ruler is set to fit all six figures with clean gaps). Conversions for this sheet: 0.90H = 166 px; 2.20H = 405 px; 2.55H = 469 px. Adapt proportionally for other canvas sizes.
+CANVAS AND LAYOUT: ONE wide landscape sheet, 3:1 preferred (for example 2172x724, or larger / 4K-wide if the built-in tool supports it; do not require unsupported API flags and do not upscale artificially; if only 3:2 is possible keep one row with generous empty top and bottom). Warm uniform midgrey backdrop. EXACTLY SIX full-body figures in ONE straight horizontal row, left to right: the single H human silhouette, then the monster in 3/4, LEFT, RIGHT, FRONT, BACK. Title above the row; labels directly under each figure in exactly this order: H, 3/4, LEFT, RIGHT, FRONT, BACK. NO other humans, NO extra views, NO panels, grid, frames, enlarged hero view, insets or scenery. NO dominant enlarged 3/4 panel and NO 2x2 turn grid: the 3/4 view has the same scale as every other view.
+HUMAN SCALE FIGURE: ONE plain flat dark-grey silhouette of a neutral upright adult human, unarmored, featureless (no face, no clothing, no anatomical or nude detail), arms relaxed at the sides, exactly 1H tall, labelled H.
+VIEWS: 3/4 = front-left three-quarter view. LEFT = the monster's anatomical left side toward the camera, facing image-left, a true orthographic side profile. RIGHT = the monster's anatomical right side toward the camera, facing image-right: the TRUE opposite side, with asymmetric landmarks logically on the other side, NOT a mirrored copy of LEFT. FRONT = square-on true front, BACK = square-on true rear; do not substitute another 3/4 view. All five views show the SAME design: identical anatomy, proportions, clothing, accessories, colours and asymmetries rotated coherently. Complete hands, feet, limbs, tails and props fully inside the frame, clean gaps, nothing cropped, nothing overlapping.
+STYLE (strict): Diablo Immortal-inspired stylized painterly concept, STRICT LOW DETAIL. Build every figure from a few BROAD CLEAN SHAPE MASSES (about two to four large masses per figure) with big deliberate brush planes and clean local colour; matte, readable at thumbnail size. Wear and weathering are allowed ONLY as a FEW deliberately LARGE marks (at most three to five per figure): one big patch, one wide stain, one broad crack or one large tear - never many small ones. FORBIDDEN: dense frayed edges, rag strips, ribbon-like tatters, rows of small tears or holes, repeated notches along hems, skin surface marks (pores, veins, blotches, scars, wrinkle texture), micro-grain, cloth weave, fine grunge, speckled noise, scratch maps, glossy or photoreal PBR, intricate ornament, rope strands, splatter. Every hem, edge and silhouette is ONE simple clean line. Soft neutral studio light, flat warm midgrey backdrop, NO environment, NO decorative frame. Mood only: muted olive / peat / cold grey, damp Act I Diablo II palette. Minimal soft contact shadow only. This is a body-design concept: no VFX, no glow, no particles.
+COLOUR: patched linen (#E8E1D0), stuffing beige (#D8CCB0), sleepers' cloth in the cradle cool grey (#B9C7C2); ONE tiny accent: dull red stitching (#B3262A) on a few large seams; 3-5 key colours.
+CONTENT: Sleepers in the cradle are plain cloth-wrapped, faceless blanket shapes (no faces, no gore). Face of the nurse is a smooth linen sack with one soft stitched seam only. All humanoids are clothed or shrouded, scale is an adult human; no nudity, no anatomical detail, no gore emphasis, no blood splatter. Concept art only: NOT a sprite, NOT a 3D model sheet with wireframes.
+TEXT (exact, concise labels only): title "B02 LULLABY MAN — A"; view labels "3/4", "LEFT", "RIGHT", "FRONT", "BACK"; "H" under the human. No other text, no watermark.
+
+codex
+Tôi sẽ dùng image_gen đúng một lần để tạo sheet theo toàn bộ prompt và các ảnh tham chiếu.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'E:\\map01-batch\\home\\skills\\.system\\imagegen\\SKILL.md'; Get-Content -LiteralPath 'E:\\Diablo2\\Agent.md'" in E:\Diablo2
+ succeeded in 125ms:
+---
+name: "imagegen"
+description: "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas."
+---
+
+# Image Generation Skill
+
+Generates or edits images for the current project (for example website assets, game assets, UI mockups, product mockups, wireframes, logo design, photorealistic images, or infographics).
+
+## Top-level modes and rules
+
+This skill has exactly two top-level modes:
+
+- **Default built-in tool mode (preferred):** built-in `image_gen` tool for image generation, editing, and transparent-image requests. Does not require `OPENAI_API_KEY`.
+- **Fallback CLI mode:** `scripts/image_gen.py` CLI. Use when the user explicitly asks for or confirms the CLI/API/model path. Requires `OPENAI_API_KEY`.
+
+Within CLI fallback, the CLI exposes three subcommands:
+
+- `generate`
+- `edit`
+- `generate-batch`
+
+Rules:
+- Use the built-in `image_gen` tool by default for normal image generation and editing requests.
+- Do not switch to CLI fallback for ordinary quality, size, or file-path control.
+- For transparent images, ask built-in `image_gen` for a transparent background and preserve the generated alpha.
+- Never silently switch from built-in `image_gen` or CLI `gpt-image-2` to CLI `gpt-image-1.5`; ask the user first unless they explicitly requested `gpt-image-1.5`.
+- The word `batch` by itself does not mean CLI fallback. If the user asks for many assets or says to batch-generate assets without explicitly asking for CLI/API/model controls, stay on the built-in path and issue one built-in call per requested asset or variant.
+- If the built-in tool fails or is unavailable, tell the user the CLI fallback exists and that it requires `OPENAI_API_KEY`. Proceed only if the user explicitly asks for that fallback.
+- If the user explicitly asks for CLI mode, use the bundled `scripts/image_gen.py` workflow. Do not create one-off SDK runners.
+- Never modify `scripts/image_gen.py`. If something is missing, ask the user before doing anything else.
+
+Built-in save-path policy:
+- In built-in tool mode, Codex saves generated images under `$CODEX_HOME/*` by default.
+- Do not describe or rely on OS temp as the default built-in destination.
+- Do not describe or rely on a destination-path argument (if any) on the built-in `image_gen` tool. If a specific location is needed, generate first and then move or copy the selected output from `$CODEX_HOME/generated_images/...`.
+- Save-path precedence in built-in mode:
+  1. If the user names a destination, move or copy the selected output there.
+  2. If the image is meant for the current project, move or copy the final selected image into the workspace before finishing.
+  3. If the image is only for preview or brainstorming, render it inline; the underlying file can remain at the default `$CODEX_HOME/*` path.
+- Never leave a project-referenced asset only at the default `$CODEX_HOME/*` path.
+- Do not overwrite an existing asset unless the user explicitly asked for replacement; otherwise create a sibling versioned filename such as `hero-v2.png` or `item-icon-edited.png`.
+
+Shared prompt guidance for both modes lives in `references/prompting.md` and `references/sample-prompts.md`.
+
+Fallback-only docs/resources for CLI mode:
+- `references/cli.md`
+- `references/image-api.md`
+- `references/codex-network.md`
+- `scripts/image_gen.py`
+
+## When to use
+- Generate a new image (concept art, product shot, cover, website hero)
+- Generate a new image using one or more reference images for style, composition, or mood
+- Edit an existing image (inpainting, lighting or weather transformations, background replacement, object removal, compositing, transparent background)
+- Produce many assets or variants for one task
+
+## When not to use
+- Extending or matching an existing SVG/vector icon set, logo system, or illustration library inside the repo
+- Creating simple shapes, diagrams, wireframes, or icons that are better produced directly in SVG, HTML/CSS, or canvas
+- Making a small project-local asset edit when the source file already exists in an editable native format
+- Any task where the user clearly wants deterministic code-native output instead of a generated bitmap
+
+## Decision tree
+
+Think about two separate questions:
+
+1. **Intent:** is this a new image or an edit of an existing image?
+2. **Execution strategy:** is this one asset or many assets/variants?
+
+Intent:
+- If the user wants to modify an existing image while preserving parts of it, treat the request as **edit**.
+- If the user provides images only as references for style, composition, mood, or subject guidance, treat the request as **generate**.
+- If the user provides no images, treat the request as **generate**.
+
+Built-in edit semantics:
+- Built-in edit mode is for images already visible in the conversation context, such as attached images or images generated earlier in the thread.
+- If the user wants to edit a local image file with the built-in tool, first load it with built-in `view_image` tool so the image is visible in the conversation context, then proceed with the built-in edit flow.
+- Do not promise arbitrary filesystem-path editing through the built-in tool.
+- If a local file still needs direct file-path control, masks, or other explicit CLI-only parameters, use the explicit CLI fallback only when the user asks for it.
+- For edits, preserve invariants aggressively and save non-destructively by default.
+
+Execution strategy:
+- In the built-in default path, produce many assets or variants by issuing one `image_gen` call per requested asset or variant.
+- In the CLI fallback path, use the CLI `generate-batch` subcommand only when the user explicitly chose CLI mode and needs many prompts/assets.
+- For many distinct assets, do not use `n` as a substitute for separate prompts. `n` is for variants of one prompt; distinct assets need distinct built-in calls or distinct CLI `generate-batch` jobs.
+
+Assume the user wants a new image unless they clearly ask to change an existing one.
+
+## Workflow
+1. Decide the top-level mode: built-in by default, including transparent-output requests; fallback CLI only if explicitly requested or confirmed.
+2. Decide the intent: `generate` or `edit`.
+3. Decide whether the output is preview-only or meant to be consumed by the current project.
+4. Decide the execution strategy: single asset vs repeated built-in calls vs CLI `generate-batch`.
+5. Collect inputs up front: prompt(s), exact text (verbatim), constraints/avoid list, and any input images.
+6. For every input image, label its role explicitly:
+   - reference image
+   - edit target
+   - supporting insert/style/compositing input
+7. If the edit target is only on the local filesystem and you are staying on the built-in path, inspect it with `view_image` first so the image is available in conversation context.
+8. If the user asked for a photo, illustration, sprite, product image, banner, or other explicitly raster-style asset, use `image_gen` rather than substituting SVG/HTML/CSS placeholders. If the request is for an icon, logo, or UI graphic that should match existing repo-native SVG/vector/code assets, prefer editing those directly instead.
+9. Augment the prompt based on specificity:
+   - If the user's prompt is already specific and detailed, normalize it into a clear spec without adding creative requirements.
+   - If the user's prompt is generic, add tasteful augmentation only when it materially improves output quality.
+10. Use the built-in `image_gen` tool by default.
+11. For transparent-output requests, ask built-in `image_gen` for a transparent background and preserve the generated alpha channel.
+12. Inspect outputs and validate: subject, style, composition, text accuracy, and invariants/avoid items.
+13. Iterate with a single targeted change, then re-check.
+14. For preview-only work, render the image inline; the underlying file may remain at the default `$CODEX_HOME/generated_images/...` path.
+15. For project-bound work, move or copy the selected artifact into the workspace and update any consuming code or references. Never leave a project-referenced asset only at the default `$CODEX_HOME/generated_images/...` path.
+16. For batches or multi-asset requests, persist every requested deliverable final in the workspace unless the user explicitly asked to keep outputs preview-only. Discarded variants do not need to be kept unless requested.
+17. If the user explicitly chooses or confirms the CLI fallback, then use the fallback-only docs for model, quality, size, `input_fidelity`, masks, output format, output paths, and network setup.
+18. Always report the final saved path(s) for any workspace-bound asset(s), plus the final prompt or prompt set and whether the built-in tool or fallback CLI mode was used.
+
+## Transparent image requests
+
+Ask built-in `image_gen` for a genuinely transparent background and preserve its alpha.
+
+## Prompt augmentation
+
+Reformat user prompts into a structured, production-oriented spec. Make the user's goal clearer and more actionable, but do not blindly add detail.
+
+Treat this as prompt-shaping guidance, not a closed schema. Use only the lines that help, and add a short extra labeled line when it materially improves clarity.
+
+### Specificity policy
+
+Use the user's prompt specificity to decide how much augmentation is appropriate:
+
+- If the prompt is already specific and detailed, preserve that specificity and only normalize/structure it.
+- If the prompt is generic, you may add tasteful augmentation when it will materially improve the result.
+
+Allowed augmentations:
+- composition or framing hints
+- polish level or intended-use hints
+- practical layout guidance
+- reasonable scene concreteness that supports the stated request
+
+Not allowed augmentations:
+- extra characters or objects that are not implied by the request
+- brand names, slogans, palettes, or narrative beats that are not implied
+- arbitrary side-specific placement unless the surrounding layout supports it
+
+## Use-case taxonomy (exact slugs)
+
+Classify each request into one of these buckets and keep the slug consistent across prompts and references.
+
+Generate:
+- photorealistic-natural â€” candid/editorial lifestyle scenes with real texture and natural lighting.
+- product-mockup â€” product/packaging shots, catalog imagery, merch concepts.
+- ui-mockup â€” app/web interface mockups and wireframes; specify the desired fidelity.
+- infographic-diagram â€” diagrams/infographics with structured layout and text.
+- scientific-educational â€” classroom explainers, scientific diagrams, and learning visuals with required labels and accuracy constraints.
+- ads-marketing â€” campaign concepts and ad creatives with audience, brand position, scene, and exact tagline/copy.
+- productivity-visual â€” slide, chart, workflow, and data-heavy business visuals.
+- logo-brand â€” logo/mark exploration, vector-friendly.
+- illustration-story â€” comics, childrenâ€™s book art, narrative scenes.
+- stylized-concept â€” style-driven concept art, 3D/stylized renders.
+- historical-scene â€” period-accurate/world-knowledge scenes.
+
+Edit:
+- text-localization â€” translate/replace in-image text, preserve layout.
+- identity-preserve â€” try-on, person-in-scene; lock face/body/pose.
+- precise-object-edit â€” remove/replace a specific element (including interior swaps).
+- lighting-weather â€” time-of-day/season/atmosphere changes only.
+- background-extraction â€” transparent background / clean cutout. Ask built-in `image_gen` for actual transparency.
+- style-transfer â€” apply reference style while changing subject/scene.
+- compositing â€” multi-image insert/merge with matched lighting/perspective.
+- sketch-to-render â€” drawing/line art to photoreal render.
+
+## Shared prompt schema
+
+Use the following labeled spec as shared prompt scaffolding for both top-level modes:
+
+```text
+Use case: <taxonomy slug>
+Asset type: <where the asset will be used>
+Primary request: <user's main prompt>
+Input images: <Image 1: role; Image 2: role> (optional)
+Scene/backdrop: <environment>
+Subject: <main subject>
+Style/medium: <photo/illustration/3D/etc>
+Composition/framing: <wide/close/top-down; placement>
+Lighting/mood: <lighting + mood>
+Color palette: <palette notes>
+Materials/textures: <surface details>
+Text (verbatim): "<exact text>"
+Constraints: <must keep/must avoid>
+Avoid: <negative constraints>
+```
+
+Notes:
+- `Asset type` and `Input images` are prompt scaffolding, not dedicated CLI flags.
+- `Scene/backdrop` refers to the visual setting. It is not the same as the fallback CLI `background` parameter, which controls output transparency behavior.
+- Fallback-only execution notes such as `Quality:`, `Input fidelity:`, masks, output format, and output paths belong in the CLI path only. Do not treat them as built-in `image_gen` tool arguments.
+
+Augmentation rules:
+- Keep it short.
+- Add only the details needed to improve the prompt materially.
+- For edits, explicitly list invariants (`change only X; keep Y unchanged`).
+- If any critical detail is missing and blocks success, ask a question; otherwise proceed.
+
+## Examples
+
+### Generation example (hero image)
+```text
+Use case: product-mockup
+Asset type: landing page hero
+Primary request: a minimal hero image of a ceramic coffee mug
+Style/medium: clean product photography
+Composition/framing: wide composition with usable negative space for page copy if needed
+Lighting/mood: soft studio lighting
+Constraints: no logos, no text, no watermark
+```
+
+### Edit example (invariants)
+```text
+Use case: precise-object-edit
+Asset type: product photo background replacement
+Primary request: replace only the background with a warm sunset gradient
+Constraints: change only the background; keep the product and its edges unchanged; no text; no watermark
+```
+
+## Prompting best practices
+- Structure prompt as scene/backdrop -> subject -> details -> constraints.
+- Include intended use (ad, UI mock, infographic) to set the mode and polish level.
+- Use camera/composition language for photorealism.
+- Only use SVG/vector stand-ins when the user explicitly asked for vector output or a non-image placeholder.
+- Quote exact text and specify typography + placement.
+- For tricky words, spell them letter-by-letter and require verbatim rendering.
+- For multi-image inputs, reference images by index and describe how they should be used.
+- For edits, repeat invariants every iteration to reduce drift.
+- Iterate with single-change follow-ups.
+- If the prompt is generic, add only the extra detail that will materially help.
+- If the prompt is already detailed, normalize it instead of expanding it.
+- For CLI fallback only, see `references/cli.md` and `references/image-api.md` for model, `quality`, `input_fidelity`, masks, output format, and output-path guidance.
+- For transparent images, ask built-in `image_gen` for actual transparency and preserve its alpha.
+
+More principles shared by both modes: `references/prompting.md`.
+Copy/paste specs shared by both modes: `references/sample-prompts.md`.
+
+## Guidance by asset type
+Asset-type templates (website assets, game assets, wireframes, logo) are consolidated in `references/sample-prompts.md`.
+
+## gpt-image-2 guidance for CLI fallback
+
+The fallback CLI defaults to `gpt-image-2`.
+
+- Use `gpt-image-2` for new CLI/API workflows unless the user confirms a different model.
+- CLI `gpt-image-2` does not support `background=transparent`; ask before using `gpt-image-1.5` unless the user explicitly requested that model.
+- `gpt-image-2` always uses high fidelity for image inputs; do not set `input_fidelity` with this model.
+- `gpt-image-2` supports `quality` values `low`, `medium`, `high`, and `auto`.
+- Use `quality low` for fast drafts, thumbnails, and quick iterations. Use `medium`, `high`, or `auto` for final assets, dense text, diagrams, identity-sensitive edits, or high-resolution outputs.
+- Square images are typically fastest to generate. Use `1024x1024` for fast square drafts.
+- If the user asks for 4K-style output, use `3840x2160` for landscape or `2160x3840` for portrait.
+- `gpt-image-2` size may be `auto` or `WIDTHxHEIGHT` if all constraints hold: max edge `<= 3840px`, both edges multiples of `16px`, long-to-short ratio `<= 3:1`, total pixels between `655,360` and `8,294,400`.
+
+Popular `gpt-image-2` sizes:
+- `1024x1024` square
+- `1536x1024` landscape
+- `1024x1536` portrait
+- `2048x2048` 2K square
+- `2048x1152` 2K landscape
+- `3840x2160` 4K landscape
+- `2160x3840` 4K portrait
+- `auto`
+
+## Fallback CLI mode only
+
+### Temp and output conventions
+These conventions apply only to the CLI fallback. They do not describe built-in `image_gen` output behavior.
+- Use `tmp/imagegen/` for intermediate files (for example JSONL batches); delete them when done.
+- Write final artifacts under `output/imagegen/`.
+- Use `--out` or `--out-dir` to control output paths; keep filenames stable and descriptive.
+
+### Dependencies
+Prefer `uv` for dependency management in this repo.
+
+Required Python package:
+```bash
+uv pip install openai
+```
+
+Optional for image inspection and downscaling:
+```bash
+uv pip install pillow
+```
+
+Portability note:
+- If you are using the installed skill outside this repo, install dependencies into that environment with its package manager.
+- In uv-managed environments, `uv pip install ...` remains the preferred path.
+
+### Environment
+- `OPENAI_API_KEY` must be set for live API calls.
+- Do not ask the user for `OPENAI_API_KEY` when using the built-in `image_gen` tool.
+- Never ask the user to paste the full key in chat. Ask them to set it locally and confirm when ready.
+
+If the key is missing, give the user these steps:
+1. Create an API key in the OpenAI platform UI: https://platform.openai.com/api-keys
+2. Set `OPENAI_API_KEY` as an environment variable in their system.
+3. Offer to guide them through setting the environment variable for their OS/shell if needed.
+
+If installation is not possible in this environment, tell the user which dependency is missing and how to install it into their active environment.
+
+### Script-mode notes
+- CLI commands + examples: `references/cli.md`
+- API parameter quick reference: `references/image-api.md`
+- Network approvals / sandbox settings for CLI mode: `references/codex-network.md`
+
+## Reference map
+- `references/prompting.md`: shared prompting principles for both modes.
+- `references/sample-prompts.md`: shared copy/paste prompt recipes for both modes.
+- `references/cli.md`: fallback-only CLI usage via `scripts/image_gen.py`.
+- `references/image-api.md`: fallback-only API/CLI parameter reference.
+- `references/codex-network.md`: fallback-only network/sandbox troubleshooting for CLI mode.
+- `scripts/image_gen.py`: fallback-only CLI implementation. Use only when the user explicitly chooses or confirms CLI mode.
+# Quy táº¯c phÃ¢n cÃ´ng agent
+
+Ãp dá»¥ng cho cÃ¡c tÃ¡c vá»¥ trong dá»± Ã¡n nÃ y, trá»« khi ngÆ°á»i dÃ¹ng chá»‰ Ä‘á»‹nh khÃ¡c.
+
+## PhÃ¢n cÃ´ng model
+
+| CÃ´ng viá»‡c | Model phá»¥ trÃ¡ch | Provider T3 | Model ID |
+| --- | --- | --- | --- |
+| Táº¡o hoáº·c chá»‰nh sá»­a áº£nh | Astra | `codex` | `gpt-6-astra` |
+| Research, tra cá»©u, tá»•ng há»£p nguá»“n | Haiku 5.5 | `claudeAgent` | `claude-haiku-5-5` |
+| Viáº¿t code, sá»­a lá»—i, refactor, viáº¿t test | Sonnet 5.5 | `claudeAgent` | `claude-sonnet-5-5` |
+| Review code sau khi triá»ƒn khai hoáº·c sá»­a | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+
+Astra phá»¥ trÃ¡ch tÃ¡c vá»¥ áº£nh vÃ  sá»­ dá»¥ng cÃ´ng cá»¥/skill táº¡o áº£nh kháº£ dá»¥ng Ä‘á»ƒ xuáº¥t áº£nh thá»±c táº¿.
+
+## Quy trÃ¬nh code vÃ  review báº¯t buá»™c
+
+1. Giao Sonnet 5.5 triá»ƒn khai vá»›i yÃªu cáº§u, pháº¡m vi, file liÃªn quan vÃ  tiÃªu chÃ­ nghiá»‡m thu rÃµ rÃ ng.
+2. Sonnet cháº¡y cÃ¡c kiá»ƒm tra phÃ¹ há»£p, bÃ n giao thay Ä‘á»•i, káº¿t quáº£ kiá»ƒm tra vÃ  váº¥n Ä‘á» cÃ²n tá»“n táº¡i.
+3. Giao Opus 5.5 review thay Ä‘á»•i thá»±c táº¿ theo yÃªu cáº§u ban Ä‘áº§u; kiá»ƒm tra tÃ­nh Ä‘Ãºng Ä‘áº¯n, lá»—i há»“i quy, báº£o máº­t vÃ  má»©c Ä‘á»™ kiá»ƒm chá»©ng phÃ¹ há»£p.
+4. Opus tráº£ káº¿t luáº­n `PASS` hoáº·c `NEEDS_CHANGES`. Má»—i yÃªu cáº§u sá»­a cáº§n nÃªu vá»‹ trÃ­, váº¥n Ä‘á», tÃ¡c Ä‘á»™ng vÃ  hÆ°á»›ng kháº¯c phá»¥c. Opus review, Sonnet thá»±c hiá»‡n sá»­a code.
+5. Náº¿u `NEEDS_CHANGES`, tiáº¿p tá»¥c gá»i Sonnet 5.5 vá»›i Ä‘áº§y Ä‘á»§ findings Ä‘á»ƒ sá»­a vÃ  cháº¡y láº¡i cÃ¡c kiá»ƒm tra liÃªn quan.
+6. Sau má»—i lÆ°á»£t sá»­a, gá»i Opus 5.5 review láº¡i phiÃªn báº£n má»›i; cung cáº¥p yÃªu cáº§u gá»‘c, findings trÆ°á»›c Ä‘Ã³, pháº£n há»“i cá»§a Sonnet vÃ  cÃ¡c Ä‘iá»ƒm chÆ°a giáº£i quyáº¿t.
+7. Láº·p Sonnet â†’ Opus Ä‘áº¿n khi Opus káº¿t luáº­n `PASS` vÃ  cÃ¡c kiá»ƒm tra cáº§n thiáº¿t Ä‘áº¡t. Náº¿u bá»‹ cháº·n hoáº·c cÃ¡c vÃ²ng láº·p khÃ´ng tiáº¿n triá»ƒn, bÃ¡o rÃµ váº¥n Ä‘á» cÃ²n láº¡i; khÃ´ng tuyÃªn bá»‘ hoÃ n thÃ nh.
+
+KhÃ´ng bá» qua bÆ°á»›c review cá»§a Opus chá»‰ vÃ¬ Sonnet Ä‘Ã£ tá»± kiá»ƒm tra hoáº·c test Ä‘Ã£ pass.
+
+## Äiá»u phá»‘i trong T3 Code
+
+- Agent chÃ­nh phÃ¢n loáº¡i cÃ´ng viá»‡c vÃ  giao cho Ä‘Ãºng model á»Ÿ trÃªn; tÃ¡c vá»¥ há»—n há»£p Ä‘Æ°á»£c chia theo tá»«ng pháº§n viá»‡c.
+- DÃ¹ng `orchestrator_capabilities` Ä‘á»ƒ xÃ¡c nháº­n provider/model kháº£ dá»¥ng trÆ°á»›c khi giao viá»‡c. CÃ¡c ID trong báº£ng lÃ  cáº¥u hÃ¬nh Ä‘Ã£ xÃ¡c nháº­n khi táº¡o file; kiá»ƒm tra láº¡i khi báº¯t Ä‘áº§u phiÃªn má»›i.
+- DÃ¹ng cÆ¡ cháº¿ subagent/delegation kháº£ dá»¥ng vá»›i Ä‘Ãºng model. Khi native subagent khÃ´ng há»— trá»£ model yÃªu cáº§u hoáº·c cáº§n gá»i khÃ¡c provider, dÃ¹ng T3 `delegate_task`.
+- Má»—i vÃ²ng review T3 lÃ  má»™t láº§n `delegate_task` má»›i, cÃ³ `clientRequestId` riÃªng vÃ  giá»¯ nguyÃªn ID khi retry cÃ¹ng vÃ²ng. LÆ°u `taskId` Ä‘á»ƒ theo dÃµi; khÃ´ng dÃ¹ng `t3_thread_send` vÃ o `childThreadId` Ä‘á»ƒ má»Ÿ vÃ²ng review tiáº¿p theo.
+- Truyá»n rÃµ vai trÃ² cho tá»«ng subagent. Subagent hoÃ n thÃ nh pháº§n Ä‘Æ°á»£c giao rá»“i tráº£ káº¿t quáº£; agent chÃ­nh quáº£n lÃ½ vÃ²ng láº·p Sonnet/Opus Ä‘á»ƒ trÃ¡nh tá»± gá»i Ä‘á»‡ quy.
+- Äáº£m báº£o reviewer Ä‘á»c Ä‘Ãºng phiÃªn báº£n thay Ä‘á»•i má»›i nháº¥t. Worktree má»›i chá»‰ nháº­n commit hiá»‡n cÃ³, khÃ´ng tá»± nháº­n cÃ¡c thay Ä‘á»•i chÆ°a commit cá»§a agent chÃ­nh.
+- Náº¿u model hoáº·c cÃ´ng cá»¥ cáº§n thiáº¿t khÃ´ng kháº£ dá»¥ng, bÃ¡o rÃµ giá»›i háº¡n vÃ  xin lá»±a chá»n thay tháº¿; khÃ´ng Ã¢m tháº§m Ä‘á»•i model.
+- BÃ¡o cÃ¡o cuá»‘i nÃªu pháº§n Ä‘Ã£ lÃ m, kiá»ƒm tra Ä‘Ã£ cháº¡y, káº¿t luáº­n review vÃ  cÃ¡c Ä‘iá»ƒm cÃ²n tá»“n táº¡i náº¿u cÃ³.
+
+codex
+E:\map01-batch\home\generated_images\01a15704-4571-7940-ad2e-c0adbe4ac67e\exec-7ce919ca-7ac0-4154-9ed3-0396673dffb2.png
+tokens used
+30,906
+E:\map01-batch\home\generated_images\01a15704-4571-7940-ad2e-c0adbe4ac67e\exec-7ce919ca-7ac0-4154-9ed3-0396673dffb2.png

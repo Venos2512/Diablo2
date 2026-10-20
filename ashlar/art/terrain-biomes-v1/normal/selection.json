@@ -1,0 +1,45 @@
+{
+  "_note": "Raw normal map chosen per id when it is not normal/textures/{id}.png. Paths are relative to normal/. v1 files stay in normal/textures/ untouched.",
+  "BIO07_limestone": {
+    "raw": "reruns/textures/BIO07_limestone_v2.png",
+    "provenance": "reruns/logs/BIO07_limestone_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO07_limestone_v2.txt",
+    "why": "v1 raw had an edge band (cols x2.6) that left a visible tone-step cross at the tile corner; v2 (same brief + wrap-continuity sentence) tiles cleanly (band x1.36/1.06)."
+  },
+  "BIO08_nave": {
+    "raw": "reruns/textures/BIO08_nave_v2.png",
+    "provenance": "reruns/logs/BIO08_nave_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO08_nave_v2.txt",
+    "why": "v1 raw had a ~5 px band along its top/bottom edges (x2.9) that left a horizontal tone step at the wrap; v2 (same brief) tiles cleanly (band x1.31)."
+  },
+  "BIO09_ash_snow": {
+    "raw": "reruns/textures/BIO09_ash_snow_v2.png",
+    "provenance": "reruns/logs/BIO09_ash_snow_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO09_ash_snow_v2.txt",
+    "why": "v1 had fine fractal pits over the dark stone (busy, curl test inconclusive); v2 has the broad pillowy drifts of the brief and is clearly OpenGL. v2 is stronger (mean tilt 23 deg), tune normalScale in engine."
+  },
+  "BIO13_salt_glass": {
+    "raw": "reruns/textures/BIO13_salt_glass_v2.png",
+    "provenance": "reruns/logs/BIO13_salt_glass_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO13_salt_glass_v2.txt",
+    "why": "v1 had puffy cloud bumps (mean tilt 9.9 deg) on a surface the brief wants almost flat; v2 is near flat (5.5 deg). Its raw edge band (x2.2) is invisible at this strength; v3 had the same band."
+  },
+  "BIO21_sunken_floor": {
+    "raw": "reruns/textures/BIO21_sunken_floor_v2.png",
+    "provenance": "reruns/logs/BIO21_sunken_floor_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO21_sunken_floor_v2.txt",
+    "why": "v1 showed a faint vertical cut at the wrap (band x1.82); v2 (same brief + wrap-continuity sentence) tiles cleanly (x1.31)."
+  },
+  "BIO22_abbey": {
+    "raw": "reruns/textures/BIO22_abbey_v2.png",
+    "provenance": "reruns/logs/BIO22_abbey_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO22_abbey_v2.txt",
+    "why": "v1 cut a slab with a crisp straight line on the horizontal wrap (x ~0-60); v2 (same brief + wrap-continuity sentence) is the softest of v2-v5 but a faint straight slab edge remains there. It comes from the albedo itself: its raw had a x3.2 jump on that wrap segment, and the albedo seam fix kept two different slab textures meeting along a straight line, so every normal-map generation reproduces it. Fixing it needs an albedo fix."
+  },
+  "BIO23_course": {
+    "raw": "reruns/textures/BIO23_course_v2.png",
+    "provenance": "reruns/logs/BIO23_course_v2.provenance.json",
+    "prompt": "reruns/prompts/BIO23_course_v2.txt",
+    "why": "v1 cut a stone with a vertical line at the wrap (band x1.87); v2 (same brief + wrap-continuity sentence) tiles cleanly (x1.17)."
+  }
+}

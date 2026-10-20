@@ -1,0 +1,11 @@
+Reusable PowerShell procedure (one generation-only Codex invocation per monster/version sheet):
+1. Prepare a UTF-8 task.txt specifying subject, all five views, human ratio, style-reference roles and unique output path. Explicitly forbid recursion/delegation, API fallback and code drawing. Require built-in image_gen and copying actual generated file from its generated_images path to output with no overwrite.
+2. Run the following with task/output paths substituted for each sheet. First -i is identity/edit target for a revision; OMIT it for new generation. Other -i files are style then mood.
+
+$OutputEncoding = [Text.UTF8Encoding]::new($false)
+Get-Content -Raw -Encoding UTF8 -LiteralPath 'TASK.txt' | codex exec --enable image_generation -m gpt-6-astra -s workspace-write -C 'E:\Diablo2' -i 'IDENTITY_OR_EDIT_TARGET.png' -i 'E:\Diablo2\ashlar\art\terrain-dark-wood\_review_stylized2.jpg' -i 'E:\Diablo2\ashlar\art\terrain-dark-wood\_ingame\d2_webgl.png' -o 'RESULT.txt' - *> 'GENERATION.log'
+
+3. Inspect exit code, result and actual saved bitmap. A successful CLI exit alone is not image or QA success. Open the real bitmap; check five distinct angles, opposite sides, label accuracy, human/monster ratio and common floor in all panels, identity consistency, and low surface detail. Keep prompt + task + raw log alongside each output.
+4. For this pilot the first output was concept.png. The only retry generated concept-v2.png; it was copied unchanged to the requested concept_v2.png. Both are 1536x1024. No further generation has been performed. Final QA still rejects scale, so do not use this pilot as a verified scale template for the full batch.
+
+This uses the Codex built-in image_generation feature, not scripts/image_gen.py or an OpenAI API-key workflow. Do not start the remaining batch without the parent task deciding how to address the pilot's remaining issues.

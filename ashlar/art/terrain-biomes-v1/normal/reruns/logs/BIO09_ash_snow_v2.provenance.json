@@ -1,0 +1,25 @@
+{
+  "id": "BIO09_ash_snow_v2",
+  "biome_id": "BIO-09",
+  "name_vi": "Đèo tuyết-tro",
+  "material": "Tuyết xám phủ tro",
+  "source_path": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15962-8bb9-76f3-a501-8ac30c27c923\\call_94a363cd23bb4ff596b19d7a84bc0594.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15962-8bb9-76f3-a501-8ac30c27c923"
+  ],
+  "sha256": "c0e5baea3413b55e09eca480ad50fa35f5a3c5090b520517ab1bb32f60922c4b",
+  "bytes": 1886905,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\albedo1024\\BIO09_ash_snow.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\normal\\reruns\\textures\\BIO09_ash_snow_v2.png",
+  "started": "2026-10-20T12:56:32Z",
+  "finished": "2026-10-20T12:58:07Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\normal\\reruns\\logs\\work\\BIO09_ash_snow_v2\\attempt-1",
+  "scratch_files": []
+}

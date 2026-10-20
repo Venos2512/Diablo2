@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>ASHLAR – Biome mix (mẫu trộn texture)</title>
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  html, body { margin: 0; height: 100%; background: #14161a; overflow: hidden; font-family: Segoe UI, Arial, sans-serif; }
+  canvas { display: block; }
+  #labels { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+  .lbl { position: absolute; transform: translate(-50%, 0); padding: 3px 8px 4px; background: rgba(10, 11, 14, 0.78);
+         border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 4px; color: #eee; font-size: 12px; line-height: 1.25;
+         text-align: center; white-space: nowrap; }
+  .lbl b { font-weight: 600; font-size: 13px; }
+  .lbl small { display: block; color: #aab; font-size: 10.5px; }
+  #info { position: fixed; left: 12px; top: 10px; padding: 6px 10px; background: rgba(10, 11, 14, 0.78); color: #eee; font-size: 13px;
+          border-radius: 4px; pointer-events: none; display: none; }
+  #info small { display: block; color: #aab; font-size: 11px; }
+  #status { position: fixed; left: 12px; bottom: 8px; color: #778; font-size: 11px; pointer-events: none; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/examples/jsm/" } }
+</script>
+</head>
+<body>
+<div id="labels"></div>
+<div id="info"></div>
+<div id="status"></div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

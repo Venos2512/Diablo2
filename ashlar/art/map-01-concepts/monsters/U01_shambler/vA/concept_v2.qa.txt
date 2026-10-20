@@ -1,0 +1,15 @@
+U01 SHAMBLER A PILOT — QA
+Final review candidate: concept_v2.png (byte-identical copy of generated concept-v2.png). Original concept.png preserved.
+Actual bitmap: 1536 x 1024 PNG. No artificial upscaling, compositing, drawing or retouching.
+Engine: built-in image_gen through codex-cli 0.163.0, model gpt-6-astra, --enable image_generation. Two calls total: original + ONE targeted revision. No API fallback, keys or further delegation.
+PASS: exactly five full-body views (3/4, LEFT, opposite RIGHT, square FRONT, BACK); five separate humans; all five H labels now present; complete hands/feet; restrained muted palette; no gore or red accent.
+IMPROVED: broad cloth masses and much cleaner hem, removed most torn strips, holes, fine dirt and skin markings. Remaining faceted strokes on cloth/legs and hair/head wraps are denser than ideal minimal brush planes.
+FAIL: scale and common floor still inconsistent despite explicit corrective prompt. Approximate visual bounding-box ratios (monster apparent crown-to-foot height / adjacent human height): 3/4 1.24, LEFT 0.99, RIGHT 0.99, FRONT 1.13, BACK 1.14. These are manual image estimates, not geometry measurements. Required 0.95 for every pair is not met. Dominant and lower monster feet sit below adjacent human groundline. Do not treat as a production scale reference.
+LIMIT: 1536x1024 actual output is lower than requested preferred high resolution.
+Status: NEEDS_CHANGES — surface simplification improved; scale not approved. Stopped at the authorized one targeted retry.
+Source original: C:\Users\HLC_2021\.codex\generated_images\01a156ba-503e-7022-936e-9c4b1991367e\exec-8b53cd59-d33d-48f1-acba-a34d41fc3f3d.png
+Source revision: C:\Users\HLC_2021\.codex\generated_images\01a156bb-9a4b-7642-93d1-acabb34976c4\exec-2fc7c4ee-1e77-43ff-9d20-ec13b335eb32.png
+Prompts: concept.prompt.txt / concept-v2.prompt.txt
+Exact harness tasks: concept.task.txt / concept-v2.task.txt
+Raw execution logs: concept.generation.log / concept-v2.generation.log
+The revision log contains an unrelated local MCP transport error to http://127.0.0.1:8080/mcp; generation and bitmap copy succeeded with CLI exit 0.

@@ -1,0 +1,5 @@
+2026-10-20T02:16:19.885040Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-20T02:16:19.899996Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-20T02:16:22.193126Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: error sending request for url (http://127.0.0.1:8080/mcp)")))
+2026-10-20T02:16:24.479065Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: error sending request for url (http://127.0.0.1:8080/mcp)")))
+2026-10-20T02:16:27.497799Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: error sending request for url (http://127.0.0.1:8080/mcp)")))

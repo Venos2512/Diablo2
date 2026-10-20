@@ -1,0 +1,11 @@
+U01 SHAMBLER B — concept.png
+Actual dimensions: 2171 x 724 PNG (approximately 3:1).
+Actual bitmap opened and visually inspected after generation. No overwrite, no upscaling or code drawing.
+Engine: Codex CLI built-in image_gen, model gpt-6-astra, --enable image_generation. One B generation; no recursion/delegation or API fallback.
+Reference: accepted vA/concept_v3.png for common single-row layout, palette and broad painterly style.
+Present: one human H at far left, five complete monster views 3/4, LEFT, RIGHT, FRONT, BACK. Opposite profiles, frontal face and rear view. Shared visual groundline, all crowns slightly below human. Complete feet/hands, no scene. Exact title and labels.
+Variant distinction: narrower vertical shoulders/torso than A; asymmetric olive shawl and large pale apronlike hanging shroud. Jaw band, eye coins, burial clothes and mud-covered lower legs preserved. Low-detail broad cloth planes, no micro torn-strip noise or gore.
+Scale: approximate visual .95H at concept stage; small differences in crown/sole placement between poses remain. NOT modeling-certified orthographic or an exact pixel scale diagram. Garment continuity across views should be resolved in modeling; no claim of geometry-perfect correspondence.
+Status: ready for parent/user concept preview; parent has not yet approved B. No further generation performed.
+Source: C:\Users\HLC_2021\.codex\generated_images\01a156c1-005c-7402-893e-698a18141e38\exec-f3a362a2-ecfb-41e6-b178-d59d5d09595d.png
+Prompt: concept.prompt.txt; exact harness brief: concept.task.txt; execution log: concept.generation.log; CLI result: concept.result.txt.

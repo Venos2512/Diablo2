@@ -1,0 +1,22 @@
+{
+  "id": "BIO21_sunken_floor",
+  "biome_id": "BIO-21",
+  "name_vi": "Nước & tàu chìm",
+  "material": "Sàn nhà nguyện ngập",
+  "source_path": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15721-20b6-7290-b6a7-bcdb0e31d9ac\\exec-14f8a1f9-c2f8-4995-91fe-04055caea95d.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15721-20b6-7290-b6a7-bcdb0e31d9ac"
+  ],
+  "sha256": "b3fc0c6f0a991e011eb4fcfdf83e9bb0b5e4595534acda96aa3c5a6bbb63b223",
+  "bytes": 2134505,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2\\dirt_loam.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO21_sunken_floor.png",
+  "started": "2026-10-20T02:25:51Z",
+  "finished": "2026-10-20T02:27:37Z"
+}

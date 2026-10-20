@@ -1,0 +1,250 @@
+[
+  {
+    "id": "BIO01_peat",
+    "biome_id": "BIO-01",
+    "name_vi": "Đầm lầy & làng nước",
+    "material": "Than bùn ẩm",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad dark peat soil with subdued grey olive moss islands, a few flattened reed marks; 80 percent quiet open muddy soil. Colors #4A3526 #1F2A24 #5E6B5A. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO02_meadow",
+    "biome_id": "BIO-02",
+    "name_vi": "Đồng thuốc phiện",
+    "material": "Cỏ đồng hoang",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad clustered low olive grass paint shapes and soft dark earth gaps, no individual fine blades, no flowers; poppies are separate vegetation, NOT painted over floor. Colors #5E6B5A muted olive and #4A3526 soil. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO03_flint",
+    "biome_id": "BIO-03",
+    "name_vi": "Làng đá lửa & sân nhà thờ",
+    "material": "Đá lửa lát sân",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large irregular worn flint paving stones set in dark peat mortar, modest grey moss stains. Roughly 8 to 14 large subdued stones across whole tile, not tiny cobbles. Slate grey, muted olive #5E6B5A, earth #4A3526. No white outlines. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO04_ossuary",
+    "biome_id": "BIO-04",
+    "name_vi": "Hầm xương & vườn đất",
+    "material": "Vữa hầm xương",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Damp warm umber-grey mortar with broad compressed old bone-colored stone inclusions almost flush with floor, understated fossil-like hints only, no recognizable skulls or scattered bones. Base #4A3526 #1F2A24, muted bone taupe. Heavy handmade patched masonry, subtle joints. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO04_garden",
+    "biome_id": "BIO-04",
+    "name_vi": "Hầm xương & vườn đất",
+    "material": "Đất vườn ngủ",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Soft fertile dark cultivated earth, broad loam clods merged into large quiet painterly shapes, minimal root strokes. Deep peat umber #4A3526 muted marsh #1F2A24; not orange sand. No plants, beds, corpses or flowers. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO05_lime",
+    "biome_id": "BIO-05",
+    "name_vi": "Hospice vôi trắng",
+    "material": "Sàn vôi sạch",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Clean ivory limewashed cloister floor, broad simple pale warm limestone surfaces, almost invisible neat joints, gentle creamy pigment variation. No wear, stains, dirt or patch repairs. Matte warm ivory and linen-white, not luminous. No cloth objects. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO06_flint_spoil",
+    "biome_id": "BIO-06",
+    "name_vi": "Mỏ & Spoil",
+    "material": "Phấn và đá lửa vụn",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Packed chalk quarry spoil with broad chalk-grey sediment and a few large almost flush dark flint fragments, not dense small gravel. Quiet dusty grey and charcoal; moderate material contrast held low. No glowing fissures, gems or tools. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO06_salt_mine",
+    "biome_id": "BIO-06",
+    "name_vi": "Mỏ & Spoil",
+    "material": "Nền mỏ muối",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Compressed mineral salt floor, broad pale salt rock planes with restrained grey blue and faint dusty rose seams, occasional muted teal discoloration. #EDEAE0 with very subdued #3F8C88. Opaque chalky mineral, no crystalline sparkle or glow. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO07_limestone",
+    "biome_id": "BIO-07",
+    "name_vi": "Thành bậc đá vôi Sepulcra",
+    "material": "Đá vôi phủ muội",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad handcut bone limestone paving blocks with visible imperfect lime mortar seams, irregular soot accumulations kept soft, large block rhythm. Bone #E6DFCF subdued by soot #17151A. No fiery orange paint, no hot coals or light. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO08_nave",
+    "biome_id": "BIO-08",
+    "name_vi": "Nhà thờ & hầm chuông",
+    "material": "Phiến đá nhà thờ",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large elongated old stone floor slabs in staggered arrangement, narrow worn joints, broad subdued pale limestone faces with soot-grey age around joints. #E6DFCF #17151A. Austere dark nave floor, no symbols, borders, checkerboard, skulls or metal ornaments. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO09_ash_snow",
+    "biome_id": "BIO-09",
+    "name_vi": "Đèo tuyết-tro",
+    "material": "Tuyết xám phủ tro",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad quiet snow and cold ash deposits over dark mountain stone, smoothed rounded pale grey masses, sparse dark slate exposure. Ash-grey #E6DFCF subdued and charcoal #17151A, no brilliant white, blue ice or orange embers. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO10_salt_crust",
+    "biome_id": "BIO-10",
+    "name_vi": "Biển khô",
+    "material": "Vỏ muối nứt",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large irregular matte dry salt crust polygons, gently lifted broad edges but flat albedo, sparse thin grey fissures, not dense crackle. Chalky off-white #EDEAE0 with #DCE3E6. No blood, crystals, glow, reflection, water or bones. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO11_white_hulk",
+    "biome_id": "BIO-11",
+    "name_vi": "Hulk trắng & Namakhar",
+    "material": "Vôi trắng muối",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Smooth white lime plaster floor laid over ancient ship construction, very broad quiet white surfaces with faint structural joint rhythms, slightly chalky but clean. #EDEAE0 #DCE3E6 only. No brown wood grain, blue accents, blood, grime, shine or glow. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO12_dark_planks",
+    "biome_id": "BIO-12",
+    "name_vi": "Hầm dưới Hulk",
+    "material": "Ván gỗ cũ",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Wide handhewn ship bilge floorboards with uneven human repairs, dark warm brown wood, very sparse broad hand-painted grain curves and subtle blunt pegs. Worn umber and quiet ochre; no fine grain, cracks everywhere or bright edges. Wide parallel boards, continuous at image edges. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO13_salt_glass",
+    "biome_id": "BIO-13",
+    "name_vi": "Di tích Halcyon",
+    "material": "Kính muối liền khối",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: A continuous immaculate opaque milky salt-glass surface, NO material seams, cracks, tiles, wear, scratches or dust. Almost uniform off-white with extremely low contrast broad internal milky translucency cues, matte albedo only. Ancient solemn purity, not science fiction. No highlights, reflected scene, glow or bloom. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO14_blue_ice",
+    "biome_id": "BIO-14",
+    "name_vi": "Đồng băng & rừng băng Hoarfast",
+    "material": "Băng xanh và tuyết",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad dark blue glacial ice under soft blue snow islands, very sparse long subdued ice fissures, large simplified painterly planes, no small shards. #14202E #6F8FA8; snow is blue-tinted not pure white. No frozen bodies, branches, sparks or reflection. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO15_pyre_ash",
+    "biome_id": "BIO-15",
+    "name_vi": "Đồi tro lửa tế",
+    "material": "Tro nguội lâu đời",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Centuries of packed cold grey pyre ash on dark earth with a few broad flattened charcoal shapes, soft quiet grey-blue pigment masses. #14202E with muted ash grey. No snow, fire, embers, glowing cracks, bones or circular central altar. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO16_blackwood",
+    "biome_id": "BIO-16",
+    "name_vi": "Vesnagrad & vườn kính",
+    "material": "Ván gỗ đen lạnh",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Broad blackened timber floor planks with restrained handcarved broad linear grain, sparse blue-grey frost smudges near a few joints, black wood with #14202E cool undertones. Massive quiet boards. No amber lighting, gold trim, jewelry, glass shards or detailed carving. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO17_varnished",
+    "biome_id": "BIO-17",
+    "name_vi": "Phòng ướp & kho lọ",
+    "material": "Gỗ phủ vecni",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Dark carefully fitted large wooden floorboards, deep umber-black wood with muted burgundy undertone; very broad sparse painted grain, even maintained surface. Base cool #14202E undertone, restrained dark warm brown. Show varnished material through even dark color only, no baked sheen, highlights or reflections, no objects. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO18_wet_slate",
+    "biome_id": "BIO-18",
+    "name_vi": "Thị trấn cảng Wrackhaven",
+    "material": "Đá phiến lát cảng",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large uneven slate paving stones with salt-worn joints and quiet dark damp stains, hand-repaired fishing port pavement. #3B4650 #121417 with faint muted sea green #2F5A52 in joints. Not pebbles. No puddle reflections, wet shine, shells or ropes. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO19_coastal_rock",
+    "biome_id": "BIO-19",
+    "name_vi": "Vách đá & hải đăng",
+    "material": "Đá đen ven biển",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large weathered black coastal rock planes suitable for WALKABLE ground, broad angular stratified patches and sparse shallow fissures, matte slate #121417 #3B4650. Not vertical cliff, no horizon, foam, waves, puddles, barnacles or boulders standing up. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO20_wet_sand",
+    "biome_id": "BIO-20",
+    "name_vi": "Lộ triều & rừng tảo",
+    "material": "Cát ướt lộ triều",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Smooth storm-grey wet compacted tidal sand, broad very subtle flat shallow ripple bands with sparse muted sea-olive silt patches. #3B4650 #2F5A52 muted down, quiet grey-brown. No glittering sand grains, reflected sky, water, shells, seaweed objects or footprints. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO21_sunken_floor",
+    "biome_id": "BIO-21",
+    "name_vi": "Nước & tàu chìm",
+    "material": "Sàn nhà nguyện ngập",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Submerged old chapel stone slabs as BASE COLOR ONLY before water shader: large dark green-grey stone slabs with soft broad algae stains, very sparse salt-worn edges. Deep subdued sea-green #2F5A52 with #3B4650 slate. No water surface, caustics, waves, lamps, candles, pews, shells or reflections. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO22_abbey",
+    "biome_id": "BIO-22",
+    "name_vi": "Tu viện thủy triều Ebbmount",
+    "material": "Đá tu viện vá cũ",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Large old slate and limestone monastery floor slabs repeatedly repaired with mortar over centuries, broad mismatched subdued stone colors, a few old wax stains reduced to low contrast pale smudges. #3B4650 #121417 with muted bone-grey repairs. No candles, wax stalagmites, symbols or ornamental trim. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO23_course",
+    "biome_id": "BIO-23",
+    "name_vi": "The Course",
+    "material": "Đá và vữa Tường",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Massive handworked living-wall stone floor blocks in warm ochre #A57F45 bone #D8CCB0 and warm grey #8C847A, broad soft warm mortar seams, faint compressed organic contours embedded in stone rather than scattered objects. Stone and mortar remain readable; visible hand-tool shaping but sparse. No explicit human faces or hands on this quiet combat floor, no gore, no glow. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO24_keystone",
+    "biome_id": "BIO-24",
+    "name_vi": "Cổng keystone",
+    "material": "Đá Mason đẽo",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Immensely precise large grey handcut Mason stone floor blocks, visible narrow real masonry joints and restrained chisel planes; warm neutral stone grey around #8C847A. Intact and solemn, not seamless. No circular composition, runes, carvings, dirt, glowing cracks or light. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO26_dream",
+    "biome_id": "BIO-26",
+    "name_vi": "Mộng Edda",
+    "material": "Sân vườn trong mộng",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Unnaturally peaceful cottage garden ground: broad soft muted straw-gold grass masses interleaved with warm cream earth, few simplified leaf-shaped tufts. Subdued warm #F4D58D influence, gentle sage secondary. Smooth hand-painted quiet texture, no flowers, fences, paths or sunny light baked in. Low contrast idealized but tangible ground, distinct from pure-white Seamless. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO27_cradle",
+    "biome_id": "BIO-27",
+    "name_vi": "Cell Perfection — The Cradle",
+    "material": "Sàn phấn và xương nhạt",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Quiet seamless-looking matte ivory chalk and bone-toned smooth mineral floor below linen curtains. Broad calm barely visible warm pigment shifts, shallow faint organic mineral seams only. Pale linen-white and warm ivory. Floor material proposal for Mercy, NOT fabric weave. No cots, bones, textile objects, poppies, glow or lamps. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO27_vault",
+    "biome_id": "BIO-27",
+    "name_vi": "Cell Perfection — Kneeling Vault",
+    "material": "Đá xương phủ muội",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Quiet dark ossuary floor of broad compressed bone-toned mineral slabs embedded in soot-dark stone, a few faint soft tallow stains. #17151A base with heavily muted #E6DFCF. Slabs imperfect and heavy, low contrast; no skulls, ribs protruding, chains, flames, symbols or central pattern. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO27_salt",
+    "biome_id": "BIO-27",
+    "name_vi": "Cell Perfection — Salt Cell",
+    "material": "Kính muối nhạt",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Quiet pale opaque salt-crystal floor, a few broad irregular crystal planes with extremely subtle cool grey-teal boundaries. Base #EDEAE0 faint #3F8C88 influence. No red blood baked into base texture; cracks and blood are separate gameplay overlays. No mirror reflection, sparkle, glow or fine crystal chips. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  },
+  {
+    "id": "BIO27_deep",
+    "biome_id": "BIO-27",
+    "name_vi": "Cell Perfection — Unforgetting Deep",
+    "material": "Băng sâu mờ",
+    "prompt": "Use case: stylized-concept. Asset type: square 1024x1024 seamless tileable terrain BASE-COLOR texture for ASHLAR. Entire image is one flat walkable ground material, top-down orthographic, full bleed. Style: hand-painted low-detail stylized2, broad simple pigment masses and chunky material shapes, Diablo Immortal ARPG readability. Attached reference is ONLY brush density and shape simplification, NOT its color palette or literal objects. Subject: Quiet dark blue frosted glass-ice floor, large smooth planes and broad soft blue-grey cloudy inclusions. #14202E #6F8FA8. No strong fissures, pure white snow, amber illumination, drawers, faces, silhouettes, reflections or sparkling shards. Constraints: continuous repeat on all four edges; uniform overall value and density; irregular distribution without a central focal point or frame. Broad low-contrast shapes, subdued palette, quiet floor behind combat. Flat neutral albedo, no baked light or directional shadows, no AO, bright rims, vignette, glints, bloom or reflected scene. No perspective, horizon, 3D scene, elevated props, characters, labels, letters, watermark, swatch grid, dense microdetail, noise or photorealism. Palette is a lookdev starting point, mood lighting will be applied in engine.",
+    "reference": "E:/Diablo2/ashlar/art/terrain-dark-wood/stylized2/dirt_loam.png"
+  }
+]

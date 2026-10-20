@@ -1,0 +1,25 @@
+{
+  "id": "BIO26_dream",
+  "biome_id": "BIO-26",
+  "name_vi": "Mộng Edda",
+  "material": "Sân vườn trong mộng",
+  "source_path": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15953-fe12-7920-a18d-ff135075e9fa\\call_71d1d621af8d4833b458a7216a1b1b57.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15953-fe12-7920-a18d-ff135075e9fa"
+  ],
+  "sha256": "9a8cb0c8ca36ba5e527ff197ed172ec5ba764ffa4786c502c6be28041988268b",
+  "bytes": 2262238,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\albedo1024\\BIO26_dream.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\normal\\textures\\BIO26_dream.png",
+  "started": "2026-10-20T12:40:38Z",
+  "finished": "2026-10-20T12:43:00Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\normal\\logs\\work\\BIO26_dream\\attempt-1",
+  "scratch_files": []
+}
