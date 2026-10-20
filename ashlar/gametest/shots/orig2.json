@@ -1,0 +1,37 @@
+{
+  "url": "http://127.0.0.1:8761/orig",
+  "booted": true,
+  "bootMs": 798,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": null,
+  "href": "http://127.0.0.1:8761/orig",
+  "protocol": "http:",
+  "states": {
+    "title": {
+      "calls": 89,
+      "triangles": 311225
+    },
+    "town": {
+      "calls": 200,
+      "triangles": 619902
+    },
+    "active-play": {
+      "calls": 131,
+      "triangles": 391556
+    },
+    "dungeon": {
+      "calls": 107,
+      "triangles": 182951
+    },
+    "boss": {
+      "calls": 292,
+      "triangles": 682209
+    }
+  },
+  "console": []
+}

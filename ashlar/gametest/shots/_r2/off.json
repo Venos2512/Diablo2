@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:8871/?ashlar=off",
+  "booted": true,
+  "bootMs": 684,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "off",
+    "nmap": "height",
+    "ready": false,
+    "ms": 0,
+    "cards": false,
+    "source": "url"
+  },
+  "kits": {
+    "mode": "off",
+    "ready": false,
+    "ms": 0,
+    "kits": {},
+    "failed": [],
+    "source": "url"
+  },
+  "href": "http://127.0.0.1:8871/?ashlar=off",
+  "protocol": "http:",
+  "states": {
+    "town": {
+      "calls": 200,
+      "triangles": 619956
+    },
+    "active-play": {
+      "calls": 131,
+      "triangles": 391530
+    }
+  },
+  "console": []
+}

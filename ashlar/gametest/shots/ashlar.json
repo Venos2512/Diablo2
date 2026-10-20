@@ -1,0 +1,47 @@
+{
+  "url": "http://127.0.0.1:8761/dist/Unhallowed_ASHLAR.html",
+  "booted": true,
+  "bootMs": 1422,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "ready": true,
+    "ms": 260,
+    "cards": true,
+    "source": "inline"
+  },
+  "href": "http://127.0.0.1:8761/dist/Unhallowed_ASHLAR.html",
+  "protocol": "http:",
+  "states": {
+    "title": {
+      "calls": 89,
+      "triangles": 157601
+    },
+    "town": {
+      "calls": 197,
+      "triangles": 489390
+    },
+    "active-play": {
+      "calls": 131,
+      "triangles": 285540
+    },
+    "fields": {
+      "calls": 134,
+      "triangles": 306122
+    },
+    "boss": {
+      "calls": 292,
+      "triangles": 461467
+    },
+    "dungeon": {
+      "calls": 106,
+      "triangles": 182929
+    }
+  },
+  "console": []
+}

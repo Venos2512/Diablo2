@@ -1,0 +1,48 @@
+{
+  "url": "http://127.0.0.1:8871/?nmap=off",
+  "booted": true,
+  "bootMs": 1471,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "nmap": "off",
+    "ready": true,
+    "ms": 435,
+    "cards": true,
+    "source": "url",
+    "nmapThemes": []
+  },
+  "kits": {
+    "mode": "on",
+    "ready": true,
+    "ms": 229,
+    "kits": [
+      "tents-b",
+      "lighting",
+      "storage",
+      "seating",
+      "stations",
+      "kitchen",
+      "animals",
+      "training",
+      "palisade",
+      "tents"
+    ],
+    "failed": [],
+    "source": "url"
+  },
+  "href": "http://127.0.0.1:8871/?nmap=off",
+  "protocol": "http:",
+  "states": {
+    "town": {
+      "calls": 160,
+      "triangles": 370576
+    }
+  },
+  "console": []
+}

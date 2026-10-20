@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:8742/",
+  "booted": true,
+  "bootMs": 1620,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "ready": true,
+    "ms": 487,
+    "cards": true,
+    "source": "url"
+  },
+  "kits": {
+    "mode": "on",
+    "ready": true,
+    "ms": 245,
+    "kits": [
+      "tents-b",
+      "lighting",
+      "storage",
+      "training",
+      "animals",
+      "tents",
+      "stations",
+      "seating",
+      "palisade",
+      "kitchen"
+    ],
+    "failed": [],
+    "source": "url"
+  },
+  "href": "http://127.0.0.1:8742/",
+  "protocol": "http:",
+  "states": {
+    "town": {
+      "calls": 160,
+      "triangles": 368084
+    },
+    "active-play": {
+      "calls": 131,
+      "triangles": 285562
+    },
+    "fields": {
+      "calls": 134,
+      "triangles": 306108
+    }
+  },
+  "console": []
+}

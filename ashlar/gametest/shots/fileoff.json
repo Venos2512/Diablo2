@@ -1,0 +1,27 @@
+{
+  "url": "file:///E:/Diablo2/unhallowed/dist/Unhallowed_ASHLAR.html?ashlar=off",
+  "booted": true,
+  "bootMs": 757,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "off",
+    "ready": false,
+    "ms": 0,
+    "cards": false,
+    "source": "inline"
+  },
+  "href": "file:///E:/Diablo2/unhallowed/dist/Unhallowed_ASHLAR.html?ashlar=off",
+  "protocol": "file:",
+  "states": {
+    "title": {
+      "calls": 89,
+      "triangles": 311221
+    }
+  },
+  "console": []
+}

@@ -1,0 +1,28 @@
+{
+  "url": "http://127.0.0.1:8871/orig",
+  "booted": true,
+  "bootMs": 735,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": null,
+  "kits": null,
+  "href": "http://127.0.0.1:8871/orig",
+  "protocol": "http:",
+  "states": {
+    "town": {
+      "calls": 200,
+      "triangles": 619956
+    },
+    "active-play": {
+      "calls": 131,
+      "triangles": 391526
+    }
+  },
+  "console": [
+    "[log:error] Failed to load resource: the server responded with a status of 404 (Not Found) http://127.0.0.1:8871/favicon.ico"
+  ]
+}

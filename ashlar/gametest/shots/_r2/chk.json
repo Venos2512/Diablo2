@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:8871/",
+  "booted": true,
+  "bootMs": 1796,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "nmap": "height",
+    "ready": true,
+    "ms": 709,
+    "cards": true,
+    "source": "url",
+    "nmapThemes": [
+      "town"
+    ]
+  },
+  "kits": {
+    "mode": "on",
+    "ready": true,
+    "ms": 205,
+    "kits": [
+      "palisade",
+      "tents",
+      "tents-b",
+      "lighting",
+      "seating",
+      "animals",
+      "storage",
+      "training",
+      "kitchen",
+      "stations"
+    ],
+    "failed": [],
+    "source": "url"
+  },
+  "href": "http://127.0.0.1:8871/",
+  "protocol": "http:",
+  "states": {
+    "dungeon": {
+      "calls": 105,
+      "triangles": 182945
+    },
+    "boss": {
+      "calls": 291,
+      "triangles": 461443
+    }
+  },
+  "console": []
+}

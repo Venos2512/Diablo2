@@ -1,0 +1,34 @@
+{
+  "url": "file:///E:/Diablo2/ashlar/gametest/dist/gametest.html",
+  "booted": true,
+  "bootMs": 2366,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "ready": true,
+    "ms": 276,
+    "cards": true,
+    "source": "inline"
+  },
+  "href": "file:///E:/Diablo2/ashlar/gametest/dist/gametest.html",
+  "protocol": "file:",
+  "states": {
+    "title": {
+      "calls": 89,
+      "triangles": 157589
+    },
+    "active-play": {
+      "calls": 130,
+      "triangles": 285548
+    }
+  },
+  "console": [
+    "[warning] THREE.WebGLProgram: Program Info Log: (210,81-129): warning X4122: sum of 0.996094 and -2.98545e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(210,82-106): warning X4122: sum of 1 and -1.49272e-017 cannot be represented accurately in double precision\n(209,37-61): warning X4122: sum of 1 and -1.66644e-018 cannot be represented accurately in double precision\n(210,82-106): warning",
+    "[warning] THREE.WebGLProgram: Program Info Log: (68,9-21): warning X3577: value cannot be NaN, isnan() may not be necessary.  /Gis may force isnan() to be performed"
+  ]
+}

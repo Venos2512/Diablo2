@@ -1,0 +1,50 @@
+{
+  "url": "http://127.0.0.1:8871/?nmap=albedo",
+  "booted": true,
+  "bootMs": 1741,
+  "sources": {
+    "models": "module",
+    "props": "module",
+    "ui": "module",
+    "audio": "module"
+  },
+  "ashlar": {
+    "mode": "all",
+    "nmap": "albedo",
+    "ready": true,
+    "ms": 689,
+    "cards": true,
+    "source": "url",
+    "nmapThemes": [
+      "town"
+    ]
+  },
+  "kits": {
+    "mode": "on",
+    "ready": true,
+    "ms": 203,
+    "kits": [
+      "tents",
+      "stations",
+      "tents-b",
+      "lighting",
+      "storage",
+      "training",
+      "animals",
+      "seating",
+      "palisade",
+      "kitchen"
+    ],
+    "failed": [],
+    "source": "url"
+  },
+  "href": "http://127.0.0.1:8871/?nmap=albedo",
+  "protocol": "http:",
+  "states": {
+    "town": {
+      "calls": 160,
+      "triangles": 370638
+    }
+  },
+  "console": []
+}
