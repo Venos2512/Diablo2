@@ -1,0 +1,40 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a15932-9abd-7672-916b-89a0fa9199b9
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+Use case: stylized-concept. Create ONE character design sheet for an original ASHLAR player HERO: PB Pallbearer, direction B - VERSION 5 (clean, low-texture repaint of the approved version 4). Original design: borrow only the familiar silhouette language of the matching Diablo class archetype, never copy a Diablo costume or character.
+REFERENCE IMAGE (attached): E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept_v4.png - the approved version-4 sheet of this SAME hero: keep EXACTLY its design, costume, silhouette, proportions, colours, props, weapons and sheet layout; repaint it with much simpler, cleaner surfaces as described in STYLE - the same forms and the same light-and-shadow volumes, far less texture.
+HERO: Pallbearer - a heavy knight of the Order of the Pall who carries the dead home: an OPEN bier frame worn on the back in which a grey-mortar coffin builds course by course as Burden rises (shown half full), and a coffin-lid shield studded with silver nails.
+CLASS ARCHETYPE (silhouette language only): holy heavy knight (the Paladin / Crusader silhouette language): full plate, massive pauldrons, a shield wall of a man.
+BODY: MALE HERO: a strong adult man with a heroic build; the face plain and natural (no likeness of any real person).
+COSTUME (as version 4): a heavy plate cuirass, massive pauldrons and plate legs over ONE fitted royal-purple padded gambeson (a single layer, no skirts of cloth); a purple hood fixed to the steel gorget; a thick rope bandolier across the chest; the bier frame on the back (pale-oak rails bound with blackened iron bands, lower half filled with mortar courses) with the big coffin lid stowed on hooks along its LEFT flank; the nail-studded LEFT gauntlet; a big iron funeral bell at the right hip; Osric's Lantern at the frame's lower right corner. The bier frame's outline is an upright COFFIN shape: narrow at the top, widest about a quarter of the way down, tapering to a narrow foot; never a rectangle, a cage box or a ladder. Osric's Lantern is a small plain old iron lantern with a WARM orange flame (never blue, never a cold or white light).
+PALETTE: Signature: ROYAL FUNERAL PURPLE + POLISHED SILVER. Pall cloth, cape and tabard deep royal purple #4B2A6B with a broad silver-grey border band #C9CED6; plate armour polished steel #AEB6BF with dark steel shadows #4E5660 and crisp bright highlights; bier frame and coffin lid pale golden oak #D6BC8C with brass caps and fittings #B8863B; mortar courses clean light stone grey #A39E94; silver coffin nails bright #EEF1F4; leather dark brown #4A3020.
+LAYOUT (as version 4): ONE 16:9 landscape sheet (for example 2048x1152, or larger if the built-in tool supports it; do not require unsupported flags). LEFT third: ONE large full-body 3/4 view (front-left three-quarter) of the hero HOLDING the weapons, a confident, impressive heroic stance (not an action pose), head to feet about 80% of the canvas height, label "3/4" under it. RIGHT two-thirds, upper area: FOUR full-body orthographic views on ONE shared baseline at ONE common smaller scale (about 55% of the canvas height), left to right: FRONT (square-on), LEFT (the hero's anatomical left side toward the camera, facing image-left), RIGHT (the true opposite side, facing image-right, not a mirror copy), BACK (square-on rear); labels "FRONT", "LEFT", "RIGHT", "BACK" under them. In these four views the hero holds NO weapons and carries NO separate weapon on the body: relaxed A-pose with the arms slightly away from the body and the hands open and empty; everything else WORN stays exactly as in the 3/4 view. RIGHT two-thirds, bottom strip: the hand-held WEAPONS and class items drawn SEPARATELY, side by side with clean gaps, at the SAME scale as the four views, long ones lying horizontally: BIER-POLE: heroic two-handed polearm about 1.5H, ornate silver end caps shaped like huge coffin-nail heads, drawn lying horizontally; a short label under each. Title at the top. Nothing cropped or overlapping; no panels, frames, insets, extra figures or scenery.
+CONSISTENCY: the 3/4 view, the four views and the separate weapons show the SAME design, proportions, colours and asymmetries (left/right sides stay on the same body side in every view); adult, face visible.
+STYLE (version 5 = the version-4 design with MUCH LESS TEXTURE DETAIL): bold stylized hand-painted ARPG hero class art in the spirit of Diablo Immortal, with SIMPLE, CLEAN SURFACES. Every material is painted as smooth broad planes with soft gradients and a few crisp highlights. KEEP strong 3D form shading - clear light and shadow sides, big soft fold shadows, darker occlusion in deep folds and a cool rim light - so every form reads as volume; only the surface micro-detail is removed. REMOVE all surface texture: no fabric weave or knit, no leather grain, no scratches, scuffs or wear marks, no stains, no noise or speckle, no visible brush-stroke texture, no skin pores; NO ornamental engraving, NO filigree, NO embroidery patterns (red-thread bands are flat solid colour stripes), NO rows of rivets or studs (only a few big structural ones), NO stitching lines, NO tiny buckles; hair as a few big locks; fur as a few large soft clumps; salt crystals as a few big clean facets; chains as simple bold links. Details that carry identity stay as BIG simple shapes (the coffin lid's big nails, the reliquary niches, the crystal pauldron, the lantern slats, the knot sigil). Few fabric layers, fitted leather and plate as in version 4; rich saturated signature colours; class light sources glow as painted light (warm flame for lanterns, coals and pyre fire; still cold cyan-white points only for the Ossuarist's souls); no dust, no grime, no rags; no white-gold glow, no halo. Flat warm mid-grey studio backdrop, NO environment, minimal contact shadows.
+CONTENT: No gore, no blood, no wounds. No crosses and no real religious symbols or saints. Adult; no nudity, no anatomical detail; no likeness of any real person. The ONLY church sign allowed is the keystone-shaped Wedge of silver nails on the coffin lid; it must never read as a cross. The bier frame is OPEN, its lower half filled with grey mortar courses; never a closed coffin, never a ladder. The coffin lid is tall, narrow and hexagonal, never a child's coffin. No all-black armour, no holy gold, no round holy-knight shield. Concept art only: NOT a sprite, NOT a 3D model sheet with wireframes. No white-gold glow, no halo or nimbus of any kind.
+TEXT (exact, concise labels only): title "PB PALLBEARER — B"; view labels "3/4", "FRONT", "LEFT", "RIGHT", "BACK"; weapon labels "BIER-POLE". No other text, no watermark.
+
+codex
+I’ll generate the sheet once using the supplied reference and full prompt.
+codex
+E:\hero-batch\home\generated_images\01a15932-9abd-7672-916b-89a0fa9199b9\call_a9b8bdbd0f524fbabe25c3ab44717bb4.png
+tokens used
+12,370
+E:\hero-batch\home\generated_images\01a15932-9abd-7672-916b-89a0fa9199b9\call_a9b8bdbd0f524fbabe25c3ab44717bb4.png

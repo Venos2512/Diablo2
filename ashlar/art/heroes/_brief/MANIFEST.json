@@ -1,0 +1,2807 @@
+{
+ "manifestVersion": 2,
+ "title": "ASHLAR hero concept brief (six vocations x two directions, prologue lineup, choice-screen key art, game-camera readability sheets)",
+ "createdDate": "2026-10-20",
+ "revision": "round 3 (applies decisions_r3 and the Opus round-2 review on top of round 2)",
+ "projectRoot": "E:/Diablo2/ashlar/art/heroes",
+ "briefRoot": "E:/Diablo2/ashlar/art/heroes/_brief",
+ "conceptDoc": "E:/Diablo2/ashlar/ASHLAR_HERO_CONCEPT_VI.md",
+ "status": "images generated 2026-10-20, 36 on disk (checked 2026-10-20 12:55): v1 hero sheets 9 of 12 (FL_A, OS_A, BR_A v1 stopped when the direction changed) + PROLOGUE_LINEUP + CHOICE_HANDS + layout pilot concept_pilot.png; v2 hero sheets 12 of 12; v3 hero sheets 12 of 12 (current presentation, see v3); TOPDOWN_A / TOPDOWN_B: v1 not run, v3 running / failed (0 of 2 on disk, see jobs[].v3). Per-job \"status\" is the state of the v1 output (outputPath); per-job v2 and v3 fields carry theirs. No direction A/B has been chosen yet.",
+ "overwritePolicy": "never overwrite an existing output; retries use a new filename suffix (e.g. concept_v2.png)",
+ "counts": {
+  "vocations": 6,
+  "directionsPerVocation": 2,
+  "heroLineupJobs": 12,
+  "sharedJobs": 2,
+  "topdownJobs": 2,
+  "totalJobs": 16,
+  "totalPrompts": 16,
+  "expectedImages": 16,
+  "figuresPerHeroSheet": 7,
+  "generated": {
+   "v1HeroSheets": 9,
+   "v2HeroSheets": 12,
+   "v3HeroSheets": 12,
+   "pilot": 1,
+   "sharedV1": 2,
+   "v3Topdown": 0,
+   "totalImagesOnDisk": 36,
+   "checkedAt": "2026-10-20 12:55"
+  }
+ },
+ "heroLayoutRule": "ONE wide row per hero sheet with SEVEN full-body figures on ONE baseline and ONE ruler: H (plain dark-grey neutral silhouette) + 3/4, LEFT, RIGHT, FRONT, BACK on the display body + ALT (the same outfit, props and colours in front-left 3/4 on the other base body). Reference canvas 2172x724, baseline y=640, 1H=400 px; hero crown = 1.0H = 400 px in all six hero figures. No insets, no enlarged 3/4, no 2x2 grid. Body-design state: no VFX, no glow, no particles; lanterns/torches unlit; reliquary niches empty; bier frame at about 50 Burden; flask with salt crust; coal pot or box lid closed and nothing hot. Osric's Lantern (0.12H, one hood flap, no slats) is drawn on every sheet except EX. Tall props (PB frame and pole, BR-A and PS staffs, EX-B spade) stay inside the canvas and below the title band; if they do not fit, shrink ALL seven figures equally, never shorten, bend or crop the prop.",
+ "prologueLayoutRule": "ONE row on the same ruler: H + six heroes in front-left 3/4 (PB, FL, OS, BR, EX, PS), each on its display body, all in the shared end-of-Prologue look (grey shroud wrap + Gennet's long loose peat-brown coat + canon improvised weapon, mortar dust, barefoot, never nude; PB with a roped bier-board). Act I night palette, no accent colour; no Osric's Lantern.",
+ "keyartRule": "ONE 16:9 key art: six open hands (PB, FL, OS, BR, EX, PS left to right, canonical order) out of a skull wall in grey mortar, arranged on an arc around one low candle (Gennet's), near darkness; no text.",
+ "topdownRule": "TOPDOWN_A / TOPDOWN_B: one 3:1 sheet each, two rows of six (PB, FL, OS, BR, EX, PS): game-camera colour row on a flat neutral mid-grey ground, then flat black silhouettes of the same six from the same camera. References: the style image + the six generated concept.png sheets of that letter (identity only). They depend on exactly those six sheets. Run them as a SECOND batch, only after their six sheets pass QA; pass any accepted _v2 sheet with the runner's --ref-map OLD=NEW option.",
+ "pilotRule": "PB_A was generated once as a layout pilot (art/heroes/PB_pallbearer/vA/concept_pilot.png, 2172x724) and accepted for LAYOUT only: copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px). The 11 other hero sheets carry it as an extra LAYOUT-ONLY reference and have no dependency. PB_A is regenerated from its revised prompt to concept.png WITHOUT the pilot attached. If the seven-figure layout fails in other sheets, fall back to six figures (drop ALT) and move ALT to phase 2.",
+ "styleReferences": [
+  "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg"
+ ],
+ "layoutReference": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+ "notes": [
+  "Sizes come from the proposal tables in ASHLAR_HERO_CONCEPT_VI.md (§4.7, §5.7, §6.7, §7.7, §8.8, §9.7); they are production proposals, not canon.",
+  "Display body per vocation (concept doc §2.1, presentation only, not a gender lock): PB and EX base body 1, ALT body 2; FL, OS, BR, PS base body 2, ALT body 1.",
+  "Hero sheets use neutral studio light and their own palette; no Act I mood reference is attached to any hero job.",
+  "Light-only colours (coal red, soul white, lamp amber, ember orange, rime) are listed with usedOnSheet:false and are not drawn on the sheets.",
+  "Every palette entry carries its CIE L* value; each design keeps one light mass (L* >= 65) and one dark mass (L* <= 30) (concept doc §2.5).",
+  "Production order (concept doc §3): PB, EX, BR, PS, FL, OS. Run the 12 hero sheets, PROLOGUE_LINEUP and CHOICE_HANDS first (any order or in parallel; they need only the existing pilot). TOPDOWN_A and TOPDOWN_B are a second batch, run only after their six sheets pass QA; pass accepted _v2 sheets with --ref-map OLD=NEW (E:/hero-batch/hero_batch.py ignores dependsOn and skips missing references, so the order is manual).",
+  "Phase 2 (STATES x6 with three poses each, GEAR x6, HERO_GLOW on the Brinecaller, HERO_LINEUP, lab test on five act grounds + Course + Seamless; concept doc §11.2) has no prompts yet.",
+  "Paths use forward slashes; every path is absolute.",
+  "Wave-2 watch items: the PB Osric's Lantern hangs from the frame foot near the thigh and may hit the leg when walking (consider a shorter chain or a higher hook); the PB_B edge-on lid may vanish in TOPDOWN_B.",
+  "v3 (2026-10-20): the current hero presentation is v3 (top-level v3 object, per-job v3 field). Everything above that describes the seven-figure row layout (heroLayoutRule, per-job layout, the run-order and TOPDOWN notes) is the v1 brief; v2 reuses that layout."
+ ],
+ "jobs": [
+  {
+   "id": "PB_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "PB",
+    "name": "Pallbearer"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Coffin-lid Knight",
+    "vi": "Hiệp sĩ nắp quan tài"
+   },
+   "displayBody": 1,
+   "altBody": 2,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
+    "Voc §3.2, §3.3, §10.1, §10.2, §10.4, §10.9, §17.6; Bible §8.3; Cast §4.1 (Pall-Wight, Ser Hamon)"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §4 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "bier frame top",
+     "H": 1.22,
+     "px": 488,
+     "topY": 152
+    },
+    "values": {
+     "bier frame height": {
+      "H": 0.8,
+      "px": 320
+     },
+     "bier frame bottom above baseline": {
+      "H": 0.42,
+      "px": 168
+     },
+     "bier frame top above baseline": {
+      "H": 1.22,
+      "px": 488
+     },
+     "bier frame width at its widest (about a quarter down from the top)": {
+      "H": 0.24,
+      "px": 96
+     },
+     "bier frame width at the base": {
+      "H": 0.16,
+      "px": 64
+     },
+     "bier frame depth": {
+      "H": 0.1,
+      "px": 40
+     },
+     "mortar fill top above baseline (about 50 Burden)": {
+      "H": 0.82,
+      "px": 328
+     },
+     "coffin lid height": {
+      "H": 0.72,
+      "px": 288
+     },
+     "coffin lid width": {
+      "H": 0.28,
+      "px": 112
+     },
+     "flanged mace length": {
+      "H": 0.42,
+      "px": 168
+     },
+     "funeral bell height": {
+      "H": 0.08,
+      "px": 32
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 1), ALT (3/4 on body 2); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The Order's knight proper: low wide triangle, a tall narrow STYLISED coffin-lid shield (0.72H x 0.28H) on the left arm, flanged mace in the right, a narrow pale weathered oak bier frame in an upright coffin outline (no rungs or crossbars in the open upper half) (0.80H, 0.42H-1.22H) holding six courses of grey mortar to half height, a long iron-stitched pall surcoat with one band of big iron rings at the hem, Osric's Lantern from the frame's lower right corner. | DIFFERENTIATION: B is a taller, criss-crossed silhouette with a planted bearing pole, a bent iron-band cage frame, studded cloth armour and the lid stowed on the frame's left flank.",
+   "palette": [
+    {
+     "role": "pewter plate armour",
+     "hex": "#6E7276",
+     "lStar": 48
+    },
+    {
+     "role": "pale weathered oak (bier frame and coffin lid; the light mass of the silhouette)",
+     "hex": "#C2AE88",
+     "lStar": 72
+    },
+    {
+     "role": "grey mortar courses in the frame",
+     "hex": "#7E796F",
+     "lStar": 51
+    },
+    {
+     "role": "pall cloth, dark earth-brown (the dark mass; never pure black)",
+     "hex": "#3B302A",
+     "lStar": 21
+    },
+    {
+     "role": "silver coffin nails (small points only)",
+     "hex": "#C8CBCB",
+     "lStar": 81
+    },
+    {
+     "role": "leather (straps, belts, gloves)",
+     "hex": "#5A4332",
+     "lStar": 30
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the pale weathered oak frame and lid, #C2AE88, L* 72",
+    "darkMass": "the pall cloth, #3B302A, L* 21"
+   },
+   "osricsLantern": "hangs from the lower right corner of the bier frame",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PB_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Revised after Opus round 1: the frame is a narrow upright COFFIN outline (0.80H, 0.42H-1.22H), inside the shoulder line; the pilot drew a ladder-like frame about 1.08H tall.",
+    "The lid is stylised (0.72H x 0.28H) and must never read as a child's coffin.",
+    "Right hand is gloved (a brief choice so that PB follows the ring-visibility rule: the ring is hidden under a glove or gauntlet).",
+    "Surcoat colour is read from the pall-cloth swatch #3B302A.",
+    "PB_A is regenerated WITHOUT the pilot attached so the revised frame and lid replace the pilot's design.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "The pilot's crossbar-and-rung frame read as a ladder: the open upper half of the frame has no rungs or crossbars.",
+    "Tall prop: the frame top (1.22H, y=152) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the prop."
+   ],
+   "pilot": {
+    "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+    "size": "2172x724",
+    "status": "generated; accepted for LAYOUT only (not for design)",
+    "acceptedBy": "main agent QA, 2026-10-20",
+    "qaNotes": [
+     "seven figures and labels correct",
+     "hero crowns equal the H crown",
+     "the model used about 480 px per H instead of 400 (relative scale is what counts)",
+     "the frame came out about 1.08H tall and ladder-like; the revised design (narrow upright coffin outline, 0.80H) fixes this",
+     "the model also shrank the old 1.2H frame to about 1.08H to stay under the title (pilot: title y 23-56, H silhouette y 143-625, baseline y about 628); the pilot's figure size must therefore not be copied"
+    ],
+    "usedAsReferenceBy": "the other 11 hero sheets (layout only); NOT attached to PB_A itself"
+   },
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/PB_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/PB_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the bier frame with its mortar courses on the back, the purple half-cape, the nail-studded LEFT gauntlet, the funeral bell at the right hip, Osric's Lantern hanging at the frame's lower right corner",
+     "separateWeapons": [
+      {
+       "label": "COFFIN-LID SHIELD",
+       "description": "tall narrow coffin hexagon, about 0.9H, thick iron rim, big silver nails and a central keystone Wedge of nails"
+      },
+      {
+       "label": "MACE",
+       "description": "large flanged mace, about 0.55H"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "PB_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "PB",
+    "name": "Pallbearer"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Bier-Bearer",
+    "vi": "Người khiêng đòn"
+   },
+   "displayBody": 1,
+   "altBody": 2,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
+    "Voc §3.2, §3.3, §10.1, §10.2, §10.4, §10.9, §17.6; Bible §8.3; Cast §4.1 (Pall-Wight, Ser Hamon)"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §4 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "bearing pole top",
+     "H": 1.3,
+     "px": 520,
+     "topY": 120
+    },
+    "values": {
+     "bearing pole length": {
+      "H": 1.3,
+      "px": 520
+     },
+     "bier frame height": {
+      "H": 0.8,
+      "px": 320
+     },
+     "bier frame bottom above baseline": {
+      "H": 0.42,
+      "px": 168
+     },
+     "bier frame top above baseline": {
+      "H": 1.22,
+      "px": 488
+     },
+     "bier frame width at its widest (about a quarter down from the top)": {
+      "H": 0.24,
+      "px": 96
+     },
+     "bier frame width at the base": {
+      "H": 0.16,
+      "px": 64
+     },
+     "bier frame depth": {
+      "H": 0.1,
+      "px": 40
+     },
+     "mortar fill top above baseline (about 50 Burden)": {
+      "H": 0.82,
+      "px": 328
+     },
+     "coffin lid height": {
+      "H": 0.72,
+      "px": 288
+     },
+     "coffin lid width": {
+      "H": 0.28,
+      "px": 112
+     },
+     "funeral bell height": {
+      "H": 0.08,
+      "px": 32
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 1), ALT (3/4 on body 2); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "Funeral porter of the pilgrim road: more horizontal and diagonal lines than A; a two-handed bearing pole planted upright beside the right foot, held by the right hand alone (partly hidden in the LEFT view), a bier cage of pale weathered oak rails bound with bent iron bands in the same narrow upright coffin outline with grey mortar between the rails, the coffin lid stowed edge-on on three hooks along the frame's left flank, studded cloth brigandine in dark grey-brown wool, a rope bandolier across the chest, the bell at the right hip, Osric's Lantern from the frame's lower right corner. | DIFFERENTIATION: A is the low wide shield-and-mace knight with a wooden frame and a long surcoat.",
+   "palette": [
+    {
+     "role": "pale weathered oak (bier frame rails and coffin lid; the light mass of the silhouette)",
+     "hex": "#C2AE88",
+     "lStar": 72
+    },
+    {
+     "role": "bent iron bands on the frame, gauntlet",
+     "hex": "#4A4B4E",
+     "lStar": 32
+    },
+    {
+     "role": "studded cloth brigandine, dark grey-brown wool",
+     "hex": "#4D4540",
+     "lStar": 30
+    },
+    {
+     "role": "grey mortar courses in the frame",
+     "hex": "#7E796F",
+     "lStar": 51
+    },
+    {
+     "role": "pall cloth, dark earth-brown (hood-cape; the dark mass; never pure black)",
+     "hex": "#3B302A",
+     "lStar": 21
+    },
+    {
+     "role": "silver coffin nails (small points only)",
+     "hex": "#C8CBCB",
+     "lStar": 81
+    },
+    {
+     "role": "leather (straps, belts, gloves)",
+     "hex": "#5A4332",
+     "lStar": 30
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the pale oak frame rails and lid, #C2AE88, L* 72 (the iron bands are thin bindings only)",
+    "darkMass": "the pall-cloth hood-cape, #3B302A, L* 21, with the brigandine, #4D4540, L* 30"
+   },
+   "osricsLantern": "hangs from the lower right corner of the bier frame",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PB_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Lid stowed edge-on on three hooks along the frame's LEFT flank; hook heights are left to the artist (cut to keep the prompt short).",
+    "Pole planted beside the RIGHT foot and held by the right hand alone; the left arm hangs relaxed; the pole is partly hidden in the LEFT view (the pole rings, the grips and a second frame seam were cut). Bell at the right hip; rope bandolier runs from the LEFT shoulder to the RIGHT flank (concept doc §4.6).",
+    "Frame colour: pale weathered oak rails bound with bent iron bands (#4A4B4E, reused from EX); the oak keeps the light mass (L* 72) in both directions. Brigandine is a new swatch #4D4540 (L* 30). No pewter plate on this direction.",
+    "The one readable seam is the large patch on the hood-cape (concept doc §4.6).",
+    "Mortar top 0.82H is derived (0.42H frame bottom + half of the 0.80H frame height).",
+    "Tall prop: the pole top (1.3H, y=120) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the pole.",
+    "Wave-2 watch: the edge-on lid may vanish in TOPDOWN_B.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9)."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/PB_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/PB_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the bier frame with its mortar courses on the back and the big coffin lid stowed on hooks along its LEFT flank, the purple hood-cape, the rope bandolier, the funeral bell at the right hip, Osric's Lantern at the frame's lower right corner",
+     "separateWeapons": [
+      {
+       "label": "BIER-POLE",
+       "description": "heroic two-handed polearm about 1.5H, ornate silver end caps shaped like huge coffin-nail heads, drawn lying horizontally"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "FL_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "FL",
+    "name": "Flagellant"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Wayfaring Penitent",
+    "vi": "Kẻ sám hối đường trường"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
+    "Voc §3.2, §3.3, §11.1, §11.9, §23 item 15; Bible §13.3; Cast §4.3, §4.4, §3.7; QCQ F04, F06, F08, P09, D02"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §5 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "head with headcloth",
+     "H": 1.05,
+     "px": 420,
+     "topY": 220
+    },
+    "values": {
+     "chain-mace haft": {
+      "H": 0.28,
+      "px": 112
+     },
+     "chain-mace chains each": {
+      "H": 0.22,
+      "px": 88
+     },
+     "branding iron length": {
+      "H": 0.35,
+      "px": 140
+     },
+     "coal pot height": {
+      "H": 0.12,
+      "px": 48
+     },
+     "belt end hanging length (ten knots)": {
+      "H": 0.35,
+      "px": 140
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The narrow long-robed road walker: dark red-brown robe split for a long stride, leather apron-vest, broad linen wraps, chain-mace in the right hand, cold branding iron in the left, a lidded coal pot on the LEFT hip, a ten-knot cord belt; the wrist chain stays cold and no halo appears anywhere on the gear. | DIFFERENTIATION: B is compact, hoodless, with a hip-length sleeveless jerkin, forearm chains and a coal box at the left of the belt.",
+   "palette": [
+    {
+     "role": "dark red-brown robe or jerkin (the dark mass)",
+     "hex": "#5B2B24",
+     "lStar": 24
+    },
+    {
+     "role": "undyed linen wraps, sleeves, sash, headcloth (the light mass)",
+     "hex": "#CBBFA6",
+     "lStar": 78
+    },
+    {
+     "role": "black nun's cuff (one small patch)",
+     "hex": "#1E1B1C",
+     "lStar": 10
+    },
+    {
+     "role": "black iron (chains, pot, box, buckles)",
+     "hex": "#45464A",
+     "lStar": 30
+    },
+    {
+     "role": "ash grey (optional brow mark; not drawn on this sheet)",
+     "hex": "#9A968F",
+     "lStar": 62,
+     "usedOnSheet": false
+    },
+    {
+     "role": "coal red (light only, never on the sheet)",
+     "hex": "#D0532A",
+     "lStar": 52,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the undyed linen wraps, #CBBFA6, L* 78",
+    "darkMass": "the dark red-brown robe, #5B2B24, L* 24"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/FL_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "stopped (direction changed)",
+   "openNotes": [
+    "Coal pot on the LEFT hip so the iron in the left hand does not cross the body; the ten-knot cord end hangs at the front right (a brief choice: the doc gives no side for the cord end).",
+    "Wrist chain links are cold; heat exists only in the pot (not drawn on the sheet).",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Iron handles stand up through slots in the closed lid of the coal pot/box; the lid stays closed and nothing is hot."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/FL_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept_v2.png",
+    "references": [],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/FL_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x940",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the glowing coal pot at the LEFT hip, the ten-knot cord belt, the crimson scapular, white linen wraps, the linen coif, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "CHAIN-FLAIL",
+       "description": "short handle with two long heavy chains ending in big spiked iron balls, drawn lying horizontally"
+      },
+      {
+       "label": "BRANDING IRON",
+       "description": "long iron rod whose single-loop knot sigil head glows ember orange"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "FL_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "FL",
+    "name": "Flagellant"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Chain-Bearer",
+    "vi": "Kẻ mang xích"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
+    "Voc §3.2, §3.3, §11.1, §11.9, §23 item 15; Bible §13.3; Cast §4.3, §4.4, §3.7; QCQ F04, F06, F08, P09, D02"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §5 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "head with close linen coif",
+     "H": 1.03,
+     "px": 412,
+     "topY": 228
+    },
+    "values": {
+     "long chain, total when unwound": {
+      "H": 0.9,
+      "px": 360
+     },
+     "coal box height": {
+      "H": 0.16,
+      "px": 64
+     },
+     "coal box width": {
+      "H": 0.1,
+      "px": 40
+     },
+     "branding iron length": {
+      "H": 0.35,
+      "px": 140
+     },
+     "sash end hanging length (ten knots)": {
+      "H": 0.35,
+      "px": 140
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The compact chain fighter: sleeveless hip-length padded jerkin over a linen shirt, long linen sash ending in the ten-knot cord, loose trousers wrapped at the shins, a close linen coif with no hood and no tail, a long cold chain wound round both forearms plus one chest loop, a lidded iron coal box at the LEFT of the belt with the irons standing handles-up; nothing on the back. | DIFFERENTIATION: A is the narrow long-robed walker with the chain-mace and coal pot on the hip.",
+   "palette": [
+    {
+     "role": "dark red-brown robe or jerkin (the dark mass)",
+     "hex": "#5B2B24",
+     "lStar": 24
+    },
+    {
+     "role": "undyed linen wraps, sleeves, sash, headcloth (the light mass)",
+     "hex": "#CBBFA6",
+     "lStar": 78
+    },
+    {
+     "role": "black nun's cuff (one small patch)",
+     "hex": "#1E1B1C",
+     "lStar": 10
+    },
+    {
+     "role": "black iron (chains, pot, box, buckles)",
+     "hex": "#45464A",
+     "lStar": 30
+    },
+    {
+     "role": "ash grey (optional brow mark; not drawn on this sheet)",
+     "hex": "#9A968F",
+     "lStar": 62,
+     "usedOnSheet": false
+    },
+    {
+     "role": "coal red (light only, never on the sheet)",
+     "hex": "#D0532A",
+     "lStar": 52,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the undyed linen wraps, #CBBFA6, L* 78",
+    "darkMass": "the dark red-brown robe, #5B2B24, L* 24"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/FL_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Sleeveless jerkin is worn over a long-sleeved linen shirt so no arm is bare (content rule: no bare torso or arms with marks).",
+    "Hip-length padded jerkin, sash with the ten-knot end, hoodless coif and left-side coal box separate this direction from EX_B.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Iron handles stand up through slots in the closed lid of the coal pot/box; the lid stays closed and nothing is hot."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/FL_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/FL_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the massive chain bracers on both forearms, the heavy chain loop across the chest, the glowing iron coal box at the LEFT side of the belt with branding-iron handles standing out of its closed lid, the crimson sash ending in the ten-knot cord, the linen coif, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "CHAIN SCOURGE",
+       "description": "a long heavy chain ending in a spiked iron weight, drawn coiled and laid out horizontally"
+      },
+      {
+       "label": "BRANDING IRON",
+       "description": "long iron rod whose single-loop knot sigil head glows ember orange"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "OS_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "OS",
+    "name": "Ossuarist"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Midwife of the Wall",
+    "vi": "Bà đỡ của Tường"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
+    "Voc §3.2, §12.1, §12.2, §12.5, §12.9; Bible §13.2; Cast §3.1 (Gennet), §4.5, §4.6, §6.7; QCQ U10, U11, F15"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §6 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "hooded dome",
+     "H": 1.08,
+     "px": 432,
+     "topY": 208
+    },
+    "values": {
+     "reliquary height": {
+      "H": 0.16,
+      "px": 64
+     },
+     "reliquary width": {
+      "H": 0.12,
+      "px": 48
+     },
+     "reliquary chain length": {
+      "H": 0.12,
+      "px": 48
+     },
+     "bone wand length": {
+      "H": 0.32,
+      "px": 128
+     },
+     "sickle length": {
+      "H": 0.28,
+      "px": 112
+     },
+     "tally-stick bundle length": {
+      "H": 0.15,
+      "px": 60
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "A village midwife who keeps the Wall's accounts: thick ink-indigo shawl over the head as a domed hood, long linen apron with deep pockets over an ink-grey dress, bell-shaped lower body, little-house reliquary (eight empty niches) on a chain in the left hand, short bone-wand, tally sticks, sickle behind the belt. | DIFFERENTIATION: B is a tall narrow column with a pale felt capelet, a bone drum reliquary and no apron.",
+   "palette": [
+    {
+     "role": "ink-indigo shawl and hood (the dark mass)",
+     "hex": "#2E3140",
+     "lStar": 21
+    },
+    {
+     "role": "ink-grey dress",
+     "hex": "#3B3B42",
+     "lStar": 25
+    },
+    {
+     "role": "grey linen apron (the light mass)",
+     "hex": "#A79F8E",
+     "lStar": 66
+    },
+    {
+     "role": "bone ivory (wand, finger-rings, reliquary panels)",
+     "hex": "#D6CBB2",
+     "lStar": 82
+    },
+    {
+     "role": "tarnished silver (reliquary corners, wand binding)",
+     "hex": "#9C9C94",
+     "lStar": 64
+    },
+    {
+     "role": "grey mortar stain (a few large patches only)",
+     "hex": "#8C877D",
+     "lStar": 56
+    },
+    {
+     "role": "soul white (light only, never on the sheet)",
+     "hex": "#EEF3F6",
+     "lStar": 96,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the grey linen apron, #A79F8E, L* 66",
+    "darkMass": "the ink-indigo shawl and hood, #2E3140, L* 21"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/OS_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "stopped (direction changed)",
+   "openNotes": [
+    "Sickle behind the belt at the left back and the tally bundle at the left hip (concept doc §6.5) keep the slot behind the right hip free for Osric's Lantern.",
+    "The A palette uses the grey linen apron as the light mass; the dress is ink-grey #3B3B42 (replaces the peat tone that equalled the EX coat).",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9)."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/OS_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept_v2.png",
+    "references": [],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/OS_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the midnight-indigo shawl-hood with bone toggles, the pale linen apron, the big finger-bone rings on the LEFT hand, the bundle of notched tally sticks at the left hip, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "RELIQUARY",
+       "description": "house-shaped casket of carved bone panels and silver corners on a short chain, about 0.28H, its eight round niches each holding a small still cold cyan-white soul point"
+      },
+      {
+       "label": "BONE-WAND",
+       "description": "rod of wired finger bones crowned with a fan of finger bones"
+      },
+      {
+       "label": "SICKLE",
+       "description": "small reed sickle"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The sickle, also drawn separately, is hung at the belt in the four views (a worn duplicate of the separate prop); for 3D model it as a separate prop and remove it from the body"
+    ]
+   }
+  },
+  {
+   "id": "OS_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "OS",
+    "name": "Ossuarist"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Keeper of Debts",
+    "vi": "Người giữ nợ"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
+    "Voc §3.2, §12.1, §12.2, §12.5, §12.9; Bible §13.2; Cast §3.1 (Gennet), §4.5, §4.6, §6.7; QCQ U10, U11, F15"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §6 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "hood",
+     "H": 1.08,
+     "px": 432,
+     "topY": 208
+    },
+    "values": {
+     "reliquary drum body height": {
+      "H": 0.18,
+      "px": 72
+     },
+     "reliquary drum diameter": {
+      "H": 0.15,
+      "px": 60
+     },
+     "reliquary drum height with dome lid and ring": {
+      "H": 0.22,
+      "px": 88
+     },
+     "reliquary chain length": {
+      "H": 0.1,
+      "px": 40
+     },
+     "bone wand length": {
+      "H": 0.42,
+      "px": 168
+     },
+     "sickle length": {
+      "H": 0.28,
+      "px": 112
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The keeper of the Wall's debts: tall narrow straight column, long ink-grey coat, close ink hood, short pale undyed felt capelet, a round bone DRUM reliquary bound with silver bands (eight round niches, tally notches carved on the bands, not book-like) on a short chain in the left hand, a long fan-tipped bone-wand, the sickle under the coat. | DIFFERENTIATION: A is the bell-shaped midwife with the little-house reliquary and an apron.",
+   "palette": [
+    {
+     "role": "ink-indigo hood (the dark mass)",
+     "hex": "#2E3140",
+     "lStar": 21
+    },
+    {
+     "role": "ink-grey long coat",
+     "hex": "#3B3B42",
+     "lStar": 25
+    },
+    {
+     "role": "pale undyed felt capelet (the light mass)",
+     "hex": "#BDB4A2",
+     "lStar": 74
+    },
+    {
+     "role": "bone ivory (wand, finger-rings, drum panels)",
+     "hex": "#D6CBB2",
+     "lStar": 82
+    },
+    {
+     "role": "tarnished silver (drum bands, wand binding)",
+     "hex": "#9C9C94",
+     "lStar": 64
+    },
+    {
+     "role": "grey mortar stain (a few large patches only)",
+     "hex": "#8C877D",
+     "lStar": 56
+    },
+    {
+     "role": "soul white (light only, never on the sheet)",
+     "hex": "#EEF3F6",
+     "lStar": 96,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the pale felt capelet, #BDB4A2, L* 74",
+    "darkMass": "the ink-indigo hood, #2E3140, L* 21"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/OS_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Drum reliquary dimensions (body 0.18H x 0.15H, 0.22H with dome and ring, chain 0.10H) are brief choices; the doc gives only the form (round drum, eight round niches, domed lid with ring).",
+    "Direction renamed 'Người giữ nợ / Keeper of Debts' (decision); no ledger, no number tag.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9)."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/OS_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/OS_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the long midnight-indigo coat with its hood, the pale undyed felt capelet, the big finger-bone rings on the LEFT hand, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "DRUM RELIQUARY",
+       "description": "round drum of bone panels bound with silver bands carved with tally notches, domed lid with a top ring, about 0.28H, eight round niches with still cold cyan-white soul points"
+      },
+      {
+       "label": "BONE-WAND",
+       "description": "long rod (about 0.55H) of wired finger bones topped with a wide fan of finger bones"
+      },
+      {
+       "label": "SICKLE",
+       "description": "small reed sickle"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The sickle, also drawn separately, is hung at the belt in the four views (a worn duplicate of the separate prop); for 3D model it as a separate prop and remove it from the body"
+    ]
+   }
+  },
+  {
+   "id": "BR_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "BR",
+    "name": "Brinecaller"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Dead-Sea Witch",
+    "vi": "Phù thủy biển chết"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
+    "Voc §3.2, §13.1, §13.2, §13.8, §13.9; Bible §13.2; Cast §5.2, §5.4, §5.6, §5.7; QCQ F13, D06, P12, U13, U14; AD §8 (erratum, concept doc §12 item 14)"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §7 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "staff top",
+     "H": 1.25,
+     "px": 500,
+     "topY": 140
+    },
+    "values": {
+     "driftwood staff height": {
+      "H": 1.25,
+      "px": 500
+     },
+     "small brine-flask height each (three)": {
+      "H": 0.1,
+      "px": 40
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The tide witch: tall driftwood staff in the right hand, layered kelp-brown cloth with a heavy curved hem, a net shawl in sea-grey linen, grey-green salt crust on the RIGHT shoulder and sleeve, a short knotted headscarf with no tail, a bandolier of three small flasks, Osric's Lantern behind the right hip. | DIFFERENTIATION: B is a low wading figure with a quilted smock, wading wraps, salt on the right leg, one big flask and no apron, no sailcloth, no jars.",
+   "palette": [
+    {
+     "role": "kelp-green-brown body layers (the dark mass)",
+     "hex": "#3F4434",
+     "lStar": 28
+    },
+    {
+     "role": "grey-green salt crust (the light mass; NEVER white)",
+     "hex": "#B4BCA9",
+     "lStar": 75
+    },
+    {
+     "role": "sea-grey linen",
+     "hex": "#8F9790",
+     "lStar": 62
+    },
+    {
+     "role": "murky teal, SMALL TRIMS ONLY (sash, cap or scarf edge), never a main mass",
+     "hex": "#3B6E68",
+     "lStar": 43
+    },
+    {
+     "role": "rope, earthy gold",
+     "hex": "#94784A",
+     "lStar": 52
+    },
+    {
+     "role": "shell cream (small points only)",
+     "hex": "#D9CDB4",
+     "lStar": 83
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the grey-green salt crust on the right shoulder and sleeve, #B4BCA9, L* 75",
+    "darkMass": "the kelp-brown layers, #3F4434, L* 28"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/BR_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "stopped (direction changed)",
+   "openNotes": [
+    "Teal appears only as thin trims (scarf edge, sash); the headscarf is a short knotted wrap with no tail (trailing cloth is reserved for the Pyre-Singer).",
+    "Exception to the left-hand class-item convention: the three flasks are on a chest bandolier.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Tall prop: the staff top (1.25H, y=140) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the staff."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/BR_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept_v2.png",
+    "references": [],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/BR_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the big angular grey-green salt-crystal pauldron on the RIGHT shoulder and sleeve, the bandolier of three brine flasks across the chest, the fishing-net shawl with glass floats and shells, the short knotted headscarf with no tail, the shell bracelet on the LEFT wrist, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "DRIFTWOOD STAFF",
+       "description": "crooked driftwood staff about 1.35H crowned with a big grey-green salt-crystal cluster, rope bindings, shells and a hanging green glass float, drawn lying horizontally"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The v2/v3 palette has no dark mass <= 30 L* (darkest swatch: kelp #3E5A36, L* 35)."
+    ]
+   }
+  },
+  {
+   "id": "BR_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "BR",
+    "name": "Brinecaller"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Tide-flat Wader",
+    "vi": "Người lội bãi triều"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
+    "Voc §3.2, §13.1, §13.2, §13.8, §13.9; Bible §13.2; Cast §5.2, §5.4, §5.6, §5.7; QCQ F13, D06, P12, U13, U14; AD §8 (erratum, concept doc §12 item 14)"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §7 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "knitted cap",
+     "H": 1.04,
+     "px": 416,
+     "topY": 224
+    },
+    "values": {
+     "large brine-flask height": {
+      "H": 0.28,
+      "px": 112
+     },
+     "shell-tipped wand length": {
+      "H": 0.33,
+      "px": 132
+     },
+     "stoneware salt-crock height": {
+      "H": 0.07,
+      "px": 28
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The tide-flat wader: low ground-hugging mass, short quilted kelp smock, rolled trousers, knee-high wading wraps with grey-green salt crust on the RIGHT leg only, a rope coil on the right shoulder crusted with the same salt, a close sea-grey knitted cap, one big round flask (0.28H) in a rope net in the left hand, a short whale-bone wand in the right, one small stoneware salt-crock at the belt; no apron, no sailcloth, no GLASS jars (the stoneware crock stays). | DIFFERENTIATION: A is the long lopsided staff-and-net silhouette.",
+   "palette": [
+    {
+     "role": "kelp-green-brown body layers (the dark mass)",
+     "hex": "#3F4434",
+     "lStar": 28
+    },
+    {
+     "role": "grey-green salt crust (the light mass; NEVER white)",
+     "hex": "#B4BCA9",
+     "lStar": 75
+    },
+    {
+     "role": "sea-grey (linen, knitted cap)",
+     "hex": "#8F9790",
+     "lStar": 62
+    },
+    {
+     "role": "murky teal, SMALL TRIMS ONLY (sash, cap or scarf edge), never a main mass",
+     "hex": "#3B6E68",
+     "lStar": 43
+    },
+    {
+     "role": "rope, earthy gold",
+     "hex": "#94784A",
+     "lStar": 52
+    },
+    {
+     "role": "shell cream (small points only)",
+     "hex": "#D9CDB4",
+     "lStar": 83
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the grey-green salt crust on the right leg and the rope coil, #B4BCA9, L* 75",
+    "darkMass": "the kelp-brown quilted smock, #3F4434, L* 28"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/BR_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Direction renamed 'Người lội bãi triều / Tide-flat Wader' (decision). No apron, no sailcloth, no GLASS jars (U13/U14 sailcloth; glass jars are Memory's material); the small salt-glazed stoneware crock stays.",
+    "Stoneware salt-crock 0.07H at the left of the belt is a brief size choice (the doc gives none).",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9)."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/BR_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/BR_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the turquoise quilted smock, the salt-crusted rope coil on the RIGHT shoulder, the salt-crusted RIGHT wading wrap, the sea-grey knitted cap, the small stoneware salt crock at the belt, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "BRINE FLASK",
+       "description": "big round glass flask (about 0.35H) in a rope net with a rope handle, swirling murky-teal sea water, salt crystals growing down from the neck"
+      },
+      {
+       "label": "WHALEBONE WAND",
+       "description": "short whalebone wand tipped with a spiral shell"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The v2/v3 palette has no dark mass <= 30 L* (darkest swatch: kelp #3E5A36, L* 35)."
+    ]
+   }
+  },
+  {
+   "id": "EX_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "EX",
+    "name": "Exhumer"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Hook-Lantern Hunter",
+    "vi": "Thợ săn đèn móc"
+   },
+   "displayBody": 1,
+   "altBody": 2,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
+    "Voc §3.2, §14.1, §14.2, §14.3, §14.9, §17.6, §17.10, §17.14; Bible §8.4; Cast §3.1 (Tamsin), §4.1 (F03, Ignatia), §7.2, §7.4; QCQ F03, F07, F16, F17, B15, P24"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §8 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "spade handle top and hat",
+     "H": 1.1,
+     "px": 440,
+     "topY": 200
+    },
+    "values": {
+     "hat width": {
+      "H": 0.38,
+      "px": 152
+     },
+     "lantern height": {
+      "H": 0.16,
+      "px": 64
+     },
+     "lantern centre above baseline (sternum height)": {
+      "H": 0.7,
+      "px": 280
+     },
+     "iron hook-arm length": {
+      "H": 0.2,
+      "px": 80
+     },
+     "grave-spade length": {
+      "H": 1.15,
+      "px": 460
+     },
+     "spade blade length": {
+      "H": 0.35,
+      "px": 140
+     },
+     "spade blade width": {
+      "H": 0.12,
+      "px": 48
+     },
+     "crossbow length": {
+      "H": 0.45,
+      "px": 180
+     },
+     "crossbow span": {
+      "H": 0.42,
+      "px": 168
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 1), ALT (3/4 on body 2); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The patient tracker: wide flat hat with the left side of the brim pinned up and a cream patch with big dark stitches on the crown, a linen neck scarf, long slit oilcloth coat in dark umber, the hooded lantern at sternum height on a short iron hook-arm riveted to the left shoulder harness, the long spade strapped on the back about 20 degrees from vertical, the crossbow in the right hand; no pole of any kind. | DIFFERENTIATION: B is a short quilted jacket with a slouch hat over a hood, the lantern at the left hip and the spade planted in the right hand.",
+   "palette": [
+    {
+     "role": "oiled umber oilcloth coat (the dark mass)",
+     "hex": "#4A3B2D",
+     "lStar": 26
+    },
+    {
+     "role": "dusty felt hat",
+     "hex": "#A8957A",
+     "lStar": 63
+    },
+    {
+     "role": "oiled leather (gloves, belts, apron)",
+     "hex": "#5B4130",
+     "lStar": 30
+    },
+    {
+     "role": "linen neck scarf (the light mass)",
+     "hex": "#B8AE98",
+     "lStar": 71
+    },
+    {
+     "role": "cream patch with big dark stitches on the hat crown, where the open-grave seal was cut away",
+     "hex": "#D9CDB4",
+     "lStar": 83
+    },
+    {
+     "role": "tarnished silver (bolts, spade edge)",
+     "hex": "#A9ABA7",
+     "lStar": 70
+    },
+    {
+     "role": "iron (lantern frame, spade neck, crossbow fittings)",
+     "hex": "#4A4B4E",
+     "lStar": 32
+    },
+    {
+     "role": "lamp amber (light only, never on the sheet)",
+     "hex": "#E7A04A",
+     "lStar": 71,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the linen neck scarf, #B8AE98, L* 71, with the cream hat-crown patch, #D9CDB4, L* 83",
+    "darkMass": "the umber oilcloth coat, #4A3B2D, L* 26"
+   },
+   "osricsLantern": "merged into the class lantern (not drawn separately)",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/EX_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "No pole: the class lantern hangs at sternum height (about 0.70H, derived) from a 0.20H hook-arm on the left shoulder harness.",
+    "The silver-bolt case moves from a chest bandolier to the belt (front right) so the chest stays free for the lantern.",
+    "Osric's Lantern is merged into the class lantern. The EX hat (#A8957A, L* 63) is below the L* 65 light-mass threshold; the linen neck scarf (#B8AE98, L* 71) and the cream hat-crown patch (#D9CDB4, L* 83, big dark stitches) are the light masses.",
+    "Direction renamed 'Thợ săn đèn móc / Hook-Lantern Hunter' because the pole was removed.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "The spade is strapped about 20 degrees from vertical (a 45-degree diagonal would be about 0.8H wide and overflow a 300 px slot).",
+    "Severin is named correctly: NOT Severin's Widower's Lantern (Bible §15.1) or the Lamp-Bearer (Cast §7.8); B15 Lamplighter stays its own lookalike."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/EX_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/EX_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the wide hat with the LEFT brim pinned up and the cream stitched patch on the crown, the long bottle-green coat with split tails and short shoulder cape, the class lantern LIT with amber light hanging at the LEFT chest from a short iron hook-arm, the belt quiver of silver bolts, the brass-buckled bandoliers, the linen neck scarf",
+     "separateWeapons": [
+      {
+       "label": "CROSSBOW",
+       "description": "heavy crossbow with a big steel bow and a side crank, a few silver bolts beside it"
+      },
+      {
+       "label": "GRAVE-SPADE",
+       "description": "long-bladed grave-spade with an engraved silver-edged blade, drawn lying horizontally"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The grave-spade, also drawn separately, is carried on the back in the four views (a worn duplicate of the separate prop); for 3D model it as a separate prop and remove it from the body"
+    ]
+   }
+  },
+  {
+   "id": "EX_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "EX",
+    "name": "Exhumer"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Hip-Lantern Gravedigger",
+    "vi": "Người đào mộ đèn hông"
+   },
+   "displayBody": 1,
+   "altBody": 2,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
+    "Voc §3.2, §14.1, §14.2, §14.3, §14.9, §17.6, §17.10, §17.14; Bible §8.4; Cast §3.1 (Tamsin), §4.1 (F03, Ignatia), §7.2, §7.4; QCQ F03, F07, F16, F17, B15, P24"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §8 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "spade and hat",
+     "H": 1.15,
+     "px": 460,
+     "topY": 180
+    },
+    "values": {
+     "hat width": {
+      "H": 0.4,
+      "px": 160
+     },
+     "lantern height": {
+      "H": 0.16,
+      "px": 64
+     },
+     "grave-spade length": {
+      "H": 1.15,
+      "px": 460
+     },
+     "spade blade length": {
+      "H": 0.35,
+      "px": 140
+     },
+     "spade blade width": {
+      "H": 0.12,
+      "px": 48
+     },
+     "crossbow length": {
+      "H": 0.45,
+      "px": 180
+     },
+     "crossbow span": {
+      "H": 0.42,
+      "px": 168
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 1), ALT (3/4 on body 2); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The grave-digger with traps: quilted oilcloth jacket to mid-thigh, leather apron and gaiters, a wide slouch hat over a hood and a pale mantle, a cream patch with big dark stitches on the crown, the lantern at the left hip on a hook-chain, the long spade held by the right hand alone and planted upright by the right foot (partly hidden in the LEFT view), the crossbow slung across the back, a trap satchel at the right hip. | DIFFERENTIATION: A is the long slit coat with the shoulder hook-arm lantern and the diagonal spade on the back.",
+   "palette": [
+    {
+     "role": "oiled umber oilcloth coat (the dark mass)",
+     "hex": "#4A3B2D",
+     "lStar": 26
+    },
+    {
+     "role": "dusty felt hat",
+     "hex": "#A8957A",
+     "lStar": 63
+    },
+    {
+     "role": "oiled leather (gloves, belts, apron)",
+     "hex": "#5B4130",
+     "lStar": 30
+    },
+    {
+     "role": "linen neck scarf and mantle (the light mass)",
+     "hex": "#B8AE98",
+     "lStar": 71
+    },
+    {
+     "role": "cream patch with big dark stitches on the hat crown, where the open-grave seal was cut away",
+     "hex": "#D9CDB4",
+     "lStar": 83
+    },
+    {
+     "role": "tarnished silver (bolts, spade edge)",
+     "hex": "#A9ABA7",
+     "lStar": 70
+    },
+    {
+     "role": "iron (lantern frame, spade neck, crossbow fittings)",
+     "hex": "#4A4B4E",
+     "lStar": 32
+    },
+    {
+     "role": "lamp amber (light only, never on the sheet)",
+     "hex": "#E7A04A",
+     "lStar": 71,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the linen scarf and mantle, #B8AE98, L* 71, with the cream hat-crown patch, #D9CDB4, L* 83",
+    "darkMass": "the umber oilcloth jacket, #4A3B2D, L* 26"
+   },
+   "osricsLantern": "merged into the class lantern (not drawn separately)",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/EX_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Spade planted upright beside the right foot (fully visible); crossbow slung across the back, stock up; trap satchel at the right hip; no stakes or coil on the back.",
+    "Osric's Lantern is merged into the class lantern. The EX hat (#A8957A, L* 63) is below the L* 65 light-mass threshold; the linen scarf and mantle (L* 71) are the light mass.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Right hand alone holds the planted spade; the left hand hangs free; the spade is partly hidden behind the body in the LEFT view.",
+    "Tall prop: the spade top (1.15H, y=180) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the spade.",
+    "Severin is named correctly: NOT Severin's Widower's Lantern (Bible §15.1) or the Lamp-Bearer (Cast §7.8)."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/EX_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/EX_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x940",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the wide slouch hat over a hood and mantle with the cream stitched patch on the crown, the quilted bottle-green jacket and leather digging apron, the class lantern LIT with amber light at the LEFT hip on a hook-chain, the satchel with wire coil and stakes at the right hip, the linen scarf",
+     "separateWeapons": [
+      {
+       "label": "GRAVE-SPADE",
+       "description": "long-bladed grave-spade about 1.2H with an engraved silver-edged blade, drawn lying horizontally"
+      },
+      {
+       "label": "CROSSBOW",
+       "description": "compact heavy crossbow with a steel bow"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The crossbow, also drawn separately, is slung on the back in the four views (a worn duplicate of the separate prop); for 3D model it as a separate prop and remove it from the body"
+    ]
+   }
+  },
+  {
+   "id": "PS_A",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "PS",
+    "name": "Pyre-Singer"
+   },
+   "direction": "A",
+   "directionName": {
+    "en": "Pyre Songstress",
+    "vi": "Ca nữ giàn thiêu"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
+    "Voc §3.2, §15.1, §15.9, §24.3; Bible §8.5, §13.2, §13.3; Cast §6.1; QCQ P16, U07, P02"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §9 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "staff top",
+     "H": 1.3,
+     "px": 520,
+     "topY": 120
+    },
+    "values": {
+     "pyre-staff height": {
+      "H": 1.3,
+      "px": 520
+     },
+     "staff-head cage height": {
+      "H": 0.14,
+      "px": 56
+     },
+     "ash veil length from the head ring": {
+      "H": 0.35,
+      "px": 140
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The chorister of the pyre: tall straight column, a plain blackened-iron circlet with the ash veil thrown back down past the shoulder blades (face open), a heavy fur collar of two pelts, a long belted soot-dyed robe with one broad cream hatched band at the hem, a 1.3H pyre-staff with an unlit iron cage of split logs, the red-thread braid on the left wrist. | DIFFERENTIATION: B is a big round mass in a knee-length hooded fur cloak.",
+   "palette": [
+    {
+     "role": "ash-grey veil, opaque matte warm cloth (the light mass)",
+     "hex": "#B4AEA5",
+     "lStar": 71
+    },
+    {
+     "role": "soot-dyed wool (robe or tunic, staff, boots; the dark mass)",
+     "hex": "#26221F",
+     "lStar": 14
+    },
+    {
+     "role": "fur brown",
+     "hex": "#6B5745",
+     "lStar": 39
+    },
+    {
+     "role": "undyed wool cream (hem band, inner sleeves, sash)",
+     "hex": "#C8BEAE",
+     "lStar": 77
+    },
+    {
+     "role": "red thread (a very small accent)",
+     "hex": "#A84B30",
+     "lStar": 44
+    },
+    {
+     "role": "ember orange (light only, never on the sheet)",
+     "hex": "#E27A36",
+     "lStar": 62,
+     "usedOnSheet": false
+    },
+    {
+     "role": "rime (effect only, never on the sheet)",
+     "hex": "#BCD0EA",
+     "lStar": 83,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the ash-grey veil, #B4AEA5, L* 71",
+    "darkMass": "the soot-dyed wool robe, #26221F, L* 14"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PS_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "The soot-dyed wool robe is the dark mass (L* 14), as concept doc §9.4 assigns soot to the A robe.",
+    "Circlet of plain blackened iron (not birch bark); red-thread stitch line on the veil edge is not drawn.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Tall prop: the staff top (1.3H, y=120) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the staff."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/PS_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/PS_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the ash-white veil thrown back from a plain blackened-iron circlet, the massive fur collar with ice-blue frost rime on the LEFT shoulder, the soot-charcoal robe with bold red bands at hem and cuffs, the red-thread braid with two tails on the LEFT wrist, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "PYRE-STAFF",
+       "description": "tall staff about 1.4H topped by a small iron cage of split logs BURNING with orange flame and rising ash, drawn lying horizontally"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "PS_B",
+   "kind": "hero-lineup",
+   "vocation": {
+    "code": "PS",
+    "name": "Pyre-Singer"
+   },
+   "direction": "B",
+   "directionName": {
+    "en": "Farewell-Road Singer",
+    "vi": "Người hát tiễn đường xa"
+   },
+   "displayBody": 2,
+   "altBody": 1,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
+    "Voc §3.2, §15.1, §15.9, §24.3; Bible §8.5, §13.2, §13.3; Cast §6.1; QCQ P16, U07, P02"
+   ],
+   "sizeSpec": {
+    "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
+    "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §9 size table",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "staff top",
+     "H": 1.2,
+     "px": 480,
+     "topY": 160
+    },
+    "values": {
+     "curved birch staff height": {
+      "H": 1.2,
+      "px": 480
+     },
+     "twig-bundle head height": {
+      "H": 0.16,
+      "px": 64
+     },
+     "ash pouch height": {
+      "H": 0.08,
+      "px": 32
+     },
+     "Osric's Lantern height": {
+      "H": 0.12,
+      "px": 48
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, 3/4, LEFT, RIGHT, FRONT, BACK (display body 2), ALT (3/4 on body 1); reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "The wandering mourner-singer: a big round mass in a knee-length hooded fur cloak (fur outside, plain horn toggles at the throat only, hanging open from the chest down so the soot tunic shows), the veil hanging from the hood rim at the back only, shorter soot-dyed tunic, felt leggings, fur-wrapped boots, a crooked birch staff (1.2H) with a bound twig-and-resin torch-brush, a soot ash pouch at the belt, red thread at the left wrist and on the cloak edge. | DIFFERENTIATION: A is the tall straight column with an iron circlet and a firewood-cage staff.",
+   "palette": [
+    {
+     "role": "ash-grey veil, opaque matte warm cloth (the light mass)",
+     "hex": "#B4AEA5",
+     "lStar": 71
+    },
+    {
+     "role": "soot-dyed wool (robe or tunic, staff, boots; the dark mass)",
+     "hex": "#26221F",
+     "lStar": 14
+    },
+    {
+     "role": "fur brown",
+     "hex": "#6B5745",
+     "lStar": 39
+    },
+    {
+     "role": "undyed wool cream (hem band, inner sleeves, sash)",
+     "hex": "#C8BEAE",
+     "lStar": 77
+    },
+    {
+     "role": "red thread (a very small accent)",
+     "hex": "#A84B30",
+     "lStar": 44
+    },
+    {
+     "role": "ember orange (light only, never on the sheet)",
+     "hex": "#E27A36",
+     "lStar": 62,
+     "usedOnSheet": false
+    },
+    {
+     "role": "rime (effect only, never on the sheet)",
+     "hex": "#BCD0EA",
+     "lStar": 83,
+     "usedOnSheet": false
+    }
+   ],
+   "valueRule": {
+    "lightMass": "the ash-grey veil, #B4AEA5, L* 71",
+    "darkMass": "the soot-dyed wool tunic and felt leggings, #26221F, L* 14"
+   },
+   "osricsLantern": "hangs on a short chain behind the right hip",
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PS_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png",
+     "role": "accepted 7-figure layout pilot; copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px); never its design, colours, props or the Pallbearer itself"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "The animal-shaped tags are removed (they read as spirit-animal totems; Voc §24.3); an ash pouch (0.08H, a brief size) replaces them.",
+    "The veil tail from the hood rim is the only long trailing cloth among the heroes besides PS_A.",
+    "Final palette locks only after scene tests in the lab (concept doc §12 item 7).",
+    "Display body is presentation only, not a gender lock (concept doc §2.1, §12 item 9).",
+    "Cloak toggles at the throat only; the cloak hangs open from the chest down so the soot-dyed tunic (the dark mass) is visible.",
+    "Tall prop: the staff top (1.2H, y=160) stays inside the canvas below the title band; if it does not fit, shrink ALL seven figures equally; never shorten, bend or crop the staff."
+   ],
+   "v2": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2/PS_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept_v2.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept.png",
+      "role": "v1 sheet of the same hero and direction: identity base (costume structure, props, row layout, seven views, labels); not its muted dusty colours or grime"
+     }
+    ],
+    "status": "generated"
+   },
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/PS_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept_v2.png",
+      "role": "version-2 sheet of the same hero and direction: keep its design identity, silhouette, signature props and colour palette; do NOT copy its seven-small-figures layout and do NOT copy its busy clothing detail"
+     }
+    ],
+    "status": "generated",
+    "size": "1672x941",
+    "kit": {
+     "source": "KIT dict of E:/hero-batch/build_v3.py",
+     "worn": "the knee-length hooded fur cloak toggled at the throat and open from the chest down with frost rime on its LEFT side, the ash-white veil hanging from the hood rim at the back, the soot-charcoal tunic with red edges, the soot-black ash pouch at the belt, the red-thread braid on the LEFT wrist, Osric's Lantern behind the right hip",
+     "separateWeapons": [
+      {
+       "label": "TORCH-STAFF",
+       "description": "crooked birch staff about 1.3H whose head is a tightly bound CONE of birch twigs and resin BURNING with orange flame (bundled like a torch, never splayed like fingers or a hand), drawn lying horizontally"
+      }
+     ]
+    },
+    "qaNotes": [
+     "The torch head still reads a little like splayed fingers."
+    ]
+   }
+  },
+  {
+   "id": "PROLOGUE_LINEUP",
+   "kind": "hero-prologue-lineup",
+   "vocation": null,
+   "direction": null,
+   "directionName": null,
+   "displayBody": {
+    "PB": 1,
+    "FL": 2,
+    "OS": 2,
+    "BR": 2,
+    "EX": 1,
+    "PS": 2
+   },
+   "altBody": null,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.9, §2.1, §11.1, §3",
+    "Voc §3.4 (starting kit), §3.3, §21.1",
+    "Bible §10.1, §10.3, §11.2",
+    "Cast §2.1 (The Loosed)",
+    "LD §10"
+   ],
+   "sizeSpec": {
+    "unit": "H = neutral human height; all six heroes have the crown at 1.0H",
+    "status": "provisional (Prologue prop sizes are production choices; the doc gives only the lamp, 0.16H)",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §2.1, §2.9, §8.8",
+    "canvas": {
+     "reference": "2172x724",
+     "baselineY": 640,
+     "H_px": 400,
+     "crownY": 240
+    },
+    "heroCrownH": 1.0,
+    "tallestElement": {
+     "name": "rusted grave-spade",
+     "H": 1.0,
+     "px": 400,
+     "topY": 240
+    },
+    "values": {
+     "coffin lid height (PB)": {
+      "H": 0.72,
+      "px": 288
+     },
+     "candle-stand mace length (PB)": {
+      "H": 0.4,
+      "px": 160
+     },
+     "bier-board height (PB)": {
+      "H": 0.5,
+      "px": 200
+     },
+     "bier-board width (PB)": {
+      "H": 0.14,
+      "px": 56
+     },
+     "rope-and-chain total length (FL)": {
+      "H": 0.5,
+      "px": 200
+     },
+     "bone-hook length (OS)": {
+      "H": 0.35,
+      "px": 140
+     },
+     "earthenware grave-salt jar height (BR)": {
+      "H": 0.12,
+      "px": 48
+     },
+     "hooded lamp height (EX)": {
+      "H": 0.16,
+      "px": 64
+     },
+     "rusted grave-spade length (EX)": {
+      "H": 1.0,
+      "px": 400
+     },
+     "votive torch length (PS)": {
+      "H": 0.6,
+      "px": 240
+     }
+    }
+   },
+   "layout": "single row of SEVEN full-body figures on one baseline: H, PB, FL, OS, BR, EX, PS, each hero in front-left 3/4 on its display body; reference canvas 2172x724, baseline y=640, 1H=400 px",
+   "designIntent": "Shared end-of-Prologue look on all six: grey burial-shroud wrap under Gennet's long, loose peat-brown wool coat (deep pockets, collar up, two large elbow patches, rope belt), grey mortar dust, barefoot, never nude; only the improvised weapon differs (tall narrow coffin lid (0.72H, never a child's coffin) + candle-stand mace + a bier-board roped to the back with two mortar courses; bell-rope with chain; bone-hook; earthenware grave-salt jar (never glass); hooded lamp + rusted grave-spade; votive torch). The lamp and torch were found dead and lit from Gennet's lantern: a small flat-painted flame is allowed, no glow halo. No Osric's Lantern (gained at A1-Q2). Act I night palette, NO accent colour.",
+   "palette": [
+    {
+     "role": "grey burial shroud",
+     "hex": null
+    },
+    {
+     "role": "peat-brown wool coat",
+     "hex": null
+    },
+    {
+     "role": "grey mortar dust on skin",
+     "hex": null
+    }
+   ],
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/prologue_lineup/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PROLOGUE_LINEUP.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "role": "layout and rendering style only (H human + figures on one baseline); never copy its anatomy, design or colours; this sheet has SEVEN figures"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "The concept doc gives no hex for the Prologue palette (grey shroud, peat-brown coat, mortar dust); none is invented.",
+    "Prop sizes for the Prologue weapons are production choices except the lamp (0.16H, §8.8); the bier-board (0.5H x 0.14H, two mortar courses) is a decision of concept doc §2.9 / §12 item 11 awaiting the user.",
+    "Barefoot (concept doc §2.1 / §2.9).",
+    "Lamp and torch are found dead and lit from Gennet's lantern in stage 2 (LD §10); a small flat-painted flame is allowed, no glow halo.",
+    "PB coffin lid is 0.72H (288 px), tall and narrow like the class lid; never a child's coffin. The BR grave-salt jar is earthenware (glass is Memory's material, LD §4.1, §8.1)."
+   ]
+  },
+  {
+   "id": "CHOICE_HANDS",
+   "kind": "keyart",
+   "vocation": null,
+   "direction": null,
+   "directionName": null,
+   "displayBody": null,
+   "altBody": null,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §10, §2.2 (hand marker table)",
+    "Voc §3.2 (the choice screen and hand markers), §9.1 (canonical order)",
+    "LD §5.2 (one far light, one big dark mass), §10"
+   ],
+   "sizeSpec": {
+    "unit": "no H ruler (key art)",
+    "status": "composition only",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §10",
+    "aspect": "16:9 (for example 1920x1080 or 3840x2160 if the built-in tool supports it)",
+    "values": {}
+   },
+   "layout": "16:9 key art: a wall of skulls in grey mortar, six open hands left to right PB, FL, OS, BR, EX, PS on an arc around one small sexton's candle (Gennet's) low in frame, no text",
+   "designIntent": "Six hands reach out of a wall of skulls set in grey mortar, near darkness, lit only by one candle (Gennet's own); the hands sit on an arc around the low candle so each catches some light; open and inviting, not grabbing (PB, OS and BR show the BACK of the hand toward the viewer because their markers are on the back; FL, EX and PS may be palm up); skulls and bones as broad simple forms; each hand shows its vocation's hand marker; canonical order PB, FL, OS, BR, EX, PS.",
+   "palette": [
+    {
+     "role": "grey mortar and skull wall (the PB mortar swatch), in deep shadow",
+     "hex": "#7E796F",
+     "lStar": 51
+    },
+    {
+     "role": "PB gauntlet plate",
+     "hex": "#6E7276",
+     "lStar": 48
+    },
+    {
+     "role": "PB silver coffin nails",
+     "hex": "#C8CBCB",
+     "lStar": 81
+    },
+    {
+     "role": "PB pall cuff",
+     "hex": "#3B302A",
+     "lStar": 21
+    },
+    {
+     "role": "FL black cuff",
+     "hex": "#1E1B1C",
+     "lStar": 10
+    },
+    {
+     "role": "FL linen wrap",
+     "hex": "#CBBFA6",
+     "lStar": 78
+    },
+    {
+     "role": "FL iron",
+     "hex": "#45464A",
+     "lStar": 30
+    },
+    {
+     "role": "OS bone ivory rings",
+     "hex": "#D6CBB2",
+     "lStar": 82
+    },
+    {
+     "role": "OS grey mortar stain",
+     "hex": "#8C877D",
+     "lStar": 56
+    },
+    {
+     "role": "BR salt dust (pale grey-white with a faint green cast)",
+     "hex": "#B4BCA9",
+     "lStar": 75
+    },
+    {
+     "role": "BR shell bracelet",
+     "hex": "#D9CDB4",
+     "lStar": 83
+    },
+    {
+     "role": "BR sea-grey linen",
+     "hex": "#8F9790",
+     "lStar": 62
+    },
+    {
+     "role": "EX oiled leather glove",
+     "hex": "#5B4130",
+     "lStar": 30
+    },
+    {
+     "role": "EX oilcloth cuff",
+     "hex": "#4A3B2D",
+     "lStar": 26
+    },
+    {
+     "role": "PS red thread braid",
+     "hex": "#A84B30",
+     "lStar": 44
+    },
+    {
+     "role": "PS soot",
+     "hex": "#26221F",
+     "lStar": 14
+    }
+   ],
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/choice_hands/keyart.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/CHOICE_HANDS.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    }
+   ],
+   "dependsOn": [],
+   "status": "generated",
+   "openNotes": [
+    "Concept doc §10 gives no hex for the key art; the hand-marker colours reuse the hero palettes and the wall uses the PB mortar swatch #7E796F.",
+    "The PB gauntlet is worn, so the rope groove in the palm (Voc §3.2) is not shown; the OS hand is simplified to rings and one mortar stain (no creases); the FL chain links are cold.",
+    "Candle position (low, bottom centre between the third and fourth hand, OS and BR) is a composition choice within concept doc §10; the arc arrangement is a decision of round 2.",
+    "No gore, no text. The UI hover behaviour (hand moves, candle leans) is not part of the image.",
+    "PB, OS and BR hands show the BACK of the hand (nails, mortar stain, salt patch are on the back); FL, EX and PS may be palm up. Hands stay on an arc around Gennet's low candle in the order PB, FL, OS, BR, EX, PS.",
+    "BR hand marker (Đề xuất): Voc §3.2 says 'cracked white with salt'; the doc renders pale grey-white salt dusting with a faint green cast, because her salt is grey-green (Voc §13.2, §13.9)."
+   ]
+  },
+  {
+   "id": "TOPDOWN_A",
+   "kind": "hero-topdown-lineup",
+   "vocation": null,
+   "direction": "A",
+   "directionName": {
+    "en": "Game camera, direction A",
+    "vi": "Camera game, hướng A"
+   },
+   "displayBody": null,
+   "altBody": null,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
+    "AD §13 (black silhouette, colour at play size)",
+    "Opus round-1 review finding #12"
+   ],
+   "sizeSpec": {
+    "unit": "relative: every hero body 1.0H, props at the sizes of its own sheet",
+    "status": "readability test, not a design sheet",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §11.1",
+    "canvas": {
+     "reference": "2172x724",
+     "aspect": "3:1"
+    },
+    "values": {}
+   },
+   "layout": "3:1 sheet, two rows of six: top row six heroes in colour from the game camera (high 3/4, 50-60 degrees down, near-orthographic) on a flat neutral mid-grey ground, bottom row the same six as flat solid black silhouettes; columns PB, FL, OS, BR, EX, PS; labels under the columns",
+   "designIntent": "Readability test of the six directions of one letter at play size, in colour and as a black silhouette, before A/B is chosen. Identity comes from the six generated sheets; nothing is redesigned.",
+   "palette": [],
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/TOPDOWN_A.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of PB_A; never redesign, merge or copy its layout",
+     "availableAfter": "PB_A generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of FL_A; never redesign, merge or copy its layout",
+     "availableAfter": "FL_A generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of OS_A; never redesign, merge or copy its layout",
+     "availableAfter": "OS_A generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of BR_A; never redesign, merge or copy its layout",
+     "availableAfter": "BR_A generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of EX_A; never redesign, merge or copy its layout",
+     "availableAfter": "EX_A generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of PS_A; never redesign, merge or copy its layout",
+     "availableAfter": "PS_A generated"
+    }
+   ],
+   "dependsOn": [
+    "PB_A",
+    "FL_A",
+    "OS_A",
+    "BR_A",
+    "EX_A",
+    "PS_A"
+   ],
+   "status": "not run",
+   "openNotes": [
+    "Run only after the six sheets of this letter exist.",
+    "Title: 'HEROES — A · GAME CAMERA'. Labels PB FL OS BR EX PS appear once, under the silhouette row (a brief choice).",
+    "If the tool cannot hold twelve figures legibly, split into two images (colour row, silhouette row) without changing the camera or scale.",
+    "Second batch: run only after the six sheets of this letter pass QA; pass any accepted _v2 sheet with --ref-map OLD=NEW (the runner ignores dependsOn and skips missing references).",
+    "Line 4 no longer names the EX_B spade or the PB_B pole; the FL mark is 'chain-mace hanging from the right hand'."
+   ],
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/TOPDOWN_A.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 PB A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 FL A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 OS A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 BR A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 EX A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vA/concept_v3.png",
+      "role": "identity only: the generated version-3 PS A lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     }
+    ],
+    "status": "running",
+    "builder": "E:/hero-batch/build_topdown_v3.py (session tooling): the v1 TOPDOWN prompt with the six v3 sheets as references, STYLE and COLOUR of v3, lit light sources",
+    "runLog": [
+     "attempt 1: started 2026-10-20T12:34:08",
+     "attempt 1: runner status 'capacity', 869 s, 0 image(s), finished 2026-10-20T12:48:37",
+     "attempt 2: started 2026-10-20T12:50:07"
+    ],
+    "checkedAt": "2026-10-20 12:55",
+    "lastError": [
+     {
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A/concept_v3.result.txt",
+      "text": "`referenced_image_paths` must contain at most 5 paths"
+     }
+    ],
+    "notes": [
+     "The built-in image tool accepts at most 5 referenced_image_paths; this job attaches 6 (one v3 sheet per vocation), so every attempt so far ended without an image.",
+     "hero_batch.py classified attempt 1 as 'capacity' because the tail of its log contains 'stream disconnected' (it matches CAPACITY_RE), although the real cause is the 5-path error (see lastError).",
+     "Change how the references are attached before re-running (for example merge sheets so that at most 5 are attached, or split the run); not decided."
+    ]
+   }
+  },
+  {
+   "id": "TOPDOWN_B",
+   "kind": "hero-topdown-lineup",
+   "vocation": null,
+   "direction": "B",
+   "directionName": {
+    "en": "Game camera, direction B",
+    "vi": "Camera game, hướng B"
+   },
+   "displayBody": null,
+   "altBody": null,
+   "sourceIds": [
+    "ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
+    "AD §13 (black silhouette, colour at play size)",
+    "Opus round-1 review finding #12"
+   ],
+   "sizeSpec": {
+    "unit": "relative: every hero body 1.0H, props at the sizes of its own sheet",
+    "status": "readability test, not a design sheet",
+    "source": "ASHLAR_HERO_CONCEPT_VI.md §11.1",
+    "canvas": {
+     "reference": "2172x724",
+     "aspect": "3:1"
+    },
+    "values": {}
+   },
+   "layout": "3:1 sheet, two rows of six: top row six heroes in colour from the game camera (high 3/4, 50-60 degrees down, near-orthographic) on a flat neutral mid-grey ground, bottom row the same six as flat solid black silhouettes; columns PB, FL, OS, BR, EX, PS; labels under the columns",
+   "designIntent": "Readability test of the six directions of one letter at play size, in colour and as a black silhouette, before A/B is chosen. Identity comes from the six generated sheets; nothing is redesigned.",
+   "palette": [],
+   "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept.png",
+   "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/TOPDOWN_B.txt",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of PB_B; never redesign, merge or copy its layout",
+     "availableAfter": "PB_B generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of FL_B; never redesign, merge or copy its layout",
+     "availableAfter": "FL_B generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of OS_B; never redesign, merge or copy its layout",
+     "availableAfter": "OS_B generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of BR_B; never redesign, merge or copy its layout",
+     "availableAfter": "BR_B generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of EX_B; never redesign, merge or copy its layout",
+     "availableAfter": "EX_B generated"
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept.png",
+     "role": "identity only: the exact design, colours, props and asymmetries of PS_B; never redesign, merge or copy its layout",
+     "availableAfter": "PS_B generated"
+    }
+   ],
+   "dependsOn": [
+    "PB_B",
+    "FL_B",
+    "OS_B",
+    "BR_B",
+    "EX_B",
+    "PS_B"
+   ],
+   "status": "not run",
+   "openNotes": [
+    "Run only after the six sheets of this letter exist.",
+    "Title: 'HEROES — B · GAME CAMERA'. Labels PB FL OS BR EX PS appear once, under the silhouette row (a brief choice).",
+    "If the tool cannot hold twelve figures legibly, split into two images (colour row, silhouette row) without changing the camera or scale.",
+    "Second batch: run only after the six sheets of this letter pass QA; pass any accepted _v2 sheet with --ref-map OLD=NEW (the runner ignores dependsOn and skips missing references).",
+    "Wave-2 watch: the PB_B edge-on lid may vanish from this camera."
+   ],
+   "v3": {
+    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3/TOPDOWN_B.txt",
+    "outputPath": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept_v3.png",
+    "references": [
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 PB B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/FL_flagellant/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 FL B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/OS_ossuarist/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 OS B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/BR_brinecaller/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 BR B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/EX_exhumer/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 EX B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     },
+     {
+      "path": "E:/Diablo2/ashlar/art/heroes/PS_pyre_singer/vB/concept_v3.png",
+      "role": "identity only: the generated version-3 PS B lineup sheet (exact design, colours, props, lit light sources and asymmetries); never redesign it, never merge it with another hero, never copy its layout"
+     }
+    ],
+    "status": "failed",
+    "builder": "E:/hero-batch/build_topdown_v3.py (session tooling): the v1 TOPDOWN prompt with the six v3 sheets as references, STYLE and COLOUR of v3, lit light sources",
+    "runLog": [
+     "attempt 1: started 2026-10-20T12:34:11",
+     "attempt 1: runner status 'no-image', 129 s, 0 image(s), finished 2026-10-20T12:36:19",
+     "attempt 2: started 2026-10-20T12:36:19",
+     "attempt 2: runner status 'no-image', 574 s, 0 image(s), finished 2026-10-20T12:45:53"
+    ],
+    "checkedAt": "2026-10-20 12:55",
+    "lastError": [
+     {
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept_v3.result.attempt2.txt",
+      "text": "`referenced_image_paths` must contain at most 5 paths"
+     },
+     {
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept_v3.result.txt",
+      "text": "`referenced_image_paths` must contain at most 5 paths"
+     }
+    ],
+    "notes": [
+     "The built-in image tool accepts at most 5 referenced_image_paths; this job attaches 6 (one v3 sheet per vocation), so every attempt so far ended without an image.",
+     "Change how the references are attached before re-running (for example merge sheets so that at most 5 are attached, or split the run); not decided."
+    ]
+   }
+  }
+ ],
+ "v2": {
+  "decision": "User, 2026-10-20, after seeing the v1 sheets: \"vì đây là các hero, tôi cần nó ngầu hơn, nhiều màu sắc hơn chút, bụi bặm thế này không được nổi bật, cường điệu các chi tiết là đặc điểm riêng của class\" (these are heroes: cooler, a bit more colourful; the dusty look does not stand out; exaggerate the class-signature details). Latest art-direction decision for HERO presentation: it overrides the muted v1 hero palettes and the \"strict low detail / no glow\" rule for hero sheets. Layout (seven figures, one ruler, labels) is unchanged.",
+  "date": "2026-10-20",
+  "conceptDocSection": "ASHLAR_HERO_CONCEPT_VI.md §1.3 (rules), §11.1b (jobs), §12 item 20 (open point)",
+  "promptsDir": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2",
+  "outputSuffix": "_v2",
+  "outputPattern": "E:/Diablo2/ashlar/art/heroes/<FOLDER>/vA|vB/concept_v2.png",
+  "builder": "E:/hero-batch/build_v2.py (session tooling, not in the repo; dicts PALETTE and PUSH, string STYLE)",
+  "runner": "python E:/hero-batch/hero_batch.py <JOB> --suffix _v2 --prompt <promptPath> --refs <v1 sheet of the same job | none>",
+  "referenceRule": "references = the v1 sheet of the same job when it exists (identity base: structure, props, layout, seven views, labels; not its muted dusty colours or grime); none for FL_A, OS_A, BR_A, whose v1 sheets were never generated. The style image and the layout pilot are NOT attached to v2 runs (--refs replaces the manifest list).",
+  "supersedes": "the v1 hero sheets (concept.png) are superseded by v2; v1 palettes, sizes and prompts stay as the in-game value baseline and history",
+  "supersededBy": "v3 (2026-10-20) for hero presentation: the v2 seven-figure row layout and clothing detail are replaced; v2 stays the source of the palettes (v2.palettes) and the exaggerated props (PUSH in build_v2.py)",
+  "styleSummary": "premium stylized painterly CLASS ART in the spirit of Diablo Immortal / Diablo IV classes: bold readable silhouette, heroic neutral turnaround pose, crisp clean painted surfaces, rich saturated signature colour on one or two main masses, strong value contrast and a cool rim light; materials clearly distinct; detail concentrated on the signature props; NOT dusty, muddy or grimy (no dirt, grime, rags, tatters, stains; at most one neat sewn patch); the class's own human light sources LIT as painted light with a soft local glow (lantern, coals, pyre fire; Ossuarist only small still cold cyan-white soul points); no white-gold glow, no halo, no nimbus, no magic beams, no particles except a few embers or drifting ash where stated; soft neutral studio key light, flat warm mid-grey backdrop, no environment.",
+  "styleText": "STYLE (version 2, hero push): premium stylized painterly CLASS ART in the spirit of Diablo Immortal and Diablo IV hero classes: bold readable silhouette, confident heroic stance (still a neutral turnaround pose), crisp clean painted surfaces, rich saturated signature colour on one or two main masses, strong value contrast and a cool rim light that separates every figure from the backdrop; materials clearly distinct (polished metal with bright highlights, clean cloth, fur, wood, bone, glass, salt). Detail is CONCENTRATED on the signature props and may be intricate there; the rest stays clean and simple. NOT dusty, NOT muddy, NOT grimy: no dirt, no grime, no rags, no frayed tatters, no torn hems, no stains; at most one neat sewn patch as a human seam. The class's own human light sources are LIT as painted light with a soft local glow (warm and flickering-looking: lantern, coals, pyre fire; for the Ossuarist only small still cold cyan-white soul points). No white-gold glow, no halo, no nimbus, no magic beams, no particles except a few embers or drifting ash where stated. Soft neutral studio key light, flat warm mid-grey backdrop, NO environment, minimal contact shadow.",
+  "palettes": {
+   "PB": {
+    "vocation": "Pallbearer",
+    "text": "Signature: ROYAL FUNERAL PURPLE + POLISHED SILVER. Pall cloth, cape and tabard deep royal purple #4B2A6B with a broad silver-grey border band #C9CED6; plate armour polished steel #AEB6BF with dark steel shadows #4E5660 and crisp bright highlights; bier frame and coffin lid pale golden oak #D6BC8C with brass caps and fittings #B8863B; mortar courses clean light stone grey #A39E94; silver coffin nails bright #EEF1F4; leather dark brown #4A3020.",
+    "hexes": [
+     "#4B2A6B",
+     "#C9CED6",
+     "#AEB6BF",
+     "#4E5660",
+     "#D6BC8C",
+     "#B8863B",
+     "#A39E94",
+     "#EEF1F4",
+     "#4A3020"
+    ]
+   },
+   "FL": {
+    "vocation": "Flagellant",
+    "text": "Signature: DEEP CRIMSON + EMBER ORANGE. Habit, jerkin and sash deep crimson #8E1F24; linen wraps and shirt clean white linen #EFE6D2; chains blackened iron #2B2B30 with bright steel edge highlights; nun's cuff black #141214; ember-orange glow #FF7A2A ONLY in the coal pot or coal box and on the branding iron's sigil head; ash grey #9A968F.",
+    "hexes": [
+     "#8E1F24",
+     "#EFE6D2",
+     "#2B2B30",
+     "#141214",
+     "#FF7A2A",
+     "#9A968F"
+    ]
+   },
+   "OS": {
+    "vocation": "Ossuarist",
+    "text": "Signature: MIDNIGHT INDIGO + BONE IVORY + COLD SOUL LIGHT. Robes, shawl and coat midnight indigo #1F2547 and ink black #121320; bone ivory #EDE3CB on the wand, finger-bone rings and reliquary; tarnished silver #A8AAB0; apron or capelet pale linen #D9D2C2; soul light cold cyan-white #BFF4FF as small STILL points inside the reliquary niches and one faint grey-white soul wisp (never warm, never gold).",
+    "hexes": [
+     "#1F2547",
+     "#121320",
+     "#EDE3CB",
+     "#A8AAB0",
+     "#D9D2C2",
+     "#BFF4FF"
+    ]
+   },
+   "BR": {
+    "vocation": "Brinecaller",
+    "text": "Signature: DEEP SEA TEAL + TURQUOISE + SEAFOAM. Robes and smock deep sea teal #11606A shading to turquoise #2FA3A0 with seafoam highlights #CFEDE6; salt crystals pale grey-green #CFDCC8 (never pure white, always irregular and gritty); kelp green #3E5A36; rope sand gold #C9A55C; shells cream #EFE3C8; a few small coral-red accent beads #D9574A; sea water murky teal with foam, never clear blue.",
+    "hexes": [
+     "#11606A",
+     "#2FA3A0",
+     "#CFEDE6",
+     "#CFDCC8",
+     "#3E5A36",
+     "#C9A55C",
+     "#EFE3C8",
+     "#D9574A"
+    ]
+   },
+   "EX": {
+    "vocation": "Exhumer",
+    "text": "Signature: BOTTLE GREEN + AMBER LANTERN LIGHT + BRASS. Coat or jacket deep bottle-green oilcloth #1E4A3A; dark leather #4A2E1E; brass buckles and fittings #C08A3E; silver bolts and spade edge bright #E1E6EA; linen scarf #E3D9C4; hat dark brown felt #3A2A1E with a cream stitched patch #E6DCC2 on the crown (where the open-grave seal was cut away); the class lantern LIT with warm amber light #FFB347 glowing through its five slats.",
+    "hexes": [
+     "#1E4A3A",
+     "#4A2E1E",
+     "#C08A3E",
+     "#E1E6EA",
+     "#E3D9C4",
+     "#3A2A1E",
+     "#E6DCC2",
+     "#FFB347"
+    ]
+   },
+   "PS": {
+    "vocation": "Pyre-Singer",
+    "text": "Signature: EMBER FIRE + ICE FROST + ASH WHITE + RED THREAD. Veil ash white-grey #DAD4CA; robe or tunic soot charcoal #2A2420 with bold red-thread embroidered bands #B3332B; red thread braid #B3332B; fur warm brown #7A5A40; frost rime ice blue #BFE3F5 on ONE side (left shoulder and hem); the staff head BURNING with ember-orange flame #FF8A2A and grey ash drifting upward.",
+    "hexes": [
+     "#DAD4CA",
+     "#2A2420",
+     "#B3332B",
+     "#7A5A40",
+     "#BFE3F5",
+     "#FF8A2A"
+    ]
+   }
+  },
+  "openPoints": [
+   "Lock the v2 palettes only after in-scene tests (five act grounds, Course, Seamless) and re-run the concept doc §2.5 value rule on v2 colours (one mass L* >= 65, one mass L* <= 30; BR has no v2 swatch <= 30, darkest is kelp #3E5A36 L* 35).",
+   "Decide whether PROLOGUE_LINEUP and CHOICE_HANDS follow v2 or stay on v1 palettes.",
+   "TOPDOWN_A / TOPDOWN_B were not run in v2; they are handled in v3 (see the top-level v3 object and jobs[].v3)."
+  ],
+  "notes": [
+   "The top-level \"status\" and the per-job \"status\" were updated on 2026-10-20 (after v3) to the images on disk; the per-job \"status\" is the state of the v1 output (outputPath). The \"notes\"/\"openNotes\", \"heroLayoutRule\", \"layout\", \"palette\" and \"referenceImages\" of this manifest still describe the v1 brief and were not rewritten; the per-job v2 field carries the v2 status.",
+   "v2 sheets are unlit-rule exceptions: lanterns, coal and pyre fire are lit, so the \"usedOnSheet: false\" flags of the v1 palettes (coal red, soul white, lamp amber, ember orange, rime) do not apply to v2."
+  ]
+ },
+ "v3": {
+  "decision": "User, 2026-10-20, after seeing the v2 sheets: \"gen thành 1 góc 3/4. 4 góc các hướng, vũ khí tách riêng, cách điệu hơn nữa để tạo ấn tượng, giảm detail quần áo đi\" (one 3/4 view plus four directional views, weapons separate, stylize even more for impact, reduce clothing detail). Latest art-direction decision for HERO presentation: v3 is now the current hero presentation; it overrides the seven-figure row layout (H + 3/4 + LEFT + RIGHT + FRONT + BACK + ALT) of v1/v2 and the clothing detail level of v2.",
+  "date": "2026-10-20",
+  "conceptDocSection": "ASHLAR_HERO_CONCEPT_VI.md §1.4 (rules and per-job kit table), §11.1c (jobs), §12 items 21-26 (open points)",
+  "promptsDir": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3",
+  "outputSuffix": "_v3",
+  "outputPattern": "E:/Diablo2/ashlar/art/heroes/<FOLDER>/vA|vB/concept_v3.png",
+  "topdownOutputPattern": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A|topdown_B/concept_v3.png",
+  "builder": "E:/hero-batch/build_v3.py (session tooling, not in the repo; dicts IDENTITY and KIT, string STYLE; PALETTE and PUSH come from build_v2.py) and E:/hero-batch/build_topdown_v3.py for the two TOPDOWN prompts",
+  "runner": "python E:/hero-batch/hero_batch.py --jobs <JOB> --suffix _v3 --prompt <promptPath> --refs <concept_v2.png of the same job>",
+  "runLogs": "E:/hero-batch/run_v3_<JOB>.out (JSON lines, \"status\":\"ok\" = image present) and E:/Diablo2/ashlar/art/heroes/_runs/batch_2026-10-20.jsonl",
+  "referenceRule": "hero sheets: the concept_v2.png of the same job (design identity, silhouette, signature props, palette; NOT its seven-small-figures layout, NOT its busy clothing detail); TOPDOWN_A / TOPDOWN_B: the six concept_v3.png sheets of the letter (identity only), no style image. Passed with --refs, which replaces the manifest referenceImages.",
+  "supersedes": "v3 is the current hero presentation (replaces the v1/v2 seven-figure row: H silhouette, ALT body, small 3/4 and its busy clothing detail); v2 stays the source of the palettes (v2.palettes) and the exaggerated props (PUSH in build_v2.py); v1 stays history and the in-game value baseline",
+  "layout": {
+   "canvas": "ONE 16:9 landscape sheet; the prompt asks for 2048x1152 or larger; the built-in tool returned 1672x941 (EX_B and FL_A: 1672x940)",
+   "left": "about one third: ONE large full-body front-left 3/4 view of the hero HOLDING the weapons, a confident heroic stance (not an action pose), head to feet about 80% of the canvas height, label \"3/4\"",
+   "rightUpper": "FOUR full-body orthographic views on ONE shared baseline at ONE common smaller scale (about 55% of the canvas height): FRONT, LEFT (anatomical left toward the camera, facing image-left), RIGHT (true opposite side, facing image-right, not a mirror copy), BACK; relaxed A-pose, hands open and EMPTY; everything WORN stays on the body exactly as in the 3/4 view",
+   "rightBottom": "hand-held weapons and class items drawn SEPARATELY, side by side with clean gaps, at the SAME scale as the four views, long ones lying horizontally, a short label under each",
+   "labels": [
+    "3/4",
+    "FRONT",
+    "LEFT",
+    "RIGHT",
+    "BACK",
+    "(one label per separate weapon, see jobs[].v3.kit.separateWeapons)"
+   ],
+   "title": "<CODE> <VOCATION NAME UPPERCASE> — <A|B>, for example \"PB PALLBEARER — A\"",
+   "removedFromV1V2": "no H silhouette, no ALT body, no seven-figure row, no BODIES line (base body 1/2 is not enforced), no panels, frames, insets, extra figures or scenery"
+  },
+  "styleSummary": "MORE STYLIZED for impact (Diablo Immortal class-art spirit): bold chunky instantly readable shapes, heroic proportions with slightly oversized hands, feet, shoulders and signature props; CLOTHING SIMPLIFIED into a few big clean colour blocks with minimal folds (no rows of rivets or studs, no embroidery, no stitching, no small buckles, no patches, no frayed or torn edges); all fine detail reserved for the signature props and weapons; crisp clean edges; rich saturated signature colours (the v2 palettes); strong value contrast and a cool rim light; the class's human light sources glow as painted light (lantern, coals, pyre fire; Ossuarist: still cold cyan-white soul points); no dust, no grime, no rags, no white-gold glow, no halo, no magic beams; flat warm mid-grey studio backdrop, no environment. Deliberate exception: the cream stitched patch on the EX hat crown is the vocation mark and stays in the EX_A and EX_B kit although STYLE forbids patches in general (both sheets draw it).",
+  "styleText": "STYLE (version 3): MORE STYLIZED for impact - hand-painted stylized game hero art in the spirit of Diablo Immortal class art: bold, chunky, instantly readable shapes; heroic proportions with slightly oversized hands, feet, shoulders and signature props; CLOTHING SIMPLIFIED into a few big clean colour blocks with minimal folds and NO busy detail (no rows of rivets or studs, no embroidery patterns, no stitching, no small buckles, no patches, no frayed or torn edges); all fine detail is reserved for the signature props and weapons; crisp clean edges; rich saturated signature colours; strong value contrast and a cool rim light separating every figure from the backdrop; the class's human light sources glow as painted light (lantern, coals, pyre fire; still cold cyan-white soul points for the Ossuarist); no dust, no grime, no rags; no white-gold glow, no halo, no magic beams. Flat warm mid-grey studio backdrop, NO environment, minimal contact shadows.",
+  "palettes": "unchanged: see v2.palettes",
+  "status": "hero sheets 12 of 12 generated; TOPDOWN_A running, TOPDOWN_B failed (0 of 2 on disk; checked 2026-10-20 12:55); PROLOGUE_LINEUP, CHOICE_HANDS and the layout pilot were not re-run in v3 (still v1 palette)",
+  "qaNotes": [
+   "Layout correct on all 12 sheets (one large 3/4 view, four orthographic views, separate weapon strip). QA by the main agent, 2026-10-20.",
+   "Items the design WEARS still appear in the four views although also drawn separately: EX_A spade on the back, EX_B crossbow on the back, OS_A and OS_B sickle at the belt. For 3D, model them as separate props and remove them from the body.",
+   "PS_B torch head still reads a little like splayed fingers.",
+   "BR v2/v3 palette lacks a dark mass <= 30 L* (darkest swatch: kelp #3E5A36, L* 35).",
+   "The built-in tool returned 1672x941 (EX_B, FL_A: 1672x940), smaller than the requested 2048x1152."
+  ],
+  "openPoints": [
+   "User picks direction A or B per vocation (keep the pairs that must stay apart: OS-A with BR-B, FL-B with EX-B; concept doc §3).",
+   "Remove the worn duplicates (EX_A spade, EX_B crossbow, OS_A and OS_B sickle) from the body when building 3D; model them as separate props.",
+   "Next step after the pick: Tripo T-pose per E:/Diablo2/art-output/tripo-models/Agent.md (concept -> T-pose -> split views -> Tripo Studio in the browser -> GLB); hand-held weapons are not held in the T-pose and are modelled separately.",
+   "v3 drops the H silhouette, the ALT body and the BODIES line: base body 1/2 (concept doc §2.1) and the 1.0H ruler are no longer checked on the sheet; check them at the T-pose / model step.",
+   "TOPDOWN_A / TOPDOWN_B v3: the built-in image tool accepts at most 5 referenced_image_paths and these prompts attach 6 (one v3 sheet per vocation); every attempt so far ended without an image (see jobs[].v3.lastError). Change how the references are attached before re-running.",
+   "v2.openPoints still apply (lock the palettes only after in-scene tests; re-run the value rule on v2/v3 colours)."
+  ],
+  "notes": [
+   "Per-job \"v3\" fields carry the v3 status; per-job \"status\" is the state of the v1 output (outputPath) and the top-level \"status\" summarises all images; both were updated on 2026-10-20 to the files on disk.",
+   "heroLayoutRule, per-job layout/palette/sizeSpec/referenceImages/promptPath/outputPath and the notes/openNotes still describe the v1 seven-figure brief (v2 reuses that layout); the v3 layout is in v3.layout.",
+   "jobs[].v3.kit is copied verbatim from the KIT dict of build_v3.py: \"worn\" stays on the body in the 3/4 view and in the four views, \"separateWeapons\" are drawn in the bottom strip and held in the 3/4 view."
+  ]
+ }
+}

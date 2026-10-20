@@ -1,0 +1,44 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a159d8-b754-79b3-a3ac-cc144843783a
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+Use case: stylized-concept (environment asset turnaround sheet). Create ONE production sheet: A06 NIGHT FENS KIT — TURNAROUND. Orthographic turnaround of the SAME six assets as the attached perspective sheet.
+REFERENCE IMAGES (attached in this order): (1) E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg - style only: brushwork simplification, matte broad material planes and the stylized2 detail density for every asset; never its terrain, panels or magenta. (2) E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png - mood only: muted damp outdoor Act I Diablo II climate and palette; never its scene or placeholder hero. (3) E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/perspective.png - the approved PERSPECTIVE sheet of this group: use it as the identity reference. Keep the SAME six assets, the SAME cell numbers and order, the SAME proportions, shapes, materials, repair patches and colours in every orthographic view. Do not redesign.
+CANVAS: one very wide high-resolution landscape sheet; 3:2 preferred; 4K wide (for example 3840x2560) if the built-in image tool allows it, otherwise the largest it supports; do not require unsupported API flags and do not upscale artificially.
+LAYOUT: EXACTLY SIX clearly separated cells in a 3x2 grid (cells 1-3 top row, cells 4-6 bottom row), same cell order as the perspective sheet, plain thin neutral gaps, each cell with its number and concise asset name. EACH cell shows FOUR small flat ORTHOGRAPHIC views of that one asset: LEFT, RIGHT, FRONT, BACK (small concise labels under each view). RIGHT is the true opposite side of LEFT, not a mirrored copy; FRONT square-on, BACK square-on from behind; no substitute 3/4 views. All four views in a cell share the same local scale and the same floor line(s). Each cell contains one plain flat dark-grey faceless neutral upright unarmored human silhouette (no anatomical detail, no clothing), exactly 1.8 m tall (this height is 1H), labelled H, standing on the SAME floor line as the asset at the SAME local pixel scale. Scale is local to each cell (different cells may use different scales); inside a cell asset and human never differ in scale between views. Inside a cell arrange the four views either in ONE row (LEFT, RIGHT, FRONT, BACK) with one H marker at the far left, or, for wide assets, as a 2x2 block (LEFT and RIGHT on top, FRONT and BACK below) with one H marker per row at identical scale. Per-asset arrangement is given below. No extra asset objects, no background scene.
+CELL 1 - Fen causeway segment (A06-1; proposed size length 3H, width 1.2H, height 0.5H; 1H = 1.8 m): A raised dyke segment of dark peat with a walking top made of a plank spine and four flat stones, both flanks sloping to a small pale grey-teal water edge, one plank gap bridged by a loose plank, two stout marker pegs at the ends, ends cut square so segments can be joined. Arrangement: 2x2 block, H marker repeated per row.
+CELL 2 - Upright marker stone (A06-2; proposed size height 1.6H, width 0.5H, depth 0.4H; 1H = 1.8 m): A tall narrow standing stone (an upright stone peg) in cold grey, leaning slightly, with ONE carved ring groove band at shoulder height, one moss patch at the base and one broad chip at the top; sits in a small heap of peat. Arrangement: ONE row of four views + one H marker.
+CELL 3 - Stepping-stone ford (A06-3; proposed size length 3H, width 1.5H, height 0.25H; 1H = 1.8 m): Five big flat-topped grey stones in a gentle curve set in a thin slab of dark peat water skin, one gap bridged by a single loose plank, a small flat disc of pale grey-teal still water; stones are broad blocks, no pebbles. Arrangement: 2x2 block, H marker repeated per row.
+CELL 4 - Unlit bog lure post (A06-4; proposed size height 2.2H, width 0.5H; 1H = 1.8 m): A tall weathered timber post with one long curved iron arm holding an EMPTY round lantern cage (open bars, no flame, no glass, no light inside), a short hanging cord, a stone footing; a dead bait-post, completely unlit. Arrangement: 2x2 block, H marker repeated per row.
+CELL 5 - Half-sunk fen punt (A06-5; proposed size length 2.6H, width 0.9H, height 0.45H; 1H = 1.8 m): A flat-bottomed punt boat tilted nose-down, half filled with dark water shown as one flat plane, one plank seat, one long pole lying across it, one large patched board in lighter wood. Empty. Arrangement: 2x2 block, H marker repeated per row.
+CELL 6 - Broken bridge pier (A06-6; proposed size height 2.4H, width 2H, depth 1.2H; 1H = 1.8 m): A grey stone bridge pier with the stub of one round arch springing from one side and a clean broken end on the other, a moss cap, one big diagonal crack and one patched lighter section; no water disc, no railings. Arrangement: 2x2 block, H marker repeated per row.
+STYLE (strict): Diablo Immortal-inspired stylized painterly concept at the stylized2 density, STRICT LOW DETAIL: every asset is a few BROAD CLEAN SHAPE MASSES with big deliberate brush planes and clean local colour, matte. Human maintenance and age appear as a FEW LARGE visible patches, repairs or cracks (about three to five per asset) - never fine weathering. FORBIDDEN: micro-grain, pores, weave, fine grunge, speckled noise, scratch maps, photoreal PBR, intricate ornament, dense small detail, individual leaves or blades beyond the big masses, noise-like moss. Soft cool-neutral overcast studio light with a faint damp-night mood, still fully readable. Flat neutral cool-grey backdrop; materials and palette are defined by the COLOUR AND MOOD line below, NOT by a universal Dark Wood look: clearly readable, NOT dark and NOT obscured. No environment scene, no ground tile, no sky, no frame; minimal contact shadow only.
+COLOUR AND MOOD: Cold wet fen after dark but readable: black-green water (#1F2A24 family), peat brown (#4A3526 family), sage green (#5E6B5A family), pale mist grey (#A9B1A6 family), weathered grey timber and stone. No red accent, no warm light, no glow, no lights, no VFX. Hush, damp, uneasy but passable.
+ASSET LIST NOTE: these six are a PROPOSED reusable asset list and the sizes are proposals (1H = 1.8 m); they are not a claim about the final Act I map layout.
+CONTENT: no gore, no corpses, no hanged figures, no people other than the H marker.
+TEXT (exact, concise): title "A06 NIGHT FENS KIT — TURNAROUND"; cell numbers 1-6 with asset names exactly as listed; view labels "LEFT", "RIGHT", "FRONT", "BACK"; "H" by each human. No other text.
+
+codex
+I’ll generate the turnaround sheet once with the built-in image tool, using the three references and your full prompt.
+
+codex
+E:\map01-batch\home\generated_images\01a159d8-b754-79b3-a3ac-cc144843783a\call_0590365b0a4d423c8e6b6ff2e1727d1b.png
+tokens used
+13,116
+E:\map01-batch\home\generated_images\01a159d8-b754-79b3-a3ac-cc144843783a\call_0590365b0a4d423c8e6b6ff2e1727d1b.png

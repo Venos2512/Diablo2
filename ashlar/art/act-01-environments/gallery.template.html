@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASHLAR Act I: gallery concept asset</title>
+<style>
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: transparent; }
+body {
+  color: var(--foreground, inherit);
+  font: 14px/1.5 var(--font-sans, system-ui, -apple-system, "Segoe UI", sans-serif);
+  padding: 8px 0;
+}
+.muted { color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+button { font: inherit; color: inherit; cursor: pointer; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+[role=tablist], .toggle { display: flex; flex-wrap: wrap; gap: 4px; }
+.tab, .tog {
+  background: transparent;
+  border: 1px solid var(--border, color-mix(in srgb, currentColor 28%, transparent));
+  border-radius: 6px;
+  padding: 4px 9px;
+  min-height: 32px;
+}
+.tab { min-width: 46px; font-variant-numeric: tabular-nums; }
+.tab:hover, .tog:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.tab[aria-selected=true], .tog[aria-pressed=true] {
+  background: var(--accent, color-mix(in srgb, currentColor 16%, transparent));
+  color: var(--accent-foreground, inherit);
+  border-color: var(--ring, currentColor);
+  font-weight: 600;
+}
+.tab:focus-visible, .tog:focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 2px; }
+h1 { font-size: 1.15em; margin: 0 0 2px; line-height: 1.3; }
+.sub { margin: 0 0 8px; }
+.meta { display: grid; gap: 2px 12px; grid-template-columns: max-content 1fr; margin: 0 0 8px; }
+.meta dt { color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+.meta dd { margin: 0; }
+ol.assets { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 2px 14px; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
+ol.assets li { display: flex; gap: 6px; }
+ol.assets b { min-width: 1.2em; font-variant-numeric: tabular-nums; color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+p.desc { margin: 0 0 6px; }
+p.note { margin: 0 0 10px; font-size: 0.93em; }
+figure { margin: 0; }
+figure[hidden], .status[hidden] { display: none; }
+figure img { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 4px; }
+figure img[hidden] { display: none; }
+.status {
+  margin: 0; padding: 14px 12px;
+  border: 1px dashed var(--border, color-mix(in srgb, currentColor 40%, transparent));
+  border-radius: 6px;
+}
+.status code { word-break: break-all; font-size: 0.9em; }
+@media (max-width: 520px) { body { font-size: 13.5px; } .tab { min-width: 40px; padding: 4px 6px; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div id="tabs" role="tablist" aria-label="14 nhóm asset Act I"></div>
+  <div class="toggle" role="group" aria-label="Loại sheet">
+    <button type="button" class="tog" data-view="perspective" aria-pressed="true">Perspective</button>
+    <button type="button" class="tog" data-view="turnaround" aria-pressed="false">Turnaround</button>
+  </div>
+</div>
+<section id="panel" role="tabpanel" aria-live="polite">
+  <h1 id="title"></h1>
+  <p class="sub muted" id="sub"></p>
+  <dl class="meta" id="meta"></dl>
+  <ol class="assets" id="assets" aria-label="6 asset của nhóm"></ol>
+  <p class="desc" id="desc"></p>
+  <p class="note muted" id="note"></p>
+</section>
+<div id="pics">
+__IMGS__
+</div>
+<script>
+const GROUPS = /*__DATA__*/[];
+const NOTES = { perspective: "__PERSP__", turnaround: "__TURN__" };
+let cur = 0, view = "perspective";
+const $ = (id) => document.getElementById(id);
+const areaTxt = (l) => l.map((a) => a.id + " " + a.name).join(", ") || "—";
+
+function el(tag, attrs, text) {
+  const e = document.createElement(tag);
+  for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+function renderTabs() {
+  const box = $("tabs");
+  GROUPS.forEach((g, i) => {
+    const b = el("button", { type: "button", class: "tab", role: "tab", id: "tab-" + g.id, title: g.name + " / " + g.nameVi }, g.id);
+    b.addEventListener("click", () => select(i, false));
+    b.addEventListener("keydown", (ev) => {
+      const n = GROUPS.length;
+      const k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[ev.key];
+      let j = null;
+      if (k) j = (cur + k + n) % n;
+      else if (ev.key === "Home") j = 0;
+      else if (ev.key === "End") j = n - 1;
+      if (j == null) return;
+      ev.preventDefault();
+      select(j, true);
+    });
+    box.appendChild(b);
+  });
+}
+
+function renderInfo() {
+  const g = GROUPS[cur];
+  $("title").textContent = g.id + " · " + g.name;
+  $("sub").textContent = g.nameVi + (g.legacy ? " · nhóm cũ được dùng lại" : "");
+  const meta = $("meta");
+  meta.textContent = "";
+  const rows = [["Khu chính", areaTxt(g.areas)], ["Khu dùng chung", areaTxt(g.shared)], ["Biome", g.biome]];
+  for (const [k, v] of rows) { meta.appendChild(el("dt", null, k)); meta.appendChild(el("dd", null, v)); }
+  const ol = $("assets");
+  ol.textContent = "";
+  g.assets.forEach((a, i) => {
+    const li = el("li");
+    li.appendChild(el("b", null, String(i + 1)));
+    li.appendChild(el("span", null, a));
+    ol.appendChild(li);
+  });
+  $("desc").textContent = g.desc;
+  $("note").textContent = NOTES[view] + " Danh sách asset và kích thước là đề xuất, không phải canon hay bố cục cuối của map.";
+}
+
+function renderPics() {
+  document.querySelectorAll("#pics figure").forEach((f) => {
+    f.hidden = !(f.dataset.g === GROUPS[cur].id && f.dataset.v === view);
+  });
+  document.querySelectorAll("#pics figure:not([hidden]) img").forEach(sweep);
+}
+
+function select(i, focus) {
+  cur = i;
+  GROUPS.forEach((g, j) => {
+    const b = $("tab-" + g.id);
+    b.setAttribute("aria-selected", j === cur ? "true" : "false");
+    b.tabIndex = j === cur ? 0 : -1;
+    if (j === cur) { $("panel").setAttribute("aria-labelledby", b.id); if (focus) b.focus(); }
+  });
+  renderInfo();
+  renderPics();
+}
+
+function setView(v) {
+  view = v;
+  document.querySelectorAll(".tog").forEach((b) => b.setAttribute("aria-pressed", b.dataset.view === v ? "true" : "false"));
+  renderInfo();
+  renderPics();
+}
+
+function imgOk(img) {
+  img.hidden = false;
+  img.parentNode.querySelector(".status").hidden = true;
+}
+
+function imgErr(img) {
+  const p = img.dataset.path;
+  if (location.protocol === "file:" && !img.dataset.retried && p) {
+    img.dataset.retried = "1";
+    img.src = "file:///" + p;
+    return;
+  }
+  img.hidden = true;
+  const s = img.parentNode.querySelector(".status");
+  s.hidden = false;
+  s.querySelector("code").textContent = p || img.getAttribute("src") || "";
+}
+
+function sweep(img) {
+  if (img.complete) { if (img.naturalWidth > 0) imgOk(img); else if (img.getAttribute("src")) imgErr(img); }
+}
+
+document.querySelectorAll(".tog").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
+renderTabs();
+select(0, false);
+</script>
+</body>
+</html>

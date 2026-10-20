@@ -1,0 +1,154 @@
+{
+  "brief": "ASHLAR HUD concepts v1: 3 PC + 3 mobile mockups + 2 component sheets",
+  "date": "2026-10-20",
+  "status": "proposal (AD v1); not approved",
+  "sharedBlock": "E:/Diablo2/ashlar/art/hud/_brief/shared_hud_language.txt",
+  "jobs": [
+    {
+      "id": "PC_A",
+      "kind": "mockup",
+      "platform": "pc",
+      "direction": "Footing Course",
+      "directionVi": "Bệ tường (thanh đá full chiều ngang)",
+      "vocation": "Pallbearer",
+      "scene": "Lychgate churchyard, Act I, drizzle (Map 1 mood)",
+      "globeState": "Act I red",
+      "size": "1920x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/PC_A_footing_course/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_A.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png", "role": "hero design (Pallbearer A pilot)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Shambler)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "churchyard props"}
+      ]
+    },
+    {
+      "id": "PC_B",
+      "kind": "mockup",
+      "platform": "pc",
+      "direction": "Keystone Arch",
+      "directionVi": "Vòm đá đỉnh (cụm giữa hình vòm, Doubt ở đá đỉnh)",
+      "vocation": "Exhumer",
+      "scene": "The Night Fens, Act I, night, light radius",
+      "globeState": "Act I red",
+      "size": "1920x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/PC_B_keystone_arch/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_B.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and painterly ground"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W03_hush_wolf/vA/concept.png", "role": "enemy design (Hush-Wolf, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W05_corpse_candle/vA/concept.png", "role": "enemy design (Corpse-Candle, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
+      ]
+    },
+    {
+      "id": "PC_C",
+      "kind": "mockup",
+      "platform": "pc",
+      "direction": "Quiet Stones",
+      "directionVi": "Đá lặng (tối giản, bám góc, không thanh)",
+      "vocation": "Brinecaller",
+      "scene": "The White Road, Act III, noon glare (bright-ground readability test)",
+      "globeState": "Acts III-V red threaded with white-gold",
+      "size": "1920x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/PC_C_quiet_stones/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_C.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"}
+      ]
+    },
+    {
+      "id": "M_A",
+      "kind": "mockup",
+      "platform": "mobile",
+      "direction": "Thumb Arch",
+      "directionVi": "Vòm ngón cái (bố cục mobile ARPG phổ thông)",
+      "vocation": "Pyre-Singer",
+      "scene": "Rook's Weir, Act I, drizzle (Map 1 mood)",
+      "globeState": "Act I red",
+      "size": "2340x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/M_A_thumb_arch/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_A.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Mire-Shambler = Shambler rank)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
+      ]
+    },
+    {
+      "id": "M_B",
+      "kind": "mockup",
+      "platform": "mobile",
+      "direction": "Crest",
+      "directionVi": "Huy hiệu (globe + bình ở góc trên trái)",
+      "vocation": "Flagellant",
+      "scene": "Lychgate churchyard lower slope, Act I, drizzle (Map 1 mood)",
+      "globeState": "Act I red + the Wound cracks",
+      "size": "2340x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/M_B_crest/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_B.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U02_charnel_dead/vA/concept.png", "role": "enemy design (Charnel Dead, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vA/concept.png", "role": "enemy design (Gibbet-Crow, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "burial props"}
+      ]
+    },
+    {
+      "id": "M_C",
+      "kind": "mockup",
+      "platform": "mobile",
+      "direction": "Low Profile",
+      "directionVi": "Thấp gọn (bán trong suốt cho dungeon tối)",
+      "vocation": "Ossuarist",
+      "scene": "Lychgate ossuary crypt, Act I, light radius, no map markers",
+      "globeState": "Act I red",
+      "size": "2340x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/M_C_low_profile/mockup.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_C.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept.png", "role": "enemy design (Charnel Ghoul, direction A, not approved)"}
+      ]
+    },
+    {
+      "id": "KIT_1",
+      "kind": "component-sheet",
+      "platform": "shared",
+      "direction": "Life globe and vocation vessels",
+      "directionVi": "Globe máu 4 trạng thái + 6 bình tài nguyên + kiểm grayscale",
+      "vocation": "all six",
+      "scene": "flat sheet",
+      "globeState": "Prologue grey / Act I red / Acts III-V white-gold / Flagellant Wound",
+      "size": "1920x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/KIT_1_globe_vessels/sheet.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/KIT_1.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png", "role": "Pallbearer bier-frame match"}
+      ]
+    },
+    {
+      "id": "KIT_2",
+      "kind": "component-sheet",
+      "platform": "shared",
+      "direction": "Sockets, buttons, rarity and nameplates",
+      "directionVi": "Ô skill PC, nút mobile, khung độ hiếm theo hàng đá, nameplate",
+      "vocation": "n/a",
+      "scene": "flat sheet",
+      "globeState": "n/a",
+      "size": "1920x1080",
+      "outputPath": "E:/Diablo2/ashlar/art/hud/KIT_2_sockets_rarity/sheet.png",
+      "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/KIT_2.txt",
+      "referenceImages": [
+        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "stone, mortar, oak and iron material language"}
+      ]
+    }
+  ]
+}

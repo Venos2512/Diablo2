@@ -1,0 +1,17 @@
+A14 THE CRADLE - TURNAROUND sheet, scale correction v2 (built-in image_gen EDIT, written by root; summarised faithfully here)
+
+Inputs: turnaround.png (original generation, kept unchanged as a draft) + perspective_scale_v2.png (corrected perspective, the scale reference)
+Output: turnaround_scale_v2.png (selected final)
+Source: C:/Users/HLC_2021/.codex/generated_images/01a15714-17c7-7491-a153-61c2f1323e2f/call_9ca09cff14c74512a89b2e75ca2792c4.png
+
+PRECISE EDIT - keep the original turnaround exactly except the H markers:
+- ALL 24 asset views (6 cells x LEFT/RIGHT/FRONT/BACK) stay UNCHANGED: same drawings, layout, labels and colours.
+- Resize ONLY the human H silhouettes so they match the corrected perspective sheet:
+    cell 1 (crib)     : both H markers = 50% of their original height
+    cell 2 (curtains) : both H markers = 40% of their original height
+    cell 4 (mobile)   : H marker = 65% of its original height
+    cells 3, 5, 6     : unchanged
+- H silhouettes are solid flat grey faceless human heads/figures (no pale or spherical heads).
+- Feet stay on the SAME baseline (floor line) as before; only the figure height changes.
+
+Notes: H labels are approximate visual guides; exact modelled dimensions are to be confirmed when modelling. This is a concept reference, not an engineered drawing.

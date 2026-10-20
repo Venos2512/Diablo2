@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASHLAR Act I: gallery concept asset</title>
+<style>
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: transparent; }
+body {
+  color: var(--foreground, inherit);
+  font: 14px/1.5 var(--font-sans, system-ui, -apple-system, "Segoe UI", sans-serif);
+  padding: 8px 0;
+}
+.muted { color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+button { font: inherit; color: inherit; cursor: pointer; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+[role=tablist], .toggle { display: flex; flex-wrap: wrap; gap: 4px; }
+.tab, .tog {
+  background: transparent;
+  border: 1px solid var(--border, color-mix(in srgb, currentColor 28%, transparent));
+  border-radius: 6px;
+  padding: 4px 9px;
+  min-height: 32px;
+}
+.tab { min-width: 46px; font-variant-numeric: tabular-nums; }
+.tab:hover, .tog:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.tab[aria-selected=true], .tog[aria-pressed=true] {
+  background: var(--accent, color-mix(in srgb, currentColor 16%, transparent));
+  color: var(--accent-foreground, inherit);
+  border-color: var(--ring, currentColor);
+  font-weight: 600;
+}
+.tab:focus-visible, .tog:focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 2px; }
+h1 { font-size: 1.15em; margin: 0 0 2px; line-height: 1.3; }
+.sub { margin: 0 0 8px; }
+.meta { display: grid; gap: 2px 12px; grid-template-columns: max-content 1fr; margin: 0 0 8px; }
+.meta dt { color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+.meta dd { margin: 0; }
+ol.assets { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 2px 14px; grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); }
+ol.assets li { display: flex; gap: 6px; }
+ol.assets b { min-width: 1.2em; font-variant-numeric: tabular-nums; color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+p.desc { margin: 0 0 6px; }
+p.note { margin: 0 0 10px; font-size: 0.93em; }
+figure { margin: 0; }
+figure[hidden], .status[hidden] { display: none; }
+figure img { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 4px; }
+figure img[hidden] { display: none; }
+.status {
+  margin: 0; padding: 14px 12px;
+  border: 1px dashed var(--border, color-mix(in srgb, currentColor 40%, transparent));
+  border-radius: 6px;
+}
+.status code { word-break: break-all; font-size: 0.9em; }
+@media (max-width: 520px) { body { font-size: 13.5px; } .tab { min-width: 40px; padding: 4px 6px; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <div id="tabs" role="tablist" aria-label="14 nhóm asset Act I"></div>
+  <div class="toggle" role="group" aria-label="Loại sheet">
+    <button type="button" class="tog" data-view="perspective" aria-pressed="true">Perspective</button>
+    <button type="button" class="tog" data-view="turnaround" aria-pressed="false">Turnaround</button>
+  </div>
+</div>
+<section id="panel" role="tabpanel" aria-live="polite">
+  <h1 id="title"></h1>
+  <p class="sub muted" id="sub"></p>
+  <dl class="meta" id="meta"></dl>
+  <ol class="assets" id="assets" aria-label="6 asset của nhóm"></ol>
+  <p class="desc" id="desc"></p>
+  <p class="note muted" id="note"></p>
+</section>
+<div id="pics">
+<figure data-g="A01" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/map-01-concepts/environments/E03_village/perspective.png" data-path="E:/Diablo2/ashlar/art/map-01-concepts/environments/E03_village/perspective.png" loading="lazy" decoding="async" alt="A01 LYCHGATE VILLAGE KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A01 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A01" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A01_lychgate_village/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A01_lychgate_village/turnaround.png" loading="lazy" decoding="async" alt="A01 LYCHGATE VILLAGE KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A01 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A02" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png" data-path="E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png" loading="lazy" decoding="async" alt="A02 CHURCHYARD BURIAL KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A02 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A02" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A02_churchyard_burial/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A02_churchyard_burial/turnaround.png" loading="lazy" decoding="async" alt="A02 CHURCHYARD BURIAL KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A02 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A03" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png" data-path="E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png" loading="lazy" decoding="async" alt="A03 FEN WETLAND VEGETATION AND ROCKS - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A03 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A03" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A03_fen_wetland/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A03_fen_wetland/turnaround.png" loading="lazy" decoding="async" alt="A03 FEN WETLAND VEGETATION AND ROCKS - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A03 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A04" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/map-01-concepts/environments/E02_trees/perspective.png" data-path="E:/Diablo2/ashlar/art/map-01-concepts/environments/E02_trees/perspective.png" loading="lazy" decoding="async" alt="A04 TREES AND WOOD - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A04 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A04" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A04_willow_trees/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A04_willow_trees/turnaround.png" loading="lazy" decoding="async" alt="A04 TREES AND WOOD - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A04 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A05" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/perspective.png" loading="lazy" decoding="async" alt="A05 QUIET SURFACES AND TRANSITIONS - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A05 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A05" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/turnaround.png" loading="lazy" decoding="async" alt="A05 QUIET SURFACES AND TRANSITIONS - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A05 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A06" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/perspective.png" loading="lazy" decoding="async" alt="A06 NIGHT FENS TRAVERSAL AND LANDMARKS - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A06 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A06" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/turnaround.png" loading="lazy" decoding="async" alt="A06 NIGHT FENS TRAVERSAL AND LANDMARKS - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A06 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A07" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/perspective.png" loading="lazy" decoding="async" alt="A07 FLOODED VILLAGE KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A07 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A07" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/turnaround.png" loading="lazy" decoding="async" alt="A07 FLOODED VILLAGE KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A07 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A08" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/perspective.png" loading="lazy" decoding="async" alt="A08 POPPY REACH FARMLAND KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A08 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A08" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/turnaround.png" loading="lazy" decoding="async" alt="A08 POPPY REACH FARMLAND KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A08 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A09" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/perspective.png" loading="lazy" decoding="async" alt="A09 WEDDING AND ROOTS KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A09 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A09" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/turnaround.png" loading="lazy" decoding="async" alt="A09 WEDDING AND ROOTS KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A09 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A10" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/perspective.png" loading="lazy" decoding="async" alt="A10 CHALK AND FLINT MINE KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A10 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A10" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/turnaround.png" loading="lazy" decoding="async" alt="A10 CHALK AND FLINT MINE KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A10 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A11" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/perspective.png" loading="lazy" decoding="async" alt="A11 HOSPICE KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A11 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A11" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/turnaround.png" loading="lazy" decoding="async" alt="A11 HOSPICE KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A11 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A12" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/perspective.png" loading="lazy" decoding="async" alt="A12 DREAM COTTAGE KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A12 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A12" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/turnaround.png" loading="lazy" decoding="async" alt="A12 DREAM COTTAGE KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A12 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A13" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/perspective.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/perspective.png" loading="lazy" decoding="async" alt="A13 SLEEPING GARDEN KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A13 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A13" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/turnaround.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/turnaround.png" loading="lazy" decoding="async" alt="A13 SLEEPING GARDEN KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A13 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A14" data-v="perspective" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/perspective_scale_v2.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/perspective_scale_v2.png" loading="lazy" decoding="async" alt="A14 MERCY CELL KIT - perspective" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh perspective của A14 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+<figure data-g="A14" data-v="turnaround" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/turnaround_scale_v2.png" data-path="E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/turnaround_scale_v2.png" loading="lazy" decoding="async" alt="A14 MERCY CELL KIT - turnaround" onload="imgOk(this)" onerror="imgErr(this)">
+  <p class="status" hidden>Không đọc được ảnh turnaround của A14 (thiếu file hoặc lỗi): <code></code></p>
+</figure>
+</div>
+<script>
+const GROUPS = [
+ {
+  "id": "A01",
+  "name": "LYCHGATE VILLAGE KIT",
+  "nameVi": "Lychgate: làng đá lửa (E03)",
+  "biome": "BIO-03",
+  "areas": [
+   {
+    "id": "11.2",
+    "name": "Lychgate"
+   }
+  ],
+  "shared": [
+   {
+    "id": "11.5",
+    "name": "Rook's Weir"
+   }
+  ],
+  "assets": [
+   "Repaired thatched stilt cottage",
+   "Raised wooden walkway segment",
+   "Patched low flint wall",
+   "Willow hurdle fence",
+   "Village well",
+   "Eel-trap fishing rack"
+  ],
+  "desc": "Làng đá lửa dựng trên cọc, vá víu khắp nơi: nhà tranh, lối ván nâng, tường đá lửa, bẫy lươn. Mood ngoài trời Act I.",
+  "legacy": true,
+  "perspective": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E03_village/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A01_lychgate_village/turnaround.png"
+ },
+ {
+  "id": "A02",
+  "name": "CHURCHYARD BURIAL KIT",
+  "nameVi": "Churchyard: nghĩa địa (E04)",
+  "biome": "BIO-03",
+  "areas": [
+   {
+    "id": "11.3",
+    "name": "Churchyard, Grave Matters"
+   }
+  ],
+  "shared": [
+   {
+    "id": "11.2",
+    "name": "Lychgate"
+   }
+  ],
+  "assets": [
+   "Lychgate roofed gate",
+   "Mortsafe grave cage",
+   "Small mismatched headstone cluster",
+   "Round ossuary tower",
+   "Faceless saint statue supporting arch",
+   "Funeral hand cart"
+  ],
+  "desc": "Nghĩa địa nhà thờ: cổng mái, lồng giữ mộ, tháp xương tròn, tượng thánh không mặt đỡ vòm. Ảnh cũ E04.",
+  "legacy": true,
+  "perspective": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A02_churchyard_burial/turnaround.png"
+ },
+ {
+  "id": "A03",
+  "name": "FEN WETLAND VEGETATION AND ROCKS",
+  "nameVi": "Đầm lầy: cây cỏ và đá (E01)",
+  "biome": "BIO-01",
+  "areas": [
+   {
+    "id": "11.4",
+    "name": "The Night Fens"
+   }
+  ],
+  "shared": [
+   {
+    "id": "11.5",
+    "name": "Rook's Weir"
+   },
+   {
+    "id": "11.7",
+    "name": "The Willow Mere"
+   }
+  ],
+  "assets": [
+   "Low grass clump",
+   "Tall reeds clump",
+   "Sedge water clump",
+   "Large moss rock",
+   "Peat bank chunk",
+   "Waterlogged root stump"
+  ],
+  "desc": "Cây cỏ và đá của đầm lầy: cụm cỏ, sậy, đá rêu, mảng than bùn, gốc ngập nước. Ảnh cũ E01.",
+  "legacy": true,
+  "perspective": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A03_fen_wetland/turnaround.png"
+ },
+ {
+  "id": "A04",
+  "name": "TREES AND WOOD",
+  "nameVi": "Cây liễu và gỗ (E02)",
+  "biome": "BIO-01",
+  "areas": [
+   {
+    "id": "11.7",
+    "name": "The Willow Mere"
+   }
+  ],
+  "shared": [
+   {
+    "id": "11.4",
+    "name": "The Night Fens"
+   },
+   {
+    "id": "11.5",
+    "name": "Rook's Weir"
+   }
+  ],
+  "assets": [
+   "Old broad weeping willow",
+   "Young willow",
+   "Dead angular tree",
+   "Gnarled stump",
+   "Fallen hollow trunk",
+   "Exposed willow root cluster"
+  ],
+  "desc": "Liễu và gỗ: liễu già, liễu non, cây chết góc cạnh, gốc xoắn, thân rỗng, cụm rễ. Ảnh cũ E02.",
+  "legacy": true,
+  "perspective": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E02_trees/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A04_willow_trees/turnaround.png"
+ },
+ {
+  "id": "A05",
+  "name": "QUIET SURFACES AND TRANSITIONS",
+  "nameVi": "Bề mặt đất yên và chuyển tiếp",
+  "biome": "BIO-01 / BIO-02 / BIO-03 / BIO-06 (cross-area)",
+  "areas": [],
+  "shared": [
+   {
+    "id": "11.2",
+    "name": "Lychgate"
+   },
+   {
+    "id": "11.3",
+    "name": "Churchyard, Grave Matters"
+   },
+   {
+    "id": "11.4",
+    "name": "The Night Fens"
+   },
+   {
+    "id": "11.5",
+    "name": "Rook's Weir"
+   },
+   {
+    "id": "11.6",
+    "name": "The Poppy Reach"
+   },
+   {
+    "id": "11.7",
+    "name": "The Willow Mere"
+   },
+   {
+    "id": "11.8",
+    "name": "The Flint Delvings"
+   }
+  ],
+  "assets": [
+   "Peat meadow floor",
+   "Fen shore mud-to-water",
+   "Cobble road with grass verge",
+   "Poppy meadow soil",
+   "Churchyard turf and grave earth",
+   "Chalk and flint spoil floor"
+  ],
+  "desc": "Bề mặt đất yên và chuyển tiếp dùng chung nhiều khu: đồng than bùn, bờ bùn-nước, đường cuội, đất anh túc, đất nghĩa địa, phấn-đá lửa. Là mảnh concept, không phải texture tileable.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A05_quiet_surfaces/turnaround.png"
+ },
+ {
+  "id": "A06",
+  "name": "NIGHT FENS TRAVERSAL AND LANDMARKS",
+  "nameVi": "Night Fens: lối đi và landmark",
+  "biome": "BIO-01 (Đầm lầy & làng nước)",
+  "areas": [
+   {
+    "id": "11.4",
+    "name": "The Night Fens"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Fen causeway segment",
+   "Upright marker stone",
+   "Stepping-stone ford",
+   "Unlit bog lure post",
+   "Half-sunk fen punt",
+   "Broken bridge pier"
+  ],
+  "desc": "Night Fens, lối đi và landmark trong đầm: đường đắp, đá mốc, bãi đá bước, cọc nhử, thuyền chìm nửa, trụ cầu gãy.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A06_night_fens/turnaround.png"
+ },
+ {
+  "id": "A07",
+  "name": "FLOODED VILLAGE KIT",
+  "nameVi": "Rook's Weir: làng ngập nước",
+  "biome": "BIO-01 (Đầm lầy & làng nước)",
+  "areas": [
+   {
+    "id": "11.5",
+    "name": "Rook's Weir"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Half-drowned flint cottage",
+   "Timber-and-stone weir segment",
+   "Gable wall with door arch",
+   "Sunken roof-ridge platform",
+   "Pontoon plank raft",
+   "Rook roost pole"
+  ],
+  "desc": "Rook's Weir, làng ngập nước: nhà đá lửa chìm nửa, đập gỗ-đá, tường đầu hồi, bè ván, cột đậu của quạ.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A07_rooks_weir/turnaround.png"
+ },
+ {
+  "id": "A08",
+  "name": "POPPY REACH FARMLAND KIT",
+  "nameVi": "Poppy Reach: đồng thuốc phiện",
+  "biome": "BIO-02 (Đồng thuốc phiện)",
+  "areas": [
+   {
+    "id": "11.6",
+    "name": "The Poppy Reach"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Poppy drift clump",
+   "Drystone wall with stile gap",
+   "Abandoned hillside farmhouse",
+   "Hay rick",
+   "Field gate between stone posts",
+   "Poppy-drying rack"
+  ],
+  "desc": "Poppy Reach, đồng thuốc phiện trên đồi: cụm hoa, tường đá khô có bậc, nhà trang trại bỏ hoang, đống rơm, cổng ruộng, giàn phơi.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/turnaround.png"
+ },
+ {
+  "id": "A09",
+  "name": "WEDDING AND ROOTS KIT",
+  "nameVi": "Willow Mere: đám cưới và rễ",
+  "biome": "BIO-01 (Đầm lầy & làng nước)",
+  "areas": [
+   {
+    "id": "11.7",
+    "name": "The Willow Mere"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Willow wedding arch",
+   "Long wedding trestle table",
+   "Root-bound chair pair",
+   "Great willow root arch",
+   "Mere jetty with skiff",
+   "Faded ribbon bunting line"
+  ],
+  "desc": "Willow Mere, đám cưới và rễ liễu: vòm cưới, bàn dài, cặp ghế bị rễ quấn, vòm rễ lớn, cầu tàu, dây cờ phai màu.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A09_willow_mere/turnaround.png"
+ },
+ {
+  "id": "A10",
+  "name": "CHALK AND FLINT MINE KIT",
+  "nameVi": "Flint Delvings: mỏ phấn và đá lửa",
+  "biome": "BIO-06a (Mỏ & Spoil, biến thể phấn-đá lửa, KHÔNG phải muối Act III)",
+  "areas": [
+   {
+    "id": "11.8",
+    "name": "The Flint Delvings"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Chalk-and-flint cut wall",
+   "Timber pit-prop frame",
+   "Shaft well-head with windlass",
+   "Antler pick rack",
+   "Spoil heap with sledge",
+   "Cold kiln hearth"
+  ],
+  "desc": "Flint Delvings, mỏ phấn và đá lửa Act I (không phải mỏ muối): vách phấn, khung chống gỗ, giếng trục, giá cuốc gạc, đống xỉ, lò nguội.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A10_flint_delvings/turnaround.png"
+ },
+ {
+  "id": "A11",
+  "name": "HOSPICE KIT",
+  "nameVi": "Gentle House: hospice",
+  "biome": "BIO-05 (Hospice vôi trắng)",
+  "areas": [
+   {
+    "id": "11.9",
+    "name": "The Gentle House"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Whitewashed cloister bay",
+   "Hospice bed",
+   "Refectory table with bread",
+   "Gate tower",
+   "Kitchen hearth with cauldron",
+   "Steady candle stand"
+  ],
+  "desc": "Gentle House, hospice vôi trắng: gian hành lang, giường, bàn ăn, tháp cổng, bếp, chân đèn nến. Sạch, mới, không vá. Màu là đề xuất.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A11_gentle_house/turnaround.png"
+ },
+ {
+  "id": "A12",
+  "name": "DREAM COTTAGE KIT",
+  "nameVi": "Mộng Edda: ngôi nhà trong mơ",
+  "biome": "BIO-26 (Mộng Edda, dream space)",
+  "areas": [
+   {
+    "id": "11.10",
+    "name": "Edda's Dream"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "New thatched cottage",
+   "Garden gate",
+   "Picket fence section",
+   "Vegetable beds",
+   "Washing line",
+   "Looping stepping-stone path"
+  ],
+  "desc": "Mộng Edda, ngôi nhà trong mơ: nhà tranh mới, cổng vườn, hàng rào, luống rau, dây phơi, lối đá vòng. Sạch, mới, không vá. Màu là đề xuất.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A12_eddas_dream/turnaround.png"
+ },
+ {
+  "id": "A13",
+  "name": "SLEEPING GARDEN KIT",
+  "nameVi": "Garden of Hush: vườn người ngủ",
+  "biome": "BIO-04 (Hầm xương & vườn đất)",
+  "areas": [
+   {
+    "id": "11.11",
+    "name": "The Garden of Hush"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Sleeping bed furrow",
+   "Cloth canopy frame",
+   "Pink night-light jar",
+   "Hush bell post",
+   "Root-vaulted wall bay",
+   "Poppy furrow"
+  ],
+  "desc": "Garden of Hush, vườn người ngủ: luống giường rỗng, khung vải che, đèn ngủ hồng, cột chuông, vòm rễ, luống anh túc. Không có người.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/perspective.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A13_garden_of_hush/turnaround.png"
+ },
+ {
+  "id": "A14",
+  "name": "MERCY CELL KIT",
+  "nameVi": "The Cradle: cell của Mercy",
+  "biome": "BIO-27 (Cell Perfection, Mercy / Act I)",
+  "areas": [
+   {
+    "id": "11.12",
+    "name": "The Cradle"
+   }
+  ],
+  "shared": [],
+  "assets": [
+   "Bone-rail crib frame",
+   "Linen curtain pair",
+   "Milk-white night-light",
+   "Bone mobile on stand",
+   "Quilted floor platform",
+   "Rocker runner pair"
+  ],
+  "desc": "The Cradle, cell của Mercy: khung nôi xương, rèm lanh, đèn ngủ trắng sữa, mobile xương, sàn chần bông, cặp bập bênh. Sạch, mới, không vá; không hình trẻ sơ sinh.",
+  "legacy": false,
+  "perspective": "E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/perspective_scale_v2.png",
+  "turnaround": "E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/turnaround_scale_v2.png"
+ }
+];
+const NOTES = { perspective: "Góc nhìn game 3/4 từ trên, mỗi ô một asset cạnh bóng người H = 1,8 m cùng thước cục bộ.", turnaround: "Bốn view trực giao LEFT / RIGHT / FRONT / BACK cho mỗi asset, cùng bóng người H = 1,8 m." };
+let cur = 0, view = "perspective";
+const $ = (id) => document.getElementById(id);
+const areaTxt = (l) => l.map((a) => a.id + " " + a.name).join(", ") || "—";
+
+function el(tag, attrs, text) {
+  const e = document.createElement(tag);
+  for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  return e;
+}
+
+function renderTabs() {
+  const box = $("tabs");
+  GROUPS.forEach((g, i) => {
+    const b = el("button", { type: "button", class: "tab", role: "tab", id: "tab-" + g.id, title: g.name + " / " + g.nameVi }, g.id);
+    b.addEventListener("click", () => select(i, false));
+    b.addEventListener("keydown", (ev) => {
+      const n = GROUPS.length;
+      const k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[ev.key];
+      let j = null;
+      if (k) j = (cur + k + n) % n;
+      else if (ev.key === "Home") j = 0;
+      else if (ev.key === "End") j = n - 1;
+      if (j == null) return;
+      ev.preventDefault();
+      select(j, true);
+    });
+    box.appendChild(b);
+  });
+}
+
+function renderInfo() {
+  const g = GROUPS[cur];
+  $("title").textContent = g.id + " · " + g.name;
+  $("sub").textContent = g.nameVi + (g.legacy ? " · nhóm cũ được dùng lại" : "");
+  const meta = $("meta");
+  meta.textContent = "";
+  const rows = [["Khu chính", areaTxt(g.areas)], ["Khu dùng chung", areaTxt(g.shared)], ["Biome", g.biome]];
+  for (const [k, v] of rows) { meta.appendChild(el("dt", null, k)); meta.appendChild(el("dd", null, v)); }
+  const ol = $("assets");
+  ol.textContent = "";
+  g.assets.forEach((a, i) => {
+    const li = el("li");
+    li.appendChild(el("b", null, String(i + 1)));
+    li.appendChild(el("span", null, a));
+    ol.appendChild(li);
+  });
+  $("desc").textContent = g.desc;
+  $("note").textContent = NOTES[view] + " Danh sách asset và kích thước là đề xuất, không phải canon hay bố cục cuối của map.";
+}
+
+function renderPics() {
+  document.querySelectorAll("#pics figure").forEach((f) => {
+    f.hidden = !(f.dataset.g === GROUPS[cur].id && f.dataset.v === view);
+  });
+  document.querySelectorAll("#pics figure:not([hidden]) img").forEach(sweep);
+}
+
+function select(i, focus) {
+  cur = i;
+  GROUPS.forEach((g, j) => {
+    const b = $("tab-" + g.id);
+    b.setAttribute("aria-selected", j === cur ? "true" : "false");
+    b.tabIndex = j === cur ? 0 : -1;
+    if (j === cur) { $("panel").setAttribute("aria-labelledby", b.id); if (focus) b.focus(); }
+  });
+  renderInfo();
+  renderPics();
+}
+
+function setView(v) {
+  view = v;
+  document.querySelectorAll(".tog").forEach((b) => b.setAttribute("aria-pressed", b.dataset.view === v ? "true" : "false"));
+  renderInfo();
+  renderPics();
+}
+
+function imgOk(img) {
+  img.hidden = false;
+  img.parentNode.querySelector(".status").hidden = true;
+}
+
+function imgErr(img) {
+  const p = img.dataset.path;
+  if (location.protocol === "file:" && !img.dataset.retried && p) {
+    img.dataset.retried = "1";
+    img.src = "file:///" + p;
+    return;
+  }
+  img.hidden = true;
+  const s = img.parentNode.querySelector(".status");
+  s.hidden = false;
+  s.querySelector("code").textContent = p || img.getAttribute("src") || "";
+}
+
+function sweep(img) {
+  if (img.complete) { if (img.naturalWidth > 0) imgOk(img); else if (img.getAttribute("src")) imgErr(img); }
+}
+
+document.querySelectorAll(".tog").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
+renderTabs();
+select(0, false);
+</script>
+</body>
+</html>

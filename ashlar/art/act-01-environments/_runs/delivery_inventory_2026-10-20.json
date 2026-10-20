@@ -1,0 +1,283 @@
+{
+  "date": "2026-10-20",
+  "note": "Delivery inventory of the 28 selected PNG. Original logs/sidecars in groups/*/ and _runs/batch_2026-10-20.jsonl are unchanged.",
+  "review": "PASS - Opus 5.5, 2026-10-20, act1-env-final-review-20261020-r2; delivery integrity and tooling reviewed",
+  "selected": {
+    "A01_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2025093,
+      "sha256": "3c9e3657bb72604ac484de41d65efefc387670ccbcb33bf03f5eb311e5b395b1",
+      "provenance": "reused original perspective (referenced in place, unchanged)"
+    },
+    "A01_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2018162,
+      "sha256": "ca28cb7e60a6cb6c8d3563319786f874e6170242ce4823477136962f26249a84",
+      "provenance": "imported (copied once, no overwrite) from the old Map 01 turnaround; not regenerated"
+    },
+    "A02_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1947991,
+      "sha256": "0587bc8bf204d3c1a481c87177f48e54dca655abdc28d0c47dc9b85808bb553f",
+      "provenance": "reused original perspective (referenced in place, unchanged)"
+    },
+    "A02_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2031341,
+      "sha256": "8862779960077629c1bee696f0df5cf60eb3b82a55b41280cfa648618ece00cd",
+      "provenance": "imported (copied once, no overwrite) from the old Map 01 turnaround; not regenerated"
+    },
+    "A03_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1730026,
+      "sha256": "8294f7ba097da9a3a1c621eddd865ac78901a34efcb1a667b57cbff30c1205e5",
+      "provenance": "reused original perspective (referenced in place, unchanged)"
+    },
+    "A03_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1835825,
+      "sha256": "bccadeafb493e68602b43cb97ccfa0f943dee958e7f7f18000d3dfe90a33fd59",
+      "provenance": "imported (copied once, no overwrite) from the old Map 01 turnaround; not regenerated"
+    },
+    "A04_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1857856,
+      "sha256": "d8ba463b18d0a077d5c1247abb80e85adf34b4725fb8821b6c974a4180417d97",
+      "provenance": "reused original perspective (referenced in place, unchanged)"
+    },
+    "A04_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2079573,
+      "sha256": "b812d3cbbb742ab8609eba9d1b6b519cb1730a3d88d82d1e00eae73b44ee8dc1",
+      "provenance": "imported (copied once, no overwrite) from the old Map 01 turnaround; not regenerated"
+    },
+    "A05_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2101124,
+      "sha256": "c45657f20016bf3273139b3840ffd6679ef03ad679629809a2ff97224156f031",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d5-7747-7523-9522-aa1f81ca1759",
+      "generatedAt": "2026-10-20T22:03:57"
+    },
+    "A05_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2013433,
+      "sha256": "bf2eebcd074e4a7a43c2a18fb275c8e554f1a00df4bb3c62f03838170fc43921",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-b755-75a3-bea3-2a5868f2120e",
+      "generatedAt": "2026-10-20T22:07:02"
+    },
+    "A06_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1924995,
+      "sha256": "e594c44c7669e274c43c10d2632358222463d61a7935e27cdf1b044a5660aa61",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d5-7974-70f3-9452-a221a292b8f7",
+      "generatedAt": "2026-10-20T22:03:49"
+    },
+    "A06_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1904367,
+      "sha256": "fbba9d7ffb7e38c3d175547291149166ffd9dacb5c6918d23f8be36cb6b5cab7",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-b754-79b3-a3ac-cc144843783a",
+      "generatedAt": "2026-10-20T22:07:20"
+    },
+    "A07_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1950140,
+      "sha256": "a7bf23e23b86f4c0481655cfe8294ddc2dfb05154c179350793471917b292ec8",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d5-7747-7a93-ac8d-9739937bfdfc",
+      "generatedAt": "2026-10-20T22:03:50"
+    },
+    "A07_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1982787,
+      "sha256": "88590303bfcd00dc6751f1b323ba63a61098701b04f0e960ce52900d3594e450",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-b754-7820-9a92-4ee9f19d7ee9",
+      "generatedAt": "2026-10-20T22:07:18"
+    },
+    "A08_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2000881,
+      "sha256": "b68af8eb692997994a5e6f0425bfc3c70e7dc2e389d777686365c7f7329d7ea9",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d7-1197-7f93-8b0c-dc1ccc6a9219",
+      "generatedAt": "2026-10-20T22:05:11"
+    },
+    "A08_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2026829,
+      "sha256": "8f44097ff511b3dc5ff1d340d835924e8098f5278f42d447ff4f63737cd47e87",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-02d4-7e91-b063-699ab736d718",
+      "generatedAt": "2026-10-20T22:08:32"
+    },
+    "A09_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1902096,
+      "sha256": "03047d20092b7f0020cebe5e6fe8da20a2fd87a07ab71479b7895e27f51a541b",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d7-1474-76b3-af6b-774733920d09",
+      "generatedAt": "2026-10-20T22:05:10"
+    },
+    "A09_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1889712,
+      "sha256": "d4818f5a01765b8e7f4729bea72848b29968331d235f48cbd553f3811e7e1439",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-429f-7b71-b1f1-71330600b494",
+      "generatedAt": "2026-10-20T22:08:49"
+    },
+    "A10_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 2099052,
+      "sha256": "82aa443dd682a6ed6aba5080f5ee0d1061ac3dabdfc4f5280e6e34437c2adc53",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d7-3028-7540-8d85-be38235f41d8",
+      "generatedAt": "2026-10-20T22:05:18"
+    },
+    "A10_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1971938,
+      "sha256": "1f1e7a9bfd468406c4f9a9868f86fc6c975aec4f42b85bd9863f18e42ef8d6d1",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-4a5d-7783-ac1c-9e469643688d",
+      "generatedAt": "2026-10-20T22:08:55"
+    },
+    "A11_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1671665,
+      "sha256": "87415ce4b252458b601375ad9ccc21e5880174e8754beed42e713fb0023dfde5",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-38eb-73d1-bd49-3661605c15c6",
+      "generatedAt": "2026-10-20T22:06:16"
+    },
+    "A11_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1616212,
+      "sha256": "47d5fe00d67a8f6e0aabb0409a1c9eb87fbf9cb68c1b41fa7f429ffafb1aa49a",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-3e34-7060-b78b-08c9029742d7",
+      "generatedAt": "2026-10-20T22:08:49"
+    },
+    "A12_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1774217,
+      "sha256": "4ca12e26580d7a36a96c3904a59b53c74a9098a365408c707a81cfd27f2b6be1",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-38eb-73a3-bdb0-2e91544a6b10",
+      "generatedAt": "2026-10-20T22:06:08"
+    },
+    "A12_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1792467,
+      "sha256": "b61c88f6b1b69ceb4bed4d4caf7d7a72613b95337a8c1c020b8104707551bd11",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-3e34-70f2-a080-255257238b3f",
+      "generatedAt": "2026-10-20T22:08:48"
+    },
+    "A13_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1783271,
+      "sha256": "4149937f4c1673f43e7a2a4959b998e759c80ac296da13be6b9ec48914ca7808",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159d8-4e5d-7db2-8e9b-a729f0a7373c",
+      "generatedAt": "2026-10-20T22:06:29"
+    },
+    "A13_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1815925,
+      "sha256": "591b28d3729125ff1b14f8a4d8e02606de2ed8015542b83c87b51be2e7973c01",
+      "provenance": "generation (built-in image_gen via act01_batch.py)",
+      "session": "01a159da-3e33-7011-992e-87249f60f734",
+      "generatedAt": "2026-10-20T22:08:43"
+    },
+    "A14_perspective": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1694887,
+      "sha256": "4d490c1d893a0f637736a875b6999da42f1c95c2f6826dd01415c3bdd5ca9c8b",
+      "provenance": "generation + edit (original image_gen output kept as draft; scale-corrected by built-in image_gen edit)",
+      "supersedes": "0fa34e8ab7144f3323467e951300d1d3191f35e6914a17295210ad4cabe76fc8"
+    },
+    "A14_turnaround": {
+      "status": "delivered",
+      "size": "1536x1024",
+      "bytes": 1744358,
+      "sha256": "0c9efc68d557dac4e9d4afb05caf4932ce50f177a2daae25fc9f588e9c5d34dd",
+      "provenance": "generation + edit (original image_gen output kept as draft; scale-corrected by built-in image_gen edit)",
+      "supersedes": "13638459833930cce0019de0c8275c153aff50df7c65d11e032d849d1f03539f"
+    }
+  },
+  "a14Drafts": [
+    {
+      "job": "A14_perspective",
+      "path": "E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/perspective.png",
+      "role": "original generation, kept as unselected draft (never overwritten or deleted)",
+      "size": "1536x1024",
+      "bytes": 1710067,
+      "sha256": "0fa34e8ab7144f3323467e951300d1d3191f35e6914a17295210ad4cabe76fc8",
+      "session": "01a159d9-88ac-70f1-bf11-67153368784c"
+    },
+    {
+      "job": "A14_turnaround",
+      "path": "E:/Diablo2/ashlar/art/act-01-environments/groups/A14_the_cradle/turnaround.png",
+      "role": "original generation, kept as unselected draft (never overwritten or deleted)",
+      "size": "1536x1024",
+      "bytes": 1696600,
+      "sha256": "13638459833930cce0019de0c8275c153aff50df7c65d11e032d849d1f03539f",
+      "session": "01a159db-127f-7ad2-87bf-1e2fb6e7441c"
+    }
+  ],
+  "a14Edits": {
+    "perspective": {
+      "tool": "built-in image_gen edit (root)",
+      "inputs": [
+        "perspective.png"
+      ],
+      "promptFile": "groups/A14_the_cradle/perspective_scale_v2.edit_prompt.txt",
+      "source": "C:/Users/HLC_2021/.codex/generated_images/01a15714-17c7-7491-a153-61c2f1323e2f/call_31541840b1a24e308dcd2ff6946f51c2.png",
+      "summary": "preserve six designs/layout/colours/text; only H scale markers corrected to proposed crib 2H, curtain 3H, mobile 1.8H; then accidental pale spherical human head at top-left corrected to flat grey",
+      "note": "an unselected intermediate call_da059824259d446b872c5b2ddd2183f9.png (sha256 92d652246269cd1d7f7bc86179ec769a34dd8ee7a8b9aff02cde68669d9fb222) sits in the same session folder; by timestamp it precedes the final edit; not used"
+    },
+    "turnaround": {
+      "tool": "built-in image_gen edit (root)",
+      "inputs": [
+        "turnaround.png",
+        "perspective_scale_v2.png"
+      ],
+      "promptFile": "groups/A14_the_cradle/turnaround_scale_v2.edit_prompt.txt",
+      "source": "C:/Users/HLC_2021/.codex/generated_images/01a15714-17c7-7491-a153-61c2f1323e2f/call_9ca09cff14c74512a89b2e75ca2792c4.png",
+      "summary": "all 24 asset views unchanged; H markers only: cell1 both 50% of original height, cell2 both 40%, cell4 65%, cells 3/5/6 unchanged; solid grey human heads; feet on same baseline"
+    }
+  }
+}
