@@ -1,0 +1,142 @@
+[
+  {
+    "index": 1,
+    "id": "01_fallen_scavenger",
+    "sourceFamily": "Fallen",
+    "name": "Cinder Burrowling",
+    "design": "A squat red-skinned burrowing demon with a shovel-shaped head, short rear legs and oversized digging foreclaws; three-point low triangular silhouette. No standard horned imp head, sword or shield."
+  },
+  {
+    "index": 2,
+    "id": "02_fallen_shaman",
+    "sourceFamily": "Fallen Shaman",
+    "name": "Ember Throat",
+    "design": "A long-necked red-skinned crouching demon caster with an inflated throat pouch and bony chimney-like shoulder crest, casting through its breath instead of a carried staff."
+  },
+  {
+    "index": 3,
+    "id": "03_zombie_fieldhand",
+    "sourceFamily": "Zombie",
+    "name": "Bog Bellower",
+    "design": "A swollen amphibious carrion creature with a squat torso, tiny submerged-looking hind legs, broad hanging throat and two heavy paddle arms. No human farmworker anatomy or clothes."
+  },
+  {
+    "index": 4,
+    "id": "04_hungry_dead",
+    "sourceFamily": "Hungry Dead",
+    "name": "Shroud Crawler",
+    "design": "A low sinuous carrion beast with an elongated ribbed body, two forelimbs, dragging tapered rear and a narrow toothless skull partly hidden by burial cloth. No upright zombie silhouette."
+  },
+  {
+    "index": 5,
+    "id": "05_quill_rat",
+    "sourceFamily": "Quill Rat",
+    "name": "Needle Mole",
+    "design": "A blind burrowing beast with a broad digging muzzle, enormous shovel forefeet, tiny hindquarters and a compact quill fan only around the neck; no conventional rat shape."
+  },
+  {
+    "index": 6,
+    "id": "06_spike_fiend",
+    "sourceFamily": "Spike Fiend",
+    "name": "Barbed Skipper",
+    "design": "A spring-legged ground predator with long reversed hind legs, small grasping forelimbs and a blunt wedge-shaped shell carrying rear-facing spines. No boar or rat silhouette."
+  },
+  {
+    "index": 7,
+    "id": "07_gargantuan_beast",
+    "sourceFamily": "Gargantuan Beast",
+    "name": "Root Mauler",
+    "design": "A huge low quadrupedal furred beast with high bony shoulder arch, blunt tusked head and broad shovel forepaws; no upright ape body or equipment."
+  },
+  {
+    "index": 8,
+    "id": "08_wendigo",
+    "sourceFamily": "Wendigo",
+    "name": "Hollow Prowler",
+    "design": "A long-bodied furred cave predator with narrow elevated shoulders, small head, extremely long front limbs and short rear legs; prowling quadruped, no antlers or upright ape."
+  },
+  {
+    "index": 9,
+    "id": "09_dark_hunter",
+    "sourceFamily": "Dark Hunter / Corrupt Rogue",
+    "name": "Thorn Widow",
+    "design": "An adult humanoid-derived corrupted ambush predator with elongated insect-like forearms forming hooked blades, a compact hunched thorax and a veil of torn rogue cloth; no sword, human fighter stance or sexualized features."
+  },
+  {
+    "index": 10,
+    "id": "10_dark_archer",
+    "sourceFamily": "Dark Archer / Corrupt Rogue",
+    "name": "Sinew Spitter",
+    "design": "A lean ground predator with folded bow-shaped shoulder arches and a tendon-like projectile launcher between forelimbs; no carried bow and no normal rogue anatomy."
+  },
+  {
+    "index": 11,
+    "id": "11_dark_spearwoman",
+    "sourceFamily": "Dark Spearwoman / Corrupt Rogue",
+    "name": "Reed Stalker",
+    "design": "A tall narrow wading predator with long stilt legs, a spear-shaped beak and folded hooked forelimbs, remnants of rogue bindings. No humanoid spearwoman or carried spear."
+  },
+  {
+    "index": 12,
+    "id": "12_skeleton",
+    "sourceFamily": "Skeleton",
+    "name": "Ossuary Hound",
+    "design": "A skeletal quadruped assembled coherently around a deep barrel ribcage, heavy flat skull and thick foreleg bones. No humanoid soldier, sword or shield."
+  },
+  {
+    "index": 13,
+    "id": "13_skeleton_archer",
+    "sourceFamily": "Skeleton Archer",
+    "name": "Rib Harrier",
+    "design": "A wingless birdlike skeletal runner with long hindlegs, a narrow keel-like ribcage and a forward bone tube for shooting splinters. No human archer or carried bow."
+  },
+  {
+    "index": 14,
+    "id": "14_skeleton_mage",
+    "sourceFamily": "Skeleton Mage",
+    "name": "Funeral Lantern",
+    "design": "A hovering skeletal organism: suspended broad ribcage enclosing a small elemental ember, inverted pelvis-like lower cradle and two long jointed forelimbs; no robed humanoid skeleton or staff."
+  },
+  {
+    "index": 15,
+    "id": "15_blood_hawk",
+    "sourceFamily": "Blood Hawk",
+    "name": "Redwing Glider",
+    "design": "A low gliding carrion creature with broad skin membranes between elongated forelimbs and flanks, short blunt head and hooked rear feet; no conventional raptor body."
+  },
+  {
+    "index": 16,
+    "id": "16_foul_crow",
+    "sourceFamily": "Foul Crow",
+    "name": "Gutter Skimmer",
+    "design": "A six-limbed scavenger with a long neck, narrow leathery forewing pair and four short perching limbs, a blunt shovel beak and sparse feather crest; no standard crow silhouette."
+  },
+  {
+    "index": 17,
+    "id": "17_goatman",
+    "sourceFamily": "Goatman / Moon Clan",
+    "name": "Hornback Ravager",
+    "design": "A low front-heavy horned ungulate predator with four powerful hoofed legs, one broad broken horn and thick matted mane. No humanoid goatman or axe."
+  },
+  {
+    "index": 18,
+    "id": "18_goatman_shaman",
+    "sourceFamily": "Goatman Shaman",
+    "name": "Hearth Antlerless",
+    "design": "A hunched cloven-footed ritual creature with a barrel torso, exceptionally long neck, dense wool mantle and two interlocking curved cheek horns; no human arms, staff or deer antlers."
+  },
+  {
+    "index": 19,
+    "id": "19_tainted",
+    "sourceFamily": "Tainted",
+    "name": "Storm Gullet",
+    "design": "A squat leathery toadlike demon on four elbowed legs with an enormous asymmetrical throat sac and a small recessed head; electrical breath formed within its mouth, no bipedal Tainted silhouette."
+  },
+  {
+    "index": 20,
+    "id": "20_arach",
+    "sourceFamily": "Arach / Giant Spider",
+    "name": "Crypt Bellows",
+    "design": "A low arachnid with a broad flattened shield abdomen, tall stiltlike front leg pair and six short rear legs, small recessed head and a web-spinner tail folded underneath; no familiar round-abdomen tarantula silhouette."
+  }
+]

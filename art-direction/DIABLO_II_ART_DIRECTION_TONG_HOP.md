@@ -2,7 +2,7 @@
 
 _Visual · Theme · Mood · Feel · Quy chuẩn sản xuất. Nhãn độ tin cậy: [Đã xác minh]/[XM] nguồn Blizzard · [Quan sát]/[QS] kiểm tra được trong game · [Diễn giải AD] đề xuất của tài liệu. Mã HEX là màu xấp xỉ._
 
-_Tổng hợp ngày 2026-10-17 từ thư mục `art-direction/`._
+_Tổng hợp ngày 2026-10-19 từ thư mục `art-direction/`._
 
 ## Mục lục
 
@@ -1230,6 +1230,96 @@ Bản gốc dùng hệ mode cho quái (ví dụ NU chờ, WL đi, RN chạy, A1/
 | III | Bùn, cỏ rừng, nước | Rễ, cây to, cầu gỗ, nhà sàn | Kim tự tháp bậc, tượng | Rừng rậm, nước |
 | IV | Đá đen, dung nham, xương | Gai, xác, cột lửa | Phong ấn, cổng | Vực, sông lửa |
 | V | Tuyết, đá, băng | Công sự, máy bắn đá, xác lính | Tượng Ancient, cổng đá | Vách núi tuyết |
+
+---
+
+### 4.6 Thứ tự bố trí asset trong biome
+
+**[Diễn giải AD] — quy tắc sản xuất của dự án, không phải thông số gốc của Diablo II.** Mục tiêu: mỗi vật có lý do nằm ở đó, cảnh có mảng nghỉ, người chơi đọc được đường và giao tranh. Các dải dưới đây là điểm bắt đầu để duyệt bằng camera gameplay, không phải quota phải lấp đầy.
+
+1. **Khóa vùng chơi trước:** đường chính, nhánh phụ, cửa, chỗ đứng tương tác, điểm spawn, vùng chiến đấu và mép nước. Trang trí không được làm hẹp các vùng này.
+2. **Đặt khối lớn:** công trình, vách, cây lớn, đá chính. Chọn một điểm nhấn cho mỗi bố cục; ưu tiên khối cao ở phía sau màn hình.
+3. **Đặt cụm có chức năng:** chỗ làm việc, nghỉ, tích trữ, săn mồi, nghi lễ. Đồ phụ thuộc đặt quanh vật chủ; không bốc ngẫu nhiên từ toàn bộ thư viện.
+4. **Đặt dấu dẫn đường:** đuốc, biển, cọc, khung cửa. Kiểm tra hướng nhìn khi tiến đến từng điểm rẽ trước khi thêm chi tiết nhỏ.
+5. **Phủ sinh thái:** đất → thảm cỏ thấp → bụi cỏ → cây bụi; mật độ theo ẩm, dốc, giẫm đạp, bóng công trình và mức tha hóa.
+6. **Thêm dấu vết:** xương, lá, đồ vỡ, bùn, vết kéo. Chừa khoảng trống giữa các cụm rồi kiểm tra lại va chạm và che khuất.
+
+Mỗi asset cần khai báo: biome/vùng con được dùng, vai trò (nền / vật cản / tương tác / nguy hiểm / dẫn đường), footprint, khoảng trống phía sử dụng, mặt trước, khoảng scale, chất nền hợp lệ và vật chủ nếu có. **Đặt không vừa thì bỏ hoặc đổi bố cục; không ép đủ số lượng.**
+
+### 4.7 Cỏ tự nhiên: mảng lớn → cụm → bụi lẻ
+
+- **Mảng lớn không đều:** dùng vùng cỏ nối nhau và khoảng đất trống, không phủ cùng mật độ toàn map. Trong một mảng, tâm dày hơn, rìa đứt đoạn, có lỗ đất trống; không dùng vòng tròn có viền rõ hoặc ô bàn cờ.
+- **Cụm 3–7 bụi:** chia quanh tâm lệch, tán rộng hẹp khác nhau; một vài bụi nhỏ tách khỏi cụm. Không để tất cả cụm có cùng bán kính, hướng hoặc số bụi. Chừa khoảng cách tối thiểu giữa gốc để tránh chồng mesh.
+- **Chiều cao có nhịp:** cỏ nền thường 0.08–0.20 H; cỏ mép 0.20–0.35 H; cỏ cao hơn chỉ ở vùng không che combat. Bụi cùng cụm gần màu nhau; biến thiên sắc độ theo mảng ẩm/khô, không đổi màu ngẫu nhiên từng lá.
+- **Mép đường:** cỏ dày ở vai đường rồi thấp, thưa dần về vệt giẫm. Đường xe có thể có dải cỏ thấp giữa hai vệt bánh, nhưng không có bụi cao mọc trong vệt bánh. Mép cỏ phải gãy, tránh hai hàng viền song song đều tăm tắp.
+- **Địa hình:** giảm cỏ trên dốc, đá trơ, bùn bị giẫm và đất nhiễm huyết; không đặt cỏ đồng trên mặt nước. Bờ ẩm dùng cụm riêng, không mặc định nơi ướt nhất là nơi cỏ dày nhất.
+- **Chân prop:** cỏ bám ngoài đá, chân hàng rào và góc ít người đi; không xuyên chân tường, đá hay sàn nhà. Tạo một ít đất lộ ở chân để asset có cảm giác cắm xuống đất.
+- **Vùng đọc gameplay:** cửa, chỗ tương tác và spawn không có cỏ cao; arena dùng thảm ngắn, thưa. Cỏ trang trí không có collision và không dùng màu/glow giống loot.
+- **Kiểm tra từng bụi:** sau khi lệch vị trí khỏi tâm cụm, phải kiểm tra lại chất nền, nước, đường và footprint tại vị trí cuối. Tâm hợp lệ không có nghĩa cả cụm hợp lệ.
+- **Quy luật riêng:** ruộng có hàng do con người trồng, nhưng thiếu cây và gãy đoạn; không áp quy tắc hàng này cho đồng hoang.
+
+### 4.8 Prop: có chỗ đứng, có hướng sử dụng
+
+| Nhóm | Quy tắc đặt | Lỗi cần loại |
+|---|---|---|
+| Đá, cây | Một khối chủ + khối phụ khác cỡ; chân theo địa hình, đá chìm một phần; cụm tạo mép và khung cảnh | Các tảng bằng nhau cách đều, đá lơ lửng, cây mọc xuyên đá |
+| Bàn, ghế, giá, thùng | Sắp theo người sử dụng: ghế hướng vào chỗ nghỉ; giá đồ cạnh chỗ làm; thùng sát kho/tường | Mọi mặt trước đều quay về camera; bịt cửa; ghế không có chỗ ngồi vào |
+| Đồ đổ vỡ | Có nguồn: xe lật, mái sập, bao rách; vật nặng gần nguồn, mảnh nhẹ xa hơn | Mảnh vỡ không liên quan vật liệu hoặc rải khắp biome |
+| Lều, hàng rào | Theo nền đất và lối ra vào; khoảng hở phải đi qua được; lều có vùng trống trước cửa | Dây/cọc cắt đường; hàng rào trông hở nhưng collision kín |
+| Vật tương tác | Chừa chỗ tiếp cận và đứng dùng; silhouette riêng; dấu tương tác theo luật gameplay | Đồ phụ che rương/đền, xương trang trí sáng như vật bấm được |
+
+Quy tắc “1 lớn – 2 trung – 3+ nhỏ” ở §4.3 là nhịp tham khảo, không phải khuôn nhân bản. Vật tự nhiên có thể xoay tự do quanh trục đứng; đồ nhân tạo bám trục công trình, chỉ lệch nhẹ nếu cũ/hỏng. Không kéo giãn skull, cửa, ghế để tạo biến thể. Sprite có ánh sáng bake chỉ dùng hướng đã xuất, không xoay/lật làm sai hướng sáng.
+
+Footprint phải tính sau xoay và scale. Phân biệt **vùng chiếm chỗ**, **vùng thao tác** và **vùng che camera**; mesh không va chạm vẫn có thể che loot hoặc telegraph. Dời prop trong một bán kính nhỏ quanh mục tiêu; nếu dời ra khỏi câu chuyện gốc thì bỏ.
+
+### 4.9 Đuốc chỉ đường: điểm quyết định trước, khoảng cách sau
+
+- **Đặt nơi người chơi cần quyết định:** trước ngã rẽ, cạnh cổng, đầu cầu, chỗ đường bị khuất; đặt một dấu xác nhận sau rẽ khi dấu trước không còn nhìn được. Đuốc nằm trên vai đường, không trong lòng đường hay cửa.
+- **Tuyến có nhịp sáng–tối:** đoạn thẳng dễ đọc không cần cắm thêm đuốc đều nhau. Khoảng cách xét theo tầm thấy ở camera và sương thực tế, không chỉ theo mét. Một điểm quyết định thường cần 1 nguồn; cặp đuốc dành cho cổng quan trọng.
+- **Đọc được cả khi không nhìn thấy lửa:** cột, bệ, biển và hình đường cùng chỉ hướng; không dựa riêng vào màu cam. Tại ngã ba, vị trí đuốc và hướng biển phải thống nhất, không vô tình làm nhánh cụt giống tuyến chính.
+- **Có người duy trì:** dùng đuốc trên đường/trại/công trình có dấu cư trú. Hang thú và đồng hoang dùng đá, cây, dấu chân, xác làm mốc; không tự sinh đuốc trong hang thú chỉ để lấp vùng tối.
+- **Ý nghĩa nhất quán:** ánh đuốc là dấu có người qua lại, không tự động bảo đảm an toàn. Lửa gây sát thương cần hình dạng và telegraph riêng; lửa dẫn đường không được giả làm hazard.
+- **Giữ tương phản:** quầng sáng nhỏ, còn khoảng tối giữa các mốc; không để bloom che mặt đường, quái hoặc viền đòn. Chỉ nguồn quan trọng mới cần bóng động; kiểm tra ngân sách đèn trên từng renderer.
+
+### 4.10 Xương, xác và dấu vết: kể một sự kiện
+
+1. **Chọn nguyên nhân trước khi chọn asset:** thú ăn mồi → xương thú, vết kéo, lông; cướp trại → đồ cá nhân, vũ khí gãy, xác; mộ bị đào → đất mới, nắp vỡ, hài cốt; nghi lễ → bố trí có chủ ý. Không trộn tất cả vào cùng cụm.
+2. **Một điểm chính + 2–6 mảnh phụ:** lồng ngực hoặc sọ là điểm chính; mảnh phụ lệch về một phía, một vài mảnh xa hơn theo hướng kéo. Giữa các sự kiện phải có khoảng nền sạch. Không rải sọ như sỏi hoặc đặt mọi sọ ngửa mặt về camera.
+3. **Phân bố theo vật chủ:** tập trung cạnh bàn mổ, miệng hang, xác hay mộ vỡ. Các cụm dọc đường kéo nhỏ và thưa dần khi xa nguồn; không trải xương đều toàn bộ lối thú đi.
+4. **Tiếp đất:** xương nằm theo dốc nhỏ, bám đất và chìm nhẹ; có bùn/lá hoặc cỏ thấp quanh mép. Xương nhỏ không cản bước; đống lớn có collision phải đọc thành khối cản rõ.
+5. **Cũ và mới phải khớp:** xương khô đi với máu cũ tối, đất bám; thịt mới/vết máu ướt cần lý do mới xảy ra. Không thêm máu tươi vào mọi xương cho nổi.
+6. **Không tranh tín hiệu gameplay:** ngà bẩn, khử bão hòa, không glow. Với The Dying Gods dùng giới hạn xương trang trí **L* ≤ 65, C* ≤ 12** theo tài liệu 13; xác có thể tương tác/hồi sinh phải có dấu hiệu riêng của cơ chế.
+
+### 4.11 Điều chỉnh theo vùng con
+
+| Vùng | Cỏ và khoảng trống | Prop / dấu vết | Dẫn hướng |
+|---|---|---|---|
+| Đồng hoang | Mảng lớn thấp, cụm dày ở mép đá; giữ vùng combat thoáng | Đá, cành, hàng rào đứt; xương rất thưa, có nguồn | Hình đường và landmark; đuốc chỉ ở tuyến có người |
+| Nông trại bỏ hoang | Cỏ ở góc tường; sân bị giẫm; ruộng có hàng đứt | Đồ nghề cạnh chỗ làm, đồ rơi gần cửa/xe | Đèn cửa, đuốc lối vào, khoảng sân mở |
+| Trại địch | Đất trống quanh lửa, lều và chỗ tụ tập | Đồ cướp, da, xương cạnh khu xử lý; dấu nguy hiểm phân biệt decor | Đuốc cổng và lối chính, không đồng nghĩa an toàn |
+| Hang thú | Cỏ thấp/gãy trên lối mòn, mép ngoài dày hơn | Xác + xương + lông tập trung ở nguồn, không có đồ nghi lễ tùy tiện | Vết kéo, hình khối cửa hang; không đuốc nhân tạo |
+| Nghĩa địa | Cỏ ở khe và mép mộ, lối đi thưa | Mộ có hướng bố trí văn hóa; xương chỉ ở nơi bị xâm phạm | Cổng, nến/đèn ở mộ quan trọng |
+| Bờ nước / đất nhiễm huyết | Chuyển tiếp có bề rộng, không cắt thẳng; loại cỏ trên nước/tha hóa mạnh | Đồ trôi theo mép nước; dấu tha hóa theo nguồn | Bờ và điểm vượt đọc rõ, không dùng clutter để giấu mép |
+
+### 4.12 Triển khai và duyệt trong Lookdev Lab
+
+Scene áp dụng đầu tiên: **Act I · Weeping Fields**. Scene dùng mét trong world; H/Sub ở tài liệu là quy ước hình ảnh và chiếm chỗ, **không quy đổi 1 Sub = 1 m**. Thông số triển khai nằm ở `lookdev-lab/src/env/biomePlacement.js` và bố cục ở `lookdev-lab/src/scenes/weepingFields.js`.
+
+- Sinh theo seed ổn định. Mỗi nhóm (cỏ, prop, xương, đuốc) có seed riêng để sửa một nhóm không xáo cả cảnh.
+- Mask loại trừ luôn thắng mật độ: đường/cửa/tương tác → footprint → nước/dốc/tha hóa → phân bố cụm. Kiểm tra tại vị trí cuối, kể cả phương án asset dự phòng.
+- Giới hạn số lần thử và số instance. Không có chỗ thì ghi nhận/bỏ; không mở rộng vô hạn bán kính tìm chỗ.
+- Kiểm tra ở cả **Night** và **Overcast**, camera chơi và thang xám; bật **class view** để phân biệt vật cản / trang trí / tương tác / nguy hiểm.
+
+Checklist duyệt một tuyến từ waypoint → nông trại → đồng cỏ → hang thú:
+
+- [ ] Đi lọt mọi cửa, vai đường và khoảng giữa prop; chỗ đứng tương tác không bị chiếm.
+- [ ] Cỏ có mảng dày/thưa và khoảng đất trống; không tạo hàng ngoài ruộng, không xuyên prop/nước hoặc che telegraph.
+- [ ] Từng điểm rẽ có tín hiệu đọc được từ hướng tiếp cận; đuốc không tạo đường giả vào ngõ cụt.
+- [ ] Mỗi cụm xương/đồ vỡ giải thích được bằng một sự kiện và một vật chủ gần đó.
+- [ ] Khi tắt VFX/glow vẫn phân biệt được tuyến đi và vật tương tác; đêm không cần tăng gamma để tìm đường.
+- [ ] Tăng mật độ vẫn giữ vùng cấm; đổi seed/rebuild không làm mất hành lang; giảm mật độ về 0 không còn cỏ tương ứng.
+- [ ] Kiểm tra cả bộ kit đầy đủ và fallback; không có prop lơ lửng, chồng nhau hoặc đổi vai trò collision.
+- [ ] Kiểm tra frame time, số đèn và overdraw ở góc đông nhất trên WebGL2 và WebGPU trước khi duyệt hiệu năng.
 
 ---
 

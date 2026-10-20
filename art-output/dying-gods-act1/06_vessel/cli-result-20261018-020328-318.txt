@@ -1,0 +1,5 @@
+Command: Get-Content -LiteralPath 'E:/Diablo2/art-output/dying-gods-act1/06_vessel/cli-task-20261018-020328-318.txt' -Raw -Encoding UTF8 | codex exec --enable image_generation -s workspace-write -C E:/Diablo2 -o 'E:/Diablo2/art-output/dying-gods-act1/06_vessel/cli-result-20261018-020328-318.txt' -
+Exit code: 1
+WARNING: failed to clean up stale arg0 temp dirs: Access is denied. (os error 5)
+WARNING: proceeding, even though we could not create PATH aliases: Access is denied. (os error 5) at path "C:\\Users\\HLC_2021\\.codex\\tmp\\arg0-windows\\codex-arg0jEfsLa"
+Error: failed to initialize in-process app-server client: Access is denied. (os error 5)

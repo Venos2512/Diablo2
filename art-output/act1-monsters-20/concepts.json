@@ -1,0 +1,142 @@
+[
+  {
+    "id": "01_fallen_scavenger",
+    "name": "Fallen Scavenger",
+    "family": "Fallen",
+    "design": "Small hunched horned imp, wiry limbs, chipped cleaver, scrap-wood buckler, muddy red-brown hide and ragged leather. Cowardly melee swarm; crouched asymmetric silhouette.",
+    "heightH": 0.65
+  },
+  {
+    "id": "02_fallen_shaman",
+    "name": "Fallen Ash Shaman",
+    "family": "Fallen Shaman",
+    "design": "Small elderly horned demon, stooped spine, tall crooked staff with a modest ember and bone charms, soot-stained hide, ragged mantle. Staff and posture clearly distinguish resurrection caster from melee.",
+    "heightH": 0.75
+  },
+  {
+    "id": "03_zombie_fieldhand",
+    "name": "Drowned Fieldhand",
+    "family": "Zombie",
+    "design": "Human-sized former farm worker, sagging shoulders, dragging leg, torn wool and rope belt, cold grey skin with mud stains. One malformed stiff arm; restrained decay, no exposed entrails.",
+    "heightH": 1
+  },
+  {
+    "id": "04_hungry_dead",
+    "name": "Grave Hunger",
+    "family": "Hungry Dead",
+    "design": "Emaciated human undead, forward-thrust neck, long grasping arms, burial wraps and clotted earth, sunken grey face. Lean reaching silhouette distinct from shambling fieldhand.",
+    "heightH": 1.05
+  },
+  {
+    "id": "05_quill_rat",
+    "name": "Moor Quill Rat",
+    "family": "Quill Rat",
+    "design": "Low quadruped rodent with wedge head, fan of coarse dark spines on back, muddy olive-grey hide, short digging claws. Ranged animal threat; natural animal with only exaggerated spine launcher.",
+    "heightH": 0.35
+  },
+  {
+    "id": "06_spike_fiend",
+    "name": "Thornback Fiend",
+    "family": "Spike Fiend",
+    "design": "Stocky boar-rat-like quadruped, shoulders form a broad triangular quill ridge, coarse brown-black pelt, worn ivory spines. Distinguish from Quill Rat through heavier shoulders and longer muzzle.",
+    "heightH": 0.45
+  },
+  {
+    "id": "07_gargantuan_beast",
+    "name": "Briarback Brute",
+    "family": "Gargantuan Beast",
+    "design": "Large ape-like forest brute, massive shoulders and forearms, short powerful legs, weathered brown fur with small matted patches, flattened predatory face. No armor or giant weapons; heavy knuckle-driven melee.",
+    "heightH": 1.5
+  },
+  {
+    "id": "08_wendigo",
+    "name": "Ashwood Wendigo",
+    "family": "Wendigo",
+    "design": "Tall gaunt furred humanoid brute, long arms, narrow waist, hunched pointed shoulder silhouette and pale dirty fur, believable muscular joints. D2 ape-like family, no deer skull or antlers from modern folklore.",
+    "heightH": 1.6
+  },
+  {
+    "id": "09_dark_hunter",
+    "name": "Oathbroken Hunter",
+    "family": "Dark Hunter / Corrupt Rogue",
+    "design": "Adult corrupted rogue melee fighter with practical torn leather armor and faded cloth, single rusted short sword, hostile forward stance, subtly ashen skin. Former disciplined soldier, no pinup styling.",
+    "heightH": 1
+  },
+  {
+    "id": "10_dark_archer",
+    "name": "Widow Bow Rogue",
+    "family": "Dark Archer / Corrupt Rogue",
+    "design": "Adult fallen rogue archer, long battered bow, narrow bent-knee stance, worn hood pushed back, damaged grey leather armor, faded burgundy cloth. Bow-ready posture and clear string/limb silhouette.",
+    "heightH": 1
+  },
+  {
+    "id": "11_dark_spearwoman",
+    "name": "Briar Spear Rogue",
+    "family": "Dark Spearwoman / Corrupt Rogue",
+    "design": "Adult corrupted rogue spearwoman, two-handed long spear, low braced stance, patched leather and rusty iron shoulder guard. Grounded martial proportions, no ornate armor, distinguish role by weapon and stance.",
+    "heightH": 1.05
+  },
+  {
+    "id": "12_skeleton",
+    "name": "Ossuary Watchman",
+    "family": "Skeleton",
+    "design": "Human skeleton foot soldier, dirt-stained ivory bones, remnants of rusted mail and broken nasal helmet, chipped sword and small battered shield. Broad readable bone masses; no excessive tiny bone ornaments.",
+    "heightH": 1
+  },
+  {
+    "id": "13_skeleton_archer",
+    "name": "Crypt Bowguard",
+    "family": "Skeleton Archer",
+    "design": "Human skeletal archer, long wooden bow, ragged burial cloth around pelvis, broken leather bracer, bone-grey skull with no decorative glow. Slight lateral stance showing bow and ribcage clearly.",
+    "heightH": 1
+  },
+  {
+    "id": "14_skeleton_mage",
+    "name": "Cinder Ossuary Mage",
+    "family": "Skeleton Mage",
+    "design": "Human skeleton caster with scorched robe remnants, bent ritual staff and a tiny controlled amber fire in one hand. Thin tall silhouette, dirty ivory and charcoal palette; fire only as a small meaningful accent.",
+    "heightH": 1.05
+  },
+  {
+    "id": "15_blood_hawk",
+    "name": "Carrion Blood Hawk",
+    "family": "Blood Hawk",
+    "design": "Carrion raptor with ragged broad wings, hooked beak, sparse rust-brown plumage over grey leathery neck. Folded-wing perching and wings-open attack poses; readable game-scale wing shape.",
+    "heightH": 0.5
+  },
+  {
+    "id": "16_foul_crow",
+    "name": "Churchyard Foul Crow",
+    "family": "Foul Crow",
+    "design": "Lean demonic scavenger bird, narrow hooked head, long primary feathers, crooked talons, black-brown plumage with muted dried-blood accents. Corruption focused in bare neck and beak; no giant fantasy horns.",
+    "heightH": 0.4
+  },
+  {
+    "id": "17_goatman",
+    "name": "Stonefield Goat Raider",
+    "family": "Goatman / Moon Clan",
+    "design": "Goat-legged humanoid raider, coarse dark fur, compact curved horns, rough leather straps, chipped two-handed axe and salvaged iron guards. Hooved legs, axe silhouette, grounded tribal scavenger design.",
+    "heightH": 1.2
+  },
+  {
+    "id": "18_goatman_shaman",
+    "name": "Moon Clan Bonecaller",
+    "family": "Goatman Shaman",
+    "design": "Goat-legged humanoid caster, backward-curving horns, long narrow staff, ragged hide mantle and sparse bone charms. Reserved muted umber/olive palette, pale ash markings; no glowing decorative runes.",
+    "heightH": 1.25
+  },
+  {
+    "id": "19_tainted",
+    "name": "Catacomb Tainted",
+    "family": "Tainted",
+    "design": "Stocky crouched bipedal demon, broad low head, thick hunched shoulders, short heavy legs, muted plum-brown leathery skin and a narrow maw suitable for spitting a small lightning attack. Distinct squat silhouette, no giant VFX.",
+    "heightH": 1.05
+  },
+  {
+    "id": "20_arach",
+    "name": "Cloister Crypt Weaver",
+    "family": "Arach / Giant Spider",
+    "design": "Large low crypt spider with eight anatomically coherent legs, broad dark abdomen, coarse grey-brown carapace, sparse hairs and small dull eyes. Web hints only at feet; spider anatomy readable without exaggerated fluorescent poison sacs.",
+    "heightH": 0.45
+  }
+]

@@ -1,0 +1,7 @@
+Blocked before generation. ChatGPT login verified, but Codex CLI returned:
+
+```text
+Error: failed to initialize in-process app-server client: Access is denied. (os error 5)
+```
+
+No image_gen call occurred; no PNG was generated or copied. Preserved the prompt and saved unique task, log, result, and [failure README](E:/Diablo2/art-output/dying-gods-act1/05_crawler/README.md) in the assigned folder.

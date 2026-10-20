@@ -1,0 +1,7 @@
+FAILED before image_gen invocation.
+Account verification: codex login status returned Logged in using ChatGPT.
+Command: Get-Content -LiteralPath cli-task-20261018-020328-119.txt -Raw -Encoding UTF8 | codex exec --enable image_generation -s workspace-write -C E:/Diablo2 -o cli-result-20261018-020328-119.txt -
+Exit code: 1
+Raw terminal error:
+Error: failed to initialize in-process app-server client: Access is denied. (os error 5)
+No generation call occurred; no generated_images source path returned; no PNG copied or inspected.

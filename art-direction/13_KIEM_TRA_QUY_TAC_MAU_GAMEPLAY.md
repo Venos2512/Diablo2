@@ -42,7 +42,7 @@ công thức của three.js r180 (exposure 1):
 | Tone mapper | Hex vẽ thẳng 1× lệch (ΔE2000) | Ví dụ | Hex nào không đạt được |
 |---|---|---|---|
 | **AgX** (mặc định của lab) | 5.5 – **12.6** | `#FFB16B` → `#CEA985` (cam thành be) · `#FFF0CF` → `#CAC4B9` | Nguy hiểm `#E66A39`, `#FFB16B`, Độc hi `#C2D76B` (tốt nhất còn ΔE 3.9–4.9) |
-| ACES (mood Act I) | 3.0 – 9.5 | `#FFB16B` → `#E8C085` | không |
+| ACES (mood Act I, look mặc định của Weeping Fields) | 3.0 – 9.5 | `#FFB16B` → `#E8C085` | không |
 | Khronos Neutral | 1.6 – 5.3 | `#E66A39` → `#E25F1A` | gần như không (Thần thánh hi `#F0DEAB` còn 2.4) |
 
 Đề xuất thêm vào I.2: *màu tín hiệu là màu hiển thị*; engine vẽ telegraph/marker **sau tone mapping** (lớp overlay)
@@ -123,6 +123,8 @@ Nguy hiểm–Thần thánh 27.2/17.1/10.6/19.5 · 17.5/11.1/9.7/14.8 — Nguy h
 30.0/23.9/16.0/13.1 — Độc–Tương tác 19.3/14.1/14.0/29.3 · 18.9/16.3/14.7/15.8 — Độc–Linh hồn (tritan) 17.2 · 17.3.
 Các cặp còn lại ≥ 15.5 ở mọi dạng.
 
-**Cách tái tạo trong lab**: `npm run dev` → Scene *Act I · Weeping Fields (colour rules)* → Environment → *Rules ·
-màu & khả năng đọc*: góc kiểm tra theo checklist, class view (VI), telegraph demo, bảng mẫu 6 màu trên cỏ, stand-in
-Redbound, bảng tín hiệu qua tone mapping; Post & camera → *Readability check*.
+**Cách tái tạo trong lab**: `npm run dev` → Scene *Act I · Weeping Fields (colour rules)*. Map mở bằng look Diablo II
+(isometric, đêm, ACES). Để đo như báo cáo này: Lighting → *Overcast · neutral palette check* (AgX), bật *Palette lock*
+trong *Terrain layers*. Sau đó vào Environment → *Rules · màu & khả năng đọc*: góc kiểm tra theo checklist, class view
+(VI), telegraph demo, bảng mẫu 6 màu trên cỏ, stand-in Redbound, bảng tín hiệu qua tone mapping. Post & camera →
+*Readability check*.

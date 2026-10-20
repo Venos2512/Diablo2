@@ -1,0 +1,394 @@
+[
+  {
+    "session": 1,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:0",
+    "monsters": [
+      {
+        "number": 1,
+        "id": "01_scavenger",
+        "family": "Redbound",
+        "name": "Scavenger",
+        "description": "Nhỏ, lưng gù, tay dài, cầm liềm gỉ.",
+        "palette": "Đỏ gạch · Xương ngà · Nâu gỉ"
+      },
+      {
+        "number": 2,
+        "id": "02_piercer",
+        "family": "Redbound",
+        "name": "Piercer",
+        "description": "Thân gầy, chân dài, một tay biến thành ống phóng gai xương.",
+        "palette": "Đỏ máu khô · Trắng xương · Nâu đen"
+      }
+    ]
+  },
+  {
+    "session": 2,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:1",
+    "monsters": [
+      {
+        "number": 3,
+        "id": "03_brute",
+        "family": "Redbound",
+        "name": "Brute",
+        "description": "To bè, vai rộng, hai cẳng tay bọc giáp xương.",
+        "palette": "Đỏ đô · Xương xám · Nâu thịt"
+      },
+      {
+        "number": 4,
+        "id": "04_bellwether",
+        "family": "Redbound",
+        "name": "Bellwether",
+        "description": "Cổ dài, lồng ngực có các vòng xương phát nhịp.",
+        "palette": "Đỏ thẫm · Xương trắng · Hồng thịt"
+      }
+    ]
+  },
+  {
+    "session": 3,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:2",
+    "monsters": [
+      {
+        "number": 5,
+        "id": "05_crawler",
+        "family": "Redbound",
+        "name": "Crawler",
+        "description": "Lưng gập ngược, bò bốn chi, phục kích trong bóng tối.",
+        "palette": "Đỏ nâu · Xương bẩn · Đen tím"
+      },
+      {
+        "number": 6,
+        "id": "06_vessel",
+        "family": "Redbound",
+        "name": "Vessel",
+        "description": "Bụng phình chứa thần huyết, phát nổ khi bị tiêu diệt.",
+        "palette": "Đỏ huyết · Hồng đỏ · Nâu đậm"
+      }
+    ]
+  },
+  {
+    "session": 4,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:3",
+    "monsters": [
+      {
+        "number": 7,
+        "id": "07_herald",
+        "family": "Redbound",
+        "name": "Herald",
+        "description": "Thủ lĩnh cao lớn, có những vòng xương cong sau lưng.",
+        "palette": "Đỏ rượu · Xương ngà · Đỏ sáng"
+      },
+      {
+        "number": 8,
+        "id": "08_gravewalker",
+        "family": "Restless",
+        "name": "Gravewalker",
+        "description": "Xác nông dân mục rữa, vai lệch, kéo lê chân.",
+        "palette": "Xám lục · Nâu đất · Be bẩn"
+      }
+    ]
+  },
+  {
+    "session": 5,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:4",
+    "monsters": [
+      {
+        "number": 9,
+        "id": "09_shrouded",
+        "family": "Restless",
+        "name": "Shrouded",
+        "description": "Thi thể gầy quấn vải liệm, lao tới bất ngờ.",
+        "palette": "Trắng ngà bẩn · Xám lạnh · Nâu xám"
+      },
+      {
+        "number": 10,
+        "id": "10_bonewatch",
+        "family": "Restless",
+        "name": "Bonewatch",
+        "description": "Bộ xương mặc giáp cũ, cầm nỏ gỉ.",
+        "palette": "Vàng xương · Xám sắt · Nâu gỉ"
+      }
+    ]
+  },
+  {
+    "session": 6,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:5",
+    "monsters": [
+      {
+        "number": 11,
+        "id": "11_bloated_dead",
+        "family": "Restless",
+        "name": "Bloated Dead",
+        "description": "Xác trương phình, da căng, phát tán khí độc.",
+        "palette": "Xanh lục xám · Vàng tái · Xám mục"
+      },
+      {
+        "number": 12,
+        "id": "12_mourning_wraith",
+        "family": "Restless",
+        "name": "Mourning Wraith",
+        "description": "Bóng ma mặc vải tang đen, thân dưới tan thành sương.",
+        "palette": "Xanh đen · Xám lam · Trắng hồn"
+      }
+    ]
+  },
+  {
+    "session": 7,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:6",
+    "monsters": [
+      {
+        "number": 13,
+        "id": "13_coffinbound",
+        "family": "Restless",
+        "name": "Coffinbound",
+        "description": "Xác khổng lồ mang quan tài, quấn xích sắt.",
+        "palette": "Nâu gỗ mục · Xám xác · Xương ngà"
+      },
+      {
+        "number": 14,
+        "id": "14_mirewolf",
+        "family": "Blightbeasts",
+        "name": "Mirewolf",
+        "description": "Sói gầy, hàm dài, lông rụng từng mảng.",
+        "palette": "Xám than · Nâu lông · Xương tái"
+      }
+    ]
+  },
+  {
+    "session": 8,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:7",
+    "monsters": [
+      {
+        "number": 15,
+        "id": "15_rotboar",
+        "family": "Blightbeasts",
+        "name": "Rotboar",
+        "description": "Lợn rừng to nặng, mõm hóa xương, nanh lệch.",
+        "palette": "Nâu đen · Nâu đất · Vàng xương"
+      },
+      {
+        "number": 16,
+        "id": "16_carrion_crow",
+        "family": "Blightbeasts",
+        "name": "Carrion Crow",
+        "description": "Quạ lớn, cánh rách, mỏ dài và sắc.",
+        "palette": "Đen than · Xanh xám · Xám mỏ"
+      }
+    ]
+  },
+  {
+    "session": 9,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:8",
+    "monsters": [
+      {
+        "number": 17,
+        "id": "17_grave_rat",
+        "family": "Blightbeasts",
+        "name": "Grave Rat",
+        "description": "Chuột lớn, lông thưa, răng cửa phình to.",
+        "palette": "Nâu xám · Hồng da · Vàng răng"
+      },
+      {
+        "number": 18,
+        "id": "18_grave_moth",
+        "family": "Blightbeasts",
+        "name": "Grave Moth",
+        "description": "Bướm đêm khổng lồ, cánh phủ bụi gây nhiễu.",
+        "palette": "Xám tro · Tím xám · Be nhạt"
+      }
+    ]
+  },
+  {
+    "session": 10,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:9",
+    "monsters": [
+      {
+        "number": 19,
+        "id": "19_thornstag",
+        "family": "Blightbeasts",
+        "name": "Thornstag",
+        "description": "Hươu cao gầy, sừng biến dạng nhiều gai.",
+        "palette": "Nâu đen · Nâu lạnh · Xương ngà"
+      },
+      {
+        "number": 20,
+        "id": "20_thornling",
+        "family": "Rootborn",
+        "name": "Thornling",
+        "description": "Bụi gai nhỏ có bốn chân rễ, ngụy trang trong cỏ.",
+        "palette": "Xanh rêu · Nâu gỗ · Gai đen"
+      }
+    ]
+  },
+  {
+    "session": 11,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:10",
+    "monsters": [
+      {
+        "number": 21,
+        "id": "21_rootwhip",
+        "family": "Rootborn",
+        "name": "Rootwhip",
+        "description": "Rễ dài như roi, có gai móc, kéo mục tiêu.",
+        "palette": "Nâu đen · Xanh ô liu · Đỏ nhựa cây"
+      },
+      {
+        "number": 22,
+        "id": "22_bloodbloom",
+        "family": "Rootborn",
+        "name": "Bloodbloom",
+        "description": "Hoa ăn thịt đỏ, cánh sắc, miệng dạng phễu.",
+        "palette": "Đỏ huyết · Xanh rêu tối · Hồng thịt"
+      }
+    ]
+  },
+  {
+    "session": 12,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:11",
+    "monsters": [
+      {
+        "number": 23,
+        "id": "23_hollow_trunk",
+        "family": "Rootborn",
+        "name": "Hollow Trunk",
+        "description": "Người cây khổng lồ, ngực rỗng chứa lõi huyết.",
+        "palette": "Nâu vỏ cây · Xanh rêu · Đỏ lõi"
+      },
+      {
+        "number": 24,
+        "id": "24_veinroot_elder",
+        "family": "Rootborn",
+        "name": "Veinroot Elder",
+        "description": "Cổ thụ thân đen, rễ lớn, mạch đỏ lan khắp thân.",
+        "palette": "Đen gỗ · Rêu tối · Đỏ mạch máu"
+      }
+    ]
+  },
+  {
+    "session": 13,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:12",
+    "monsters": [
+      {
+        "number": 25,
+        "id": "25_deserter",
+        "family": "Forsworn",
+        "name": "Deserter",
+        "description": "Lính đào ngũ, giáp da rách, kiếm và khiên cũ.",
+        "palette": "Nâu da · Xám thép · Xanh xám tối"
+      },
+      {
+        "number": 26,
+        "id": "26_blackwood_marksman",
+        "family": "Forsworn",
+        "name": "Blackwood Marksman",
+        "description": "Thợ săn trùm mũ, mang nỏ lớn và bẫy.",
+        "palette": "Xanh rừng tối · Nâu da · Đen than"
+      }
+    ]
+  },
+  {
+    "session": 14,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:13",
+    "monsters": [
+      {
+        "number": 27,
+        "id": "27_plague_brewer",
+        "family": "Forsworn",
+        "name": "Plague Brewer",
+        "description": "Kẻ pha dịch đeo mặt nạ, mang bình hóa chất.",
+        "palette": "Vàng ô liu · Nâu xám · Lục hóa chất"
+      },
+      {
+        "number": 28,
+        "id": "28_chainkeeper",
+        "family": "Forsworn",
+        "name": "Chainkeeper",
+        "description": "Chiến binh to lớn, giáp sắt, mang xích móc.",
+        "palette": "Xám sắt · Nâu gỉ · Thép cũ"
+      }
+    ]
+  },
+  {
+    "session": 15,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:14",
+    "monsters": [
+      {
+        "number": 29,
+        "id": "29_oathbreaker_captain",
+        "family": "Forsworn",
+        "name": "Oathbreaker Captain",
+        "description": "Chỉ huy mặc giáp nặng, trường binh, cờ rách.",
+        "palette": "Xanh thép đen · Đồng cũ · Đỏ rượu"
+      }
+    ]
+  },
+  {
+    "session": 16,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:15",
+    "monsters": [
+      {
+        "number": 30,
+        "id": "30_hushed_acolyte",
+        "family": "Consecrated",
+        "name": "Hushed Acolyte",
+        "description": "Tu sĩ cao gầy, áo choàng ngà, mặt không miệng.",
+        "palette": "Trắng ngà · Xám tro · Vàng cũ"
+      }
+    ]
+  },
+  {
+    "session": 17,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:16",
+    "monsters": [
+      {
+        "number": 31,
+        "id": "31_penitent_bulwark",
+        "family": "Consecrated",
+        "name": "Penitent Bulwark",
+        "description": "Kỵ sĩ giáp đen đồ sộ, khiên lớn, sáp bọc khe giáp.",
+        "palette": "Đen thép · Sáp trắng · Vàng đồng"
+      }
+    ]
+  },
+  {
+    "session": 18,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:17",
+    "monsters": [
+      {
+        "number": 32,
+        "id": "32_ash_cantor",
+        "family": "Consecrated",
+        "name": "Ash Cantor",
+        "description": "Giáo sĩ gầy, đầu phủ sáp, cầm lư hương.",
+        "palette": "Be tro · Xám đen · Cam hương khói"
+      }
+    ]
+  },
+  {
+    "session": 19,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:18",
+    "monsters": [
+      {
+        "number": 33,
+        "id": "33_sanctified_executioner",
+        "family": "Consecrated",
+        "name": "Sanctified Executioner",
+        "description": "Chiến binh cao, giáp hẹp, trường đao khổng lồ.",
+        "palette": "Đen thép · Xương trắng · Đỏ huyết"
+      }
+    ]
+  },
+  {
+    "session": 20,
+    "threadId": "thread:mcp:e3637a80-69bc-4bdd-824f-254096631a73:act1-monsters-20-20261017-v1:19",
+    "monsters": [
+      {
+        "number": 34,
+        "id": "34_hollow_confessor",
+        "family": "Consecrated",
+        "name": "Hollow Confessor",
+        "description": "Giáo chủ cao lớn, mặt nạ trắng, vòng xương sau đầu.",
+        "palette": "Đen nghi lễ · Trắng xương · Vàng cổ"
+      }
+    ]
+  }
+]

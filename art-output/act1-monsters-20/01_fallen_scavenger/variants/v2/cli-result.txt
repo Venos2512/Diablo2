@@ -1,0 +1,7 @@
+The authorized CLI route failed before image generation:
+
+```text
+Error: failed to initialize in-process app-server client: Access is denied. (os error 5)
+```
+
+No image was generated; no fallback was used. Prior artwork remains untouched. The new CLI task file is saved in the assigned v2 folder.

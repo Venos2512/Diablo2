@@ -1,0 +1,9 @@
+FAILED before generation. codex login status returned: Logged in using ChatGPT.
+Command: Get-Content -LiteralPath <unique-cli-task-file> -Raw -Encoding UTF8 | codex exec --enable image_generation -s workspace-write -C E:/Diablo2 -o <unique-cli-result-file> -
+Exit code: 1
+Raw CLI diagnostic:
+WARNING: failed to clean up stale arg0 temp dirs: Access is denied. (os error 5)
+WARNING: proceeding, even though we could not create PATH aliases: Access is denied. (os error 5) at path "C:\Users\HLC_2021\.codex\tmp\arg0-windows\codex-arg0HCWmKL"
+Error: failed to initialize in-process app-server client: Access is denied. (os error 5)
+
+This result file was recorded by the parent after CLI initialization failed; it is not a successful CLI model response. No image_gen call occurred. No generated_images source or final PNG exists from this attempt.
