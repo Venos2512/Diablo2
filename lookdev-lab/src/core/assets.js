@@ -23,6 +23,21 @@ const DECODERS = {
 
 const blobUrls = new Map();
 
+const MAX_ANISOTROPY = 8; // same cap as the terrain layers (env/terrain.js)
+
+/**
+ * Anisotropic filtering for every texture of a loaded model. Loaders leave it at 1, and the iso camera sees most prop
+ * surfaces at an angle, where plain trilinear filtering drops to a blurrier mip level.
+ */
+function filterTextures(root, anisotropy) {
+	root.traverse((o) => {
+		if (!o.material) return;
+		for (const m of Array.isArray(o.material) ? o.material : [o.material]) {
+			for (const value of Object.values(m)) if (value?.isTexture && value.anisotropy < anisotropy) value.anisotropy = anisotropy;
+		}
+	});
+}
+
 function mimeFor(file) {
 	if (file.endsWith('.js')) return 'text/javascript';
 	if (file.endsWith('.wasm')) return 'application/wasm';
@@ -62,10 +77,13 @@ export class AssetLoader {
 		this.exr = new EXRLoader(this.manager);
 		this.texture = new THREE.TextureLoader(this.manager);
 		this.ktx2Ready = false;
+		this.anisotropy = 1;
 	}
 
-	/** KTX2 transcoding needs to know the renderer's compressed-format support (WebGL or WebGPU). */
+	/** KTX2 transcoding needs to know the renderer's compressed-format support (WebGL or WebGPU); so does anisotropy. */
 	bindRenderer(renderer) {
+		const max = renderer.getMaxAnisotropy?.() ?? renderer.capabilities?.getMaxAnisotropy?.() ?? 1; // WebGPURenderer ?? WebGLRenderer
+		this.anisotropy = Math.min(MAX_ANISOTROPY, max);
 		try {
 			this.ktx2.detectSupport(renderer);
 			this.ktx2Ready = true;
@@ -112,7 +130,9 @@ export class AssetLoader {
 	}
 
 	async loadGLTF(url) {
-		return this.gltf.loadAsync(url);
+		const gltf = await this.gltf.loadAsync(url);
+		filterTextures(gltf.scene, this.anisotropy);
+		return gltf;
 	}
 
 	async loadHDR(url, ext = 'hdr') {
@@ -176,6 +196,7 @@ export class AssetLoader {
 				results.push({ kind: 'error', name: file.name, error });
 			}
 		}
+		for (const r of results) if (r.kind === 'model') filterTextures(r.scene, this.anisotropy);
 		if (images.length && !list.some((f) => /\.gltf$/i.test(f.name))) {
 			const textures = await Promise.all(images.map(async (file) => {
 				const texture = await this.texture.loadAsync(urlFor(file));

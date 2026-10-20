@@ -92,8 +92,8 @@ export function buildLightingPanel(app, el) {
 	function buildRig() {
 		clearFolder(fRig);
 		const scene = app.current;
-		if (app.mood?.active && scene?.mood !== undefined && (scene.id === 'studio' || scene.id === 'graveyard')) {
-			note(fRig, `The <b>${app.mood.mood.label}</b> mood drives this scene's ${scene.id === 'studio' ? 'rig and environment' : 'moon, sky and time of day'}. Set Mood to Off to use them again.`);
+		if (app.mood?.active && scene?.mood !== undefined && scene.id === 'studio') {
+			note(fRig, `The <b>${app.mood.mood.label}</b> mood drives this scene's rig and environment. Set Mood to Off to use them again.`);
 			if (scene.buildLightingControls) scene.buildLightingControls(fRig, () => buildLights());
 			return;
 		}

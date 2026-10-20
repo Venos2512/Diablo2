@@ -9,7 +9,12 @@
     "build": "node scripts/build.mjs",
     "start": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
-    "share": "node scripts/share.mjs"
+    "test:placement": "node --test scripts/biome-placement.test.mjs",
+    "test:layout": "node --test scripts/biome-layout.test.mjs",
+    "test": "node --test scripts/biome-placement.test.mjs scripts/biome-layout.test.mjs",
+    "share": "node scripts/share.mjs",
+    "preview:layout": "node scripts/biome-layout-preview.mjs",
+    "measure:kits": "node scripts/measure-kits.mjs"
   },
   "dependencies": {
     "three": "0.180.0",

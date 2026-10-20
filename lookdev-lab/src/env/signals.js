@@ -7,7 +7,7 @@
 //   Label      flat text on the ground.
 // Everything is draped on the ground through a height function and uses vertex alpha / plain textures, so the
 // WebGL2 and WebGPU renderers draw it unchanged. Colours are linear scene colours set by the owner (setColors):
-// the Weeping Fields scene passes display-matched colours (core/displayMatch.js) so the hexes survive tone mapping.
+// callers may pass display-matched colours so the rule-sheet hexes survive tone mapping.
 import * as THREE from 'three';
 import { FUNCTION } from './valdren.js';
 

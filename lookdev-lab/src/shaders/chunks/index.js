@@ -2,8 +2,9 @@
 import common from './common.glsl';
 import noise from './noise.glsl';
 import pbrValidate from './pbr_validate.glsl';
+import pcss from './pcss.glsl';
 import surface from './surface.glsl';
 import time from './time.glsl';
 import vfx from './vfx.glsl';
 
-export const GLSL_CHUNKS = { common, noise, pbrValidate, surface, time, vfx };
+export const GLSL_CHUNKS = { common, noise, pbrValidate, pcss, surface, time, vfx };

@@ -1,4 +1,5 @@
-// Display transform: grading -> tone mapping -> sRGB -> 3D LUT, plus vignette, grain and chromatic aberration.
+// Display transform: grading -> tone mapping -> sRGB -> 3D LUT, plus vignette, grain, chromatic aberration and a
+// half-step dither.
 // uMode: 0 = graded output, 1 = debug passthrough (no grade, no tone mapping), 2 = exposure false colour.
 #include <common>
 #include <tonemapping_pars_fragment>
@@ -36,9 +37,12 @@ vec3 toneMap( vec3 c ) {
 }
 
 vec3 sampleColor( vec2 uv ) {
-	if ( uChromatic <= 0.0 ) return texture2D( tColor, uv ).rgb;
-	vec2 d = ( uv - 0.5 ) * uChromatic * 0.012;
-	return vec3( texture2D( tColor, uv + d ).r, texture2D( tColor, uv ).g, texture2D( tColor, uv - d ).b );
+	vec3 c = texture2D( tColor, uv ).rgb;
+	if ( uChromatic > 0.0 ) {
+		vec2 d = ( uv - 0.5 ) * uChromatic * 0.012;
+		c = vec3( texture2D( tColor, uv + d ).r, c.g, texture2D( tColor, uv - d ).b );
+	}
+	return c; // one exit: ANGLE's HLSL compiler warns about the early return (X4000)
 }
 
 void main() {
@@ -84,6 +88,9 @@ void main() {
 		float mid = 1.0 - abs( labLuma( color ) * 2.0 - 1.0 );
 		color += n * uGrain * ( 0.35 + 0.65 * mid );
 	}
+
+	// Half a display step of interleaved-gradient noise: no banding in dark gradients (night, vignette, fog).
+	color += ( fract( 52.9829189 * fract( dot( gl_FragCoord.xy, vec2( 0.06711056, 0.00583715 ) ) ) ) - 0.5 ) / 255.0;
 
 	gl_FragColor = vec4( color, 1.0 );
 }

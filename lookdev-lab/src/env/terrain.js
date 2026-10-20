@@ -1,7 +1,7 @@
 // Terrain splat map: a world-space RGBA8 texture that says where the upper terrain layers cover the dry dirt
 // base (R = wet dirt, G = grass, B = blood-soaked; A unused). Layers stack bottom to top — dirt → wet dirt → grass —
-// so painting wet dirt also clears grass, and painting dirt clears everything. Blood (the Remnant corruption of the
-// Weeping Fields scene) tints whatever lies under it and kills grass. Shaded by the `terrain` surface patch
+// so painting wet dirt also clears grass, and painting dirt clears everything. Blood (the Remnant corruption, e.g. the blood
+// ground near the altar in Bố trí biome) tints whatever lies under it and kills grass. Shaded by the `terrain` surface patch
 // (shaders/effects/terrain.glsl and its TSL twin), which blends the three forged layer sets by height.
 import * as THREE from 'three';
 import { noise2 } from './kit.js';
@@ -15,16 +15,48 @@ export const TERRAIN_LAYERS = ['moorDirt', 'moorMud', 'moorGrass'];
  * low = height band [from, to] read as the wet layer's hollows (puddles: glossy).
  * tile = metres per repeat; water / waterRough = standing-water level in the wet layer's height and its roughness; tufts = 3D grass density factor,
  * tuftColor = per channel [base, + dry] (linear) so the tufts sit in the grass layer's palette.
+ * variationScale / rotate = anti-tiling: breakup areas per metre (default 0.09) and quarter-turn variants (0/1).
  */
 export const TERRAIN_SETS = {
 	// Generated tiles after the D2R Blood Moor (art-direction/reference/terrain-moor, scripts/prepare-terrain-moor.py):
 	// several grass patterns mixed in one 2 × 2 tile, dry dirt + sparse-grass transition, wet dirt; the road ruts
 	// and the creek water are ribbon meshes along the scene's curves (ribbons: their texture prefix).
 	moor: { label: 'D2R moor (generated: grass mix / ruts / creek)', prefix: 'terrain3', ribbons: 'terrain3', low: [0.12, 0.24], tiles: [3.5, 3.5, 7], water: 0.18, waterRough: 0.15, tufts: 0.35, tuftColor: [[0.035, 0.05], [0.07, 0.07], [0.018, 0.02]], relief: [3, 2.5, 6], cards: 'terrain3-grass-cards' },
+	// Natural lush grass after a D2R gameplay screenshot (art-output/terrain-grass-d2r, scripts/prepare-terrain-meadow.py):
+	// six grass patterns in four turns mixed into one 7 m tile, sparse grass + soil, damp ground; the moor's ruts,
+	// creek and grass cards.
+	meadow: { label: 'D2R lush grass (natural mix)', prefix: 'terrain4', ribbons: 'terrain3', cards: 'terrain3-grass-cards', variationScale: 0.2, rotate: 1, low: [0.12, 0.24], tiles: [7, 3.5, 7], water: 0.18, waterRough: 0.12, tufts: 0.35, tuftColor: [[0.028, 0.018], [0.041, 0.026], [0.006, 0.004]], relief: [3, 2.5, 4] },
 	tiles: { label: 'Painted tiles (mud / grass / transition)', prefix: 'terrain2', low: [0.2, 0.3], tiles: [3.5, 4, 3], water: 0.26, waterRough: 0.22, tufts: 0.15, tuftColor: [[0.06, 0.1], [0.09, 0.08], [0.025, 0.03]] },
 	painted: { label: 'Painted (concept swatches)', prefix: 'terrain', low: [0.08, 0.2], tiles: [3.2, 4, 3], water: 0.14, waterRough: 0.22, tufts: 0.15, tuftColor: [[0.07, 0.1], [0.1, 0.08], [0.025, 0.03]] },
+	// Act I biomes after the colour script (art-direction Ch.11 §10): Codex-generated tiles in the moor tiles' style
+	// (art-output/terrain-biomes, scripts/prepare-terrain-biomes.py), dirt = base ground, mud = wet ground, grass = cover.
+	coldPlains: { label: 'Act I · Cold Plains', prefix: 'biome-cold-plains', variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [3.5, 3.5, 3.5], water: 0.16, waterRough: 0.12, tufts: 0.3, tuftColor: [[0.056, 0.036], [0.056, 0.036], [0.038, 0.024]] },
+	burialGrounds: { label: 'Act I · Burial Grounds', prefix: 'biome-burial-grounds', variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [3.5, 3.5, 3.5], water: 0.16, waterRough: 0.1, tufts: 0.25, tuftColor: [[0.017, 0.011], [0.018, 0.011], [0.019, 0.012]] },
+	stonyField: { label: 'Act I · Stony Field', prefix: 'biome-stony-field', variationScale: 0.3, rotate: 1, low: [0.1, 0.2], tiles: [3.5, 3.5, 3.5], water: 0.14, waterRough: 0.15, tufts: 0.2, tuftColor: [[0.057, 0.036], [0.037, 0.024], [0.016, 0.01]] },
+	tristram: { label: 'Act I · Tristram (ash)', prefix: 'biome-tristram', variationScale: 0.3, rotate: 1, low: [0.1, 0.2], tiles: [3.5, 3.5, 3.5], water: 0.14, waterRough: 0.2, tufts: 0.15, tuftColor: [[0.017, 0.011], [0.014, 0.009], [0.01, 0.007]] },
+	darkWood: { label: 'Act I · Dark Wood', prefix: 'biome-dark-wood', variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [3.5, 3.5, 3.5], water: 0.16, waterRough: 0.1, tufts: 0.25, tuftColor: [[0.013, 0.008], [0.014, 0.009], [0.003, 0.002]] },
+	blackMarsh: { label: 'Act I · Black Marsh', prefix: 'biome-black-marsh', variationScale: 0.3, rotate: 1, low: [0.12, 0.26], tiles: [3.5, 3.5, 3.5], water: 0.22, waterRough: 0.1, tufts: 0.35, tuftColor: [[0.022, 0.014], [0.021, 0.014], [0.007, 0.005]] },
+	tamoeHighland: { label: 'Act I · Tamoe Highland', prefix: 'biome-tamoe-highland', variationScale: 0.3, rotate: 1, low: [0.1, 0.2], tiles: [3.5, 3.5, 3.5], water: 0.14, waterRough: 0.12, tufts: 0.25, tuftColor: [[0.05, 0.032], [0.038, 0.024], [0.021, 0.013]] },
+	monastery: { label: 'Act I · Monastery courtyard (paving)', prefix: 'biome-monastery-courtyard', variationScale: 0.3, rotate: 1, low: [0.08, 0.18], tiles: [4.5, 4.5, 4.5], water: 0.12, waterRough: 0.08, tufts: 0.08, tuftColor: [[0.053, 0.034], [0.042, 0.027], [0.016, 0.01]] },
+	cave: { label: 'Act I · Cave floor', prefix: 'biome-cave', variationScale: 0.3, rotate: 1, low: [0.08, 0.18], tiles: [3.5, 3.5, 3.5], water: 0.12, waterRough: 0.08, tufts: 0, tuftColor: [[0.031, 0.019], [0.022, 0.014], [0.014, 0.009]] },
+	catacombs: { label: 'Act I · Catacombs (stone + blood)', prefix: 'biome-catacombs', variationScale: 0.3, rotate: 1, low: [0.08, 0.18], tiles: [4, 4, 4], water: 0.12, waterRough: 0.1, tufts: 0, tuftColor: [[0.021, 0.013], [0.005, 0.003], [0.002, 0.001]] },
+	// Poly Haven photo scans (CC0, scripts/prepare-terrain-polyhaven.py): brown_mud_02 / brown_mud_03 / forrest_ground_01, albedo
+	// matched per channel to the moor tiles' means (the raw scans are far lighter than the Act I palette).
+	// pbr = the set also ships normal (-n) and roughness (-r) maps (loadPaintedSets loads them only for sets with shipNormals; the removed Relief scene was the one that used the others).
+	polyhaven: { label: 'Poly Haven · đất / bùn / cỏ (ảnh quét, palette Act I)', prefix: 'ph-moor', pbr: true, variationScale: 0.3, rotate: 1, low: [0.2, 0.35], tiles: [1.6, 1.6, 2.5], water: 0.12, waterRough: 0.1, tufts: 0.3, tuftColor: [[0.035, 0.05], [0.07, 0.07], [0.018, 0.02]] },
+	// Diablo Immortal's Dark Wood after a night screenshot (art-output/terrain-darkwood, scripts/prepare-terrain-darkwood.py): blue-grey
+	// loam, wet ground, sparse wiry shade grass, a cobble path ribbon (ribbons: darkwood-ruts, no creek) and grass cards. shipNormals =
+	// loadPaintedSets uses the set's own -n / -r maps instead of deriving them from the height (only this set opts in).
+	darkWoodRef: { label: 'Act I · Dark Wood (realistic)', prefix: 'darkwood', ribbons: 'darkwood', creek: false, cards: 'darkwood-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.04, 0.026], [0.058, 0.036], [0.06, 0.038]] },
+	// roadTile = the path as a tile that repeats in u and v (scripts/prepare-road-tile.py, 300 px per metre: the paving stones are ~0.55 m), laid
+	// by DarkWoodScene.buildRibbons; the -ruts strip (ribbons) stays for the sets without one.
+	// The same set repainted in a stylized, painterly look (ashlar/art/terrain-dark-wood/stylized2, smoother heights, gentler normals).
+	darkWoodStylized: { label: 'Act I · Dark Wood (stylized)', prefix: 'darkwood-sty', ribbons: 'darkwood-sty', roadTile: { id: 'darkwood-sty-cobble', pxPerM: 300 }, creek: false, cards: 'darkwood-sty-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.045, 0.029], [0.063, 0.040], [0.068, 0.043]] },
+	// The stylized set recoloured greener (ashlar/art/terrain-dark-wood/recolor_green.py, same strokes): the Diablo II mood's ground.
+	darkWoodGreen: { label: 'Act I · Dark Wood (stylized, green)', prefix: 'darkwood-sty-green', ribbons: 'darkwood-sty-green', roadTile: { id: 'darkwood-sty-green-cobble', pxPerM: 300 }, creek: false, cards: 'darkwood-sty-green-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.046, 0.029], [0.067, 0.042], [0.029, 0.017]] },
 	procedural: { label: 'Procedural (texture forge)', tiles: [3, 3.5, 2.5], water: 0.22, waterRough: 0.05, tufts: 1, tuftColor: [[0.04, 0.12], [0.05, 0.1], [0.025, 0.05]] },
 };
+
 
 /** Per painted layer: file suffix, roughness of the dry surface, of its lowest parts (puddles), normal strength. */
 const PAINTED = [
@@ -59,6 +91,9 @@ export async function loadPaintedSets(app, setId = 'painted') {
 	for (const [i, painted] of PAINTED.entries()) {
 		const layer = { ...painted, relief: def.relief?.[i] ?? painted.relief, id: `${def.prefix}-${painted.layer}`, label: `${def.label.split(' (')[0]} · ${painted.label}` };
 		const [albedo, heightImg] = await Promise.all([app.loader.loadImageData(layer.id), app.loader.loadImageData(layer.id + '-h')]);
+		// shipNormals: the set's own normal (-n, OpenGL) and roughness (-r) maps replace the ones derived below; packed into the
+		// same normalMap (height in alpha) and ormMap textures, so the terrain shader samples the same textures as before.
+		const shipped = def.shipNormals ? await Promise.all([app.loader.loadImageData(layer.id + '-n'), app.loader.loadImageData(layer.id + '-r')]) : null;
 		const size = albedo.width;
 		const map = new Uint8Array(size * size * 4);
 		const normal = new Uint8Array(size * size * 4);
@@ -93,6 +128,13 @@ export async function loadPaintedSets(app, setId = 'painted') {
 				orm[d + 1] = Math.round((layer.rough + (layer.lowRough - layer.rough) * low) * 255);
 				orm[d + 2] = 0;
 				orm[d + 3] = 255;
+				if (shipped) {
+					const o = ((size - 1 - y) * size + x) * 4;
+					normal[d] = shipped[0].data[o];
+					normal[d + 1] = shipped[0].data[o + 1];
+					normal[d + 2] = shipped[0].data[o + 2];
+					orm[d + 1] = shipped[1].data[o];
+				}
 			}
 		}
 		sets.push({
@@ -113,6 +155,11 @@ export async function loadPaintedSets(app, setId = 'painted') {
  */
 export async function loadRibbonTextures(app, prefix) {
 	app._terrainRibbons ??= {};
+	// What the ribbons of a prefix ship is a property of the set(s) using it (creek: false = no water texture, shipNormals = own
+	// -ruts-n), never of the caller: the cache is per prefix, so caller options would hand a water-less result to the moor scenes.
+	const owner = Object.values(TERRAIN_SETS).find((d) => d.ribbons === prefix) ?? {}; // the first set that uses the prefix: sets sharing one must agree on creek / shipNormals
+	const withWater = owner.creek !== false;
+	const shipNormals = !!owner.shipNormals;
 	if (app._terrainRibbons[prefix]) return app._terrainRibbons[prefix];
 	const anisotropy = Math.min(8, app.backend.caps.maxAnisotropy || 4);
 	const read = async (id) => {
@@ -130,10 +177,15 @@ export async function loadRibbonTextures(app, prefix) {
 	const ruts = await read(`${prefix}-ruts`);
 	const height = await read(`${prefix}-ruts-h`);
 	const { w, h } = height;
-	const normal = new Uint8Array(w * h * 4);
+	const shipped = shipNormals ? await read(`${prefix}-ruts-n`) : null; // the set's own OpenGL normal (wraps along v)
+	const normal = shipped ? shipped.data : new Uint8Array(w * h * 4);
 	const at = (x, y) => height.data[(((y + h) % h) * w + Math.min(w - 1, Math.max(0, x))) * 4] / 255;
 	for (let y = 0; y < h; y++) {
 		for (let x = 0; x < w; x++) {
+			if (shipped) {
+				normal[(y * w + x) * 4 + 3] = 255;
+				continue;
+			}
 			const nx = -(at(x + 1, y) - at(x - 1, y)) * 1.5;
 			const ny = -(at(x, y + 1) - at(x, y - 1)) * 1.5;
 			const len = Math.hypot(nx, ny, 1);
@@ -144,11 +196,14 @@ export async function loadRibbonTextures(app, prefix) {
 			normal[d + 3] = 255;
 		}
 	}
-	const water = await read(`${prefix}-water`);
 	const result = {
 		ruts: { map: texture(ruts, 'Road ruts · map', THREE.SRGBColorSpace), normalMap: texture({ data: normal, w, h }, 'Road ruts · normalMap', THREE.NoColorSpace) },
-		water: { map: texture(water, 'Creek water · map', THREE.SRGBColorSpace) },
 	};
+	if (!withWater) {
+		app._terrainRibbons[prefix] = result; // sets without a creek (darkwood): no water texture, no shore alpha
+		return result;
+	}
+	result.water = { map: texture(await read(`${prefix}-water`), 'Creek water · map', THREE.SRGBColorSpace) };
 	result.water.map.wrapS = THREE.RepeatWrapping;
 	// Shore fade across the ribbon (u), wandering along it (v, tiles): the water edge dissolves into the bank.
 	const aw = 64;
@@ -169,6 +224,28 @@ export async function loadRibbonTextures(app, prefix) {
 	result.water.alphaMap.repeat.set(1, 0.2); // one shore pattern per 5 water tiles (~25 m)
 	app._terrainRibbons[prefix] = result;
 	return result;
+}
+
+/**
+ * The cobble road tile of a set (TERRAIN_SETS[..].roadTile): colour + OpenGL normal, both repeating in u and v (rows flipped like the
+ * ribbon textures). → { map, normalMap, width, height } (px); metres per tile = px / roadTile.pxPerM.
+ */
+export async function loadRoadTile(app, { id }) {
+	app._roadTiles ??= {};
+	if (app._roadTiles[id]) return app._roadTiles[id];
+	const anisotropy = Math.min(8, app.backend.caps.maxAnisotropy || 4);
+	const read = async (name, colorSpace) => {
+		const img = await app.loader.loadImageData(name);
+		const { width: w, height: h } = img;
+		const data = new Uint8Array(w * h * 4);
+		for (let y = 0; y < h; y++) data.set(img.data.subarray((h - 1 - y) * w * 4, (h - y) * w * 4), y * w * 4);
+		const tex = new THREE.DataTexture(data, w, h, THREE.RGBAFormat, THREE.UnsignedByteType);
+		Object.assign(tex, { name: `Road tile · ${name}`, wrapS: THREE.RepeatWrapping, wrapT: THREE.RepeatWrapping, generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter, magFilter: THREE.LinearFilter, anisotropy, colorSpace, needsUpdate: true });
+		return tex;
+	};
+	const map = await read(id, THREE.SRGBColorSpace);
+	const normalMap = await read(`${id}-n`, THREE.NoColorSpace);
+	return (app._roadTiles[id] = { map, normalMap, width: map.image.width, height: map.image.height });
 }
 
 /** Grass card atlas (2 × 2 tufts, RGBA, image top = v 1) as a mipmapped sRGB texture. */
@@ -243,8 +320,9 @@ export class TerrainSplat {
 		this.smoothed = new Uint8Array(size * size * 4); // uploaded copy, box-blurred by `blur` texels (wider, softer transitions)
 		this.blur = 2;
 		this.scratch = new Float32Array(size * size);
+		this.ao = null; // baked sky visibility per texel (0..255), uploaded as the alpha channel; null = open sky
 		const tex = new THREE.DataTexture(this.smoothed, size, size, THREE.RGBAFormat, THREE.UnsignedByteType);
-		tex.name = 'Terrain splat (R wet, G grass, B blood)';
+		tex.name = 'Terrain splat (R wet, G grass, B blood, A baked sky visibility)';
 		tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
 		tex.magFilter = THREE.LinearFilter;
 		tex.minFilter = THREE.LinearFilter;
@@ -303,7 +381,18 @@ export class TerrainSplat {
 				}
 			}
 		}
-		for (let p = 0; p < size * size; p++) smoothed[p * 4 + 3] = 255;
+		this.writeAO();
+	}
+
+	/** Baked sky visibility (Uint8Array, one 0..255 value per texel) into the alpha channel; null clears it. */
+	setAO(ao) {
+		this.ao = ao;
+		this.writeAO();
+	}
+
+	writeAO() {
+		const { size, smoothed, ao } = this;
+		for (let p = 0; p < size * size; p++) smoothed[p * 4 + 3] = ao ? ao[p] : 255;
 		this.texture.needsUpdate = true;
 	}
 

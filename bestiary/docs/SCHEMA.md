@@ -23,6 +23,10 @@ Every asset has a globally unique, stable `id`. IDs anchor notes and saved items
 | media.clips | Verified clip metadata only; use an empty array until audited |
 | motions | Suggested checklist strings, separate from verified clips |
 
+## Concept records
+
+Concept records (`type: 'concept'`, `game: 'd2rr'`) add `number` (position in the concept list), `palette`, `scale`, `method` (how the image was made), `layout` (sheet arrangement) and `images`: an ordered array of `{file, thumb, origin, label, width, height}`, with `src`/`thumbSrc` data URIs added at build time. `image` is `images[0]`. Concept indexes start at 4001 so catalog order keeps them after the reference records. Edit them through assets/CONCEPT_SOURCES.json, not concepts.json.
+
 ## Adding an environment record
 
 ```js

@@ -389,8 +389,8 @@ export function grassTuft({ blades = 7, seed = 1, radius = 0.12 } = {}) {
 // ---------------------------------------------------------------------------------------------
 
 /**
- * Collects placed pieces. build(merge) bakes each piece's transform into a geometry clone, computes
- * world-space UVs and returns meshes — one per material when merged, one per piece otherwise.
+ * Collects placed pieces. build(merge, { cell }) bakes each piece's transform into a geometry clone, computes
+ * world-space UVs and returns meshes — one per material (per cell) when merged, one per piece otherwise.
  */
 export class StaticBatch {
 	constructor(name) {
@@ -408,9 +408,15 @@ export class StaticBatch {
 		return this;
 	}
 
-	build(merge = true) {
+	/**
+	 * cell (metres, merged only): one mesh per material per cell of the xz grid (by each piece's centre) instead of one per
+	 * material for the whole map. A map-wide batch has map-wide bounds and is never culled: the village's fire drew every
+	 * prop of the map into all six faces of its shadow cube each frame.
+	 */
+	build(merge = true, { cell = 0 } = {}) {
 		const group = new THREE.Group();
 		group.name = this.name;
+		group.matrixAutoUpdate = false; // baked in place: no matrix to recompose every frame (one per mesh adds up in cells)
 		const byMaterial = new Map();
 		for (const piece of this.pieces) {
 			let g = piece.geometry.index ? piece.geometry.toNonIndexed() : piece.geometry.clone();
@@ -418,18 +424,27 @@ export class StaticBatch {
 			g.applyMatrix4(piece.matrix);
 			if (!g.attributes.normal) g.computeVertexNormals();
 			if (piece.uv === 'world' || !g.attributes.uv) worldUV(g);
-			const key = piece.material.uuid + (piece.castShadow ? 'c' : '') + (piece.receiveShadow ? 'r' : '');
-			if (!byMaterial.has(key)) byMaterial.set(key, { material: piece.material, castShadow: piece.castShadow, receiveShadow: piece.receiveShadow, geometries: [] });
+			let key = piece.material.uuid + (piece.castShadow ? 'c' : '') + (piece.receiveShadow ? 'r' : '');
+			let at = '';
+			if (merge && cell > 0) {
+				g.computeBoundingBox(); // the centre, not the pivot: merged Parts sit at the origin with their pieces far away
+				const box = g.boundingBox;
+				at = `${Math.floor((box.min.x + box.max.x) / 2 / cell)},${Math.floor((box.min.z + box.max.z) / 2 / cell)}`;
+				key += `@${at}`;
+			}
+			if (!byMaterial.has(key)) byMaterial.set(key, { material: piece.material, castShadow: piece.castShadow, receiveShadow: piece.receiveShadow, at, geometries: [] });
 			byMaterial.get(key).geometries.push(g);
 		}
 		let meshes = 0;
 		for (const entry of byMaterial.values()) {
 			const list = merge ? [mergeGeometries(entry.geometries)] : entry.geometries;
+			if (merge) list[0].userData.labPieces = entry.geometries.map((g) => g.attributes.position.count); // piece boundaries (env/contact.js)
 			for (const g of list) {
 				const mesh = new THREE.Mesh(g, entry.material);
+				mesh.matrixAutoUpdate = false;
 				mesh.castShadow = entry.castShadow;
 				mesh.receiveShadow = entry.receiveShadow;
-				mesh.name = `${this.name} · ${entry.material.name}`;
+				mesh.name = `${this.name} · ${entry.material.name}${entry.at ? ` · cell ${entry.at}` : ''}`;
 				group.add(mesh);
 				meshes++;
 			}

@@ -26,7 +26,7 @@ export class Cutaway {
 		const views = app.views;
 		const meshes = [];
 		scene.traverse((o) => {
-			if (!o.isMesh || o.isInstancedMesh || o.isSkinnedMesh || o.userData.labNoView || o.userData.labNoPick) return;
+			if (!o.isMesh || (o.isInstancedMesh && !o.userData.labSolid) || o.isSkinnedMesh || o.userData.labNoView || o.userData.labNoPick) return; // instanced trees: solid
 			for (let p = o; p; p = p.parent) if (exclude(p) || p.userData?.dummy) return;
 			meshes.push(o);
 		});

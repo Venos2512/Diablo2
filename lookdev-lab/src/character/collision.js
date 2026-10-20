@@ -12,6 +12,8 @@ const _e2 = new THREE.Vector3();
 const _a = new THREE.Vector3();
 const _b = new THREE.Vector3();
 const _c = new THREE.Vector3();
+const _inst = new THREE.Matrix4();
+const _world = new THREE.Matrix4();
 
 export class CollisionWorld {
 	/**
@@ -28,7 +30,8 @@ export class CollisionWorld {
 		};
 		scene.updateMatrixWorld(true);
 		scene.traverse((o) => {
-			if (!o.isMesh || o.isInstancedMesh || o.isSkinnedMesh || o.isBatchedMesh || !o.visible) return;
+			if (!o.isMesh || o.isSkinnedMesh || o.isBatchedMesh || !o.visible) return;
+			if (o.isInstancedMesh && !o.userData.labSolid) return; // grass, cards, shrubs: walk-through (instanced trees are solid)
 			if (o.userData.labNoPick || o.userData.labProbe || o.userData.dummy) return;
 			const material = Array.isArray(o.material) ? o.material[0] : o.material;
 			if (material?.side === THREE.BackSide) return; // sky domes, interiors seen from outside
@@ -41,26 +44,32 @@ export class CollisionWorld {
 			const pos = g.attributes.position;
 			const index = g.index;
 			const count = index ? index.count : pos.count;
-			const m = o.matrixWorld;
-			for (let i = 0; i + 2 < count; i += 3) {
-				const ia = index ? index.getX(i) : i;
-				const ib = index ? index.getX(i + 1) : i + 1;
-				const ic = index ? index.getX(i + 2) : i + 2;
-				_a.fromBufferAttribute(pos, ia).applyMatrix4(m);
-				_b.fromBufferAttribute(pos, ib).applyMatrix4(m);
-				_c.fromBufferAttribute(pos, ic).applyMatrix4(m);
-				_e1.subVectors(_b, _a);
-				_e2.subVectors(_c, _a);
-				_n.crossVectors(_e1, _e2);
-				const area = _n.length();
-				if (area < 1e-8) continue;
-				_n.divideScalar(area);
-				const ny = Math.abs(_n.y);
-				// Double-sided thinking: a floor seen from below is a ceiling — ignore real ceilings only.
-				const kind = _n.y > FLOOR || (ny > FLOOR && material?.side === THREE.DoubleSide) ? 1 : ny <= FLOOR ? 2 : 0;
-				if (!kind) continue;
-				positions.push(_a.x, _a.y, _a.z, _b.x, _b.y, _b.z, _c.x, _c.y, _c.z);
-				kinds.push(kind);
+			for (let k = 0, instances = o.isInstancedMesh ? o.count : 1; k < instances; k++) {
+				let m = o.matrixWorld;
+				if (o.isInstancedMesh) {
+					o.getMatrixAt(k, _inst);
+					m = _world.multiplyMatrices(o.matrixWorld, _inst);
+				}
+				for (let i = 0; i + 2 < count; i += 3) {
+					const ia = index ? index.getX(i) : i;
+					const ib = index ? index.getX(i + 1) : i + 1;
+					const ic = index ? index.getX(i + 2) : i + 2;
+					_a.fromBufferAttribute(pos, ia).applyMatrix4(m);
+					_b.fromBufferAttribute(pos, ib).applyMatrix4(m);
+					_c.fromBufferAttribute(pos, ic).applyMatrix4(m);
+					_e1.subVectors(_b, _a);
+					_e2.subVectors(_c, _a);
+					_n.crossVectors(_e1, _e2);
+					const area = _n.length();
+					if (area < 1e-8) continue;
+					_n.divideScalar(area);
+					const ny = Math.abs(_n.y);
+					// Double-sided thinking: a floor seen from below is a ceiling — ignore real ceilings only.
+					const kind = _n.y > FLOOR || (ny > FLOOR && material?.side === THREE.DoubleSide) ? 1 : ny <= FLOOR ? 2 : 0;
+					if (!kind) continue;
+					positions.push(_a.x, _a.y, _a.z, _b.x, _b.y, _b.z, _c.x, _c.y, _c.z);
+					kinds.push(kind);
+				}
 			}
 		});
 		this.tri = new Float32Array(positions);

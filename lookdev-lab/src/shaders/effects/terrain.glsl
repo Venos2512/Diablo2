@@ -6,6 +6,8 @@
 // varies with a world noise, and the splat weights are broken up by noise inside their transition zones.
 // Blood-soaked ground (B, the Remnant corruption of Weeping Fields) tints whatever lies underneath instead of
 // replacing it — the soil keeps its texture and value — and draws vein lines where it is soaked through.
+// A holds the baked sky visibility (ambient occlusion of the static props and buildings, baked by the scene): the
+// material's patch multiplies the indirect light by it.
 // Uses vLabWorldPos / vLabWorldNormal from the patch system. TSL twin: backends/webgpu/effects.js (createTerrain).
 #include <lab_noise>
 uniform sampler2D uTerrainSplat;
@@ -27,6 +29,8 @@ uniform float uTerrainWaterRough; // roughness of standing water
 uniform float uTerrainDamp; // darker damp halo of dry dirt around wet areas
 uniform float uTerrainAo; // texture AO folded into albedo
 uniform float uTerrainVariation; // anti-tiling UV offsets (0 = plain repeat, 1 = full)
+uniform float uTerrainVariationScale; // frequency (per metre) of the area noise that picks the variant (0.09 = ~11 m areas)
+uniform float uTerrainRotate; // 1 = variants also turn by quarter turns (breaks the square repeat of feature-rich tiles)
 uniform float uTerrainMacro; // large-scale brightness variation
 uniform float uTerrainEdgeNoise; // noise breakup of the layer transitions
 uniform float uTerrainDebug; // 1 = show layer weights (dirt brown, wet blue, grass green)
@@ -36,11 +40,13 @@ uniform vec2 uTerrainGrassShadowOffset; // world xz step toward the key light: g
 uniform float uTerrainBlood; // strength of the blood-soaked layer (splat B; 0 = off)
 uniform vec3 uTerrainBloodColor; // multiplier on the soaked ground (linear): dark, desaturated red
 uniform vec3 uTerrainVeinColor; // vein lines inside the soaked ground
+uniform float uTerrainBakedAo; // strength of the baked sky visibility (splat A) on the indirect light
 
 struct LabTerrain {
 	vec3 albedo;
 	vec3 normal; // world space
 	float rough;
+	float sky; // baked sky visibility (1 = open sky)
 };
 
 struct LabTerrainLayer {
@@ -49,9 +55,17 @@ struct LabTerrainLayer {
 	vec4 o; // AO, roughness, metalness
 };
 
+// Quarter turns of a 2D vector (q = 0..3).
+vec2 labTerrainTurn( vec2 v, float q ) {
+	float c = cos( q * 1.5707963 );
+	float s = sin( q * 1.5707963 );
+	return vec2( c * v.x - s * v.y, s * v.x + c * v.y );
+}
+
 // Tiling breakup after Inigo Quilez ("texture repetition", technique 3): the area noise k picks one of 8
-// virtual UV offsets; across each step two lookups are cross-faded, biased by their colour difference so the
-// seam follows shapes. Gradients come from the plain UV, so the offset jumps cause no mip seams.
+// virtual UV offsets (and, with uTerrainRotate, quarter turns); across each step two lookups are cross-faded,
+// biased by their colour difference so the seam follows shapes. Gradients turn with the UV, so the jumps cause
+// no mip seams; normals are turned back into the world frame.
 LabTerrainLayer labTerrainSample( sampler2D A, sampler2D N, sampler2D O, vec2 uv, float k ) {
 	vec2 dx = dFdx( uv );
 	vec2 dy = dFdy( uv );
@@ -60,13 +74,25 @@ LabTerrainLayer labTerrainSample( sampler2D A, sampler2D N, sampler2D O, vec2 uv
 	float f = l - ia;
 	vec2 offA = sin( vec2( 3.0, 7.0 ) * ia ) * uTerrainVariation;
 	vec2 offB = sin( vec2( 3.0, 7.0 ) * ( ia + 1.0 ) ) * uTerrainVariation;
-	vec4 aA = textureGrad( A, uv + offA, dx, dy );
-	vec4 aB = textureGrad( A, uv + offB, dx, dy );
+	float qA = mod( ia * 3.0, 4.0 ) * uTerrainRotate;
+	float qB = mod( ( ia + 1.0 ) * 3.0, 4.0 ) * uTerrainRotate;
+	vec2 uvA = labTerrainTurn( uv, qA ) + offA;
+	vec2 uvB = labTerrainTurn( uv, qB ) + offB;
+	vec2 dxA = labTerrainTurn( dx, qA );
+	vec2 dyA = labTerrainTurn( dy, qA );
+	vec2 dxB = labTerrainTurn( dx, qB );
+	vec2 dyB = labTerrainTurn( dy, qB );
+	vec4 aA = textureGrad( A, uvA, dxA, dyA );
+	vec4 aB = textureGrad( A, uvB, dxB, dyB );
 	float w = smoothstep( 0.2, 0.8, f - 0.1 * dot( aA.rgb - aB.rgb, vec3( 1.0 ) ) );
+	vec4 nA = textureGrad( N, uvA, dxA, dyA );
+	vec4 nB = textureGrad( N, uvB, dxB, dyB );
+	nA.xy = labTerrainTurn( nA.xy * 2.0 - 1.0, - qA ) * 0.5 + 0.5;
+	nB.xy = labTerrainTurn( nB.xy * 2.0 - 1.0, - qB ) * 0.5 + 0.5;
 	LabTerrainLayer s;
 	s.a = mix( aA, aB, w );
-	s.n = mix( textureGrad( N, uv + offA, dx, dy ), textureGrad( N, uv + offB, dx, dy ), w );
-	s.o = mix( textureGrad( O, uv + offA, dx, dy ), textureGrad( O, uv + offB, dx, dy ), w );
+	s.n = mix( nA, nB, w );
+	s.o = mix( textureGrad( O, uvA, dxA, dyA ), textureGrad( O, uvB, dxB, dyB ), w );
 	return s;
 }
 
@@ -83,7 +109,7 @@ float labTerrainBreakup( float weight, float n ) {
 
 LabTerrain labTerrain( vec3 worldPos, vec3 worldNormal ) {
 	vec2 st = vec2( worldPos.x, - worldPos.z ); // same mapping as the other ground meshes (u = x, v = -z)
-	float k = labNoise3( vec3( st * 0.09, 1.7 ) ) * 0.5 + 0.5;
+	float k = labNoise3( vec3( st * uTerrainVariationScale, 1.7 ) ) * 0.5 + 0.5;
 	float macro = labNoise3( vec3( st * 0.035, 4.2 ) );
 	float edge = labNoise3( vec3( st * 0.55, 9.1 ) );
 	LabTerrainLayer L0 = labTerrainSample( uTerrainAlbedo0, uTerrainNormal0, uTerrainOrm0, st * uTerrainTile.x, k );
@@ -151,5 +177,6 @@ LabTerrain labTerrain( vec3 worldPos, vec3 worldNormal ) {
 	t.albedo = albedo;
 	t.normal = normalize( T * tn.x + B * tn.y + N * tn.z );
 	t.rough = rough;
+	t.sky = mix( 1.0, splat.a, uTerrainBakedAo );
 	return t;
 }

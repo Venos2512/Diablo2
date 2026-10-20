@@ -88,6 +88,8 @@ export async function createWebGPUBackend({ container, forceWebGL = false, onSha
 	}
 
 	let lastNodeFrame = -1;
+	let envSeen = null;
+	let envKick = 0;
 	let timestampsPaused = false;
 	let pipelineWorld = null;
 	let gpuTotal = null;
@@ -179,6 +181,17 @@ export async function createWebGPUBackend({ container, forceWebGL = false, onSha
 			}
 			backend.effects.update(elapsed);
 			backend.effects.setCamera(world.camera);
+			// The PMREM three builds from an equirect environment the first time a material samples it comes out too dark
+			// when that happens while the scene loads (Weeping Fields at Overcast: objects ~25 % darker until the time of day
+			// is changed); one built a few frames later is right. Rebuild it 30 and 120 frames after each environment change.
+			const env = world.scene.environment;
+			if (env !== envSeen) {
+				envSeen = env;
+				envKick = 0;
+			} else if (envKick < 120) {
+				envKick++;
+				if ((envKick === 30 || envKick === 120) && env?.isTexture && !env.isRenderTargetTexture) env.needsPMREMUpdate = true;
+			}
 			pipeline.render(world);
 			if (timestampsPaused) return; // untimed frames (benchmark bursts) must not dilute the average
 			frame++;

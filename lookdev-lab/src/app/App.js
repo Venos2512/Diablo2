@@ -20,6 +20,7 @@ import { importQuarks } from '../panels/vfx.js';
 import { CharacterController } from '../character/controller.js';
 import { GameplayHost } from '../gameplay/host.js';
 import { MoodController } from '../lighting/moodController.js';
+import { Atmosphere } from '../env/atmosphere.js';
 import { measureHeight } from '../character/rig.js';
 import { StressTests } from './stress.js';
 import { Recorder, Presentation } from './capture.js';
@@ -29,9 +30,11 @@ import { applyStoredOverrides, dropOverride } from '../core/shaderOverrides.js';
 import { PROCEDURAL, isProcedural, proceduralById, createProcedural, defaultOptions } from '../procedural/catalog.js';
 import { useNodeMaterial } from '../procedural/nodeMaterial.js';
 
-/** Grade values that belong to a scene's look (saved and restored per scene with exposure and fog). */
+/** Grade values that belong to a scene's look (saved and restored per scene with tone mapping, exposure and fog). */
 const SCENE_GRADE_KEYS = ['vignette', 'contrast', 'saturation', 'lift', 'temperature', 'tint'];
 const SCENE_GRADE_DEFAULTS = { vignette: 0.22, contrast: 1, saturation: 1, lift: 0, temperature: 0, tint: 0 };
+const SCENE_TONE_MAPPING = 'agx'; // unless the scene's postDefaults name one
+const DEFAULT_SCENE = 'darkWood'; // an unknown saved scene id opens this one (the settings default, core/settings.js)
 
 registerDefaults('subject', { sample: 'shader-ball', turntable: false, turntableSpeed: 20, speed: 1 });
 registerDefaults('view', { mode: 'lit', renderScale: 1 });
@@ -182,11 +185,12 @@ export class App {
 		this.observeResize();
 		this.setupInput();
 
+		this.applyUrlScene();
 		const s = this.settings.data;
 		this.status('Building scene…');
-		await this.setScene(SCENES[s.scene] ? s.scene : 'studio', { keepCamera: false });
+		await this.setScene(SCENES[s.scene] ? s.scene : DEFAULT_SCENE, { keepCamera: false });
 		this.status('Loading sample model…');
-		await this.loadSample(s.subject.sample || 'shader-ball', { frame: false }).catch((e) => console.warn(e));
+		await this.loadSample(this.sceneSubject(s.subject.sample || 'shader-ball'), { frame: false }).catch((e) => console.warn(e));
 
 		this.shaderLab = new ShaderLab(this);
 		this.shaderLab.init();
@@ -194,6 +198,7 @@ export class App {
 		this.character = new CharacterController(this);
 		this.gameplay = new GameplayHost(this); // Ashen Crown v1 gameplay core for Play
 		this.mood = new MoodController(this);
+		this.atmosphere = new Atmosphere(this); // GPU particles in the air of the Act I scenes (env/atmosphere.js)
 		this.stress = new StressTests(this);
 		this.recorder = new Recorder(this);
 		this.presentation = new Presentation(this);
@@ -224,10 +229,20 @@ export class App {
 	// -------------------------------------------------------------------------------------------
 	// Chrome: tabs, selects, buttons
 
+	/** ?scene=<id> opens that scene and saves it as the current one (like picking it); unknown ids are ignored. */
+	applyUrlScene() {
+		const id = new URLSearchParams(location.search).get('scene');
+		if (id && SCENES[id] && this.settings.data.scene !== id) {
+			this.settings.data.scene = id;
+			this.settings.changed('scene');
+		}
+	}
+
 	setupChrome() {
+		this.applyUrlScene();
 		const { sceneSelect, rendererSelect } = this.dom;
 		for (const [id, def] of Object.entries(SCENES)) sceneSelect.add(new Option(def.label, id));
-		sceneSelect.value = SCENES[this.settings.data.scene] ? this.settings.data.scene : 'studio';
+		sceneSelect.value = SCENES[this.settings.data.scene] ? this.settings.data.scene : DEFAULT_SCENE;
 		sceneSelect.addEventListener('change', () => this.setScene(sceneSelect.value));
 		for (const def of Object.values(RENDERER_MODES)) rendererSelect.add(new Option(def.label, def.id));
 		rendererSelect.value = this.mode;
@@ -372,7 +387,7 @@ export class App {
 	// Scenes and subject
 
 	async setScene(id, { keepCamera = true } = {}) {
-		if (!SCENES[id]) id = 'studio';
+		if (!SCENES[id]) id = DEFAULT_SCENE;
 		this.settings.data.scene = id;
 		this.settings.changed('scene');
 		this.dom.sceneSelect.value = id;
@@ -397,13 +412,27 @@ export class App {
 		this.views.refresh([entry.scene]);
 		this.applyBackgroundOverride();
 		this.clearSelection();
-		if (!keepCamera || !this._sceneVisited?.has(id)) this.goHome();
+		// Keep the camera across scenes, except that isometric follows the scene's home (a map that opens isometric).
+		if (!keepCamera || !this._sceneVisited?.has(id) || (this.rig.mode === 'iso') !== (entry.home?.mode === 'iso')) this.goHome();
 		(this._sceneVisited ??= new Set()).add(id);
 		this.applyScenePost(entry);
 		this.updateBadges();
 		this.updateRail();
 		this.emit('scene', entry);
+		// At boot the subject is not loaded yet (the boot load asks sceneSubject itself).
+		const subject = this.subject.sourceId && this.sceneSubject(this.subject.sourceId);
+		if (subject && subject !== this.subject.sourceId) await this.loadSample(subject, { frame: false }).catch((e) => console.warn(e));
 		await this.holdUntilCompiled(token);
+	}
+
+	/**
+	 * Build the current scene again (options that only apply at build time, e.g. the instancing cells): the page reloads and
+	 * keeps camera, settings and the A/B snapshot, like a renderer switch. Rebuilding in place is not safe: the scenes share
+	 * materials and the ground blend effect per app, and on WebGPU the second build renders black (the scene-switch bug).
+	 */
+	reloadScene() {
+		this.saveSession();
+		location.reload();
 	}
 
 	/**
@@ -431,7 +460,7 @@ export class App {
 		const s = this.settings.data;
 		s.scenePost ??= {};
 		const grade = Object.fromEntries(SCENE_GRADE_KEYS.map((k) => [k, s.post.grade[k]]));
-		s.scenePost[entry.id] = { exposure: s.post.exposure, fog: { ...s.post.fog }, grade };
+		s.scenePost[entry.id] = { toneMapping: s.post.toneMapping, exposure: s.post.exposure, fog: { ...s.post.fog }, grade };
 		this.settings.changed('scenePost');
 	}
 
@@ -441,8 +470,10 @@ export class App {
 		const source = saved || entry.postDefaults || { exposure: 0, fog: { enabled: false } };
 		s.post.exposure = source.exposure ?? 0;
 		Object.assign(s.post.fog, source.fog || {});
-		// The framing part of the grade (vignette, contrast, lift ...) is per scene too — unless a mood owns the grade.
+		// Tone mapping and the framing part of the grade (vignette, contrast, lift ...) are per scene too — unless a mood
+		// owns them.
 		if (!this.mood?.active) {
+			s.post.toneMapping = source.toneMapping ?? entry.postDefaults?.toneMapping ?? SCENE_TONE_MAPPING;
 			for (const k of SCENE_GRADE_KEYS) s.post.grade[k] = source.grade?.[k] ?? entry.postDefaults?.grade?.[k] ?? SCENE_GRADE_DEFAULTS[k];
 		}
 		this.settings.changed('post');
@@ -454,8 +485,17 @@ export class App {
 	goHome() {
 		const home = this.current?.home;
 		if (!home) return;
+		if (home.mode === 'iso') {
+			this.rig.isoFocus(home.target, home.height);
+			return;
+		}
 		if (this.rig.mode !== 'orbit') this.rig.setMode('orbit');
 		this.rig.lookAt(home.position, home.target);
+	}
+
+	/** A scene judged with a character (scene.defaultSubject) takes it in place of the lab's default shader ball. */
+	sceneSubject(id) {
+		return id === 'shader-ball' && this.current?.defaultSubject ? this.current.defaultSubject : id;
 	}
 
 	async loadSample(id, { frame = true } = {}) {
@@ -652,7 +692,7 @@ export class App {
 		}
 
 		const cpu = performance.now() - t0;
-		this.hud.frame(frameMs, cpu, this.backend.timings(), this.backend.info(), { particles: this.particleCount + (this.mood?.particleCount || 0) });
+		this.hud.frame(frameMs, cpu, this.backend.timings(), this.backend.info(), { particles: this.particleCount + (this.mood?.particleCount || 0) + (this.atmosphere?.count || 0) });
 	}
 
 	/** Resolves with a data URL of the next rendered frame. */

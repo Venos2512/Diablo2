@@ -35,6 +35,7 @@ export function buildEnvironmentPanel(app, el) {
 		clearFolder(fScene);
 		if (app.current?.buildEnvironmentControls) app.current.buildEnvironmentControls(fScene);
 		else note(fScene, 'The studio has no environment options — see the <b>Lookdev</b> tab for backgrounds and references.');
+		app.atmosphere?.buildControls(fScene); // GPU particle layers of the scene (env/atmosphere.js)
 		buildTextures();
 	}
 

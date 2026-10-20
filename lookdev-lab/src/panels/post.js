@@ -31,6 +31,7 @@ export function buildPostPanel(app, el) {
 	fTone.add(p, 'exposure', -6, 6, 0.1).name('Exposure (EV)').onChange(apply);
 	fTone.add(p, 'toneMapping', Object.fromEntries(Object.entries(TONE_MAPPINGS).map(([id, t]) => [t.label, id]))).name('Tone mapping').onChange(apply);
 	const falseColor = fTone.add(p, 'falseColor').name('False colour (X)').onChange(apply);
+	note(fTone, 'Tone mapping and exposure are remembered per scene, with fog and the framing grade; a scene you have not tuned starts on AgX.');
 
 	const fAA = gui.addFolder('Anti-aliasing');
 	const aaOptions = { None: 'none', FXAA: 'fxaa', SMAA: 'smaa', 'MSAA 4×': 'msaa' };

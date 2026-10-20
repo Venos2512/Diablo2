@@ -118,6 +118,9 @@ export function displayTransform(u, { sampleHdr, mode, toneMappingType, chromati
 			c.addAssign(n.mul(u.grain).mul(mid.mul(0.65).add(0.35)));
 		});
 
+		// Half a display step of interleaved-gradient noise: no banding in dark gradients (night, vignette, fog).
+		c.addAssign(fract(fract(dot(screenCoordinate.xy, vec2(0.06711056, 0.00583715))).mul(52.9829189)).sub(0.5).div(255.0));
+
 		return c;
 	})();
 }

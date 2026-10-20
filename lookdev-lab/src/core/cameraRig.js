@@ -149,6 +149,17 @@ export class CameraRig {
 		this.controls.update();
 	}
 
+	/** Isometric 2:1 view centred on `target`, showing `height` metres vertically (setMode keeps the previous framing). */
+	isoFocus(target, height = this.orthoHeight) {
+		if (this.mode !== 'iso') this.setMode('iso');
+		const c = this.controls;
+		this.ortho.position.add(target.clone().sub(c.target));
+		c.target.copy(target);
+		this.ortho.zoom = this.orthoHeight / height;
+		this.updateOrtho();
+		c.update();
+	}
+
 	update(delta) {
 		if (this.follow) {
 			// Every mode can follow: the focus point and the camera move together.

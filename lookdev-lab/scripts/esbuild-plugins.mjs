@@ -62,7 +62,7 @@ export function bundleOptions(root, { dev }) {
 		sourcemap: dev ? 'inline' : false,
 		legalComments: dev ? 'none' : 'inline',
 		define: { __DEV__: dev ? 'true' : 'false' },
-		loader: { '.css': 'css' },
+		loader: { '.css': 'css', '.webp': 'dataurl' },
 		logLevel: 'silent',
 		plugins: [glslPlugin(root), rawPlugin()],
 	};

@@ -2,7 +2,7 @@
 for scale — e.g. Tripo image-to-3D of a concept sheet) into separate, real-size pieces.
 
 Usage:
-  python -I scripts/prepare-prop-kit.py <sheet.glb> <out.glb> --prefix fence [--human 1.8 | --height 2.0] [--texture 1024]
+  python -I scripts/prepare-prop-kit.py <sheet.glb> <out.glb> --prefix fence [--human 1.8 | --height 2.0] [--texture 2048]
         [--names a,b,c,...] [--preview pieces.png] [--cuts "0:-0.31,-0.15"]
 
 Steps
@@ -93,9 +93,23 @@ def drop_slivers(mesh, max_faces=8, min_extent=0.2):
                            visual=trimesh.visual.TextureVisuals(uv=mesh.visual.uv, material=mesh.visual.material), process=False)
 
 
-def segment(mesh, cuts=None, layout='front'):
-    """Piece label per face. cuts: {row index: [x, ...]} extra vertical cuts for pieces that touch in the sheet."""
+def split_rows(values, n):
+    """Exactly n clusters of 1D values, split at the n-1 widest gaps; label 0 = lowest values."""
+    order = np.argsort(values)
+    gaps = np.diff(values[order])
+    cut_after = np.sort(np.argsort(gaps)[::-1][:n - 1])
+    labels = np.zeros(len(values), int)
+    for c in cut_after:
+        labels[order[c + 1:]] += 1
+    return labels
+
+
+def segment(mesh, cuts=None, layout='front', rows=0):
+    """Piece label per face. cuts: {row index: [x, ...]} extra vertical cuts for pieces that touch in the sheet.
+    rows: force this many rows (split at the widest gaps) instead of splitting at every gap wider than 0.03."""
     up = 1 if layout == 'front' else 2  # axis separating rows (and second axis of the footprint)
+    if layout == 'plan':
+        rows = 1  # one footprint over the whole ground plane; pieces are ordered back to front below
     welded = mesh.copy()
     welded.merge_vertices(merge_tex=True, merge_norm=True)
     comp = trimesh.graph.connected_component_labels(welded.face_adjacency, node_count=len(welded.faces))
@@ -106,7 +120,8 @@ def segment(mesh, cuts=None, layout='front'):
     comp_area = np.bincount(comp, area, ncomp)
     comp_y = np.bincount(comp, centroid[:, up] * area, ncomp) / comp_area
     comp_x = np.bincount(comp, centroid[:, 0] * area, ncomp) / comp_area
-    row_of_comp = split_gaps(-comp_y if up == 1 else comp_y, comp_area, gap=0.03)  # row 0 = top (front) / back (top layout)
+    key = -comp_y if up == 1 else comp_y
+    row_of_comp = split_rows(key, rows) if rows else split_gaps(key, comp_area, gap=0.03)  # row 0 = top (front) / back (top layout)
     piece_of_comp = np.zeros(ncomp, int)
     next_id = 0
     for row in np.unique(row_of_comp):
@@ -125,10 +140,28 @@ def segment(mesh, cuts=None, layout='front'):
     piece = piece_of_comp[comp] - 10**6
     ids = np.unique(piece)
     rowkey = {p: int(row_of_comp[comp[piece == p][0]]) for p in ids}
+    if layout == 'plan':  # order like the sheet: back row first (two bands split at the median depth), left to right
+        zc = {p: float(centroid[piece == p, 2].mean()) for p in ids}
+        mid = float(np.median(list(zc.values())))
+        rowkey = {p: int(zc[p] > mid) for p in ids}
     ordered = sorted(ids, key=lambda p: (rowkey[p], float(centroid[piece == p, 0].mean())))
     remap = {p: i for i, p in enumerate(ordered)}
     print('rows:', len(np.unique(row_of_comp)), '| pieces per row:', [sum(1 for p in ids if rowkey[p] == r) for r in np.unique(row_of_comp)])
     return np.array([remap[p] for p in piece])
+
+
+def merge_small(mesh, piece, min_tris):
+    """Pieces with fewer than min_tris triangles (chips, pebbles, a stray pole end) join the nearest bigger piece."""
+    c = mesh.vertices[mesh.faces].mean(1)
+    counts = np.bincount(piece)
+    big = [p for p in range(len(counts)) if counts[p] >= min_tris]
+    centre = {p: c[piece == p][:, [0, 2]].mean(0) for p in range(len(counts)) if counts[p]}
+    for p in range(len(counts)):
+        if 0 < counts[p] < min_tris and big:
+            q = min(big, key=lambda b: np.linalg.norm(centre[b] - centre[p]))
+            piece[piece == p] = q
+    _, piece = np.unique(piece, return_inverse=True)
+    return piece
 
 
 def write_glb(path, pieces, maps, base_color, roughness):
@@ -221,11 +254,15 @@ def main():
     ap.add_argument('--prefix', required=True)
     ap.add_argument('--human', type=float, default=1.8, help='height of the scale figure in metres')
     ap.add_argument('--height', type=float, help='no scale figure in the sheet: scale so the tallest piece is this many metres')
-    ap.add_argument('--texture', type=int, default=1024)
+    ap.add_argument('--texture', type=int, default=2048)
     ap.add_argument('--names', default='', help='comma-separated suffixes per piece, in sheet order')
     ap.add_argument('--no-align', dest='align', action='store_false', help='keep the sheet orientation instead of turning each piece onto +x')
     ap.add_argument('--preview', help='contact sheet PNG')
-    ap.add_argument('--layout', choices=['front', 'top'], default='front', help='sheet laid out in rows by height (front) or on the ground (top)')
+    ap.add_argument('--layout', choices=['front', 'top', 'plan'], default='front', help='sheet laid out in rows by height (front), on the ground in rows (top), or anywhere on the ground (plan: footprints only)')
+    ap.add_argument('--join', default='', help='merge pieces that belong together, e.g. "1+2,5+6" (numbers as printed without --join/--drop)')
+    ap.add_argument('--drop', default='', help='comma-separated 1-based piece numbers to discard (e.g. a scale figure the generator flattened)')
+    ap.add_argument('--merge-small', type=int, default=0, help='pieces with fewer triangles join the nearest bigger piece')
+    ap.add_argument('--rows', type=int, default=0, help='force this many rows (sheet rows; small debris between rows otherwise adds rows)')
     ap.add_argument('--cuts', default='', help='extra cuts for touching pieces: "row:x1,x2;row:x" (sheet units, rows from the top, 0-based)')
     args = ap.parse_args()
 
@@ -234,7 +271,9 @@ def main():
     for part in filter(None, args.cuts.split(';')):
         row, xs = part.split(':')
         cuts[int(row)] = [float(x) for x in xs.split(',')]
-    piece = segment(mesh, cuts, args.layout)
+    piece = segment(mesh, cuts, args.layout, args.rows)
+    if args.merge_small:
+        piece = merge_small(mesh, piece, args.merge_small)
     colors = face_colors(mesh)
     if args.height:
         grey = []
@@ -257,9 +296,18 @@ def main():
     names = [n.strip() for n in args.names.split(',')] if args.names else []
     out, preview = [], []
     k = 0
-    for p in range(piece.max() + 1):
-        if p in grey:
-            continue
+    keep = [p for p in range(piece.max() + 1) if p not in grey]
+    for group in filter(None, args.join.split(',')):  # "1+2": numbers as printed without --join
+        ps = [keep[int(x) - 1] for x in group.split('+')]
+        for q in ps[1:]:
+            piece[piece == q] = ps[0]
+    drop = {keep[int(x) - 1] for x in args.drop.split(',') if x.strip()}
+    keep = [p for p in keep if p not in drop and (piece == p).any()]
+    if args.height:  # tallest of the pieces that are kept (a dropped stray can be the tallest thing in the sheet)
+        tallest = max(np.ptp(mesh.vertices[np.unique(mesh.faces[piece == p])][:, 1]) for p in keep)
+        scale = args.height / tallest
+        print(f'height: tallest kept piece {tallest:.3f} units -> {scale:.2f} m per unit')
+    for p in keep:
         faces = mesh.faces[piece == p]
         used, inverse = np.unique(faces, return_inverse=True)
         pos = mesh.vertices[used] * scale
@@ -285,7 +333,7 @@ def main():
         preview.append((name, pos, nor, uv, idx, colors[piece == p]))
         size = np.ptp(pos, 0)
         sx = mesh.vertices[used, 0]
-        print(f'{name}: {len(idx)} tris, {size[0]:.2f} x {size[1]:.2f} x {size[2]:.2f} m  (sheet x {sx.min():.3f}..{sx.max():.3f})')
+        print(f'{name}: {len(idx)} tris, {size[0]:.2f} x {size[1]:.2f} x {size[2]:.2f} m  (sheet x {sx.min():.3f}..{sx.max():.3f}, z {mesh.vertices[used, 2].mean():+.3f})')
         k += 1
 
     mat = mesh.visual.material

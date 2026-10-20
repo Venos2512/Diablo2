@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { EFFECTS, defaultParams } from '../../effects/registry.js';
 import { addPatch, removePatch, after, before, replace } from './patches.js';
 import { hotMaterial } from './hot.js';
+import { createBakedShadowGL } from './bakedShadow.js';
 import windEntry from '../../shaders/effects/wind.glsl';
 import flameVert from '../../shaders/effects/flame.vert.glsl';
 import flameFrag from '../../shaders/effects/flame.frag.glsl';
@@ -21,6 +22,7 @@ import cutawayEntry from '../../shaders/effects/cutaway.glsl';
 import heroRimEntry from '../../shaders/effects/hero_rim.glsl';
 import terrainEntry from '../../shaders/effects/terrain.glsl';
 import shadowFillEntry from '../../shaders/effects/shadow_fill.glsl';
+import groundBlendEntry from '../../shaders/effects/ground_blend.glsl';
 
 /** Shared animation clock, updated by the backend every frame. */
 export const labTime = { value: 0 };
@@ -332,9 +334,10 @@ export function createGLSLEffects(backend) {
 		},
 		/**
 		 * Terrain splat material (src/env/terrain.js): `layers` = three forged sets (dirt, wet dirt, grass; height in
-		 * normal alpha), `splat` = RGBA DataTexture (R wet, G grass, B blood-soaked) covering `rect` (Vector4: origin x, z, 1/size, 1/size).
-		 * Uniforms { tile: Vector3, softness, heightBlend, water, waterRough, damp, ao, variation, macro, edgeNoise, debug, rect,
-		 * blood, bloodColor (linear multiplier), veinColor }; setLayers(sets) swaps the sets.
+		 * normal alpha), `splat` = RGBA DataTexture (R wet, G grass, B blood-soaked, A baked sky visibility) covering `rect`
+		 * (Vector4: origin x, z, 1/size, 1/size). Uniforms { tile: Vector3, softness, heightBlend, water, waterRough, damp, ao,
+		 * variation, variationScale (per metre), rotate (0/1: quarter-turn variants), macro, edgeNoise, debug, rect, blood, bloodColor (linear multiplier), veinColor, bakedAo (strength of A on
+		 * the indirect light) }; setLayers(sets) swaps the sets.
 		 */
 		createTerrain({ layers, splat, rect }) {
 			const u = {
@@ -344,6 +347,8 @@ export function createGLSLEffects(backend) {
 				water: { value: 0.3 },
 				waterRough: { value: 0.05 },
 				variation: { value: 1 },
+				variationScale: { value: 0.09 },
+				rotate: { value: 0 },
 				macro: { value: 0.3 },
 				edgeNoise: { value: 0.5 },
 				damp: { value: 0.25 },
@@ -355,6 +360,7 @@ export function createGLSLEffects(backend) {
 				blood: { value: 1 },
 				bloodColor: { value: new THREE.Color(1, 0.55, 0.5) },
 				veinColor: { value: new THREE.Color('#5a1f21') },
+				bakedAo: { value: 0 },
 				rect: { value: rect },
 			};
 			const textures = {};
@@ -379,6 +385,8 @@ export function createGLSLEffects(backend) {
 							uTerrainWater: u.water,
 							uTerrainWaterRough: u.waterRough,
 							uTerrainVariation: u.variation,
+							uTerrainVariationScale: u.variationScale,
+							uTerrainRotate: u.rotate,
 							uTerrainMacro: u.macro,
 							uTerrainEdgeNoise: u.edgeNoise,
 							uTerrainDamp: u.damp,
@@ -390,6 +398,7 @@ export function createGLSLEffects(backend) {
 							uTerrainBlood: u.blood,
 							uTerrainBloodColor: u.bloodColor,
 							uTerrainVeinColor: u.veinColor,
+							uTerrainBakedAo: u.bakedAo,
 						});
 						shader.fragmentShader = withSource(shader.fragmentShader, terrainEntry);
 						shader.fragmentShader = after(shader.fragmentShader, '#include <map_fragment>', `
@@ -397,6 +406,10 @@ export function createGLSLEffects(backend) {
 	diffuseColor.rgb *= labTer.albedo;`);
 						shader.fragmentShader = after(shader.fragmentShader, '#include <roughnessmap_fragment>', 'roughnessFactor *= labTer.rough;');
 						shader.fragmentShader = after(shader.fragmentShader, '#include <normal_fragment_maps>', 'normal = normalize( ( viewMatrix * vec4( labTer.normal, 0.0 ) ).xyz );');
+						// Baked sky visibility darkens the indirect light only, like an aoMap.
+						shader.fragmentShader = after(shader.fragmentShader, '#include <aomap_fragment>', `
+	reflectedLight.indirectDiffuse *= labTer.sky;
+	reflectedLight.indirectSpecular *= labTer.sky;`);
 					},
 				}),
 			};
@@ -420,6 +433,117 @@ export function createGLSLEffects(backend) {
 				}),
 			};
 		},
+		/**
+		 * Ground blend for the assets of a terrain scene (shaders/effects/ground_blend.glsl, env/groundBlend.js), one per
+		 * app. Uniforms { band, width, fraction, noise, strength, normal, top, contact, darken, unroll, contactHeight,
+		 * softness, debug, rect (Vector4: capture origin x, z, 1 / size, 1 / size) }; targets { albedo (RGBA8: √albedo, roughness), normal
+		 * (RGBA16F: world normal xz, height, coverage) }; profile(top, contact, band) = the surface patch for materials with
+		 * those top-cover / contact / band factors; captureMaterial(terrain) = a ground material writing the capture (captureMode 0:
+		 * albedo, 1: normal + height); remove(material) takes the patch off.
+		 */
+		createGroundBlend({ size = 2048 } = {}) {
+			const u = {
+				band: { value: 0.22 },
+				width: { value: 0.3 },
+				fraction: { value: 0.3 },
+				noise: { value: 0.6 },
+				strength: { value: 1 },
+				normal: { value: 0.85 },
+				top: { value: 0.35 },
+				contact: { value: 0.85 },
+				darken: { value: 0.3 },
+				unroll: { value: 1 },
+				contactHeight: { value: 1.2 },
+				softness: { value: 0.35 },
+				debug: { value: 0 },
+				rect: { value: new THREE.Vector4(0, 0, 1, 1) },
+			};
+			const targets = {
+				albedo: new THREE.WebGLRenderTarget(size, size, { type: THREE.UnsignedByteType }),
+				normal: new THREE.WebGLRenderTarget(size, size, { type: THREE.HalfFloatType }),
+			};
+			targets.albedo.texture.name = 'Ground blend · capture (√albedo, roughness)';
+			targets.normal.texture.name = 'Ground blend · capture (normal xz, height, coverage)';
+			// The packed vec4 uniforms read the scalar ones at upload (getters), so nothing has to be kept in sync.
+			const packed = (a, b, c, d) => {
+				const v = new THREE.Vector4();
+				return { get value() { return v.set(a.value, b.value, c.value, d.value); } };
+			};
+			const shared = {
+				uGroundA: { value: targets.albedo.texture },
+				uGroundB: { value: targets.normal.texture },
+				uGroundRect: u.rect,
+				uGroundBand: packed(u.band, u.width, u.noise, u.strength),
+				uGroundLayers: packed(u.normal, u.top, u.contact, u.darken),
+				uGroundMore: packed(u.unroll, u.contactHeight, u.debug, u.softness),
+				uGroundFraction: u.fraction,
+			};
+			const accepts = (m) => !!m?.isMeshStandardMaterial && !m.transparent;
+			const profiles = new Map();
+			const profile = (top = 0, contact = 1, band = 1) => {
+				const key = `${top}|${contact}|${band}`;
+				if (!profiles.has(key)) {
+					const amount = { value: new THREE.Vector3(top, contact, band) };
+					profiles.set(key, surface({
+						id: 'lab-ground-blend',
+						key: 'lab-ground-blend', // one program for every profile: the factors are uniforms
+						order: 4,
+						needs: ['worldPos', 'worldNormal'],
+						apply(shader) {
+							Object.assign(shader.uniforms, shared, { uGroundProfile: amount });
+							shader.vertexShader = after(shader.vertexShader, '#include <common>', 'attribute vec2 labGround;\nvarying vec2 vLabGround;');
+							shader.vertexShader = after(shader.vertexShader, '#include <begin_vertex>', 'vLabGround = labGround;');
+							shader.fragmentShader = withSource(shader.fragmentShader, groundBlendEntry);
+							// Before the vertex colours (the props' baked AO darkens the blended foot like the rest of the prop).
+							shader.fragmentShader = after(shader.fragmentShader, '#include <map_fragment>', `
+	LabGround labGnd = labGroundBlend( vLabWorldPos, normalize( vLabWorldNormal ), diffuseColor.rgb, vLabGround );
+	diffuseColor.rgb = mix( diffuseColor.rgb, labGnd.albedo, labGnd.weight ) * labGnd.shade;
+	if ( uGroundMore.z > 0.5 ) diffuseColor.rgb = vec3( 0.03 );`);
+							// Debug view: the weights glow (readable at night too).
+							shader.fragmentShader = after(shader.fragmentShader, '#include <emissivemap_fragment>', 'totalEmissiveRadiance += labGnd.debug * 0.6 * step( 0.5, uGroundMore.z );');
+							shader.fragmentShader = after(shader.fragmentShader, '#include <roughnessmap_fragment>', 'roughnessFactor = mix( roughnessFactor, labGnd.rough, labGnd.weight );');
+							shader.fragmentShader = after(shader.fragmentShader, '#include <metalnessmap_fragment>', 'metalnessFactor *= 1.0 - labGnd.weight;');
+							shader.fragmentShader = after(shader.fragmentShader, '#include <normal_fragment_maps>', 'normal = normalize( mix( normal, ( viewMatrix * vec4( labGnd.normal, 0.0 ) ).xyz, labGnd.normalWeight ) );');
+						},
+					}, accepts));
+				}
+				return profiles.get(key);
+			};
+			const captureMode = { value: 0 };
+			const capturePatch = {
+				id: 'lab-ground-capture',
+				order: 200,
+				needs: ['worldPos'],
+				apply(shader) {
+					shader.uniforms.uGroundCaptureMode = captureMode;
+					shader.fragmentShader = after(shader.fragmentShader, '#include <common>', 'uniform float uGroundCaptureMode;');
+					shader.fragmentShader = after(shader.fragmentShader, '#include <dithering_fragment>', `
+	vec3 labCaptureNormal = inverseTransformDirection( normal, viewMatrix );
+	gl_FragColor = uGroundCaptureMode < 0.5 ? vec4( sqrt( max( diffuseColor.rgb, vec3( 0.0 ) ) ), roughnessFactor ) : vec4( labCaptureNormal.xz * 0.5 + 0.5, vLabWorldPos.y, 1.0 );`);
+				},
+			};
+			return {
+				uniforms: u,
+				targets,
+				captureMode,
+				profile,
+				remove(material) {
+					removePatch(material, 'lab-ground-blend');
+					return material;
+				},
+				captureMaterial(terrain) {
+					const material = new THREE.MeshStandardMaterial({ name: 'Ground blend · capture', color: 0xffffff, roughness: 1, metalness: 0 });
+					terrain.apply(material);
+					addPatch(material, capturePatch);
+					return material;
+				},
+			};
+		},
+		/**
+		 * Baked shadow of a directional light: static casters rendered once per light direction, moving ones every frame,
+		 * percentage-closer soft filtering (env/bakedShadow.js, ./bakedShadow.js). Options { scene, name }.
+		 */
+		createBakedShadow: (light, options) => createBakedShadowGL(backend, light, options),
 		/** Source material of a mesh's material (WebGL patches materials in place: always itself). */
 		sourceOf: (material) => material,
 	};

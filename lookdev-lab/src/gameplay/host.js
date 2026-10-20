@@ -213,6 +213,8 @@ export class GameplayHost {
 			G.player = player;
 			G.actors.push(player);
 			this.player = player;
+			this.fillBelt();
+			this.spawnCamps(); // a map with monster camps (scene.monsterCamps) fills them now
 
 			// Camera follows the character (the Character tab's camera choice).
 			ctrl.applyCamera();
@@ -225,7 +227,7 @@ export class GameplayHost {
 			this.hud.show(true);
 			this.waveT = 2;
 			document.activeElement?.blur?.();
-			if (!quiet) toast('Gameplay (Ashen Crown v1): left click move / attack · Shift + click attack in place · right click skill · F1–F8 pick skill · N spawn pack · R walk/run · Esc quit', 'info', 7000);
+			if (!quiet) toast('Gameplay (Ashen Crown v1): left click move / attack · Shift + click attack in place · right click skill · F1–F8 pick skill · 1–4 potions · N spawn pack · R walk/run · Esc quit', 'info', 7000);
 		} catch (error) {
 			console.error(error);
 			toast(`Gameplay failed to start: ${error.message}`, 'error', 6000);
@@ -494,6 +496,30 @@ export class GameplayHost {
 		return result;
 	}
 
+	/**
+	 * The current scene's monster camps (scene.monsterCamps(): [{ x, z (world), monster, pack, count, mlvl, radius, name }])
+	 * as packs at their spots. Called when Play starts; the scene's panel can call it again (respawn).
+	 */
+	spawnCamps() {
+		if (!this.active && !this.starting) return 0;
+		const camps = this.app.current?.monsterCamps?.() ?? [];
+		const local = new THREE.Vector3();
+		let count = 0;
+		for (const camp of camps) {
+			Engine.toLocal(local.set(camp.x, 0, camp.z), local);
+			const p = G.nav.walkableAt(local.x, local.z) ? local : G.nav.nearestWalkable(local.x, local.z, 6);
+			if (!G.nav.walkableAt(p.x, p.z)) continue; // outside the nav grid or walled off
+			const result = spawnPack({ ...camp, x: p.x, z: p.z }, 0, this.rng);
+			for (const m of result.members) {
+				m.pos.y = this.groundAt(m.pos.x, m.pos.z, this.player?.pos.y ?? 0);
+				m.home.y = m.pos.y;
+			}
+			count += result.members.length;
+		}
+		this.notify();
+		return count;
+	}
+
 	clearMonsters() {
 		for (const a of G.actors) if (a !== this.player) a.removeFromWorld();
 		G.actors = this.player ? [this.player] : [];
@@ -508,7 +534,40 @@ export class GameplayHost {
 	revive() {
 		if (!this.player?.dead) return;
 		this.player.revive();
+		this.fillBelt();
 		this.notify();
+	}
+
+	/** Potion belt (HUD slots 1–4): life, mana, rejuvenation, town portal scroll. */
+	fillBelt() {
+		this.belt = [{ kind: 'life', count: 4 }, { kind: 'mana', count: 4 }, { kind: 'rejuv', count: 2 }, { kind: 'portal', count: 1 }];
+	}
+
+	drink(i) {
+		const P = this.player;
+		const slot = this.belt?.[i];
+		if (!P || P.dead || !slot || slot.count <= 0) return;
+		if (slot.kind === 'portal') {
+			const town = this.app.current?.townPoint; // a map with a town (scene.townPoint, world)
+			if (!town) {
+				toast('Town portal: there is no town in this map', 'info', 1400);
+				return;
+			}
+			Engine.toLocal(town, _l);
+			const p = G.nav.walkableAt(_l.x, _l.z) ? _l : G.nav.nearestWalkable(_l.x, _l.z, 4);
+			P.pos.x = p.x;
+			P.pos.z = p.z;
+			P.path = null;
+			P.intent = null;
+			slot.count--;
+			toast('Town portal → town', 'info', 1200);
+			return;
+		}
+		const life = { life: 0.4, rejuv: 0.35 }[slot.kind] || 0;
+		const mana = { mana: 0.4, rejuv: 0.35 }[slot.kind] || 0;
+		P.life = Math.min(P.maxLife, P.life + P.maxLife * life);
+		P.mana = Math.min(P.maxMana, P.mana + P.maxMana * mana);
+		slot.count--;
 	}
 
 	// ---------------------------------------------------------------------------------------------
@@ -527,6 +586,10 @@ export class GameplayHost {
 			return true;
 		}
 		if (e.repeat) return false;
+		if (/^[1-4]$/.test(k)) {
+			this.drink(Number(k) - 1);
+			return true;
+		}
 		if (k === 'escape') {
 			this.stop();
 			return true;
@@ -614,7 +677,7 @@ export class GameplayHost {
 			const chest = app.subject.root.getWorldPosition(_w).add(new THREE.Vector3(0, P.height * 0.6, 0));
 			ctrl.cutaway.update(app.world.camera, chest, chest.y - P.height * 0.6, P.height, true);
 		}
-		this.hud.update(rawDt, { player: P, hover: Input.hover, skillLabel: this.skillLabel() });
+		this.hud.update(rawDt, { player: P, hover: Input.hover, skillLabel: this.skillLabel(), belt: this.belt });
 		Input.endFrame();
 	}
 

@@ -48,6 +48,7 @@ the page and keeps camera, settings and the A/B snapshot).
   lights, Kelvin colour, physical units, shadow filter/size/bias, height fog.
 - **Post & camera** — camera modes (orbit, game ¾, isometric 2:1, play), AA (FXAA, SMAA, MSAA, TRAA on WebGPU),
   bloom, GTAO, grade (white balance, contrast, lift/gamma/gain, vignette, grain, chromatic aberration),
+  tone mapping / exposure / fog / framing grade remembered per scene, a half-step dither in the final pass (no banding),
   **3D LUTs** (.cube or generated looks), retro low-res preview, VFX-layer resolution, **readability check views**
   (value / greyscale and deuteranopia, protanopia, tritanopia after Machado 2009 — baked over the LUT look, no extra pass).
 - **Shaders** — the shader lab: 8 effects written twice (GLSL + TSL) with one parameter schema:
@@ -68,20 +69,47 @@ the page and keeps camera, settings and the A/B snapshot).
   material; cooldowns on the castbar; *Skill level* scales damage and effect size. The runtime talks to the world through
   a small host interface (caster, targets, ground, lights), so the same skills can drive the game's monsters. Effects
   exported from the [quarks editor](https://quarks.art) (`.json`, drop on the viewport) play at the cursor.
-- **Environment** — studio, *Act I · Burial grounds* (time of day, wind, grass, torches), *Act I · Catacombs*,
-  *Act I · Moor terrain* (splat terrain: dry dirt → wet dirt → grass blended by layer height, standing water in the hollows,
-  paintable splat with brush / undo / PNG export, grass tufts follow the grass layer; texture set *Painted* = swatches cut from
-  the concept sheet by `scripts/prepare-terrain-swatches.py`, or *Procedural* = forge recipes; *Campfire dusk* lighting preset;
-  anti-tiling; wooden fence, palisade (PBR), tent (PBR) and shrub kits split from prop sheets by `scripts/prepare-prop-kit.py`);
-  *Act I · Weeping Fields (colour rules)* — the test map for The Dying Gods' gameplay / environment colour rules: Valdren
-  Core Kit farm with palette-locked materials (`src/env/valdren.js`), a farmhouse and its Remnant-corrupted twin (god-blood
-  veins from the well under the footing, up through the floor and wall cracks; blood-soaked ground = splat channel B), a
-  Redbound nest (hide tents, fence-board shack, bone stakes, torn banners, alarm drum, resonance pillar, blood sacs, ambush
-  nests), Blightbeast den / carcass / crows; *Rules* panel with checklist camera views, gameplay class view (obstacle /
-  destructible / interactive / hazard), looping telegraphs (danger shape + function-colour fill), interact glint by
-  proximity, the six function colours sampled on the grass, Redbound stand-in crowds, and display-matched signal colours
-  (`src/core/displayMatch.js`: the hex survives exposure / grade / tone mapping; a live table shows what each hex turns
-  into when drawn as a plain colour). Review with numbers: `art-direction/13_KIEM_TRA_QUY_TAC_MAU_GAMEPLAY.md`;
+- **Environment** — *Studio · lookdev* (the Lookdev tab's neutral stage: HDRI cards, `.hdr` drop), *Act I · Dark Wood (Immortal
+  ref)* and *Act I · Dark Wood (D2 mood)* (one forest — twisted trunks, mossy rocks, a cobble path across the frame — lit and
+  coloured two ways: a cold blue-grey Diablo Immortal moonlight, or the Diablo II look with an isometric 2:1 play view on the hero,
+  ACES and a light radius; `src/scenes/darkWood.js`, `darkWoodD2.js`) and *Act I · Bố trí biome (thuật toán)* (the 3D view of the biome
+  layout engine `src/env/biomeLayout.js` running on a sample plan, with overlays that show why things stand where they stand, a
+  report with the acceptance checks and per-group seeds / densities; `npm run test:layout`, `npm run preview:layout`);
+  all three share the base class `TerrainScene` (`src/scenes/terrain.js`): a splat terrain (dry dirt → wet dirt → grass blended by
+  layer height, standing water in the hollows, paintable splat with brush / undo / PNG export, grass tufts, 3D grass cards and shell
+  grass follow the grass layer), the *Texture set* drop-down (painted swatches and tiles, the D2R moor and lush-grass sets, the Act I
+  biome sets, Poly Haven scans, the Dark Wood sets, or *Procedural* forge recipes; `scripts/prepare-terrain-*.py`), anti-tiling, shadow
+  fill, and kits (wooden fence, palisade (PBR), tent (PBR), shrubs, the camp, nature and tree kits) split from prop sheets by
+  `scripts/prepare-prop-kit.py`, `prepare-camp-kits.py` and `prepare-nature-kits.py`;
+  biome placement rules (`art-direction/12` §4.6–4.12): habitat-masked grass colonies, clear door/interaction approaches,
+  shoulder torches at route decisions, and bone clusters at story anchors (`src/env/biomePlacement.js`; `npm run test:placement`);
+  **ground blend** (Scene options → *Ground blend*): rocks, trees, posts, walls and
+  remains meet the soil — and each other — instead of standing on it. The terrain's own material (albedo + roughness, world
+  normal + height) is drawn top-down into two textures around the camera, like a runtime virtual texture, and redrawn only
+  when the view leaves them or the terrain changes; one surface patch (`shaders/effects/ground_blend.glsl` + TSL twin) fades
+  each asset's foot into the ground under it (albedo, roughness and shading normal, noise-broken edge, the band scaled by the
+  face's slope and the asset's local relief so flat decals, pebbles and bones keep their look), lays the ground over rock
+  tops, and fills the crevices where assets touch (per-vertex contact baked on the CPU, `src/env/contact.js`); per-class
+  profiles (rock, tree, remains, built), a weight view and a temporary test pile (rocks leaning on rocks, a tree among them);
+  **GPU instancing in cells** (`src/env/instancing.js`): repeated meshes — grass
+  tufts, grass cards, shrubs, kit trees — are one `InstancedMesh` per geometry × material × cell of the xz grid, and the
+  merged static props one mesh per material × cell (`StaticBatch.build(true, { cell })`), so the camera and every shadow
+  camera (the moon, the hero light) cull what they do not see; a map-wide instanced set is never
+  culled. Kit trees became instances (geometry scaled to metres once so the wind mask is unchanged; `userData.labSolid`
+  keeps walk collision and the see-through circle per instance; the ground blend takes instanced meshes). Scene options →
+  *GPU instancing · chia ô* switches off / 16 / 24 / 32 m (page reload). Measured on the (removed) village map, iso play view:
+  544 → 365 draws (WebGL2), 489 → 302 (WebGPU), 4.4 M → 1.25 M triangles; main-thread CPU −0.6 ms on WebGPU, +0.3 ms on WebGL2
+  (three's per-object culling work in every shadow pass); GPU time on an RTX 4070 unchanged (fragment-bound);
+  **atmosphere — GPU particles** for any scene with a preset in `SCENE_ATMOSPHERE` (`src/env/atmosphere.js`,
+  `shaders/vfx/atmosphere.*.glsl`, TSL twin in `backends/webgpu/vfx.js`; the table is empty for the current scenes): dust motes
+  catching the light, ash with a few embers, leaves skimming on the wind, fireflies by
+  the water, grave wisps, blood spores off corrupted ground, moths round the lamps, low fog. Each layer is one instanced
+  draw whose instances are only seeds: place, drift, wander, tumble, blink and light are computed in the vertex shader from
+  time, so the CPU sets a few uniforms a frame (~0.04 ms) whatever the count. Layers wrap in a box that follows the view, lie
+  on a height map baked from `scene.height`, live in zones (circles), take the grass wind, are lit by the eight lights that
+  matter most at the view (three's falloff) plus the sky ambient — dust shows in the hero's light radius and round the fires
+  only — and fade near a perspective camera; per-scene presets, night-only layers, the mood's rain settles the dry ones.
+  Scene options → *Bầu không khí · hạt GPU*: on/off, density, per-layer switch and amount;
   procedural texture forge (tileable PBR sets baked from GLSL recipes, hot-reloaded).
 - **Performance** — renderer info, quality presets, render scale, live pass timings, **scene benchmark** and
   **feature cost** benchmark (comparison table across renderers), stress tests (model crowd, moving lights,
@@ -100,8 +128,8 @@ dust). A mood sets the scene's own lights (moon / sky / torches / environment) t
 fog per scene, and a grade (ACES, bloom, split-tone LUT, vignette); it adds a **hero light** that follows the character
 (inverse-linear falloff, no shadows), a **fresnel rim** on the character and held items (GLSL patch / TSL node patch),
 rain streaks and splashes (CPU particles), the puddle effect with rain wetness on the ground materials, lightning
-flashes, dust motes and ground mist. It works in the studio (a mood rig replaces the studio rig) and in both Act I scenes
-(interiors skip the weather); every value can be tweaked per mood, and **Off** restores the scenes and the previous grade.
+flashes, dust motes and ground mist. It works in the studio (a mood rig replaces the studio rig) and in the Act I scenes
+(Dark Wood, Bố trí biome); every value can be tweaked per mood, and **Off** restores the scenes and the previous grade.
 
 Texture editor (Character tab, Lookdev → Selected material → Textures): per-slot previews with UV overlay, replace / add /
 remove / reset / export PNG, colour adjustments (hue, saturation, brightness, contrast, gamma, tint), per-channel levels
@@ -126,17 +154,19 @@ src/
     webgl/      WebGLRenderer pipeline, GPU timer, onBeforeCompile patch system, GLSL effects + VFX materials
     webgpu/     WebGPURenderer pipeline (PostProcessing/TSL), node-patch system, TSL effects, VFX + compute
       tsl/      TSL ports of the GLSL chunks (noise, common, post)
-  core/         settings, renderer modes, assets, camera rig, grading, LUTs + readability checks, display-matched
-                colours (displayMatch.js), shader registry + overrides
+  core/         settings, renderer modes, assets, camera rig, grading, LUTs + readability checks, shader registry + overrides
   effects/      effect schemas (registry.js) and the shader-lab controller (lab.js)
-  env/          texture forge, Act I kit (StaticBatch), flames, terrain splat; valdren.js (palettes, palette lock,
-                Valdren / Redbound / Blightbeast kit builders), signals.js (telegraphs, interact rings, swatch discs)
+  env/          texture forge, Act I kit (StaticBatch), flames, terrain splat; biomeLayout.js (layout engine) + biomeCatalog.js
+                + biomePlacement.js; valdren.js (palettes, palette lock, Valdren / Redbound / Blightbeast kit builders),
+                signals.js (telegraphs, interact rings, swatch discs),
+                groundBlend.js + contact.js (ground capture, asset contacts), outdoor.js (road fields, ribbons, kit loading),
+                instancing.js (instanced sets in cells), atmosphere.js (GPU particle layers in the air)
   lighting/     studio rigs, Act I mood presets (moods.js) and the mood controller (hero light, rim, weather)
   lookdev/      view modes, reference objects, texture editor
   panels/       one file per tab
   procedural/   code-built characters (rig, SDF sculpt + decimation, clips, baked geometry) and the lab catalog;
                 core/util.js + core/shared.js are the small game modules they import
-  scenes/       studio, graveyard, catacombs, moor terrain, Weeping Fields (colour-rule test map)
+  scenes/       studio, Dark Wood (Immortal ref + D2 mood), biome layout, and the TerrainScene base class (terrain.js)
   shaders/      every .glsl file (chunks/, effects/, post/, forge/, vfx/) — hot-swapped by the dev server
   vfx/          particle system, pooled lights, dummies, spells, VFX lab controller
 scripts/        dev server, build (single-file offline HTML), static checks, page server + Cloudflare share,
@@ -186,6 +216,22 @@ scripts/        dev server, build (single-file offline HTML), static checks, pag
 - **Scene-specific patches on shared materials**: GLSL patches a material in place and TSL keeps one node twin per
   source material, so a layer meant for one scene (wet ground) must be removed when leaving it — the Act I materials
   are shared by both scenes.
-- `active` is a reserved word in GLSL ES 3.00.
+- **Render targets in WGSL are not flipped**: on a WebGPU device a render target is stored top row first and r180's
+  `WGSLNodeBuilder.isFlipY()` is false, so a texture read at a computed uv (world xz → capture uv) sees the image upside
+  down compared with WebGL2 (and with the WebGPU renderer's WebGL2 backend). The ground blend flips v for `backend.isWebGPU`.
+- **onBeforeCompile patches and the program cache**: WebGLRenderer keeps every program a material has used; going back to
+  an earlier program key (patch taken off, then put back) reuses that program without calling onBeforeCompile, with the
+  uniforms of the last compile — the patch's own uniforms (textures!) are missing. Keep a scene's patch on and zero its
+  strength instead (the ground blend does), or make the key new.
+- `active` is a reserved word in GLSL ES 3.00 (so is `half`).
+- **Instancing is only as good as its culling**: an `InstancedMesh` is culled by the bounds of all its instances, so a
+  map-wide set is drawn in full by the camera and by every shadow camera — six times per point light. Split sets into
+  cells. Past that, the cost moves to three's per-object work (frustum test, attribute version checks in every shadow pass):
+  more cells meant +0.3 ms CPU on WebGLRenderer but −0.6 ms on WebGPURenderer (whose draws cost more). Static meshes
+  should set `matrixAutoUpdate = false` — otherwise every cell's matrix is recomposed each frame.
+- **`InstancedMesh.getColorAt` / `getMatrixAt` return nothing** (r180): read the target you passed in.
+- **Rebuilding a scene in place breaks WebGPU**: the scenes share materials (Valdren) and the ground blend effect per app;
+  a second build of the same scene renders black on WebGPU without an error (the scene-switch bug). Build-time options
+  reload the page instead (`App.reloadScene`).
 
 Third-party assets and their licenses: [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).

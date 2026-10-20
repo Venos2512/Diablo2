@@ -8,7 +8,9 @@ Collection counters and summary metrics derive from records. Additional categori
 
 ## Build
 
-Esbuild bundles modules and Three.js into an inline IIFE. The template embeds CSS and reference data URIs. Output: dist/index.html, Sanctuary_Databook.html and the legacy Bestiary HTML alias. No runtime CDN or module fetch is needed.
+Esbuild bundles modules and Three.js into an inline IIFE. The template embeds CSS and reference data URIs; the `concept-media` plugin (scripts/concept-media.mjs) inlines the WebP files listed in src/data/concepts.json. Output: dist/index.html and ../D2RR.html; each gets an `origin-root` meta tag with the repository root relative to its folder, used by the concept Source PNG links. `--site <dir>` (npm run build:site) adds a website build: the plugin maps concept images to `concepts/…` URLs, the WebP files are copied next to index.html, and `origin-root` is `none`, which hides the Source PNG links because the site has no originals. No runtime CDN or module fetch is needed.
+
+Concept records are produced by scripts/import_concepts.py from assets/CONCEPT_SOURCES.json (see docs/CONCEPTS.md). Concept images carry `file`/`thumb` paths and `src`/`thumbSrc` data URIs; catalog export drops the data URIs.
 
 ## Model viewer lifecycle
 

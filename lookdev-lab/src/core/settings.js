@@ -4,7 +4,7 @@ const STORAGE_KEY = 'sanctuary-lookdev-lab:settings:v1';
 const SESSION_KEY = 'sanctuary-lookdev-lab:session:v1';
 
 const defaults = {
-	scene: 'studio',
+	scene: 'darkWood',
 	tab: 'lookdev',
 	quality: 'high',
 	camera: { mode: 'orbit', fov: 35 },

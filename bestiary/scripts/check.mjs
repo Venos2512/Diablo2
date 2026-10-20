@@ -57,3 +57,25 @@ assert.match(multiverseEnemies.find(a=>a.id==='dungeon-siege-phrak-ballista').co
 assert.equal(multiverseEnemies.find(a=>a.id==='dungeon-siege-krug-scout').role,'Melee');
 assert(multiverseEnemies.every(a=>a.motions.length>0&&a.media.clips.length===0));
 assert(html.includes('content-source')&&html.includes('encounter-condition'));
+
+// D2RR concept art: records, source files, filters and the inlined WebP images.
+const stubMedia={name:'stub-media',setup(b){b.onResolve({filter:/^concept-media$/},()=>({path:'concept-media',namespace:'stub'}));b.onLoad({filter:/.*/,namespace:'stub'},async()=>{const data=JSON.parse(await readFile(new URL('../src/data/concepts.json',import.meta.url),'utf8'));return {contents:JSON.stringify(Object.fromEntries(data.records.flatMap(r=>r.images.flatMap(i=>[[i.file,'data:image/webp;base64,'+i.file],[i.thumb,'data:image/webp;base64,'+i.thumb]])))),loader:'json'};});}};
+const conceptBuild=await build({entryPoints:[new URL('../src/data/concepts.js',import.meta.url).pathname.replace(/^\/([A-Z]:)/,'$1')],bundle:true,platform:'node',format:'esm',write:false,plugins:[stubMedia]});
+const {concepts,conceptGroups,conceptWorld}=await import('data:text/javascript;base64,'+Buffer.from(conceptBuild.outputFiles[0].text).toString('base64'));
+const conceptSources=JSON.parse(await readFile(new URL('../assets/CONCEPT_SOURCES.json',import.meta.url),'utf8'));
+assert.equal(concepts.length,conceptSources.records.length);assert.equal(concepts.length,152);assert.equal(conceptGroups.length,16);assert.equal(conceptWorld.id,'d2rr');
+assert.deepEqual(concepts.map(c=>c.id),conceptSources.records.map(r=>r.id));
+assert.deepEqual(conceptGroups.map(g=>concepts.filter(c=>c.group===g.id).length),[7,6,6,5,5,5,21,20,7,6,17,7,14,8,5,13]);
+assert.equal(concepts.reduce((n,c)=>n+c.images.length,0),209);
+assert.deepEqual(['progress','todo','approved'].map(s=>concepts.filter(c=>c.status===s).length),[143,8,1]);
+assert.equal(new Set([...monsters,...act1Items,...act1Npcs,...multiverseEnemies,...concepts].map(a=>a.id)).size,532);
+assert(concepts.every((c,i)=>c.type==='concept'&&c.game==='d2rr'&&c.number===i+1&&c.index===4001+i&&c.image===c.images[0]&&c.media.clips.length===0));
+for(const c of concepts){assert(c.name&&c.description&&c.art&&c.role&&c.method&&c.location,c.id);for(const image of c.images){assert(image.src.startsWith('data:image/webp')&&image.thumbSrc.startsWith('data:image/webp')&&image.label&&image.width>0&&image.height>0,c.id);await access(new URL('../'+image.file,import.meta.url));await access(new URL('../'+image.thumb,import.meta.url));await access(new URL('../../'+image.origin,import.meta.url));}}
+const conceptState={...state,game:'all',collection:'concept'},noWork={notes:{},favorites:[],statuses:{}},everything=[...monsters,...act1Items,...act1Npcs,...multiverseEnemies,...concepts];
+assert.equal(queryAssets(everything,conceptState,noWork).length,152);assert.equal(queryAssets(everything,{...state,game:'d2rr'},noWork).length,152);
+assert.equal(queryAssets(everything,{...conceptState,group:'dg-redbound'},noWork).length,7);assert.equal(queryAssets(everything,{...conceptState,status:'todo'},noWork).length,8);
+assert.equal(queryAssets(everything,{...conceptState,query:'hong phuoc'},noWork).length,7);assert.equal(queryAssets(everything,{...state,game:'diablo-ii',collection:'concept'},noWork).length,0);
+const conceptFiles=new Set(concepts.flatMap(c=>c.images.flatMap(i=>[i.file,i.thumb])));assert(html.split('data:image/webp;base64,').length-1>=conceptFiles.size);
+assert(html.includes('<meta name="origin-root" content="../../">')&&html.includes('id="versions"'));
+const d2rr=await readFile(new URL('../../D2RR.html',import.meta.url),'utf8');assert(d2rr.includes('<meta name="origin-root" content="">')&&d2rr.length===html.length-'../../'.length);
+console.log(`PASS: ${concepts.length} D2RR concept records, ${concepts.reduce((n,c)=>n+c.images.length,0)} embedded concept images, ${conceptGroups.length} concept sets; D2RR.html matches dist.`);

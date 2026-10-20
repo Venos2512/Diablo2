@@ -89,7 +89,7 @@ thường trình duyệt tắt WebGPU nên người xem trong LAN chạy bản W
 ## 3a. Tab Character — preview nhân vật như trong game
 
 Chọn nhân vật (KayKit Knight / Barbarian / Mage / Rogue, Robot, Fox, hoặc **file GLB của bạn** — một file có đủ clip),
-bấm **▶ Play** (`Enter`). Nhân vật chạy trong cảnh đang mở (studio hoặc hai cảnh Act I), camera bám theo.
+bấm **▶ Play** (`Enter`). Nhân vật chạy trong cảnh đang mở (studio hoặc các cảnh Act I), camera bám theo.
 
 | Điều khiển | Tác dụng |
 | --- | --- |
@@ -193,6 +193,9 @@ mang ảnh đã chỉnh vào game.
   - Camera: Orbit tự do, Game ¾ (góc nhìn kiểu ARPG), **Isometric 2:1** (orthographic, như camera sprite cổ điển), Play.
   - AA: FXAA, SMAA, MSAA, **TRAA** (chỉ WebGPU).
   - Bloom, GTAO, sương mù theo độ cao, grade (cân bằng trắng, contrast, lift/gamma/gain, vignette, grain, quang sai).
+  - **Nhớ theo từng cảnh**: tone mapping, exposure, sương mù và phần grade của khung hình (vignette, contrast, saturation,
+    lift, nhiệt độ màu) được lưu riêng cho mỗi cảnh. Cảnh chưa chỉnh dùng AgX; Dark Wood (D2 mood) và Bố trí biome dùng ACES ở preset Night.
+  - **Dither**: pass cuối cộng nhiễu nửa bậc màu, nên vùng tối, vignette và sương không bị sọc màu (banding).
   - **3D LUT**: chọn look có sẵn (Teal & orange, Bleach bypass, Sanctuary gloom, ba look Act I của các mood) hoặc nạp file `.cube` từ Resolve/Photoshop.
     LUT áp sau tone mapping + sRGB (đúng cách các LUT sáng tạo được xuất ra).
   - **Retro preview**: xem ở 480p/600p với số mức màu giới hạn + dither — kiểm tra silhouette, đồ rơi và hiệu ứng còn đọc
@@ -222,12 +225,12 @@ Mỗi mood gồm:
   Chỉnh cường độ, bán kính, độ cao, độ lệch về phía camera, nhiệt độ màu.
 - **Viền sáng nhân vật (rim)**: fresnel trên nhân vật và vũ khí đang cầm, mạnh hơn ở mép trên như ánh trăng; chỉnh màu,
   cường độ, độ mảnh.
-- **Thời tiết** (chỉ ngoài trời và studio): mưa, gió, giọt bắn, vũng nước, chớp (tự động sau mỗi ~N giây, hoặc bấm
+- **Thời tiết** (ngoài trời và studio): mưa, gió, giọt bắn, vũng nước, chớp (tự động sau mỗi ~N giây, hoặc bấm
   *⚡ Strike now*).
 - **Không khí**: bụi lơ lửng trong vùng sáng quanh nhân vật, sương mù trôi sát đất.
 
-Mood dùng được ở **studio** (một rig riêng của mood thay cho rig studio), **nghĩa địa** và **hầm mộ** (trong nhà thì
-không mưa, không chớp). Chuyển cảnh thì mood tự áp lại cho cảnh mới. Mọi tinh chỉnh được nhớ riêng cho từng mood;
+Mood dùng được ở **studio** (một rig riêng của mood thay cho rig studio) và các cảnh Act I ngoài trời (**Dark Wood**,
+**Bố trí biome**). Chuyển cảnh thì mood tự áp lại cho cảnh mới. Mọi tinh chỉnh được nhớ riêng cho từng mood;
 *Reset this mood's tweaks* trả về mặc định. Chọn **Off** thì mọi cảnh và grade cũ của bạn được khôi phục.
 
 Mẹo: bật hero light, rim và đèn chớp không làm biên dịch lại shader (đèn luôn nằm trong cảnh, chỉ đổi cường độ). Bật/tắt
@@ -323,31 +326,33 @@ Bật **VFX lab active** (tự bật khi mở tab). Ba hình nộm tập luyện
 
 ## 7. Tab Environment
 
-- **Studio · lookdev**: môi trường trung tính.
-- **Act I · Burial grounds**: nghĩa địa ngoài trời — giờ trong ngày (đêm/hoàng hôn/u ám), gió cho cỏ và cây chết, mật độ cỏ, đuốc.
-- **Act I · Catacombs**: hầm mộ — đuốc tường, chậu than, trần, bóng đổ của đuốc.
-- **Act I · Moor terrain**: đồng hoang kiểu Blood Moor — đường xe bò có vệt bánh ướt, suối cạn, bãi lội. Mặt đất là **3 lớp
+- **Studio · lookdev**: môi trường trung tính — sân khấu của tab Lookdev (thẻ HDRI, thả file `.hdr`).
+- **Act I · Dark Wood (Immortal ref)** và **Act I · Dark Wood (D2 mood)**: khu rừng Dark Wood — cùng một map
+  (`src/scenes/darkWood.js`; biến thể D2 ở `darkWoodD2.js`), khác bộ texture, preset giờ và ánh sáng. *Immortal*: góc ba phần tư cao,
+  đêm, ánh trăng xanh xám gần như không bão hoà, sương, đất mùn xanh xám với cỏ thưa, đường lát đá cuội chạy chéo màn hình, thân và rễ
+  cây xoắn lớn bên trái, đá rêu, một vùng sáng lạnh quanh nhân vật (texture set *Dark Wood stylized*; time of day *Moonlit* / *Deep
+  night*). *D2 mood*: cùng địa hình, đường, rừng và đá nhưng chiếu sáng và tô màu theo look Diablo II — camera isometric 2:1 trên hero, đêm,
+  ACES, light radius hơi ấm quanh hero, xanh rêu / ô liu / nâu, sương mỏng, không shadow fill (texture set *Dark Wood green*; time of day *Night ·
+  light radius* / *Dusk*). Tone mapping, exposure, sương và grade được lưu riêng cho từng scene.
+- **Act I · Bố trí biome (thuật toán)**: bản nhìn 3D của engine bố trí asset — xem mục 7h (engine và quy tắc ở 7b).
+- **Chung cho các map terrain (Dark Wood, Bố trí biome)** — lớp `TerrainScene` (`src/scenes/terrain.js`). Mặt đất là **3 lớp
   chồng nhau: đất khô (nền) → đất ướt → cỏ**, trộn theo độ cao của từng lớp (nước đọng vào chỗ trũng của đất trước, sỏi nhô
   qua bùn, đất lộ ra giữa các sợi cỏ ở mép). Splat map (R = đất ướt, G = cỏ) sinh từ địa hình và **vẽ được bằng cọ**:
   Environment → *Brush* → bật *Paint*, kéo chuột trái trong khung nhìn (chuột phải vẫn pan, cuộn để zoom), Ctrl+Z để hoàn tác;
   cỏ 3D tự mọc lại theo lớp cỏ sau mỗi nét. Xuất/nhập splat dạng PNG. *Show layer weights* tô màu từng lớp (nâu/xanh dương/xanh lá).
   Shader: `src/shaders/effects/terrain.glsl` + bản TSL trong `backends/webgpu/effects.js` (`createTerrain`).
-  **Texture set**: *Painted* (mặc định) dùng 3 ô texture cắt từ concept `art-direction/reference/moor_campfire_terrain_concept.png`
+  **Texture set**: mặc định của Dark Wood là *Act I · Dark Wood (stylized)* (bản Immortal) và *Act I · Dark Wood (stylized, green)* (bản D2 mood);
+  *Painted* dùng 3 ô texture cắt từ concept `art-direction/reference/moor_campfire_terrain_concept.png`
   (bùn + vũng nước, cỏ lá, đất xen cỏ) — làm lại bằng `python -I scripts/prepare-terrain-swatches.py <ảnh>` (cắt, làm seamless, phóng 512 px,
   tách heightmap, nhận diện vũng nước); normal/ORM được dựng trong trình duyệt từ heightmap. *Procedural* dùng 3 công thức forge.
   *Painted tiles* dùng 3 tile riêng trong `art-direction/reference/terrain-tiles` (transition → đất khô, mud → đất ướt, grass → cỏ),
   tạo lại bằng `python -I scripts/prepare-terrain-swatches.py --tiles dirt.png,mud.png,grass.png --prefix terrain2`.
-  Lighting → Time of day → **Night camp · D2R look** (mặc định, theo Rogue Encampment ban đêm của D2R): trăng lạnh hơi lục
-  làm key, bóng mềm đổ về trái màn hình; ambient rất thấp; **light radius** của nhân vật (point light lạnh bám theo nhân vật);
-  4 đuốc giá ba chân quầng ấm hẹp; sương tối mỏng; grade ngả lục-lạnh, vignette 0.7. Giá trị được dò bằng số so với ảnh
-  D2R: độ sáng trung vị ~0.12, rìa/tâm ~0.6, màu trung bình trung tính-lục (R ≈ G).
   **Shadow fill** (Atmosphere → *Shadow fill on assets*): shader gắn vào terrain, props, cây, cỏ — sau khi tính ánh sáng, chỗ nào còn
   tối hơn ngưỡng thì cộng thêm một phần albedo (đã giảm bão hoà một nửa) nhân màu fill, nên vùng bóng giữ màu vật liệu thay vì đen
-  xỉn; chỗ đã sáng không đổi. *Cast shadow strength* (mặc định 0.55) giảm độ đậm của bóng đổ từ trăng và lửa trại (`LightShadow.intensity`:
-  1 = bóng đen hẳn, 0 = không bóng) — dùng khi bóng của palisade/hàng rào trên mặt đất quá đậm. `src/shaders/effects/shadow_fill.glsl` + `createShadowFill` (TSL, slot `output` mới của node patch). Contrast/saturation/lift/
+  xỉn; chỗ đã sáng không đổi. *Cast shadow strength* (mặc định 0.55) giảm độ đậm của bóng đổ từ trăng (`LightShadow.intensity`:
+  1 = bóng đen hẳn, 0 = không bóng) — dùng khi bóng trên mặt đất quá đậm. `src/shaders/effects/shadow_fill.glsl` + `createShadowFill` (TSL, slot `output` mới của node patch). Contrast/saturation/lift/
   temperature/tint/vignette giờ lưu theo scene cùng exposure và fog.
-  Lighting → Time of day → **Campfire dusk · concept look**: ambient trung tính dịu, phản xạ thấp, lửa trại là điểm sáng ấm chính.
-  Preset này có **sương thấp** (dày sát mặt đất, mỏng dần theo độ cao: vùng chơi vẫn rõ, phía xa chìm vào bóng tối ấm) và **vignette 0.7**.
+  Preset giờ nằm ở Lighting → *Time of day* (mỗi scene một bộ).
   Chỉnh tại Environment → *Atmosphere · fog & vignette* (cùng giá trị với tab Post & camera). Exposure, fog và vignette giờ
   được lưu **riêng theo từng scene**; khi bật Act I mood thì mood quyết định grade/vignette.
   **Anti-tiling & transitions**: *Tiling breakup* (mỗi lớp đọc 2 lần với độ lệch UV đổi theo vùng ~10 m, trộn chéo — kỹ thuật
@@ -360,67 +365,166 @@ Bật **VFX lab active** (tự bật khi mở tab). Ba hình nộm tập luyện
   xoay mỗi mảnh theo trục +x, pivot ở đáy-giữa, texture 1024 px. Sheet có normal map và metallic-roughness map thì giữ nguyên PBR.
   Mảnh chạm nhau trong sheet thì tách tay bằng `--cuts "hàng:x1,x2"`; sheet xếp lưới nhìn từ trên (cây bụi) dùng `--layout top`.
   Lệnh đã dùng: palisade `--prefix palisade --cuts "0:-0.31,-0.15,0.31"`, lều `--prefix tent --cuts "0:-0.385,-0.025"`,
-  cây bụi `--prefix shrub --layout top`. Trong scene: lều nhỏ trong vòng palisade quay về lửa trại, lều lớn thành trại hai bên
-  khung camera; cây bụi (instanced, lay theo gió) dày ở bờ suối, dọc hàng rào và chân lều. Hàng rào nối dọc đường (xen đoạn gãy/đổ, khoảng hở),
-  vòng palisade kiểu trại Rogue sau lửa trại, cọc lẻ và khúc gỗ chắn đường; tất cả gộp chung draw call với props khác.
+  cây bụi `--prefix shrub --layout top`. Trong Dark Wood, cây bụi (instanced, lay theo gió) dày ở rìa rừng quanh các thân cây, thưa dọc hai bên đường (`buildShrubs`); các kit
+  còn lại do engine bố trí đặt (mục 7b, 7h).
 - **Texture forge**: các bộ texture PBR lát gạch (gạch đá, đá cuội, đất, cỏ, gỗ, sắt, đá phong hoá, và 3 lớp terrain: đất khô, đất ướt, cỏ nhìn từ trên) được *nướng* từ công thức GLSL
   trong `src/shaders/forge/`. Sửa công thức khi đang chạy `npm run dev` → texture nướng lại ngay.
-- **Act I · Weeping Fields (colour rules)**: map kiểm tra bộ quy tắc màu gameplay & môi trường của The Dying Gods — xem mục 7b.
 
 ---
 
-## 7b. Map Weeping Fields — kiểm tra bộ quy tắc màu
+## 7b. Quy tắc bố trí asset theo biome
 
-Scene **Act I · Weeping Fields (colour rules)** dựng khu Weeping Fields đúng như bộ quy tắc ghép: *Valdren Core Kit*
-làm nền, *Redbound* + *Blightbeasts* ở những chỗ có lý do sinh thái. Báo cáo số liệu: `art-direction/13_KIEM_TRA_QUY_TAC_MAU_GAMEPLAY.md`.
+Quy chuẩn đầy đủ: `art-direction/12_QUY_CHUAN_QUAI_CANH_QUAN_CONG_TRINH.md` §4.6–4.12. Xem kết quả ở map **Bố trí biome** (mục 7h): góc camera theo khu vực (trang trại, trại địch, hang sói, nghĩa địa…) và các overlay giải thích.
 
-**Bố cục** (camera game nhìn từ đông-nam, nên công trình cao đứng ở phía bắc/tây):
+- **Cỏ:** mảng mật độ lớn, cụm 3–7 bụi lệch tâm, rìa thấp hơn; màu khô/ẩm gần nhau trong cụm. Mỗi bụi và grass card đều kiểm tra đường, lối thú đi, nước, dốc, đất nhiễm huyết, footprint và vùng tiếp cận. Arena chỉ có cỏ ngắn, thưa. Ruộng giữ hàng gốc rạ đứt đoạn.
+- **Prop:** đồ nông trại bám trục nhà, đồ trại hướng vào chỗ sử dụng; footprint tính theo scale và bao được các góc sau xoay. Chừa cửa, lối vào trại và khoảng đứng tương tác; không đủ chỗ thì bỏ. Đá và cây giữ footprint để cỏ không xuyên chân.
+- **Đuốc:** 5 vị trí dự kiến tại lối đến miếu, ngã rẽ vào trại, ngã rẽ đường thú, khúc cua đông và lối vào trại. Đặt ở vai đường; không đặt trên đường thú. Dùng ngọn lửa chung, đèn nhỏ không đổ bóng; nếu vị trí không hợp lệ thì không ép đặt.
+- **Xương:** cụm ở khu xử lý thịt và cạnh xác/miệng hang; mảnh nhỏ lệch theo một hướng, không rải đều quanh giếng hay suốt lối thú đi. Thiếu kit hoặc đống xương quá lớn thì thử mảnh procedural tại cùng điểm, vẫn giữ các vùng cấm.
+- **Đá, cây, xác quái (kit tự nhiên, Tripo từ sheet 08–12):** đá thành **cụm** — một tảng chính và 1–3 tảng nhỏ lệch về một phía, chìm ~15% và nghiêng theo dốc, giữa các cụm có khoảng đất trống; đá rêu ở chỗ ẩm/bờ suối, tảng cao/phiến dài ưu tiên phía bắc (phía sau màn hình). **Cây khô** có gió; cụm **cây cháy** quanh lều cháy; vài cây có gỗ đổ bên cạnh (gốc, thân đổ, cành, rễ, bụi gai). **Xác quái** đặt theo sự kiện: miệng hang sói (xác thú + quỷ lùn cũ), dốc phía bắc (2 quỷ lùn), bờ suối (quái có vỏ), mép ruộng (1 xác giơ tay) — nằm theo dốc, chìm nhẹ, đất dưới xác được tô trơ và ẩm, không có collision. Model Tripo đã bỏ đĩa bùn của concept để chân vật thể nối vào chính terrain. Kit và cách tách: `scripts/prepare-nature-kits.py` (model nguồn trong `art-output/tripo-models/nature/`; hàng dưới của sheet 10–12 được ghép thành ảnh một hàng và dựng lại vì Tripo hay bỏ các hàng dưới của sheet nhiều hàng).
+- **Điều chỉnh:** `Grass density` điều khiển bụi/gốc rạ; `3D grass along edges` điều khiển grass card riêng. Đưa **cả hai** về 0 để tắt toàn bộ cỏ 3D. Rebuild cùng thiết lập giữ bố trí ổn định. Các ngưỡng theo mét nằm trong `src/env/biomePlacement.js`; điểm đặt nằm trong plan mẫu `src/env/biomeLayoutDemo.js`.
 
-| Khu | Nội dung | Quy tắc minh hoạ |
-| --- | --- | --- |
-| Trang trại (giữa-bắc) | Hai nhà cùng một bản dựng: nhà thường (tây) và nhà bị thần huyết xâm thực (đông) — mái trước sập, cửa bị giật, sàn thủng, mạch huyết đi từ giếng → dưới móng → trồi qua sàn → leo theo vết nứt tường | II.2: giữ màu vật liệu gốc, khác biệt đến từ biến dạng có hướng |
-| Giếng thần huyết + tổ Redbound nhỏ | Lều da chắp vá, lán ghép từ ván hàng rào, cọc xương có sọ thú và vòng xương, cờ vải đỏ rách (lay theo gió), xương, liềm gỉ, xe kéo cháy; dấu tay đỏ, vết cào; trống xương báo động, cột cộng hưởng (tim đập theo nhịp Bellwether), túi huyết, ổ phục kích | III.1, VI |
-| Chuồng (bắc) | Chuồng gia súc bị chiếm, rào gãy, một cánh cửa bị giật | III.1 |
-| Đồng ruộng (tây) | Luống đất, gốc rạ, tường đá khô, đống rơm, bù nhìn | Valdren core |
-| Đồng cỏ (đông) | Bãi rêu phẳng cho bài test "12 Redbound" | VII |
-| Hang sói, xác bò, quạ (đông-bắc) | Đá, hốc tối, khúc gỗ đổ, xương mồi, lông rụng, đường thú chạy, chỗ lợn rừng ủi đất — không cọc xương, không bàn thờ | III.3 |
-| Đường chính + ven đường | Đường sáng hơn nền (không phát sáng), hàng rào gỗ xám, miếu ven đường, waypoint, cột đèn, biển chỉ đường | II.2, VI |
+Chạy `npm run test:placement` để kiểm tra mask/vùng tiếp cận/khoảng cách gốc cỏ; `npm run check` để kiểm tra bundle và shader. Duyệt hình ảnh ở Night + Overcast, cả WebGL2 và WebGPU. Bộ quy tắc này do engine `biomeLayout` áp dụng (map Bố trí biome); map Dark Wood giữ bố cục riêng.
 
-**Bảng màu Valdren**: mỗi vật liệu được *khoá màu* — texture giữ chi tiết, màu trung bình được dời về đúng swatch
-(`src/env/valdren.js` → `VALDREN`, `DECOR`). Lớp terrain (đất, bùn, cỏ) cũng được khoá; tắt *Palette lock* trong
-*Terrain layers* để so với texture gốc. Đất nhiễm huyết là kênh **B** của splat (đỏ-nâu tối, giữ độ sáng của nền, có
-vân mạch), vẽ thêm bằng cọ *Blood-soaked (Remnant)*.
+#### Thuật toán bố trí asset tổng quát (`biomeLayout`)
 
-**Environment → Rules · màu & khả năng đọc**:
+Cùng bộ quy tắc, nhưng viết thành **một engine dùng cho mọi biome**, không phụ thuộc three/DOM: `src/env/biomeLayout.js`. Nó nhận *plan* (đường, nước, cửa, vùng tương tác, spawn, arena, khối chính, vật chủ, sự kiện, hàm đất) và đặt asset theo đúng thứ tự §4.6 — khóa vùng chơi → khối lớn → cụm chức năng → dẫn đường → sinh thái → dấu vết → kiểm tra — rồi trả về `placements`, lớp cỏ (`ecology`), `groundPaint`, vùng cấm, điểm quyết định và `report` (số lượng, mục bị bỏ kèm lý do, cảnh báo, kết quả các kiểm tra §4.12). Mỗi mục thử tối đa 12 vị trí trong bán kính cố định; không vừa thì bỏ và ghi lại. Mỗi nhóm có seed riêng (`options.seeds`: `mass`, `cluster`, `guide`, `ecology`, `trace`) nên đổi seed một nhóm không xáo phần đã đặt trước đó. Giải thích đầy đủ, bảng mét và nguồn từng con số: `art-direction/12_QUY_CHUAN_QUAI_CANH_QUAN_CONG_TRINH.md` §4.13. Scene 3D xem kết quả có ở mục **7h** (lab → "Act I · Bố trí biome (thuật toán)"); ngoài ra có plan mẫu, kiểm thử và ảnh duyệt 2D.
 
-- Bảng swatch Valdren, 6 màu chức năng, thang nổi bật I.3.
-- **Góc kiểm tra (checklist)**: tổng quan, *đồng cỏ + 12 Redbound*, *Redbound trên nền nhiễm huyết*, *nhà thường ↔ nhà
-  bị xâm thực*, *tổ Redbound*, *Blightbeasts*, *điểm tương tác*, *bảng mẫu màu*. Camera đặt đúng góc ¾ của game.
-- **Readability check view**: cùng lựa chọn với tab Post & camera (thang xám, deutan, protan, tritan).
-- **Class view (VI)**: phủ màu theo loại vật thể — vật cản (xám), phá huỷ được (xanh ngọc), tương tác (ngà), nguy hiểm
-  (cam). Ổ phục kích (nguy hiểm) tách hẳn khỏi đống rơm (vật cản).
-- **Telegraph demo (I.5)**: Brute slam (đồng cỏ), Vessel burst (giếng, làm nổ túi huyết bên cạnh), Piercer volley (đường
-  thẳng ra phía đường), Disease cloud (hang sói). Ranh giới vùng đòn luôn là màu *Nguy hiểm* + vạch chỉ vào tâm (đọc được
-  không cần màu), phần lấp đầy mang màu chức năng của kỹ năng và lan dần theo thời gian chuẩn bị, độ phủ ≤ 45%.
-- **Bảng mẫu 6 màu** trên cỏ: chip đặc ở giữa (đúng hex trên màn hình), vùng phủ mờ (một vùng đòn trông ra sao trên cỏ),
-  viền highlight, nhãn tên + mã.
-- **Interact glint**: miếu, waypoint, rương ở nhà thường lóe viền ngà và hiện vòng dưới đất khi nhân vật lại gần.
-- **Màu tín hiệu = đúng hex trên màn hình**: decal tín hiệu được bù qua exposure / grade / tone mapping hiện tại
-  (`src/core/displayMatch.js`) để màn hình hiện đúng hex; bảng *Tín hiệu qua tone mapping* bên dưới cho biết hex đó nếu
-  vẽ thẳng sẽ thành màu gì (ΔE). Với AgX, Nguy hiểm `#E66A39`/`#FFB16B` nằm ngoài gam — chỉ đạt gần đúng.
-- **Stand-in Redbound**: 12 con trên đồng cỏ, 6 con trên nền nhiễm huyết — Groveling (đỏ gạch, nhỏ, gù) ≈ Scavenger,
-  Shaman ≈ Bellwether, Pit Fiend tắt vết nứt dung nham và nhuộm đỏ đô ≈ Brute; mỗi con thứ tư đi vòng (chuyển động đọc
-  trước màu). Chỉ để kiểm tra **màu/độ sáng trên nền**, không phải silhouette thật của Redbound.
+- `npm run test:layout` — 15 hạng mục nghiệm thu trên plan mẫu (`src/env/biomeLayoutDemo.js`, 128×128 m, đủ 7 vùng con) với 3 bộ seed: tính tất định, độc lập giữa các nhóm, vùng chơi không bị thu hẹp, không chồng footprint, khe lọt, vùng sử dụng, đi lọt (BFS), dẫn đường, dấu vết (mỗi sự kiện của plan mẫu đều để lại mảnh trên seed mặc định, hầu hết seed và mọi thứ tự `hosts` — 8a), cụm, mật độ 0/2, giới hạn công sức (mỗi mục ≤ `maxTries` của nó), che camera ≤ 25 % (engine tự từ chối, không chỉ validator báo), kit thiếu/dự phòng, đơn vị hình học; cộng các hạng mục hồi quy: bóng vật cao không che cửa/arena (16), dự phòng chỉ khi thiếu cả mục công thức (17), landmark không chiếm chỗ cụm (18), ngân sách cỏ/cây bụi theo diện tích plan, bản đồ 512×512 không bị cắt cụt (19), đất trống giữa các cụm (20), khoảng scale (21), khối vật chủ là một phần của cụm (22), khối sát mép hành lang không lệch giữa engine và validator (22b2), khối đi xuyên `collision: false` là decor (22d), NaN/validator không rỗng (23), và bảng mét trong AD 12 nêu đủ mọi khóa `LAYOUT_RULES` (15b). Cả bộ chạy ~1 phút. `npm test` chạy cả bộ này lẫn `test:placement`.
+- `npm run preview:layout` — ghi `docs/biome-layout-preview.html` (một tệp, không URL ngoài): bản đồ nhìn từ trên xuống, bật/tắt từng lớp (nền, vùng cấm, footprint theo lớp, vùng sử dụng, vùng che camera, bụi cỏ, quyết định, mục bị bỏ) và bảng báo cáo; cuộn để zoom, kéo để di chuyển. Mở bằng trình duyệt thường. Thêm `-- --seed 123` để xem bộ seed khác.
+- `npm run measure:kits` — đọc 21 kit trong bảng `KITS` của `scripts/measure-kits.mjs` (`kit-wooden-fence`, `kit-palisade`, các `kit-camp-*`, `kit-moor-rocks`, `kit-dead-trees`…; **không** đọc `kit-rocks` — tảng đá đơn cũ) và ghi bbox hình học, chiều cao, đế thân cây vào `src/env/kitSizes.json`; chạy lại mỗi khi đổi mesh của kit hoặc thêm kit vào `KITS`.
+- **Dữ liệu** nằm ở `src/env/biomeCatalog.js`: `ASSETS` (khai báo từng mảnh: vùng con, vai trò, lớp, vùng sử dụng — `side` `left`/`right` là −x/+x cục bộ —, scale, chất nền, dự phòng, `hostKinds`…), `CLUSTERS` (công thức cụm, `bare` = bán kính đất trống quanh vật chủ, `hostKinds`), `TRACES` (nguyên nhân → mảnh + loại vật chủ chấp nhận được), `GUIDES` (chính sách dẫn đường), `ZONE_PROFILES` (hồ sơ 7 vùng con của §4.11; `bonesMul` nhân số mảnh dấu vết, `bank` tăng cụm cỏ bờ nước), `MASS_SETS` (landmark chỉ gồm mảnh tự đạt 2 H trong khoảng scale của nó).
+  - *Thêm một biome / vùng con:* thêm mục vào `ZONE_PROFILES` (độ phủ cỏ, cây bụi, trọng số đá–cây, chính sách dẫn đường, có đuốc hay không…) và tên vào `ZONE_KINDS`; khai báo vùng đó trong `plan.zones`; thêm tên vùng vào `zones` của các asset được phép xuất hiện ở đó.
+  - *Thêm một asset:* thêm tên mảnh vào khối kit của nó trong `DECLS` (chỉ ghi chỗ khác mặc định của kit), chạy `npm run measure:kits` nếu là mảnh mới, rồi `npm run test:layout` (nó báo mảnh chưa đo hoặc id sai trong công thức). Thêm `fallback` nếu có mảnh thay thế: nó chỉ được dùng khi **mọi** phương án của mục công thức thiếu trong scene, và phải giữ `collision`, `role` và lớp (thấp/cao) của mảnh gốc — `catalogProblems` và test catalog báo nếu không.
+  - *Khối đi xuyên:* một khối tự dựng của `plan.masses` (footprint + chiều cao) mà đặt `collision: false` (xác thú, vệt xương) được ghi như đồ trang trí: `class: 'decor'`, `role: 'ground'`, `layer: 'low'`, `blocks: false`, không bóng che camera, không tính vào `gaps` / `passability`; mảnh khác vẫn không được đứng đè lên footprint của nó và nó vẫn làm vật chủ sự kiện.
+  - *Thêm cụm / dấu vết:* thêm công thức vào `CLUSTERS` / `TRACES` (chỉ liệt kê asset thuộc công thức) rồi khai `hosts` / `events` tương ứng trong plan. Sự kiện phải có vật chủ đúng loại (`TRACES[nguyên nhân].hosts`: cụm/khối/cửa/mảnh có `hostKinds` tương ứng; điểm trần `{ x, z, kind }`). Nếu một cụm cần đất trống rộng quanh nó, tăng `bare` của công thức.
+  - *Đọc kết quả:* `report.drops` ghi mục bị bỏ (kèm số lần thử); `report.warnings` gồm `cluster.sizeMix` (cụm không có nhịp lớn–trung–nhỏ), `landmark.missing`, `event.hostKind`, `budget.*`; `options.logTries: true` ghi thêm `report.tries.items` (dùng cho test).
+- Cách gọi: `layoutBiome(plan, buildCatalog({ sizes, available }), { seeds, density: { grass, shrubs, traces, masses }, budgets, rules })`; `available` = tập kit/asset thật sự đã tải, kit thiếu sẽ chuyển sang `fallback` hoặc bị bỏ có ghi lý do.
 
-**Remnant corruption**: độ đậm đất nhiễm huyết, màu nhuộm, màu vân mạch, mạch 3D, nhịp sáng của giếng (môi trường:
-rất nhẹ). **Lighting** (khi không bật mood): *Overcast · neutral palette check* (mặc định, duyệt màu dưới ánh sáng trung
-tính), *Dusk · weeping fog*, *Night · light radius (D2R)*; *Burning cart* (lửa xe kéo — ca "quái đỏ dưới ánh lửa"),
-*Lanterns ×*. Mood Act I của tab Lighting cũng dùng được.
+## 7c. Ground blend — asset ăn vào đất (Dark Wood, Bố trí biome)
 
-**Chơi thử**: tab Character → ▶ Play với lõi gameplay v1 — điểm xuất phát ở đường cạnh waypoint, nhà và vật cản chặn
-lưới nav, phím **N** sinh bầy quái gần nhân vật.
+Mục tiêu: đá, cây, cọc, thùng, móng nhà, xác quái… nằm **trong** đất thay vì đặt lên trên với một đường cắt cứng; đá chạm đá,
+cây chạm đá thì khe được lấp. Một patch shader dùng chung cho mọi asset (GLSL + TSL, cả WebGL2 lẫn WebGPU), gồm:
 
----
+1. **Capture mặt đất** (kiểu *runtime virtual texture*): chính vật liệu của terrain (albedo + độ nhám, normal + độ cao) được
+   render từ trên xuống vào 2 texture quanh camera (2048², ~1–3 cm/texel ở góc chơi). Chỉ chụp lại khi camera ra khỏi vùng đã
+   chụp, khi đổi thông số/bộ texture terrain hay vẽ splat; lưới texel cố định nên vệt đất không "bơi" khi camera đi theo nhân vật.
+2. **Vệt đất ở chân** (màu đỏ trong chế độ xem vùng trộn): gần mặt đất, albedo / độ nhám / normal của asset chuyển dần sang
+   **đúng vật liệu đất tại điểm đó** — cùng texture, cùng chỗ nên đường nối biến mất và ánh sáng liền mạch. Mép có nhiễu, rãnh tối
+   trong texture asset được lấp trước, viền đất hơi ẩm tối. Vệt cao theo độ dốc của mặt (mặt đứng ăn cả vệt, mép bùn thoai thoải
+   chỉ một sợi, decal nằm trên đất giữ nguyên) và không quá 30% độ cao cục bộ của asset (sỏi, rễ, xương nhỏ giữ hình). Lên cao
+   trong vệt, texture đất được "trải" theo hướng mặt thay vì kéo sọc.
+3. **Mặt trên** (lục): mặt hướng lên của đá phủ một lớp đất/rêu của chính nền (các tảng đứng cạnh nhau có chung lớp phủ).
+4. **Khe tiếp xúc** (lam): khoảng cách từ mỗi đỉnh tới asset khác được bake một lần trên CPU (`src/env/contact.js`, 0,5–1 s lúc
+   mở map) → khe đá–đá, đá–thân cây được lấp đất và tối đi, mờ dần trên 1,2 m.
+
+Mỗi loại asset một *profile* (`GROUND_PROFILES` trong `src/env/groundBlend.js`): **đá** đủ 3 lớp, **cây** vệt bằng nửa và không
+phủ cành, **xác quái**, **đồ dựng** (chỉ vệt chân, không lấp khe giữa các đoạn hàng rào). Scene nhận ra kit tự nhiên
+qua atlas texture của kit (đá, đá rêu, cây khô, cây cháy, xác).
+
+Điều khiển: Environment → Scene options → **Ground blend · asset ăn vào đất** — bật/tắt (tức thì, không biên dịch lại), *Xem vùng
+trộn*, chiều cao vệt, bề rộng chuyển tiếp, tối đa × chiều cao asset, nhiễu/độ mềm mép, trộn normal, trải texture, phủ mặt trên,
+lấp khe, tối khe, độ cao khe, bán kính dò khe (bake lại), độ phân giải capture. **Cụm thử** dựng một cụm đá chồng đá + cây mọc
+giữa đá cạnh tâm camera (tạm, không lưu) để soi các trường hợp tiếp xúc.
+
+Chi phí đo trên RTX 4070, khung ~1022×853, góc chơi D2 (đo ở map Weeping Fields cũ): patch +~0,07 ms GPU (WebGPU 2,16 → 2,23 ms; trên WebGL2
+chênh lệch nằm trong nhiễu đo); mỗi lần chụp lại capture ~2,3 ms GPU (WebGPU) + ~3 ms CPU, chỉ khi camera ra khỏi vùng; mỗi vật
+liệu thêm 2 sampler (WebGPU giới hạn 16 sampler/fragment — terrain không mang patch này).
+
+Gắn vào scene mới:
+
+```js
+this.groundBlend = new GroundBlend(app, { ground: this.ground, terrain: this.terrain, heightAt: (x, z) => this.height(x, z), splat: this.splat });
+this.groundBlend.setAssets(meshes, (mesh) => GROUND_PROFILES.rock); // tree / remains / built, hoặc null = bỏ qua
+// activate() / deactivate() trong activate/deactivate của scene, update() mỗi frame, buildControls(folder) trong panel
+```
+
+Giới hạn: chỉ hoà với terrain splat (vệt bánh xe, suối dạng ribbon chưa vào capture); asset di chuyển (nhân vật, quái) không
+dùng; asset rất xa camera (ngoài vùng capture) giữ nguyên; khe tính theo đỉnh nên mesh ít đỉnh (đá procedural) cho khe mờ hơn.
+Shader: `src/shaders/effects/ground_blend.glsl` + `createGroundBlend` trong `backends/webgl/effects.js` và
+`backends/webgpu/effects.js`.
+
+## 7e. GPU instancing theo ô (Dark Wood, Bố trí biome)
+
+Vật thể lặp lại (búi cỏ, thẻ cỏ viền, bụi cây, cây kit Tripo) vẽ bằng `InstancedMesh`, nhưng **chia theo ô** của lưới xz:
+một mesh cho mỗi hình × vật liệu × ô (`src/env/instancing.js`). Đạo cụ tĩnh vẫn gộp theo vật liệu (`StaticBatch`) nhưng
+cũng theo ô (`build(true, { cell })`).
+
+- Vì sao chia ô: một InstancedMesh cả map có hộp bao cả map nên **không bao giờ bị cull** — trước đây làng vẽ đủ 6 876
+  búi cỏ mỗi khung dù góc isometric chỉ thấy ~1/10, và bóng của lửa trại (6 mặt cube) vẽ lại mọi đạo cụ của cả map 6 lần.
+  Mỗi ô có hộp bao riêng nên camera và mọi camera bóng (6 mặt bóng lửa, đèn hero, trăng) chỉ vẽ ô chúng thấy.
+- Cây kit giờ là instance (trước: mỗi cây một mesh). Hình mỗi loại cây được scale về mét một lần nên gió vẫn lắc như cũ;
+  `userData.labSolid` giữ va chạm và vòng nhìn xuyên (see-through) cho từng instance. Ground blend nhận mesh instanced
+  (độ cao cục bộ tính theo hình, không có khe tiếp xúc giữa các instance).
+- Bụi cây lắc vài cm nên được nướng vào bóng trăng tĩnh.
+- Environment → Scene options → **GPU instancing · chia ô**: cỡ ô Tắt (cả map một khối, như cũ) / 16 m (mặc định) / 24 /
+  32 m; thẻ cỏ và cây dùng ô gấp đôi. Đổi cỡ ô **tải lại trang** (dựng lại map tại chỗ làm WebGPU ra khung đen — cùng lỗi
+  đổi scene đã biết). Bảng dưới liệt kê số instance / mesh từng bộ.
+
+**Đo (map Làng cũ, góc chơi D2, RTX 4070, GPU dùng chung với các phiên lab khác nên thời gian GPU nhiễu ±1 ms):**
+
+| | Tắt (cả map) | Ô 16 m |
+|---|---|---|
+| Draw call WebGL2 / WebGPU | 544 / 489 | 365 / 302 |
+| Tam giác mỗi khung | 4,42 triệu | 1,25 triệu (−72 %) |
+| CPU luồng chính / khung, WebGL2 | 6,5 ms | 6,8 ms (+0,3) |
+| CPU luồng chính / khung, WebGPU | 12,1 ms | 11,5 ms (−0,6) |
+| Thời gian GPU | không đổi đo được (khung nghẽn ở fragment) | |
+
+Map Weeping Fields cũ: 564 → 397 draw, 3,34 → 0,94 triệu tam giác. Trên RTX 4070 lợi ích chính là CPU của WebGPU (ít draw hơn)
+và bớt 3 triệu tam giác — phần sau đáng kể trên iGPU / laptop yếu, không thấy được trên card rời mạnh. WebGL2 tốn thêm
+~0,3 ms CPU vì three.js kiểm tra frustum / buffer cho từng object trong từng pass bóng (nhiều ô hơn = nhiều object hơn);
+mesh tĩnh đặt `matrixAutoUpdate = false` để khỏi tính lại ma trận mỗi khung.
+
+## 7f. Bầu không khí — hạt GPU (atmosphere)
+
+`src/env/atmosphere.js` + shader `src/shaders/vfx/atmosphere.vert.glsl` / `.frag.glsl` (GLSL) và bản TSL trong
+`backends/webgpu/vfx.js` (`#region atmosphere`). Một scene dùng nó khi có preset trong `SCENE_ATMOSPHERE` (mã scene → lớp hạt, vùng, số lượng); hiện
+bảng này trống nên Studio, Dark Wood và Bố trí biome chưa bật lớp nào — thêm một mục là scene đó có panel và hạt.
+
+- **Cách làm:** mỗi lớp hạt là **một draw instanced**; mỗi hạt chỉ là một seed ngẫu nhiên (vec4). Vị trí, trôi theo gió,
+  lượn, xoay lật, nhấp nháy và ánh sáng đều tính trong vertex shader theo thời gian — CPU không mô phỏng hạt nào, mỗi khung
+  chỉ gửi vài uniform (hộp quanh camera, gió, 8 đèn gần nhất, đèn cho bướm). Hạt nằm trong một hộp đi theo camera (x, z),
+  bám mặt đất bằng height map nướng một lần từ `scene.height(x, z)` (đọc bằng `texelFetch` / `textureLoad`, không tốn
+  sampler), mờ dần ở mép hộp và trong 1,5–3,5 m trước camera phối cảnh. Soft particle theo depth của scene như mọi VFX.
+- **Ánh sáng:** hạt "có màu" nhận ánh sáng như bề mặt (falloff của point/spot light của three, 8 đèn ảnh hưởng nhất ở
+  tâm view + ambient trời) — bụi chỉ hiện trong vùng sáng của hero và quanh lửa, ngoài đó tối (đúng cảm giác đêm D2).
+- **Các lớp:** bụi lơ lửng (lấp lánh khi xoay), tro bay + tàn lửa (một phần nhỏ hạt phát sáng), lá khô theo gió (lướt sát
+  đất, gió giật thì bay lên), đom đóm (bờ suối, rừng), hồn ma lập lòe (mộ), bào tử máu bốc lên (đất nhiễm huyết), bướm
+  đêm quanh đèn / đuốc nhỏ, sương thấp trôi. Mỗi map có preset riêng: vùng sống (vòng tròn), số
+  lượng; gió lấy theo gió của cỏ (cùng hướng, cùng độ mạnh); lớp "đêm" tắt ban ngày; mood mưa làm bụi / tro / lá / đom đóm
+  / bướm lắng xuống.
+- Environment → Scene options → **Bầu không khí · hạt GPU**: bật/tắt, mật độ ×, bật/tắt và lượng × từng lớp (lưu theo
+  scene), dòng thống kê (số lớp, số hạt, draw, CPU/khung).
+- **Chi phí đo (map Làng cũ, RTX 4070):** 8 lớp ≈ 3 700–4 600 hạt, 8 draw; CPU ~0,04 ms/khung; GPU không đo được khác biệt trên
+  WebGL2, ~+0,2 ms trên WebGPU. GLSL và TSL cho cùng một hình (cùng thời điểm → cùng vị trí hạt).
+- Hạt có vòng đời (lửa, khói, phép) vẫn dùng hệ hạt CPU (`vfx/particles.js`); mưa của mood cũng vậy.
+
+## 7h. Map Bố trí biome (thuật toán)
+
+`src/scenes/biomeLayout.js` — scene id `biomeLayout`, "Act I · Bố trí biome (thuật toán)". Đây là **bản nhìn 3D của engine** `layoutBiome()` (`src/env/biomeLayout.js`, art-direction/12 §4.13): scene chạy engine trên plan mẫu `src/env/biomeLayoutDemo.js` (128 × 128 m, đủ 7 vùng con) rồi vẽ kết quả bằng kit thật, để bạn **duyệt bố cục từ camera game** và xem **vì sao** mỗi thứ nằm ở chỗ đó. Dựa trên `TerrainScene` (splat đất, ruy-băng, cỏ shell, brush, ground blend, gió, shadow fill); mở ở góc chơi D2 (isometric 2:1, cao 12 m) ban đêm, có hero đứng cạnh để đọc tỉ lệ.
+
+**Map vẽ gì (đều từ kết quả engine, không có toạ độ đặt tay):**
+- Mặt đất = hàm `ground()` của plan — chính hàm engine dùng để đặt đồ (lúc tải scene tự kiểm tra **hai chiều**: placement lệch > 2 cm so với điểm thấp nhất dưới footprint trừ độ lún — nổi hay chìm — thì báo trong console và trong báo cáo). Đường, lối mòn thú, suối, ao lấy từ `plan.paths` / `plan.water`; `groundPaint` (đất trần/ẩm dưới dấu vết, chân prop) tô vào splat; lớp cỏ của splat (và cỏ shell) theo thảm cỏ `ecology.carpet` nên cỏ dừng ở hành lang, footprint, nước.
+- `placements` → đạo cụ kit gộp theo **class** (cản · phá được · trang trí đi xuyên · dẫn đường · tương tác · nguy hiểm), chia ô GPU (`cells`, mặc định 16 m); cây (`deadTrees` / `burnedTrees`) là instance có gió, solid. Khối tự dựng của plan dựng theo `kind`: `building` = Valdren `house` / `barn` (đỉnh mái đo lại rồi chỉnh đúng `p.y + height` của plan, trừ phần sàn nâng lên, để vùng che camera khớp; mảnh cửa bị xé nằm trên mặt đất trong hành lang cửa thì bỏ — lối đi plan giữ trống thì trống); `cliff` = các tảng đá **nằm trong footprint** (bán kính ≤ 0,95 nửa bề sâu, đỉnh cao nhất chạm `p.y + height`, cao thấp trôi dọc dải); `den` = `wolfDen`, `carcass` = `carcass`, co theo footprint / height và hướng miệng (+z cục bộ) theo `yaw` của khối (khối có `collision: false`, như xác trong plan mẫu, là **đồ trang trí đi xuyên**: class `decor`, nằm trong nhóm không solid, hiện màu decor ở class view); bệ waypoint (tương tác tên `waypoint`); loại chưa biết → khối giữ chỗ + cảnh báo console.
+- `ecology.tufts` (vị trí, cao, tông, loại: cỏ / hàng ruộng / bờ nước / dải giữa vệt bánh / chân prop) → cỏ instance; `ecology.shrubs` → bụi kit; thẻ cỏ 3D đặt trên các tuft cao ≥ 0,2 m (nên cũng tuân thủ mọi vùng cấm).
+- Mọi placement có `light` → ngọn lửa + point light nhỏ **không đổ bóng** (WebGPU chỉ có 16 sampler ở stage fragment của terrain: chỉ ánh trăng có shadow map).
+
+**Environment tab → "Bố trí biome · thuật toán":**
+- **Góc camera:** *Góc chơi D2* (mặc định), *Tổng quan cả map*, rồi từng khu vực ở hai dạng — game ¾ (trang trại **gồm cả ruộng**, trại địch, hang sói, nghĩa địa, sườn đá phía bắc, suối + đường) và **góc chơi D2** (…Play: iso 2:1 trên khu đó). Toạ độ các view tính từ `plan.zones` / hosts / giao điểm đường–suối. Camera luôn nhìn vào tâm khu vực, còn **hero đứng ở chỗ trống gần nhất** (ngoài mọi footprint cản + 0,7 m, cách mảnh đi xuyên — mũi tên, mũ, xác — ≥ 0,3 m, ngoài nước; ưu tiên trong hành lang cửa gần đó — vd. cửa hang) nên không bao giờ đứng trong khối đá/nhà; đổi seed khối thì chỗ đứng tự tính lại. **Class view** tô màu theo class (như Weeping Fields) kèm chú giải.
+- **Overlay giải thích** (từng cái bật/tắt, vẽ ôm theo địa hình): 1 · play space (hành lang đường + dải `pathClear`, hành lang cửa, vùng tương tác / spawn / arena, nước + bờ) · 2 · footprint OBB theo class (bụi cây mờ) · 3 · use zone (vùng thao tác phải trống) · vùng **che camera** (footprint kéo dọc hướng nhìn) · 4 · điểm quyết định (fork / gate / bridge / bend, bán kính marker, cột dựng, đường nối tới marker) · 3 · cluster (vật chủ, bán kính, đường tới từng thành viên, `đặt/yêu cầu`; nếu sửa nhịp kích cỡ thêm thành viên thì ghi `yêu cầu +N repair`) · 6 · trace (mũi tên nghiêng, nan quạt, mảnh phụ; sự kiện bị bỏ màu đỏ) · **Drops** (✕ + bước · lý do · chi tiết). Nhãn trên mặt đất tự trượt để không chồng lên nhau.
+- **Seed & mật độ:** seed gốc (`plan.seed`) và một seed cho mỗi nhóm (mass, cluster, guide, ecology, trace), mật độ cỏ / bụi / dấu vết / khối lớn; nút *Đổi cả 5 seed nhóm* và *Seed mặc định*. Đây là thông số **lúc dựng**: đổi xong map tự tải lại (đổi tại chỗ làm WebGPU vẽ đen). Thử: đổi seed ecology → khối, cụm, đuốc không nhúc nhích, chỉ cỏ/bụi đổi; đổi seed trace → chỉ dấu vết và cỏ bị gỡ dưới chúng đổi.
+- **Báo cáo:** số placement theo class / bước / nhóm / vai trò, sinh thái (số tuft theo loại), cluster / trace, **ms từng bước**, seed, mật độ, kiểm tra y (nổi / chìm); **các kiểm tra §4.12 (19)** ✓/✗ (rê chuột xem chi tiết); **Drops** gom theo lý do — **bấm một dòng** để camera bay tới đó và bật overlay Drops; cảnh báo của engine.
+- **Lighting:** Night (ánh sáng D2, mặc định) · Overcast (ánh sáng trung tính để đọc màu) · Dusk; công tắc *Đèn của plan*. Bóng trăng đi theo tâm camera (±34 m, rộng hơn khi camera xa).
+- Phần còn lại như map Dark Wood (cùng lớp cơ sở `TerrainScene`): lớp terrain, khí quyển, brush (vẽ tay lên splat; *Regenerate from the layout* tạo lại từ engine), gió, ô instancing, ground blend.
+
+**Cách duyệt theo checklist AD 12 §4.12:**
+1. **Góc chơi D2, Night rồi Overcast** (hero ở giữa): đường chính ≥ 3 Sub đọc được, không prop nào hẹp hơn lối đi; cỏ/đá không đè lên đường; đuốc chỉ ở chỗ có quyết định. Bật *Play space* để thấy hành lang và so với thứ nằm cạnh.
+2. **Class view** ở từng khu: vật cản tối/chắc, phá được và tương tác phân biệt được, trang trí không bị nhầm là vật cản. Bật *Footprint* để thấy cái nào chặn.
+3. **Che camera:** bật *Vùng che* ở góc chơi trại địch / trang trại — vùng hồng không được trùm lên cửa, spawn, arena hay quá 25 % màn hình (đã là kiểm tra `occlusion` trong báo cáo).
+4. **Cụm & dấu vết:** *Cluster* — mỗi cụm có nhịp lớn–trung–nhỏ, thành viên đúng công thức; *Trace* — mỗi sự kiện có 1 mảnh chính + 2–6 mảnh phụ nghiêng cùng phía, sự kiện bị bỏ có lý do trong báo cáo.
+5. Mọi dòng ✗ trong báo cáo và mọi drop đáng ngờ: bấm để tới tận nơi, sửa plan / catalog (xem §7b, mục "Thuật toán bố trí asset tổng quát"), chạy lại `npm run test:layout`.
+
+Ghi chú: terrain của map này là 128 m (lớp cơ sở `TerrainScene` cố định 120 m, nên `buildTerrain()` và splat được thay bằng bản 128 m). Có kiểm tra console trên cả WebGL2 và WebGPU; map đo ở góc chơi: ~128 draw, ~1,11 triệu tam giác (phần lớn là 10 lớp cỏ shell của terrain); WebGL2 CPU 0,8 ms · GPU 4,7 ms, WebGPU CPU 3,5 ms · GPU 1,2 ms. Plan mẫu: sàn nhà / kho nằm trên nền phẳng, sườn bắc dốc ≤ ~26° (bắt đầu sau z −54, phía sau bàn tế / lò mổ của trại) (tảng đá nằm trong footprint hàng `cliff`), nước có chút ánh xanh thép để ban đêm không thành dải đen.
 
 ## 8. Tab Performance — đo, stress test, quay video
 
@@ -494,15 +598,16 @@ máy ảo không có card đồ hoạ) không có ý nghĩa.
 src/app/        khung ứng dụng, model, benchmark, stress test, quay video
 src/character/  preview nhân vật: điều khiển, animator, map clip, va chạm, trang bị, trượt chân, mốc tỷ lệ, khoét tường
 src/backends/   webgl/ (GLSL) và webgpu/ (TSL) — pipeline, hiệu ứng, VFX, compute
-src/core/       thiết lập, renderer, asset, camera, grading, LUT + readability check, khớp màu hiển thị, đăng ký shader
+src/core/       thiết lập, renderer, asset, camera, grading, LUT + readability check, đăng ký shader
 src/lookdev/    chế độ xem, vật tham chiếu, trình chỉnh texture
 src/effects/    lược đồ hiệu ứng + bộ điều khiển phòng thí nghiệm shader
 src/env/        texture forge, bộ kit Act I, lửa, terrain splat; valdren.js (bảng màu + khoá màu + kit Valdren / Redbound /
-                Blightbeasts), signals.js (telegraph, vòng tương tác, bảng mẫu màu)
+                Blightbeasts), signals.js (telegraph, vòng tương tác, bảng mẫu màu), groundBlend.js + contact.js (asset ăn vào đất),
+                instancing.js (GPU instancing theo ô), atmosphere.js (hạt GPU trong không khí)
 src/lighting/   rig studio, preset mood Act I (moods.js), bộ điều khiển mood (hero light, rim, mưa, chớp)
 src/panels/     mỗi tab một file
 src/procedural/ nhân vật dựng bằng code (hero, quái, NPC): rig, nặn SDF, clip, dữ liệu bake, catalog cho lab
-src/scenes/     studio, nghĩa địa, hầm mộ, đồng hoang, Weeping Fields (map quy tắc màu)
+src/scenes/     studio, hai scene Dark Wood, bố trí biome (+ lớp cơ sở terrain.js)
 src/shaders/    mọi file .glsl (sửa là nạp lại ngay)
 src/vfx/        hệ hạt, đèn dùng chung, hình nộm, skill, VFX lab
 ```

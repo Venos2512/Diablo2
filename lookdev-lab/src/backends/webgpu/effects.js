@@ -10,11 +10,13 @@ import {
 	length, floor, exp, step, atan, min, max, fract, smoothstep, select, screenUV, screenCoordinate, positionLocal, positionGeometry, positionWorld,
 	positionView, positionViewDirection, normalView, normalWorldGeometry, modelWorldMatrix, modelWorldMatrixInverse, cameraPosition,
 	cameraViewMatrix, cameraProjectionMatrix, cameraNear, cameraFar, perspectiveDepthToViewZ, orthographicDepthToViewZ,
-	materialColor, materialEmissive, materialRoughness, materialMetalness, materialNormal, texture, cross, dFdx, dFdy, output, diffuseColor,
+	materialColor, materialEmissive, materialRoughness, materialMetalness, materialNormal, materialAO, texture, cross, dFdx, dFdy, output, diffuseColor,
+	sqrt, normalWorld, roughness as roughnessProperty,
 } from 'three/tsl';
 import { EFFECTS, defaultParams } from '../../effects/registry.js';
 import { labNoise3, labFbm3, labHash12, labHash13, labHash22 } from './tsl/noise.js';
 import { labLuma } from './tsl/common.js';
+import { createBakedShadowGPU } from './bakedShadow.js';
 
 const DEG = Math.PI / 180;
 
@@ -73,8 +75,9 @@ function restoreSource(twin) {
 
 // -------------------------------------------------------------------------------------------------
 // Node patches: { id, order, position?(n), color?(n), roughness?(n), metalness?(n), emissive?(n),
-// normal?(n), output?(o), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
-// `output` is the final lit colour (vec4, the material's outputNode; the default reads the lit result).
+// normal?(n), ao?(n), output?(o), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
+// `ao` scales the indirect light (the material's aoNode, like an aoMap). `output` is the final lit colour (vec4, the
+// material's outputNode; the default reads the lit result).
 
 const SLOTS = [
 	['position', 'positionNode', positionLocal],
@@ -83,6 +86,7 @@ const SLOTS = [
 	['metalness', 'metalnessNode', materialMetalness],
 	['emissive', 'emissiveNode', materialEmissive],
 	['normal', 'normalNode', materialNormal],
+	['ao', 'aoNode', (material) => (material.aoMap ? materialAO : float(1))],
 	['output', 'outputNode', output],
 ];
 
@@ -95,7 +99,8 @@ function rebuildSlots(material) {
 	const base = authored.get(material);
 	for (const [slot, prop, fallback] of SLOTS) {
 		const users = list.filter((p) => p[slot]);
-		material[prop] = users.length ? users.reduce((node, p) => p[slot](node), base[prop] || fallback) : base[prop];
+		const start = base[prop] || (typeof fallback === 'function' ? fallback(material) : fallback);
+		material[prop] = users.length ? users.reduce((node, p) => p[slot](node), start) : base[prop];
 	}
 	const masks = list.filter((p) => p.mask);
 	const combine = (items) => items.map((p) => p.mask()).reduce((a, b) => a.and(b));
@@ -513,6 +518,8 @@ export function createTSLEffects(backend) {
 				damp: uniform(0.25),
 				ao: uniform(0.6),
 				variation: uniform(1),
+				variationScale: uniform(0.09),
+				rotate: uniform(0),
 				macro: uniform(0.3),
 				edgeNoise: uniform(0.5),
 				debug: uniform(0),
@@ -522,6 +529,7 @@ export function createTSLEffects(backend) {
 				blood: uniform(1),
 				bloodColor: uniform(new THREE.Color(1, 0.55, 0.5)),
 				veinColor: uniform(new THREE.Color('#5a1f21')),
+				bakedAo: uniform(0),
 				rect: uniform(rect),
 			};
 			const mask = (weight, delta) => {
@@ -530,7 +538,7 @@ export function createTSLEffects(backend) {
 			};
 			const breakup = (weight, n) => clamp(weight.add(n.mul(u.edgeNoise).mul(4.0).mul(weight).mul(weight.oneMinus())), 0.0, 1.0);
 			const st = vec2(positionWorld.x, positionWorld.z.negate());
-			const k = labNoise3(vec3(st.mul(0.09), 1.7)).mul(0.5).add(0.5).toVar('labTerK');
+			const k = labNoise3(vec3(st.mul(u.variationScale), 1.7)).mul(0.5).add(0.5).toVar('labTerK');
 			const macro = labNoise3(vec3(st.mul(0.035), 4.2));
 			const edge = labNoise3(vec3(st.mul(0.55), 9.1)).toVar('labTerEdge');
 			// labTerrainSample(): two reads with per-area offsets, cross-faded; gradients from the plain UV.
@@ -539,21 +547,33 @@ export function createTSLEffects(backend) {
 			const f = l.sub(ia);
 			const offA = sin(vec2(3.0, 7.0).mul(ia)).mul(u.variation);
 			const offB = sin(vec2(3.0, 7.0).mul(ia.add(1.0))).mul(u.variation);
+			// Quarter turns per variant when u.rotate = 1 (labTerrainTurn in terrain.glsl); normals are turned back.
+			const qA = ia.mul(3.0).mod(4.0).mul(u.rotate);
+			const qB = ia.add(1.0).mul(3.0).mod(4.0).mul(u.rotate);
+			const turn = (v, q) => {
+				const c = cos(q.mul(Math.PI / 2));
+				const s = sin(q.mul(Math.PI / 2));
+				return vec2(c.mul(v.x).sub(s.mul(v.y)), s.mul(v.x).add(c.mul(v.y)));
+			};
 			const nodes = [];
 			const layer = (i) => {
 				const uv = st.mul(u.tile[['x', 'y', 'z'][i]]);
 				const dx = dFdx(uv);
 				const dy = dFdy(uv);
-				const read = (key, off) => {
-					const base = texture(layers[i][key], uv.add(off));
-					const node = base.grad(dx, dy);
+				const read = (key, off, q) => {
+					const base = texture(layers[i][key], turn(uv, q).add(off));
+					const node = base.grad(turn(dx, q), turn(dy, q));
 					nodes.push({ nodes: [base, node], i, key });
 					return node;
 				};
-				const aA = read('map', offA);
-				const aB = read('map', offB);
+				const readNormal = (off, q) => {
+					const n = read('normalMap', off, q);
+					return vec4(turn(n.xy.mul(2.0).sub(1.0), q.negate()).mul(0.5).add(0.5), n.z, n.w);
+				};
+				const aA = read('map', offA, qA);
+				const aB = read('map', offB, qB);
 				const w = smoothstep(0.2, 0.8, f.sub(dot(aA.rgb.sub(aB.rgb), vec3(1.0)).mul(0.1))).toVar(`labTerW${i}`);
-				return { a: mix(aA, aB, w), n: mix(read('normalMap', offA), read('normalMap', offB), w), o: mix(read('ormMap', offA), read('ormMap', offB), w) };
+				return { a: mix(aA, aB, w), n: mix(readNormal(offA, qA), readNormal(offB, qB), w), o: mix(read('ormMap', offA, qA), read('ormMap', offB, qB), w) };
 			};
 			const L0 = layer(0);
 			const L1 = layer(1);
@@ -599,6 +619,7 @@ export function createTSLEffects(backend) {
 					color: (c) => vec4(c.rgb.mul(mix(albedo, debugAlbedo, step(0.5, u.debug))), c.a),
 					roughness: (r) => r.mul(rough),
 					normal: () => normalize(cameraViewMatrix.mul(vec4(worldNormal(), 0.0)).xyz),
+					ao: (a) => a.mul(mix(float(1.0), splatW.a, u.bakedAo)), // baked sky visibility (splat A) on the indirect light
 				}),
 			};
 		},
@@ -615,6 +636,118 @@ export function createTSLEffects(backend) {
 				...surface({ id: 'lab-shadow-fill', order: 90, output: (o) => vec4(fill(o.rgb, diffuseColor.rgb), o.a) }),
 			};
 		},
+		/** Mirrors createGroundBlend() in ../webgl/effects.js and shaders/effects/ground_blend.glsl. */
+		createGroundBlend({ size = 2048 } = {}) {
+			const u = {
+				band: uniform(0.22),
+				width: uniform(0.3),
+				fraction: uniform(0.3),
+				noise: uniform(0.6),
+				strength: uniform(1),
+				normal: uniform(0.85),
+				top: uniform(0.35),
+				contact: uniform(0.85),
+				darken: uniform(0.3),
+				unroll: uniform(1),
+				contactHeight: uniform(1.2),
+				softness: uniform(0.35),
+				debug: uniform(0),
+				rect: uniform(new THREE.Vector4(0, 0, 1, 1)),
+			};
+			// The texture nodes are built on the targets' own textures: TSL flips render-target reads at build time.
+			const targets = {
+				albedo: new THREE.RenderTarget(size, size, { type: THREE.UnsignedByteType }),
+				normal: new THREE.RenderTarget(size, size, { type: THREE.HalfFloatType }),
+			};
+			targets.albedo.texture.name = 'Ground blend · capture (√albedo, roughness)';
+			targets.normal.texture.name = 'Ground blend · capture (normal xz, height, coverage)';
+			// labGroundUv(). A WebGPU device stores render targets top row first and three r180 does not flip their reads in
+			// WGSL (WGSLNodeBuilder.isFlipY() is false), so there the image's v runs the other way; WebGL2 (and the WebGPU
+			// renderer's WebGL2 backend) read them like the GLSL path.
+			const groundUv = (xz) => {
+				const v = xz.y.sub(u.rect.y).mul(u.rect.w);
+				return vec2(xz.x.sub(u.rect.x).mul(u.rect.z), backend.isWebGPU ? v : v.oneMinus());
+			};
+			const data = attribute('labGround', 'vec2'); // x = contact with another asset, y = its local relief (env/contact.js)
+			/** labGroundBlend() of ground_blend.glsl; `amount` = the profile's vec3 uniform (top cover ×, contact fill ×, band ×). */
+			const blend = (albedo, amount) => {
+				const wp = positionWorld;
+				const n = normalize(normalWorldGeometry);
+				const uv0 = groundUv(wp.xz);
+				const below = texture(targets.normal.texture, uv0);
+				const lift = wp.y.sub(below.z);
+				const border = smoothstep(vec2(0.0), vec2(0.04), uv0).mul(smoothstep(vec2(0.0), vec2(0.04), uv0.oneMinus()));
+				const inside = below.w.mul(border.x).mul(border.y);
+				const wave = labNoise3(vec3(wp.xz.mul(1.9), wp.y.mul(0.7))).mul(0.65).add(labNoise3(wp.mul(7.3).add(5.1)).mul(0.35));
+				const ny = clamp(n.y, 0.0, 1.0);
+				const slope = select(n.y.lessThan(0.0), float(20.0), sqrt(max(ny.mul(ny).oneMinus(), 0.0)).div(max(ny, 0.05)));
+				const band = min(min(u.band.mul(amount.z), data.y.mul(u.fraction)), u.width.mul(slope)).mul(max(wave.mul(u.noise).add(1.0), 0.0));
+				const groove = smoothstep(0.01, 0.12, labLuma(albedo)).sub(0.5);
+				const h = lift.add(groove.mul(band).mul(0.6).mul(u.noise));
+				const soft = max(band.mul(u.softness), 0.004);
+				const wBand = smoothstep(band.sub(soft), band.add(soft), h).oneMinus();
+				const wTop = smoothstep(0.6, 0.9, n.y.add(wave.mul(0.2))).mul(smoothstep(0.1, 0.3, lift)).mul(smoothstep(-0.35, 0.25, wave)).mul(u.top).mul(amount.x);
+				const touch = smoothstep(0.35, 1.0, data.x).mul(smoothstep(u.contactHeight.mul(0.5), u.contactHeight.add(0.01), lift).oneMinus()).mul(amount.y);
+				const wContact = touch.mul(smoothstep(-0.6, 0.4, wave)).mul(u.contact);
+				const strength = u.strength.mul(inside);
+				const line = wBand.mul(wBand.oneMinus()).mul(4.0); // the soil line
+				const at = wp.xz.add(n.xz.mul(clamp(lift, 0.0, u.band.mul(2.0)).mul(u.unroll))); // the ground unrolled up the face
+				const A = texture(targets.albedo.texture, groundUv(at));
+				const gn = texture(targets.normal.texture, groundUv(at)).xy.mul(2.0).sub(1.0);
+				return {
+					albedo: A.rgb.mul(A.rgb),
+					rough: A.w,
+					normal: normalize(vec3(gn.x, sqrt(max(dot(gn, gn).oneMinus(), 0.0)), gn.y)),
+					weight: clamp(max(max(wBand, wTop), wContact), 0.0, 1.0).mul(strength),
+					normalWeight: max(wBand.mul(wBand), wTop).mul(strength).mul(u.normal).mul(smoothstep(-0.5, 0.0, n.y)), // low in the band, not on faces looking down (ground_blend.glsl)
+					shade: touch.mul(0.8).add(line.mul(0.6)).mul(u.darken).mul(strength).oneMinus(),
+					debug: vec3(wBand, wTop, wContact).mul(inside),
+				};
+			};
+			const accepts = (m) => !!m && (m.isMeshStandardMaterial === true || m.isMeshStandardNodeMaterial === true) && !m.transparent;
+			const profiles = new Map();
+			const profile = (top = 0, contactFill = 1, band = 1) => {
+				const key = `${top}|${contactFill}|${band}`;
+				if (!profiles.has(key)) {
+					const g = blend(materialColor.rgb, uniform(new THREE.Vector3(top, contactFill, band)));
+					profiles.set(key, surface({
+						id: 'lab-ground-blend',
+						order: 4,
+						color: (c) => vec4(mix(mix(c.rgb, g.albedo, g.weight).mul(g.shade), vec3(0.03), step(0.5, u.debug)), c.a),
+						emissive: (e) => e.add(g.debug.mul(0.6).mul(step(0.5, u.debug))), // debug view: the weights glow
+						roughness: (r) => mix(r, g.rough, g.weight),
+						metalness: (m) => m.mul(g.weight.oneMinus()),
+						normal: (nv) => normalize(mix(nv, cameraViewMatrix.mul(vec4(g.normal, 0.0)).xyz, g.normalWeight)),
+					}, accepts));
+				}
+				return profiles.get(key);
+			};
+			const captureMode = uniform(0);
+			const capturePatch = {
+				id: 'lab-ground-capture',
+				order: 200,
+				// mix, not select(): normalWorld would only be assigned in the branch built first.
+				output: () => mix(vec4(sqrt(max(diffuseColor.rgb, vec3(0.0))), roughnessProperty), vec4(normalWorld.xz.mul(0.5).add(0.5), positionWorld.y, 1.0), step(0.5, captureMode)),
+			};
+			return {
+				uniforms: u,
+				targets,
+				captureMode,
+				profile,
+				remove(material) {
+					if (!material?.isNodeMaterial) return material;
+					removeNodePatch(material, 'lab-ground-blend');
+					return listNodePatches(material).length ? material : restoreSource(material) || material;
+				},
+				captureMaterial(terrain) {
+					const material = terrain.apply(new THREE.MeshStandardMaterial({ name: 'Ground blend · capture', color: 0xffffff, roughness: 1, metalness: 0 }));
+					addNodePatch(material, capturePatch);
+					return material;
+				},
+			};
+		},
+		/** Mirrors createBakedShadow() in ../webgl/effects.js (./bakedShadow.js). */
+		createBakedShadow: (light, options) => createBakedShadowGPU(backend, light, options),
 		/** Built-in material a node twin was made from (or the material itself). */
 		sourceOf: (material) => sourceOf.get(material) || material,
 	};
