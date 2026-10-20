@@ -1,0 +1,1184 @@
+2026-10-20T10:30:07.008576Z ERROR codex_models_manager::manager: failed to load models cache: EOF while parsing a value at line 1 column 0
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a158dc-7958-7e51-8a61-32516c434b18
+--------
+user
+Use the generate-tpose-for-tripo skill. Read E:\Diablo2\.agents\skills\generate-tpose-for-tripo\SKILL.md first and follow it exactly. Asset folder: E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA (concept: E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\concept.png). Do all steps 1-5 in this one session: write design.txt, generate and QA sheet 1 and sheet 2 with your built-in image_gen, split into views/front.png back.png left.png right.png, write tpose.log, then reply with the report.
+
+codex
+I’ll read the generate-tpose-for-tripo skill and project instructions, then create and check both sheets, split the four views, and write the report files.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\SKILL.md'" in E:\Diablo2
+ succeeded in 64ms:
+---
+name: generate-tpose-for-tripo
+description: Generate T-pose concept for Tripo. Reads a monster/character concept image and produces four T-pose reference images (front.png, back.png, left.png, right.png) ready to drop into Tripo Studio's multi-view slots. Use for steps 2-3 of art-output/tripo-models/Agent.md (T-pose by Astra, split into four views).
+---
+
+# Generate T-pose concept for Tripo
+
+Input: one concept image of a creature/character (usually a lineup: H silhouette + 3/4 + LEFT + RIGHT + FRONT + BACK).
+Output, in the asset folder `<ASSET>` (for example `E:\Diablo2\art-output\tripo-models\monsters\D01_hodling`):
+
+| File | What |
+| --- | --- |
+| `views/front.png` `views/back.png` `views/left.png` `views/right.png` | the four T-pose views, same square canvas, same scale, soles on one pixel row |
+| `views/_contact.png` | the four views side by side, for a quick look |
+| `tpose_front_back.png` | sheet 1: left = FRONT, right = BACK |
+| `tpose_sides.png` | sheet 2: left = LEFT side, right = RIGHT side |
+| `design.txt` | the design notes you wrote from the concept (step 1) |
+| `tpose.log` | what you generated, measurements, retries, problems |
+
+`<ASSET>/concept.png` must exist. Tools: `scripts/tpose_tools.py` in this skill folder (`E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\`).
+Run Python with `python -I` (it only crops and measures; never draw or edit art with code).
+
+## Hard rules
+
+- Make every bitmap with your BUILT-IN `image_gen` tool, one call per sheet. Never draw with PIL/SVG/canvas/HTML, never use an API key or `scripts/image_gen.py`, never start a nested `codex`. If `image_gen` fails, write the exact error in `tpose.log` and stop.
+- Do not redesign the creature. The concept is the identity reference for design, colours, materials, proportions.
+- At most 2 generations per sheet (1 + one retry). Keep rejected images in `<ASSET>/_rejected/` with a suffix; never delete them.
+- Generated images land in `<CODEX_HOME>\generated_images\<session>\`; copy the one you accept into `<ASSET>` (a shell copy is fine).
+
+## 1. Read the concept, write `design.txt`
+
+If `<ASSET>/design.txt` already exists (written by the orchestrator from the canon), USE IT as is and do not rewrite it; also read `<ASSET>/brief.md` if present. Otherwise open `concept.png` (view it) and write `<ASSET>/design.txt` with exactly three sections, plain English, short:
+
+```text
+DESIGN: <one paragraph: species, size, build, head/face, horns/hat, clothing, sack/armour/props worn on the body, skin/material, the 3-4 key colours with hex if known, which large cracks/marks exist and where. No glow.>
+ASYMMETRY: <every detail that sits on ONE side of the body (which hand holds what, which shoulder has the strap/pauldron, hat tilted to which side, crack position, scar), stated as the creature's own left/right, and where it must appear in the FRONT, BACK, LEFT and RIGHT views>
+REMOVE: <hand-held weapons and loose props to leave out of the T-pose (they are built separately); say "nothing" if there are none>
+```
+
+Rules: describe BODY BUILD and POSTURE of the concept exactly (lean vs stocky, thin vs muscular, hunched vs upright, proportions of head, arms and legs) and keep the concept's surface treatment: if the concept is smooth, painted and low-detail, say so; never invent anatomy the concept does not show (muscle definition, abs, veins, claws, extra ears, teeth). If the concept's identity is a material (clay, stone, bone), say it in DESIGN. Look at how the concept's LEFT and RIGHT views differ before writing ASYMMETRY. Loose cloth strips, dangling cords, floating or glowing parts: replace by one thick simple shape hugging the body (Tripo cannot build thin loose parts). Parts that belong to the body (a backpack/sack, a hat, horns) stay.
+
+## 2. Sheet 1: FRONT + BACK
+
+Attach `concept.png` as the reference and call `image_gen` once with the prompt in `templates/front_back.prompt.md` (fill `{{DESIGN}}`, `{{ASYMMETRY}}`, `{{REMOVE}}` from `design.txt`; the `{{IF_RETRY: ...}}` sentence only on a retry, with the rejected image attached). Copy the result to `<ASSET>/tpose_front_back.png`.
+
+### QA of sheet 1 (view the image; every line must pass)
+
+1. TWO full figures, FRONT left, BACK right (the back is the true back, not a mirrored front), nothing cropped (arm tips included), clean flat grey background, no text.
+2. STRICT T-POSE: both arms fully straight, horizontal, at shoulder height, forming one straight line with the shoulders; palms down; arms clearly separated from torso, sack and head. Arms hanging down, bent, raised, or a relaxed "A" = FAIL.
+3. Torso nearly upright (a slight lean is fine; hunched or crouched = FAIL), legs apart, both feet flat on the floor, head level.
+4. Same size and same floor line in both views; asymmetric details on the right sides (see ASYMMETRY); no hand-held props.
+5. DESIGN FIDELITY (compare side by side with `concept.png`; every line must pass): same body build (lean/thin stays lean/thin, no added muscle, abs or six-pack), same head and face type, same ears, same hat/horns/armour and body-worn parts, same material and surface (smooth painted clay does not become "rocky" or "scaly"), same colours, nothing added that the concept does not show (claws, teeth, belts, jewellery), nothing from the concept missing except the REMOVE items. The only allowed change from the concept is the pose (T-pose instead of hunched/crouched). Any difference = FAIL.
+6. `python -I scripts\tpose_tools.py measure <ASSET>\tpose_front_back.png`: no WARNING (figure at least 12 px from every edge). If an arm tip touches the edge, retry asking for a smaller figure (about 45 % of the image height).
+
+Fail: one retry with the failure named first in the prompt ("The previous attempt had X; fix X"). Still failing: keep the best one, log it, and report it as the problem.
+
+## 3. Sheet 2: LEFT + RIGHT
+
+Run `measure` on sheet 1 and note its figure height as a percent of the image height (`FIG_PCT`). Attach `concept.png` and the accepted `tpose_front_back.png`, call `image_gen` once with `templates/sides.prompt.md` (same fills, plus `{{FIG_PCT}}`). Copy the result to `<ASSET>/tpose_sides.png`.
+
+### QA of sheet 2
+
+1. TWO full figures: LEFT side toward the camera, facing screen-left; RIGHT side toward the camera, facing screen-right (the true opposite side, not a mirrored copy). Exactly 90 degrees, no 3/4.
+2. Same T-pose as sheet 1 seen from the side: the near arm points straight at the camera (foreshortened, hand at shoulder height), the far arm is hidden. Arms hanging or drawn along the body = FAIL.
+3. Same design, proportions (leg length vs body, head size, sack size), surface treatment and asymmetric details as sheet 1 (and the same fidelity checks vs the concept as sheet 1 item 5).
+4. `measure` the sheet and compare its figure height with sheet 1. The generator often draws the sides larger. Within +-12 % is fine (the split step rescales it). Beyond that, or if leg length / body proportions clearly differ from sheet 1, retry once with the numbers in the prompt; if still off, accept and log it. Never rescale only part of a figure.
+
+## 4. Split into four views
+
+```text
+python -I E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\tpose_tools.py split <ASSET>
+```
+
+This cuts each sheet in two at the empty column between the figures, rescales the sides sheet to the front/back sheet's figure height, and writes `views/front.png`, `back.png`, `left.png`, `right.png` (1024x1024, soles on the same row, 7 % margin) and `views/_contact.png`. View `_contact.png` and check: order is front, back, left, right; all four same size; feet on one line; nothing cut. `left.png` shows the creature's LEFT side (face toward screen-left); `right.png` its RIGHT side (face toward screen-right).
+
+## 5. Report
+
+Write `tpose.log` and reply with: the four file paths, the measured heights of both sheets and the rescale factor, retries and why, anything that still deviates (pose, proportions, asymmetry), and the Codex session ids / source paths of the images used. Never say the pose is correct without having viewed the images.
+
+## Lessons already paid for
+
+- A concept lineup drawn hunched/crouched makes the generator keep the hunch in the "T-pose". The prompt must say "arms horizontal at shoulder height, torso nearly upright, NOT hunched" and must say that any attached earlier attempt has the wrong pose.
+- Over-long arms make the T wider than the body is tall: ask for a smaller figure rather than letting arm tips touch the edge.
+- The sides sheet comes out bigger than the front/back sheet (measured 706 px vs 534 px on D01 Hodling); the split step normalises height. That is the only per-sheet scaling allowed.
+- Left to itself the generator turns a lean, scrawny concept creature into a muscular goblin (abs, claws, pointed ears) as soon as the pose is straightened. Keep "thin, lean, smooth, low detail, same build as the concept" in the prompt and fail the sheet on any added anatomy.
+- Loincloth fringes and rag strips come out as noisy detail: ask for one plain clean shape.
+- Tripo's multi-view mode is the cube icon with four slots Front / Left / Right / Back (not the "Batch Images to 3D" icon, which makes one model per image).
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -LiteralPath 'E:\\Diablo2\\Agent.md','E:\\Diablo2\\art-output\\tripo-models\\Agent.md','E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\front_back.prompt.md','E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\sides.prompt.md','E:\\map01-batch\\home\\skills\\.system\\imagegen\\SKILL.md'; Get-ChildItem -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA'" in E:\Diablo2
+ succeeded in 146ms:
+# Quy táº¯c phÃ¢n cÃ´ng agent
+
+Ãp dá»¥ng cho cÃ¡c tÃ¡c vá»¥ trong dá»± Ã¡n nÃ y, trá»« khi ngÆ°á»i dÃ¹ng chá»‰ Ä‘á»‹nh khÃ¡c.
+
+## PhÃ¢n cÃ´ng model
+
+| CÃ´ng viá»‡c | Model phá»¥ trÃ¡ch | Provider T3 | Model ID |
+| --- | --- | --- | --- |
+| Táº¡o hoáº·c chá»‰nh sá»­a áº£nh | Astra | `codex` | `gpt-6-astra` |
+| Research, tra cá»©u, tá»•ng há»£p nguá»“n | Haiku 5.5 | `claudeAgent` | `claude-haiku-5-5` |
+| Viáº¿t code, sá»­a lá»—i, refactor, viáº¿t test | Sonnet 5.5 | `claudeAgent` | `claude-sonnet-5-5` |
+| Review code sau khi triá»ƒn khai hoáº·c sá»­a | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+
+Astra phá»¥ trÃ¡ch tÃ¡c vá»¥ áº£nh vÃ  sá»­ dá»¥ng cÃ´ng cá»¥/skill táº¡o áº£nh kháº£ dá»¥ng Ä‘á»ƒ xuáº¥t áº£nh thá»±c táº¿.
+
+## Quy trÃ¬nh code vÃ  review báº¯t buá»™c
+
+1. Giao Sonnet 5.5 triá»ƒn khai vá»›i yÃªu cáº§u, pháº¡m vi, file liÃªn quan vÃ  tiÃªu chÃ­ nghiá»‡m thu rÃµ rÃ ng.
+2. Sonnet cháº¡y cÃ¡c kiá»ƒm tra phÃ¹ há»£p, bÃ n giao thay Ä‘á»•i, káº¿t quáº£ kiá»ƒm tra vÃ  váº¥n Ä‘á» cÃ²n tá»“n táº¡i.
+3. Giao Opus 5.5 review thay Ä‘á»•i thá»±c táº¿ theo yÃªu cáº§u ban Ä‘áº§u; kiá»ƒm tra tÃ­nh Ä‘Ãºng Ä‘áº¯n, lá»—i há»“i quy, báº£o máº­t vÃ  má»©c Ä‘á»™ kiá»ƒm chá»©ng phÃ¹ há»£p.
+4. Opus tráº£ káº¿t luáº­n `PASS` hoáº·c `NEEDS_CHANGES`. Má»—i yÃªu cáº§u sá»­a cáº§n nÃªu vá»‹ trÃ­, váº¥n Ä‘á», tÃ¡c Ä‘á»™ng vÃ  hÆ°á»›ng kháº¯c phá»¥c. Opus review, Sonnet thá»±c hiá»‡n sá»­a code.
+5. Náº¿u `NEEDS_CHANGES`, tiáº¿p tá»¥c gá»i Sonnet 5.5 vá»›i Ä‘áº§y Ä‘á»§ findings Ä‘á»ƒ sá»­a vÃ  cháº¡y láº¡i cÃ¡c kiá»ƒm tra liÃªn quan.
+6. Sau má»—i lÆ°á»£t sá»­a, gá»i Opus 5.5 review láº¡i phiÃªn báº£n má»›i; cung cáº¥p yÃªu cáº§u gá»‘c, findings trÆ°á»›c Ä‘Ã³, pháº£n há»“i cá»§a Sonnet vÃ  cÃ¡c Ä‘iá»ƒm chÆ°a giáº£i quyáº¿t.
+7. Láº·p Sonnet â†’ Opus Ä‘áº¿n khi Opus káº¿t luáº­n `PASS` vÃ  cÃ¡c kiá»ƒm tra cáº§n thiáº¿t Ä‘áº¡t. Náº¿u bá»‹ cháº·n hoáº·c cÃ¡c vÃ²ng láº·p khÃ´ng tiáº¿n triá»ƒn, bÃ¡o rÃµ váº¥n Ä‘á» cÃ²n láº¡i; khÃ´ng tuyÃªn bá»‘ hoÃ n thÃ nh.
+
+KhÃ´ng bá» qua bÆ°á»›c review cá»§a Opus chá»‰ vÃ¬ Sonnet Ä‘Ã£ tá»± kiá»ƒm tra hoáº·c test Ä‘Ã£ pass.
+
+## Äiá»u phá»‘i trong T3 Code
+
+- Agent chÃ­nh phÃ¢n loáº¡i cÃ´ng viá»‡c vÃ  giao cho Ä‘Ãºng model á»Ÿ trÃªn; tÃ¡c vá»¥ há»—n há»£p Ä‘Æ°á»£c chia theo tá»«ng pháº§n viá»‡c.
+- DÃ¹ng `orchestrator_capabilities` Ä‘á»ƒ xÃ¡c nháº­n provider/model kháº£ dá»¥ng trÆ°á»›c khi giao viá»‡c. CÃ¡c ID trong báº£ng lÃ  cáº¥u hÃ¬nh Ä‘Ã£ xÃ¡c nháº­n khi táº¡o file; kiá»ƒm tra láº¡i khi báº¯t Ä‘áº§u phiÃªn má»›i.
+- DÃ¹ng cÆ¡ cháº¿ subagent/delegation kháº£ dá»¥ng vá»›i Ä‘Ãºng model. Khi native subagent khÃ´ng há»— trá»£ model yÃªu cáº§u hoáº·c cáº§n gá»i khÃ¡c provider, dÃ¹ng T3 `delegate_task`.
+- Má»—i vÃ²ng review T3 lÃ  má»™t láº§n `delegate_task` má»›i, cÃ³ `clientRequestId` riÃªng vÃ  giá»¯ nguyÃªn ID khi retry cÃ¹ng vÃ²ng. LÆ°u `taskId` Ä‘á»ƒ theo dÃµi; khÃ´ng dÃ¹ng `t3_thread_send` vÃ o `childThreadId` Ä‘á»ƒ má»Ÿ vÃ²ng review tiáº¿p theo.
+- Truyá»n rÃµ vai trÃ² cho tá»«ng subagent. Subagent hoÃ n thÃ nh pháº§n Ä‘Æ°á»£c giao rá»“i tráº£ káº¿t quáº£; agent chÃ­nh quáº£n lÃ½ vÃ²ng láº·p Sonnet/Opus Ä‘á»ƒ trÃ¡nh tá»± gá»i Ä‘á»‡ quy.
+- Äáº£m báº£o reviewer Ä‘á»c Ä‘Ãºng phiÃªn báº£n thay Ä‘á»•i má»›i nháº¥t. Worktree má»›i chá»‰ nháº­n commit hiá»‡n cÃ³, khÃ´ng tá»± nháº­n cÃ¡c thay Ä‘á»•i chÆ°a commit cá»§a agent chÃ­nh.
+- Náº¿u model hoáº·c cÃ´ng cá»¥ cáº§n thiáº¿t khÃ´ng kháº£ dá»¥ng, bÃ¡o rÃµ giá»›i háº¡n vÃ  xin lá»±a chá»n thay tháº¿; khÃ´ng Ã¢m tháº§m Ä‘á»•i model.
+- BÃ¡o cÃ¡o cuá»‘i nÃªu pháº§n Ä‘Ã£ lÃ m, kiá»ƒm tra Ä‘Ã£ cháº¡y, káº¿t luáº­n review vÃ  cÃ¡c Ä‘iá»ƒm cÃ²n tá»“n táº¡i náº¿u cÃ³.
+# Workflow dá»±ng model 3D báº±ng Tripo AI
+
+Ãp dá»¥ng khi dá»±ng model 3D (nhÃ¢n váº­t, quÃ¡i, váº­t thá»ƒ) tá»« concept báº±ng Tripo Studio trÃªn trÃ¬nh duyá»‡t. PhÃ¢n cÃ´ng model vÃ  vÃ²ng láº·p
+Sonnet 5.5 â†’ Opus 5.5 váº«n theo [Agent.md gá»‘c](../../Agent.md).
+
+## Quy trÃ¬nh
+
+```text
+concept â†’ (A) T-pose bá»‘n gÃ³c báº±ng Astra, ngÆ°á»i dÃ¹ng duyá»‡t contact sheet
+        â†’ (B) tripo_multiview.sh --generate : upload bá»‘n Ã´, Generate 100, láº¥y 4 variant       ~3 phÃºt
+        â†’ chá»n variant tá»« Má»˜T áº£nh ghÃ©p
+        â†’ (C) tripo_asset_finish.sh : Smart UV â†’ Texture 4K â†’ PBR â†’ Export GLB                ~3 phÃºt
+        â†’ (D) kiá»ƒm GLB báº±ng sá»‘ + tripo_views.sh : Má»˜T áº£nh bá»‘n gÃ³c cho ngÆ°á»i dÃ¹ng duyá»‡t
+```
+
+Hai Ä‘iá»ƒm dá»«ng: duyá»‡t T-pose (trÆ°á»›c khi tiÃªu credit) vÃ  duyá»‡t káº¿t quáº£ cuá»‘i. Giá»¯a (B) vÃ  (D) cháº¡y liá»n, khÃ´ng chá»¥p mÃ n hÃ¬nh tá»«ng
+bÆ°á»›c, khÃ´ng há»i láº¡i giá»¯a chá»«ng trá»« khi cÃ³ lá»—i hoáº·c mesh há»ng. KhÃ´ng tá»± thÃªm bÆ°á»›c tá»‘n credit (retopology, segmentation, rigging,
+animate, texture 8K) khi ngÆ°á»i dÃ¹ng chÆ°a yÃªu cáº§u. Má»™t lÆ°á»£t: 145 credit (100 + 20 + 20 + 5).
+
+Cháº¡y tay láº§n Ä‘áº§u ngÃ y 2026-10-17 (Sorcerer), cháº¡y báº±ng script ngÃ y 2026-10-20 (D01 Hodling): xem má»¥c "ÄÃ£ cháº¡y".
+
+## PhÃ¢n cÃ´ng
+
+| Pháº§n viá»‡c | Ai lÃ m |
+| --- | --- |
+| Äá»c concept, viáº¿t brief, kiá»ƒm áº£nh, Ä‘iá»u khiá»ƒn Tripo, kiá»ƒm GLB, bÃ¡o cÃ¡o | Agent chÃ­nh |
+| Táº¡o áº£nh T-pose bá»‘n gÃ³c (skill `generate-tpose-for-tripo`) | Astra (`codex` / `gpt-6-astra`), phiÃªn `codex exec` má»›i |
+| Viáº¿t hoáº·c sá»­a script (multi-view, káº¿t thÃºc, xem bá»‘n gÃ³c, xá»­ lÃ½ GLB) | Sonnet 5.5 lÃ m, Opus 5.5 review |
+| Tra lá»‹ch sá»­, tÃ i liá»‡u Tripo | Haiku 5.5 |
+
+## ThÆ° má»¥c asset
+
+Má»—i asset má»™t thÆ° má»¥c `art-output/tripo-models/<nhÃ³m>/<asset_id>/`, vÃ­ dá»¥ `characters/sorceress/`, `monsters/D01_hodling/`:
+
+| File | Ná»™i dung |
+| --- | --- |
+| `concept.png` | concept gá»‘c (Ä‘áº§u vÃ o cá»§a skill T-pose) |
+| `brief.md`, `design.txt` | ghi chÃº Ä‘á»c concept; `design.txt` lÃ  báº£n canon viáº¿t trÆ°á»›c khi cháº¡y skill |
+| `tpose_front_back.png`, `tpose_sides.png` | áº£nh T-pose tá»« Astra |
+| `views/front.png`, `back.png`, `left.png`, `right.png`, `_contact.png` | áº£nh tá»«ng gÃ³c Ä‘á»ƒ upload (skill ghi) |
+| `<asset_id>.glb` | GLB xuáº¥t tá»« Tripo |
+| `_shots/` | `variants.png`, `variants.txt`, `final_views.png`; khÃ´ng lÆ°u áº£nh chá»¥p tá»«ng bÆ°á»›c |
+| `tripo.log` | credit trÆ°á»›c vÃ  sau má»—i bÆ°á»›c, URL model, variant Ä‘Ã£ chá»n, lá»—i (cÃ¡c script tá»± ghi) |
+
+## A. Äá»c concept, T-pose, tÃ¡ch bá»‘n gÃ³c
+
+1. Xem concept báº±ng Read; ghi `brief.md` (tá»‰ lá»‡, silhouette, váº­t liá»‡u, chi tiáº¿t báº¥t Ä‘á»‘i xá»©ng, pháº§n Tripo khÃ³ dá»±ng: váº£i má»ng bay
+   rá»i, dÃ¢y lá»§ng láº³ng, tÃ³c rá»i, váº­t lÆ¡ lá»­ng, phÃ¡t sÃ¡ng, trong suá»‘t; xá»­ lÃ½ báº±ng khá»‘i dÃ y Ã´m sÃ¡t thÃ¢n hoáº·c bá»). VÅ© khÃ­, Ä‘áº¡o cá»¥ cáº§m
+   tay khÃ´ng Ä‘á»ƒ trong T-pose, dá»±ng riÃªng.
+2. Viáº¿t `design.txt` (DESIGN / ASYMMETRY / REMOVE) trÆ°á»›c khi cháº¡y skill: mÃ´ táº£ Ä‘Ãºng dÃ¡ng ngÆ°á»i, cháº¥t liá»‡u, bá» máº·t; nÃ³i rÃµ mÅ©,
+   sá»«ng, tai lÃ  Má»˜T hÃ¬nh cá»¥ thá»ƒ (hÃ¬nh dáº¡ng khÃ´ng Ä‘á»“ng nháº¥t giá»¯a cÃ¡c áº£nh táº¡o ra gai thá»«a trong mesh, xem "BÃ i há»c").
+3. Cháº¡y skill báº±ng má»™t phiÃªn Codex má»›i (T3 `delegate_task` khÃ´ng cÃ³ `image_gen`; gen lá»—i thÃ¬ má»Ÿ phiÃªn má»›i), ná»n, khoáº£ng 8â€“12 phÃºt:
+
+   ```bash
+   bash /e/Diablo2/.agents/skills/generate-tpose-for-tripo/scripts/run_session.sh 'E:\Diablo2\art-output\tripo-models\<nhÃ³m>\<asset_id>'
+   ```
+
+   Log á»Ÿ `<asset>/_tasks/skill_session.log`, bÃ¡o cÃ¡o cá»§a Astra á»Ÿ `_tasks/skill_session.result.txt`. Nhiá»u asset thÃ¬ má»Ÿ nhiá»u phiÃªn
+   song song (má»—i asset má»™t thÆ° má»¥c). Trong lÃºc chá»: má»Ÿ Chrome Tripo, kiá»ƒm Ä‘Äƒng nháº­p vÃ  sá»‘ credit (má»¥c B), khÃ´ng Ä‘á»©ng chá».
+4. Äá»c `views/_contact.png` báº±ng Read (khÃ´ng tin bÃ¡o cÃ¡o cá»§a Astra) vÃ  gá»­i cho ngÆ°á»i dÃ¹ng báº±ng Ä‘Æ°á»ng dáº«n tuyá»‡t Ä‘á»‘i trong Markdown:
+   T-pose Ä‘Ãºng (tay tháº³ng, ngang vai, thÃ¢n tháº³ng), bá»‘n gÃ³c Ä‘á»§ vÃ  khÃ´ng bá»‹ cáº¯t, cÃ¹ng tá»‰ lá»‡, Ä‘Ãºng thiáº¿t káº¿, báº¥t Ä‘á»‘i xá»©ng Ä‘Ãºng bÃªn, khÃ´ng
+   cÃ²n Ä‘á»“ cáº§m tay. Chá» ngÆ°á»i dÃ¹ng duyá»‡t rá»“i má»›i sang B. áº¢nh bá»‹ loáº¡i giá»¯ á»Ÿ `_rejected/`.
+
+## B. Tripo: multi-view vÃ  Generate
+
+KhÃ´ng dÃ¹ng MCP `tripo`: `tripo-ai-mcp-server` 1.1.0 gá»i API V2, API nÃ y ngá»«ng nháº­n request tá»« 2026-11-01 00:00 UTC+8.
+
+**Chrome.** Profile Ä‘Ã£ Ä‘Äƒng nháº­p `%LOCALAPPDATA%\tripo-cdp-profile`, CDP port 9333.
+
+- Kiá»ƒm trÆ°á»›c: `curl -s http://127.0.0.1:9333/json/list`. Thread khÃ¡c cÃ³ thá»ƒ Ä‘ang dÃ¹ng.
+- ChÆ°a cháº¡y thÃ¬ má»Ÿ báº±ng Bash `run_in_background` vá»›i `timeout: 7200000` (máº·c Ä‘á»‹nh 30 phÃºt sáº½ táº¯t Chrome giá»¯a chá»«ng), cá»­a sá»• ra ngoÃ i
+  mÃ n hÃ¬nh Ä‘á»ƒ khÃ´ng che ngÆ°á»i dÃ¹ng:
+
+  ```bash
+  "/c/Program Files/Google/Chrome/Application/chrome.exe" --remote-debugging-port=9333 --window-position=2500,0 \
+    --user-data-dir='C:\Users\HLC_2021\AppData\Local\tripo-cdp-profile' https://studio.tripo3d.ai/workspace/generate
+  ```
+
+- Trang hiá»‡n nÃºt Log in thÃ¬ nhá» ngÆ°á»i dÃ¹ng tá»± Ä‘Äƒng nháº­p, khÃ´ng há»i máº­t kháº©u qua chat.
+- Má»Ÿ tab riÃªng: `curl -s -X PUT "http://127.0.0.1:9333/json/new?https://studio.tripo3d.ai/workspace/generate"`, láº¥y `id`, Ä‘áº·t
+  `CDP_TARGET=<id>` trÆ°á»›c Má»ŒI lá»‡nh (shell khÃ´ng giá»¯ biáº¿n giá»¯a cÃ¡c lá»‡nh). Thiáº¿u `CDP_TARGET`, `cdp.mjs` rÆ¡i vá» trang Ä‘áº§u tiÃªn vÃ 
+  cÃ³ thá»ƒ Ä‘iá»u khiá»ƒn nháº§m tab thread khÃ¡c. KhÃ´ng ghi Ä‘Ã¨ `nature/_tools/target.txt`. CÃ¡c script dÆ°á»›i Ä‘Ã¢y Ä‘á»u báº¯t buá»™c `CDP_TARGET`.
+
+**Script** á»Ÿ `art-output/tripo-models/nature/_tools/` (Ä‘Æ°á»ng dáº«n Bash `/e/Diablo2/...`):
+
+| Script | Viá»‡c | Thá»i gian |
+| --- | --- | --- |
+| `tripo_multiview.sh <asset_dir>` | Smart Mesh â†’ icon multi-view â†’ upload front/left/right/back, tá»«ng Ã´ má»™t, chá» áº£nh blob hiá»‡n trong Ã´ | ~75 s |
+| `tripo_multiview.sh <asset_dir> --generate` | thÃªm: Number of Generation 4, "Generate 100", chá» mesh, ghi 4 variant (uuid + faces) vÃ o `_shots/variants.txt` vÃ  áº£nh ghÃ©p `_shots/variants.png` | + ~1 phÃºt |
+| `tripo_asset_finish.sh <asset_dir> <asset_id> [uv\|texture\|pbr\|export]` | Smart UV Save â†’ Texture 4K â†’ PBR â†’ Export GLB â†’ `<asset_dir>/<asset_id>.glb`; tham sá»‘ 3 = bÆ°á»›c báº¯t Ä‘áº§u (cháº¡y láº¡i sau lá»—i) | ~3 phÃºt |
+| `tripo_views.sh <model_uuid> <out.png>` | má»™t áº£nh ghÃ©p 2Ã—2: trÆ°á»›c, 3/4, ngang, sau | ~20 s |
+| `step.sh '<js>'`, `cdp.mjs shot/eval/upload/click/key/type/goto/drag` | cÃ´ng cá»¥ gá»‘c; `drag x1,y1 x2,y2` xoay viewer | |
+
+Ghi chÃº: `--generate` vÃ  pháº§n láº¥y 4 variant cá»§a `tripo_multiview.sh` viáº¿t ngÃ y 2026-10-20 nhÆ°ng chÆ°a cháº¡y tháº­t (D01 Ä‘Ã£ Generate
+báº±ng tay trÆ°á»›c khi cÃ³ script); pháº§n upload Ä‘Ã£ cháº¡y tháº­t. Lá»—i á»Ÿ Ä‘Ã³ thÃ¬ lÃ m tay theo má»¥c "Ghi chÃº UI".
+
+Chá»¥p sá»‘ credit trÆ°á»›c khi báº¯t Ä‘áº§u; script tá»± ghi credit vÃ o `tripo.log`. Poly count Ä‘á»ƒ máº·c Ä‘á»‹nh 5000 (faces quad; GLB sau khi chia
+tam giÃ¡c nhiá»u hÆ¡n khoáº£ng 1.5â€“2 láº§n: D01 6108 faces â†’ 10.668 tam giÃ¡c). Chá»‰ Ä‘á»•i khi ngÆ°á»i dÃ¹ng yÃªu cáº§u, báº±ng `tripo_faces.sh`;
+Ã´ nÃ y lÃ  máº·c Ä‘á»‹nh chung cá»§a tÃ i khoáº£n, xong pháº£i tráº£ vá» 5000.
+
+**Chá»n variant.** Má»—i Generate ra 4 variant. Xem Má»˜T áº£nh `_shots/variants.png` (bá»‘n variant cáº¡nh nhau, chá»‰ sá»‘ 0â€“3 trÃ¡i sang pháº£i),
+chá»n báº£n silhouette khá»›p concept, tay chÃ¢n tÃ¡ch rá»i, khÃ´ng thá»§ng, báº¥t Ä‘á»‘i xá»©ng Ä‘Ãºng bÃªn; faces gáº§n báº±ng nhau thÃ¬ chá»n theo hÃ¬nh.
+Má»Ÿ báº£n Ä‘Ã£ chá»n báº±ng URL `https://studio.tripo3d.ai/workspace/generate/<uuid>` (uuid trong `variants.txt`), ghi vÃ o `tripo.log`.
+KhÃ´ng báº£n nÃ o dÃ¹ng Ä‘Æ°á»£c thÃ¬ dá»«ng, sá»­a áº£nh (A) rá»“i Generate láº¡i; khÃ´ng tráº£ tiá»n UV/texture cho mesh há»ng. LÆ°á»£t lá»—i váº«n máº¥t 100 credit.
+
+## C. Smart UV, Texture, PBR, Export
+
+`CDP_TARGET=<tab> bash tripo_asset_finish.sh <asset_dir> <asset_id>` trÃªn tab Ä‘ang má»Ÿ variant Ä‘Ã£ chá»n. LÃ m láº§n lÆ°á»£t, má»—i bÆ°á»›c ghi
+credit vÃ  tá»± bá» qua náº¿u Ä‘Ã£ lÃ m:
+
+- **Smart UV** (`/workspace/smart-uv/<uuid>`): "Unwrap UV" 20 credit, chá» nÃºt "Save" (tá»‘i Ä‘a 15 phÃºt), báº¥m Save; model Ä‘Ã£ unwrap tá»« trÆ°á»›c chá»‰ cáº§n Save.
+- **Texture** (`/workspace/texture/<uuid>`): 4K máº·c Ä‘á»‹nh, khÃ´ng báº­t "Remove Lighting", khÃ´ng dÃ¹ng "8K Trial"; "Generate Texture 20"
+  (D01: ~40 s). Xong khi háº¿t chá»¯ Generating/Texturing/Queue/In progress vÃ  nÃºt hiá»‡n láº¡i. KhÃ´ng `goto` trong lÃºc texture cháº¡y: máº¥t texture
+  Ä‘Ã£ tráº£ tiá»n; tab há»ng thÃ¬ má»Ÿ láº¡i URL model trong log.
+- **PBR** (`/workspace/texture-pbr/<uuid>`): "Generate PBR 5" = 5 credit, ~25 s. NÃºt giá»¯ nguyÃªn nhÃ£n khi cháº¡y; xong khi háº¿t chá»¯
+  "PBR Generation..." vÃ  nÃºt Cancel. KhÃ´ng cÃ³ nÃºt Save.
+- **Export**: xoÃ¡ `~/Downloads/<asset_id>.glb` cÅ©, "Export" â†’ Format GLB â†’ Texture Resolution "4k" â†’ tÃªn file `<asset_id>` â†’
+  "Export" cá»§a há»™p thoáº¡i; script chá» file vá» Downloads vÃ  chuyá»ƒn vÃ o thÆ° má»¥c asset (D01: 14 MB).
+
+Script cÃ³ thá»ƒ cháº¡y láº¡i tá»« bÆ°á»›c lá»—i: `... tripo_asset_finish.sh <dir> <id> pbr`.
+
+## D. Kiá»ƒm tra vÃ  bÃ n giao
+
+- Kiá»ƒm GLB báº±ng JSON chunk (khÃ´ng má»Ÿ viewer): 1 mesh, sá»‘ tam giÃ¡c (~10k), material cÃ³ baseColor + metallicRoughness + normal, ba áº£nh
+  4096Â². Má»‘c: Sorcerer 32 MB, 10.057 tam giÃ¡c; D01 14,4 MB, 10.668 tam giÃ¡c, JPEG/PNG/JPEG 4096Â².
+- Má»™t lá»‡nh `tripo_views.sh` cho `_shots/final_views.png`. ÄÃ¢y lÃ  áº£nh duy nháº¥t ngÆ°á»i dÃ¹ng nháº­n á»Ÿ bÆ°á»›c cuá»‘i, kÃ¨m Ä‘Æ°á»ng dáº«n GLB,
+  credit tá»«ng bÆ°á»›c + sá»‘ dÆ°, variant Ä‘Ã£ chá»n, lá»—i cÃ²n tá»“n táº¡i. KhÃ´ng chá»¥p thÃªm áº£nh tá»«ng bÆ°á»›c.
+- Chá»‰ Ä‘Æ°a vÃ o lab khi Ä‘Æ°á»£c yÃªu cáº§u: texture lab dÃ¹ng 2048 (4096 cá»§a Tripo chá»‰ mang chi tiáº¿t cá»¡ 2048), Ä‘Äƒng kÃ½ trong
+  `lookdev-lab/src/assets/samples.json`. Rig vÃ  animation lÃ  viá»‡c riÃªng, há»i trÆ°á»›c.
+
+## Credit
+
+| BÆ°á»›c | Credit | Nguá»“n |
+| --- | --- | --- |
+| Generate (Smart Mesh, 4 variant) | 100 | nÃºt "Generate 100" |
+| Smart UV | 20 | D01: 8695 â†’ 8675 |
+| Generate Texture 4K | 20 | D01: 8675 â†’ 8655 |
+| PBR | 5 | D01: 8655 â†’ 8650 |
+| Xem, chuyá»ƒn variant, Export | 0 | |
+
+Má»™t lÆ°á»£t: 145 credit. LÆ°á»£t lá»—i váº«n bá»‹ trá»« tiá»n. Chá»‰ tiÃªu trong pháº¡m vi ngÆ°á»i dÃ¹ng giao (sá»‘ asset hoáº·c ngÃ¢n sÃ¡ch); vÆ°á»£t thÃ¬ há»i.
+
+## Giáº£m thá»i gian chá» (Ä‘Ã£ Ã¡p dá»¥ng)
+
+- KhÃ´ng `sleep` cá»‘ Ä‘á»‹nh: má»i bÆ°á»›c chá» tÃ­n hiá»‡u trÃªn trang (`waitUntil`) rá»“i Ä‘i tiáº¿p ngay.
+- KhÃ´ng chá»¥p mÃ n hÃ¬nh tá»«ng bÆ°á»›c; chá»‰ ba áº£nh: `variants.png` (Ä‘á»ƒ chá»n, agent tá»± xem), `final_views.png` (cho ngÆ°á»i dÃ¹ng), `_contact.png` (duyá»‡t T-pose).
+- Má»™t lá»‡nh thay mÆ°á»i lá»‡nh: upload bá»‘n Ã´ + Generate trong má»™t script; UV + Texture + PBR + Export trong má»™t script, cháº¡y ná»n Ä‘Æ°á»£c.
+- Trong lÃºc Astra táº¡o T-pose (8â€“12 phÃºt): má»Ÿ Chrome, kiá»ƒm Ä‘Äƒng nháº­p, ghi credit; nhiá»u asset thÃ¬ cháº¡y nhiá»u phiÃªn Astra song song.
+- Xem variant khÃ´ng tá»‘n credit vÃ  khÃ´ng cáº§n bá»‘n láº§n chá»¥p: má»™t áº£nh ghÃ©p.
+
+## BÃ i há»c Ä‘Ã£ tráº£ giÃ¡
+
+- Má»™t áº£nh nhiá»u hÃ ng váº­t thá»ƒ: Tripo chá»‰ giá»¯ 1â€“2 hÃ ng trÃªn. Má»—i Ã´ upload chá»‰ má»™t hÃ¬nh.
+- áº¢nh váº½ tá»« camera game cho ra váº­t Ä‘á»©ng trÃªn táº¥m bÃ¹n nghiÃªng. áº¢nh Ä‘Æ°a vÃ o Tripo pháº£i nhÃ¬n ngang, ná»n pháº³ng.
+- Chrome Tripo dÃ¹ng chung port 9333 vá»›i thread khÃ¡c: luÃ´n ghim `CDP_TARGET`. `goto` giá»¯a chá»«ng lÃ m máº¥t bÆ°á»›c Ä‘Ã£ tráº£ tiá»n.
+- Ã” poly count lÃ  máº·c Ä‘á»‹nh chung cá»§a tÃ i khoáº£n: Ä‘á»•i thÃ¬ pháº£i tráº£ vá» 5000.
+- Texture Tripo trÃ´ng má»m trong game: lab dÃ¹ng 2048 vÃ  anisotropy, khÃ´ng cáº¯t xuá»‘ng 1024.
+- Codex gen áº£nh lá»—i: má»Ÿ phiÃªn má»›i. T3 `delegate_task` sang codex khÃ´ng cÃ³ `image_gen`.
+- Chá»n nháº§m icon thá»© ba cá»§a khung upload ("Batch Images to 3D") = má»—i áº£nh má»™t model, 100 credit má»—i áº£nh. Multi-view lÃ  icon thá»© hai (cube).
+- Bá»‘n Ã´ multi-view upload song song thÃ¬ ghi Ä‘Ã¨ nhau, vÃ  má»—i Ã´ máº¥t ~10â€“18 s má»›i hiá»‡n áº£nh: upload tá»«ng Ã´ má»™t, chá» áº£nh blob trong Ã´.
+  Ã” Ä‘Ã£ nháº­n file máº¥t `<input type=file>` ngay khi báº¯t Ä‘áº§u táº£i, nÃªn "input biáº¿n máº¥t" chÆ°a pháº£i lÃ  táº£i xong.
+- MÅ©, sá»«ng, tai khÃ´ng Ä‘á»“ng nháº¥t giá»¯a áº£nh trÆ°á»›c/sau vÃ  áº£nh hai bÃªn (Ä‘áº§u bÃªn hÃ´ng chÃºi ra trÆ°á»›c, mÅ© nhá»n khÃ¡c nhau) lÃ m mesh cÃ³ gai
+  thá»«a á»Ÿ mÅ© vÃ  tai. Texture che pháº§n lá»›n nhÆ°ng khÃ´ng háº¿t: ghi mÅ©/sá»«ng/tai thÃ nh má»™t hÃ¬nh cá»¥ thá»ƒ trong `design.txt`, vÃ  so Ä‘áº§u á»Ÿ
+  hai áº£nh nguá»“n khi duyá»‡t T-pose.
+- Chuá»—i regex trong script: trong `bash step.sh "..."` (nhÃ¡y kÃ©p) pháº£i viáº¿t `\\\b` má»›i ra `\\b` trong JS; `\b` Ä‘Æ¡n lÃ  kÃ½ tá»± backspace.
+- NÃºt history á»Ÿ viewer (1076,388) má»Ÿ báº£ng lá»‹ch sá»­ phiÃªn báº£n, khÃ´ng pháº£i nÃºt reset gÃ³c nhÃ¬n.
+
+## ÄÃ£ cháº¡y
+
+| NgÃ y | Asset | Ghi chÃº |
+| --- | --- | --- |
+| 2026-10-17 | Sorcerer, báº£n xanh Ä‘en | Cháº¡y tay. áº¢nh T-pose trong `C:\Users\HLC_2021\.codex\generated_images\01a14779-3942-7c83-b26d-80cd7b5b6dd5\`. GLB: `C:\Users\HLC_2021\Downloads\fantasy mage 3d model.glb` |
+| 2026-10-18 | Camp props asset_13â€“24 | Má»—i lÆ°á»£t má»™t áº£nh sheet, khÃ´ng multi-view; `camp/` |
+| 2026-10-19 | Nature props 08â€“12 | Má»—i lÆ°á»£t má»™t áº£nh sheet, tá»‘n 1.120 credit; `nature/` |
+| 2026-10-20 | D01 Hodling B (`monsters/D01_hodling/`) | Skill T-pose láº§n cháº¡y thá»© hai + multi-view; variant 2 (6108 faces); 145 credit (8795 â†’ 8650); GLB 14,4 MB, 10.668 tam giÃ¡c, 3 map 4096Â²; cÃ²n tá»“n táº¡i: gÃ³c mÅ© nhá»n, tai hÆ¡i to, tay máº£nh; `_shots/final_views.png` |
+
+## Ghi chÃº UI
+
+Cáº­p nháº­t sau má»—i láº§n cháº¡y: nhÃ£n nÃºt, selector, quy Æ°á»›c Ã´ Left/Right.
+
+- NhÃ£n Ä‘Ã£ cháº¡y Ä‘Æ°á»£c: "Smart Mesh", "Generate 100", "Smart UV", "Unwrap UV", "Save", "Texture", "Generate Texture 20",
+  "PBR", "Generate PBR 5", "Export". Viewport 1384Ã—749 (áº£nh chá»¥p 1384Ã—805). Há»™p thoáº¡i Export cÃ³ combobox Format (option "GLB") vÃ 
+  Texture Resolution ("4k Current"). Sá»‘ credit Ä‘á»c tá»« `bodyText()` theo máº«u `Resources 99+ <sá»‘>`.
+- Multi-view: Smart Mesh â†’ icon thá»© hai cá»§a khung upload (khoáº£ng x=167, y=188) â†’ bá»‘n Ã´ Front / Left / Right / Back; `input[type=file]`
+  theo thá»© tá»± Ä‘Ã³, nhÃ£n á»Ÿ `parentElement.innerText`; Ã´ nháº­n file thÃ¬ input máº¥t. áº¢nh trong Ã´ lÃ  `<img src="blob:...">` á»Ÿ vÃ¹ng
+  x 90â€“300, y 200â€“420; nÃºt "Generate 100" bá»‹ khoÃ¡ tá»›i khi Ä‘á»§ bá»‘n Ã´. "Number of Generation" (1/2/4) Ä‘Æ°á»£c tÃ i khoáº£n nhá»›, Ä‘ang lÃ  4.
+- Quy Æ°á»›c Left/Right trÃªn D01 (khÃ´ng tháº¥y láº­t khi xoay model): áº£nh `left.png` (máº·t quay sang trÃ¡i mÃ n hÃ¬nh) gáº¯n vÃ o Ã´ Left; dÃ¢y Ä‘eo, mÅ© vÃ  váº¿t ná»©t
+  lÆ°ng náº±m Ä‘Ãºng bÃªn á»Ÿ cáº£ bá»‘n gÃ³c nhÃ¬n.
+- Viewer: kÃ©o chuá»™t trÃ¡i xoay ~0.43Â°/px (105 px â‰ˆ 45Â°, 210 px â‰ˆ 90Â°); má»Ÿ model báº±ng URL trá»±c tiáº¿p luÃ´n ra gÃ³c nhÃ¬n trÆ°á»›c.
+- Thumbnail trong panel Assets (x > 1300): thumbnail Ä‘áº§u tiÃªn lÃ  model má»›i nháº¥t; bá»‘n variant cá»§a má»™t lÆ°á»£t Generate lÃ  bá»‘n thumbnail liÃªn tiáº¿p.
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept's pose. {{IF_RETRY: (2) an earlier attempt: design only; its pose is wrong, ignore its pose.}}
+{{DESIGN}}
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+{{REMOVE}} Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached in this order): (1) the concept image of the creature: identity reference for the design and for what the side profile looks like (head, hat/horns, parts worn on the back, legs). (2) tpose_front_back.png: the APPROVED front/back turnaround of the same creature in the target STRICT T-POSE: identity reference for the pose, body proportions, materials and colours. Keep exactly the same design and the same pose. Do not redesign. Do not copy the lineup layout, the H silhouette or any text.
+{{DESIGN}}
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left = the creature's LEFT side toward the camera, facing screen-left (true orthographic side profile, exactly 90 degrees from the front view); right = the creature's RIGHT side toward the camera, facing screen-right (the TRUE opposite side, not a mirrored copy of the left view).
+POSE = the SAME STRICT T-POSE as in the approved front/back image, seen from the side: torso nearly upright (only a very slight forward lean, not hunched, not crouched), both feet flat on the floor side by side. SAME BODY PROPORTIONS AS THE APPROVED IMAGE (critical): same leg length relative to the body, same head and hat size, same size of everything worn on the back; do NOT lengthen the legs or stretch the body. The total height from the soles to the highest point is about {{FIG_PCT}} percent of the image height (the same figure size as in the approved image). Both arms are stretched fully straight out to the sides at shoulder height, so in a true side view they point straight toward the camera and straight away from it: the near arm appears foreshortened pointing at the viewer, its open hand with fingers spread and palm down close to the camera at shoulder height, and the far arm is hidden behind the body. The arms must NOT hang down, must NOT bend forward or backward, and must NOT be drawn along the body. Head level, looking forward (screen-left in the left view, screen-right in the right view).
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle: a pure 90 degree side profile, torso and legs seen exactly from the side.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+{{REMOVE}} Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+---
+name: "imagegen"
+description: "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas."
+---
+
+# Image Generation Skill
+
+Generates or edits images for the current project (for example website assets, game assets, UI mockups, product mockups, wireframes, logo design, photorealistic images, or infographics).
+
+## Top-level modes and rules
+
+This skill has exactly two top-level modes:
+
+- **Default built-in tool mode (preferred):** built-in `image_gen` tool for image generation, editing, and transparent-image requests. Does not require `OPENAI_API_KEY`.
+- **Fallback CLI mode:** `scripts/image_gen.py` CLI. Use when the user explicitly asks for or confirms the CLI/API/model path. Requires `OPENAI_API_KEY`.
+
+Within CLI fallback, the CLI exposes three subcommands:
+
+- `generate`
+- `edit`
+- `generate-batch`
+
+Rules:
+- Use the built-in `image_gen` tool by default for normal image generation and editing requests.
+- Do not switch to CLI fallback for ordinary quality, size, or file-path control.
+- For transparent images, ask built-in `image_gen` for a transparent background and preserve the generated alpha.
+- Never silently switch from built-in `image_gen` or CLI `gpt-image-2` to CLI `gpt-image-1.5`; ask the user first unless they explicitly requested `gpt-image-1.5`.
+- The word `batch` by itself does not mean CLI fallback. If the user asks for many assets or says to batch-generate assets without explicitly asking for CLI/API/model controls, stay on the built-in path and issue one built-in call per requested asset or variant.
+- If the built-in tool fails or is unavailable, tell the user the CLI fallback exists and that it requires `OPENAI_API_KEY`. Proceed only if the user explicitly asks for that fallback.
+- If the user explicitly asks for CLI mode, use the bundled `scripts/image_gen.py` workflow. Do not create one-off SDK runners.
+- Never modify `scripts/image_gen.py`. If something is missing, ask the user before doing anything else.
+
+Built-in save-path policy:
+- In built-in tool mode, Codex saves generated images under `$CODEX_HOME/*` by default.
+- Do not describe or rely on OS temp as the default built-in destination.
+- Do not describe or rely on a destination-path argument (if any) on the built-in `image_gen` tool. If a specific location is needed, generate first and then move or copy the selected output from `$CODEX_HOME/generated_images/...`.
+- Save-path precedence in built-in mode:
+  1. If the user names a destination, move or copy the selected output there.
+  2. If the image is meant for the current project, move or copy the final selected image into the workspace before finishing.
+  3. If the image is only for preview or brainstorming, render it inline; the underlying file can remain at the default `$CODEX_HOME/*` path.
+- Never leave a project-referenced asset only at the default `$CODEX_HOME/*` path.
+- Do not overwrite an existing asset unless the user explicitly asked for replacement; otherwise create a sibling versioned filename such as `hero-v2.png` or `item-icon-edited.png`.
+
+Shared prompt guidance for both modes lives in `references/prompting.md` and `references/sample-prompts.md`.
+
+Fallback-only docs/resources for CLI mode:
+- `references/cli.md`
+- `references/image-api.md`
+- `references/codex-network.md`
+- `scripts/image_gen.py`
+
+## When to use
+- Generate a new image (concept art, product shot, cover, website hero)
+- Generate a new image using one or more reference images for style, composition, or mood
+- Edit an existing image (inpainting, lighting or weather transformations, background replacement, object removal, compositing, transparent background)
+- Produce many assets or variants for one task
+
+## When not to use
+- Extending or matching an existing SVG/vector icon set, logo system, or illustration library inside the repo
+- Creating simple shapes, diagrams, wireframes, or icons that are better produced directly in SVG, HTML/CSS, or canvas
+- Making a small project-local asset edit when the source file already exists in an editable native format
+- Any task where the user clearly wants deterministic code-native output instead of a generated bitmap
+
+## Decision tree
+
+Think about two separate questions:
+
+1. **Intent:** is this a new image or an edit of an existing image?
+2. **Execution strategy:** is this one asset or many assets/variants?
+
+Intent:
+- If the user wants to modify an existing image while preserving parts of it, treat the request as **edit**.
+- If the user provides images only as references for style, composition, mood, or subject guidance, treat the request as **generate**.
+- If the user provides no images, treat the request as **generate**.
+
+Built-in edit semantics:
+- Built-in edit mode is for images already visible in the conversation context, such as attached images or images generated earlier in the thread.
+- If the user wants to edit a local image file with the built-in tool, first load it with built-in `view_image` tool so the image is visible in the conversation context, then proceed with the built-in edit flow.
+- Do not promise arbitrary filesystem-path editing through the built-in tool.
+- If a local file still needs direct file-path control, masks, or other explicit CLI-only parameters, use the explicit CLI fallback only when the user asks for it.
+- For edits, preserve invariants aggressively and save non-destructively by default.
+
+Execution strategy:
+- In the built-in default path, produce many assets or variants by issuing one `image_gen` call per requested asset or variant.
+- In the CLI fallback path, use the CLI `generate-batch` subcommand only when the user explicitly chose CLI mode and needs many prompts/assets.
+- For many distinct assets, do not use `n` as a substitute for separate prompts. `n` is for variants of one prompt; distinct assets need distinct built-in calls or distinct CLI `generate-batch` jobs.
+
+Assume the user wants a new image unless they clearly ask to change an existing one.
+
+## Workflow
+1. Decide the top-level mode: built-in by default, including transparent-output requests; fallback CLI only if explicitly requested or confirmed.
+2. Decide the intent: `generate` or `edit`.
+3. Decide whether the output is preview-only or meant to be consumed by the current project.
+4. Decide the execution strategy: single asset vs repeated built-in calls vs CLI `generate-batch`.
+5. Collect inputs up front: prompt(s), exact text (verbatim), constraints/avoid list, and any input images.
+6. For every input image, label its role explicitly:
+   - reference image
+   - edit target
+   - supporting insert/style/compositing input
+7. If the edit target is only on the local filesystem and you are staying on the built-in path, inspect it with `view_image` first so the image is available in conversation context.
+8. If the user asked for a photo, illustration, sprite, product image, banner, or other explicitly raster-style asset, use `image_gen` rather than substituting SVG/HTML/CSS placeholders. If the request is for an icon, logo, or UI graphic that should match existing repo-native SVG/vector/code assets, prefer editing those directly instead.
+9. Augment the prompt based on specificity:
+   - If the user's prompt is already specific and detailed, normalize it into a clear spec without adding creative requirements.
+   - If the user's prompt is generic, add tasteful augmentation only when it materially improves output quality.
+10. Use the built-in `image_gen` tool by default.
+11. For transparent-output requests, ask built-in `image_gen` for a transparent background and preserve the generated alpha channel.
+12. Inspect outputs and validate: subject, style, composition, text accuracy, and invariants/avoid items.
+13. Iterate with a single targeted change, then re-check.
+14. For preview-only work, render the image inline; the underlying file may remain at the default `$CODEX_HOME/generated_images/...` path.
+15. For project-bound work, move or copy the selected artifact into the workspace and update any consuming code or references. Never leave a project-referenced asset only at the default `$CODEX_HOME/generated_images/...` path.
+16. For batches or multi-asset requests, persist every requested deliverable final in the workspace unless the user explicitly asked to keep outputs preview-only. Discarded variants do not need to be kept unless requested.
+17. If the user explicitly chooses or confirms the CLI fallback, then use the fallback-only docs for model, quality, size, `input_fidelity`, masks, output format, output paths, and network setup.
+18. Always report the final saved path(s) for any workspace-bound asset(s), plus the final prompt or prompt set and whether the built-in tool or fallback CLI mode was used.
+
+## Transparent image requests
+
+Ask built-in `image_gen` for a genuinely transparent background and preserve its alpha.
+
+## Prompt augmentation
+
+Reformat user prompts into a structured, production-oriented spec. Make the user's goal clearer and more actionable, but do not blindly add detail.
+
+Treat this as prompt-shaping guidance, not a closed schema. Use only the lines that help, and add a short extra labeled line when it materially improves clarity.
+
+### Specificity policy
+
+Use the user's prompt specificity to decide how much augmentation is appropriate:
+
+- If the prompt is already specific and detailed, preserve that specificity and only normalize/structure it.
+- If the prompt is generic, you may add tasteful augmentation when it will materially improve the result.
+
+Allowed augmentations:
+- composition or framing hints
+- polish level or intended-use hints
+- practical layout guidance
+- reasonable scene concreteness that supports the stated request
+
+Not allowed augmentations:
+- extra characters or objects that are not implied by the request
+- brand names, slogans, palettes, or narrative beats that are not implied
+- arbitrary side-specific placement unless the surrounding layout supports it
+
+## Use-case taxonomy (exact slugs)
+
+Classify each request into one of these buckets and keep the slug consistent across prompts and references.
+
+Generate:
+- photorealistic-natural â€” candid/editorial lifestyle scenes with real texture and natural lighting.
+- product-mockup â€” product/packaging shots, catalog imagery, merch concepts.
+- ui-mockup â€” app/web interface mockups and wireframes; specify the desired fidelity.
+- infographic-diagram â€” diagrams/infographics with structured layout and text.
+- scientific-educational â€” classroom explainers, scientific diagrams, and learning visuals with required labels and accuracy constraints.
+- ads-marketing â€” campaign concepts and ad creatives with audience, brand position, scene, and exact tagline/copy.
+- productivity-visual â€” slide, chart, workflow, and data-heavy business visuals.
+- logo-brand â€” logo/mark exploration, vector-friendly.
+- illustration-story â€” comics, childrenâ€™s book art, narrative scenes.
+- stylized-concept â€” style-driven concept art, 3D/stylized renders.
+- historical-scene â€” period-accurate/world-knowledge scenes.
+
+Edit:
+- text-localization â€” translate/replace in-image text, preserve layout.
+- identity-preserve â€” try-on, person-in-scene; lock face/body/pose.
+- precise-object-edit â€” remove/replace a specific element (including interior swaps).
+- lighting-weather â€” time-of-day/season/atmosphere changes only.
+- background-extraction â€” transparent background / clean cutout. Ask built-in `image_gen` for actual transparency.
+- style-transfer â€” apply reference style while changing subject/scene.
+- compositing â€” multi-image insert/merge with matched lighting/perspective.
+- sketch-to-render â€” drawing/line art to photoreal render.
+
+## Shared prompt schema
+
+Use the following labeled spec as shared prompt scaffolding for both top-level modes:
+
+```text
+Use case: <taxonomy slug>
+Asset type: <where the asset will be used>
+Primary request: <user's main prompt>
+Input images: <Image 1: role; Image 2: role> (optional)
+Scene/backdrop: <environment>
+Subject: <main subject>
+Style/medium: <photo/illustration/3D/etc>
+Composition/framing: <wide/close/top-down; placement>
+Lighting/mood: <lighting + mood>
+Color palette: <palette notes>
+Materials/textures: <surface details>
+Text (verbatim): "<exact text>"
+Constraints: <must keep/must avoid>
+Avoid: <negative constraints>
+```
+
+Notes:
+- `Asset type` and `Input images` are prompt scaffolding, not dedicated CLI flags.
+- `Scene/backdrop` refers to the visual setting. It is not the same as the fallback CLI `background` parameter, which controls output transparency behavior.
+- Fallback-only execution notes such as `Quality:`, `Input fidelity:`, masks, output format, and output paths belong in the CLI path only. Do not treat them as built-in `image_gen` tool arguments.
+
+Augmentation rules:
+- Keep it short.
+- Add only the details needed to improve the prompt materially.
+- For edits, explicitly list invariants (`change only X; keep Y unchanged`).
+- If any critical detail is missing and blocks success, ask a question; otherwise proceed.
+
+## Examples
+
+### Generation example (hero image)
+```text
+Use case: product-mockup
+Asset type: landing page hero
+Primary request: a minimal hero image of a ceramic coffee mug
+Style/medium: clean product photography
+Composition/framing: wide composition with usable negative space for page copy if needed
+Lighting/mood: soft studio lighting
+Constraints: no logos, no text, no watermark
+```
+
+### Edit example (invariants)
+```text
+Use case: precise-object-edit
+Asset type: product photo background replacement
+Primary request: replace only the background with a warm sunset gradient
+Constraints: change only the background; keep the product and its edges unchanged; no text; no watermark
+```
+
+## Prompting best practices
+- Structure prompt as scene/backdrop -> subject -> details -> constraints.
+- Include intended use (ad, UI mock, infographic) to set the mode and polish level.
+- Use camera/composition language for photorealism.
+- Only use SVG/vector stand-ins when the user explicitly asked for vector output or a non-image placeholder.
+- Quote exact text and specify typography + placement.
+- For tricky words, spell them letter-by-letter and require verbatim rendering.
+- For multi-image inputs, reference images by index and describe how they should be used.
+- For edits, repeat invariants every iteration to reduce drift.
+- Iterate with single-change follow-ups.
+- If the prompt is generic, add only the extra detail that will materially help.
+- If the prompt is already detailed, normalize it instead of expanding it.
+- For CLI fallback only, see `references/cli.md` and `references/image-api.md` for model, `quality`, `input_fidelity`, masks, output format, and output-path guidance.
+- For transparent images, ask built-in `image_gen` for actual transparency and preserve its alpha.
+
+More principles shared by both modes: `references/prompting.md`.
+Copy/paste specs shared by both modes: `references/sample-prompts.md`.
+
+## Guidance by asset type
+Asset-type templates (website assets, game assets, wireframes, logo) are consolidated in `references/sample-prompts.md`.
+
+## gpt-image-2 guidance for CLI fallback
+
+The fallback CLI defaults to `gpt-image-2`.
+
+- Use `gpt-image-2` for new CLI/API workflows unless the user confirms a different model.
+- CLI `gpt-image-2` does not support `background=transparent`; ask before using `gpt-image-1.5` unless the user explicitly requested that model.
+- `gpt-image-2` always uses high fidelity for image inputs; do not set `input_fidelity` with this model.
+- `gpt-image-2` supports `quality` values `low`, `medium`, `high`, and `auto`.
+- Use `quality low` for fast drafts, thumbnails, and quick iterations. Use `medium`, `high`, or `auto` for final assets, dense text, diagrams, identity-sensitive edits, or high-resolution outputs.
+- Square images are typically fastest to generate. Use `1024x1024` for fast square drafts.
+- If the user asks for 4K-style output, use `3840x2160` for landscape or `2160x3840` for portrait.
+- `gpt-image-2` size may be `auto` or `WIDTHxHEIGHT` if all constraints hold: max edge `<= 3840px`, both edges multiples of `16px`, long-to-short ratio `<= 3:1`, total pixels between `655,360` and `8,294,400`.
+
+Popular `gpt-image-2` sizes:
+- `1024x1024` square
+- `1536x1024` landscape
+- `1024x1536` portrait
+- `2048x2048` 2K square
+- `2048x1152` 2K landscape
+- `3840x2160` 4K landscape
+- `2160x3840` 4K portrait
+- `auto`
+
+## Fallback CLI mode only
+
+### Temp and output conventions
+These conventions apply only to the CLI fallback. They do not describe built-in `image_gen` output behavior.
+- Use `tmp/imagegen/` for intermediate files (for example JSONL batches); delete them when done.
+- Write final artifacts under `output/imagegen/`.
+- Use `--out` or `--out-dir` to control output paths; keep filenames stable and descriptive.
+
+### Dependencies
+Prefer `uv` for dependency management in this repo.
+
+Required Python package:
+```bash
+uv pip install openai
+```
+
+Optional for image inspection and downscaling:
+```bash
+uv pip install pillow
+```
+
+Portability note:
+- If you are using the installed skill outside this repo, install dependencies into that environment with its package manager.
+- In uv-managed environments, `uv pip install ...` remains the preferred path.
+
+### Environment
+- `OPENAI_API_KEY` must be set for live API calls.
+- Do not ask the user for `OPENAI_API_KEY` when using the built-in `image_gen` tool.
+- Never ask the user to paste the full key in chat. Ask them to set it locally and confirm when ready.
+
+If the key is missing, give the user these steps:
+1. Create an API key in the OpenAI platform UI: https://platform.openai.com/api-keys
+2. Set `OPENAI_API_KEY` as an environment variable in their system.
+3. Offer to guide them through setting the environment variable for their OS/shell if needed.
+
+If installation is not possible in this environment, tell the user which dependency is missing and how to install it into their active environment.
+
+### Script-mode notes
+- CLI commands + examples: `references/cli.md`
+- API parameter quick reference: `references/image-api.md`
+- Network approvals / sandbox settings for CLI mode: `references/codex-network.md`
+
+## Reference map
+- `references/prompting.md`: shared prompting principles for both modes.
+- `references/sample-prompts.md`: shared copy/paste prompt recipes for both modes.
+- `references/cli.md`: fallback-only CLI usage via `scripts/image_gen.py`.
+- `references/image-api.md`: fallback-only API/CLI parameter reference.
+- `references/codex-network.md`: fallback-only network/sandbox troubleshooting for CLI mode.
+- `scripts/image_gen.py`: fallback-only CLI implementation. Use only when the user explicitly chooses or confirms CLI mode.
+
+
+    Directory: E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----        10/20/2026   5:30 PM                _tasks                                                               
+-a----        10/20/2026   5:28 PM           3408 brief.md                                                             
+-a----        10/20/2026   5:22 PM        1983415 concept.png                                                          
+-a----        10/20/2026   5:28 PM           4356 design.txt                                                           
+
+
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\design.txt','E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\brief.md','E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\front_back.prompt.md','E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\sides.prompt.md'" in E:\Diablo2
+ succeeded in 69ms:
+DESIGN: ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric's Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+ASYMMETRY: All sides are the woman's own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC'S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+REMOVE: the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept's side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric's Lantern, apron, habit, linen wraps, cuffs, boots.
+# FL Flagellant — A (hero ASHLAR, Tripo multi-view, 2026-10-20)
+
+Concept: `concept.png` (chép từ `ashlar/art/heroes/FL_flagellant/vA/concept_v3.png`, 1672×940: 3/4 cầm vũ khí, FRONT, LEFT,
+RIGHT, BACK ở A-pose tay trống, roi xích và sắt nung vẽ riêng ở dải dưới). Canon: `ashlar/ASHLAR_HERO_CONCEPT_VI.md` §5 và bảng
+đạo cụ `FL_A`. Cao H (~1,8 m, chưa tính mũ và vũ khí).
+
+## Tỉ lệ và silhouette
+- Phụ nữ trưởng thành, dáng khoẻ vừa, thẳng lưng, tỉ lệ hero stylized (vai rộng, bàn tay và bàn chân hơi to). Mặt mở, nghiêm, trung tính.
+- Đầu: khăn coif vải lanh kem ôm sát đầu, che hết tóc, thắt một nút nhỏ sau gáy.
+- Thân trên: mũ trùm đỏ thẫm hạ xuống quanh cổ và lưng; áo choàng vai ngắn (scapular) đỏ thẫm phủ vai và bắp tay như tay áo ngắn rộng;
+  cổ áo lanh trắng đứng cao, nút thắt đỏ nhỏ ở cổ; áo giáp da nâu sẫm (jerkin) ở ngực, hai dây đeo da dọc ngắn và MỘT dây da chéo.
+- Eo: khăn thắt lưng đỏ thẫm quấn quanh eo, thắt lưng da nâu bên dưới.
+- Thân dưới: áo dài đỏ thẫm tới mắt cá, xẻ thành vạt trước và sau xòe rộng; tạp dề da nâu buông giữa phía trước tới gối;
+  áo lót nâu sẫm lộ qua khe xẻ; ống chân quấn vải lanh trắng; bốt da nâu sẫm cổ thấp.
+- Tay: ống tay lanh trắng quấn như băng ở cẳng tay, cổ tay bao da đen.
+
+## Màu
+- Đỏ thẫm #8E1F24 (áo dài, áo choàng vai, mũ trùm, khăn thắt lưng), lanh trắng #EFE6D2 (coif, cổ áo, quấn tay và ống chân),
+  da nâu sẫm (jerkin, tạp dề, dây, bốt, túi), sắt đen #2B2B30 (nồi than, đèn), bao cổ tay đen #141214, cam than #FF7A2A chỉ ở khe nắp nồi than.
+
+## Bất đối xứng (theo bên trái/phải của chính nhân vật)
+- Nồi than sắt có nắp ở hông TRÁI (FRONT: bên phải ảnh; BACK: bên trái ảnh; thấy rõ ở LEFT).
+- Dây mười nút kem buông từ thắt lưng phía trước bên PHẢI xuống tới ống chân (FRONT: bên trái ảnh, cạnh tạp dề; thấy ở mép trước của RIGHT).
+- Túi da nhỏ ở hông PHẢI phía trước (FRONT: bên trái ảnh).
+- Osric's Lantern (đèn sắt nhỏ, tắt) treo sau hông PHẢI (BACK: bên phải ảnh; RIGHT: phía sau hông).
+- Dây da chéo ngực từ vai TRÁI xuống hông PHẢI (FRONT: từ vai bên phải ảnh xuống eo bên trái ảnh).
+
+## Phần Tripo khó dựng và cách xử lý
+- Roi xích (tay phải) và sắt nung (tay trái): bỏ khỏi T-pose, dựng riêng nếu cần.
+- Hai đuôi khăn thắt lưng đỏ buông sau hông (thấy ở LEFT/RIGHT): bỏ.
+- Dây mười nút buông lủng lẳng: cho buông thẳng, nằm sát mặt trước áo dài suốt chiều dài, nút to tròn đặc.
+- Nồi than và đèn: dính sát hông/thắt lưng, không treo đung đưa; nồi than không phát sáng, chỉ tô cam ở khe nắp; đèn tắt, không lửa.
+- Vạt áo xẻ xòe: giữ là các mảng vải dày đặc, mép gọn, không rách, không dải rời; nút thắt coif nhỏ, không đuôi dài.
+- Áo choàng vai khi dang tay: vải phủ lên bắp tay, không che nách thành tấm mỏng nối thân với tay.
+
+## Kích thước dùng trong lab
+Cao ~1,8 m (H).
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept's pose. {{IF_RETRY: (2) an earlier attempt: design only; its pose is wrong, ignore its pose.}}
+{{DESIGN}}
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+{{REMOVE}} Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached in this order): (1) the concept image of the creature: identity reference for the design and for what the side profile looks like (head, hat/horns, parts worn on the back, legs). (2) tpose_front_back.png: the APPROVED front/back turnaround of the same creature in the target STRICT T-POSE: identity reference for the pose, body proportions, materials and colours. Keep exactly the same design and the same pose. Do not redesign. Do not copy the lineup layout, the H silhouette or any text.
+{{DESIGN}}
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left = the creature's LEFT side toward the camera, facing screen-left (true orthographic side profile, exactly 90 degrees from the front view); right = the creature's RIGHT side toward the camera, facing screen-right (the TRUE opposite side, not a mirrored copy of the left view).
+POSE = the SAME STRICT T-POSE as in the approved front/back image, seen from the side: torso nearly upright (only a very slight forward lean, not hunched, not crouched), both feet flat on the floor side by side. SAME BODY PROPORTIONS AS THE APPROVED IMAGE (critical): same leg length relative to the body, same head and hat size, same size of everything worn on the back; do NOT lengthen the legs or stretch the body. The total height from the soles to the highest point is about {{FIG_PCT}} percent of the image height (the same figure size as in the approved image). Both arms are stretched fully straight out to the sides at shoulder height, so in a true side view they point straight toward the camera and straight away from it: the near arm appears foreshortened pointing at the viewer, its open hand with fingers spread and palm down close to the camera at shoulder height, and the far arm is hidden behind the body. The arms must NOT hang down, must NOT bend forward or backward, and must NOT be drawn along the body. Head level, looking forward (screen-left in the left view, screen-right in the right view).
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle: a pure 90 degree side profile, torso and legs seen exactly from the side.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+{{REMOVE}} Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+
+codex
+The asset already has canonical design notes and a brief, so I’ll preserve `design.txt` as the skill requires. I’m also applying the imagegen skill to generate the sheets with the specified clothing, body-worn props, and left/right placement.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$d = Get-Content -Raw -Encoding UTF8 -LiteralPath '"'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\design.txt'; "'$t = Get-Content -Raw -Encoding UTF8 -LiteralPath '"'E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\front_back.prompt.md'; "'$sections = [regex]::Match($d, '"'(?s)DESIGN: (.*?)\\r?\\nASYMMETRY: (.*?)\\r?\\nREMOVE: (.*)'); "'$t = [regex]::Replace($t, '"'\\{\\{IF_RETRY:.*?\\}\\}', ''); "'$t.Replace('"'{{DESIGN}}',"'$sections.Groups[1].Value).Replace('"'{{ASYMMETRY}}',"'$sections.Groups[2].Value).Replace('"'{{REMOVE}}',"'$sections.Groups[3].Value)' in E:\Diablo2
+ succeeded in 75ms:
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept's pose. 
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric's Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept's side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric's Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman's own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC'S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py'" in E:\Diablo2
+ succeeded in 66ms:
+"""Helpers for the generate-tpose-for-tripo skill (PIL + numpy only; no image synthesis).
+
+  python -I tpose_tools.py measure <sheet.png>
+      Print, for the left and right half of a two-view sheet, the figure bbox, height, width, height as a
+      percentage of the image height and the distance to the image edges.
+  python -I tpose_tools.py split <asset_dir> [--canvas 1024] [--margin 0.07] [--thr 40]
+      Reads  <asset_dir>/tpose_front_back.png (left half = FRONT, right half = BACK)
+             <asset_dir>/tpose_sides.png      (left half = LEFT side, right half = RIGHT side)
+      Writes <asset_dir>/views/front.png, back.png, left.png, right.png (+ views/_contact.png).
+      All four views get the same square canvas, the figure centred horizontally, soles on ONE pixel row, the
+      empty space filled with the sheet's flat background colour. The two sheets are separate generations and
+      rarely come out at the same scale, so the sides sheet is scaled so its mean figure height equals the
+      front/back sheet's (one 3D model has one height in every orthographic view); the factor is printed.
+"""
+import argparse
+import sys
+from pathlib import Path
+
+import numpy as np
+from PIL import Image, ImageFilter
+
+
+def bg_colour(a):
+    c = np.concatenate([a[:40, :40].reshape(-1, 3), a[:40, -40:].reshape(-1, 3),
+                        a[-40:, :40].reshape(-1, 3), a[-40:, -40:].reshape(-1, 3)])
+    return np.median(c, axis=0)
+
+
+def fg_mask(a, bg, thr):
+    return np.abs(a.astype(np.int16) - bg).max(axis=2) > thr
+
+
+def figures(path, thr):
+    """Return (image, bg colour, [(crop, bbox), (crop, bbox)]) for the two figures of a sheet."""
+    img = Image.open(path).convert('RGB')
+    a = np.asarray(img)
+    bg = bg_colour(a)
+    m = fg_mask(a, bg, thr)
+    cols = m.sum(axis=0)
+    w = a.shape[1]
+    lo, hi = int(w * 0.35), int(w * 0.65)
+    mid = cols[lo:hi]
+    zero = np.where(mid <= mid.min() + 2)[0]
+    cut = lo + int(zero[0] + zero[-1]) // 2  # middle of the empty gap between the two figures
+    out = []
+    for x0, x1 in ((0, cut), (cut, w)):
+        sub = m[:, x0:x1]
+        ys = np.where(sub.sum(axis=1) > 3)[0]
+        xs = np.where(sub.sum(axis=0) > 3)[0]
+        box = (x0 + int(xs[0]), int(ys[0]), x0 + int(xs[-1]) + 1, int(ys[-1]) + 1)
+        out.append((img.crop(box), box))
+    return img, tuple(int(v) for v in bg), out
+
+
+def cmd_measure(args):
+    img, bg, figs = figures(args.sheet, args.thr)
+    W, H = img.size
+    print(f'{args.sheet}  image {W}x{H}  bg {bg}')
+    for name, (crop, (x0, y0, x1, y1)) in zip(('left', 'right'), figs):
+        print(f'  {name:5s} bbox=({x0},{y0},{x1},{y1}) height={y1 - y0}px ({100 * (y1 - y0) / H:.1f}% of image) '
+              f'width={x1 - x0}px  edge margins: left {x0} right {W - x1} top {y0} bottom {H - y1}')
+        if min(x0, W - x1, y0, H - y1) < 12:
+            print(f'  WARNING {name}: figure is within 12 px of the image edge (cropped or too tight)')
+
+
+def cmd_split(args):
+    d = Path(args.asset_dir)
+    sheets = {}
+    for sheet, names in (('tpose_front_back.png', ('front', 'back')), ('tpose_sides.png', ('left', 'right'))):
+        _, bg, pair = figures(d / sheet, args.thr)
+        hs = [c.size[1] for c, _ in pair]
+        for n, (crop, box) in zip(names, pair):
+            sheets[n] = [crop, bg, sum(hs) / len(hs)]
+            print(f'{sheet}: {n} bbox {box} size {crop.size}')
+    ref_h = sheets['front'][2]
+    for n, (crop, bg, h) in sheets.items():
+        f = ref_h / h
+        if abs(f - 1) > 1e-6:
+            crop = crop.resize((round(crop.size[0] * f), round(crop.size[1] * f)), Image.LANCZOS)
+            print(f'{n}: sheet scaled by {f:.3f} to match the front/back sheet height')
+        sheets[n][0] = crop
+    side = args.canvas
+    wmax = max(v[0].size[0] for v in sheets.values())
+    hmax = max(v[0].size[1] for v in sheets.values())
+    k = min(1.0, side * (1 - 2 * args.margin) / max(wmax, hmax))
+    if k < 1.0:
+        print(f'figures do not fit the {side}px canvas with {args.margin:.0%} margin: scaling all views by {k:.3f}')
+    (d / 'views').mkdir(exist_ok=True)
+    floor = int(side * (1 - args.margin))
+    tiles = []
+    for n in ('front', 'back', 'left', 'right'):
+        crop, bg, _ = sheets[n]
+        if k < 1.0:
+            crop = crop.resize((round(crop.size[0] * k), round(crop.size[1] * k)), Image.LANCZOS)
+        canvas = Image.new('RGB', (side, side), bg)
+        # Flatten the background: the generator's grey is not uniform (shading, shadow), which shows as a
+        # rectangular seam around the pasted crop. Keep only the figure (dilated, feathered mask) on the flat colour.
+        flat = Image.new('RGB', crop.size, bg)
+        fig = Image.fromarray((fg_mask(np.asarray(crop), np.array(bg), args.thr // 2) * 255).astype('uint8'))
+        fig = fig.filter(ImageFilter.MaxFilter(7)).filter(ImageFilter.GaussianBlur(1.5))
+        crop = Image.composite(crop, flat, fig)
+        canvas.paste(crop, ((side - crop.size[0]) // 2, floor - crop.size[1]))
+        canvas.save(d / 'views' / f'{n}.png')
+        tiles.append(canvas.resize((side // 2, side // 2), Image.LANCZOS))
+    contact = Image.new('RGB', (side * 2, side // 2))
+    for i, t in enumerate(tiles):
+        contact.paste(t, (i * side // 2, 0))
+    contact.save(d / 'views' / '_contact.png')
+    print('wrote', d / 'views' / '{front,back,left,right}.png', f'canvas {side}x{side}, soles on row {floor}')
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    sub = ap.add_subparsers(dest='cmd', required=True)
+    m = sub.add_parser('measure')
+    m.add_argument('sheet')
+    m.add_argument('--thr', type=int, default=40)
+    m.set_defaults(fn=cmd_measure)
+    s = sub.add_parser('split')
+    s.add_argument('asset_dir')
+    s.add_argument('--canvas', type=int, default=1024)
+    s.add_argument('--margin', type=float, default=0.07)
+    s.add_argument('--thr', type=int, default=40)
+    s.set_defaults(fn=cmd_split)
+    args = ap.parse_args()
+    args.fn(args)
+
+
+if __name__ == '__main__':
+    sys.exit(main())
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command '$d = Get-Content -Raw -Encoding UTF8 -LiteralPath '"'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\design.txt'; "'$t = Get-Content -Raw -Encoding UTF8 -LiteralPath '"'E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\templates\\sides.prompt.md'; "'$sections = [regex]::Match($d, '"'(?s)DESIGN: (.*?)\\r?\\nASYMMETRY: (.*?)\\r?\\nREMOVE: (.*)'); "'$t.Replace('"'{{DESIGN}}',"'$sections.Groups[1].Value).Replace('"'{{ASYMMETRY}}',"'$sections.Groups[2].Value).Replace('"'{{REMOVE}}',"'$sections.Groups[3].Value)' in E:\Diablo2
+ succeeded in 76ms:
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached in this order): (1) the concept image of the creature: identity reference for the design and for what the side profile looks like (head, hat/horns, parts worn on the back, legs). (2) tpose_front_back.png: the APPROVED front/back turnaround of the same creature in the target STRICT T-POSE: identity reference for the pose, body proportions, materials and colours. Keep exactly the same design and the same pose. Do not redesign. Do not copy the lineup layout, the H silhouette or any text.
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric's Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left = the creature's LEFT side toward the camera, facing screen-left (true orthographic side profile, exactly 90 degrees from the front view); right = the creature's RIGHT side toward the camera, facing screen-right (the TRUE opposite side, not a mirrored copy of the left view).
+POSE = the SAME STRICT T-POSE as in the approved front/back image, seen from the side: torso nearly upright (only a very slight forward lean, not hunched, not crouched), both feet flat on the floor side by side. SAME BODY PROPORTIONS AS THE APPROVED IMAGE (critical): same leg length relative to the body, same head and hat size, same size of everything worn on the back; do NOT lengthen the legs or stretch the body. The total height from the soles to the highest point is about {{FIG_PCT}} percent of the image height (the same figure size as in the approved image). Both arms are stretched fully straight out to the sides at shoulder height, so in a true side view they point straight toward the camera and straight away from it: the near arm appears foreshortened pointing at the viewer, its open hand with fingers spread and palm down close to the camera at shoulder height, and the far arm is hidden behind the body. The arms must NOT hang down, must NOT bend forward or backward, and must NOT be drawn along the body. Head level, looking forward (screen-left in the left view, screen-right in the right view).
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle: a pure 90 degree side profile, torso and legs seen exactly from the side.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept's side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric's Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman's own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC'S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+
+
+codex
+The front/back sheet is generating. I’ve prepared the side-view prompt; its figure height will be set from the first sheet’s measurements.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Copy-Item -LiteralPath 'E:\\map01-batch\\home\\generated_images\\01a158dc-7958-7e51-8a61-32516c434b18\\exec-e269e818-3533-4f41-88ea-78a2de882bc2.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_front_back.png'; python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py measure E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_front_back.png" in E:\Diablo2
+ succeeded in 466ms:
+E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\tpose_front_back.png  image 1536x1024  bg (108, 108, 107)
+  left  bbox=(35,93,771,917) height=824px (80.5% of image) width=736px  edge margins: left 35 right 765 top 93 bottom 107
+  right bbox=(783,93,1498,913) height=820px (80.1% of image) width=715px  edge margins: left 783 right 38 top 93 bottom 111
+
+codex
+The first sheet has the correct front/back order and prop placement, with no edge warnings. It shows only eight cord knots instead of ten, and the arms slope slightly, so I’ll use the allowed retry to correct those details and increase the spacing.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "New-Item -ItemType Directory -Force -Path 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_rejected' | Out-Null; Copy-Item -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_front_back.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_rejected\\tpose_front_back_attempt1.png'" in E:\Diablo2
+ succeeded in 48ms:
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Set-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_tasks\\front_back_prompt.txt' -Value 'Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept''s pose. 
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric''s Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept''s body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept''s side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric''s Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman''s own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC''S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.'" in E:\Diablo2
+ succeeded in 103ms:
+2026-10-20T10:34:42.030899Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+codex
+The front/back retry is still generating. The first attempt is preserved in `_rejected`, and the generation prompts are being saved for traceability.
+
+codex
+The image tool is still processing the retry. Once it returns, I’ll inspect it, measure the accepted sheet, and generate the side views at that scale.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Copy-Item -LiteralPath 'E:\\map01-batch\\home\\generated_images\\01a158dc-7958-7e51-8a61-32516c434b18\\exec-03bfdc68-52e2-4464-9098-f0172c012b0c.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_front_back.png'; python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py measure E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_front_back.png" in E:\Diablo2
+ succeeded in 518ms:
+E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\tpose_front_back.png  image 1536x1024  bg (112, 113, 113)
+  left  bbox=(33,92,769,916) height=824px (80.5% of image) width=736px  edge margins: left 33 right 767 top 92 bottom 108
+  right bbox=(776,92,1500,914) height=822px (80.3% of image) width=724px  edge margins: left 776 right 36 top 92 bottom 110
+
+codex
+The retry now has ten knots and preserves the correct asymmetry. I’ll keep it as the better attempt, while noting the remaining slight arm slope and tight hand spacing. The figures measure 824 and 822 pixels tall; the side sheet will target their 80.4% average height.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Set-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_tasks\\front_back_retry_prompt.txt' -Value 'The previous attempt had only EIGHT cord knots instead of TEN, slightly sloping arms, tight spacing between hands, excessive small stitching/studs, and nonuniform grey. Fix these: EXACTLY TEN clearly countable round knots, straight horizontal shoulder-height arms, flat grey, clean surfaces. Reduce figures to about 65 percent image height with generous separation and 5 percent outer margins. Reference 2 is the earlier attempt: design only; its pose is wrong, ignore its pose.
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept''s pose. 
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric''s Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept''s body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept''s side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric''s Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman''s own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC''S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.'" in E:\Diablo2
+ succeeded in 105ms:
+codex
+The side sheet is generating from the concept and accepted front/back sheet. I’ll check that it shows two true opposite profiles, with the near hands foreshortened at shoulder height and the hip props on their correct sides.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Copy-Item -LiteralPath 'E:\\map01-batch\\home\\generated_images\\01a158dc-7958-7e51-8a61-32516c434b18\\exec-a6698553-d221-4f98-8c37-786c40006c78.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_sides.png'; python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py measure E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_sides.png; Copy-Item -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_sides.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_rejected\\tpose_sides_attempt1.png'" in E:\Diablo2
+ succeeded in 485ms:
+E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\tpose_sides.png  image 1536x1024  bg (109, 112, 116)
+  left  bbox=(327,78,638,916) height=838px (81.8% of image) width=311px  edge margins: left 327 right 898 top 78 bottom 108
+  right bbox=(893,78,1207,915) height=837px (81.7% of image) width=314px  edge margins: left 893 right 329 top 78 bottom 109
+
+codex
+The side views have the correct facing directions and foreshortened arms. Their average height is only 1.8% larger than the front/back sheet, but the right view shows nine knots and the left exposes too much of the cord. I’ll use the side sheet’s one allowed retry.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Set-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_tasks\\sides_prompt.txt' -Value 'Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached in this order): (1) the concept image of the creature: identity reference for the design and for what the side profile looks like (head, hat/horns, parts worn on the back, legs). (2) tpose_front_back.png: the APPROVED front/back turnaround of the same creature in the target STRICT T-POSE: identity reference for the pose, body proportions, materials and colours. Keep exactly the same design and the same pose. Do not redesign. Do not copy the lineup layout, the H silhouette or any text.
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric''s Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left = the creature''s LEFT side toward the camera, facing screen-left (true orthographic side profile, exactly 90 degrees from the front view); right = the creature''s RIGHT side toward the camera, facing screen-right (the TRUE opposite side, not a mirrored copy of the left view).
+POSE = the SAME STRICT T-POSE as in the approved front/back image, seen from the side: torso nearly upright (only a very slight forward lean, not hunched, not crouched), both feet flat on the floor side by side. SAME BODY PROPORTIONS AS THE APPROVED IMAGE (critical): same leg length relative to the body, same head and hat size, same size of everything worn on the back; do NOT lengthen the legs or stretch the body. The total height from the soles to the highest point is about 80.4 percent of the image height (the same figure size as in the approved image). Both arms are stretched fully straight out to the sides at shoulder height, so in a true side view they point straight toward the camera and straight away from it: the near arm appears foreshortened pointing at the viewer, its open hand with fingers spread and palm down close to the camera at shoulder height, and the far arm is hidden behind the body. The arms must NOT hang down, must NOT bend forward or backward, and must NOT be drawn along the body. Head level, looking forward (screen-left in the left view, screen-right in the right view).
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle: a pure 90 degree side profile, torso and legs seen exactly from the side.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept''s body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept''s side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric''s Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman''s own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC''S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.'" in E:\Diablo2
+ succeeded in 78ms:
+codex
+The side retry is still processing. After inspection, I’ll run the supplied splitter, check the four-view contact sheet, and record any remaining deviations in `tpose.log`.
+
+codex
+The image tool has not returned the final retry yet. Both original attempts are safely preserved; the four-view split is the remaining step once generation finishes.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Copy-Item -LiteralPath 'E:\\map01-batch\\home\\generated_images\\01a158dc-7958-7e51-8a61-32516c434b18\\exec-c1fdc131-476c-4001-b1f1-67e41f5a49b6.png' -Destination 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_sides.png'; python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py measure E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose_sides.png; python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py split E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA" in E:\Diablo2
+ succeeded in 1673ms:
+E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\tpose_sides.png  image 1536x1024  bg (110, 111, 110)
+  left  bbox=(350,78,602,916) height=838px (81.8% of image) width=252px  edge margins: left 350 right 934 top 78 bottom 108
+  right bbox=(914,78,1183,915) height=837px (81.7% of image) width=269px  edge margins: left 914 right 353 top 78 bottom 109
+tpose_front_back.png: front bbox (33, 92, 769, 916) size (736, 824)
+tpose_front_back.png: back bbox (776, 92, 1500, 914) size (724, 822)
+tpose_sides.png: left bbox (350, 78, 602, 916) size (252, 838)
+tpose_sides.png: right bbox (914, 78, 1183, 915) size (269, 837)
+left: sheet scaled by 0.983 to match the front/back sheet height
+right: sheet scaled by 0.983 to match the front/back sheet height
+wrote E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA\views\{front,back,left,right}.png canvas 1024x1024, soles on row 952
+
+codex
+The four views are split and visually checked: correct order, no visible cropping, matching scale, and aligned feet. The side retry corrected the cord visibility and knot count. I’m recording the remaining slight arm slope, small cord-length difference, and extra surface detail in the log.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Set-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\_tasks\\sides_retry_prompt.txt' -Value 'The previous side attempt had NINE knots instead of TEN on the RIGHT view, and showed the far-side cord too prominently in the LEFT view. Fix these: EXACTLY TEN countable round knots on the right-hand figure along its screen-right front edge; on the left-hand figure hide the cord behind the body except at most a very thin cream sliver, no visible row of round knots. Maintain the good exact side profiles and foreshortened T-pose arms. Keep all proportions and body-worn props from the approved front/back. Match 823px figure height on 1024px canvas (80.4%); previous side average was 837.5px. Reference 3 is the rejected side attempt, only for identifying these errors. Flatten background to uniform neutral grey; remove fine stitching and studs.
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached in this order): (1) the concept image of the creature: identity reference for the design and for what the side profile looks like (head, hat/horns, parts worn on the back, legs). (2) tpose_front_back.png: the APPROVED front/back turnaround of the same creature in the target STRICT T-POSE: identity reference for the pose, body proportions, materials and colours. Keep exactly the same design and the same pose. Do not redesign. Do not copy the lineup layout, the H silhouette or any text.
+ASHLAR player hero FL Flagellant, direction A: an adult human woman, hero height, athletic medium build (not bulky, no visible muscle definition), upright confident posture, stylized heroic proportions with slightly broad shoulders and slightly large hands and boots, exactly like the concept. Plain neutral adult face, stern, open and fully visible. HEAD: a short smooth cream linen coif (#EFE6D2) fitted tight around the head and hiding all the hair, tied in ONE small compact knot at the back of the head with no long tails; this coif is the same single shape in every view (no hat, no veil, nothing on top). UPPER BODY: a deep crimson (#8E1F24) hood lying DOWN around the neck and on the upper back (never on the head); a short crimson shoulder cape (scapular) covering the shoulders and the upper arms like short wide sleeves; a high white linen collar at the throat, the cape closed by one small crimson knot; a dark brown leather jerkin over the chest and belly with two short vertical leather straps over the shoulders and one diagonal leather strap; long white linen sleeves wrapped like bandages on the forearms; black leather wrist cuffs (#141214). WAIST: a crimson cloth sash wrapped around the waist with a dark brown leather belt just below it. LOWER BODY: a long crimson habit from the waist to the ankles, split into wide front and back panels that flare out a little (thick solid cloth panels with clean edges); a plain dark brown leather apron hanging from the belt at the front centre down to the knees; a dark brown under-tunic seen in the splits; shins wrapped in white linen; dark brown leather ankle boots. WORN ITEMS (keep on the body): a lidded blackened-iron coal pot (#2B2B30) hanging close against the left hip, its lid closed, with a few ember-orange (#FF7A2A) slots painted on it (flat orange paint, no glow, no sparks); a thick cream knotted cord with ten big round knots hanging from the belt at the front right, straight down and resting flat on the front of the habit, touching the cloth along its whole length, down to the shin; a small dark brown leather pouch on the front of the right hip; Osric''s Lantern, a small closed dark-iron lantern, unlit with no flame, hanging close against the back of the right hip. Stylized hand-painted look like the concept: a few big clean colour blocks, minimal folds, smooth surfaces, low detail, no stitching, no studs, no embroidery, no frayed edges, no dirt. No glow anywhere, no rim light. Colours: deep crimson #8E1F24, white linen #EFE6D2, dark brown leather, blackened iron #2B2B30, black cuffs #141214, ember orange only as flat paint on the coal-pot slots.
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left = the creature''s LEFT side toward the camera, facing screen-left (true orthographic side profile, exactly 90 degrees from the front view); right = the creature''s RIGHT side toward the camera, facing screen-right (the TRUE opposite side, not a mirrored copy of the left view).
+POSE = the SAME STRICT T-POSE as in the approved front/back image, seen from the side: torso nearly upright (only a very slight forward lean, not hunched, not crouched), both feet flat on the floor side by side. SAME BODY PROPORTIONS AS THE APPROVED IMAGE (critical): same leg length relative to the body, same head and hat size, same size of everything worn on the back; do NOT lengthen the legs or stretch the body. The total height from the soles to the highest point is about 80.4 percent of the image height (the same figure size as in the approved image). Both arms are stretched fully straight out to the sides at shoulder height, so in a true side view they point straight toward the camera and straight away from it: the near arm appears foreshortened pointing at the viewer, its open hand with fingers spread and palm down close to the camera at shoulder height, and the far arm is hidden behind the body. The arms must NOT hang down, must NOT bend forward or backward, and must NOT be drawn along the body. Head level, looking forward (screen-left in the left view, screen-right in the right view).
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle: a pure 90 degree side profile, torso and legs seen exactly from the side.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept''s body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips).
+Light: soft even neutral light; no rim light, glow or bloom; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+the chain-flail held in the right hand (handle, chains and spiked balls) and the branding iron held in the left hand: hands empty and open. Also remove the two loose crimson sash tails that hang behind the hips in the concept''s side views (no hanging strips or ribbons), and every glow, flame or spark. Keep everything worn on the body: coif, hood, shoulder cape, collar, jerkin and straps, sash, belt, pouch, coal pot, ten-knot cord, Osric''s Lantern, apron, habit, linen wraps, cuffs, boots.
+ Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: All sides are the woman''s own left/right. COAL POT on her LEFT hip: FRONT view on screen-right at hip height; BACK view on screen-left; clearly visible on the hip in the LEFT view; hidden behind the body in the RIGHT view. TEN-KNOT CORD at her FRONT RIGHT: FRONT view on screen-left of the apron, hanging from the belt to the shin; hidden in the BACK view; in the RIGHT view it lies along the front edge of the habit (screen-right side of the figure); in the LEFT view at most a thin sliver at the front edge. LEATHER POUCH on the front of her RIGHT hip: FRONT view on screen-left at the belt, outside the cord. OSRIC''S LANTERN behind her RIGHT hip: BACK view on screen-right at hip height; RIGHT view at the back of the hip (screen-left side of the figure); hidden or a small sliver in the FRONT view. DIAGONAL LEATHER STRAP from her LEFT shoulder down to her RIGHT side of the waist: in the FRONT view it runs from the screen-right shoulder down to the screen-left of the waist. The coif knot is at the centre back of the head (visible in BACK, small at the back of the head in LEFT and RIGHT). LEFT shows her own left side facing screen-left; RIGHT shows her own right side facing screen-right.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.'" in E:\Diablo2
+ succeeded in 76ms:
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Set-Content -Encoding UTF8 -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\tpose.log' -Value 'T-pose generation report - FL_flagellant_vA
+Date: 2026-10-20
+Workflow: generate-tpose-for-tripo steps 1-5 in this session. Built-in image_gen only; one call per sheet attempt. No API, nested Codex, or drawing by code.
+Step 1: Read concept.png visually, design.txt and brief.md. Existing canonical design.txt preserved unchanged as required by the skill.
+Prompts: _tasks/front_back_prompt.txt, front_back_retry_prompt.txt, sides_prompt.txt, sides_retry_prompt.txt.
+Image generation session ID: 01a158dc-7958-7e51-8a61-32516c434b18
+Source directory: E:\\map01-batch\\home\\generated_images\\01a158dc-7958-7e51-8a61-32516c434b18\\
+Front/back attempt 1 source: exec-e269e818-3533-4f41-88ea-78a2de882bc2.png
+Rejected copy: _rejected/tpose_front_back_attempt1.png
+Front/back attempt 2 ACCEPTED source: exec-03bfdc68-52e2-4464-9098-f0172c012b0c.png
+Side attempt 1 source: exec-a6698553-d221-4f98-8c37-786c40006c78.png
+Rejected copy: _rejected/tpose_sides_attempt1.png
+Side attempt 2 ACCEPTED source: exec-c1fdc131-476c-4001-b1f1-67e41f5a49b6.png
+Accepted images copied to tpose_front_back.png and tpose_sides.png; all sources retained.
+
+QA sheet 1:
+Viewed both attempts and compared against concept/canonical design.
+True FRONT on left and BACK on right; complete figures, no hand-held weapons, upright posture, separated feet, level heads, open empty hands.
+Coif, lowered hood, crimson cape/habit, apron, linen wraps, boots and body-worn props retained.
+Coal pot at own left, pouch and ten-knot cord at front right, unlit lantern at back right, diagonal front strap correctly directed.
+Retry 1 reason: eight knots instead of ten; slightly sloping arms; tight hand spacing; small surface details; nonuniform grey.
+Retry corrected ten knots. Retained as best allowed attempt. STRICT QA is qualified, not a perfect pass: slight downward arm slope remains; hand gap only about 7px; generator did not shrink to requested figure height or 5% outer margin. No measure edge WARNING.
+Some fine leather seams/studs and small lantern suspension rings remain despite simplified-design instructions; coif knot has small ends. Background has subtle shading.
+No additional generation permitted by the two-attempt limit.
+
+QA sheet 2:
+Viewed both attempts.
+LEFT profile on left facing screen-left; RIGHT profile on right facing screen-right. Side heads/legs read as 90-degree profiles, near arms foreshortened toward camera with palms down, far arms hidden.
+Coal pot visible on LEFT and hidden on RIGHT; lantern behind RIGHT hip, pouch and cord in front of RIGHT hip.
+Retry 1 reason: nine knots on RIGHT and excessive far-side cord exposure on LEFT.
+Retry corrected ten visible knots on RIGHT and reduced LEFT cord to thin slivers.
+Remaining differences: cord lower end on RIGHT reaches somewhat lower than FRONT relative to boots; garment folds and small leather details vary; subtle background shading. No clear leg/head proportion stretching after normalization.
+
+Measurements (python -I supplied tpose_tools.py measure):
+All sheets 1536x1024.
+Front/back attempt 1: 824px, 820px.
+Accepted front: bbox (33,92,769,916), 736x824px, height 80.5%; outer margins L33 R767 T92 B108.
+Accepted back: bbox (776,92,1500,914), 724x822px, height 80.3%; outer margins L776 R36 T92 B110.
+Accepted front/back mean: 823px = 80.3711% image height. Side prompt FIG_PCT=80.4.
+Side attempt 1: 838px, 837px.
+Accepted left: bbox (350,78,602,916), 252x838px, height 81.8%; outer margins L350 R934 T78 B108.
+Accepted right: bbox (914,78,1183,915), 269x837px, height 81.7%; outer margins L914 R353 T78 B109.
+Accepted sides mean: 837.5px = 81.7871%; 1.7618% taller than front/back, within 12% tolerance.
+No edge WARNING for either accepted sheet.
+
+Split:
+Ran python -I E:\\Diablo2\\.agents\\skills\\generate-tpose-for-tripo\\scripts\\tpose_tools.py split E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA
+Whole-side-figure normalization factor: 823 / 837.5 = 0.982686567 (reported 0.983).
+No partial-body scaling; no additional global downscale needed.
+Outputs views/front.png, views/back.png, views/left.png, views/right.png are 1024x1024 with 7% target margin and common floor row 952.
+Normalized figure heights approximately 824, 822, 823, 822px; subpixel/rounding variation retained.
+Viewed views/_contact.png after splitting: correct FRONT BACK LEFT RIGHT order, matching scale and feet line, no visible clipping, empty hands, correct prop sides.
+Supplied splitter also flattens background around figure crops; slight foot shadows remain.
+Status: all requested artifacts produced; best attempts retained with explicit residual QA deviations above. No Tripo upload or credits used.
+'; Get-ChildItem -LiteralPath 'E:\\Diablo2\\art-output\\tripo-models\\heroes\\FL_flagellant_vA\\views' | Select-Object Name,Length" in E:\Diablo2
+ succeeded in 120ms:
+
+Name         Length
+----         ------
+back.png     277010
+front.png    329687
+left.png     207701
+right.png    238660
+_contact.png 314479
+
+
+
+codex
+Created and visually checked all four views:
+
+- [front.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/front.png)
+- [back.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/back.png)
+- [left.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/left.png)
+- [right.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/right.png)
+
+[Contact sheet](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/_contact.png) · [Full report](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/tpose.log)
+
+Existing canonical `design.txt` was preserved. Outputs are 1024×1024 with feet aligned at row 952. Sheet heights: front/back **824/822 px**, sides **838/837 px**; side rescale **0.982687×**.
+
+One retry per sheet corrected knot counts and cord visibility. Remaining deviations: slight arm slope, minor cord-length variation, and extra surface detail.
+
+Generation session: `01a158dc-7958-7e51-8a61-32516c434b18`. Exact source paths and retained rejected attempts are documented in `tpose.log`.
+tokens used
+74,585
+Created and visually checked all four views:
+
+- [front.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/front.png)
+- [back.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/back.png)
+- [left.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/left.png)
+- [right.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/right.png)
+
+[Contact sheet](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/_contact.png) · [Full report](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/tpose.log)
+
+Existing canonical `design.txt` was preserved. Outputs are 1024×1024 with feet aligned at row 952. Sheet heights: front/back **824/822 px**, sides **838/837 px**; side rescale **0.982687×**.
+
+One retry per sheet corrected knot counts and cord visibility. Remaining deviations: slight arm slope, minor cord-length variation, and extra surface detail.
+
+Generation session: `01a158dc-7958-7e51-8a61-32516c434b18`. Exact source paths and retained rejected attempts are documented in `tpose.log`.
+rc=0

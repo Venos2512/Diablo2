@@ -1,0 +1,55 @@
+﻿T-pose generation report - FL_flagellant_vA
+Date: 2026-10-20
+Workflow: generate-tpose-for-tripo steps 1-5 in this session. Built-in image_gen only; one call per sheet attempt. No API, nested Codex, or drawing by code.
+Step 1: Read concept.png visually, design.txt and brief.md. Existing canonical design.txt preserved unchanged as required by the skill.
+Prompts: _tasks/front_back_prompt.txt, front_back_retry_prompt.txt, sides_prompt.txt, sides_retry_prompt.txt.
+Image generation session ID: 01a158dc-7958-7e51-8a61-32516c434b18
+Source directory: E:\map01-batch\home\generated_images\01a158dc-7958-7e51-8a61-32516c434b18\
+Front/back attempt 1 source: exec-e269e818-3533-4f41-88ea-78a2de882bc2.png
+Rejected copy: _rejected/tpose_front_back_attempt1.png
+Front/back attempt 2 ACCEPTED source: exec-03bfdc68-52e2-4464-9098-f0172c012b0c.png
+Side attempt 1 source: exec-a6698553-d221-4f98-8c37-786c40006c78.png
+Rejected copy: _rejected/tpose_sides_attempt1.png
+Side attempt 2 ACCEPTED source: exec-c1fdc131-476c-4001-b1f1-67e41f5a49b6.png
+Accepted images copied to tpose_front_back.png and tpose_sides.png; all sources retained.
+
+QA sheet 1:
+Viewed both attempts and compared against concept/canonical design.
+True FRONT on left and BACK on right; complete figures, no hand-held weapons, upright posture, separated feet, level heads, open empty hands.
+Coif, lowered hood, crimson cape/habit, apron, linen wraps, boots and body-worn props retained.
+Coal pot at own left, pouch and ten-knot cord at front right, unlit lantern at back right, diagonal front strap correctly directed.
+Retry 1 reason: eight knots instead of ten; slightly sloping arms; tight hand spacing; small surface details; nonuniform grey.
+Retry corrected ten knots. Retained as best allowed attempt. STRICT QA is qualified, not a perfect pass: slight downward arm slope remains; hand gap only about 7px; generator did not shrink to requested figure height or 5% outer margin. No measure edge WARNING.
+Some fine leather seams/studs and small lantern suspension rings remain despite simplified-design instructions; coif knot has small ends. Background has subtle shading.
+No additional generation permitted by the two-attempt limit.
+
+QA sheet 2:
+Viewed both attempts.
+LEFT profile on left facing screen-left; RIGHT profile on right facing screen-right. Side heads/legs read as 90-degree profiles, near arms foreshortened toward camera with palms down, far arms hidden.
+Coal pot visible on LEFT and hidden on RIGHT; lantern behind RIGHT hip, pouch and cord in front of RIGHT hip.
+Retry 1 reason: nine knots on RIGHT and excessive far-side cord exposure on LEFT.
+Retry corrected ten visible knots on RIGHT and reduced LEFT cord to thin slivers.
+Remaining differences: cord lower end on RIGHT reaches somewhat lower than FRONT relative to boots; garment folds and small leather details vary; subtle background shading. No clear leg/head proportion stretching after normalization.
+
+Measurements (python -I supplied tpose_tools.py measure):
+All sheets 1536x1024.
+Front/back attempt 1: 824px, 820px.
+Accepted front: bbox (33,92,769,916), 736x824px, height 80.5%; outer margins L33 R767 T92 B108.
+Accepted back: bbox (776,92,1500,914), 724x822px, height 80.3%; outer margins L776 R36 T92 B110.
+Accepted front/back mean: 823px = 80.3711% image height. Side prompt FIG_PCT=80.4.
+Side attempt 1: 838px, 837px.
+Accepted left: bbox (350,78,602,916), 252x838px, height 81.8%; outer margins L350 R934 T78 B108.
+Accepted right: bbox (914,78,1183,915), 269x837px, height 81.7%; outer margins L914 R353 T78 B109.
+Accepted sides mean: 837.5px = 81.7871%; 1.7618% taller than front/back, within 12% tolerance.
+No edge WARNING for either accepted sheet.
+
+Split:
+Ran python -I E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\tpose_tools.py split E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA
+Whole-side-figure normalization factor: 823 / 837.5 = 0.982686567 (reported 0.983).
+No partial-body scaling; no additional global downscale needed.
+Outputs views/front.png, views/back.png, views/left.png, views/right.png are 1024x1024 with 7% target margin and common floor row 952.
+Normalized figure heights approximately 824, 822, 823, 822px; subpixel/rounding variation retained.
+Viewed views/_contact.png after splitting: correct FRONT BACK LEFT RIGHT order, matching scale and feet line, no visible clipping, empty hands, correct prop sides.
+Supplied splitter also flattens background around figure crops; slight foot shadows remain.
+Status: all requested artifacts produced; best attempts retained with explicit residual QA deviations above. No Tripo upload or credits used.
+

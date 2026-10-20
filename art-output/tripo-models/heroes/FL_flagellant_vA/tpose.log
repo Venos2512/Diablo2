@@ -1,0 +1,57 @@
+FL_flagellant_vA T-pose report
+Date: 2026-10-20
+Workflow: generate-tpose-for-tripo steps 1-5, built-in image_gen only.
+Status: outputs complete; QA qualified, remaining deviations below. Not an unconditional fidelity PASS.
+
+Step 1:
+Read skill, project Agent.md, tripo-models/Agent.md, existing design.txt and brief.md.
+Viewed concept.png. Existing canon design.txt preserved unchanged as required by skill.
+
+Generation provenance:
+Codex generated-image session: 01a158fc-806a-7e62-9757-ff6f88ee8ebf
+Source directory: E:\map01-batch\home\generated_images\01a158fc-806a-7e62-9757-ff6f88ee8ebf
+Sheet 1 attempt 1: exec-badce133-42f6-4a39-b9fb-cbaea0651312.png
+Sheet 1 accepted attempt 2: exec-d08a0155-48d4-480f-a7ba-0ca99248390a.png
+Sheet 2 attempt 1: exec-59099a8b-7c59-4de0-8496-c2792c9c16d0.png
+Sheet 2 accepted attempt 2: exec-72869340-94de-4394-8248-288cb2c08d3f.png
+Original generated files retained. Rejected attempts copied to _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png.
+Full filled prompts saved under _tasks/front_back_attempt1.prompt.txt, front_back_attempt2.prompt.txt, sides_attempt1.prompt.txt, sides_attempt2.prompt.txt.
+Four successful image_gen calls, one initial and one retry per sheet; no API fallback and no nested Codex session.
+
+Sheet 1 QA:
+Attempt 1 rejected: inner hands touch/overlap, insufficient separation for splitting, eight rather than ten cord knots.
+Measured attempt 1 heights: 816 and 813 px, image 1536x1024.
+Attempt 2 visually inspected: front left, true back right, upright torso, horizontal extended arms, empty hands, no cropping, both figures separate. Coal pot and lantern correctly change screen sides; ten knots visible in front. Strong broad crimson shadow planes retained under cape/hood and within robe folds.
+Accepted measurements: image 1536x1024.
+Front bbox (66,190,759,880), height 690 px, width 693 px.
+Back bbox (804,190,1470,880), height 690 px, width 666 px.
+Both heights 67.4 percent; mean 690 px. No edge WARNING.
+
+Sheet 2 QA:
+Attempt 1 rejected: heights 859/859 px (83.9 percent), 24.49 percent larger than sheet 1; nine right-view knots; excessive cord exposed in left profile.
+Retry asked for 690 px figure height, ten right-view knots and only a sliver of cord on left.
+Accepted attempt 2 visually inspected: left profile facing screen-left, right profile facing screen-right; near arms foreshortened toward camera, far arms concealed; upright body; correct coal-pot/lantern sides; no weapons. Cloth has broad dark recesses and light ridges.
+Accepted measurements: image 1536x1024.
+Left bbox (330,80,612,926), height 846 px (82.6 percent), width 282 px.
+Right bbox (909,79,1208,927), height 848 px (82.8 percent), width 299 px.
+Mean 847 px, 22.75 percent larger than front/back. No edge WARNING.
+Retry limit reached; retained better second attempt per skill.
+
+Split:
+Ran python -I E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\tpose_tools.py split E:\Diablo2\art-output\tripo-models\heroes\FL_flagellant_vA
+Whole sides sheet normalization factor: 690/847 = 0.8146399055 (script prints 0.815).
+No per-body-part scaling or drawing performed.
+views/front.png, views/back.png, views/left.png, views/right.png: 1024x1024 each.
+Normalized figure heights approximately 690, 690, 689, 691 px.
+Common floor placement row 952; requested margin 7 percent.
+Viewed views/_contact.png: front/back/left/right order correct; all figures complete, same overall height to rounding tolerance, feet aligned, no cut fingers or boots.
+
+Remaining deviations:
+- Right profile still shows nine round cord knots instead of the canon ten; front has ten. This is a fidelity failure, explicitly retained after the single permitted retry.
+- Source side figures remain 22.75 percent too large; corrected by whole-sheet scaling during split.
+- Small differences in fold layout, apron/pouch detail and silhouette remain between independently generated views; front/back arm spans differ (693 vs 666 px).
+- Side foreshortened hands are slightly lower relative to the top of the shoulder than ideal strict orthographic T-pose; broadly extended toward camera, but exact joint angles cannot be verified from the images.
+- Generated grey backgrounds are subtly shaded, not perfectly flat; provided split script normalizes the background. Faint foot contact shadows remain.
+- Painted orange coal-pot slots have bright highlights but no visible bloom or sparks.
+
+No Tripo generation requested or performed.

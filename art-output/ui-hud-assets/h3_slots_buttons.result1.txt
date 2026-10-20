@@ -1,0 +1,7 @@
+Saved both 1672 × 941 PNGs using built-in image_gen:
+
+- [Original sheet](E:/Diablo2/art-output/ui-hud-assets/h3_slots_buttons.png)
+- [Corrective version](E:/Diablo2/art-output/ui-hud-assets/h3_slots_buttons_v2.png)
+- [Sources, element list and QA](E:/Diablo2/art-output/ui-hud-assets/h3_slots_buttons.md)
+
+Both contain 19 isolated elements. Neither fully passes: green varies from #00FF00, and some gaps are under 40 px. Both attempts are preserved.

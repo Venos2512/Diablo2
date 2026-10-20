@@ -1,0 +1,24 @@
+FL_flagellant_vA Tripo log
+2026-10-20 17:2x  concept = ashlar/art/heroes/FL_flagellant/vA/concept_v3.png; brief.md + design.txt written by the orchestrator
+2026-10-20 17:30-17:43  T-pose skill (run_session.sh, codex session 01a158dc-7958-7e51-8a61-32516c434b18): 2 attempts per sheet, views/ 1024x1024, heights 822-824 px, side rescale 0.983
+  Tripo tab (CDP_TARGET): 641664AF1BE412E43F2BE9D75C8F5C75 (_tasks/cdp_target.txt); logged in; credits before: 8645
+  Waiting for the user's T-pose approval before Generate (100 credits).
+2026-10-20 17:5x  user: "mất khối sáng tối vải rồi" -> run 1 moved to _v1_flatlight/ (flat even light); skill templates + design.txt now ask for the concept's painted form shading (top light, same in every view)
+2026-10-20 18:05-18:13  T-pose run 2 (codex session 01a158fc-806a-7e62-9757-ff6f88ee8ebf): 2 attempts per sheet, views 689-691 px, side rescale 0.815; RIGHT view shows 9/10 knots
+  cloth shadow area (L* < 18) front/back/left/right: concept 34/25/34/31 %, run 1 24/13/18/20 %, run 2 31/22/27/27 % (_shots/shading_compare.png)
+  Waiting for the user's T-pose approval before Generate (100 credits).
+[18:38:13] multi-view slots filled from /e/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views (Generate 100), credits 8645
+[18:40:04] Generate 100 pressed (credits 8645 -> 8545), page /workspace/generate/41e3cded-be8d-44c8-afaf-b1850d6f1d19
+[18:43:05] 4 variants (index uuid faces) in _shots/variants.txt; composite _shots/variants.png (variant capture done by a throwaway copy with the thumbnail filter x>1100, y>120: the script's x>1300 matches nothing at 1384 px)
+  PICKED v0: https://studio.tripo3d.ai/workspace/generate/41e3cded-be8d-44c8-afaf-b1850d6f1d19 (5974 faces; front split + knee-length apron closest to concept; v1 6218 closed robe front, v2 5849, v3 6065 back split but angular cape). Side/back check: _shots/variants_side_back.png
+[18:53:14] FL_flagellant_vA: smart uv saved (credits 8545 -> 8525)
+[18:53:31] FL_flagellant_vA: texture 4K done (credits 8525 -> 8525)
+[18:53:59] FL_flagellant_vA: pbr done (credits 8525 -> 8525)
+[18:54:07] FL_flagellant_vA: exported /e/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/FL_flagellant_vA.glb (336 KB)
+[19:07:37] FL_flagellant_vA: texture 4K via the texture page's multi-view slots (front/left/right/back uploaded by hand; the page had no reference image, so the script's click did nothing): {"started":true,"secs":52,"c0":"8525","c1":"8505","url":"/workspace/texture/41e3cded-be8d-44c8-afaf-b1850d6f1d19"}
+[19:10:01] FL_flagellant_vA: pbr done (credits 8505 -> 8500)
+[19:10:15] FL_flagellant_vA: exported /e/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/FL_flagellant_vA.glb (20236 KB)
+  (18:5x first finish run: Smart UV 20 credits OK; texture page had an EMPTY reference image after goto, so "Generate Texture 20" did nothing (no credit) and PBR/export ran on an untextured mesh: 0.3 MB GLB, deleted)
+  GLB check: FL_flagellant_vA.glb 20.7 MB, 1 mesh, 10488 tris, 6755 verts, baseColor JPEG + metallicRoughness PNG + normal JPEG, all 4096x4096; bounds x +-0.50, y 0..1.00, z +-0.19 (unit height)
+  Total: 145 credits (8645 -> 8500: Generate 100, Smart UV 20, Texture 20, PBR 5). Final views: _shots/final_views.png (tripo_views.sh)
+  Remaining: fingers fused into one paddle per hand; RIGHT source view had 9/10 knots; weapons (chain-flail, branding iron) not built.

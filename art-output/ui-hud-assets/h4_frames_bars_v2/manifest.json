@@ -1,0 +1,61 @@
+{
+ "sheet": "h4_frames_bars_v2.png",
+ "sprites": [
+  {
+   "name": "party_frame",
+   "x": 30,
+   "y": 16,
+   "w": 619,
+   "h": 261
+  },
+  {
+   "name": "nameplate",
+   "x": 690,
+   "y": 84,
+   "w": 953,
+   "h": 131
+  },
+  {
+   "name": "fill_life",
+   "x": 38,
+   "y": 300,
+   "w": 367,
+   "h": 62
+  },
+  {
+   "name": "fill_mana",
+   "x": 448,
+   "y": 300,
+   "w": 367,
+   "h": 62
+  },
+  {
+   "name": "fill_champion",
+   "x": 857,
+   "y": 299,
+   "w": 366,
+   "h": 63
+  },
+  {
+   "name": "fill_shield",
+   "x": 1267,
+   "y": 299,
+   "w": 367,
+   "h": 63
+  },
+  {
+   "name": "minimap_round",
+   "x": 279,
+   "y": 394,
+   "w": 466,
+   "h": 479
+  },
+  {
+   "name": "minimap_square",
+   "x": 854,
+   "y": 402,
+   "w": 500,
+   "h": 471
+  }
+ ]
+}

@@ -1,0 +1,147 @@
+[08:50:43] asset_08_rock_sheet: uploaded (12000 faces)
+"mesh 24s"
+"uv 6s /workspace/smart-uv/c065d45d-944a-4940-97ed-dbc45b840273"
+"texture 30s"
+"export GLB"
+[08:53:25] asset_08_rock_sheet: saved /e/Diablo2/art-output/tripo-models/nature/asset_08_rock_sheet.glb (3816 KB)
+credits after asset_08_rock_sheet: "9775"
+file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40
+	if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 800));
+	                                      ^
+
+Error: {"exceptionId":10,"text":"Uncaught (in promise) Error: polycount is 5000","lineNumber":0,"columnNumber":0,"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: polycount is 5000\n    at <anonymous>:32:31","objectId":"-5306172890497544593.90.1"}}
+    at evaluate (file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40:40)
+    at async file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:46:58
+
+Node.js v22.17.1
+[08:53:46] asset_10_buried_corpse_sheet: FAILED
+credits after asset_10_buried_corpse_sheet: "9775"
+file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40
+	if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 800));
+	                                      ^
+
+Error: {"exceptionId":11,"text":"Uncaught (in promise) Error: button not found: /^Smart Mesh$/","lineNumber":0,"columnNumber":0,"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: button not found: /^Smart Mesh$/\n    at clickButton (<anonymous>:10:16)\n    at <anonymous>:30:33","objectId":"-5306172890497544593.97.1"}}
+    at evaluate (file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40:40)
+    at async file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:46:58
+
+Node.js v22.17.1
+[08:53:55] asset_09_mossy_rock_sheet: FAILED
+credits after asset_09_mossy_rock_sheet: "9775"
+[08:54:09] asset_11_dead_tree_sheet: uploaded (20000 faces)
+file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40
+	if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 800));
+	                                      ^
+
+Error: {"exceptionId":12,"text":"Uncaught (in promise) Error: timeout","lineNumber":0,"columnNumber":0,"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: timeout\n    at waitUntil (<anonymous>:27:8)\n    at async <anonymous>:31:13","objectId":"-5306172890497544593.99.1"}}
+    at evaluate (file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40:40)
+    at async file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:46:58
+
+Node.js v22.17.1
+[09:09:52] asset_11_dead_tree_sheet: FAILED
+credits after asset_11_dead_tree_sheet: "9675"
+[09:10:07] asset_12_burned_tree_sheet: uploaded (16000 faces)
+"mesh 73s"
+undefined
+undefined
+file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40
+	if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 800));
+	                                      ^
+
+Error: {"exceptionId":13,"text":"Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'click')","lineNumber":0,"columnNumber":0,"exception":{"type":"object","subtype":"error","className":"TypeError","description":"TypeError: Cannot read properties of undefined (reading 'click')\n    at <anonymous>:34:125\n    at <anonymous>:46:3","objectId":"-5306172890497544593.134.1"}}
+    at evaluate (file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40:40)
+    at async file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:46:58
+
+Node.js v22.17.1
+[09:12:48] asset_12_burned_tree_sheet: FAILED
+credits after asset_12_burned_tree_sheet: "9555"
+faces 5000
+---- batch2 09:23:13
+"opened /workspace/generate/gnarled-dead-tree-with-exposed-roots-and-rocky-ground-in-earthy-tones-c766d8f0-09b5-4faf-8ba1-c9d0a9909d02"
+file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40
+	if (r.result?.exceptionDetails) throw new Error(JSON.stringify(r.result.exceptionDetails).slice(0, 800));
+	                                      ^
+
+Error: {"exceptionId":14,"text":"Uncaught (in promise) Error: button not found: /^Unwrap UV/","lineNumber":0,"columnNumber":0,"exception":{"type":"object","subtype":"error","className":"Error","description":"Error: button not found: /^Unwrap UV/\n    at clickButton (<anonymous>:13:16)\n    at async <anonymous>:35:3","objectId":"-5306172890497544593.158.1"}}
+    at evaluate (file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:40:40)
+    at async file:///E:/Diablo2/art-output/tripo-models/nature/_tools/cdp.mjs:46:58
+
+Node.js v22.17.1
+[09:24:34] asset_12_burned_tree_sheet: FAILED
+credits after asset_12_burned_tree_sheet: "9555"
+"opened /workspace/generate/gnarled-dead-tree-with-exposed-roots-moss-and-weathered-bark-in-a-na-c93dbf3b-c25c-4627-8ca3-8768936d79c5"
+"uv 15s /workspace/smart-uv/gnarled-dead-tree-with-exposed-roots-moss-and-weathered-bark-in-a-na-c93dbf3b-c25c-4627-8ca3-8768936d79c5"
+[09:25:32] asset_11_dead_tree_sheet: uv saved
+"texture 21s"
+[09:26:20] asset_11_dead_tree_sheet: textured
+"export GLB"
+[09:26:29] asset_11_dead_tree_sheet: saved /e/Diablo2/art-output/tripo-models/nature/asset_11_dead_tree_sheet.glb (4960 KB)
+credits after asset_11_dead_tree_sheet: "9515"
+[09:26:44] asset_10_buried_corpse_sheet: uploaded (15000 faces)
+"mesh 36s"
+[09:28:15] asset_10_buried_corpse_sheet: mesh 17163 faces
+"uv 12s /workspace/smart-uv/c9ba4d3e-5de0-437e-916a-e5b96df0ee6a"
+[09:28:45] asset_10_buried_corpse_sheet: uv saved
+"texture 15s"
+[09:29:27] asset_10_buried_corpse_sheet: textured
+"export GLB"
+[09:29:42] asset_10_buried_corpse_sheet: saved /e/Diablo2/art-output/tripo-models/nature/asset_10_buried_corpse_sheet.glb (3332 KB)
+credits after asset_10_buried_corpse_sheet: "9375"
+[09:29:58] asset_09_mossy_rock_sheet: uploaded (12000 faces)
+"mesh 24s"
+[09:31:05] asset_09_mossy_rock_sheet: mesh 13525 faces
+"uv 24s /workspace/smart-uv/1cf8918d-6577-465c-abc6-b0af9f60af31"
+[09:31:43] asset_09_mossy_rock_sheet: uv saved
+"texture 27s"
+[09:32:37] asset_09_mossy_rock_sheet: textured
+"export GLB"
+[09:32:47] asset_09_mossy_rock_sheet: saved /e/Diablo2/art-output/tripo-models/nature/asset_09_mossy_rock_sheet.glb (5084 KB)
+credits after asset_09_mossy_rock_sheet: "9235"
+[09:32:48] batch2 done
+faces 5000
+"uv 0s /workspace/smart-uv/gnarled-dead-tree-with-exposed-roots-and-rocky-ground-in-earthy-tones-c766d8f0-09b5-4faf-8ba1-c9d0a9909d02"
+[09:46:49] asset_12_burned_tree_sheet: uv saved
+"texture 18s"
+[09:47:35] asset_12_burned_tree_sheet: textured
+"export GLB"
+[09:47:45] asset_12_burned_tree_sheet: saved /e/Diablo2/art-output/tripo-models/nature/asset_12_burned_tree_sheet.glb (4892 KB)
+---- batch3 09:56:04
+[09:56:18] asset_10b_buried_corpse_row: uploaded (12000 faces)
+"mesh 21s"
+[09:57:06] asset_10b_buried_corpse_row: mesh 13692 faces
+"uv 11s /workspace/smart-uv/336af563-c553-4a69-9179-15097ed6c6e3"
+[09:57:35] asset_10b_buried_corpse_row: uv saved
+"texture 71s"
+[10:00:07] asset_10b_buried_corpse_row: textured
+"export GLB"
+[10:00:19] asset_10b_buried_corpse_row: saved /e/Diablo2/art-output/tripo-models/nature/asset_10b_buried_corpse_row.glb (4656 KB)
+credits after asset_10b_buried_corpse_row: "9075"
+try 1: polycount is 5000
+try 2: polycount is 5000
+try 3: polycount is 5000
+polycount stuck at 5000
+[10:01:04] asset_11b_dead_tree_row: FAILED
+credits after asset_11b_dead_tree_row: "9075"
+[10:01:23] asset_11c_fallen_wood_row: uploaded (12000 faces)
+"mesh 21s"
+[10:02:05] asset_11c_fallen_wood_row: mesh 13384 faces
+"uv 9s /workspace/smart-uv/f3134e4a-998a-4ce1-a969-fd01c48aa2a6"
+[10:02:29] asset_11c_fallen_wood_row: uv saved
+"texture 12s"
+[10:03:07] asset_11c_fallen_wood_row: textured
+"export GLB"
+[10:03:17] asset_11c_fallen_wood_row: saved /e/Diablo2/art-output/tripo-models/nature/asset_11c_fallen_wood_row.glb (4576 KB)
+credits after asset_11c_fallen_wood_row: "8935"
+[10:03:17] batch3 done
+faces 5000
+---- retry dead tree row 10:04:59
+[10:05:14] asset_11b_dead_tree_row: uploaded (15000 faces)
+"mesh 27s"
+[10:06:05] asset_11b_dead_tree_row: mesh 16565 faces
+"uv 15s /workspace/smart-uv/2abebd5f-998f-433f-a298-7efc45f4cf85"
+[10:06:34] asset_11b_dead_tree_row: uv saved
+"texture 12s"
+[10:07:13] asset_11b_dead_tree_row: textured
+"export GLB"
+[10:07:22] asset_11b_dead_tree_row: saved /e/Diablo2/art-output/tripo-models/nature/asset_11b_dead_tree_row.glb (4192 KB)
+credits after asset_11b_dead_tree_row: "8795"
+faces 5000

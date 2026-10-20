@@ -1,0 +1,14 @@
+Created and visually checked all four views:
+
+- [front.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/front.png)
+- [back.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/back.png)
+- [left.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/left.png)
+- [right.png](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/right.png)
+
+[Contact sheet](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/views/_contact.png) · [Full report](E:/Diablo2/art-output/tripo-models/heroes/FL_flagellant_vA/tpose.log)
+
+Existing canonical `design.txt` was preserved. Outputs are 1024×1024 with feet aligned at row 952. Sheet heights: front/back **824/822 px**, sides **838/837 px**; side rescale **0.982687×**.
+
+One retry per sheet corrected knot counts and cord visibility. Remaining deviations: slight arm slope, minor cord-length variation, and extra surface detail.
+
+Generation session: `01a158dc-7958-7e51-8a61-32516c434b18`. Exact source paths and retained rejected attempts are documented in `tpose.log`.

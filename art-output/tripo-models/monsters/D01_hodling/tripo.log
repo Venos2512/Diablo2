@@ -1,0 +1,18 @@
+D01_hodling Tripo log
+2026-10-20 ~13:2x  Smart Mesh multi-view (cube icon), slots Front/Left/Right/Back <- views/front|left|right|back.png (skill run 2, design.txt canon)
+  note: each slot takes ~10 s to load after setFileInputFiles; upload one at a time and wait (parallel uploads overwrite).
+  credits before Generate: 8795
+  Generate 100 pressed; credits after: 8695; model url: https://studio.tripo3d.ai/workspace/generate/67fc9117-fe99-43ec-855c-7173021bdf45
+  4 variants done (no further cost). faces: v1 6408, v2 6108, v3 6425, v4 6370 (assets panel order: top-right, then row2 left/right, row3 left). Viewed front/side/back wireframe: _shots/variants/_variants.png, _side_back.png
+  Not yet done: pick variant, Smart UV, Texture, PBR, Export.
+  PICKED v2: https://studio.tripo3d.ai/workspace/generate/422384f1-247b-4253-a315-50b8662eb6e7 (faces 6108); credits before UV: 8695
+  Smart UV: unwrap 20 credits (8695 -> 8675), utilization 71.1%, saved. Texture 4K, Remove Lighting off, Generate Texture 20 pressed; url: https://studio.tripo3d.ai/workspace/texture/orange-goblin-creature-with-rock-helmet-and-leather-loincloth-422384f1-247b-4253-a315-50b8662eb6e7
+  Texture 4K done (8675 -> 8655). PBR / Export not done yet.
+  PBR: Generate PBR 5 credits (8655 -> 8650), took ~25 s, no Save button needed.
+[16:15:25] D01_hodling: exported /e/Diablo2/art-output/tripo-models/monsters/D01_hodling/D01_hodling.glb (14436 KB)
+[16:18:33] multi-view slots filled from /e/Diablo2/art-output/tripo-models/monsters/D01_hodling/views ("Number of Generation New 1 2 4 Customi | "), credits 8650
+[16:19:59] multi-view slots filled from /e/Diablo2/art-output/tripo-models/monsters/D01_hodling/views (Generate 100), credits 8650
+[16:20:24] multi-view slots filled from /e/Diablo2/art-output/tripo-models/monsters/D01_hodling/views (Generate 100), credits 8650
+[16:22:09] multi-view slots filled from /e/Diablo2/art-output/tripo-models/monsters/D01_hodling/views (Generate 100), credits 8650
+  Export GLB (tripo_asset_finish.sh ... export): monsters/D01_hodling/D01_hodling.glb 14436 KB; 1 mesh, 10668 tris, baseColor JPEG + metallicRoughness PNG + normal JPEG, all 4096x4096.
+  Total: 145 credits (8795 -> 8650). Final views: _shots/final_views.png (tripo_views.sh).
