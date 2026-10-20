@@ -1,0 +1,431 @@
+{
+  "generated": "2026-10-20T02:26:11Z",
+  "note": "Edge metrics are mean absolute RGB differences (0-255) between opposite 1px edges, plus the same measure between adjacent interior pixel lines as a baseline. They do NOT certify seamlessness; a human must inspect the 2x2 tiles.",
+  "sheets": [
+    {
+      "file": "contact_sheet_01.png",
+      "ids": [
+        "BIO01_peat",
+        "BIO02_meadow",
+        "BIO03_flint",
+        "BIO04_ossuary",
+        "BIO04_garden",
+        "BIO05_lime",
+        "BIO06_flint_spoil",
+        "BIO06_salt_mine",
+        "BIO07_limestone",
+        "BIO08_nave",
+        "BIO09_ash_snow",
+        "BIO10_salt_crust"
+      ]
+    },
+    {
+      "file": "contact_sheet_02.png",
+      "ids": [
+        "BIO11_white_hulk",
+        "BIO12_dark_planks",
+        "BIO13_salt_glass",
+        "BIO14_blue_ice",
+        "BIO15_pyre_ash",
+        "BIO16_blackwood",
+        "BIO18_wet_slate"
+      ]
+    }
+  ],
+  "missing": [
+    "BIO17_varnished",
+    "BIO19_coastal_rock",
+    "BIO20_wet_sand",
+    "BIO21_sunken_floor",
+    "BIO22_abbey",
+    "BIO23_course",
+    "BIO24_keystone",
+    "BIO26_dream",
+    "BIO27_cradle",
+    "BIO27_vault",
+    "BIO27_salt",
+    "BIO27_deep"
+  ],
+  "textures": [
+    {
+      "id": "BIO01_peat",
+      "biome_id": "BIO-01",
+      "name_vi": "Đầm lầy & làng nước",
+      "material": "Than bùn ẩm",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO01_peat.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 4.077,
+        "edge_diff_tb": 3.982,
+        "adjacent_diff_x": 2.004,
+        "adjacent_diff_y": 2.332,
+        "edge_vs_adjacent_lr": 2.03,
+        "edge_vs_adjacent_tb": 1.71,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO02_meadow",
+      "biome_id": "BIO-02",
+      "name_vi": "Đồng thuốc phiện",
+      "material": "Cỏ đồng hoang",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO02_meadow.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 5.351,
+        "edge_diff_tb": 4.734,
+        "adjacent_diff_x": 2.242,
+        "adjacent_diff_y": 2.368,
+        "edge_vs_adjacent_lr": 2.39,
+        "edge_vs_adjacent_tb": 2.0,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO03_flint",
+      "biome_id": "BIO-03",
+      "name_vi": "Làng đá lửa & sân nhà thờ",
+      "material": "Đá lửa lát sân",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO03_flint.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 6.15,
+        "edge_diff_tb": 6.596,
+        "adjacent_diff_x": 3.307,
+        "adjacent_diff_y": 3.631,
+        "edge_vs_adjacent_lr": 1.86,
+        "edge_vs_adjacent_tb": 1.82,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO04_ossuary",
+      "biome_id": "BIO-04",
+      "name_vi": "Hầm xương & vườn đất",
+      "material": "Vữa hầm xương",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO04_ossuary.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 6.415,
+        "edge_diff_tb": 5.574,
+        "adjacent_diff_x": 2.929,
+        "adjacent_diff_y": 3.209,
+        "edge_vs_adjacent_lr": 2.19,
+        "edge_vs_adjacent_tb": 1.74,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO04_garden",
+      "biome_id": "BIO-04",
+      "name_vi": "Hầm xương & vườn đất",
+      "material": "Đất vườn ngủ",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO04_garden.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 2.835,
+        "edge_diff_tb": 2.65,
+        "adjacent_diff_x": 1.113,
+        "adjacent_diff_y": 1.181,
+        "edge_vs_adjacent_lr": 2.55,
+        "edge_vs_adjacent_tb": 2.24,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO05_lime",
+      "biome_id": "BIO-05",
+      "name_vi": "Hospice vôi trắng",
+      "material": "Sàn vôi sạch",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO05_lime.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 4.815,
+        "edge_diff_tb": 4.915,
+        "adjacent_diff_x": 2.639,
+        "adjacent_diff_y": 3.083,
+        "edge_vs_adjacent_lr": 1.82,
+        "edge_vs_adjacent_tb": 1.59,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO06_flint_spoil",
+      "biome_id": "BIO-06",
+      "name_vi": "Mỏ & Spoil",
+      "material": "Phấn và đá lửa vụn",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO06_flint_spoil.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 6.807,
+        "edge_diff_tb": 5.975,
+        "adjacent_diff_x": 3.302,
+        "adjacent_diff_y": 3.83,
+        "edge_vs_adjacent_lr": 2.06,
+        "edge_vs_adjacent_tb": 1.56,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO06_salt_mine",
+      "biome_id": "BIO-06",
+      "name_vi": "Mỏ & Spoil",
+      "material": "Nền mỏ muối",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO06_salt_mine.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 9.555,
+        "edge_diff_tb": 9.39,
+        "adjacent_diff_x": 3.584,
+        "adjacent_diff_y": 3.926,
+        "edge_vs_adjacent_lr": 2.67,
+        "edge_vs_adjacent_tb": 2.39,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO07_limestone",
+      "biome_id": "BIO-07",
+      "name_vi": "Thành bậc đá vôi Sepulcra",
+      "material": "Đá vôi phủ muội",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO07_limestone.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 10.846,
+        "edge_diff_tb": 8.746,
+        "adjacent_diff_x": 6.03,
+        "adjacent_diff_y": 6.988,
+        "edge_vs_adjacent_lr": 1.8,
+        "edge_vs_adjacent_tb": 1.25,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO08_nave",
+      "biome_id": "BIO-08",
+      "name_vi": "Nhà thờ & hầm chuông",
+      "material": "Phiến đá nhà thờ",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO08_nave.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 7.814,
+        "edge_diff_tb": 11.319,
+        "adjacent_diff_x": 3.852,
+        "adjacent_diff_y": 4.704,
+        "edge_vs_adjacent_lr": 2.03,
+        "edge_vs_adjacent_tb": 2.41,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO09_ash_snow",
+      "biome_id": "BIO-09",
+      "name_vi": "Đèo tuyết-tro",
+      "material": "Tuyết xám phủ tro",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO09_ash_snow.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 14.743,
+        "edge_diff_tb": 9.667,
+        "adjacent_diff_x": 5.48,
+        "adjacent_diff_y": 6.394,
+        "edge_vs_adjacent_lr": 2.69,
+        "edge_vs_adjacent_tb": 1.51,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO10_salt_crust",
+      "biome_id": "BIO-10",
+      "name_vi": "Biển khô",
+      "material": "Vỏ muối nứt",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO10_salt_crust.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 5.504,
+        "edge_diff_tb": 6.117,
+        "adjacent_diff_x": 2.928,
+        "adjacent_diff_y": 3.279,
+        "edge_vs_adjacent_lr": 1.88,
+        "edge_vs_adjacent_tb": 1.87,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO11_white_hulk",
+      "biome_id": "BIO-11",
+      "name_vi": "Hulk trắng & Namakhar",
+      "material": "Vôi trắng muối",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO11_white_hulk.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 2.914,
+        "edge_diff_tb": 4.06,
+        "adjacent_diff_x": 1.953,
+        "adjacent_diff_y": 2.122,
+        "edge_vs_adjacent_lr": 1.49,
+        "edge_vs_adjacent_tb": 1.91,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO12_dark_planks",
+      "biome_id": "BIO-12",
+      "name_vi": "Hầm dưới Hulk",
+      "material": "Ván gỗ cũ",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO12_dark_planks.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 2.983,
+        "edge_diff_tb": 4.846,
+        "adjacent_diff_x": 0.958,
+        "adjacent_diff_y": 1.93,
+        "edge_vs_adjacent_lr": 3.11,
+        "edge_vs_adjacent_tb": 2.51,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO13_salt_glass",
+      "biome_id": "BIO-13",
+      "name_vi": "Di tích Halcyon",
+      "material": "Kính muối liền khối",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO13_salt_glass.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 6.226,
+        "edge_diff_tb": 4.93,
+        "adjacent_diff_x": 1.846,
+        "adjacent_diff_y": 1.971,
+        "edge_vs_adjacent_lr": 3.37,
+        "edge_vs_adjacent_tb": 2.5,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO14_blue_ice",
+      "biome_id": "BIO-14",
+      "name_vi": "Đồng băng & rừng băng Hoarfast",
+      "material": "Băng xanh và tuyết",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO14_blue_ice.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 5.03,
+        "edge_diff_tb": 5.414,
+        "adjacent_diff_x": 2.657,
+        "adjacent_diff_y": 3.073,
+        "edge_vs_adjacent_lr": 1.89,
+        "edge_vs_adjacent_tb": 1.76,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO15_pyre_ash",
+      "biome_id": "BIO-15",
+      "name_vi": "Đồi tro lửa tế",
+      "material": "Tro nguội lâu đời",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO15_pyre_ash.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 6.363,
+        "edge_diff_tb": 6.041,
+        "adjacent_diff_x": 2.346,
+        "adjacent_diff_y": 2.597,
+        "edge_vs_adjacent_lr": 2.71,
+        "edge_vs_adjacent_tb": 2.33,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO16_blackwood",
+      "biome_id": "BIO-16",
+      "name_vi": "Vesnagrad & vườn kính",
+      "material": "Ván gỗ đen lạnh",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO16_blackwood.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 3.613,
+        "edge_diff_tb": 3.91,
+        "adjacent_diff_x": 1.515,
+        "adjacent_diff_y": 4.086,
+        "edge_vs_adjacent_lr": 2.38,
+        "edge_vs_adjacent_tb": 0.96,
+        "square": true
+      }
+    },
+    {
+      "id": "BIO18_wet_slate",
+      "biome_id": "BIO-18",
+      "name_vi": "Thị trấn cảng Wrackhaven",
+      "material": "Đá phiến lát cảng",
+      "path": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v1\\textures\\BIO18_wet_slate.png",
+      "metrics": {
+        "width": 1254,
+        "height": 1254,
+        "mode": "RGB",
+        "format": "PNG",
+        "edge_diff_lr": 4.994,
+        "edge_diff_tb": 4.596,
+        "adjacent_diff_x": 2.835,
+        "adjacent_diff_y": 3.101,
+        "edge_vs_adjacent_lr": 1.76,
+        "edge_vs_adjacent_tb": 1.48,
+        "square": true
+      }
+    }
+  ]
+}
