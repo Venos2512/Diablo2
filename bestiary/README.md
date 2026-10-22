@@ -1,6 +1,6 @@
-# Sanctuary Databook · D2RR
+# Sanctuary Databook · ASHLAR · D2RR
 
-The project's Book of Cain: its own 2D concept art (the D2RR world, 152 concept records with 209 images) plus an English-language cross-game asset reference library for five action RPGs, with a game-wide Torchlight I species index. Includes 34 Diablo II Act I creature records, 181 curated enemy records from Grim Dawn, Titan Quest, Torchlight and Dungeon Siege, 157 Diablo II item references, 7 named Act I NPCs and a Rogue Scout hireling archetype. Environments, 3D models, animation clips and VFX have a shared structure for later expansion. The item section combines quest objects and an early-game reference selection; it is not a verified Act I drop table. Lord of Destruction-only records are labeled.
+The project's Book of Cain: its own 2D concept art (the ASHLAR *Concept chốt* world with 28 approved monster sheets, plus the D2RR world; 105 concept records with 153 images) plus an English-language cross-game asset reference library for five action RPGs, with a game-wide Torchlight I species index. Includes 34 Diablo II Act I creature records, 181 curated enemy records from Grim Dawn, Titan Quest, Torchlight and Dungeon Siege, 157 Diablo II item references, 7 named Act I NPCs and a Rogue Scout hireling archetype. Environments, 3D models, animation clips and VFX have a shared structure for later expansion. The item section combines quest objects and an early-game reference selection; it is not a verified Act I drop table. Lord of Destruction-only records are labeled.
 
 ## Open
 
@@ -8,7 +8,7 @@ Open `../D2RR.html` in a modern browser. The file embeds application code, Three
 
 ## Features
 
-- D2RR concept art: 16 concept sets with review notes, a strip of versions or tiles per record, fit/actual-size enlargement and a link to the original PNG. See `docs/CONCEPTS.md`.
+- Concept art: the ASHLAR Concept chốt (28 approved monsters) and 8 D2RR concept sets with review notes, a strip of versions or tiles per record, fit/actual-size enlargement and a link to the original PNG. See `docs/CONCEPTS.md`.
 - Collection navigation, searchable metadata, family/kind/status filters and sorting.
 - Image grid and compact data table.
 - Record dialog with large reference image, source link, art notes and proposed motion checklist.

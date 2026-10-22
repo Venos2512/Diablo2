@@ -3,13 +3,13 @@ import {groups,groupById} from './data/catalog.js';
 import {itemGroups,itemGroupById} from './data/items.js';
 import {npcGroups,npcGroupById} from './data/npcs.js';
 import {games,multiverseGroups,multiverseGroupById} from './data/multiverse.js';
-import {conceptWorld,conceptGroups,conceptGroupById} from './data/concepts.js';
+import {conceptWorlds,conceptGroups,conceptGroupById} from './data/concepts.js';
 import {readWorkspace,persist,queryAssets,downloadJSON} from './lib/databook.js';
 import {createModelViewer} from './viewer/model.js';
 
 const $=id=>document.getElementById(id),workspace=readWorkspace();
-const state={collection:'concept',game:conceptWorld.id,group:'all',kind:'all',status:'all',sort:'catalog',query:'',saved:false,view:'grid'};
-const worlds=[conceptWorld,...games],gameById=Object.fromEntries(worlds.map(game=>[game.id,game]));
+const state={collection:'concept',game:conceptWorlds[0].id,group:'all',kind:'all',status:'all',sort:'catalog',query:'',saved:false,view:'grid'};
+const worlds=[...conceptWorlds,...games],isConceptWorld=id=>conceptWorlds.some(w=>w.id===id),gameById=Object.fromEntries(worlds.map(game=>[game.id,game]));
 const allGroupById={...groupById,...multiverseGroupById,...itemGroupById,...npcGroupById,...conceptGroupById};
 // Repository root relative to this HTML file (set per output by the build; "none" on the website, which has no
 // original PNGs). Concept origins are repo-relative.
@@ -28,11 +28,11 @@ function saved(id){return workspace.favorites.includes(id);}
 function toggleSaved(id){workspace.favorites=saved(id)?workspace.favorites.filter(x=>x!==id):[...workspace.favorites,id];store();render();if(selected?.id===id)updateSaved();}
 function updateSaved(){const on=saved(selected.id);$('record-save').textContent=on?'★':'☆';$('record-save').setAttribute('aria-pressed',String(on));$('record-save').setAttribute('aria-label',on?'Remove saved asset':'Save asset');}
 
-const gameOptions=[{id:'all',name:'All worlds',scope:'D2RR concepts + five-game archive'},...worlds];
+const gameOptions=[{id:'all',name:'All worlds',scope:'ASHLAR concept chốt + D2RR concepts + five-game archive'},...worlds];
 gameOptions.forEach(game=>{const b=el('button','game-tab');b.type='button';b.dataset.game=game.id;b.setAttribute('aria-pressed','false');b.append(el('span','game-tab-title',game.name));if(game.scope)b.append(el('small','',game.scope));b.addEventListener('click',()=>{state.game=game.id;state.collection='all';state.saved=false;resetFilters();render();});$('game-tabs').append(b);});
 collections.forEach(c=>{const b=el('button','nav-button');b.dataset.collection=c.id;b.append(el('span','nav-icon',c.symbol),el('span','',c.name),el('span','count',String(countType(c.id))));b.addEventListener('click',()=>{state.collection=c.id;state.saved=false;resetFilters();render();});$('collections').append(b);});
 function groupName(a){return allGroupById[a.group]?.name||a.role||collectionById[a.type]?.name;}
-function syncGroupFilter(){const concept=state.collection==='concept'||state.game===conceptWorld.id;const groupSet=concept?conceptGroups:state.collection==='item'?itemGroups:state.collection==='npc'?npcGroups:state.game==='diablo-ii'?groups:state.game==='all'?[...groups,...multiverseGroups]:multiverseGroups.filter(g=>g.id.startsWith(state.game+'-'));$('group').replaceChildren(new Option(concept?'All concept sets':state.collection==='item'?'All item groups':state.collection==='npc'?'All NPC groups':'All families','all'),...groupSet.map(g=>new Option(g.name,g.id)));$('group').value=state.group;}
+function syncGroupFilter(){const concept=state.collection==='concept'||isConceptWorld(state.game);const groupSet=concept?conceptGroups.filter(g=>!isConceptWorld(state.game)||g.world===state.game):state.collection==='item'?itemGroups:state.collection==='npc'?npcGroups:state.game==='diablo-ii'?groups:state.game==='all'?[...groups,...multiverseGroups]:multiverseGroups.filter(g=>g.id.startsWith(state.game+'-'));$('group').replaceChildren(new Option(concept?'All concept sets':state.collection==='item'?'All item groups':state.collection==='npc'?'All NPC groups':'All families','all'),...groupSet.map(g=>new Option(g.name,g.id)));$('group').value=state.group;}
 $('total').textContent=assets.length;$('reference-total').textContent=assets.filter(a=>a.image?.src).length;$('model-total').textContent=assets.filter(a=>a.media?.model).length;$('clip-total').textContent=assets.reduce((n,a)=>n+(a.media?.clips?.length||0),0);
 function resetFilters(){Object.assign(state,{group:'all',kind:'all',status:'all',query:''});['group','kind','status'].forEach(id=>$(id).value='all');$('search').value='';syncGroupFilter();}
 function makeStatus(a){return el('span','status '+status(a),statusLabels[status(a)]||'Reference');}
@@ -52,8 +52,8 @@ function render(){
  document.querySelectorAll('[data-collection] .count').forEach(n=>{n.textContent=String(countType(n.parentElement.dataset.collection));});
  const gameAssets=assets.filter(inGame);$('total').textContent=gameAssets.length;$('reference-total').textContent=gameAssets.filter(a=>a.image?.src).length;$('model-total').textContent=gameAssets.filter(a=>a.media?.model).length;$('clip-total').textContent=gameAssets.reduce((n,a)=>n+(a.media?.clips?.length||0),0);
  $('saved').classList.toggle('active',state.saved);$('saved-count').textContent=workspace.favorites.filter(id=>assetById[id]).length;
- const selectedGame=gameById[state.game];const title=state.saved?'Saved assets':state.collection==='all'&&selectedGame?selectedGame.name:collection.name;$('title').replaceChildren(document.createTextNode(title),el('span','','.'));$('crumb').textContent=title;$('subtitle').textContent=state.saved?'Your shortlist of references and production assets.':state.collection==='all'&&selectedGame?[selectedGame.scope,selectedGame.id===conceptWorld.id?`${countType('concept')} concept records · ${conceptImageTotal} images`:countType('creature')+' enemy references'].filter(Boolean).join(' · '):collection.description;
- const supportsCreatures=['all','creature'].includes(state.collection)&&state.game!==conceptWorld.id;$('group').hidden=!['all','creature','item','npc','concept'].includes(state.collection);$('kind').hidden=!supportsCreatures;
+ const selectedGame=gameById[state.game];const title=state.saved?'Saved assets':state.collection==='all'&&selectedGame?selectedGame.name:collection.name;$('title').replaceChildren(document.createTextNode(title),el('span','','.'));$('crumb').textContent=title;$('subtitle').textContent=state.saved?'Your shortlist of references and production assets.':state.collection==='all'&&selectedGame?[selectedGame.scope,isConceptWorld(selectedGame.id)?`${countType('concept')} concept records · ${conceptImageTotal} images`:countType('creature')+' enemy references'].filter(Boolean).join(' · '):collection.description;
+ const supportsCreatures=['all','creature'].includes(state.collection)&&!isConceptWorld(state.game);$('group').hidden=!['all','creature','item','npc','concept'].includes(state.collection);$('kind').hidden=!supportsCreatures;
  $('results').textContent=`${visible.length} ${visible.length===1?'asset':'assets'}${visible.length!==countType(state.collection)?' shown':''}`;
  $('cards').hidden=state.view!=='grid'||!visible.length;$('table-wrap').hidden=state.view!=='table'||!visible.length;
  $('grid-view').setAttribute('aria-pressed',String(state.view==='grid'));$('table-view').setAttribute('aria-pressed',String(state.view==='table'));
@@ -80,7 +80,7 @@ function openRecord(id){
  $('encounter-condition').textContent=a.condition||a.scope||'No additional condition documented';
  $('content-source').hidden=!(a.source||a.image?.source);if(a.source||a.image?.source)$('content-source').href=a.source||a.image.source;
  $('reference-tab').textContent=concept?'Concept':'Reference';$('art-title').textContent=concept?'Review notes':'Art direction notes';$('motion-details').hidden=!a.motions?.length;
- $('media-note-title').textContent=concept?'D2RR concept art':'Reference collection';
+ $('media-note-title').textContent=concept?(gameById[a.game]?.name||'D2RR')+' concept art':'Reference collection';
  $('media-note-copy').textContent=concept?'Original project concept, embedded as a WebP copy of the source PNG. Statuses start from the review notes; change them as the design moves on.':'Original images support visual research. Production models and verified animation clips can be linked as the library grows.';
  $('record-status').value=status(a);$('art').textContent=a.art||'Production notes have not been added.';$('motions').replaceChildren(...(a.motions||[]).map(m=>el('span','',m)));
  $('note').value=typeof workspace.notes[a.id]==='string'?workspace.notes[a.id]:'';$('save-status').textContent='Stored locally';
@@ -97,7 +97,7 @@ function showImage(i){
  const link=concept?originsLinked&&image.origin:image?.source;$('source').hidden=!link;if(link){$('source').href=concept?originRoot+link:link;$('source').textContent=concept?'Original PNG ↗':'View source ↗';}
  if(concept){$('origin-link').textContent=image.origin;if(originsLinked)$('origin-link').href=originRoot+image.origin;else $('origin-link').removeAttribute('href');}
  $('large-image').src=image?.src||'';$('large-image').alt=a.name;$('image-title').textContent=a.name;$('image-dialog').classList.toggle('concept',concept);$('image-zoom').hidden=!concept;
- $('image-credit').textContent=concept?`D2RR · ${image.label} · ${a.method}`:(gameById[a.game||'diablo-ii']?.name||'')+' · '+(a.image?.label||'Reference image')+' · Rights belong to the respective owners.';
+ $('image-credit').textContent=concept?`${gameById[a.game]?.name||'D2RR'} · ${image.label} · ${a.method}`:(gameById[a.game||'diablo-ii']?.name||'')+' · '+(a.image?.label||'Reference image')+' · Rights belong to the respective owners.';
  $('image-index').textContent=images.length>1?`${imageIndex+1} / ${images.length} · ${image.label}`:'';['image-prev','image-next'].forEach(id=>$(id).hidden=images.length<2);$('image-prev').disabled=imageIndex===0;$('image-next').disabled=imageIndex===images.length-1;
  $('versions').querySelectorAll('button').forEach((b,n)=>b.setAttribute('aria-pressed',String(n===imageIndex)));
 }

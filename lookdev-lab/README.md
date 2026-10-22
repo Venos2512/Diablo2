@@ -33,17 +33,14 @@ the page and keeps camera, settings and the A/B snapshot).
   SSAO buffer, clay, UV checker, wireframe), exposure false colour, tone mapping, sample models and your own
   GLB/FBX/OBJ, turntable, animation clips, studio environment, **material inspector** (click a mesh), **A/B compare**
   (snapshot survives a renderer switch). \*material AO channel is WebGL2-only.
-- **Character** — play the model like a game character in any scene: WASD / click-to-move / gamepad, Diablo ¾,
+- **Character** — the only character sample is the **D2R Sorceress** (light / medium / heavy armour, one shared animation set) — play the model like a game character in any scene: WASD / click-to-move / gamepad, Diablo ¾,
   isometric, third-person or orbit follow camera, ground + wall collision (triangles bucketed in a 1 m grid), see-through
   circle in walls between camera and character, animation states per weapon stance (auto-mapped clip names, overrides
   per model, synced walk/run blend, crossfaded overlays, impact frames that hit the training dummies), **equipment**
-  (built-in hand-slot items, 14 KayKit props, your GLB; grip gizmo + JSON export), **foot-slide check** (natural stride
-  speed measured from foot plants, footprints coloured by drift, speed sync), **scale reference** lineup, and the
+  (built-in hand-slot items, 14 KayKit weapon/shield props, your GLB; grip gizmo + JSON export), **foot-slide check** (natural stride
+  speed measured from foot plants, marks coloured by drift, speed sync), **environment interaction** in Play (footprints per surface, water
+  ripples and splash, grass bend — Character tab), **scale reference** lineup, and the
   **texture editor** for the character or a held item.
-- **Procedural** — the game's code-built characters (`src/procedural`: 3 heroes, 13 monsters, 6 NPCs; SDF-sculpted
-  bodies baked in `baked_data.js`, keyframed clips evaluated per frame, verlet capes): build options (armour, variants,
-  element, ally / champion / unique), clip player with pose scrub and locomotion speed, the character shader's effects
-  (flash, tint, frozen, rim, highlight, ghost; lava cracks WebGL2-only — WebGPU uses a TSL port), cape wind.
 - **Lighting** — **Act I moods** (below), studio rigs (softbox, three-point, sun, rim, candle, HDRI only) or the scene's
   lights, Kelvin colour, physical units, shadow filter/size/bias, height fog.
 - **Post & camera** — camera modes (orbit, game ¾, isometric 2:1, play), AA (FXAA, SMAA, MSAA, TRAA on WebGPU),
@@ -83,7 +80,7 @@ the page and keeps camera, settings and the A/B snapshot).
   `scripts/prepare-prop-kit.py`, `prepare-camp-kits.py` and `prepare-nature-kits.py`;
   biome placement rules (`art-direction/12` §4.6–4.12): habitat-masked grass colonies, clear door/interaction approaches,
   shoulder torches at route decisions, and bone clusters at story anchors (`src/env/biomePlacement.js`; `npm run test:placement`);
-  **ground blend** (Scene options → *Ground blend*): rocks, trees, posts, walls and
+  **ground blend** (Scene options → *Ground blend*, off by default — nothing is baked, patched or captured until switched on): rocks, trees, posts, walls and
   remains meet the soil — and each other — instead of standing on it. The terrain's own material (albedo + roughness, world
   normal + height) is drawn top-down into two textures around the camera, like a runtime virtual texture, and redrawn only
   when the view leaves them or the terrain changes; one surface patch (`shaders/effects/ground_blend.glsl` + TSL twin) fades
@@ -139,16 +136,21 @@ transform and filtering. Edits are baked on the CPU, so both renderers sample id
 ## Shortcuts
 
 `H` hide UI · `F` frame · `V` next view · `X` false colour · `T` turntable · `P` screenshot · `C` A/B compare ·
-`Esc` clear selection · `?` help · `1–9` cast (VFX lab active) · right click: cast the selected spell.
-Character play: `WASD` move · `Space`/`J` attack · `E` attack 2 · `Q` cast · `B` block · `G` get hit · `K` death /
+`Esc` clear selection · `?` help · `1–9` pick + cast (VFX lab active or Play) · right click: cast the selected spell / skill (hold to repeat).
+Character play: `WASD` move · `Space`/`J` attack · `E` attack 2 · `Q` / right click cast the selected one (hold repeats; a press while busy is buffered 0.3 s;
+the cast arms the VFX lab by itself) · `B` block · `G` get hit · `K` death /
 revive · `R` walk ↔ run · `Shift` walk · `Enter` play on/off (Character tab).
+Gameplay (Play with the v1 core): left click move / attack · right click (hold) casts the picked skill at the monster / ground under the cursor ·
+classic hotkeys `F1`–`F8` pick the skill and `1`–`4` drink potions, modern (Character tab → Gameplay → Hotkeys) `1`–`4` pick and `Q E Z X` drink,
+quick-cast makes the pick also cast · `R` walk ↔ run · `N` spawn a pack · `Enter` revive · `Esc` leave. No mana or a cooldown shows over the hero;
+on WebGPU the Sorceress skills cast with simple mesh effects (three.quarks, WebGL2 · GLSL only, gives the full VFX).
 
 ## Project layout
 
 ```
 src/
   app/          App shell, subject model, benchmarks (bench.js, benchRunner.js), stress tests, capture
-  character/    character preview: controller, animator, clip mapping, collision grid, equipment, foot check,
+  character/    character preview: controller, animator, clip mapping, collision grid, equipment, foot check, footsteps (prints / ripples / foliage bend),
                 scale reference, see-through cutaway
   backends/
     webgl/      WebGLRenderer pipeline, GPU timer, onBeforeCompile patch system, GLSL effects + VFX materials
@@ -164,13 +166,13 @@ src/
   lighting/     studio rigs, Act I mood presets (moods.js) and the mood controller (hero light, rim, weather)
   lookdev/      view modes, reference objects, texture editor
   panels/       one file per tab
-  procedural/   code-built characters (rig, SDF sculpt + decimation, clips, baked geometry) and the lab catalog;
+  procedural/   code-built monsters for the gameplay (rig, SDF sculpt + decimation, clips, baked geometry);
                 core/util.js + core/shared.js are the small game modules they import
   scenes/       studio, Dark Wood (Immortal ref + D2 mood), biome layout, and the TerrainScene base class (terrain.js)
   shaders/      every .glsl file (chunks/, effects/, post/, forge/, vfx/) — hot-swapped by the dev server
   vfx/          particle system, pooled lights, dummies, spells, VFX lab controller
 scripts/        dev server, build (single-file offline HTML), static checks, page server + Cloudflare share,
-                prepare-kaykit.py (splits the KayKit pack into characters, shared animation libraries, props)
+                prepare-kaykit.py (KayKit weapon/shield props; helper imported by prepare-sorceress.py)
 ```
 
 ## Adding an effect (GLSL + TSL)

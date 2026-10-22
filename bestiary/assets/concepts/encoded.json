@@ -1,927 +1,311 @@
 {
- "art-output/dying-gods-act1/01_scavenger/concept.png": {
-  "sha256": "0acabc2be8dc45335574df01a3867747333fbd438968f7c83be7f1ef37ac7ce2",
+ "ashlar/art/map-01-concepts/monsters/B01_sextons_dog/vA/concept_r2.png": {
+  "sha256": "6659963b9f3cce37f209736b277c3a3a92ad7e11f79920b0ba1267aa8f11540f",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-01-scavenger.webp",
-  "thumb": "assets/concepts/dying-gods/dg-01-scavenger.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 85248
+  "file": "assets/concepts/ashlar-monsters/ashlar-b01-the-sextons-dog.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-b01-the-sextons-dog.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 44554
  },
- "art-output/dying-gods-act1/02_piercer/concept.png": {
-  "sha256": "f0f6068c9b2bb83f5b3810ce9a8cc0f81248abebcfd0dd7036c0c4bba80d796e",
+ "ashlar/art/map-01-concepts/monsters/B02_lullaby_man/vA/concept_r2.png": {
+  "sha256": "7f4d6bc82ad23758eeb22c2a95f9f94fbcb7a5e1955235c8e540ddf5e3a9a842",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-02-piercer.webp",
-  "thumb": "assets/concepts/dying-gods/dg-02-piercer.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 87530
+  "file": "assets/concepts/ashlar-monsters/ashlar-b02-the-lullaby-man.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-b02-the-lullaby-man.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 71040
  },
- "art-output/dying-gods-act1/03_brute/concept.png": {
-  "sha256": "f7c78ca4da93c9084ac472b67e6f84cb8f6de7e890a936e63b91b07e9c25c8e9",
+ "ashlar/art/map-01-concepts/monsters/B03_ember_pot/vA/concept.png": {
+  "sha256": "66d730449edb2118d09a8a0832afc2bb3b6464c47f92a5819703e867593b64ee",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-03-brute.webp",
-  "thumb": "assets/concepts/dying-gods/dg-03-brute.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 118300
+  "file": "assets/concepts/ashlar-monsters/ashlar-b03-the-ember-pot.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-b03-the-ember-pot.thumb.webp",
+  "width": 1920,
+  "height": 641,
+  "bytes": 48018
  },
- "art-output/dying-gods-act1/04_bellwether/concept.png": {
-  "sha256": "660339dab8d4a3b7c4b1a76decfc4996cc6f8d195554bf89e05a94db9b7f3420",
+ "ashlar/art/map-01-concepts/monsters/B04_willow_bride/vA/concept.png": {
+  "sha256": "136922403aa4db1c0bf83ebdc72b95c71519025708d3a781018628ae95dc3d8c",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-04-bellwether.webp",
-  "thumb": "assets/concepts/dying-gods/dg-04-bellwether.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 91450
+  "file": "assets/concepts/ashlar-monsters/ashlar-b04-the-willow-bride.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-b04-the-willow-bride.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 56950
  },
- "art-output/dying-gods-act1/05_crawler/concept-v2.png": {
-  "sha256": "61626bdabe223ded7371ce4d46c4e229529617d5d154f457c50d7a29cefb3a9f",
+ "ashlar/art/map-01-concepts/monsters/B05_hospice_mother/vA/concept_r2.png": {
+  "sha256": "7806f28b4e8ae8ae343da2e680585b5ce77e333cbd7d4f876ec3db1bd197a256",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-05-crawler.webp",
-  "thumb": "assets/concepts/dying-gods/dg-05-crawler.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 73690
+  "file": "assets/concepts/ashlar-monsters/ashlar-b05-the-hospice-mother.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-b05-the-hospice-mother.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 86624
  },
- "art-output/dying-gods-act1/05_crawler/concept.png": {
-  "sha256": "507ef6866c0e02e12cb430c103ac3e50ea6bb06954469591a9cccb9e0d90cb65",
+ "ashlar/art/map-01-concepts/monsters/D01_hodling/vB/concept_r2.png": {
+  "sha256": "d8ff04208b87a289e5db47c35467f7989927ff22f57a031614903af5e82a9057",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-05-crawler-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-05-crawler-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 77406
+  "file": "assets/concepts/ashlar-monsters/ashlar-d01-hodling.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-d01-hodling.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 40160
  },
- "art-output/dying-gods-act1/06_vessel/concept-v2.png": {
-  "sha256": "efaa3e8fb1cbb4e8fed0a122fd910302af8ce1297eec1da682c2fa3c3f3de69c",
+ "ashlar/art/map-01-concepts/monsters/D02_kiln_shaman/vA/concept_r2.png": {
+  "sha256": "ddc2e5d3aa03176b25128ec35130404123f2f9dd0eb77bf8795b789aa1352a41",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-06-vessel.webp",
-  "thumb": "assets/concepts/dying-gods/dg-06-vessel.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 81154
+  "file": "assets/concepts/ashlar-monsters/ashlar-d02-kiln-shaman.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-d02-kiln-shaman.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 57346
  },
- "art-output/dying-gods-act1/06_vessel/concept.png": {
-  "sha256": "2c997ab2f143bcdcac70bfdd6e1b0400c99bed05ee637ef4681396036805db11",
+ "ashlar/art/map-01-concepts/monsters/D04_tithe_thief/vA/concept_r2.png": {
+  "sha256": "24eede79f1cec3c6dd9c1d7836c25a84cd08eeb5b3ffb6a92d6b100491ebadc1",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-06-vessel-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-06-vessel-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 108046
+  "file": "assets/concepts/ashlar-monsters/ashlar-d04-tithe-thief.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-d04-tithe-thief.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 53946
  },
- "art-output/dying-gods-act1/07_herald/concept.png": {
-  "sha256": "d6bcca723afa95ecfee23921f4685c89fc473cad550c16e33c35da965075441c",
+ "ashlar/art/map-01-concepts/monsters/F01_body_snatcher/vA/concept_r2b.png": {
+  "sha256": "900a696d89791c58d2f08c7ffe4eeab5ee71a8dfe00f9693fa385638bb92ba51",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-07-herald.webp",
-  "thumb": "assets/concepts/dying-gods/dg-07-herald.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 58614
+  "file": "assets/concepts/ashlar-monsters/ashlar-f01-body-snatcher.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-f01-body-snatcher.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 60552
  },
- "art-output/dying-gods-act1/08_gravewalker/concept.png": {
-  "sha256": "9c70229c08d528128180599e947ee92bceb0feb2f13cca9d1e47affc3b3839b9",
+ "ashlar/art/map-01-concepts/monsters/F02_poppy_nurse/vA/concept_r2.png": {
+  "sha256": "31d056a4fbfac17a66d7a24a2ad3ff4cb2a8ff64673ca20fa43e97a8609f5dcd",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-08-gravewalker.webp",
-  "thumb": "assets/concepts/dying-gods/dg-08-gravewalker.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 46088
+  "file": "assets/concepts/ashlar-monsters/ashlar-f02-poppy-nurse.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-f02-poppy-nurse.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 48692
  },
- "art-output/dying-gods-act1/08_gravewalker/concept-v2.png": {
-  "sha256": "ee5c93c60307f8c547d40a9ce70cd9df0b9f9523ddc44b41a1073821a16e909c",
+ "ashlar/art/map-01-concepts/monsters/P01_the_soothed/vA/concept_r2.png": {
+  "sha256": "566333c91864423a6327879843a34b7148be5c09b569195d92ec4451983d5226",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-08-gravewalker-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-08-gravewalker-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 46586
+  "file": "assets/concepts/ashlar-monsters/ashlar-p01-the-soothed.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p01-the-soothed.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 55746
  },
- "art-output/dying-gods-act1/08_gravewalker/concept-attempt1.png": {
-  "sha256": "076542676571e11284b6ab1659486fc949b155489d9374b5da5f0d78dbaf5cd0",
+ "ashlar/art/map-01-concepts/monsters/P02_hush_herald/vA/concept_r2.png": {
+  "sha256": "475692f09058a29b489453c997e43555feda22b7c1886519348acb7e2f83ab45",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-08-gravewalker-3.webp",
-  "thumb": "assets/concepts/dying-gods/dg-08-gravewalker-3.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 49230
+  "file": "assets/concepts/ashlar-monsters/ashlar-p02-hush-herald.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p02-hush-herald.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 72200
  },
- "art-output/dying-gods-act1/09_shrouded/concept.png": {
-  "sha256": "f9a0ee017c0f4597e074e5187ec7cdf527074c5910ea34531bcb22a71e757802",
+ "ashlar/art/map-01-concepts/monsters/P03_hush_moths/vA/concept_r2b.png": {
+  "sha256": "7ccfa5026c4449eec2587a588b37aa29a2cdbc92ba014323225b2dd00f6ca7ab",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-09-shrouded.webp",
-  "thumb": "assets/concepts/dying-gods/dg-09-shrouded.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 108088
+  "file": "assets/concepts/ashlar-monsters/ashlar-p03-hush-moths.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p03-hush-moths.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 35836
  },
- "art-output/dying-gods-act1/10_bonewatch/concept.png": {
-  "sha256": "711b4484c310b7317993a2bae0251d5d1fea50d2bc42f881121d75fa46483d82",
+ "ashlar/art/map-01-concepts/monsters/P04_hive_sleeper/vA/concept_r2.png": {
+  "sha256": "c7b3336a1e24539de8fc60a35d8ac9d67a5ae1c6cf752076bef6eeed39178a5f",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-10-bonewatch.webp",
-  "thumb": "assets/concepts/dying-gods/dg-10-bonewatch.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 105914
+  "file": "assets/concepts/ashlar-monsters/ashlar-p04-hive-sleeper.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p04-hive-sleeper.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 66440
  },
- "art-output/dying-gods-act1/11_bloated_dead/concept.png": {
-  "sha256": "2ca0dc998f69f6213d68cfc5e67f60a2b4e5271933960b46c2c6bc861e26b286",
+ "ashlar/art/map-01-concepts/monsters/P05_wet_nurse/vB/concept_r2.png": {
+  "sha256": "f63cd4c6cd1331176a81b8aebbc57f288f4a7671f726c79ab215429d9d3bc6a6",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-11-bloated-dead.webp",
-  "thumb": "assets/concepts/dying-gods/dg-11-bloated-dead.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 68778
+  "file": "assets/concepts/ashlar-monsters/ashlar-p05-wet-nurse.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p05-wet-nurse.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 87872
  },
- "art-output/dying-gods-act1/12_mourning_wraith/concept-v2.png": {
-  "sha256": "6230a7bd8d6026d0002ecaf3b6e70d14d1c220f2c75b86b836c6ad9a7e1b89ac",
+ "ashlar/art/map-01-concepts/monsters/P06_poppy_mound/vA/concept_r2.png": {
+  "sha256": "2b64463a116959c0f22773691ba7a98676292d6c3e9e318d2a4c253f2f2b1b5a",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-12-mourning-wraith.webp",
-  "thumb": "assets/concepts/dying-gods/dg-12-mourning-wraith.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 40612
+  "file": "assets/concepts/ashlar-monsters/ashlar-p06-poppy-mound.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p06-poppy-mound.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 74796
  },
- "art-output/dying-gods-act1/12_mourning_wraith/concept.png": {
-  "sha256": "bf8811f513f80ba068cfd555b24e684518b5436998e78a127848ba8bc32ebb8b",
+ "ashlar/art/map-01-concepts/monsters/P07_cradle_warden/vA/concept_r2.png": {
+  "sha256": "93b35beec0115b8a7b9c5f040f8fa046b780404d45fd7f1591aee1f124a938fd",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-12-mourning-wraith-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-12-mourning-wraith-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 57904
+  "file": "assets/concepts/ashlar-monsters/ashlar-p07-cradle-warden.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-p07-cradle-warden.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 116892
  },
- "art-output/dying-gods-act1/13_coffinbound/concept.png": {
-  "sha256": "7a52d9f08792ac887a7c37544c3cb967b195f66d33fb423a18c2b9c5475bfea8",
+ "ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_r2.png": {
+  "sha256": "7d87a1d6433a1c74cc73571c443f77f14570997c7686f9fd00267419181ba3ca",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-13-coffinbound.webp",
-  "thumb": "assets/concepts/dying-gods/dg-13-coffinbound.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 108258
+  "file": "assets/concepts/ashlar-monsters/ashlar-u01-shambler.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-u01-shambler.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 63696
  },
- "art-output/dying-gods-act1/14_mirewolf/concept.png": {
-  "sha256": "489a59f659d5cbd4eb594923a2f28556b6834604284e016a5a3386a3f1921e60",
+ "ashlar/art/map-01-concepts/monsters/U02_charnel_dead/vA/concept_r2b.png": {
+  "sha256": "9583d7a88620906b71e20f34b5f43a2f57632282b62d84bcd38bdb1f3c105249",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-14-mirewolf.webp",
-  "thumb": "assets/concepts/dying-gods/dg-14-mirewolf.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 69576
+  "file": "assets/concepts/ashlar-monsters/ashlar-u02-charnel-dead.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-u02-charnel-dead.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 70608
  },
- "art-output/dying-gods-act1/15_rotboar/concept.png": {
-  "sha256": "16bc485323cb9c518a6cf32c0b52fff34db48eb834da8277601be78d2bd3b3fd",
+ "ashlar/art/map-01-concepts/monsters/U03_charnel_bowman/vA/concept_r2.png": {
+  "sha256": "e7e95bc61b5b595132909a5d6612081cf952adffbf80dfbedeee4fe4659e7897",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-15-rotboar.webp",
-  "thumb": "assets/concepts/dying-gods/dg-15-rotboar.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 106896
+  "file": "assets/concepts/ashlar-monsters/ashlar-u03-charnel-bowman.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-u03-charnel-bowman.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 57880
  },
- "art-output/dying-gods-act1/16_carrion_crow/concept.png": {
-  "sha256": "3cc26c89f35938eff5ad35a494064b18648ff35d0675a4fa555e7e417f4e1b06",
+ "ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept_r2.png": {
+  "sha256": "42173664cb3bc9710dfca2567dc73909b1f42a02bfe0f0236cec01f84f8d0416",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-16-carrion-crow.webp",
-  "thumb": "assets/concepts/dying-gods/dg-16-carrion-crow.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 80548
+  "file": "assets/concepts/ashlar-monsters/ashlar-u04-charnel-ghoul.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-u04-charnel-ghoul.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 51606
  },
- "art-output/dying-gods-act1/17_grave_rat/concept.png": {
-  "sha256": "f8eb80a627e401e1dead1d29b1adb6e695825ee8cb4e6985dab9b4c1885433d7",
+ "ashlar/art/map-01-concepts/monsters/U05_the_swollen/vA/concept_r2.png": {
+  "sha256": "818cc17fe18d0bd2ae9ab3c0f99b0712d4f5158ceed1b3f52e385cdde1d58c85",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-17-grave-rat.webp",
-  "thumb": "assets/concepts/dying-gods/dg-17-grave-rat.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 84498
+  "file": "assets/concepts/ashlar-monsters/ashlar-u05-the-swollen.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-u05-the-swollen.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 85610
  },
- "art-output/dying-gods-act1/18_grave_moth/concept.png": {
-  "sha256": "1dd010cf9db164351c827b5ae116e69136d9887807b8a7d75443d5dd038430ec",
+ "ashlar/art/map-01-concepts/monsters/W01_mortar_rat/vB/concept_r2.png": {
+  "sha256": "3c92966e0bfff5b13ae59f8318ca5509c1a304cbc3de9443462b969b4d2cab4a",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-18-grave-moth.webp",
-  "thumb": "assets/concepts/dying-gods/dg-18-grave-moth.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 145664
+  "file": "assets/concepts/ashlar-monsters/ashlar-w01-mortar-rat.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w01-mortar-rat.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 43184
  },
- "art-output/dying-gods-act1/19_thornstag/concept-v2.png": {
-  "sha256": "ace0a4ef7ed04f26ebc7583db86aa3a1f57c99e4ff701f883784aa185382f49b",
+ "ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vB/concept_r2b.png": {
+  "sha256": "d38f511c6a9f5180b3e89bc94c47eb109e493ee8e5e7d230ce8465fd407627ca",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-19-thornstag.webp",
-  "thumb": "assets/concepts/dying-gods/dg-19-thornstag.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 70238
+  "file": "assets/concepts/ashlar-monsters/ashlar-w02-gibbet-crow.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w02-gibbet-crow.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 40272
  },
- "art-output/dying-gods-act1/19_thornstag/concept.png": {
-  "sha256": "2bf190270382cab8f2833366357e0cc1f1e892e818d10d6024ce8c5639b38ed5",
+ "ashlar/art/map-01-concepts/monsters/W03_hush_wolf/vA/concept_r2.png": {
+  "sha256": "c63683e99e8c7e29f1c4eb6cfb1d00fe83201ea9bffb9a7cb79a640d4f184089",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-19-thornstag-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-19-thornstag-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 70196
+  "file": "assets/concepts/ashlar-monsters/ashlar-w03-hush-wolf.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w03-hush-wolf.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 51100
  },
- "art-output/dying-gods-act1/20_thornling/concept-corrective.png": {
-  "sha256": "6e555391c1bebdcc18fd20be2c957c6d537e20dd0e96a30de8663cceb3f0edca",
+ "ashlar/art/map-01-concepts/monsters/W04_mire_sucker/vB/concept_r2.png": {
+  "sha256": "089e9dbbc85ef93146352937ab320cea3e9dd1c1891b3deb77fc6059d99fb945",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-20-thornling.webp",
-  "thumb": "assets/concepts/dying-gods/dg-20-thornling.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 182138
+  "file": "assets/concepts/ashlar-monsters/ashlar-w04-mire-sucker.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w04-mire-sucker.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 59354
  },
- "art-output/dying-gods-act1/20_thornling/concept.png": {
-  "sha256": "b96166b1ace9126f3969747053719e5278a4cf5ecd5f5319ec2d92cdf207b5c0",
+ "ashlar/art/map-01-concepts/monsters/W06_willow_hulk/vB/concept.png": {
+  "sha256": "4cdffc2b65720bd269172452792a5703d0435a0dad3b1b9c93a1efe4d20a9a54",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-20-thornling-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-20-thornling-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 177504
+  "file": "assets/concepts/ashlar-monsters/ashlar-w06-willow-hulk.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w06-willow-hulk.thumb.webp",
+  "width": 1920,
+  "height": 640,
+  "bytes": 75462
  },
- "art-output/dying-gods-act1/21_rootwhip/concept.png": {
-  "sha256": "8a0714d1797fa24d45f4e002cc46739ba49244a4ec4927e15f5450d5d0df4ca5",
+ "ashlar/art/map-01-concepts/monsters/W07_shroud_spinner/vA/concept_r2.png": {
+  "sha256": "2450656b5858bf46f94e03c9caaf7728cc63fe382dbe3d7d1749495c5ad505aa",
   "maxSize": 1920,
   "quality": 80,
   "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-21-rootwhip.webp",
-  "thumb": "assets/concepts/dying-gods/dg-21-rootwhip.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 105496
- },
- "art-output/dying-gods-act1/22_bloodbloom/concept.png": {
-  "sha256": "38119e0fc533243d526092ea6353fe3f6643a46e3cd8a5ac8d3311669247a756",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-22-bloodbloom.webp",
-  "thumb": "assets/concepts/dying-gods/dg-22-bloodbloom.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 135156
- },
- "art-output/dying-gods-act1/23_hollow_trunk/concept.png": {
-  "sha256": "e5249528f3e2b337080e2da508882ca90b058e7a72c6ae7d2732a188525a0a92",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-23-hollow-trunk.webp",
-  "thumb": "assets/concepts/dying-gods/dg-23-hollow-trunk.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 148440
- },
- "art-output/dying-gods-act1/24_veinroot_elder/concept.png": {
-  "sha256": "320d74cb47718bce07d04b71855b24cfeb44f890844a29a281073c0025ea6948",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-24-veinroot-elder.webp",
-  "thumb": "assets/concepts/dying-gods/dg-24-veinroot-elder.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 131056
- },
- "art-output/dying-gods-act1/25_deserter/concept.png": {
-  "sha256": "7d8a48003449c10bc8ae82a77d9b9e48956f81f08af067e40b1c6fe3a5d49ba7",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-25-deserter.webp",
-  "thumb": "assets/concepts/dying-gods/dg-25-deserter.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 99822
- },
- "art-output/dying-gods-act1/26_blackwood_marksman/concept-v2.png": {
-  "sha256": "b5f02dab82333f73b5ae96e460468e1c4ebf83859695a7edb2c260b83ab7e080",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-26-blackwood-marksman.webp",
-  "thumb": "assets/concepts/dying-gods/dg-26-blackwood-marksman.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 106760
- },
- "art-output/dying-gods-act1/26_blackwood_marksman/concept.png": {
-  "sha256": "cc52446ed8e58bf0dbbd34bfd4b68b52ceb6ee1a67a101052e68062779548eb5",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-26-blackwood-marksman-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-26-blackwood-marksman-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 108794
- },
- "art-output/dying-gods-act1/27_plague_brewer/concept.png": {
-  "sha256": "bbf6eda04533aa5cd17df81f1eb807e7642cea8e74f4bde936c5095009266f70",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-27-plague-brewer.webp",
-  "thumb": "assets/concepts/dying-gods/dg-27-plague-brewer.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 81150
- },
- "art-output/dying-gods-act1/28_chainkeeper/concept-v2.png": {
-  "sha256": "6b6097615714d06479c132947bad5fad8f1d31482fcc5a3296ce887a08fce131",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-28-chainkeeper.webp",
-  "thumb": "assets/concepts/dying-gods/dg-28-chainkeeper.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 108638
- },
- "art-output/dying-gods-act1/28_chainkeeper/concept.png": {
-  "sha256": "b996b4101679bead1180411bd6f65118d7fb107b1db2b9818317567fc0d91e2f",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-28-chainkeeper-2.webp",
-  "thumb": "assets/concepts/dying-gods/dg-28-chainkeeper-2.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 96960
- },
- "art-output/dying-gods-act1/29_oathbreaker_captain/concept.png": {
-  "sha256": "c2b250cb3d0c73375199729adbe692499fcfefada82679c6b6deb9f8b3346ec9",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-29-oathbreaker-captain.webp",
-  "thumb": "assets/concepts/dying-gods/dg-29-oathbreaker-captain.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 115350
- },
- "art-output/dying-gods-act1/30_hushed_acolyte/concept.png": {
-  "sha256": "7065fe9fb96b5d404f091b861b684f415dfd827fae6ec81eec76d2026670c6f4",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-30-hushed-acolyte.webp",
-  "thumb": "assets/concepts/dying-gods/dg-30-hushed-acolyte.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 96932
- },
- "art-output/dying-gods-act1/31_penitent_bulwark/concept.png": {
-  "sha256": "cfe1e95491db2d7bdb8b8b0e7f8394eef2c25986e5c97022fe0552bfe26e4b0c",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-31-penitent-bulwark.webp",
-  "thumb": "assets/concepts/dying-gods/dg-31-penitent-bulwark.thumb.webp",
-  "width": 1672,
-  "height": 940,
-  "bytes": 145202
- },
- "art-output/dying-gods-act1/32_ash_cantor/concept.png": {
-  "sha256": "799c6277c74a83b3915f77d08175253115c3ffe74e0f5211d0ed244acca1e2ec",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-32-ash-cantor.webp",
-  "thumb": "assets/concepts/dying-gods/dg-32-ash-cantor.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 109296
- },
- "art-output/dying-gods-act1/33_sanctified_executioner/concept.png": {
-  "sha256": "a7b0f195c4fce57bdcabba7e81ae2cbc891b0a05d11689c4be0677659cca8310",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-33-sanctified-executioner.webp",
-  "thumb": "assets/concepts/dying-gods/dg-33-sanctified-executioner.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 83296
- },
- "art-output/dying-gods-act1/34_hollow_confessor/concept.png": {
-  "sha256": "e75522cf143b51da3484213c081312d4c36e3ffcee9fbb9811abe1b190046154",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/dying-gods/dg-34-hollow-confessor.webp",
-  "thumb": "assets/concepts/dying-gods/dg-34-hollow-confessor.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 121836
- },
- "art-output/act1-monsters-20/01_fallen_scavenger/concept.png": {
-  "sha256": "3f53ffc2cc59cca4650afb1da8921d52f9633692a9665bfd6e45f0f82fb0f1ee",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-01-fallen-scavenger.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-01-fallen-scavenger.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 78060
- },
- "output/imagegen/fallen-bell-thief/concept.png": {
-  "sha256": "517346505d9389c2add0573b56f9e5e2d2a416cff3ae43367b315a7f718572a3",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-fallen-bell-thief.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-fallen-bell-thief.thumb.webp",
-  "width": 1672,
-  "height": 940,
-  "bytes": 98806
- },
- "art-output/act1-monsters-20/02_fallen_shaman/concept.png": {
-  "sha256": "da1754c2ba80139405a96077665385f2500a7797e1b2619642bd1ef2303d8342",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-02-fallen-shaman.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-02-fallen-shaman.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 88822
- },
- "art-output/act1-monsters-20/03_zombie_fieldhand/concept.png": {
-  "sha256": "1e226177c0e2955b74471812ca3b70b8ac8ff4da84e8bf41ed1552e60a9bfe62",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-03-zombie-fieldhand.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-03-zombie-fieldhand.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 69268
- },
- "art-output/act1-monsters-20/04_hungry_dead/concept.png": {
-  "sha256": "cdfa961b39e498fcfbc84365ed2efbe62ced77892731e52a2787ca3ce6dad6f5",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-04-hungry-dead.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-04-hungry-dead.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 61060
- },
- "art-output/act1-monsters-20/05_quill_rat/concept.png": {
-  "sha256": "06c4b059ec612c5462d8745b6bde4d50cbcc67e0252bea41525b9ce4bc55039e",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-05-quill-rat.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-05-quill-rat.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 67192
- },
- "art-output/act1-monsters-20/06_spike_fiend/concept.png": {
-  "sha256": "38c1b18fc804408e848a90c95c17a8949f4b6925e0e8361d09ecebbfaa618dd4",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-06-spike-fiend.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-06-spike-fiend.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 97570
- },
- "art-output/act1-monsters-20/07_gargantuan_beast/concept.png": {
-  "sha256": "57cbf43a9c941b029594e5bc331beba6e33e5bc93af9f2fe39b0a35710842824",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-07-gargantuan-beast.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-07-gargantuan-beast.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 91774
- },
- "art-output/act1-monsters-20/08_wendigo/concept.png": {
-  "sha256": "f0e0d21853d2cf9dca8ed7d116c8168f27af342a02ab35cad967ea575f6e8172",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-08-wendigo.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-08-wendigo.thumb.webp",
-  "width": 1672,
-  "height": 940,
-  "bytes": 89012
- },
- "art-output/act1-monsters-20/09_dark_hunter/concept.png": {
-  "sha256": "374463c2cbb17be701b8e72ec124778b254405b0c744c1e00abb015f6b3fe5ca",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-09-dark-hunter.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-09-dark-hunter.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 75400
- },
- "art-output/act1-monsters-20/10_dark_archer/concept.png": {
-  "sha256": "8d0e63231d1954727306905c349350538e58c62a86752eee42ffaf43460ca083",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-10-dark-archer.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-10-dark-archer.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 54046
- },
- "art-output/act1-monsters-20/11_dark_spearwoman/concept.png": {
-  "sha256": "89d5de0b0f460bb72ef1d708035201180c4fa1ddec2896f0369e0cc2b731ec11",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-11-dark-spearwoman.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-11-dark-spearwoman.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 65278
- },
- "art-output/act1-monsters-20/12_skeleton/concept.png": {
-  "sha256": "79801ea84657fccd1f226f780731fe811718ce49b087f6039e544036a4beb779",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-12-skeleton.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-12-skeleton.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 81398
- },
- "art-output/act1-monsters-20/13_skeleton_archer/concept.png": {
-  "sha256": "46ca099d6f2888767d620c4663bf38c25e8d70a7cb30f87f543b29867e42f7c4",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-13-skeleton-archer.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-13-skeleton-archer.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 75906
- },
- "art-output/act1-monsters-20/14_skeleton_mage/concept.png": {
-  "sha256": "c037340fc9d23d98c5cbccbfb8e255f1478e9aebda9eae25928584c8fc3363d8",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-14-skeleton-mage.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-14-skeleton-mage.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 60742
- },
- "art-output/act1-monsters-20/15_blood_hawk/concept.png": {
-  "sha256": "fa06245dca0fe30be1088376bbe94c3be25048af3d7ff233973109a69bc07d68",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-15-blood-hawk.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-15-blood-hawk.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 82094
- },
- "art-output/act1-monsters-20/16_foul_crow/concept.png": {
-  "sha256": "47434ed21c93ed354dcb5707131368b4072e5bd9f99206f1f68bed3d86865b56",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-16-foul-crow.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-16-foul-crow.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 49774
- },
- "art-output/act1-monsters-20/17_goatman/concept.png": {
-  "sha256": "ec77ec3e452e9542dd8c5774d655b3bf8d591dfcaaf993a0da2df97e6a8bfd5b",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-17-goatman.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-17-goatman.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 67476
- },
- "art-output/act1-monsters-20/18_goatman_shaman/concept.png": {
-  "sha256": "9ffdd56f2d30e83370c375b194ae0c12e464a7c6007d6cc2696a341d17a530bd",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-18-goatman-shaman.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-18-goatman-shaman.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 88580
- },
- "art-output/act1-monsters-20/19_tainted/concept.png": {
-  "sha256": "74fcf6680a07b437fac391fba13b49227a03959bea85140ad1cadf5b754caea6",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-19-tainted.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-19-tainted.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 86988
- },
- "art-output/act1-monsters-20/20_arach/concept.png": {
-  "sha256": "83c2490bfaeade55b9833dafb76b7435360227cd23f8c25db6e085cb7351fb89",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters/act1-20-arach.webp",
-  "thumb": "assets/concepts/act1-monsters/act1-20-arach.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 73268
- },
- "art-output/act1-monsters-20/01_fallen_scavenger/variants/v2/concept.png": {
-  "sha256": "8052b634059734d8270a43b7261bbe4fef81ebe5428bd1a1afaa3358e76c82dd",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-01-cinder-burrowling.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-01-cinder-burrowling.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 83806
- },
- "art-output/act1-monsters-20/02_fallen_shaman/variants/v2/concept.png": {
-  "sha256": "beefb36f159e1bf1e545bf4afbf0df463ccac739e94d97d4059e78ebc892218a",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-02-ember-throat.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-02-ember-throat.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 79026
- },
- "art-output/act1-monsters-20/03_zombie_fieldhand/variants/v2/concept.png": {
-  "sha256": "9b7c8771b999b219c7379fc94cca149e8a7bb20d7d2a46f6119b165261a23274",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-03-bog-bellower.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-03-bog-bellower.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 92474
- },
- "art-output/act1-monsters-20/04_hungry_dead/variants/v2/concept.png": {
-  "sha256": "f6cd34745d8db20864d79f7236cdb485163b8b103fdcc33ec7c055036ec13b51",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-04-shroud-crawler.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-04-shroud-crawler.thumb.webp",
-  "width": 1672,
-  "height": 940,
-  "bytes": 74678
- },
- "art-output/act1-monsters-20/05_quill_rat/variants/v2/concept.png": {
-  "sha256": "f8cdd8aa1778320ca4923b0e9f4d0dcc2872d7266a8421c7010ac3936a3a8cde",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-05-needle-mole.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-05-needle-mole.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 111262
- },
- "art-output/act1-monsters-20/06_spike_fiend/variants/v2/concept.png": {
-  "sha256": "9c102854fd49fd896b26c080c2facb45405bf592c2eb6ac7051879d22cbb3857",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-06-barbed-skipper.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-06-barbed-skipper.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 78596
- },
- "art-output/act1-monsters-20/07_gargantuan_beast/variants/v2/concept.png": {
-  "sha256": "e8fb51482e4e02bf63f366650e98347e4b2b0a078a3672d11bff0e1eed2900e9",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-07-root-mauler.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-07-root-mauler.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 69922
- },
- "art-output/act1-monsters-20/08_wendigo/variants/v2/concept.png": {
-  "sha256": "41789ce5683a6086a4a21af4a2eee7fe55d1df027af3af68050d9086f8475cef",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-08-hollow-prowler.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-08-hollow-prowler.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 91432
- },
- "art-output/act1-monsters-20/09_dark_hunter/variants/v2/concept.png": {
-  "sha256": "3472fc56822401ad481b8482f27c838702befd48a8218c9de3868d16ed723acb",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-09-thorn-widow.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-09-thorn-widow.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 74842
- },
- "art-output/act1-monsters-20/10_dark_archer/variants/v2/concept.png": {
-  "sha256": "44987353a1f28adfab17718b524e2df94230c33b4f2c1382027a2a7ee9871f64",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-10-sinew-spitter.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-10-sinew-spitter.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 89186
- },
- "art-output/act1-monsters-20/11_dark_spearwoman/variants/v2/concept.png": {
-  "sha256": "78b93e5939584a47291522ce9f6e56295f06eeed23f422268afd379431213c8f",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-11-reed-stalker.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-11-reed-stalker.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 60348
- },
- "art-output/act1-monsters-20/12_skeleton/variants/v2/concept.png": {
-  "sha256": "c68bef2e81f12a40433e2d5fc0c76b41eb781f042f9f820be53ec865eb616555",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-12-ossuary-hound.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-12-ossuary-hound.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 114762
- },
- "art-output/act1-monsters-20/13_skeleton_archer/variants/v2/concept.png": {
-  "sha256": "133f4643ce4775994cd20e7207335dcfd43adc8f96c181ea3a1b810e4c19ea1d",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-13-rib-harrier.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-13-rib-harrier.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 90188
- },
- "art-output/act1-monsters-20/14_skeleton_mage/variants/v2/concept.png": {
-  "sha256": "2c4ba9a775bee67af47a294289d8bc1e661469299e0eb7dd5e92c3f890cbf459",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-14-funeral-lantern.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-14-funeral-lantern.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 127668
- },
- "art-output/act1-monsters-20/15_blood_hawk/variants/v2/concept.png": {
-  "sha256": "a2d99f110763ac96297aa0cc8299267a44fdcfa7106b121e1c65c2f290c8a60e",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-15-redwing-glider.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-15-redwing-glider.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 72976
- },
- "art-output/act1-monsters-20/16_foul_crow/variants/v2/concept.png": {
-  "sha256": "a8d10ae5f12902080dc9ed3f43e997832b1222a708e4fe736786dc5098cd9a6b",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-16-gutter-skimmer.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-16-gutter-skimmer.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 104794
- },
- "art-output/act1-monsters-20/17_goatman/variants/v2/concept.png": {
-  "sha256": "650f86c94ccf90dae1c0c2faae2513538aee667eb2b8dc803785799d65fc8005",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-17-hornback-ravager.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-17-hornback-ravager.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 85472
- },
- "art-output/act1-monsters-20/18_goatman_shaman/variants/v2/concept.png": {
-  "sha256": "96684f6f946ad4fc634ff0b2b88a713b4c6cf89bb36bd5a4cf9d0199983c8793",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-18-hearth-antlerless.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-18-hearth-antlerless.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 104482
- },
- "art-output/act1-monsters-20/19_tainted/variants/v2/concept.png": {
-  "sha256": "9176daec3a946fcaaf97884f21cdf1a5e52bb6c24b259417b752294e92f1b677",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-19-storm-gullet.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-19-storm-gullet.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 99684
- },
- "art-output/act1-monsters-20/20_arach/variants/v2/concept.png": {
-  "sha256": "0d7544489349fe008bfe4fe9491e4dd3d9e458e992ac21b84e50cd1baac03a0c",
-  "maxSize": 1920,
-  "quality": 80,
-  "thumbMax": 480,
-  "file": "assets/concepts/act1-monsters-v2/act1v2-20-crypt-bellows.webp",
-  "thumb": "assets/concepts/act1-monsters-v2/act1v2-20-crypt-bellows.thumb.webp",
-  "width": 1672,
-  "height": 941,
-  "bytes": 85752
+  "file": "assets/concepts/ashlar-monsters/ashlar-w07-shroud-spinner.webp",
+  "thumb": "assets/concepts/ashlar-monsters/ashlar-w07-shroud-spinner.thumb.webp",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 70808
  },
  "art-output/mmo-hub-bloodmoor/01_establishing_iso.png": {
   "sha256": "21e6a383d200e7a9ee6910ccb3ec74b978b0857245af4cbe4e2ece14255d3db1",

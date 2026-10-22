@@ -61,21 +61,36 @@ assert(html.includes('content-source')&&html.includes('encounter-condition'));
 // D2RR concept art: records, source files, filters and the inlined WebP images.
 const stubMedia={name:'stub-media',setup(b){b.onResolve({filter:/^concept-media$/},()=>({path:'concept-media',namespace:'stub'}));b.onLoad({filter:/.*/,namespace:'stub'},async()=>{const data=JSON.parse(await readFile(new URL('../src/data/concepts.json',import.meta.url),'utf8'));return {contents:JSON.stringify(Object.fromEntries(data.records.flatMap(r=>r.images.flatMap(i=>[[i.file,'data:image/webp;base64,'+i.file],[i.thumb,'data:image/webp;base64,'+i.thumb]])))),loader:'json'};});}};
 const conceptBuild=await build({entryPoints:[new URL('../src/data/concepts.js',import.meta.url).pathname.replace(/^\/([A-Z]:)/,'$1')],bundle:true,platform:'node',format:'esm',write:false,plugins:[stubMedia]});
-const {concepts,conceptGroups,conceptWorld}=await import('data:text/javascript;base64,'+Buffer.from(conceptBuild.outputFiles[0].text).toString('base64'));
+const {concepts,conceptGroups,conceptWorld,conceptWorlds}=await import('data:text/javascript;base64,'+Buffer.from(conceptBuild.outputFiles[0].text).toString('base64'));
 const conceptSources=JSON.parse(await readFile(new URL('../assets/CONCEPT_SOURCES.json',import.meta.url),'utf8'));
-assert.equal(concepts.length,conceptSources.records.length);assert.equal(concepts.length,152);assert.equal(conceptGroups.length,16);assert.equal(conceptWorld.id,'d2rr');
+assert.equal(concepts.length,conceptSources.records.length);assert.equal(concepts.length,105);assert.equal(conceptGroups.length,9);assert.equal(conceptWorld.id,'d2rr');assert.deepEqual(conceptWorlds.map(w=>w.id),['ashlar','d2rr']);assert.deepEqual(conceptGroups.map(g=>g.world),['ashlar',...Array(8).fill('d2rr')]);
 assert.deepEqual(concepts.map(c=>c.id),conceptSources.records.map(r=>r.id));
-assert.deepEqual(conceptGroups.map(g=>concepts.filter(c=>c.group===g.id).length),[7,6,6,5,5,5,21,20,7,6,17,7,14,8,5,13]);
-assert.equal(concepts.reduce((n,c)=>n+c.images.length,0),209);
-assert.deepEqual(['progress','todo','approved'].map(s=>concepts.filter(c=>c.status===s).length),[143,8,1]);
-assert.equal(new Set([...monsters,...act1Items,...act1Npcs,...multiverseEnemies,...concepts].map(a=>a.id)).size,532);
-assert(concepts.every((c,i)=>c.type==='concept'&&c.game==='d2rr'&&c.number===i+1&&c.index===4001+i&&c.image===c.images[0]&&c.media.clips.length===0));
+assert.deepEqual(conceptGroups.map(g=>concepts.filter(c=>c.group===g.id).length),[28,7,6,17,7,14,8,5,13]);
+assert.equal(concepts.reduce((n,c)=>n+c.images.length,0),153);
+assert.deepEqual(['progress','todo','approved'].map(s=>concepts.filter(c=>c.status===s).length),[72,4,29]);
+assert.equal(new Set([...monsters,...act1Items,...act1Npcs,...multiverseEnemies,...concepts].map(a=>a.id)).size,485);
+assert(concepts.every((c,i)=>c.type==='concept'&&c.game===(c.group==='ashlar-chot'?'ashlar':'d2rr')&&c.number===i+1&&c.index===4001+i&&c.image===c.images[0]&&c.media.clips.length===0));
 for(const c of concepts){assert(c.name&&c.description&&c.art&&c.role&&c.method&&c.location,c.id);for(const image of c.images){assert(image.src.startsWith('data:image/webp')&&image.thumbSrc.startsWith('data:image/webp')&&image.label&&image.width>0&&image.height>0,c.id);await access(new URL('../'+image.file,import.meta.url));await access(new URL('../'+image.thumb,import.meta.url));await access(new URL('../../'+image.origin,import.meta.url));}}
 const conceptState={...state,game:'all',collection:'concept'},noWork={notes:{},favorites:[],statuses:{}},everything=[...monsters,...act1Items,...act1Npcs,...multiverseEnemies,...concepts];
-assert.equal(queryAssets(everything,conceptState,noWork).length,152);assert.equal(queryAssets(everything,{...state,game:'d2rr'},noWork).length,152);
-assert.equal(queryAssets(everything,{...conceptState,group:'dg-redbound'},noWork).length,7);assert.equal(queryAssets(everything,{...conceptState,status:'todo'},noWork).length,8);
-assert.equal(queryAssets(everything,{...conceptState,query:'hong phuoc'},noWork).length,7);assert.equal(queryAssets(everything,{...state,game:'diablo-ii',collection:'concept'},noWork).length,0);
+assert.equal(queryAssets(everything,conceptState,noWork).length,105);assert.equal(queryAssets(everything,{...state,game:'d2rr'},noWork).length,77);assert.equal(queryAssets(everything,{...state,game:'ashlar'},noWork).length,28);
+assert.equal(queryAssets(everything,{...conceptState,group:'ashlar-chot'},noWork).length,28);assert.equal(queryAssets(everything,{...conceptState,status:'todo'},noWork).length,4);
+assert.equal(queryAssets(everything,{...conceptState,query:'concept chot'},noWork).length,28);assert.equal(queryAssets(everything,{...conceptState,query:'dying gods'},noWork).length,0);assert.equal(queryAssets(everything,{...state,game:'diablo-ii',collection:'concept'},noWork).length,0);
 const conceptFiles=new Set(concepts.flatMap(c=>c.images.flatMap(i=>[i.file,i.thumb])));assert(html.split('data:image/webp;base64,').length-1>=conceptFiles.size);
 assert(html.includes('<meta name="origin-root" content="../../">')&&html.includes('id="versions"'));
 const d2rr=await readFile(new URL('../../D2RR.html',import.meta.url),'utf8');assert(d2rr.includes('<meta name="origin-root" content="">')&&d2rr.length===html.length-'../../'.length);
-console.log(`PASS: ${concepts.length} D2RR concept records, ${concepts.reduce((n,c)=>n+c.images.length,0)} embedded concept images, ${conceptGroups.length} concept sets; D2RR.html matches dist.`);
+console.log(`PASS: ${concepts.length} concept records (ASHLAR + D2RR), ${concepts.reduce((n,c)=>n+c.images.length,0)} embedded concept images, ${conceptGroups.length} concept sets; D2RR.html matches dist.`);
+
+// ASHLAR "Concept chốt": exactly the 28 approved monster sheets, approved by default; older project monster groups are gone.
+const ashlarPaths=['B01_sextons_dog/vA/concept_r2','B02_lullaby_man/vA/concept_r2','B03_ember_pot/vA/concept','B04_willow_bride/vA/concept','B05_hospice_mother/vA/concept_r2','D01_hodling/vB/concept_r2','D02_kiln_shaman/vA/concept_r2','D04_tithe_thief/vA/concept_r2','F01_body_snatcher/vA/concept_r2b','F02_poppy_nurse/vA/concept_r2','P01_the_soothed/vA/concept_r2','P02_hush_herald/vA/concept_r2','P03_hush_moths/vA/concept_r2b','P04_hive_sleeper/vA/concept_r2','P05_wet_nurse/vB/concept_r2','P06_poppy_mound/vA/concept_r2','P07_cradle_warden/vA/concept_r2','U01_shambler/vA/concept_r2','U02_charnel_dead/vA/concept_r2b','U03_charnel_bowman/vA/concept_r2','U04_charnel_ghoul/vA/concept_r2','U05_the_swollen/vA/concept_r2','W01_mortar_rat/vB/concept_r2','W02_gibbet_crow/vB/concept_r2b','W03_hush_wolf/vA/concept_r2','W04_mire_sucker/vB/concept_r2','W06_willow_hulk/vB/concept','W07_shroud_spinner/vA/concept_r2'].map(p=>'ashlar/art/map-01-concepts/monsters/'+p+'.png');
+const ashlar=concepts.filter(c=>c.group==='ashlar-chot');
+assert.deepEqual(ashlar.map(c=>c.images.map(i=>i.origin).join()),ashlarPaths);assert.equal(new Set(ashlarPaths).size,28);
+assert(ashlar.every(c=>c.images.length===1&&c.status==='approved'&&c.game==='ashlar'&&c.tags.includes('ashlar')));
+assert.equal(ashlar.length,28);assert.equal(conceptGroups[0].id,'ashlar-chot');assert(conceptGroups[0].name.startsWith('Concept chốt'));
+assert(!concepts.some(c=>/^concept-(dg|act1)-/.test(c.id))&&!conceptGroups.some(g=>/^(dg|act1)-/.test(g.id)));
+assert(concepts.every(c=>c.group==='ashlar-chot'||!c.images.some(i=>/^art-output\/(dying-gods-act1|act1-monsters)/.test(i.origin))));
+for(const dir of ['dying-gods','act1-monsters','act1-monsters-v2'])await assert.rejects(access(new URL('../assets/concepts/'+dir,import.meta.url)),dir);
+const wantedFiles=new Set(concepts.flatMap(c=>c.images.flatMap(i=>[i.file,i.thumb])).map(f=>f.replace(/^assets\/concepts\//,'')));
+const {readdir}=await import('node:fs/promises');
+for(const dir of await readdir(new URL('../assets/concepts',import.meta.url),{withFileTypes:true}))if(dir.isDirectory())for(const f of await readdir(new URL('../assets/concepts/'+dir.name,import.meta.url)))assert(wantedFiles.has(dir.name+'/'+f),'stale concept file '+dir.name+'/'+f);
+assert(html.includes('Concept chốt')&&d2rr.includes('Concept chốt'));
+console.log(`PASS: ASHLAR Concept chốt = ${ashlar.length} approved monster sheets; old Dying Gods and Act I monster concepts removed; no stale WebP files.`);

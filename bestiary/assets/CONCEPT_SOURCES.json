@@ -1,58 +1,18 @@
 {
  "schemaVersion": 1,
- "note": "Curated list of the project 2D concept art shown in the Book of Cain (D2RR). Paths are relative to the repository root. Run `python scripts/import_concepts.py` after editing; it writes assets/concepts/ and src/data/concepts.json.",
+ "note": "Curated list of the project 2D concept art shown in the Book of Cain: the ASHLAR 'Concept chốt' approved monsters (world ashlar) and the remaining D2RR-era concepts (world d2rr). Paths are relative to the repository root. Run `python scripts/import_concepts.py` after editing; it writes assets/concepts/ and src/data/concepts.json.",
  "world": {
   "id": "d2rr",
-  "name": "D2RR"
+  "name": "D2RR",
+  "scope": "Older concepts: outpost, props, UI, terrain"
  },
  "groups": [
   {
-   "id": "dg-redbound",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Redbound",
-   "description": "Blood-red hunched imps with white bone and long arms (Hồng Phược). Body red 65–75%."
-  },
-  {
-   "id": "dg-restless",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Restless",
-   "description": "Cold dead flesh, old bone and rotten cloth (Xác Không Yên)."
-  },
-  {
-   "id": "dg-blightbeasts",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Blightbeasts",
-   "description": "Real animal species in desaturated natural colours, with exposed bone and diseased hide (Dã Thú Dịch Bệnh)."
-  },
-  {
-   "id": "dg-rootborn",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Rootborn",
-   "description": "Black wood, moss green, dry thorns and red god-blood inside (Sinh Vật Rễ Máu)."
-  },
-  {
-   "id": "dg-forsworn",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Forsworn",
-   "description": "Humans in practical clothes, old armour, dark iron and leather (Kẻ Phản Thệ)."
-  },
-  {
-   "id": "dg-consecrated",
-   "dir": "dying-gods",
-   "name": "Dying Gods · Consecrated",
-   "description": "Ritual black, white wax, ivory bone, old sacred gold and blood-red accents (Kẻ Được Thánh Hóa)."
-  },
-  {
-   "id": "act1-v1",
-   "dir": "act1-monsters",
-   "name": "Act I monsters · v1",
-   "description": "20 original monsters reinterpreting the Diablo II Act I families, plus the Fallen Bell Thief test sheet."
-  },
-  {
-   "id": "act1-v2",
-   "dir": "act1-monsters-v2",
-   "name": "Act I creatures · v2",
-   "description": "20 new creatures that keep the colour mood of the original Diablo II family of the same slot."
+   "id": "ashlar-chot",
+   "dir": "ashlar-monsters",
+   "world": "ashlar",
+   "name": "Concept chốt · ASHLAR monsters",
+   "description": "The 28 ASHLAR monster concepts the project owner approved on 2026-10-21 (Map 01, Prologue and Act I). They replace the older Dying Gods and Act I monster concepts, which were removed from the book."
   },
   {
    "id": "hub-keyart",
@@ -107,2097 +67,814 @@
  ],
  "records": [
   {
-   "id": "concept-dg-01-scavenger",
-   "name": "Scavenger",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-b01-the-sextons-dog",
+   "name": "The Sexton's Dog",
+   "group": "ashlar-chot",
+   "role": "Monster sheet",
+   "act": "Prologue",
+   "location": "ASHLAR · Prologue · graveyard",
+   "base": "Mini-boss, no Diablo base listed",
+   "palette": "Dark brown fur #4A3526 · iron-grey collar and greying muzzle #5A5F66 · no accent (Prologue rule)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Gennet's old mastiff, buried last winter and risen with a torn collar and the lamp hook still around its neck. Lunges and drags; an easy fight meant to teach dodging. (Mini-boss · Unlaid.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/B01_sextons_dog/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
+   "tags": [
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "B01",
+    "Mini-boss · Unlaid"
+   ],
+   "images": [
+    {
+     "origin": "ashlar/art/map-01-concepts/monsters/B01_sextons_dog/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
+    }
+   ]
+  },
+  {
+   "id": "concept-ashlar-b02-the-lullaby-man",
+   "name": "The Lullaby Man",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #01 of 34",
-   "palette": "Brick red · ivory bone · rust brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Small and hunchbacked with long arms, carrying a rusty sickle.",
-   "art": "QA pass. Hunched, long arms, rusty sickle; brick red is dominant.",
+   "location": "ASHLAR · Act I · Night Fens",
+   "base": "Original; silhouette overlaps P07 Cradle-Warden",
+   "palette": "Patched linen #E8E1D0 · slate-blue patches and sleeper cocoons #5F7385 · poppy-red stitches #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Tall patchwork 'nurse' stitched from linen and stuffing, carrying a cradle-cage with a sleeper inside. Heard long before it is seen; hitting the cradle kills the sleeper. (Mid-boss · Perfection-born (Mercy).)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/B02_lullaby_man/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Nhỏ, lưng gù, tay dài, cầm liềm gỉ.",
-    "Đỏ gạch · Xương ngà · Nâu gỉ"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "B02",
+    "Mid-boss · Perfection-born (Mercy)"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/01_scavenger/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/B02_lullaby_man/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-02-piercer",
-   "name": "Piercer",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-b03-the-ember-pot",
+   "name": "The Ember-Pot",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #02 of 34",
-   "palette": "Dried-blood red · bone white · black-brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Lean body and long legs; one arm has become a tube that launches bone spikes.",
-   "art": "QA pass. Long legs; one arm is the bone-spike launcher, kept on the same side in all four views. Measured red is about 47% because the bone tube is large.",
+   "location": "ASHLAR · Act I · Flint Delvings",
+   "base": "Grown Kiln-Shaman (D02)",
+   "palette": "Giant dark-glazed pot #5A2A1E · soot-black shaman with terracotta skin #2A2224 / #9C4A2C · kiln-orange glow #E2622B through the pot cracks and mouth",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A swollen Kiln-Shaman dragging a coal pot the size of an ox cart that reheats every Hodling nearby. The pot has to be smashed first. (Optional mini-boss · Discarded.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/B03_ember_pot/vA/concept.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Thân gầy, chân dài, một tay biến thành ống phóng gai xương.",
-    "Đỏ máu khô · Trắng xương · Nâu đen"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "B03",
+    "Optional mini-boss · Discarded"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/02_piercer/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/B03_ember_pot/vA/concept.png",
+     "label": "Approved sheet · vA · first pass"
     }
    ]
   },
   {
-   "id": "concept-dg-03-brute",
-   "name": "Brute",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-b04-the-willow-bride",
+   "name": "The Willow Bride",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #03 of 34",
-   "palette": "Deep red · grey bone · flesh brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Broad and heavy with wide shoulders; both forearms are armoured in bone.",
-   "art": "QA pass. Wide shoulders and bone-armoured forearms. The small-view layout is slightly cluttered.",
+   "location": "ASHLAR · Act I · Willow Mere (side quest)",
+   "base": "Original",
+   "palette": "Grey drowned wedding dress #8E8A80 · dark root-brown hair-roots #4A3526 · poppy-red flowers #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A drowned bride in a rotted veil, her hair grown into willow roots, who attacks anyone passing. Once laid to rest she speaks her last words and nothing attacks again. (Side boss · no family assigned.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/B04_willow_bride/vA/concept.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "To bè, vai rộng, hai cẳng tay bọc giáp xương.",
-    "Đỏ đô · Xương xám · Nâu thịt"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "B04",
+    "Side boss · no family assigned"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/03_brute/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/B04_willow_bride/vA/concept.png",
+     "label": "Approved sheet · vA · first pass"
     }
    ]
   },
   {
-   "id": "concept-dg-04-bellwether",
-   "name": "Bellwether",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-b05-the-hospice-mother",
+   "name": "The Hospice Mother",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #04 of 34",
-   "palette": "Dark crimson · white bone · flesh pink (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Long neck; the rib cage carries bone rings that beat a rhythm.",
-   "art": "QA pass. Long neck and bone rings on the chest. Leans a little too far towards flesh pink.",
+   "location": "ASHLAR · Act I · Cradle",
+   "base": "Original",
+   "palette": "Vast linen veil and gown #E8E1D0 · deep grey-violet inner robes #4B4552 · warm amber night-lamp glow #E0A050 (one small lamp)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Mother Hawise turned into a giant veiled linen figure with dozens of soft white hands. Her lullaby dims the screen and slows the hero; the hands try to tuck the hero in, and the night-lamps go out one by one. (Act boss · Perfection-born (Mercy).)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/B05_hospice_mother/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Cổ dài, lồng ngực có các vòng xương phát nhịp.",
-    "Đỏ thẫm · Xương trắng · Hồng thịt"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "B05",
+    "Act boss · Perfection-born (Mercy)"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/04_bellwether/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/B05_hospice_mother/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-05-crawler",
-   "name": "Crawler",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-d01-hodling",
+   "name": "Hodling",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #05 of 34",
-   "palette": "Red-brown · dirty bone · purple-black (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Reverse-bent back; crawls on all fours and ambushes from the dark.",
-   "art": "QA pass. Back bent backwards, crawling on four limbs. The corrective v2 improves the concave side profile, but a coherent backward spinal bend is still not fully achieved.",
+   "location": "ASHLAR · Act I · Flint Delvings",
+   "base": "Diablo family: D1/D2/D4 Fallen",
+   "palette": "Terracotta clay skin #9C4A2C · soot black #2A2224 (horns, hands, feet, loincloth) · kiln-orange crack light #E2622B (cracks only, small)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Knee-high brick-red clay goblin with glazed cracks and short horns, armed with trowels, nails and roof slate. Counts bricks in Mason under its breath. Swarms and hisses; when one breaks the pack panics, then regroups. (Discarded · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/D01_hodling/vB/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Lưng gập ngược, bò bốn chi, phục kích trong bóng tối.",
-    "Đỏ nâu · Xương bẩn · Đen tím"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "D01",
+    "Discarded · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/05_crawler/concept-v2.png",
-     "label": "v2 · corrective (recommended)"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/05_crawler/concept.png",
-     "label": "v1 · initial generation"
+     "origin": "ashlar/art/map-01-concepts/monsters/D01_hodling/vB/concept_r2.png",
+     "label": "Approved sheet · vB · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-06-vessel",
-   "name": "Vessel",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-d02-kiln-shaman",
+   "name": "Kiln-Shaman",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #06 of 34",
-   "palette": "Blood red · rose red · dark brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Swollen belly full of god-blood; bursts when killed.",
-   "art": "QA pass. Swollen belly; red is about 80%, slightly above the 65–75% band but true to the identity. v2 adds the rear view missing from the first sheet.",
+   "location": "ASHLAR · Act I · Flint Delvings (with Hodlings)",
+   "base": "Diablo family: D2/D4 Fallen Shamans",
+   "palette": "Soot-black robe and face #2A2426 · terracotta pot and clay skin #9C4A2C · kiln-orange glow #E2622B in the pot mouth and cracks",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A soot-faced Hodling carrying a smoking coal pot on its back. Reheats broken Hodlings and spits embers; the pot and its pulsing glow carry the silhouette. (Discarded · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/D02_kiln_shaman/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Bụng phình chứa thần huyết, phát nổ khi bị tiêu diệt.",
-    "Đỏ huyết · Hồng đỏ · Nâu đậm"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "D02",
+    "Discarded · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/06_vessel/concept-v2.png",
-     "label": "v2 · corrected (preferred)"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/06_vessel/concept.png",
-     "label": "v1 · initial, no rear view"
+     "origin": "ashlar/art/map-01-concepts/monsters/D02_kiln_shaman/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-07-herald",
-   "name": "Herald",
-   "group": "dg-redbound",
+   "id": "concept-ashlar-d04-tithe-thief",
+   "name": "Tithe-Thief",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Redbound (Hồng Phược) · #07 of 34",
-   "palette": "Wine red · ivory bone · bright red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "todo",
-   "description": "Tall leader with curved bone rings rising behind the back.",
-   "art": "QA pass, layout needs fixing: the curved bone rings read well, but the three small views are only about a quarter of the sheet height. Recommended for regeneration.",
+   "location": "ASHLAR · Any act · first seen in Flint Delvings",
+   "base": "Diablo family: D3 Treasure Goblin (chase only)",
+   "palette": "Terracotta clay skin #9C4A2C · burlap sack brown #6B5F4E · stolen gold coins and candlestick #D9A441",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A small fat Discarded staggering under a sack of coins and grave goods stolen from the dead. Flees into a gap in the Wall when it cannot be caught; drops loot when killed. (Discarded · rare chaser.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/D04_tithe_thief/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Redbound",
-    "Hồng Phược",
-    "Thủ lĩnh cao lớn, có những vòng xương cong sau lưng.",
-    "Đỏ rượu · Xương ngà · Đỏ sáng"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "D04",
+    "Discarded · rare chaser"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/07_herald/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/D04_tithe_thief/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-08-gravewalker",
-   "name": "Gravewalker",
-   "group": "dg-restless",
+   "id": "concept-ashlar-f01-body-snatcher",
+   "name": "Body-Snatcher",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #08 of 34",
-   "palette": "Grey-green · earth brown · dirty beige (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "todo",
-   "description": "Rotting peasant corpse with a lopsided shoulder, dragging one leg.",
-   "art": "QA weak: reads as a peasant corpse, but the lopsided shoulder and dragged leg are unclear and the small views are too small. The first rerun sheet stays the preferred palette reference; v2 records an unsuccessful leg correction. Recommended for regeneration.",
+   "location": "ASHLAR · Act I · graveyard (side quest The Mortsafe Thieves)",
+   "base": "Original",
+   "palette": "Soot black-brown coat #1F1D22 · burlap sack and rope #6B5F4E · poppy-red cord #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A man in a dark coat with a sack, rope and short spade. Runs when spotted and fights dirty when cornered. (Faithful · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/F01_body_snatcher/vA/concept_r2b.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Xác nông dân mục rữa, vai lệch, kéo lê chân.",
-    "Xám lục · Nâu đất · Be bẩn"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "F01",
+    "Faithful · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/08_gravewalker/concept.png",
-     "label": "Rerun · first generation (preferred palette)"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/08_gravewalker/concept-v2.png",
-     "label": "v2 · leg correction attempt"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/08_gravewalker/concept-attempt1.png",
-     "label": "First batch attempt"
+     "origin": "ashlar/art/map-01-concepts/monsters/F01_body_snatcher/vA/concept_r2b.png",
+     "label": "Approved sheet · vA · rev 2 rerun (r2b)"
     }
    ]
   },
   {
-   "id": "concept-dg-09-shrouded",
-   "name": "Shrouded",
-   "group": "dg-restless",
+   "id": "concept-ashlar-f02-poppy-nurse",
+   "name": "Poppy Nurse",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #09 of 34",
-   "palette": "Dirty ivory · cold grey · grey-brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Thin corpse wrapped in a burial shroud that lunges without warning.",
-   "art": "QA pass. Burial shroud and lunging pose.",
+   "location": "ASHLAR · Act I · Poppy Reach, Garden of Hush",
+   "base": "Diablo family: dark cultist casters (D3); new silhouette",
+   "palette": "White wimple and apron linen #E8E1D0 · dark charcoal-brown habit #3F3A34 · poppy-red embroidery #B3262A and silver needle steel #D8D8DC",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A nun in a white wimple embroidered with red poppies, holding a long silver needle. Briefly lulls the hero to sleep and heals other monsters. Must not look evil: gentle, a singer. (Faithful · caster / healer.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/F02_poppy_nurse/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Thi thể gầy quấn vải liệm, lao tới bất ngờ.",
-    "Trắng ngà bẩn · Xám lạnh · Nâu xám"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "F02",
+    "Faithful · caster / healer"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/09_shrouded/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/F02_poppy_nurse/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-10-bonewatch",
-   "name": "Bonewatch",
-   "group": "dg-restless",
+   "id": "concept-ashlar-p01-the-soothed",
+   "name": "The Soothed",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #10 of 34",
-   "palette": "Bone yellow · iron grey · rust brown (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Skeleton in old armour carrying a rusty crossbow.",
-   "art": "QA pass. Yellowed bone, rusty armour and crossbow; the crossbow string drifts slightly between views.",
+   "location": "ASHLAR · Act I · Night Fens, Garden of Hush, Cradle",
+   "base": "Original",
+   "palette": "Nightgown linen #E8E1D0 · faded slate-blue quilt or shawl #5F6B7A · poppy-red stitched smile #B3262A (small)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A sleepwalker in a nightgown, eyes closed, mouth stitched into a gentle smile. Walks toward the hero humming, then hugs and sedates (slow, then stun). Faster while the lullaby plays. A victim, not a villain. (Perfection-born · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P01_the_soothed/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Bộ xương mặc giáp cũ, cầm nỏ gỉ.",
-    "Vàng xương · Xám sắt · Nâu gỉ"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P01",
+    "Perfection-born · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/10_bonewatch/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P01_the_soothed/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-11-bloated-dead",
-   "name": "Bloated Dead",
-   "group": "dg-restless",
+   "id": "concept-ashlar-p02-hush-herald",
+   "name": "Hush-Herald",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #11 of 34",
-   "palette": "Grey-green · pale yellow · rotten grey (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Bloated corpse with taut skin that releases poison gas.",
-   "art": "QA pass. Taut skin and localised poison gas; the small views are slightly small.",
+   "location": "ASHLAR · Act I · Poppy Reach",
+   "base": "Diablo family: D3 Heralds of Pestilence",
+   "palette": "Veil and robe linen #E8E1D0 · deep moss-olive over-robe #4E5A3A · poppy-red closed-eye embroidery #B3262A and a dull brass censer #B59A5B",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Tall veiled figure swinging a poppy-smoke censer, robe embroidered with closed eyes. Spreads sleep clouds that slow and drowse, and strengthens nearby Soothed. (Perfection-born · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P02_hush_herald/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Xác trương phình, da căng, phát tán khí độc.",
-    "Xanh lục xám · Vàng tái · Xám mục"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P02",
+    "Perfection-born · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/11_bloated_dead/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P02_hush_herald/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-12-mourning-wraith",
-   "name": "Mourning Wraith",
-   "group": "dg-restless",
+   "id": "concept-ashlar-p03-hush-moths",
+   "name": "Hush-Moths",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #12 of 34",
-   "palette": "Blue-black · blue-grey · soul white (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "todo",
-   "description": "Ghost in black mourning cloth whose lower body dissolves into mist.",
-   "art": "QA pass, layout needs fixing: the lower body dissolves into mist, but the three small views are very small and hard to read. v2 moves them into the requested right-hand column. Recommended for regeneration.",
+   "location": "ASHLAR · Act I · Poppy Reach, Garden of Hush, Cradle",
+   "base": "Diablo family: D2 Act II insect swarms (behaviour only)",
+   "palette": "Soft linen-white wings #E8E1D0 · dusty grey-lilac body and wing powder #8F8796 · small poppy-red eye-spots on the wings #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A swarm of pale night moths with soft wings. Their wing dust makes the eyes heavy (slow). (Perfection-born · swarm.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P03_hush_moths/vA/concept_r2b.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Bóng ma mặc vải tang đen, thân dưới tan thành sương.",
-    "Xanh đen · Xám lam · Trắng hồn"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P03",
+    "Perfection-born · swarm"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/12_mourning_wraith/concept-v2.png",
-     "label": "v2 · corrective (recommended)"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/12_mourning_wraith/concept.png",
-     "label": "v1 · initial, horizontal layout"
+     "origin": "ashlar/art/map-01-concepts/monsters/P03_hush_moths/vA/concept_r2b.png",
+     "label": "Approved sheet · vA · rev 2 rerun (r2b)"
     }
    ]
   },
   {
-   "id": "concept-dg-13-coffinbound",
-   "name": "Coffinbound",
-   "group": "dg-restless",
+   "id": "concept-ashlar-p04-hive-sleeper",
+   "name": "Hive-Sleeper",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Restless (Xác Không Yên) · #13 of 34",
-   "palette": "Rotten-wood brown · corpse grey · ivory bone (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Giant corpse carrying a coffin on its back, wrapped in iron chains.",
-   "art": "QA pass. Coffin on the back, wrapped in chains.",
+   "location": "ASHLAR · Act I · Poppy Reach",
+   "base": "Diablo family: D4 Fly Hosts, Spider Hosts",
+   "palette": "Stained nightshirt linen #D9D0BC · sickly grey-green larval bulges #8E9C8A · poppy-red ribbon #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A sleeping human body swollen with moth larvae wriggling under the skin. Crawls close, then bursts into a swarm of Hush-Moths. Needs a reduced-larvae option. (Perfection-born · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P04_hive_sleeper/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Restless",
-    "Xác Không Yên",
-    "Xác khổng lồ mang quan tài, quấn xích sắt.",
-    "Nâu gỗ mục · Xám xác · Xương ngà"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P04",
+    "Perfection-born · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/13_coffinbound/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P04_hive_sleeper/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-14-mirewolf",
-   "name": "Mirewolf",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-p05-wet-nurse",
+   "name": "Wet-Nurse",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #14 of 34",
-   "palette": "Charcoal grey · fur brown · pale bone (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Gaunt wolf with a long jaw and fur falling out in patches.",
-   "art": "QA pass. Long jaw and patchy fur loss.",
+   "location": "ASHLAR · Act I · Garden of Hush, Cradle",
+   "base": "Diablo family: D2 Vile Mothers; D3 Wretched Mothers",
+   "palette": "Dark olive-grey nurse dress #5B6248 · linen apron and swaddling bundles #E8E1D0 · poppy-red ribbons on the bundles #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A bloated nurse's corpse in a stained apron, cradling linen bundles. Sets a bundle down and it crawls away: Swaddlings, small things of linen and bone that rush the hero. Must read as cloth and bone, never as infants. (Perfection-born · regular (+ Swaddlings).)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P05_wet_nurse/vB/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Sói gầy, hàm dài, lông rụng từng mảng.",
-    "Xám than · Nâu lông · Xương tái"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P05",
+    "Perfection-born · regular (+ Swaddlings)"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/14_mirewolf/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P05_wet_nurse/vB/concept_r2.png",
+     "label": "Approved sheet · vB · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-15-rotboar",
-   "name": "Rotboar",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-p06-poppy-mound",
+   "name": "Poppy-Mound",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #15 of 34",
-   "palette": "Black-brown · earth brown · bone yellow (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Heavy wild boar whose snout has turned to bone, with crooked tusks.",
-   "art": "QA pass. Bony snout and crooked tusks.",
+   "location": "ASHLAR · Act I · Garden of Hush",
+   "base": "Diablo family: D2 Flesh Spawners; D3 Fleshpitters",
+   "palette": "Linen nightshirts and blankets #E8E1D0 · muted flesh rose #8A6A5A (faces, arms, the mound mass) · bright poppy flowers #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A mound of flesh grown from many sleepers fused together and blooming with poppies. Stands still and releases Hush-Moths until destroyed. (Perfection-born · stationary spawner.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P06_poppy_mound/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Lợn rừng to nặng, mõm hóa xương, nanh lệch.",
-    "Nâu đen · Nâu đất · Vàng xương"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P06",
+    "Perfection-born · stationary spawner"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/15_rotboar/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P06_poppy_mound/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-16-carrion-crow",
-   "name": "Carrion Crow",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-p07-cradle-warden",
+   "name": "Cradle-Warden",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #16 of 34",
-   "palette": "Charcoal black · grey-blue · beak grey (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Large crow with torn wings and a long, sharp beak.",
-   "art": "QA pass. Torn wings and long beak.",
+   "location": "ASHLAR · Act I · Cradle",
+   "base": "Original; silhouette overlaps B02 Lullaby Man",
+   "palette": "Stitched linen #E8E1D0 · dark charcoal straps and weathered bone cage #3F3A34 · poppy-red stitches #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A giant cloth-stitched guard carrying a cage cradle on its back, faceless under a child's bonnet. Heavy bruiser that grabs the hero and 'rocks' them (stun). (Perfection-born · bruiser.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/P07_cradle_warden/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Quạ lớn, cánh rách, mỏ dài và sắc.",
-    "Đen than · Xanh xám · Xám mỏ"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "P07",
+    "Perfection-born · bruiser"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/16_carrion_crow/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/P07_cradle_warden/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-17-grave-rat",
-   "name": "Grave Rat",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-u01-shambler",
+   "name": "Shambler",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #17 of 34",
-   "palette": "Grey-brown · pink skin · yellow teeth (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Large rat with thin fur and swollen front teeth.",
-   "art": "QA pass. Swollen incisors, sparse fur, pink skin.",
+   "location": "ASHLAR · Prologue · Old Face graveyard; Act I · graveyard, Rook's Weir",
+   "base": "Diablo family: D1 Zombie; D3 Risen Dead",
+   "palette": "Dirty grave-linen grey #8C8577 (tattered shroud rags) · rotten peat brown #4A3526 (under-wraps, leg wraps, mud) · no accent (Prologue rule)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A freshly dead villager in burial shroud, jaw tied shut, coins still on the eyes, mud to the knees. Slow and clumsy but grabs and holds. Knocks on the coffin lid before rising, in waves around the hero. (Unlaid · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Chuột lớn, lông thưa, răng cửa phình to.",
-    "Nâu xám · Hồng da · Vàng răng"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "U01",
+    "Unlaid · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/17_grave_rat/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-18-grave-moth",
-   "name": "Grave Moth",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-u02-charnel-dead",
+   "name": "Charnel Dead",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #18 of 34",
-   "palette": "Ash grey · purple-grey · pale beige (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Giant moth whose dusty wings scramble the senses.",
-   "art": "QA pass. Ash grey, purple-grey and beige with wing dust.",
+   "location": "ASHLAR · Prologue and Act I · graveyard; Act II · Bell Catacombs",
+   "base": "Diablo family: D1 Skeleton; D2 skeletons",
+   "palette": "Aged bone ivory #D8CCB0 (the skeleton) · rotted dark-brown coffin wood and leather #4A3526 with dull iron #5A5F66 fittings · no accent (Prologue rule)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A skeleton assembled from mismatched ossuary bones: a woman's skull on a man's frame, one arm longer than the other, rotted grave goods as armour. Sword and shield; reassembles once unless the skull is smashed. (Unlaid · regular.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/U02_charnel_dead/vA/concept_r2b.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Bướm đêm khổng lồ, cánh phủ bụi gây nhiễu.",
-    "Xám tro · Tím xám · Be nhạt"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "U02",
+    "Unlaid · regular"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/18_grave_moth/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/U02_charnel_dead/vA/concept_r2b.png",
+     "label": "Approved sheet · vA · rev 2 rerun (r2b)"
     }
    ]
   },
   {
-   "id": "concept-dg-19-thornstag",
-   "name": "Thornstag",
-   "group": "dg-blightbeasts",
+   "id": "concept-ashlar-u03-charnel-bowman",
+   "name": "Charnel Bowman",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Blightbeasts (Dã Thú Dịch Bệnh) · #19 of 34",
-   "palette": "Black-brown · cool brown · ivory bone (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Tall, gaunt stag with deformed, thorn-covered antlers.",
-   "art": "QA pass. Tall and lean with heavily thorned antlers. The corrective v2 raises the main camera; it is still below the 50–60° target.",
+   "location": "ASHLAR · Act I · graveyard",
+   "base": "Diablo family: D1/D2 skeleton archers",
+   "palette": "Aged bone ivory #D8CCB0 (the skeleton) · dark yew-wood and leather brown #5A4A36 (bow, quiver, straps, hood rag) · poppy red #B3262A (fletching and one arm band)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Crooked skeleton with a yew bow and a quiver of rusty grave nails. Kites at range and moves in pairs. (Unlaid · ranged.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/U03_charnel_bowman/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Blightbeasts",
-    "Dã Thú Dịch Bệnh",
-    "Hươu cao gầy, sừng biến dạng nhiều gai.",
-    "Nâu đen · Nâu lạnh · Xương ngà"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "U03",
+    "Unlaid · ranged"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/19_thornstag/concept-v2.png",
-     "label": "v2 · corrective, higher camera"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/19_thornstag/concept.png",
-     "label": "v1 · initial, eye-level camera"
+     "origin": "ashlar/art/map-01-concepts/monsters/U03_charnel_bowman/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-20-thornling",
-   "name": "Thornling",
-   "group": "dg-rootborn",
+   "id": "concept-ashlar-u04-charnel-ghoul",
+   "name": "Charnel Ghoul",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Rootborn (Sinh Vật Rễ Máu) · #20 of 34",
-   "palette": "Moss green · wood brown · black thorns (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Small thorn bush on four root legs, camouflaged in the grass.",
-   "art": "QA pass with a note: the moss is slightly too fresh and there are more than four root legs. No red glow, as the brief requires. The corrective sheet did not achieve four clearly separate legs.",
+   "location": "ASHLAR · Act I · graveyard",
+   "base": "Diablo family: D3/D4 ghouls",
+   "palette": "Corpse grey-olive flesh #6E6A5C · stained pale burial linen #B8AE96 (the shredded smock) · poppy red #B3262A (inside of the gaping mouth and one rag tie)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Gaunt corpse with long arms and an over-wide jaw, running on all fours. Fast, pounces; eats corpses to heal, 'filling the space the soul left'. (Unlaid · fast melee.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Rootborn",
-    "Sinh Vật Rễ Máu",
-    "Bụi gai nhỏ có bốn chân rễ, ngụy trang trong cỏ.",
-    "Xanh rêu · Nâu gỗ · Gai đen"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "U04",
+    "Unlaid · fast melee"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/20_thornling/concept-corrective.png",
-     "label": "Corrective · latest"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/20_thornling/concept.png",
-     "label": "Initial generation"
+     "origin": "ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-21-rootwhip",
-   "name": "Rootwhip",
-   "group": "dg-rootborn",
+   "id": "concept-ashlar-u05-the-swollen",
+   "name": "The Swollen",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Rootborn (Sinh Vật Rễ Máu) · #21 of 34",
-   "palette": "Black-brown · olive green · sap red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Long whip-like roots with hooked thorns that drag targets in.",
-   "art": "QA pass. Hook-thorned root whips with localised red sap.",
+   "location": "ASHLAR · Act I · Night Fens, Rook's Weir, Willow Mere",
+   "base": "Diablo family: D3 Grotesques; D4 bloated corpses",
+   "palette": "Drowned blue-green corpse skin #5E6B5A (the bloated body) · dark peat-brown rags #3B3127 · poppy red #B3262A (coarse stitches across the drum-tight belly)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A drowned fen corpse bloated blue-white, skin drum-tight over wriggling eels. Lumbers up and bursts, spraying poisonous biting eels. (Unlaid · exploder.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/U05_the_swollen/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Rootborn",
-    "Sinh Vật Rễ Máu",
-    "Rễ dài như roi, có gai móc, kéo mục tiêu.",
-    "Nâu đen · Xanh ô liu · Đỏ nhựa cây"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "U05",
+    "Unlaid · exploder"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/21_rootwhip/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/U05_the_swollen/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-22-bloodbloom",
-   "name": "Bloodbloom",
-   "group": "dg-rootborn",
+   "id": "concept-ashlar-w01-mortar-rat",
+   "name": "Mortar-Rat",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Rootborn (Sinh Vật Rễ Máu) · #22 of 34",
-   "palette": "Blood red · dark moss green · flesh pink (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Red carnivorous flower with sharp petals and a funnel mouth.",
-   "art": "QA pass. Sharp red petals and a funnel mouth.",
+   "location": "ASHLAR · Prologue · Old Face graveyard; Act II · Scriptorium",
+   "base": "Diablo family: D2 Quill Rats",
+   "palette": "Mortar-grey hairless skin #A39F93 · dark slate brown #4F4840 (paws, snout, tail, skin folds) · no accent (Prologue rule)",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Cat-sized hairless grey rat grown mortar spines from gnawing the warm ossuary walls. Moves in packs; shakes and fires the spines in volleys. (Warped · swarm.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W01_mortar_rat/vB/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Rootborn",
-    "Sinh Vật Rễ Máu",
-    "Hoa ăn thịt đỏ, cánh sắc, miệng dạng phễu.",
-    "Đỏ huyết · Xanh rêu tối · Hồng thịt"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W01",
+    "Warped · swarm"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/22_bloodbloom/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/W01_mortar_rat/vB/concept_r2.png",
+     "label": "Approved sheet · vB · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-23-hollow-trunk",
-   "name": "Hollow Trunk",
-   "group": "dg-rootborn",
+   "id": "concept-ashlar-w02-gibbet-crow",
+   "name": "Gibbet-Crow",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Rootborn (Sinh Vật Rễ Máu) · #23 of 34",
-   "palette": "Bark brown · moss green · core red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Giant tree-man with a hollow chest holding a blood core.",
-   "art": "QA pass with a note: hollow chest with a blood core, but the wood is lighter brown than the family’s black wood.",
+   "location": "ASHLAR · Act I · graveyard; Act II · Pilgrim Road, Stair of Penitence",
+   "base": "Diablo family: D2 Carrion Birds",
+   "palette": "Tar-black feathers #17151A · raw bald pink-red head and neck skin #A8686A · pale bone beak and claws #D8CCB0",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Oversized carrion crow with a bald pink head and feathers matted with gibbet tar. Dives in flocks, pecks, withdraws and returns. (Warped · flyer.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vB/concept_r2b.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Rootborn",
-    "Sinh Vật Rễ Máu",
-    "Người cây khổng lồ, ngực rỗng chứa lõi huyết.",
-    "Nâu vỏ cây · Xanh rêu · Đỏ lõi"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W02",
+    "Warped · flyer"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/23_hollow_trunk/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vB/concept_r2b.png",
+     "label": "Approved sheet · vB · rev 2 rerun (r2b)"
     }
    ]
   },
   {
-   "id": "concept-dg-24-veinroot-elder",
-   "name": "Veinroot Elder",
-   "group": "dg-rootborn",
+   "id": "concept-ashlar-w03-hush-wolf",
+   "name": "Hush-Wolf",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Rootborn (Sinh Vật Rễ Máu) · #24 of 34",
-   "palette": "Black wood · dark moss · blood-vessel red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Ancient black-trunked tree with huge roots and red veins spreading across its body.",
-   "art": "QA pass. Black trunk, large roots, thin red veins.",
+   "location": "ASHLAR · Act I · Night Fens, Poppy Reach",
+   "base": "Diablo family: D4 Werewolves",
+   "palette": "Dusty brown fur #6B5D4B · torn pale grey-green nightshirt #A9B1A6 · small poppy-red embroidered collar #B3262A",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A Hush sufferer who dreams he is a wolf until the body follows: a lanky half-wolf with eyes always shut and a torn nightshirt on its back. Hunts by scent in packs; its howl is a lullaby. (Warped · pack hunter.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W03_hush_wolf/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Rootborn",
-    "Sinh Vật Rễ Máu",
-    "Cổ thụ thân đen, rễ lớn, mạch đỏ lan khắp thân.",
-    "Đen gỗ · Rêu tối · Đỏ mạch máu"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W03",
+    "Warped · pack hunter"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/24_veinroot_elder/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/W03_hush_wolf/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-25-deserter",
-   "name": "Deserter",
-   "group": "dg-forsworn",
+   "id": "concept-ashlar-w04-mire-sucker",
+   "name": "Mire-Sucker",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Forsworn (Kẻ Phản Thệ) · #25 of 34",
-   "palette": "Leather brown · steel grey · dark grey-green (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Army deserter in torn leather armour with an old sword and shield.",
-   "art": "QA pass. Torn leather armour, old sword and shield.",
+   "location": "ASHLAR · Act I · Night Fens",
+   "base": "Diablo family: D2 Suckers, Feeders",
+   "palette": "Dark peat-brown chitin #4A3526 · swollen blood-red belly #B3262A · smoky translucent grey wings #A9B1A6",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Cat-sized bloated blood-sucking fly with a taut red belly. Flies in to feed and bursts when full. (Warped · flyer.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W04_mire_sucker/vB/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Forsworn",
-    "Kẻ Phản Thệ",
-    "Lính đào ngũ, giáp da rách, kiếm và khiên cũ.",
-    "Nâu da · Xám thép · Xanh xám tối"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W04",
+    "Warped · flyer"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/25_deserter/concept.png",
-     "label": "Concept sheet"
+     "origin": "ashlar/art/map-01-concepts/monsters/W04_mire_sucker/vB/concept_r2.png",
+     "label": "Approved sheet · vB · rev 2 (r2)"
     }
    ]
   },
   {
-   "id": "concept-dg-26-blackwood-marksman",
-   "name": "Blackwood Marksman",
-   "group": "dg-forsworn",
+   "id": "concept-ashlar-w06-willow-hulk",
+   "name": "Willow-Hulk",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Forsworn (Kẻ Phản Thệ) · #26 of 34",
-   "palette": "Dark forest green · leather brown · charcoal black (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Hooded hunter carrying a heavy crossbow and traps.",
-   "art": "QA pass. Hood, large crossbow and traps hanging at the hip. Two independent generations exist; v2 is the latest.",
+   "location": "ASHLAR · Act I · Willow Mere",
+   "base": "Diablo family: D2 Thorned Hulks; D3/D4 Wood Wraiths",
+   "palette": "Dark wet willow-root brown #4A3526 · drooping olive willow fronds #6E7B45 · bone-ivory skull and pale rope noose #D8CCB0",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "A huge mass of willow roots, peat and drowned bones with a noose still around the neck. Slow, heavy punches; roots erupt under the hero's feet. The noose hangs high, with no hanged corpse. (Warped · heavy.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W06_willow_hulk/vB/concept.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Forsworn",
-    "Kẻ Phản Thệ",
-    "Thợ săn trùm mũ, mang nỏ lớn và bẫy.",
-    "Xanh rừng tối · Nâu da · Đen than"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W06",
+    "Warped · heavy"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/26_blackwood_marksman/concept-v2.png",
-     "label": "v2 · latest generation"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/26_blackwood_marksman/concept.png",
-     "label": "Earlier generation"
+     "origin": "ashlar/art/map-01-concepts/monsters/W06_willow_hulk/vB/concept.png",
+     "label": "Approved sheet · vB · first pass"
     }
    ]
   },
   {
-   "id": "concept-dg-27-plague-brewer",
-   "name": "Plague Brewer",
-   "group": "dg-forsworn",
+   "id": "concept-ashlar-w07-shroud-spinner",
+   "name": "Shroud-Spinner",
+   "group": "ashlar-chot",
    "role": "Monster sheet",
    "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Forsworn (Kẻ Phản Thệ) · #27 of 34",
-   "palette": "Olive yellow · grey-brown · chemical green (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Masked plague-maker carrying chemical flasks.",
-   "art": "QA pass with a note: mask and chemical flasks, but the mustard-yellow coat stands out more than the requested olive yellow.",
+   "location": "ASHLAR · Act I · Flint Delvings, Garden of Hush",
+   "base": "Diablo family: D2 spiders; D1 Hellfire's Hive",
+   "palette": "Ash-grey chitin #6F6A62 · shroud-silk ivory #D8CCB0 (wrapped bundles and silk) · cluster of milky yellow eyes #C9B458",
+   "method": "AI image generation (Codex gpt-6-astra, built-in image_gen), Revision 2 brief",
+   "layout": "16:9 sheet: 1 H human silhouette for scale, one 3/4 view with weapon, a separate weapon/prop panel where the creature has one, and four neutral-pose views (left, right, front, back).",
+   "status": "approved",
+   "description": "Pale spider that wraps corpses in silk like burial shrouds. Slowing webs and poison; lays egg sacs in bodies. Needs an arachnophobia option. (Warped · web / poison.)",
+   "art": "Concept chốt: approved by the project owner on 2026-10-21 as the chosen concept for this monster; it replaces every earlier selection. Source: ashlar/art/map-01-concepts/monsters/W07_shroud_spinner/vA/concept_r2.png. The palette is the proposed Revision 2 palette (primary · secondary · accent), not yet locked.",
    "tags": [
-    "dying gods",
-    "Forsworn",
-    "Kẻ Phản Thệ",
-    "Kẻ pha dịch đeo mặt nạ, mang bình hóa chất.",
-    "Vàng ô liu · Nâu xám · Lục hóa chất"
+    "ashlar",
+    "concept chốt",
+    "map 01",
+    "approved",
+    "W07",
+    "Warped · web / poison"
    ],
    "images": [
     {
-     "origin": "art-output/dying-gods-act1/27_plague_brewer/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-28-chainkeeper",
-   "name": "Chainkeeper",
-   "group": "dg-forsworn",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Forsworn (Kẻ Phản Thệ) · #28 of 34",
-   "palette": "Iron grey · rust brown · old steel (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Large warrior in iron armour carrying a hooked chain.",
-   "art": "QA pass. Iron armour and hooked chain. Two independent generations exist; v2 is the latest.",
-   "tags": [
-    "dying gods",
-    "Forsworn",
-    "Kẻ Phản Thệ",
-    "Chiến binh to lớn, giáp sắt, mang xích móc.",
-    "Xám sắt · Nâu gỉ · Thép cũ"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/28_chainkeeper/concept-v2.png",
-     "label": "v2 · latest generation"
-    },
-    {
-     "origin": "art-output/dying-gods-act1/28_chainkeeper/concept.png",
-     "label": "Earlier generation"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-29-oathbreaker-captain",
-   "name": "Oathbreaker Captain",
-   "group": "dg-forsworn",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Forsworn (Kẻ Phản Thệ) · #29 of 34",
-   "palette": "Black steel-blue · old bronze · wine red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Commander in heavy armour with a polearm and a torn banner.",
-   "art": "QA pass. Heavy armour, polearm and a torn wine-red banner.",
-   "tags": [
-    "dying gods",
-    "Forsworn",
-    "Kẻ Phản Thệ",
-    "Chỉ huy mặc giáp nặng, trường binh, cờ rách.",
-    "Xanh thép đen · Đồng cũ · Đỏ rượu"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/29_oathbreaker_captain/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-30-hushed-acolyte",
-   "name": "Hushed Acolyte",
-   "group": "dg-consecrated",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Consecrated (Kẻ Được Thánh Hóa) · #30 of 34",
-   "palette": "Ivory white · ash grey · old gold (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Tall, thin monk in an ivory robe with a mouthless face.",
-   "art": "QA pass. Ivory robe and mouthless face (checked zoomed in).",
-   "tags": [
-    "dying gods",
-    "Consecrated",
-    "Kẻ Được Thánh Hóa",
-    "Tu sĩ cao gầy, áo choàng ngà, mặt không miệng.",
-    "Trắng ngà · Xám tro · Vàng cũ"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/30_hushed_acolyte/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-31-penitent-bulwark",
-   "name": "Penitent Bulwark",
-   "group": "dg-consecrated",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Consecrated (Kẻ Được Thánh Hóa) · #31 of 34",
-   "palette": "Steel black · white wax · brass gold (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "todo",
-   "description": "Massive black-armoured knight with a large shield and white wax sealing the armour joints.",
-   "art": "QA pass with a framing error: white wax in the armour gaps and a large shield, but the three-quarter view touches the bottom and left edges. Recommended for regeneration.",
-   "tags": [
-    "dying gods",
-    "Consecrated",
-    "Kẻ Được Thánh Hóa",
-    "Kỵ sĩ giáp đen đồ sộ, khiên lớn, sáp bọc khe giáp.",
-    "Đen thép · Sáp trắng · Vàng đồng"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/31_penitent_bulwark/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-32-ash-cantor",
-   "name": "Ash Cantor",
-   "group": "dg-consecrated",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Consecrated (Kẻ Được Thánh Hóa) · #32 of 34",
-   "palette": "Ash beige · grey-black · incense-smoke orange (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Gaunt priest with a wax-covered head carrying a censer.",
-   "art": "QA pass. Wax-covered head and a censer with orange smoke.",
-   "tags": [
-    "dying gods",
-    "Consecrated",
-    "Kẻ Được Thánh Hóa",
-    "Giáo sĩ gầy, đầu phủ sáp, cầm lư hương.",
-    "Be tro · Xám đen · Cam hương khói"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/32_ash_cantor/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-33-sanctified-executioner",
-   "name": "Sanctified Executioner",
-   "group": "dg-consecrated",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Consecrated (Kẻ Được Thánh Hóa) · #33 of 34",
-   "palette": "Steel black · bone white · blood red (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Tall warrior in narrow armour wielding a giant greatsword.",
-   "art": "QA pass with a note: giant greatsword; the helmet in the three-quarter view nearly touches the top edge.",
-   "tags": [
-    "dying gods",
-    "Consecrated",
-    "Kẻ Được Thánh Hóa",
-    "Chiến binh cao, giáp hẹp, trường đao khổng lồ.",
-    "Đen thép · Xương trắng · Đỏ huyết"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/33_sanctified_executioner/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-dg-34-hollow-confessor",
-   "name": "Hollow Confessor",
-   "group": "dg-consecrated",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "The Dying Gods · Act I roster",
-   "base": "Consecrated (Kẻ Được Thánh Hóa) · #34 of 34",
-   "palette": "Ritual black · bone white · ancient gold (dominant · secondary · accent)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Tall high priest with a white mask and a bone halo behind the head.",
-   "art": "QA pass. White mask, bone ring behind the head and strong black/ivory contrast.",
-   "tags": [
-    "dying gods",
-    "Consecrated",
-    "Kẻ Được Thánh Hóa",
-    "Giáo chủ cao lớn, mặt nạ trắng, vòng xương sau đầu.",
-    "Đen nghi lễ · Trắng xương · Vàng cổ"
-   ],
-   "images": [
-    {
-     "origin": "art-output/dying-gods-act1/34_hollow_confessor/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-01-fallen-scavenger",
-   "name": "Fallen Scavenger",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Fallen",
-   "base": "Diablo II family: Fallen",
-   "scale": "0.65 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Small hunched horned imp, wiry limbs, chipped cleaver, scrap-wood buckler, muddy red-brown hide and ragged leather. Cowardly melee swarm; crouched asymmetric silhouette.",
-   "art": "Layout: four full-body top-row views (front, side, rear, three-quarter), human silhouette at left; attack, black silhouette, and smaller three-quarter view below. No cropped parts, labels, scenery, logos, or watermark visible. Dark grey backdrop with soft contact shadows; exact #3A3A3A uniformity was not measured. Consistency: horned crouching imp, leather harness, ragged waist cloth, pointed wooden back-marker and right-hand hook recur. Rear view correctly places the hook on the opposite screen side.",
-   "tags": [
-    "act i",
-    "v1",
-    "Fallen",
-    "slot 01"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/01_fallen_scavenger/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-fallen-bell-thief",
-   "name": "Fallen Bell Thief",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · Fallen family test sheet",
-   "base": "Diablo II family: Fallen",
-   "scale": "0.65 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "Grey-skinned hunched demon with long arms and asymmetric horns, carrying a cracked bronze chapel bell on a leather harness and a rusty hook in the right hand. First Codex CLI image test before the 20-sheet batch.",
-   "art": "It includes a large elevated three-quarter full-body view on the left, smaller front, side, and rear views on the right, and one grey human silhouette. The grey-skinned hunched demon has long arms, asymmetric horns, a cracked bronze chapel bell with leather harness, a right-hand rusty hook, ragged waist cloth, and bare clawed feet. No shield, exposed guts, logos, watermark, or obvious readable text appears. The bell is prominent and visibly heavy.",
-   "tags": [
-    "act i",
-    "fallen",
-    "bell",
-    "cli test"
-   ],
-   "images": [
-    {
-     "origin": "output/imagegen/fallen-bell-thief/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-02-fallen-shaman",
-   "name": "Fallen Ash Shaman",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Fallen Shaman",
-   "base": "Diablo II family: Fallen Shaman",
-   "scale": "0.75 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Small elderly horned demon, stooped spine, tall crooked staff with a modest ember and bone charms, soot-stained hide, ragged mantle. Staff and posture clearly distinguish resurrection caster from melee.",
-   "art": "View order, left to right: Top: grey adult human scale reference, front, side, rear, three-quarter view. Bottom: casting/attack pose, black shaman-and-staff silhouette, smaller game-scale three-quarter view. This is an original reinterpretation inspired by the Fallen Shaman family, not canonical Blizzard artwork or a faithful reconstruction. The funeral-canopy mantle, elderly hunch, waist ash tools, and ember staff establish the new ritual-worker story. The requested 0.75 H height is an art-direction target, not canonical monster data.",
-   "tags": [
-    "act i",
-    "v1",
-    "Fallen Shaman",
-    "slot 02"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/02_fallen_shaman/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-03-zombie-fieldhand",
-   "name": "Drowned Fieldhand",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Zombie",
-   "base": "Diablo II family: Zombie",
-   "scale": "1 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Human-sized former farm worker, sagging shoulders, dragging leg, torn wool and rope belt, cold grey skin with mud stains. One malformed stiff arm; restrained decay, no exposed entrails.",
-   "art": "Two separated rows contain a neutral human reference, front, side, rear, elevated three-quarter view, attack pose, solid black monster silhouette, and small colored view. Figures are fully visible. The enlarged arm remains on the character's right and the hopper on the left across the readable views. Muted workwear, clay-stained pallid skin, rope belt, diagonal leather strap and rear wooden dibber communicate interrupted farm labor. No visible text, logo, watermark, scenery, armor, handheld weapon, extra limbs, or gratuitous gore.",
-   "tags": [
-    "act i",
-    "v1",
-    "Zombie",
-    "slot 03"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/03_zombie_fieldhand/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-04-hungry-dead",
-   "name": "Grave Hunger",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Hungry Dead",
-   "base": "Diablo II family: Hungry Dead",
-   "scale": "1.05 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Emaciated human undead, forward-thrust neck, long grasping arms, burial wraps and clotted earth, sunken grey face. Lean reaching silhouette distinct from shambling fieldhand.",
-   "art": "The selected image contains the required four distinguishable turnaround views, an attack with both hands extended, a black silhouette and a small game-angle study. All figures have their hands and feet inside the canvas, with no overlapping panels, labels, logos or decorative borders. The sunken face retains human tissue; no entrails, fresh blood, glow, weapon or ornate armor is visible. The rusty back restraint stays below head height. Ashen skin, ivory linen, rusty iron and brown soil remain desaturated and readable against the dark grey backdrop.",
-   "tags": [
-    "act i",
-    "v1",
-    "Hungry Dead",
-    "slot 04"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/04_hungry_dead/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-05-quill-rat",
-   "name": "Moor Quill Rat",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Quill Rat",
-   "base": "Diablo II family: Quill Rat",
-   "scale": "0.35 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Low quadruped rodent with wedge head, fan of coarse dark spines on back, muddy olive-grey hide, short digging claws. Ranged animal threat; natural animal with only exaggerated spine launcher.",
-   "art": "Status: generated concept delivered; strict production specification not fully met. Passes: all requested view slots are present; recognizably rodent-based quadruped with coherent short limbs (far-side legs naturally occluded in some views); readable squat body, wedge nose, short tail and fan silhouette; dark quills, muted muddy hide and ivory claws; clear enlarged attack pose; no text, logos, gore, magical glow, equipment or scenery. Body remains legible against grey. Front and rear emphasize the broad lateral fan and bare central saddle.",
-   "tags": [
-    "act i",
-    "v1",
-    "Quill Rat",
-    "slot 05"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/05_quill_rat/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-06-spike-fiend",
-   "name": "Thornback Fiend",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Spike Fiend",
-   "base": "Diablo II family: Spike Fiend",
-   "scale": "0.45 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Stocky boar-rat-like quadruped, shoulders form a broad triangular quill ridge, coarse brown-black pelt, worn ivory spines. Distinguish from Quill Rat through heavier shoulders and longer muzzle.",
-   "art": "The sheet contains all seven requested creature views plus the human, with full bodies and quill tips inside the frame. No visible text, panels, scenery, logos, glow, or gore. Muted brown-black pelt and dirty ivory spines read against the dark grey ground. Broad forefeet, small hindquarters, long muzzle and short tail are present; no obvious extra limbs. The strap, hanging ring and olive cloth recur in visible front/side views. The silhouette communicates the wedge at small display size. Known deviations: scale target failed.",
-   "tags": [
-    "act i",
-    "v1",
-    "Spike Fiend",
-    "slot 06"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/06_spike_fiend/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-07-gargantuan-beast",
-   "name": "Briarback Brute",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Gargantuan Beast",
-   "base": "Diablo II family: Gargantuan Beast",
-   "scale": "1.5 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Large ape-like forest brute, massive shoulders and forearms, short powerful legs, weathered brown fur with small matted patches, flattened predatory face. No armor or giant weapons; heavy knuckle-driven melee.",
-   "art": "Layout and views: Two rows; top has far-left neutral adult human, front, true side, rear and elevated three-quarter. Bottom has large knuckle-slam attack, solid black silhouette and small elevated three-quarter. All seven monster depictions are present, separated and uncropped. The side/rear spacing is fairly tight. Dark grey background is visually consistent, but exact #3A3A3A uniformity was not pixel-verified. Contact shadows and attack dirt debris depart from a strictly empty background.",
-   "tags": [
-    "act i",
-    "v1",
-    "Gargantuan Beast",
-    "slot 07"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/07_gargantuan_beast/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-08-wendigo",
-   "name": "Ashwood Wendigo",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Wendigo",
-   "base": "Diablo II family: Wendigo",
-   "scale": "1.6 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Tall gaunt furred humanoid brute, long arms, narrow waist, hunched pointed shoulder silhouette and pale dirty fur, believable muscular joints. D2 ape-like family, no deer skull or antlers from modern folklore.",
-   "art": "Original reinterpretation of the ape-like Act I Wendigo family, rather than a canonical reproduction: elongated arms, narrow waist, ash fur mantle, soot-dark extremities and broken charcoal-hauling equipment tell a former captivity story. No canonical monster image was supplied. Layout: all seven monster depictions appear in two rows without cropping, overlap, borders, text, logos or watermarks. Top margin above the tallest fur is tight. An additional small human appears beside the bottom game view.",
-   "tags": [
-    "act i",
-    "v1",
-    "Wendigo",
-    "slot 08"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/08_wendigo/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-09-dark-hunter",
-   "name": "Oathbroken Hunter",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Dark Hunter / Corrupt Rogue",
-   "base": "Diablo II family: Dark Hunter / Corrupt Rogue",
-   "scale": "1 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Adult corrupted rogue melee fighter with practical torn leather armor and faded cloth, single rusted short sword, hostile forward stance, subtly ashen skin. Former disciplined soldier, no pinup styling.",
-   "art": "Layout: neutral mannequin at far left; top row front, side, rear and elevated three-quarter views; bottom row attack lunge, black attack silhouette and smaller elevated view. Full bodies, feet and sword tips are in frame, without overlapping figures. Spacious two-row arrangement is readable. Identity: close-cropped dark hair, ashen severe face, brown brigandine, grey wool, wrapped boots and pale torn mantle recur across views. Left shoulder mass and right-hand sword appear consistent in the readable views.",
-   "tags": [
-    "act i",
-    "v1",
-    "Dark Hunter / Corrupt Rogue",
-    "slot 09"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/09_dark_hunter/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-10-dark-archer",
-   "name": "Widow Bow Rogue",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Dark Archer / Corrupt Rogue",
-   "base": "Diablo II family: Dark Archer / Corrupt Rogue",
-   "scale": "1 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Adult fallen rogue archer, long battered bow, narrow bent-knee stance, worn hood pushed back, damaged grey leather armor, faded burgundy cloth. Bow-ready posture and clear string/limb silhouette.",
-   "art": "One sheet, two rows, one adult human monster design with repeated views and one additional neutral human scale reference. Full bodies and bows fit within the final canvas; no labels, watermark, border, logo, environment, gore, glowing eyes, sword or shield. Cold muted grey leather and burgundy wool read against dark grey. Stave bows, strings, arrows and a readable full-draw attack are present. Anatomy is broadly credible at concept-sheet scale.",
-   "tags": [
-    "act i",
-    "v1",
-    "Dark Archer / Corrupt Rogue",
-    "slot 10"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/10_dark_archer/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-11-dark-spearwoman",
-   "name": "Briar Spear Rogue",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Dark Spearwoman / Corrupt Rogue",
-   "base": "Diablo II family: Dark Spearwoman / Corrupt Rogue",
-   "scale": "1.05 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Adult corrupted rogue spearwoman, two-handed long spear, low braced stance, patched leather and rusty iron shoulder guard. Grounded martial proportions, no ornate armor, distinguish role by weapon and stance.",
-   "art": "One cohesive landscape sheet contains all requested view categories, a grey human reference, full visible feet and spear tips, muted practical clothing, asymmetric left shoulder armor, split leather apron, thorn harness, and restrained forearm corruption. The attack has bent knees and two visibly separated hands on a single shaft. No visible text, labels, logos, scenery, magic, or gore. Shortcomings: this is a usable concept exploration, not exact production compliance. The spears appear shorter than the requested 1.5 standing heights.",
-   "tags": [
-    "act i",
-    "v1",
-    "Dark Spearwoman / Corrupt Rogue",
-    "slot 11"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/11_dark_spearwoman/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-12-skeleton",
-   "name": "Ossuary Watchman",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Skeleton",
-   "base": "Diablo II family: Skeleton",
-   "scale": "1 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Human skeleton foot soldier, dirt-stained ivory bones, remnants of rusted mail and broken nasal helmet, chipped sword and small battered shield. Broad readable bone masses; no excessive tiny bone ornaments.",
-   "art": "Layout: exactly two rows. Top row contains a plain adult human silhouette, front, side, rear and elevated three-quarter monster views. Bottom row contains a sword attack pose, black silhouette with sword/shield, and a smaller elevated rendering. All figures are inside the canvas; no visible labels, watermark, scenery, panels or borders. Scale: main views are broadly comparable to the adult silhouette in height, with near-human proportions. This is a visual comparison, not a measured physical 1.8 m calibration.",
-   "tags": [
-    "act i",
-    "v1",
-    "Skeleton",
-    "slot 12"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/12_skeleton/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-13-skeleton-archer",
-   "name": "Crypt Bowguard",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Skeleton Archer",
-   "base": "Diablo II family: Skeleton Archer",
-   "scale": "1 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Human skeletal archer, long wooden bow, ragged burial cloth around pelvis, broken leather bracer, bone-grey skull with no decorative glow. Slight lateral stance showing bow and ribcage clearly.",
-   "art": "Strengths: complete uncropped bodies, organized two-row composition, no text or logos, dark empty sockets, exposed ribs, bare skeletal feet, coffin-slat arrow case, ragged grey cloth, repaired wooden bow, readable attack pose with nocked arrow, and a black silhouette. The human reference is approximately the same standing height as the main skeletons. Materials are subdued, worn, and compatible with the references; no glow, dramatic rim light, scenery, or gratuitous gore.",
-   "tags": [
-    "act i",
-    "v1",
-    "Skeleton Archer",
-    "slot 13"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/13_skeleton_archer/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-14-skeleton-mage",
-   "name": "Cinder Ossuary Mage",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Skeleton Mage",
-   "base": "Diablo II family: Skeleton Mage",
-   "scale": "1.05 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Human skeleton caster with scorched robe remnants, bent ritual staff and a tiny controlled amber fire in one hand. Thin tall silhouette, dirty ivory and charcoal palette; fire only as a small meaningful accent.",
-   "art": "All requested slots are present, full bodies and complete staffs fit within the sheet, and figures do not overlap. No visible letters, numbers, labels, logo, watermark, border, scenery or ground diorama. Dirty ivory bones contrast well against charcoal cloth and grey background. Eye sockets are dark. Warm accents are confined to small hand flames; no huge fireball, broad bloom or flame storm. The attack extends the flame hand while the staff braces behind the body. The front and rear support anatomical right-hand staff / left-hand ember placement;",
-   "tags": [
-    "act i",
-    "v1",
-    "Skeleton Mage",
-    "slot 14"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/14_skeleton_mage/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-15-blood-hawk",
-   "name": "Carrion Blood Hawk",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Blood Hawk",
-   "base": "Diablo II family: Blood Hawk",
-   "scale": "0.5 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Carrion raptor with ragged broad wings, hooked beak, sparse rust-brown plumage over grey leathery neck. Folded-wing perching and wings-open attack poses; readable game-scale wing shape.",
-   "art": "Partial compliance; not a fully approved production sheet. Present: four separated upper turnarounds (front, side, rear, elevated three-quarter), human silhouette at far left, lower attack pose, black attack silhouette, and colored thumbnail. Broad ragged feathered wings, hooked ivory bill, bare crooked grey neck, rust-brown mantle, two legs and two wings read clearly. Subjects stay in frame; no labels, logos, scenery or gratuitous gore are visible. Matte worn materials and muted colors generally fit the project.",
-   "tags": [
-    "act i",
-    "v1",
-    "Blood Hawk",
-    "slot 15"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/15_blood_hawk/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-16-foul-crow",
-   "name": "Churchyard Foul Crow",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Foul Crow",
-   "base": "Diablo II family: Foul Crow",
-   "scale": "0.4 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Lean demonic scavenger bird, narrow hooked head, long primary feathers, crooked talons, black-brown plumage with muted dried-blood accents. Corruption focused in bare neck and beak; no giant fantasy horns.",
-   "art": "Original reinterpretation inspired by the Act I Foul Crow family, rather than a reproduction of canonical artwork. Funeral-mantle feathers, distorted bare neck and hooked beak, plus a scavenged burial cord and rusty washer give this bird its own story. The requested 0.4 H / 0.72 m scale is an art-direction target, not a claim about canonical game measurements. Views, left to right: Top: adult human comparison, front, side, rear, elevated three-quarter bird. Bottom: open-wing attack, solid black profile silhouette, small bird with human comparison.",
-   "tags": [
-    "act i",
-    "v1",
-    "Foul Crow",
-    "slot 16"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/16_foul_crow/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-17-goatman",
-   "name": "Stonefield Goat Raider",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Goatman / Moon Clan",
-   "base": "Diablo II family: Goatman / Moon Clan",
-   "scale": "1.2 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Goat-legged humanoid raider, coarse dark fur, compact curved horns, rough leather straps, chipped two-handed axe and salvaged iron guards. Hooved legs, axe silhouette, grounded tribal scavenger design.",
-   "art": "Top left scale human: Neutral gray human, separate from creature, feet approximately aligned with front view. Human is roughly 76% of front creature height, rather than the specified 83.33%; scale target is not exact. Front: Full body and wedge axe visible; compact horns, tapered torso, shoulder mane, cloven hooves, crossed harness and wool panels read clearly. Shoulder guard is on anatomical left and hinge guard on right. Side: Recognizable profile and pronounced hocks. Visible shoulder guard belongs to the near left side. Axe head is partly edge-on;",
-   "tags": [
-    "act i",
-    "v1",
-    "Goatman / Moon Clan",
-    "slot 17"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/17_goatman/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-18-goatman-shaman",
-   "name": "Moon Clan Bonecaller",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Goatman Shaman",
-   "base": "Diablo II family: Goatman Shaman",
-   "scale": "1.25 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Goat-legged humanoid caster, backward-curving horns, long narrow staff, ragged hide mantle and sparse bone charms. Reserved muted umber/olive palette, pale ash markings; no glowing decorative runes.",
-   "art": "Completeness: top row contains a neutral human silhouette, front, side, rear and three-quarter monster views. Bottom row contains casting pose, solid black silhouette including staff, and smaller three-quarter figure. Figures are separate and fully in frame. Consistency: stooped goat anatomy, swept horns, split hooves, ragged hide mantle, olive patch, bone charms and crooked bone-clapper staff are broadly consistent. Exact charm count/placement and mantle tears are not production-locked across views. Staff hand placement changes with view/pose.",
-   "tags": [
-    "act i",
-    "v1",
-    "Goatman Shaman",
-    "slot 18"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/18_goatman_shaman/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-19-tainted",
-   "name": "Catacomb Tainted",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Tainted",
-   "base": "Diablo II family: Tainted",
-   "scale": "1.05 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Stocky crouched bipedal demon, broad low head, thick hunched shoulders, short heavy legs, muted plum-brown leathery skin and a narrow maw suitable for spitting a small lightning attack. Distinct squat silhouette, no giant VFX.",
-   "art": "All requested view categories appear, with full feet and equipment in frame, orderly separation, grey background, desaturated plum-brown skin, worn materials and restrained attack lightning. The hands remain off the floor and the broad low silhouette reads clearly. No visible text, watermark, scenery or gratuitous gore. The front monster is roughly human height, slightly taller at its grille. Weaknesses: the skin has more fine texture and muscular surface detail than the requested low-detail 2-3-value treatment.",
-   "tags": [
-    "act i",
-    "v1",
-    "Tainted",
-    "slot 19"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/19_tainted/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1-20-arach",
-   "name": "Cloister Crypt Weaver",
-   "group": "act1-v1",
-   "role": "Monster sheet",
-   "act": "Act I",
-   "location": "Act I · reinterpretation of the Diablo II Arach / Giant Spider",
-   "base": "Diablo II family: Arach / Giant Spider",
-   "scale": "0.45 H (1 H = 1.8 m human)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: front, side, rear and elevated game views; attack pose, black silhouette and small game-scale view.",
-   "status": "progress",
-   "description": "Large low crypt spider with eight anatomically coherent legs, broad dark abdomen, coarse grey-brown carapace, sparse hairs and small dull eyes. Web hints only at feet; spider anatomy readable without exaggerated fluorescent poison sacs.",
-   "art": "Layout: all four upper views and three lower views are present, with clear spacing and no visibly cropped limbs, text, logos or borders. Bottom-right view is smaller. The image is wide 16:9. Background reads as dark neutral grey with mild tonal variation rather than a mathematically flat guaranteed #3A3A3A. Eight-leg anatomy: black silhouette now visibly has four long walking-leg projections on each side, eight total, plus short mouth appendages. The attack pose reads as two raised front legs and six supporting legs.",
-   "tags": [
-    "act i",
-    "v1",
-    "Arach / Giant Spider",
-    "slot 20"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/20_arach/concept.png",
-     "label": "Concept sheet"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-01-cinder-burrowling",
-   "name": "Cinder Burrowling",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Fallen colour mood",
-   "base": "Diablo II colour mood: Fallen (slot of Fallen Scavenger)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A squat red-skinned burrowing demon with a shovel-shaped head, short rear legs and oversized digging foreclaws; three-point low triangular silhouette. No standard horned imp head, sword or shield.",
-   "art": "Clearly red/orange-red hide, deep red shadows, dark keratin and grey wear are present. The creature has a low broad body, flattened shovel-wedge head, oversized splayed forelimbs, short rear legs and a short rump. The main and front views show three large claws per forehand; occlusion prevents checking every claw in side/rear views. All four full-body views fit without overlapping or cropped claws. No horns, imp ears, upright humanoid torso, equipment, text, flames or glow are visible. The grey human silhouette and dark studio background are present.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Fallen",
-    "Fallen Scavenger"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/01_fallen_scavenger/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-02-ember-throat",
-   "name": "Ember Throat",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Fallen Shaman colour mood",
-   "base": "Diablo II colour mood: Fallen Shaman (slot of Fallen Ash Shaman)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A long-necked red-skinned crouching demon caster with an inflated throat pouch and bony chimney-like shoulder crest, casting through its breath instead of a carried staff.",
-   "art": "Large three-quarter view on the left; smaller front and side views across the upper right; rear view below them. A neutral grey adult human silhouette sits beside the hero. No labels, panel borders, logos, scenery or carried equipment are visible. The sheet shows a low crouching quadruped, bulky folded hindquarters, bracing forelimbs, long curved neck, pendulous throat pouch, short tail and three hollow bony shoulder chimneys. All four limbs can be identified in the hero, with normal perspective overlap in the smaller views.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Fallen Shaman",
-    "Fallen Ash Shaman"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/02_fallen_shaman/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-03-bog-bellower",
-   "name": "Bog Bellower",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Zombie colour mood",
-   "base": "Diablo II colour mood: Zombie (slot of Drowned Fieldhand)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A swollen amphibious carrion creature with a squat torso, tiny submerged-looking hind legs, broad hanging throat and two heavy paddle arms. No human farmworker anatomy or clothes.",
-   "art": "The new design replaces the earlier human farmworker premise with a broad, low amphibious carrion body: flattened head embedded in the shoulders, enormous hanging throat sack, two weight-bearing webbed paddle forelimbs and tiny tucked rear legs. It has no garments, boots, tools or equipment. This is a change in anatomy, proportions and locomotion, not a Fieldhand gear swap. It contains one large elevated three-quarter view on the left and three smaller front, side and rear views on the right.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Zombie",
-    "Drowned Fieldhand"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/03_zombie_fieldhand/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-04-shroud-crawler",
-   "name": "Shroud Crawler",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Hungry Dead colour mood",
-   "base": "Diablo II colour mood: Hungry Dead (slot of Grave Hunger)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A low sinuous carrion beast with an elongated ribbed body, two forelimbs, dragging tapered rear and a narrow toothless skull partly hidden by burial cloth. No upright zombie silhouette.",
-   "art": "Observed: four separated uncropped views in the requested arrangement; two forelimbs and continuous trailing rear with no hindlegs; narrow toothless-looking skull with no prominent fangs or glowing eyes. The side view shows the near forelimb with the far one occluded. Ochre/tan flesh, brown-olive shadows and rusty burgundy cloth remain distinct. No text, logos, borders, weapons, armor, environmental props or open gore cavity were observed.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Hungry Dead",
-    "Grave Hunger"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/04_hungry_dead/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-05-needle-mole",
-   "name": "Needle Mole",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Quill Rat colour mood",
-   "base": "Diablo II colour mood: Quill Rat (slot of Moor Quill Rat)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A blind burrowing beast with a broad digging muzzle, enormous shovel forefeet, tiny hindquarters and a compact quill fan only around the neck; no conventional rat shape.",
-   "art": "One large elevated three-quarter hero on the left; smaller front, side and rear views stacked evenly on the right. Complete silhouettes fit inside frame. No visible labels, numbers, logo, equipment or watermark. Warm ochre/olive-brown hide contrasts visibly with cooler grey quills and worn brown-grey claws. The result leans ochre-brown rather than precisely matching source olive. Large forehands and shoulders, closed eye folds, no external ears, no long rat tail, and a bare rump read clearly. Quills stay near the neck rather than coating the back.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Quill Rat",
-    "Moor Quill Rat"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/05_quill_rat/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-06-barbed-skipper",
-   "name": "Barbed Skipper",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Spike Fiend colour mood",
-   "base": "Diablo II colour mood: Spike Fiend (slot of Thornback Fiend)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A spring-legged ground predator with long reversed hind legs, small grasping forelimbs and a blunt wedge-shaped shell carrying rear-facing spines. No boar or rat silhouette.",
-   "art": "The small front and rear views separate the limbs clearly; the side view overlaps the far hind leg naturally. No obvious extra limbs or clipped extremities. Deviations: the main camera is shallower than the requested approximately 50-degree downward view. Surface scuffs, shell layering, and hide wrinkles are more detailed than the requested low-detail broad-plane treatment. Spine arrangement reads as roughly three longitudinal ranks, but exact barb counts and spacing vary across the turnaround views;",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Spike Fiend",
-    "Thornback Fiend"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/06_spike_fiend/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-07-root-mauler",
-   "name": "Root Mauler",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Gargantuan Beast colour mood",
-   "base": "Diablo II colour mood: Gargantuan Beast (slot of Briarback Brute)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A huge low quadrupedal furred beast with high bony shoulder arch, blunt tusked head and broad shovel forepaws; no upright ape body or equipment.",
-   "art": "Four-leg animal anatomy: pass. Main view has two planted shovel forepaws and two separate hindlegs; animal stance, no upright humanoid chest, human hands or gorilla knuckle support. Some far limbs are naturally occluded in smaller views. Body proportions: pass. Long horizontal barrel body, heavy sloping rump, compact hindlegs and short tail. Side view clearly establishes body length exceeding shoulder height; head stays low. Shoulder arch: partial.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Gargantuan Beast",
-    "Briarback Brute"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/07_gargantuan_beast/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-08-hollow-prowler",
-   "name": "Hollow Prowler",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Wendigo colour mood",
-   "base": "Diablo II colour mood: Wendigo (slot of Ashwood Wendigo)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A long-bodied furred cave predator with narrow elevated shoulders, small head, extremely long front limbs and short rear legs; prowling quadruped, no antlers or upright ape.",
-   "art": "Four-view layout: one dominant three-quarter full-body view at left, with smaller front, side and rear studies on the right. No labels, equipment, borders or scenery. All paws fit. The main view extends past the left half into the center, and its camera appears less steep than the requested approximately 50-degree overhead angle. The studies are not guaranteed mathematical orthographic projections.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Wendigo",
-    "Ashwood Wendigo"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/08_wendigo/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-09-thorn-widow",
-   "name": "Thorn Widow",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Dark Hunter / Corrupt Rogue colour mood",
-   "base": "Diablo II colour mood: Dark Hunter / Corrupt Rogue (slot of Oathbroken Hunter)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "An adult humanoid-derived corrupted ambush predator with elongated insect-like forearms forming hooked blades, a compact hunched thorax and a veil of torn rogue cloth; no sword, human fighter stance or sexualized features.",
-   "art": "Distinct creature anatomy: compact hunched torso, tucked wedge-like head beneath torn cloth, two long hooked forelimbs and two reverse-flexed clawed hind legs. Four limbs read coherently; no round spider abdomen. The shoulder musculature remains humanoid-derived, but the overall silhouette and locomotion are a nonhuman ambush predator. No sword, shield, bow or carried tool. Hooks visibly continue from the limbs, although leather wraps and hard blade ridges give portions a bracer-like appearance.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Dark Hunter / Corrupt Rogue",
-    "Oathbroken Hunter"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/09_dark_hunter/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-10-sinew-spitter",
-   "name": "Sinew Spitter",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Dark Archer / Corrupt Rogue colour mood",
-   "base": "Diablo II colour mood: Dark Archer / Corrupt Rogue (slot of Widow Bow Rogue)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A lean ground predator with folded bow-shaped shoulder arches and a tendon-like projectile launcher between forelimbs; no carried bow and no normal rogue anatomy.",
-   "art": "Four views are present, without labels, borders, figures, environment or logos. Warm flesh / dark hide / ochre arches are readable. The launcher and dart are visible in the large and front views, and an underside profile appears in the side view. No gore or carried weapons. No obvious extra limbs; front/rear and perspective views have expected overlap/occlusion, so four limbs are not individually countable in every projection. Arch roots appear body-connected.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Dark Archer / Corrupt Rogue",
-    "Widow Bow Rogue"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/10_dark_archer/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-11-reed-stalker",
-   "name": "Reed Stalker",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Dark Spearwoman / Corrupt Rogue colour mood",
-   "base": "Diablo II colour mood: Dark Spearwoman / Corrupt Rogue (slot of Briar Spear Rogue)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A tall narrow wading predator with long stilt legs, a spear-shaped beak and folded hooked forelimbs, remnants of rogue bindings. No humanoid spearwoman or carried spear.",
-   "art": "Observed strengths: Four complete, separated full-body depictions: larger left three-quarter, front, side and rear studies; beaks and feet remain inside the canvas. Clearly transformed creature anatomy: long folded S-neck, biological spear-like beak, narrow ribbed body, two long jointed hindlegs and two folded hooked forelimbs. No wings, carried weapon, human face, armor suit, text, logo or visible gore. Warm tan/peach hide contrasts with charcoal lower legs, hooked forelimbs, bindings and nape filaments; beak is muted slate grey.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Dark Spearwoman / Corrupt Rogue",
-    "Briar Spear Rogue"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/11_dark_spearwoman/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-12-ossuary-hound",
-   "name": "Ossuary Hound",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Skeleton colour mood",
-   "base": "Diablo II colour mood: Skeleton (slot of Ossuary Watchman)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A skeletal quadruped assembled coherently around a deep barrel ribcage, heavy flat skull and thick foreleg bones. No humanoid soldier, sword or shield.",
-   "art": "Four separate, fully framed views: large elevated three-quarter at left; front, side and rear stacked at right. No text, labels, borders, logos or watermarks observed. Clearly nonhuman quadruped, one head and four load-bearing legs. Deep coherent rib barrel, thick forelegs, smaller articulated hindquarters, short segmented tail, dark empty sockets and broad paws are readable. No weapons, shield, helmet, humanoid standing pose or supernatural glow observed.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Skeleton",
-    "Ossuary Watchman"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/12_skeleton/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-13-rib-harrier",
-   "name": "Rib Harrier",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Skeleton Archer colour mood",
-   "base": "Diablo II colour mood: Skeleton Archer (slot of Crypt Bowguard)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A wingless birdlike skeletal runner with long hindlegs, a narrow keel-like ribcage and a forward bone tube for shooting splinters. No human archer or carried bow.",
-   "art": "The sheet contains a large left three-quarter view, smaller front/side/rear views across the right, and a lower attack study with a splinter leaving the muzzle. Subjects are fully framed, with no visible text, logo, watermark, scenery, magical glow, gore, carried bow, or humanoid arms. The creature has long folded avian hindlegs, an open deep ribcage, a small pelvis, a bony counterbalancing tail, an S-curved neck, and an avian skull extended into a hollow bone tube. Brown tendon remnants bind the joints.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Skeleton Archer",
-    "Crypt Bowguard"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/13_skeleton_archer/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-14-funeral-lantern",
-   "name": "Funeral Lantern",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Skeleton Mage colour mood",
-   "base": "Diablo II colour mood: Skeleton Mage (slot of Cinder Ossuary Mage)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A hovering skeletal organism: suspended broad ribcage enclosing a small elemental ember, inverted pelvis-like lower cradle and two long jointed forelimbs; no robed humanoid skeleton or staff.",
-   "art": "Exactly four depictions: large elevated three-quarter hero on the left; front at upper right; side/profile at lower middle; rear at lower right. Entire silhouettes fit with margins and no overlap. No text, logo, watermark, scenery, or scale figure is visible. New nonhumanoid configuration reads as a hovering ribcage organism: broad cage, low fused skull-like sensor plate, pointed inverted pelvis-like cradle, two long articulated forelimbs, and no legs. Detached soft shadows support levitation.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Skeleton Mage",
-    "Cinder Ossuary Mage"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/14_skeleton_mage/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-15-redwing-glider",
-   "name": "Redwing Glider",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Blood Hawk colour mood",
-   "base": "Diablo II colour mood: Blood Hawk (slot of Carrion Blood Hawk)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A low gliding carrion creature with broad skin membranes between elongated forelimbs and flanks, short blunt head and hooked rear feet; no conventional raptor body.",
-   "art": "Anatomy: four-limb construction is readable: two elongated membrane-supporting forelimbs and two short hooked rear legs. Both rear feet are visible in the main view. Broad torso, shoulder-nestled blunt tooth-bearing head, low grounded stance, and flattened rudder tail distinguish it from a conventional bird. No feathers, beak, long bird neck, horns, ears, clothing, or equipment observed. Tail has ribbed fin-like folds. Layout: one large elevated three-quarter gliding view on the left;",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Blood Hawk",
-    "Carrion Blood Hawk"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/15_blood_hawk/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-16-gutter-skimmer",
-   "name": "Gutter Skimmer",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Foul Crow colour mood",
-   "base": "Diablo II colour mood: Foul Crow (slot of Churchyard Foul Crow)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A six-limbed scavenger with a long neck, narrow leathery forewing pair and four short perching limbs, a blunt shovel beak and sparse feather crest; no standard crow silhouette.",
-   "art": "Large elevated game three-quarter view on the left; smaller front, side, and rear views run top to bottom on the right. The main view visibly has two separate membrane wings and four perching feet, a long curved neck, a blunt flattened shovel beak, sparse crest, and a naked tapering tail. The low, nearly featherless quadrupedal body is visibly distinct from a conventional feathered crow. Warm ochre neck and orange-brown limbs contrast with dark brown membranes and pale grey-ivory beak and claws.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Foul Crow",
-    "Churchyard Foul Crow"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/16_foul_crow/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-17-hornback-ravager",
-   "name": "Hornback Ravager",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Goatman / Moon Clan colour mood",
-   "base": "Diablo II colour mood: Goatman / Moon Clan (slot of Stonefield Goat Raider)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A low front-heavy horned ungulate predator with four powerful hoofed legs, one broad broken horn and thick matted mane. No humanoid goatman or axe.",
-   "art": "Views: one large elevated three-quarter view on the left; front, side profile, and rear views stacked on the right. All are full-body, with clear separation and no text, logo, scene props, or decorative frame. The left view takes somewhat more than half the sheet width. Its top-down angle is visually elevated but not a measured 50 degrees. Anatomy: front-heavy horizontal quadruped with four weight-bearing cloven legs, high shoulders, lower rump, low wedge muzzle, short tail, heavy mane and one central broken ivory horn.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Goatman / Moon Clan",
-    "Stonefield Goat Raider"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/17_goatman/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-18-hearth-antlerless",
-   "name": "Hearth Antlerless",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Goatman Shaman colour mood",
-   "base": "Diablo II colour mood: Goatman Shaman (slot of Moon Clan Bonecaller)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A hunched cloven-footed ritual creature with a barrel torso, exceptionally long neck, dense wool mantle and two interlocking curved cheek horns; no human arms, staff or deer antlers.",
-   "art": "Main view visibly has four sturdy weight-bearing legs ending in split hooves. Front/rear views obscure the far pair naturally; side view shows four feet with close foreleg overlap. No arms, hands, staff, weapons, antlers, or crown horns. Heavy low barrel torso and naturally grown wool mantle read clearly. Wool is finer and more ragged than the requested broad low-detail clumps. Exceptionally elongated crooked neck is conspicuous in the main view. The small side view shows a proportionally shorter neck, so view consistency is imperfect.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Goatman Shaman",
-    "Moon Clan Bonecaller"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/18_goatman_shaman/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-19-storm-gullet",
-   "name": "Storm Gullet",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Tainted colour mood",
-   "base": "Diablo II colour mood: Tainted (slot of Catacomb Tainted)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A squat leathery toadlike demon on four elbowed legs with an enormous asymmetrical throat sac and a small recessed head; electrical breath formed within its mouth, no bipedal Tainted silhouette.",
-   "art": "Large left: full-body three-quarter game concept. Right column, top to bottom: front, side-oriented profile, rear. One low, broad, tailless toadlike demon; no equipment, labels, scenery, watermark, or giant electrical effect. Green limbs and ochre gullet remain perceptible. Four weight-bearing legs are depicted or accounted for through occlusion; some far limbs are hidden. The main mouth has a small yellow electrical filament. Small ivory jaw nubs and broad clawed feet are present.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Tainted",
-    "Catacomb Tainted"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/19_tainted/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
-    }
-   ]
-  },
-  {
-   "id": "concept-act1v2-20-crypt-bellows",
-   "name": "Crypt Bellows",
-   "group": "act1-v2",
-   "role": "Creature sheet",
-   "act": "Act I",
-   "location": "Act I · new creature in the Arach / Giant Spider colour mood",
-   "base": "Diablo II colour mood: Arach / Giant Spider (slot of Cloister Crypt Weaver)",
-   "method": "AI image generation (Codex built-in image_gen)",
-   "layout": "16:9 sheet: large elevated three-quarter view with smaller front, side and rear views.",
-   "status": "progress",
-   "description": "A low arachnid with a broad flattened shield abdomen, tall stiltlike front leg pair and six short rear legs, small recessed head and a web-spinner tail folded underneath; no familiar round-abdomen tarantula silhouette.",
-   "art": "The saved sheet has four views, complete framing, a dark neutral background, warm brown limbs, visibly russet shield edges and dirty ivory dorsal markings. There is no visible text, logo, watermark, scene, neon or glow. The main shield reads as flattened rather than a domed round abdomen; front knees rise conspicuously above the body. The side study reinforces the low profile. Sparse small spines/bristles and faceted chitin are visible. The intended anatomy is two tall front legs plus six short rear walking legs.",
-   "tags": [
-    "act i",
-    "v2",
-    "variant",
-    "Arach / Giant Spider",
-    "Cloister Crypt Weaver"
-   ],
-   "images": [
-    {
-     "origin": "art-output/act1-monsters-20/20_arach/variants/v2/concept.png",
-     "label": "Concept sheet · v2"
+     "origin": "ashlar/art/map-01-concepts/monsters/W07_shroud_spinner/vA/concept_r2.png",
+     "label": "Approved sheet · vA · rev 2 (r2)"
     }
    ]
   },
@@ -4435,6 +3112,13 @@
      "label": "Seam test"
     }
    ]
+  }
+ ],
+ "worlds": [
+  {
+   "id": "ashlar",
+   "name": "ASHLAR",
+   "scope": "Concept chốt · 28 approved monsters"
   }
  ]
 }

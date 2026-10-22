@@ -2,7 +2,8 @@
 
 Reads the curated list assets/CONCEPT_SOURCES.json (image paths are relative to
 the repository root), writes WebP copies plus thumbnails to assets/concepts/ and
-the app data to src/data/concepts.json. assets/concepts/encoded.json records the
+the app data to src/data/concepts.json. A group may name its own `world` (listed in
+`worlds`, e.g. ASHLAR); groups without one belong to the default `world` (D2RR). assets/concepts/encoded.json records the
 SHA-256 of every source PNG; unchanged sources are not re-encoded. The original
 PNGs stay where they are.
 
@@ -81,7 +82,7 @@ def main():
                 jobs.append((image['origin'], (source, full, thumb, max_size, quality)))
             next_lock[image['origin']] = entry
             images.append({'file': entry['file'], 'thumb': entry['thumb'], 'origin': image['origin'], 'label': image['label']})
-        records.append({'id': record['id'], 'index': INDEX_BASE + number, 'number': number,
+        records.append({'id': record['id'], 'index': INDEX_BASE + number, 'number': number, 'game': group.get('world', manifest['world']['id']),
                         **{k: v for k, v in record.items() if k not in ('id', 'images', 'maxSize', 'quality')}, 'images': images})
 
     if jobs:
@@ -105,8 +106,8 @@ def main():
         e['bytes'] = (BESTIARY / e['file']).stat().st_size + (BESTIARY / e['thumb']).stat().st_size
 
     LOCK.write_text(json.dumps(next_lock, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
-    data = {'world': manifest['world'],
-            'groups': [{k: g[k] for k in ('id', 'name', 'description')} for g in manifest['groups']],
+    data = {'world': manifest['world'], 'worlds': [*manifest.get('worlds', []), manifest['world']],
+            'groups': [{**{k: g[k] for k in ('id', 'name', 'description')}, 'world': g.get('world', manifest['world']['id'])} for g in manifest['groups']],
             'records': records}
     DATA.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
     total = sum(e['bytes'] for e in next_lock.values())

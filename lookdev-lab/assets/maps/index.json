@@ -1,0 +1,33 @@
+{
+	"format": 1,
+	"maps": {
+		"1de659bbf7296c0bc98311b4fcac": {
+			"file": "demo-ashen-moor/seed-20261020.json",
+			"plan": "demo-ashen-moor",
+			"seed": 20261020,
+			"bytes": 469975,
+			"bakeBytes": 450708
+		},
+		"1551ee1529b1141bf7cf0c69f1da": {
+			"file": "gen-moor-128-s1/seed-1.json",
+			"plan": "gen-moor-128-s1",
+			"seed": 1,
+			"bytes": 522756,
+			"bakeBytes": 503386
+		}
+	},
+	"gen": {
+		"1e28bef7aa711406273ec0e90f18": {
+			"version": "plan-gen/2",
+			"attempt": 0,
+			"attempts": [
+				{
+					"attempt": 0,
+					"failed": []
+				}
+			],
+			"ok": true,
+			"key": "1551ee1529b1141bf7cf0c69f1da"
+		}
+	}
+}

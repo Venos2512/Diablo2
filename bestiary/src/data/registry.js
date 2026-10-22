@@ -3,8 +3,8 @@ import {environments,npcs,items,models,animations,effects} from './collections.j
 import {multiverseEnemies} from './multiverse.js';
 import {concepts} from './concepts.js';
 export const collections=[
- {id:'all',name:'All assets',symbol:'◈',description:'D2RR concept art and an art reference library across five classic action RPG worlds.'},
- {id:'concept',name:'Concept art',symbol:'✎',description:'Original 2D concept sheets for D2RR: monsters, the Blood Moor outpost, props, UI and terrain.'},
+ {id:'all',name:'All assets',symbol:'◈',description:'ASHLAR approved concepts, D2RR concept art and an art reference library across five classic action RPG worlds.'},
+ {id:'concept',name:'Concept art',symbol:'✎',description:'Original 2D concept sheets: the ASHLAR Concept chốt monsters, plus D2RR outpost, props, UI and terrain.'},
  {id:'creature',name:'Creatures',symbol:'♜',description:'Enemy families, signature encounters and hostile objects.'},
  {id:'environment',name:'Environments',symbol:'▥',description:'Tilesets, architecture, terrain, props and lighting references.'},
  {id:'npc',name:'NPCs',symbol:'♙',description:'Characters, outfits, roles and dialogue poses.'},
