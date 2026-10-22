@@ -1,0 +1,82 @@
+﻿D02 Kiln-Shaman T-pose session — 2026-10-22
+STATUS: DELIVERED WITH QA FAILURES. Not approved for Tripo production input.
+Step 1: Read concept.png with view_image; read existing design.txt and brief.md. Preserved design.txt unchanged as explicitly required by skill and brief. HUMANOID yes.
+Generation: built-in image_gen only. No art drawn by code. Existing tpose_tools.py used for measurements, cropping, uniform rescaling and diagnostic montages.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Mandatory artdirection 3.1/3.6/3.8 blocks prepended verbatim through fill_prompt.py.
+
+SOURCE SESSION: 01a15f7d-0d90-7b92-968c-0ef841479dbf
+Source directory: E:/map01-batch/home/generated_images/01a15f7d-0d90-7b92-968c-0ef841479dbf/
+Sheet 1 attempt 1: exec-19abc038-16bc-4152-8549-d315d4e81826.png
+Rejected copy: _rejected/tpose_front_back_attempt1.png
+Reason: four horns in FRONT, sagging arms, long hanging sleeves, wide stance, nonuniform background.
+Sheet 1 attempt 2 retained as best available: exec-b41f9ebe-2cf4-4ab0-9ed9-930f1e759b7e.png -> tpose_front_back.png
+Improved surface simplicity and sleeve length, but horn duplication remains. Exactly one retry; no further generations allowed by skill.
+Sheet 2 attempt 1: exec-f04cf5a7-caef-4d96-a13b-1017c8724a19.png
+Rejected copy: _rejected/tpose_sides_attempt1.png
+Measured LEFT 735 px (71.8%), RIGHT 740 px (72.3%), versus sheet 1 600 px. Retry requested reduced scale, strict profiles and shorter sleeves.
+Sheet 2 attempt 2 retained: exec-6511b202-7561-4d7c-bfcb-eaab6d05c66d.png -> tpose_sides.png
+Equalized side heights, but scale request not followed. Exactly one retry.
+
+MEASUREMENTS (both sheets 1536x1024)
+Front bbox (52,224,751,824), height 600 px, 58.6%, width 699.
+Back bbox (786,224,1486,824), height 600 px, 58.6%, width 700.
+Left bbox (289,134,694,877), height 743 px, 72.6%, width 405.
+Right bbox (840,134,1245,877), height 743 px, 72.6%, width 405.
+Side height excess 23.83%. Uniform side rescale 600/743 = 0.807537 (tool reports 0.808).
+No edge-margin warnings. Split four 1024x1024 canvases, common figure height 600px; tool baseline row 952, last occupied sole row 951.
+
+HUMANOID CHECKS
+FB: 12 warnings. Front arm angles +17.4/+19.5 deg, hands 35% from top; back +20.6/+17.8 deg, hands 35/36%. Both span/height 1.17. Feet centre gaps front 0.33H, back 0.32H.
+Interpretation: arm heuristic confounded by pot and hanging sleeves, but visual shoulders/hands still not cleanly level. Do not claim strict T-pose pass. Generic hand-height 13-28% is inapplicable to this pot-bearing imp, but actual 35% also differs from design 45%. Span exceeds design 1.05, stance exceeds design 0.20-0.25.
+Sides: 2 warnings, sole spans 0.26H and 0.27H. Visually a single overlapping large foot per side, no clear stride; broad foot partly explains warning. Slight 3/4 information remains in hood/torso, so exact orthographic fidelity uncertain.
+
+VISUAL QA
+Viewed both attempts of each sheet, then views/_contact.png, views/_guides.png, views/_strip_0-60.png and views/_strip_40-100.png after final split.
+PASS: two complete figures per sheet; correct view order and facing directions; true back; no held ladle, no text/human silhouette; recognisable imp, hood, clay pot, bandages, palette; broad cloth shading, no gore, no glow effects; no clipped limbs. Final four share top and baseline after uniform scaling.
+FAIL: FRONT has four horns instead of two; sleeve points remain long; arms slope mildly and stance is wide; slight background value variation; sides not demonstrably exact 90 degrees. Surface simplified on retry but more faceted and detailed than concept in places.
+
+CROSS-VIEW LANDMARK TABLE
+Approximate visual percentages measured against 10% strip ticks (not automated feature segmentation); order LEFT | RIGHT | FRONT | BACK. 0 = pot top, 100 = soles.
+Pot rim: 0-11 | 0-11 | 0-9 | 0-9. PASS broad height and stepped orange rim; exact segment correspondence not established.
+Pot belly bottom: 49 | 49 | occluded near 48-51 | 51. Approximate PASS depth order: head/torso hides front; pot hides upper back.
+Horns: one visible at 8-19 | one at 8-19 | FOUR at 5-20 | two at 5-14. FAIL count and attachment consistency.
+Hood top: 12 | 12 | 11 | hidden by pot. FAIL design target 17%; approximate cross-view agreement.
+Eyes: 25 | 25 | 25 | hidden. Cross-view PASS, design target 33% missed.
+Hands/shoulders: hand 39 | hand 39 | hand 35 | hand 35-36. FAIL cross-view alignment by 3-4 percentage points; design target 45% missed.
+Scarf ends: 62 | 62 | 58 | hidden. FAIL end length mismatch about 4 percentage points; design target 55%.
+Rope X: 12-44 | 12-44 | shoulder straps 15-49 | broad curved top ropes 12-44. FAIL precise continuous routing cannot be reconciled; overall rope material and placement recognizable.
+Horizontal lower pot rope: 40-45 | 40-45 | mainly occluded | 40-46. Approximate PASS height/occlusion.
+Rear knot and tails: 39-52 | 39-52 | hidden (side strap ends visible) | 41-56. FAIL tails about 4 percentage points lower in BACK.
+Grey patches: 2 visible side patches near 19-33 | 2 visible near 19-33 | partial side patches near 20 | 3 patches around 20-36. FAIL exact patch continuity cannot be verified; not claimed consistent.
+Robe hem: 80-95 | 80-95 | 80-92 | 80-95. FAIL lower side/back points slightly longer than front; sleeves hang to ~55% in sides vs ~50% FB.
+Bandages: 83-97 | 83-97 | 83-97 | 83-97. PASS approximate bands.
+Feet: 95-100 | 95-100 | 95-100 | 95-100. PASS baseline; FAIL front/back stance width.
+
+All retries exhausted (2 generations per sheet, 4 total). Retained best available sheets and generated requested views despite unresolved QA failures, per skill instruction. No claim of approved pose or cross-view consistency. No Tripo run, credits, rig or animation.
+Outputs: views/front.png, views/back.png, views/left.png, views/right.png, views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png; both source sheets and four prompt files; existing design.txt preserved.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed: _contact, _guides, both strips, both sheets)
+Edit pass (batch runner, session 01a15f84-d053-7151-a724-5193e54c6cf9, 43 s): FRONT had FOUR horns (two on the hood + two
+more on the pot shoulders behind the head). Edit removed the two outer horns only; mean change 2.3 grey levels.
+Old sheet kept: _rejected/tpose_front_back_attempt2_fourhorns.png; old views: _rejected/views_before_edit/.
+Accepted tpose_front_back.png = _tasks/edit_fb_horns.png (1536x1024), front 600 px / back 600 px (58.6 %).
+Sides 743 px; split rescale 600/743 = 0.808. Re-ran split, guides, strip 0-60 and 40-100.
+Cross-view table (% of figure height, 0 = pot rim top, 100 = soles; LEFT / RIGHT / FRONT / BACK; verdict):
+  pot rim top        0 / 0 / 0 / 0                      ok
+  horn tips          9 / 9 / 9 / 6 (tips beside the pot) ok (2 horns in every view now)
+  hood top           12 / 12 / 13 / hidden by pot        ok
+  eyes               24 / 24 / 23 / hidden               ok
+  arm row / hand     38-41 / 38-41 / 35 / 35             near hand in the side views ~4-5 pts low: borderline, accepted
+  pot bottom         46 / 46 / hidden / 47               ok
+  rope knot + ends   40-52 rear / 40-52 rear / hidden / 40-55 centre   ok
+  scarf ends         to ~58 front / to ~58 / to ~52 / hidden          ok (6 pts)
+  robe hem points    72-92 / 72-92 / 70-92 / 70-92        ok
+  bandages           82-95 / 82-95 / 80-95 / 80-95        ok
+Pose: arms straight and horizontal by eye (tool's +17-20 deg comes from the jagged sleeve flaps under the arm), shoulders
+level, legs straight and vertical, side legs overlap with no stride. Hand row 35 % from the top (pot above the head; expected
+WARN). Span/height 1.17 (concept ~1.05). Feet centres 0.32-0.33 H apart: wider than design.txt asked (0.2) but legs are vertical
+and parallel under the wide robe; logged, not retried.
+Fidelity: build, hood + 2 crescent horns, black face with orange eyes, scarf, robe with rust lining, pot with stepped rim and
+grey diamond patches, X ropes / ring / knot, bandaged shins, clay feet all match the concept; form shading kept; no ladle.
+Straightened torso raises the shoulders: arms at 35 % instead of the concept's 45 % (pot hangs a little lower on the back).
+VERDICT: PASS with logged deviations (wide stance 0.33 H, side near hand ~5 pts below the front arm row, span 1.17).

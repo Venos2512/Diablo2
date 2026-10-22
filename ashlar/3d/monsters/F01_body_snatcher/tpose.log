@@ -1,0 +1,116 @@
+F01 Body-snatcher A - T-pose production report
+Date: 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; not a full strict-T-pose PASS.
+Method: built-in image_gen only, 2 generations per sheet (1 initial + 1 retry).
+Existing design.txt and brief.md read and preserved unchanged as required by skill step 1.
+No Tripo generation, credits, rigging or animation performed.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt,
+         tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt.
+Each prompt includes verbatim art-direction STYLE CORE, T-POSE RULES, CONTENT,
+filled skill template, humanoid rules and VIEWS landmark table.
+
+SOURCE PROVENANCE
+Codex image session: 01a15f7b-e91b-71f0-b02e-a9fadd23eebc
+Source directory: E:\map01-batch\home\generated_images\01a15f7b-e91b-71f0-b02e-a9fadd23eebc\
+Sheet 1 initial: exec-0703f167-a575-42cf-a468-aa97a0b543db.png
+  Preserved: _rejected/tpose_front_back_attempt1.png
+Sheet 1 selected retry: exec-f5972f3f-ca6e-4018-b704-fdd65a4a69dd.png
+  Copied to tpose_front_back.png
+Sheet 2 initial: exec-f8de12fb-afe8-4cc5-a064-2e5cda91acea.png
+  Preserved: _rejected/tpose_sides_attempt1.png
+Sheet 2 selected retry: exec-c691b6db-c6af-473b-be7e-41eb20599cd5.png
+  Copied to tpose_sides.png
+
+SHEET MEASUREMENTS (tpose_tools.py, default threshold)
+All source sheets: 1536x1024.
+Initial FB: front 834px (81.4%), back 830px (81.1%).
+Initial FB arm warnings: front +6.2/+7.4 degrees, back +9.4/+7.0 degrees.
+Retry requested horizontal arms, equal spans, compact hood, forward feet,
+and less BACK rope exposure. Retry selected for improved spans/pose/hood.
+Final FRONT bbox (30,103,766,896), height 793px (77.4%), width 736px.
+Final BACK bbox (773,103,1503,895), height 792px (77.3%), width 730px.
+Mean FB height 792.5px. Edge safety PASS, minimum margin 30px.
+Final FB humanoid: 4 WARNINGS, front +5.0/+6.6 degrees; back +7.4/+5.0 degrees.
+Front span/height 0.93, back 0.92; hands 20% from top. Front feet gap 0.20H.
+These warnings are retained, not waived as a clean pass: upper sleeves and
+shoulders still slope slightly even though forearms and hand rows look level.
+
+Initial sides: LEFT 894px (87.3%), RIGHT 895px (87.4%).
+Mean 894.5px, 12.87% larger than FB; initial normalization 0.886.
+Initial side numeric humanoid OK, soles span 0.20H.
+Cross-view inspection rejected visible far rope on RIGHT and far sash on LEFT.
+Retry requested removal of those occlusion errors and 793px figure height.
+Final LEFT bbox (312,45,581,935), height 890px (86.9%), width 269px.
+Final RIGHT bbox (965,44,1216,935), height 891px (87.0%), width 251px.
+Mean sides height 890.5px, 12.37% larger than FB: requested scale not achieved.
+Final sides humanoid RESULT OK; sole spans 0.21H; no margin warnings.
+Final side normalization = 792.5/890.5 = 0.88994947 (tool prints 0.890).
+Whole figures scaled uniformly; no local anatomy rescaling or painted fixes.
+
+OUTPUT AND VISUAL CHECKS
+views/front.png, back.png, left.png, right.png: 1024x1024 each.
+Split tool reports common soles row 952 (exclusive boundary); guides measure
+last foreground sole row 951, head top 159, front hand row 316 (~20%).
+Viewed final _contact.png, _guides.png, _strip_0-60.png, _strip_40-100.png.
+Also viewed these four diagnostics before retrying sheet 2.
+Order FRONT/BACK/LEFT/RIGHT correct; complete figures, no clipped fingertips.
+Side legs overlap, no stride; near hands foreshortened near 20% height.
+Front/back legs straight but feet slightly outward, wider than the 0.15H target.
+Same floor and near-equal figure heights after uniform split normalization.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages below are visual estimates from the final ticked strips (about +/-2%),
+not automatic landmark detections. 0=hood tip, 100=soles.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Hood | 0-20, face 10-17 | 0-20, face 10-17 | 0-22, face 9-17 | 0-22 closed | Same pointed identity; profile shape more angular/projecting than front, minor residual drift
+Rope yoke shoulder band | 13-22 | 13-22 | 14-21 | 14-20 | Heights consistent, broad tan rope preserved
+Rope chest ends | to 27 | mostly hidden | to 30 | hidden | Modest end-length/visibility drift; topology not proven identical
+Diagonal chest strap | front edge 24-34 | front edge 22-32 | 17-34 | absent | Correct front-only placement; partly occluded in profile
+Sash belt | 34-39 | 34-39 | 34-39 | 34-39 | PASS height and wrap
+Sash hanging end | hidden | 38-54 | 38-52 | hidden | Correct side/occlusion after retry; RIGHT about 2% longer
+Left hip rope coil | 36-54 full loop | fully hidden | 36-54 full loop at image-right | 38-52 side segment at image-left | LEFT/RIGHT/FRONT agree; BACK exposes too much vertical rope rather than only lower curve
+Smock hem | 63-77 | 62-77 | 62-74 | 63-77 | Broad lengths consistent; individual pointed panels not one-to-one identical
+Trousers/knees | visible 66-78 | visible 66-78 | visible 66-78 | visible 66-78 | Similar knee band; crotch hidden and cannot be directly verified
+Shin wraps | 77-93 | 77-93 | 77-92 | 77-92 | Similar; wraps extend lower than design's 90% target
+Boots | 92-100 | 92-100 | 91-100 | 91-100 | Consistent within visual tolerance, side legs overlap
+
+ART-DIRECTION QA
+Compared visually with supplied concept (the approved monster reference).
+Moderately stylized painted dark cloth, broad lit planes/deep fold shadows,
+tan rope/brown accessories/pale skin maintained. No glow, red ribbon, sack,
+spade, text, watermark, scenery or extra characters. No added claws/teeth/abs.
+Some rope braid and hem detail remains busier than the low-detail target;
+cloth shadows preserve volume. Hood tip is more sharply regular than concept.
+Background near-neutral grey, with slight tonal variation/contact shadow.
+No new content-symbol issues. Terrain checks not applicable.
+
+FINAL DISPOSITION
+Both permitted retries exhausted. Kept the better sheet from each pair,
+completed all requested split/guide/strip outputs, and reported unresolved
+pose, scale and cross-view issues instead of claiming strict QA PASS.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Edit pass (extra Codex session 1 of 2): sheet 1 arms sagged (tool +5.0/+6.6 front, +7.4/+5.0 back; forearm centre-line fit +3 to +4 deg).
+  Batch runner job F01_FBE_ARMS, prompt _tasks/prompt_fb_edit_arms.txt (edit_creature template via fill_prompt.py, EDIT text first),
+  reference = accepted sheet only; session 01a15f86-9923-7342-9ef0-93b8740f7fb1, 52 s,
+  src E:/map01-batch/home/generated_images/01a15f86-9923-7342-9ef0-93b8740f7fb1/exec-e38daba2-3353-4f47-8c39-3b5379a1812d.png
+  -> _tasks/fb_edit_arms.png, accepted as tpose_front_back.png; previous sheet kept as _rejected/tpose_front_back_attempt2_armsag.png.
+  Rest of the sheet changed by 2.3 grey levels on average (rows below the arms). Re-ran split, guides, strip.
+After the edit: humanoid fb: front +3.8/+4.2 deg, back +5.0/+3.6 deg (2 WARN, tool measures from the sleeve top), centre-line fit
+  +0.9 to +2.6 deg, hands 18 % from the top, span/height 0.93/0.92, feet centre gap 0.21 H. sides: OK, sole span 0.21 H.
+Sheet heights: FB 794/794 px (77.5 % of 1024); sides 890/891 px; split rescale 0.892 (sides to FB height).
+Cross-view table (% of figure height, 0 = hood tip, 100 = soles; read on views/_strip_0-60.png and _strip_40-100.png):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Hood               | 0-17        | 0-17        | 0-17, face 8-16 | 0-17 closed | PASS, one pointed shape, tip back in profiles
+Rope yoke          | 12-22 +end to 30 | 12-20  | 12-20 +ends to 30 | 13-20 U   | PASS
+Hands / arm row    | 20          | 20          | 18           | 18            | PASS (side near hands 2 % below the FB row)
+Sleeve flaps       | to 28       | to 28       | to 29        | to 29         | PASS
+Chest strap        | front edge  | front edge  | 18-35        | none          | PASS (front only)
+Sash belt          | 34-40       | 34-40       | 34-40        | 34-40         | PASS
+Sash end (R front) | hidden      | 38-54       | 38-52 img-L  | hidden        | PASS
+Rope coil (L hip)  | 37-55 front | hidden      | 37-55 img-R  | 41-53 img-L side | PASS (BACK shows the outer half loop at the side; acceptable)
+Smock hem          | 60-73       | 60-73       | 62-72        | 62-76         | PASS
+Wraps / boots      | 75-90 / 89-100 | same     | same         | same          | PASS
+Legs: FB straight and parallel (feet 0.21 H apart, slightly wide); sides overlap, no stride.
+Fidelity: build, hood, rope yoke, strap, sash, coil, smock, trousers, wraps, boots and colours match the concept; form shading kept;
+  no sack, no ribbon, no spade. Verdict: PASS (minor: stance 0.21 H, BACK coil a little exposed at the side).

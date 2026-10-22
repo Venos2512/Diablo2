@@ -1,0 +1,14 @@
+Đã thực hiện đủ bước 1–5, nhưng **bộ ảnh chưa đạt QA** sau một lần sửa mỗi sheet.
+
+Bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/views/right.png)
+
+Sheet trước/sau cao **600 px**; sheet bên **743 px**, thu theo hệ số **0,807537**. Đã xem contact, guides và hai strip QA.
+
+Lỗi còn lại: mặt trước có bốn sừng, chân đặt rộng, hàng tay và một số chi tiết khăn/dây chưa khớp giữa các góc. `design.txt` có sẵn được giữ nguyên theo skill.
+
+[Báo cáo tpose.log](/E:/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/tpose.log) ghi đủ phép đo, lý do retry, prompt và đường dẫn ảnh nguồn từ session `01a15f7d-0d90-7b92-968c-0ef841479dbf`.

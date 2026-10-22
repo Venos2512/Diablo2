@@ -1,0 +1,21 @@
+{
+ "poses": [
+  "rest",
+  "head_down",
+  "head_up",
+  "head_turn"
+ ],
+ "views": [
+  "back",
+  "fr",
+  "side"
+ ],
+ "which": {
+  "v3": "_snapshots\\v3\\D01_hodling_rig.blend",
+  "cur": "D01_hodling_rig.blend"
+ },
+ "blend_sha256": {
+  "v3": "57d8aba1de5b56b18f254c07583594750ff9d414ac09a86e23546cdad8f9794c",
+  "cur": "bf6c53dc783842774b6c75b2f35eb708bbbbe47cee0139e560c97efa97bc0bcb"
+ }
+}

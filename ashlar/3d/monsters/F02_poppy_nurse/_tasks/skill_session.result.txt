@@ -1,0 +1,14 @@
+Created the four 1024×1024 views:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views/right.png)
+
+[Contact sheet](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views/_contact.png) · [Full QA report and source paths](/E:/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/tpose.log)
+
+Figure heights: **864 px front/back; 890 px sides**, rescaled **0.97079×**. Used one retry per sheet for cross-view alignment. Existing canon `design.txt` was preserved as required.
+
+**QA remains qualified:** back-panel length differs by approximately 5% of figure height; flower heights by 2–3%; side hands sit about 1% higher. All deviations and numeric-check warnings are logged.
+
+Generation session: `01a15f7a-dac5-7772-9419-1b51c800dd12`.

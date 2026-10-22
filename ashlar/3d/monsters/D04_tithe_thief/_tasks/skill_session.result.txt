@@ -1,0 +1,14 @@
+Created both sheets and four 1024×1024 views:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/views/right.png)
+
+**QA needs changes:** extra side-view horn shapes, slight lean, and sack/hood/strap inconsistencies remain after one retry per sheet. Rejected attempts preserved. Existing `design.txt` retained as the skill requires.
+
+Heights: front/back **674 px**; sides **784/772 px**, scaled **0.8663×** with aligned soles.
+
+[Full report and source paths](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/tpose.log) · [Contact sheet](/E:/Diablo2/ashlar/3d/monsters/D04_tithe_thief/views/_contact.png)
+
+Image session: `01a15f7d-d980-79e2-80d3-e14064b430ed`.

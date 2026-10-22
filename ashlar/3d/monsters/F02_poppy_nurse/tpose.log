@@ -1,0 +1,93 @@
+﻿F02 Poppy Nurse - T-pose report - 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS. Not an unconditional cross-view PASS.
+Workflow: generate-tpose-for-tripo steps 1-5. Built-in image_gen only, four calls total (two per sheet). No Tripo run.
+Step 1: Read concept.png visually, brief.md and existing design.txt. Preserved canon design.txt unchanged as explicitly required by skill and brief. HUMANOID yes.
+Prompts: tpose_front_back.prompt.txt, tpose_sides.prompt.txt and both *_retry.prompt.txt. Verbatim art-direction 3.1/3.6/3.8 blocks prepended, humanoid template and VIEWS filled. No code-generated artwork; existing python -I tpose_tools.py used for measurements, crops, scale and QA guides only.
+
+Sources - Codex session 01a15f7a-dac5-7772-9419-1b51c800dd12
+Base directory E:\map01-batch\home\generated_images\01a15f7a-dac5-7772-9419-1b51c800dd12\
+FB attempt 1 SELECTED: exec-5288e07f-764b-4e02-9d0d-8e71a7f48ec1.png
+Sides attempt 1 rejected: exec-e6b7113b-938d-4194-adba-43c4d62868b6.png
+Sides attempt 2 SELECTED: exec-c5938beb-72ee-4ac5-a907-8b9da76cab0e.png
+FB attempt 2 rejected: exec-fa7372a6-8696-4d12-ac84-9dae6987dfb8.png
+All original sources retained. Rejected images retained in _rejected/. FB attempt1 also has an archive copy there made before retry, but it was ultimately selected.
+
+Measurements (both sheets 1536x1024)
+Selected FB: front bbox (31,71,768,935), back bbox (780,71,1505,935); heights 864/864 px =84.375%; widths737/725; minimum edge margin31px. No measure WARNING.
+Sides attempt1:892/892 px=87.1%.
+Selected sides: left bbox(326,45,622,935), right bbox(912,45,1209,935); heights890/890 px=86.914%; widths296/297; minimum edge margin45px. No measure WARNING. Height difference3.01%, within12%.
+Split rescale sides864/890=0.9707865. Whole figure only. Four views1024x1024, common top88, floor placement952 (last occupied soles row951). Front/back span/height0.85/0.84.
+
+Numeric humanoid warnings and visual disposition
+FB: front arms+26.5/+38.5 degrees; back+36.9/+26.5 degrees. These silhouette estimates follow hanging bell-sleeve geometry; visible hands and arm upper edges are horizontal, and thumbs project down. Logged heuristic exceptions, not numerical PASS. Elbows and actual anatomy covered by sleeves cannot be fully inspected.
+Sides attempt1 sole span0.28H; selected sides0.27H versus0.26 limit. Long hem enters lower silhouette; visible shoe profile is single overlapping silhouette, no apparent stride, no lifted heel. Hidden knees/crotch cannot be verified visually through habit. Logged exception.
+
+Retry reasons
+Sides retry: back panel ended near75% while BACK ended80%; apron flowers2-3% high, hand row about1% high. Retry retained most differences but reduced lower silhouette width slightly; selected attempt2.
+FB retry: used sides as height/depth truth and requested panel75%, flowers shifted upward3%, hands22.5%. Panel improved but flowers shifted much too far (roughly60-64% rather than65-70%), apron shortened and back panel shape changed. Selected FB attempt1 as closer overall concept fidelity. Both sheet retry caps exhausted; no further generation.
+
+Visual QA completed on concept, all four generated sheets, final contact, guides and both strips. Final guides and strips regenerated and viewed after retry selection.
+Layout: two figures each, true FRONT/BACK and profiles facing screen-left/screen-right, full margins, no weapons, text or extra figures. Normal slim adult woman, covered habit, kind face, wimple, poppies, charcoal/ivory/red/olive palette retained. Stiff folded wimple geometry broadly agrees. Plain grey, no glow, no religious symbols, no gore. Broad painted shadows preserved, though more faceted cloth detail than concept. No added musculature/claws. No apparent contrapposto or step. Head and soles aligned. Hand row on sides about1% above FB guide. Far arm hidden. Front/back feet parallel, modest spacing.
+
+Cross-view landmark table: approximate visual measurements from normalized strips, +/-1-2 percentage points; percentages measured from wimple top toward soles. Occluded features not asserted as directly measured.
+Feature | LEFT | RIGHT | FRONT | BACK | verdict
+Wimple apex |0|0|0|0|PASS
+Wimple wing point |8-9|8-9|9|9|PASS approximate
+Wimple flower count |1 large + glimpse top|1 large + glimpse top|2 large+1 small|1 large|PASS placement, side prints somewhat elongated
+Face |7-15|7-15|8-16|hidden|PASS occlusion
+Coif lower point |28 rear,26 front|28 rear,26 front|28|29|Minor1-2% depth/height drift
+Hands centre |22.5|22.5|23.5|23.5|Residual1% higher in sides
+Sleeve lowest edge |40.5|40.5|41.5|41.5|Minor1% drift; hanging bell sleeve consistent
+Sash |31-35|31-35|30.5-34.5|30.5-34.5|PASS approximate; slightly above design33-38
+Apron |35-89|35-89|35-89|hidden|PASS across views; ends above design92
+Apron large flower centres |65,70|65,70|67,72|hidden|FAIL residual2-3% height drift; motifs more compressed at side front edge
+Apron foliage end |84|84|85|hidden|Minor1% drift
+Back panel |35-75|35-75|hidden|35-80|FAIL residual5% length difference
+Habit hem |97-98|97-98|97|98|PASS approximate
+Shoes |98-100 overlap|98-100 overlap|97-100 pair|98-100 pair|PASS visible pose; legs occluded
+
+Remaining fidelity limitations: hand row23% versus design24-26; sash31-35 versus33-38; apron ends89 versus92; back panel mismatch75 sides/80 back versus design78; large flowers differ2-3% vertically. More angular fold facets than concept, but clear material masses and shading remain. No asymmetric equipment added; flower print projections are not pixel-perfect anatomical correspondence.
+
+Deliverables in E:\Diablo2\ashlar\3d\monsters\F02_poppy_nurse\:
+views\front.png
+views\back.png
+views\left.png
+views\right.png
+views\_contact.png
+views\_guides.png
+views\_strip_0-60.png
+views\_strip_40-100.png
+tpose_front_back.png
+tpose_sides.png
+design.txt (existing canon preserved)
+tpose.log
+
+MAIN QA 2026-10-22 (Opus T-pose lead; own checks, Astra's report not relied on)
+Fix applied: EDIT PASS on the front/back sheet (map01_batch.py, session id: 01a15fad-814c-7dc0-9bff-6241bd98756a, prompt E:\tmp_tripo_all\F02_poppy_nurse\edit_back_panel.prompt.txt):
+  "BACK only: shorten the white back panel tip from about 80 % to about 75 %". Mean change 2.1 grey levels, 0.7 % of pixels changed
+  by more than 24 (0.25 % in the FRONT half). Old sheet kept as _rejected/tpose_front_back_pre_edit_back_panel_long.png;
+  _tasks/fb_back_panel_edit.png = tpose_front_back.png.
+Re-run after the edit: measure (FB 864/864 px; sides 890/890 px), split (sides scaled 0.971), guides, strip 0-60 and 40-100.
+Numeric: humanoid fb WARN arms +25..+38 deg = the tool follows the hanging bell sleeves; the hands are at 23 % (shoulder row) and the
+  arms lie on the red line in _guides.png. humanoid sides WARN sole span 0.27 H (limit 0.26) = habit hem and one long shoe, no stride.
+Visual: strict T-pose, level shoulders, straight horizontal arms, near hand foreshortened at shoulder height in LEFT/RIGHT, far arm
+  hidden, LEFT faces screen-left, RIGHT screen-right, true BACK; nothing cropped; no needle (removed); kind calm face; white /
+  charcoal-brown / poppy-red palette as the concept; painted fold shadows kept; wimple one consistent shape in all views.
+
+CROSS-VIEW TABLE (final views/*.png, % of the figure height, 0 = wimple top point, 100 = soles)
+  feature                     LEFT     RIGHT    FRONT          BACK      verdict
+  wimple top point            0        0        0              0         ok
+  wimple wing points          9.2      9.2      9.8 (sides)    9.5       ok
+  lowest white at back/chest  ~28      ~28      27.5 (bib V)   29.4      ok
+  arm line / hands            22.9     22.9     23             23        ok
+  sash                        30-35    30-35    30-34          30-35     ok
+  apron lower edge            ~90      ~90      89             hidden    ok
+  apron poppies               62-84    62-84    64-84          hidden    ok
+  back panel tip              ~75      ~73      hidden         74.6      ok (was 80 before the edit)
+  hem / soles                 97/100   97/100   97/100         97/100    ok
+  figure height px            864      864      864            864       ok
+
+Remaining deviations (accepted): RIGHT is a mirror of LEFT (the design is symmetric, correct); the wimple side poppy is a little
+larger than the wing poppies of FRONT; side hands about 1 % higher than FRONT; FRONT wimple edges slightly thinner than the side
+views suggest (starched card look kept).
+VERDICT: PASS for Tripo multi-view input (views/front.png back.png left.png right.png).

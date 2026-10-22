@@ -1,0 +1,78 @@
+P02 Hush-Herald — 2026-10-22
+STATUS: DELIVERED BEST AVAILABLE WITH QA FAILURES; NOT FULLY APPROVED FOR TRIPO.
+Step 1: Viewed concept.png and read brief.md. Existing canon design.txt retained unchanged, as explicitly required by skill step 1 and brief.md. HUMANOID yes.
+Generation: built-in image_gen only; two calls per sheet (initial + one retry); no API/CLI fallback, no drawing via code. Full prompts saved beside sheets. No Tripo run.
+
+Sources / Codex session:
+Session 01a15fa5-8693-7881-a746-1224e02c783c
+Source directory E:\map01-batch\home\generated_images\01a15fa5-8693-7881-a746-1224e02c783c\
+FB attempt 1: exec-2c92e3f4-7fd6-4753-8a40-0e7617b37fec.png -> _rejected/tpose_front_back_attempt1.png
+FB attempt 2 selected: exec-5d4c7fa0-892c-440b-b90b-95b9e26a3a85.png -> tpose_front_back.png
+Sides attempt 1: exec-957f7e25-4aa6-4dda-ab61-f4c152e535f1.png -> _rejected/tpose_sides_attempt1.png
+Sides attempt 2 selected: exec-eadabd3d-400a-41c8-aab3-6e4598329de5.png -> tpose_sides.png
+
+Retries:
+FB retry requested four eyes per row, removal of red crossbars, and hands at canon 38% height. Stole crossbars improved, but five eyes remain, hood crossbars remain, arms remain too high. Retained improved attempt 2 under retry cap.
+Sides retry requested hands raised from 33% to FB 29%, matching sigil heights, longer back drape, and no hood crossbars. Changes small; residual mismatches remain. Retained attempt 2. Both sheets have exhausted the one-retry allowance.
+
+Measurements (tpose_tools.py measure):
+Both sheets 1536x1024. No edge WARNING.
+FB front bbox (22,41,761,944), H903 px / 88.2%, W739; back (773,42,1512,944), H902 px / 88.1%, W739.
+Sides left bbox (371,14,707,956), H942 px / 92.0%, W336; right (827,13,1163,956), H943 px / 92.1%, W336.
+Sides average H942.5 vs FB H902.5: +4.43%, within 12% tolerance. Split side rescale 0.958; all views then scaled 0.975 to fit margin.
+Final front/back/left/right 1024x1024, common placement soles row 952; guide mask detects row 951, head top row 71.
+
+Numeric humanoid QA:
+FB span/H0.82. Front arm slopes +3.9/+3.7 degrees; back +4.3/+3.9 degrees. Back-left exceeds 4-degree threshold. Four hand-height warnings at 29%. Generic 13-28% threshold is unsuitable for this tall hood, but 29% also differs from asset canon 37-39%, so NOT dismissed as a pass.
+Sides two WARNs sole span 0.36H >0.26H. Visual inspection shows robe train contributes to width; one toe profile visible, no visible stride. Legs/knees are concealed and cannot be fully verified.
+
+Visual QA: viewed both attempts of both sheets and final contact, guides, and both strips. Correct two-view order and true back; left faces screen-left, right faces screen-right. Whole figures, no text, no held props, no smoke or glow. Slim robed identity and linen/olive/red palette preserved; large fold shadows preserved, broad painted planes rather than microtexture. Minor background variation/contact shadow. Back contains no eye sigils. Side hands foreshortened but fingers curl downward rather than perfectly flat. Arms slightly sag. Hood stitch still has crossbars: FAIL CONTENT. Five eyes per row rather than four: FAIL design fidelity. No unearned QA PASS.
+
+Cross-view landmark table: approximate percentages read visually against final strips, 0=cone tip,100=soles; rounded, not automated semantic measurements.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Cone tip | 0 | 0 | 0 | 0 | aligned
+Cone front red mark | 10-14 front edge | 10-14 front edge | 11-14 | hidden | occlusion correct; crossbars fail; too high vs canon14-18
+Veil point | 36 | 36 | 36 | hidden | consistent, but short vs canon41
+Hand row | 32-34 | 32-34 | 29 | 29 | FAIL cross-view and canon37-39; fingers droop in sides
+Bell sleeve bottom | 52 | 52 | 53 | 53 | approximately aligned; short vs canon60
+Back linen drape tip | about43 edge, partly hidden | about43 edge, partly hidden | hidden behind body | 46 | residual mismatch; canon50
+Olive mantle top | 25 | 25 | 25 | 25 | consistent, high vs canon28
+Olive tier edges | about51,67,80,94 | about51,67,80,94 | about56,69,86,96 | about61,85,96 | FAIL tier shapes/heights do not describe fully consistent three tiers
+Eye centres | 38,47,57,68,79 | 38,47,57,68,79 | 40,50,61,73,85 | hidden | FAIL height drift and five rows vs canon four; near row visible on correct front edge
+Stole hem | 94-95 | 94-95 | 97 | hidden | FAIL small height mismatch
+Under-robe hem/soles | 99-100 | 99-100 | 99-100 | 99-100 | aligned; feet obscured by cloth
+
+Outputs: views/front.png, views/back.png, views/left.png, views/right.png; views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png; both source sheets and four full prompt files. Best available deliverables preserved for review; issues above remain after maximum allowed generations.
+
+MAIN QA 2026-10-22 (Opus T-pose lead; own checks, Astra's report not relied on)
+Fix applied: the cone hood carried a small red CROSS-like mark (vertical line + crossbar) in FRONT and both side views, which breaks
+  art direction §3.8 (no crosses). Two EDIT PASSES (map01_batch.py) removed it, plain linen in its place:
+  FB sheet: session 01a15fb0-3f89-7570-a6e4-b9e8f0558dd7, 48 s, prompt E:\tmp_tripo_all\P02_hush_herald\edit_fb_mark.prompt.txt,
+    mean change 2.3 grey levels, 0.65 % of pixels > 24;
+  sides sheet: session 01a15fb0-fc55-7fa0-b133-9f5ffca09218, 45 s, prompt E:\tmp_tripo_all\P02_hush_herald\edit_sides_mark.prompt.txt,
+    mean change 1.9 grey levels, 0.26 % of pixels > 24.
+  Old sheets kept as _rejected/tpose_front_back_pre_edit_hood_cross.png and _rejected/tpose_sides_pre_edit_hood_cross.png;
+  _tasks/fb_mark_edit.png = tpose_front_back.png, _tasks/sides_mark_edit.png = tpose_sides.png.
+Re-run after the edits: measure (FB 902/903 px, sides 940/943 px), split (sides scaled 0.959, all views 0.974 to fit), guides, strips.
+Numeric: humanoid fb arms +3.7..+4.4 deg (back-left 4.4, just over the 4.0 limit), hands at 29 % (the cone adds ~22 % above the head:
+  WARN expected), span/height 0.82. humanoid sides WARN sole span 0.36 H = the floor-length robe hem, no stride visible.
+Visual: T-pose with straight arms, near hand at the camera in LEFT/RIGHT, far arm hidden, LEFT faces screen-left, RIGHT screen-right,
+  true BACK, no censer/chain, faceless veil, no crosses left (sigil strokes are plain dashed lines and drips), linen / moss-olive /
+  poppy-red palette as the concept, tiered jagged olive robe with painted fold shadows; nothing cropped.
+
+CROSS-VIEW TABLE (final views/*.png, % of the figure height, 0 = cone tip, 100 = soles)
+  feature                    LEFT       RIGHT      FRONT               BACK        verdict
+  cone tip                   0          0          0                   0           ok
+  hood mark                  none       none       none                none        ok (removed)
+  front veil point           ~36        ~36        35                  hidden      ok
+  arm line / hands           31-32      31-32      29                  29          ok (2-3 % lower in the sides)
+  bell sleeve lower end      ~50        ~50        ~52                 ~52         ok
+  back linen V point         ~35 at the back edge  same   hidden       45          DEVIATION: 10 % (thin tapered tip, colour only)
+  olive mantle hem (back)    ~55-58     ~55-58     ~50 (front)         57          ok
+  sigils (5 per row)         38/47/57/68/79  same  39/49/59/69/84      none        ok, last eye 5 % apart
+  soles                      100        100        100                 100         ok
+  figure height px           878        881        880                 880         ok
+Remaining deviations (accepted): five closed eyes per row instead of the concept's four (same in every view); the BACK linen V reaches
+45 % while the side views show the linen at the back edge only to ~35 % (thin tip, colour not silhouette); arms sag 3.7-4.4 deg;
+side hands 2-3 % lower than FRONT; RIGHT mirrors LEFT (symmetric design).
+VERDICT: PASS (with the deviations above) for Tripo multi-view input.

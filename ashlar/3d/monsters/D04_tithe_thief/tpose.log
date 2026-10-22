@@ -1,0 +1,91 @@
+﻿D04 Tithe-Thief T-pose report
+Date: 2026-10-22
+STATUS: Deliverables generated and inspected; QA NEEDS_CHANGES. Best attempts retained after the skill limit of two generations per sheet. Not a clean Tripo-ready approval.
+
+Step 1: Read concept.png visually, existing design.txt and brief.md. Existing canon design.txt preserved unchanged as explicitly required by skill and brief. HUMANOID yes. Its VIEWS table supplied in every prompt. Read project Agent.md, Tripo Agent.md, imagegen skill and art direction. Full prompts saved alongside sheets; verbatim STYLE CORE, T-POSE RULES and CONTENT prepended. Built-in image_gen used for all four generations; existing skill tools only for measurement/cropping/QA guides. No Tripo run.
+
+Sources (Codex image session 01a15f7d-d980-79e2-80d3-e14064b430ed):
+Root: E:/map01-batch/home/generated_images/01a15f7d-d980-79e2-80d3-e14064b430ed/
+FB attempt 1: exec-de572591-5f73-4cf6-a414-29849dde6f84.png -> _rejected/tpose_front_back_attempt1.png
+FB attempt 2 selected: exec-4308a937-60ae-442d-8ac3-acf2335a27bf.png -> tpose_front_back.png
+Sides attempt 1: exec-1172cecf-6988-4da8-aea5-dcdd6c231d35.png -> _rejected/tpose_sides_attempt1.png
+Sides attempt 2 selected: exec-a3d15711-a45c-4215-8eb2-a9f96bc7fe14.png -> tpose_sides.png
+
+Measurements (1536x1024 sheets; bbox coordinates tool output):
+FB attempt 1: front 747 px, back 746 px (72.9%). Retry for visibly sagging arms, broad stance, muscular limbs, high sack bottom and oversized layout.
+FB selected: front bbox (53,171,760,845), back (782,171,1493,845); both 674 px (65.8%). Span/height 1.05 both. No edge warnings; minimum exterior margin 43 px.
+Sides attempt 1: left 791 px (77.2%), right 788 px (77.0%). Retry for extra horn, three-quarter face/body, lean/bent knee, and 17.1% larger mean height than FB. Numeric sole-span warnings 0.28 H each.
+Sides selected: left bbox (174,100,669,884), 784 px (76.6%); right (874,112,1386,884), 772 px (75.4%). Mean 778 px, 15.43% above FB; still outside 12% tolerance. Logged and retained at retry limit. Side numeric humanoid RESULT OK, sole spans 0.24 and 0.23 H.
+Split: whole side views uniformly scaled by 674/778 = 0.866324. No local body-part scaling. All four PNGs 1024x1024, soles on row 952 by split tool (guides foreground row 951). Residual left/right height difference about 10 px after rescale, not identical top rows.
+
+Humanoid heuristic FB: six warnings retained. Reports arm angle +47.7/+47.4 degrees, missing opposite arm edges, hand row 48% outside standard human 13-28%. Sack silhouette dominates the detector: visual arms are approximately horizontal, not 47 degrees. The low shoulder row is expected for this creature, but actual 48-49% differs from design 55%. Visual stance centres about 0.21 H, wider than design 0.15 H; outward feet and slight limb contour bends remain. Hands broadly palm down but fingers not perfectly straight. Limb muscle plane definition still stronger than concept.
+
+Mandatory visual QA: viewed both attempts of both sheets, concept, views/_contact.png, views/_guides.png, views/_strip_0-60.png and views/_strip_40-100.png. Correct order front/back/left/right; nothing cropped; no labels; all four feet on shared floor. Sack hides back head/body correctly. Side hands face camera near red shoulder guide, a little above front/back hands. Knees and crotch are stylized low on body, so standard 50% crotch/27% knee guides are not applicable. Side profiles retain forward lean and bent knees; not strict upright 90-degree neutral projections. Left side still appears to have three horn protrusions; right two visible horns with placement differing from front. No further retries allowed.
+
+Cross-view landmark table: percentages estimated visually from 10% strip ticks, approximately +/-2-3 percentage points; 0 highest loot tip, 100 soles. LEFT/RIGHT slight top-row offset is retained by common scale.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Candlestick | 0-20, near | 1-20, behind chest/jug | 0-20 screen-right | 0-20 screen-left | Broad height and anatomical side PASS; depth plausible
+Chest/jug tops | chest 10, jug 17 mostly hidden | chest 10, jug 10 near | chest 8, jug 10 | chest 8, jug 10 | Chest roughly matches; hidden jug compatible with depth; geometry not exact
+Sack | 17-71 | 18-71 | 17-67 | 17-69 | FAIL design bottom 80; 2-4 point cross-view bottom mismatch
+Red band | 18-36, large patch | 18-36, large patch | 18-30 across sack crown | 18-52 descends screen-right | FAIL: side silhouettes suggest substantial band on both sides, inconsistent with right-sided back drape; rear extent not reliably consistent
+Hood/horns | hood 24-43, horns 19-31, three protrusions | hood 24-43, horns 19-31 | hood 27-48, horns 27-35 | head hidden; tiny tips near 23 | FAIL extra horns and height/shape mismatch
+Ears | 33-37 | 33-37 | 35-40 | hidden | Approximate match, front a little lower
+Face | 31-44 | 31-44 | 33-47 | hidden | FAIL strict matching: side head higher and forward, not pure profile
+Hands/shoulders | 46-48 | 46-48 | 47-49 | 47-49 | Approximate shared row, FAIL design target 55; side hands slightly higher
+Coins | two at 35-55 | two at 35-56 | edge pairs 34-55 | two each side 34-55 | Count/height broadly PASS; shape/visibility differs; short chain links were added despite removal request
+Smock hem | 77-84 | 77-84 | 79-87 | 79-87 | FAIL exact matching: side hem shorter; broad thick torn shapes retained
+Ankle wraps | 88-95 | 88-95 | 89-95 | 89-95 | PASS approximate height
+Straps | shoulder plus diagonal side strap | shoulder plus diagonal side strap | two front shoulder straps with toggles and dangling ends | hidden | FAIL added belt/side strap detail vs simplified design; connection not fully consistent
+Soles | 100 | 100 | 100 | 100 | PASS common floor
+
+Art direction section 11: broad painted color planes and deep cloth/hood shadows retained, no micro-texture/black outline/glow/text or prohibited content. Two full separated figures per sheet with safe margins. Palette matches terracotta/linen/olive-brown/gold, though larger metal highlights and face/limb detailing drift toward a more polished illustration. Content checks PASS. Pose, exact design fidelity, asymmetry and cross-view consistency NOT fully passed, as above.
+
+Files: views/front.png, views/back.png, views/left.png, views/right.png; views/_contact.png, _guides.png, _strip_0-60.png, _strip_40-100.png; both selected sheets; four full prompt files; rejected attempts retained. Existing design.txt retained. User review remains required before using this set as approved references.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed: _contact, _guides, both strips, both edited sheets)
+Edit passes (batch runner, 2 sessions; one per sheet):
+  FB    session 01a15f86-cc9a-7fe3-84d1-35c221fed932 (45 s): removed a stray horn spike at the upper right sack edge in FRONT
+        and the stray horn spikes at the upper sack edges in BACK. Mean change 2.9 grey levels.
+  SIDES session 01a15f87-7c79-7681-aca1-49844d6da659 (53 s): each side view had 2-3 horns one behind the other (concept's own
+        2D inconsistency); now ONE horn per side view. Mean change 2.2 grey levels.
+Old sheets kept: _rejected/tpose_front_back_attempt2_strayhorns.png, _rejected/tpose_sides_attempt2_doublehorns.png,
+old views: _rejected/views_before_edit/. Accepted sheets = _tasks/edit_fb_horns.png, _tasks/edit_sides_horns.png.
+Heights: front/back 674 px; sides 785 / 774 px; split rescale 0.865. Re-ran split, guides, strip 0-60 and 40-100.
+Cross-view table (% of figure height, 0 = candlestick tip, 100 = soles; LEFT / RIGHT / FRONT / BACK; verdict):
+  candlestick tip    0 / 2 / 1 / 2                        ok
+  chest / jug tops   10 / 10-12 / 8-11 / 8-10             ok
+  sack top edge      16 / 15 / 16 / 16                    ok
+  hood top           25 / 24 / 30 / hidden by sack        5-6 pts higher in the sides: borderline
+  horn tips          20 / 20 / 31 / hidden                FAIL: side horns taller and higher (11 pts); mesh spike risk
+  ears               36 / 36 / 40 / hidden                ok (4 pts)
+  arms / near hand   49 / 49 / 49 / 49                    ok
+  coins (each side)  37-58 / 35-57 / 37-55 edges / 33-55 edges   ok
+  sack bottom        70 / 70 / 68 / 70                    ok
+  smock hem          75-83 / 75-83 / 76-85 / 76-85         ok
+  ankle wraps        88-94 all                            ok
+Asymmetry: candlestick creature-left (FRONT screen-right, BACK screen-left), jug creature-right, red band over the right half
+of the back, coins paired: all correct in all four views.
+Pose: arms straight and horizontal at 49 % (tool cannot find the arm edge in front of the sack; visually level), legs straight,
+feet parallel 0.15 H, side legs overlap, no stride; sides keep a mild forward lean of the torso under the sack.
+Fidelity: plump terracotta imp, hood with ears and short crescent horns, worried face with two tiny fangs, smock, shoulder
+straps, burlap sack with red band, chest, jug, candlestick, four gold coins, ankle wraps: matches the concept; form shading kept.
+VERDICT: ISSUES (one): side-view horns are about twice as tall as in FRONT and their tips sit 11 pts higher (20 % vs 31 %),
+with the side hood top ~5 pts higher. Fix proposal (not run: extra-session limit reached): one edit on tpose_sides.png
+"shorten the horn in each figure to a small crescent whose tip is only just above the hood top".
+Additional deviation (final contact check): both side views keep a clear forward lean of the torso under the sack (head ahead
+of the feet, roughly 10-15 deg), more than the "slight lean" design.txt asked; FRONT/BACK are upright. Legs stay straight.
+
+MAIN QA addendum 2026-10-22 (approved third edit pass, main agent)
+Edit on tpose_sides.png (batch runner, session 01a15f96-7ac6-70d0-8f3a-85d03dad0cfe, 52 s): the single horn in each side view
+was far too tall; now one small crescent horn just above the hood, the same size as the FRONT horns. Mean change 2.4 grey
+levels. Old sheet kept: _rejected/tpose_sides_attempt3_tallhorns.png; old views: _rejected/views_before_edit2/.
+Accepted tpose_sides.png = _tasks/edit_sides_horns2.png (786 / 774 px); split rescale 0.864. Re-ran split, guides, strip
+0-60 and 40-100, all viewed. (The approval message gave the target as "20 %, not 31 %"; those two numbers were the wrong way
+round. The edit followed its main instruction, the same size as FRONT, which means shorter side horns.)
+Updated rows (LEFT / RIGHT / FRONT / BACK):
+  horn tips   24 / 24 / 29-31 / hidden    was 20 / 20: horn size now matches FRONT; ~6 pts offset left, because the side head sits higher
+  hood top    26 / 26 / 30 / hidden       ~4 pts, borderline ok
+  all other rows unchanged (candlestick 0-2, sack 15-16 to 68-70, arms 49, coins, hem 75-85, ankle wraps 88-94).
+Side sheet humanoid check: OK (sole span 0.23 / 0.20 H).
+VERDICT: PASS with logged deviations: side head and horns ~4-6 pts higher than FRONT; side torso leans forward ~10-15 deg
+under the sack.

@@ -1,0 +1,14 @@
+Đã tạo và tách đủ bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/F01_body_snatcher/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/F01_body_snatcher/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/F01_body_snatcher/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/F01_body_snatcher/views/right.png)
+
+Đã giữ nguyên `design.txt` có sẵn theo skill, lưu prompt, ảnh bị loại và [báo cáo QA](/E:/Diablo2/ashlar/3d/monsters/F01_body_snatcher/tpose.log).
+
+Sheet 1 cao **793/792 px**; sheet 2 **890/891 px**, thu đồng đều **0,88995×** khi tách. Mỗi sheet sửa một lần: sheet 1 sửa tay; sheet 2 sửa tỷ lệ và che khuất dây/đai.
+
+**Chưa đạt QA hoàn toàn:** tay trước/sau còn nghiêng 5–7,4°, vòng dây góc sau lộ quá nhiều, đuôi đai góc phải hơi dài. Đã xem contact, guides và hai dải kiểm tra chéo.
+
+Session ảnh: `01a15f7b-e91b-71f0-b02e-a9fadd23eebc`; đường dẫn nguồn từng ảnh ghi trong log.

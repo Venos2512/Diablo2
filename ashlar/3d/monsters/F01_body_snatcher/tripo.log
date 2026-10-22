@@ -1,0 +1,16 @@
+[00:44:36] multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/F01_body_snatcher/views (Generate 100), credits 4430
+[00:44:42] F01_body_snatcher: Generate 100 pressed (credits 4430 -> 4330), tab 4024F5B72E0C857D3B987A5FF4955135
+[00:46:00] F01_body_snatcher: mesh done; new models: b3d74580-f9b4-4dc1-9b73-c1f884bb9637 08e66a96-d2d6-4f5e-9c34-6889e6a9ddc5 17e34cb3-d5e8-41a3-85b6-798f0e764a7f c4f7a9a3-0c7b-48dd-9179-2c098bef2e66
+[00:46:48] F01_body_snatcher: variants (index uuid faces) in _shots/variants.txt:
+[00:48:22] F01_body_snatcher: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/17e34cb3-d5e8-41a3-85b6-798f0e764a7f faces 6000
+[00:49:11] F01_body_snatcher: smart uv saved
+[00:51:23] F01_body_snatcher: texture 4K done (busy0=true 49s; four views re-uploaded)
+[00:53:23] F01_body_snatcher: pbr done (credits 4030 -> 3900)
+[00:53:37] F01_body_snatcher: exported /e/Diablo2/ashlar/3d/monsters/F01_body_snatcher/F01_body_snatcher.glb (13856 KB)
+[00:53:37] F01_body_snatcher: GLB check: {"file": "F01_body_snatcher.glb", "MB": 14.2, "meshes": 1, "tris": 10161, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.455, 0.0, -0.131], "max": [0.455, 1.0, 0.131]}
+[00:53:59] F01_body_snatcher: FINAL: 145 credits for this asset (100+20+20+5; balance now 3655, shared with parallel threads); _shots/final_views.png
+[00:56:44] F01_body_snatcher: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/17e34cb3-d5e8-41a3-85b6-798f0e764a7f faces 6000
+[00:57:04] F01_body_snatcher: FINAL: 145 credits for this asset (100+20+20+5; balance now 3310, shared with parallel threads); _shots/final_views.png
+[19:40:03] F01_body_snatcher: REBUILD (user 10-22: hand defect). Old variant 2 GLB -> _rejected/F01_body_snatcher_v2_bad_hand.glb; hand QA of the other variants (untextured exports + Blender close-ups) in E:/tmp_tripo_all/armqa
+[19:40:04] F01_body_snatcher: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/b3d74580-f9b4-4dc1-9b73-c1f884bb9637 faces 5734
+[19:40:28] F01_body_snatcher: smart uv saved

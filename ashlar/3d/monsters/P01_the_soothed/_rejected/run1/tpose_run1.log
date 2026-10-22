@@ -1,0 +1,56 @@
+﻿P01 The Soothed A - T-pose generation report
+Date: 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; strict T-pose/design QA is NOT a full PASS.
+Step 1: Existing design.txt and brief.md read and preserved unchanged, as explicitly required by the skill and brief. HUMANOID yes. Concept visually inspected. VIEWS landmark table was already present before generation.
+Generation: built-in image_gen only, one call per sheet attempt. Four calls total, two per sheet (maximum reached). Full prompts saved adjacent to sheets, with verbatim STYLE CORE, T-POSE RULES and CONTENT plus filled humanoid templates and VIEWS. No API/CLI generation, no new art drawn with code. Existing skill script used only for measurements, crop/scale and QA composites.
+
+Sources (Codex session 01a15f7b-eda5-71b3-88f5-3750a4fa32de):
+Root: E:\map01-batch\home\generated_images\01a15f7b-eda5-71b3-88f5-3750a4fa32de\
+FB attempt 1: exec-6ca3ec37-9ded-4764-82cc-e26b6ca392ad.png
+FB retained attempt 2: exec-e82898e2-7671-4071-bb97-1f399a4563d9.png
+Sides attempt 1: exec-be812d56-5778-466e-b662-5a1b1011b20d.png
+Sides retained attempt 2: exec-0ef048c7-f251-4f5f-9d01-9d1a23e59724.png
+Rejected attempts preserved in _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png. Original generated sources left intact.
+
+Retries:
+FB: first image had shawl webbing/wings beneath arms, too long front ends, fine hair and overly noisy mud; numeric arms passed. Retried to simplify shawl and surfaces. Retained second image for improved separation and simpler cloth, despite worse shoulder/arm angles. No third generation permitted.
+Sides: first image had shawl tip at approximately 73% versus BACK approximately 68%, sleeves at 34% versus 32%, and curled fingers. Retried to match actual retained FB landmarks, explicitly documenting the departure from nominal VIEWS rather than rewriting design.txt. Tail-height mismatch improved to about 1%; fingers still not fully open and flat. No third generation permitted.
+
+Measurements (bounding boxes from tpose_tools.py measure):
+All sheets 1536x1024. No edge WARNING.
+FB attempt 1: FRONT 820px (80.1%), BACK 818px (79.9%). humanoid RESULT OK.
+FB retained: FRONT bbox (27,71,759,913), height 842px (82.2%), width 732px; BACK bbox (782,78,1507,912), height 834px (81.4%), width 725px. Mean height 838px. Minimum outer margin 27px.
+FB retained humanoid: 4 WARNINGS. FRONT left arm +4.1deg, right +5.4deg; BACK left +5.2deg, right +4.4deg. Span/height 0.87 in both (design asks approximately 0.99). Feet centre gap 0.16H front, 0.17H back. Hands at 21-22% height.
+Sides attempt 1: both 929px (90.7%), humanoid RESULT OK; initial scale 838/929 = 0.90205.
+Sides retained: LEFT bbox (391,41,590,966), RIGHT (945,41,1143,966); both height 925px (90.3%); widths 199/198px. humanoid RESULT OK, sole span 0.16/0.17H. Height 10.38% above FB mean, within allowed 12%. Scale 838/925 = 0.905946 (script prints 0.906).
+
+Split and visual QA:
+Ran split, guides and both strip bands (0-60,40-100) before and after sides retry; viewed all four resulting QA composites each time. Output views are 1024x1024, order FRONT/BACK/LEFT/RIGHT, no cropping, soles aligned to output row 952 (guides detects last foreground row 951). Front top row 110; back top differs by about 8px because source FB heights differ. Reference hand line row 292. Side hands lie close to this line. Knees and crotch are hidden by gown and cannot be anatomically verified from images. Visible shins upright, feet planted; sides overlap without stride. FRONT/BACK feet slightly turn outward instead of exact parallel-forward feet.
+
+Cross-view landmark table: percentages from final viewed strips, approximate visual readings (+/-2 percentage points), measured against figure top/sole ticks. LEFT and RIGHT are actual opposite-facing profiles; near-symmetric design provides no unique unilateral detail to prove non-mirroring.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Cap | 0-11 | 0-11 | 0-10 | 1-11 | Similar rounded cap; slightly taller than nominal 0-9
+Cap knot | 7-12 visible behind head | 7-12 visible behind head | hidden | 7-11 centred | Correct occlusion, lower/larger than nominal 4-10
+Face/stitch | 4-13, stitch ~10 | 4-13, stitch ~10 | 3-13, stitch ~10 | hidden by head | Calm closed eyes retained; stitch has more than requested three ticks, extends onto cheeks in profiles
+Back hair | 10-40 over shawl | 10-40 over shawl | hidden except side locks | 11-37 over shawl | Correct layering; profiles ~3% longer; thin strands remain
+Front hair locks | to 29 | to 29 | to 29 | hidden | Consistent; approximately nominal 28
+Shoulder/hand | shoulder ~17, hand 21-22 | shoulder ~17, hand 21-22 | shoulder ~18, hand 22 | shoulder ~18, hand 21-22 | Hand heights align; FB arms sag 4.1-5.4deg, profile fingers curled
+Sleeve lower edge | 32 | 32 | 32 | 32 | Consistent, 2% below nominal 30
+Shawl front ends | 50 | 50 | 53 | hidden by rear shawl | Remaining ~3% mismatch; nominal 48
+Shawl back tip | 69 | 69 | occluded by torso | 68 | Cross-view improved (~1%); ALL shorter than nominal 75, FB retry exhausted
+Neckline slit | mostly occluded by locks/torso | mostly occluded by locks/torso | 18-23 | hidden | Correct occlusion
+Gown hem | 83-88 | 83-88 | 83-87 | 83-87 | Approximately consistent, mid-shin
+Mud | 60-88 plus shins | 60-88 plus shins | 62-87 plus shins | 62-87 plus shins | Brown material matches; exact patches differ and remain too mottled for strict clean-shape target
+Shins/feet | 86-100 | 86-100 | 86-100 | 86-100 | Aligned soles, similar visible leg length; profiles plantigrade overlapping
+
+Art direction section 11 visual QA:
+Two full orthographic figures per sheet, correct view order, no labels/watermark/props, no added muscles/claws/teeth, pale skin/cream/slate/brown palette, closed eyes and gentle face retained. Low-detail painterly style broadly matches concept, no black outline or glow. Major shawl fold shadows retained; gown is smoother and somewhat flatter than concept and mud remains mottled. Background slightly varies in the original generated sheets; split outputs use the script's grey canvas. No religious symbols, nudity or gore. Existing brief's tiny red painted mouth stitch retained.
+
+Remaining failures: strict horizontal FB arms; shorter arm span than design; not perfectly open side hands; hair not reduced fully to one solid mass; small landmark deviations listed above; rear shawl too short relative to design, front ends too long; slight outward feet. These are review assets, not an unqualified strict-pose PASS. Best attempts retained under the skill's two-generation cap. No Tripo run, rigging or credits spent.
+
+Deliverables:
+E:\Diablo2\ashlar\3d\monsters\P01_the_soothed\views\front.png
+E:\Diablo2\ashlar\3d\monsters\P01_the_soothed\views\back.png
+E:\Diablo2\ashlar\3d\monsters\P01_the_soothed\views\left.png
+E:\Diablo2\ashlar\3d\monsters\P01_the_soothed\views\right.png
+Also tpose_front_back.png, tpose_sides.png, four saved prompts, views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png, preserved design.txt, this tpose.log.

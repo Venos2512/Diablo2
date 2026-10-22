@@ -1,0 +1,36 @@
+P03 Hush-Moths, variant A (ONE moth; the swarm is built from copies): creature (family W) neutral display views for Tripo multi-view, 2026-10-22.
+Concept: ashlar/art/map-01-concepts/monsters/P03_hush_moths/vA/concept_r2b.png (copied to concept.png). Canon: checklist row P03, concept_r2b.prompt.txt.
+Flow: CREATURE flow; design.txt HUMANOID no, FAMILY W, VIEWS written before the first generation. Pose sections "W front_back" / "W sides" as run on W02.
+Placement templates (make_view_template.py, 2172x724, 1100 px per H): _tasks/template_fb.png blocks 0.75x0.33 H, _tasks/template_sides.png blocks 0.26x0.33 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp).
+
+CONCEPT MEASUREMENTS (H silhouette = 506 px, floor row 629)
+  FRONT: antenna tips 0.33 H (highest point), forewing tips 0.29 H, wingspan about 0.75 H (bbox 0.79 H), fluff top 0.21 H, eyes 0.16 H, hindwings down to 0.07 H,
+  leg tips 0.31 H apart, forewing leading edge about 17 degrees. Side views: face to abdomen tip 0.24 H; the abdomen tip nearly touches the ground.
+  The concept's brackets ("top 0.14H" = top of the body fluff, "wingspan 0.25H" drawn 0.58 H long) disagree with the drawing: the drawing is kept for the
+  proportions, the in-game size is set at import. The concept's side views show the wings raised as surfaces and the far legs: drawing only (REMOVE).
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 1 (tpose_front_back.png = _tasks/fb_attempt1.png)
+  attempt 1, 2026-10-22 01:44: passed its own QA first time. All four wings in one upright plane, undersides face-on in FRONT, upper sides in BACK, the same
+    four eye-spots mirrored (forewing spots at about 30 %, hindwing spots at about 70 %); antennae as two flat plumes in a V (tips at 0 %); forewing tips at
+    about 12 %; head with two big dark eyes and the white fluff collar and bib in FRONT, hidden in BACK behind the thorax fluff; BACK abdomen a segmented
+    grey-lilac cone from about 45 % to its tip at 92 %; six solid dark legs, three per side, tips on one ground line; hindwings clear of the ground (83 %).
+  Measured: 468 / 468 px tall (65 % of the image), 1011 / 998 px wide (width/height 2.16 / 2.13).
+  creature tool: symmetry WARN 0.80 / 0.58. Checked with a mirror overlay: the BACK figure sits about 10 px off its box centre and its two antennae lean
+    differently (left one more upright); the wings, spots and legs mirror. Logged as minor.
+  design.txt v1 -> v2 (heights measured on sheet 1: fluff top 40 %, hindwing lowest 83 %, legs leave at 70 %, BACK abdomen 45-92 %); copy of v1 in
+    E:\tmp_tripo_all\P03\design_v1.txt.
+
+SHEET 2 (LEFT + RIGHT) - NOT GENERATED
+  prompt _tasks/prompt_sides_a1.txt and job _tasks/jobs_sides1.json (id P03_SIDES1; refs concept.png, tpose_front_back.png, template_sides.png) are ready.
+  2026-10-22 01:47: the job failed in 4 s, "You've hit your usage limit ... try again at Oct 27th, 2026 3:40 PM" (account of E:\map01-batch\home; the
+  ~/.codex auth is the same account). Not split, no cross-view table yet. Next: run P03_SIDES1, QA (end-on wing column 12-83 %, three near legs, abdomen
+  tip at about 92 % behind the column), split --vcenter, guides --creature, strip, table of step 4b.
+Not done: no Tripo run, no credits spent.
+
+TRIPO 2026-10-22 08:24 (main agent): Codex still at its usage limit, sheet 2 (sides) NOT generated. views/front.png and
+  views/back.png cut from the accepted tpose_front_back.png (scratch E:\tmp_tripo_all\ops\views_fb.py fb --vcenter, same canvas
+  rules as tpose_tools split). Tripo multi-view with FRONT + BACK only, Generate 100. Variant 2 (6188 faces): four wings, plume
+  antennae, six legs, eye-spots; wing depth/layering guessed by Tripo (fore and hind wings sit in two close upright planes).
+  Texture 4K with the same two views. GLB 11.8 MB, 10378 tris, 3 maps 4096². Verdict: PASS for the batch; job P03_SIDES1
+  stays ready if a 4-view rebuild is wanted.

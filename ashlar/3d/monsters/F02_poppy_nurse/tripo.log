@@ -1,0 +1,11 @@
+[01:28:49] F02_poppy_nurse: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/views
+[01:28:55] F02_poppy_nurse: Generate 100 pressed (credits 14718 -> 14563), tab 388E807533E8911C4C5B3E763C8DFF9B
+[01:29:49] F02_poppy_nurse: mesh done; new models: 28c21dfe-827f-4c08-b847-13f75daa3d60 8547a66b-8286-4b42-a065-ec5dc988a75f 90846f4e-83eb-4f5f-91d0-b0add82e0b8f 8179f86a-efde-40cd-8190-e0807cb9a8e4
+[01:30:42] F02_poppy_nurse: variants (index uuid faces) in _shots/variants.txt:
+[01:31:04] F02_poppy_nurse: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/90846f4e-83eb-4f5f-91d0-b0add82e0b8f faces 5438
+[01:33:23] F02_poppy_nurse: smart uv saved
+[01:36:05] F02_poppy_nurse: texture 4K done (busy0=true 125s; four views re-uploaded)
+[01:37:11] F02_poppy_nurse: pbr done (credits ? -> ?)
+[01:37:25] F02_poppy_nurse: exported /e/Diablo2/ashlar/3d/monsters/F02_poppy_nurse/F02_poppy_nurse.glb (15392 KB)
+[01:37:25] F02_poppy_nurse: GLB check: {"file": "F02_poppy_nurse.glb", "MB": 15.8, "meshes": 1, "tris": 9978, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.426, 0.0, -0.177], "max": [0.426, 1.0, 0.177]}
+[01:37:45] F02_poppy_nurse: FINAL: 145 credits for this asset (100+20+20+5; balance now 14088, shared with parallel threads); _shots/final_views.png

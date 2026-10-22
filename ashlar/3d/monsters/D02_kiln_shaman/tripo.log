@@ -1,0 +1,13 @@
+[00:42:22] D02_kiln_shaman: ABORT: only 0 empty multi-view slots before upload (stale uploads?)
+[00:48:56] multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/views (Generate 100), credits 4170
+[00:49:02] D02_kiln_shaman: Generate 100 pressed (credits 4170 -> 4050), tab 12F293B3770DF814178917F42A2563C1
+[00:50:59] D02_kiln_shaman: mesh done; new models: e80b4862-89fc-492e-a7d0-f87e92080005 7a60fd6a-a65e-4e53-97c9-4bd54ac91f69 8858831e-81b5-47dc-a2ca-be49d8dcd946 ffdd4554-b93f-4436-a227-39c00970fbb9
+[00:51:50] D02_kiln_shaman: variants (index uuid faces) in _shots/variants.txt:
+[00:52:27] D02_kiln_shaman: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/e80b4862-89fc-492e-a7d0-f87e92080005 faces 6201
+[00:53:27] D02_kiln_shaman: smart uv saved
+[00:55:11] D02_kiln_shaman: texture 4K done (busy0=true 68s; four views re-uploaded)
+[00:55:54] D02_kiln_shaman: pbr done (credits 3555 -> 3430)
+[00:56:10] D02_kiln_shaman: exported /e/Diablo2/ashlar/3d/monsters/D02_kiln_shaman/D02_kiln_shaman.glb (19536 KB)
+[00:56:10] D02_kiln_shaman: GLB check: {"file": "D02_kiln_shaman.glb", "MB": 20.0, "meshes": 1, "tris": 10647, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.255], "max": [0.5, 0.86, 0.255]}
+[00:57:37] D02_kiln_shaman: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/e80b4862-89fc-492e-a7d0-f87e92080005 faces 6201
+[00:57:56] D02_kiln_shaman: FINAL: 145 credits for this asset (100+20+20+5; balance now 3170, shared with parallel threads); _shots/final_views.png

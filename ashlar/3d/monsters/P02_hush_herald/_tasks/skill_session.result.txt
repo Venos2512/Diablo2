@@ -1,0 +1,14 @@
+Đã tạo hai sheet, QA và tách bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/views/right.png)
+
+[Contact sheet](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/views/_contact.png) · [Báo cáo đầy đủ](/E:/Diablo2/ashlar/3d/monsters/P02_hush_herald/tpose.log)
+
+**QA chưa đạt hoàn toàn:** vẫn có năm mắt mỗi hàng thay vì bốn, dấu thập nhỏ trên mũ, tay hơi xệ và mốc tay/hoa văn lệch giữa các góc. Mỗi sheet đã sửa một lần, hết giới hạn skill.
+
+Chiều cao trước/sau: **903/902 px**; trái/phải: **942/943 px**; hệ số chuẩn hóa góc bên **0.958**. `design.txt` có sẵn được giữ nguyên theo skill.
+
+Session: `01a15fa5-8693-7881-a746-1224e02c783c`; đường dẫn nguồn từng ảnh và toàn bộ sai lệch đã ghi trong `tpose.log`.

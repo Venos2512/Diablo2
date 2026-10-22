@@ -1,0 +1,12 @@
+Đã tạo hai sheet, QA và tách bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/P01_the_soothed/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/P01_the_soothed/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/P01_the_soothed/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/P01_the_soothed/views/right.png)
+
+Giữ nguyên `design.txt` có sẵn theo skill. Chiều cao FRONT/BACK: **842/834 px**; LEFT/RIGHT: **925/925 px**; hệ số thu nhỏ góc bên: **0,905946**.
+
+Mỗi sheet đã sửa một lần: sheet 1 sửa khăn nối tay–thân; sheet 2 sửa chiều dài khăn giữa các góc. **QA chưa đạt hoàn toàn:** tay xệ 4–5°, ngón tay góc bên còn co, tóc và một số mốc trang phục còn lệch.
+
+[Báo cáo đầy đủ và đường dẫn ảnh nguồn](/E:/Diablo2/ashlar/3d/monsters/P01_the_soothed/tpose.log). Session: `01a15f7b-eda5-71b3-88f5-3750a4fa32de`.

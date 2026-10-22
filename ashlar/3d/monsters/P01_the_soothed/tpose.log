@@ -1,0 +1,75 @@
+﻿P01 THE SOOTHED — T-pose session report
+Date: 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; NOT a full QA pass.
+Workflow: generate-tpose-for-tripo steps 1-5. Existing design.txt and brief.md read and preserved unchanged as required. Concept viewed. Art direction sections 1-3, 6, 8, 11 read; verbatim STYLE CORE, T-POSE RULES and CONTENT saved in all generation prompts. All four generation calls used built-in image_gen, no API/CLI image generation. Existing tpose_tools.py used only for measurements, splitting, scaling and QA contact/guides/strips.
+
+Sources (Codex image-generation session ID): 01a15f92-02d4-7062-882c-a7b00d66e0fd
+Source directory: E:\map01-batch\home\generated_images\01a15f92-02d4-7062-882c-a7b00d66e0fd
+Front/back attempt 1: exec-8963b76b-2cb1-495e-b1a8-d384db85080b.png
+Front/back selected attempt 2: exec-0269e6e3-af8e-4c14-a7d3-326c5b3b45fb.png
+Sides attempt 1: exec-63911653-7041-4e59-a76b-8ecb2357fe22.png
+Sides selected attempt 2: exec-8a895b26-05e6-4f23-bcd9-7f68adeee588.png
+Original sources retained. Rejected first attempts copied to _rejected/tpose_front_back_session_attempt1.png and _rejected/tpose_sides_session_attempt1.png. Older run1 files untouched.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt.
+
+Retries: exactly one per sheet (four total generations).
+FB first attempt: visibly short arms (~0.87 true span/H), sagging 4-5 degrees, almost touching neighbouring hands confused automatic divider (reported 0.98 front / 0.75 back), front shawl ends too long, excessive small hair/mud detail. Retry improved span to 0.99 and arm level; some design simplification deviations remain.
+Sides first attempt: height 871 px vs 705 px FB (+23.5%); near hand at about 23% vs 20% FB, fingers droop; shawl tip longer than BACK. Retry requested exact pixel placement and these corrections but did not materially fix hand row or scaling. Second attempt retained as best available; no third generation per skill limit.
+
+Final numeric measurements (both sheets 1536x1024):
+FRONT bbox (63,176,758,881): height 705 px, 68.85%, width 695 px.
+BACK bbox (780,177,1475,881): height 704 px, 68.75%, width 695 px.
+LEFT bbox (378,75,574,944): height 869 px, 84.86%, width 196 px.
+RIGHT bbox (959,75,1154,944): height 869 px, 84.86%, width 195 px.
+No edge-margin warning; every figure >=12 px from canvas edges.
+Sides remain 23.26% taller than front sheet (beyond requested +/-12%); split normalised whole figures by 705/869 = 0.811277 (tool reports 0.811). No body part rescaled separately.
+Humanoid FB: RESULT OK. Front span/H 0.99, left arm +0.3 deg, right +0.9 deg, hands at 20%, feet-centre gap 0.16H. Back span/H 0.99, left arm +2.2 deg, right +0.1 deg, hands at 19-20%.
+Humanoid sides: RESULT OK, sole span LEFT 0.18H / RIGHT 0.17H. This heuristic does NOT validate hand alignment; visual QA still fails the side hand row.
+
+Output: views/front.png, back.png, left.png, right.png, all 1024x1024. Split reports soles on row 952 (detected occupied sole row 951 in guides), head top row 247, reference hand/shoulder row 385. BACK differs by about 1 px in figure height.
+Viewed final views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png. Correct order FRONT, BACK, LEFT, RIGHT; no cropping; same scale and floor. LEFT faces screen-left, RIGHT faces screen-right. Upright level heads, neutral overlapping side legs; actual knees and crotch hidden by gown and not directly inspectable. Front/back arms substantially level; side hands visibly below red guide.
+
+Mandatory cross-view landmark table. Percentages are visual pixel estimates from measured full-height bounds and labelled strips, usually +/-1-2%; not automatic semantic detections. 0%=cap top, 100%=soles.
+Feature | LEFT | RIGHT | FRONT | BACK | verdict
+Cap | 0-10 | 0-10 | 0-9 | 0-10 | consistent cream cap
+Cap knot | 6-11 rear | 6-11 rear | hidden by head | 6-11 centred | occlusion correct, slightly lower than design 4-10
+Face/closed eyes/mouth mark | 5-14 | 5-14 | 3-13 | hidden | identity preserved; profile face reaches slightly lower; exact three-tick mark not reliably matched
+Hair rear tip | 38-39 | 38-39 | rear mass hidden; front locks 28-30 | 37-38 | heights broadly consistent; too many thin strands versus one thick mass
+Shawl shoulder start | 15-16 | 15-16 | 16 | 16 | consistent
+Hand centre/finger row | 22-24 | 22-24 | 19-20 | 19-20 | FAIL: side hands lower by ~3-4% H; fingertips bent/down rather than perfectly flat
+Sleeve bottom | 34-35 | 34-35 | 32 | 32 | mismatch ~2-3% H; side hand/arm sag contributes
+Shawl front ends | 51-52 | 51-52 | 54-55 | front ends largely occluded | FAIL versus design 48%; cross-view difference ~3% H
+Shawl back triangle tip | 75 | 75 | hidden by torso | 71-72 | FAIL cross-view: sides ~3-4% H longer; back shorter than design 75%
+Neckline slit | hidden | hidden | 19-24 | hidden by shawl/hair | occlusion correct; start lower than design 15%
+Gown hem | 83-88 | 83-88 | 84-89 | 85-89 | consistent within jagged edge variation
+Mud region | ~60-88 | ~60-88 | ~57-88 | ~63-88 | approximate lower-third placement, pattern continuity not exact and too speckled
+Shins/feet | 87-100 | 87-100 | 87-100 | 88-100 | consistent; side feet overlap, front/back symmetric stance
+
+Art-direction visual QA:
+PASS: moderately stylized painterly adult identity, cream/slate/brown/pale palette with small red mouth mark, broad cloth form shadows, true back, no added muscle/claws/teeth/props, eyes closed, head level, no glow/rim light, no labels/watermark/scenery, complete figures and margins.
+DEVIATIONS: hair is strandier and mud marks more numerous than requested simplified thick shapes/large soft patches; shawl still has several narrow points and reaches partly along extended upper arms. Grey background has slight tonal variation rather than perfectly uniform fill. Main failures are side hand row and shawl cross-view lengths listed above. Near-symmetric LEFT/RIGHT renderings give no strong independent asymmetry evidence because design itself is nearly symmetric.
+Final assessment: files and all QA artifacts delivered under the skill's keep-best-after-one-retry rule. Do not label these fully approved or fully correct T-pose. No Tripo run, no 3D creation, rigging or animation performed.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Run 1 (session 01a15f7b-eda5-71b3-88f5-3750a4fa32de): arms sagged 4-5 deg; fixed by an edit pass (extra Codex session 1 of 2, batch
+  job P01_FBE_ARMS, session 01a15f8a-02b6-7fd1-affe-386da52b64a0), but the sheet still had an arm span of only 0.87 of the height
+  against the concept's 0.99. Whole run 1 archived in _rejected/run1/ (incl. the edit result) and _tasks/run1/.
+Run 2 = extra Codex session 2 of 2: fresh run_session.sh with "WRONG IN THE PREVIOUS ATTEMPT" in brief.md
+  (session 01a15f92-02d4-7062-882c-a7b00d66e0fd). Accepted.
+humanoid fb: OK (front +0.3/+0.9 deg, back +2.2/+0.1 deg; hands 19-20 %; span/height 0.99/0.99; feet centre gap 0.16 H).
+  sides: OK, sole span 0.17-0.18 H.
+Sheet heights: FB 705/704 px; sides 869/869 px; split rescale 0.811.
+Cross-view table (% of figure height, 0 = cap top, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Cap / knot         | 0-10 / bump 6-12 | same   | 0-10 / hidden | 0-10 / 6-13   | PASS
+Face, stitch mark  | near cheek  | near cheek  | mouth 10     | hidden        | PASS (painted mark only)
+Hair               | down the back to 40 | to 40 | locks to 35 | mass to 37   | PASS
+Arm row (hands)    | 23 near hand | 23         | 19-20        | 19-20         | MINOR: side near hands 3-4 % below the FB row
+Sleeve lower edge  | 33          | 33          | 31           | 31            | PASS
+Shawl front ends   | to 52       | to 52       | 45-52        | n/a           | PASS
+Shawl back point   | back edge to 73 | to 75   | n/a          | 72            | PASS
+Neck slit          | n/a         | n/a         | 15-24        | n/a           | PASS
+Gown hem / mud     | 82-88 / 62-88 | same      | same         | same          | PASS
+Legs: FB straight, feet 0.16 H apart; sides overlap, no stride.
+Fidelity: slim sleep-walker, closed eyes, cap, long hair, cream gown, thick slate-blue shawl (no webs between arm and body), mud stains,
+  bare feet, colours and form shading match the concept; head LEVEL per task (the concept tilts it). Verdict: PASS (minor side hand row).

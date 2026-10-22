@@ -1,0 +1,11 @@
+[01:02:30] P01_the_soothed: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/P01_the_soothed/views
+[01:02:36] P01_the_soothed: Generate 100 pressed (credits 17388 -> 17288), tab 7E49B10C35B4A9E6D46303D8B9D6BC5B
+[01:03:53] P01_the_soothed: mesh done; new models: 528a7772-2f41-43e5-af91-467f59854ac7 55b18fda-db8f-4038-83d8-69b104c7bf66 c64887c7-2fed-4270-a2a2-592244370776 91c74e59-70ab-4ad5-84c5-1268b5b9c21d
+[01:04:45] P01_the_soothed: variants (index uuid faces) in _shots/variants.txt:
+[01:06:17] P01_the_soothed: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/55b18fda-db8f-4038-83d8-69b104c7bf66 faces 6274
+[01:07:23] P01_the_soothed: smart uv saved
+[01:10:11] P01_the_soothed: texture 4K done (busy0=true 133s; four views re-uploaded)
+[01:11:11] P01_the_soothed: pbr done (credits ? -> ?)
+[01:11:27] P01_the_soothed: exported /e/Diablo2/ashlar/3d/monsters/P01_the_soothed/P01_the_soothed.glb (29944 KB)
+[01:11:27] P01_the_soothed: GLB check: {"file": "P01_the_soothed.glb", "MB": 30.7, "meshes": 1, "tris": 10216, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.116], "max": [0.5, 1.0, 0.116]}
+[01:11:48] P01_the_soothed: FINAL: 145 credits for this asset (100+20+20+5; balance now 16538, shared with parallel threads); _shots/final_views.png

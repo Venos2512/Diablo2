@@ -1,0 +1,40 @@
+{
+  "_note": "Landmark giai phau do tren mesh D01 da scale 0,5 m (toa do Blender, met; +X = trai quai, -Y = phia truoc, Z len). Do bang cat lat/phan vung tren _work/mesh_scaled.npz va anh render truc giao (xem rig.log). Chan va ban chan lech +0,0105 theo X so voi tam tay/dau (do: tam hai chan x=+0,0105, hai ban tay doi xung quanh x=0); chan phai = guong cua chan trai quanh x=0,0105. Tay, tai, mat: guong qua x=0.",
+  "leg_mirror_x": 0.0105,
+  "spine": {
+    "pelvis": [0.0100, 0.0280, 0.1850],
+    "spine_01": [0.0070, 0.0220, 0.2120],
+    "spine_02": [0.0020, 0.0120, 0.2600],
+    "chest": [0.0000, 0.0030, 0.3050],
+    "neck": [0.0000, -0.0150, 0.3500],
+    "head": [0.0000, -0.0300, 0.3720],
+    "head_tail": [0.0000, -0.0630, 0.4350]
+  },
+  "arm_L": {
+    "shoulder": [0.0780, -0.0220, 0.3340],
+    "elbow": [0.1720, -0.0230, 0.3330],
+    "wrist": [0.2680, -0.0270, 0.3270],
+    "hand_tip": [0.3360, -0.0300, 0.3220],
+    "palm": [0.3040, -0.0280, 0.3180]
+  },
+  "leg_L": {
+    "hip": [0.0520, 0.0260, 0.1780],
+    "knee": [0.0570, 0.0280, 0.1100],
+    "ankle": [0.0630, 0.0400, 0.0480],
+    "ball": [0.0780, -0.0120, 0.0120],
+    "toe_tip": [0.0870, -0.0460, 0.0100],
+    "heel_ground": [0.0630, 0.0620, 0.0000],
+    "ball_ground": [0.0780, -0.0120, 0.0000],
+    "toe_ground": [0.0870, -0.0460, 0.0000]
+  },
+  "ear_L": {"base": [0.0570, -0.0450, 0.3720], "tip": [0.0920, -0.0120, 0.3900]},
+  "ear_R": {"base": [-0.0560, -0.0350, 0.3850], "tip": [-0.0885, 0.0130, 0.4140], "_note": "tai phai that su cao hon va lui ra sau hon tai trai (mesh Tripo bat doi xung): do rieng, khong guong"},
+  "helmet": {"head": [0.0000, -0.0600, 0.4100], "tail": [0.0000, -0.0600, 0.4700]},
+  "sack": {"head": [0.0000, 0.0450, 0.3000], "tail": [0.0000, 0.0950, 0.4000]},
+  "loincloth_front": {"head": [0.0110, -0.0200, 0.2130], "tail": [0.0110, -0.0120, 0.1360]},
+  "sockets": {
+    "fx_head": [0.0000, -0.0600, 0.4900],
+    "fx_chest": [0.0000, -0.0450, 0.3000],
+    "hit_origin": [0.0050, -0.0450, 0.2700]
+  }
+}
