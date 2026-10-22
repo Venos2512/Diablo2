@@ -1,0 +1,9 @@
+QA (AD 11) of perspective.png - A17_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A17_perspective_frame.png; prompt: prompts/A17_perspective.txt; session: 01a15eb9-e711-7f70-b06c-9dc8c493caf1
+defects:
+- cell 4 table about 1.5x too big (top at about 0.67H, chair backs about 1H)
+- cell 6 jetty deck about 1H above the floor line instead of 0.33H
+- cell 6 extra dashed line with a duplicated 1H label
+- busy cobble pattern on the flint walls, flower-like lichen rosettes on the leaning stones
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

@@ -1,0 +1,25 @@
+{
+  "id": "flint_boulders_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be8-ccb1-7f61-a16e-b4ac17fb54c6\\exec-72d5a18b-eb1c-4d3f-a1c5-b670cf673523.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be8-ccb1-7f61-a16e-b4ac17fb54c6"
+  ],
+  "sha256": "b220a90f74d8b17d7b47f739bbd3849846b2ad137ce7783a197614ca0d26cd26",
+  "bytes": 2090024,
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_cave.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\flint_boulders_b.png",
+  "started": "2026-10-21T00:42:25Z",
+  "finished": "2026-10-21T00:43:00Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\flint_boulders_b\\attempt-1",
+  "scratch_files": []
+}

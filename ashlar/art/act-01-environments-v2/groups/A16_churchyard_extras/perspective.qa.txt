@@ -1,0 +1,9 @@
+QA (AD 11) of perspective.png - A16_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A16_perspective_frame.png; prompt: prompts/A16_perspective.txt; session: 01a15eb9-e977-75b3-a3ff-a17637ee9fe4
+defects:
+- cell 1 reads as an oak (leafy crown of many small clumps), crown about 7.4H wide instead of 4.4H and crossing the border into cell 2
+- cell 3 three of the jar candles are lit (must be unlit)
+- cell 5 about 1.35x too big (mortsafe about 0.9H)
+- moss dabs and many small grass tufts on stones and mounds (more texture than the style reference)
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

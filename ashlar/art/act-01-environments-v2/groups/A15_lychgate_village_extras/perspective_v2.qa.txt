@@ -1,0 +1,7 @@
+QA (AD 11) of perspective_v2.png - A15_perspective - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+frame: templates/A15_perspective_frame_v2.png; prompt: prompts/A15_perspective_v2.txt; session: 01a15ec6-a263-7573-8fff-b458a77c5c89
+defects:
+- cell 1 church has a CROSS finial on the bell-cote and a cross-like finial at the far gable (CONTENT 3.8)
+- cell 4 a lantern hangs on the hook (the brief asks for an empty hook)
+- cell 1 H drawn 70 px instead of 46; church about 0.8x the spec against the drawn H (acceptable)
+passed: all other cells on scale (forge, board, bell frame, stall, watch post within 0-20 %), bellows present, no red except the poppy sprig, no block residue

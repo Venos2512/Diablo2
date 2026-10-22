@@ -1,0 +1,6 @@
+QA (AD 11) of perspective_v2.png - A16_perspective - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+frame: templates/A16_perspective_frame_v2.png; prompt: prompts/A16_perspective_v2.txt; session: 01a15ec6-a263-7cb3-9440-dc0c838d93d0
+defects:
+- cell 1 crown still reads as a leafy oak (many small clumps), not a near-black yew; H drawn 96 px instead of 73
+- cell 4 marker post with a crossbar slate gives a cross-like silhouette
+passed: jar candles unlit, unquiet grave on scale (mortsafe 0.72H), gibbet empty with two crows, less moss than v1

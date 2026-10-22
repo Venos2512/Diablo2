@@ -1,0 +1,25 @@
+{
+  "id": "fallen_bell_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-974e-7c23-ab32-a2c882550b28\\exec-a5f3f9ae-5e2d-425e-b109-41518367edc3.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be7-974e-7c23-ab32-a2c882550b28"
+  ],
+  "sha256": "b6ab5a8bf39ba8cbe2f513b4a148507fcd071ca51f7e35c0ad750221eccc55f8",
+  "bytes": 1631703,
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_crypt.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\fallen_bell_b.png",
+  "started": "2026-10-21T00:41:06Z",
+  "finished": "2026-10-21T00:41:42Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\fallen_bell_b\\attempt-1",
+  "scratch_files": []
+}

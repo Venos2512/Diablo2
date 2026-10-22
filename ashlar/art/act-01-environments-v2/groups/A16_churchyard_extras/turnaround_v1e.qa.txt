@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround_v1e.png - A16_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cell 3 headstone mark is a triangle with a vertical stroke (no crossbar now, but not the plain Wedge); orange dots still at the wicks
+- cell 6 lamp posts unchanged (about 2.4H against the drawn H)
+passed: cell 1 yew crowns narrower

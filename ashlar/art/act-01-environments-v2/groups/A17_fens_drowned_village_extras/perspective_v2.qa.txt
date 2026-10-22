@@ -1,0 +1,7 @@
+QA (AD 11) of perspective_v2.png - A17_perspective - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+frame: templates/A17_perspective_frame_v2.png; prompt: prompts/A17_perspective_v2.txt; session: 01a15ec6-a263-7683-b68e-dd28759e1f1e
+defects:
+- thin outlines of the placeholder blocks left around cell 1 and cell 3
+- cell 6 jetty deck about 0.76H instead of 0.33H, lamp post about 2.8H, guide lines moved and a "1H" label duplicated
+- cell 5 waterline stain not visible
+passed: cell 4 table now on scale (top 0.47H), stones 2.44H, tower 5.4H, boat canopy 1.31H, lace window 1.6H

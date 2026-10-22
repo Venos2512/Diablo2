@@ -1,0 +1,25 @@
+{
+  "id": "broken_column_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be6-f9bf-7e02-9f90-6de03e7ef0a5\\exec-0a69e270-ed45-4c34-ba2c-aa115b5bdf19.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be6-f9bf-7e02-9f90-6de03e7ef0a5"
+  ],
+  "sha256": "ef9f5e91eb3194e7295793b390217c1a2fb708928a1e10465712b3ca928d1012",
+  "bytes": 1676170,
+  "width": 1312,
+  "height": 1199,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_crypt.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\broken_column_b.png",
+  "started": "2026-10-21T00:40:26Z",
+  "finished": "2026-10-21T00:41:02Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\broken_column_b\\attempt-1",
+  "scratch_files": []
+}

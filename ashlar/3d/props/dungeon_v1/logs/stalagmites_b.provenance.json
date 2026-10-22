@@ -1,0 +1,25 @@
+{
+  "id": "stalagmites_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be8-255a-7723-be95-f5ea1c67e925\\exec-28b843dc-9d37-416d-bfbe-2345f255fde6.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be8-255a-7723-be95-f5ea1c67e925"
+  ],
+  "sha256": "a158053f35a02c97cbd0840949adce19d7c05e259073d80546bef3234729f873",
+  "bytes": 1627468,
+  "width": 1312,
+  "height": 1199,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_cave.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\stalagmites_b.png",
+  "started": "2026-10-21T00:41:42Z",
+  "finished": "2026-10-21T00:42:31Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\stalagmites_b\\attempt-1",
+  "scratch_files": []
+}

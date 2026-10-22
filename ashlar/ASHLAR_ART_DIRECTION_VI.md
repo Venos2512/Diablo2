@@ -2,6 +2,8 @@
 
 **Until the Last · Bản tổng hợp và định hướng sản xuất v1.1 · 20/10/2026**
 
+> **Từ 21/10/2026, bản chuẩn để brief và gen ảnh là [artdirection.md](artdirection.md)** (style đã xác nhận: stylized vừa phải như Diablo Immortal). File này giữ phần lý giải dài; khi hai file khác nhau về cách vẽ, `artdirection.md` thắng.
+
 > **Dark fantasy vẽ tay, hình khối rõ, bề mặt tiết chế. Một thế giới được giữ lại bằng những mối nối không hoàn hảo, nơi vẻ đẹp hoàn mỹ dần trở thành lời đe dọa.**
 
 Diablo Immortal là tham chiếu chính về **style và khả năng đọc** trong gameplay: cách tổ chức hình ảnh, khối, mật độ chi tiết. Immortal không phải preset mood cho toàn game. Bản sắc kể chuyện, chất liệu, nghề nghiệp, quái vật và biểu tượng thuộc về ASHLAR.

@@ -1,0 +1,6 @@
+QA (AD 11) of turnaround_v2.png - A15_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cell 3 repeats the FRONT view (five views)
+- cell 4 H silhouette missing
+- cells 5 and 6 H drawn smaller than the frame (assets about 1.25-1.67x)
+passed: cell 1 church on scale with a 30 px H

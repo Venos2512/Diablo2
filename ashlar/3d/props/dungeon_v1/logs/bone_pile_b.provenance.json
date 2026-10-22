@@ -1,0 +1,25 @@
+{
+  "id": "bone_pile_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7b71-977c-65e07ff21dbc\\exec-5d9ed4d9-6392-40fb-b05b-8b1c6f37a478.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be5-f018-7b71-977c-65e07ff21dbc"
+  ],
+  "sha256": "99c1b065d9b0dbeca743140050ff3afd4e72842141d0713a6b50977b7cf0622b",
+  "bytes": 1972445,
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_crypt.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\bone_pile_b.png",
+  "started": "2026-10-21T00:39:12Z",
+  "finished": "2026-10-21T00:40:28Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\bone_pile_b\\attempt-1",
+  "scratch_files": []
+}

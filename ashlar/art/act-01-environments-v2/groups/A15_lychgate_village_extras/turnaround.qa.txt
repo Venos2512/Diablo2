@@ -1,0 +1,6 @@
+QA (AD 11) of turnaround.png - A15_turnaround - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cells 1 and 6: the H silhouettes were redrawn larger (29 to 48 px, 76 to about 100 px), so the church reads about 0.6x and the watch post about 0.75x against the drawn H
+- cell 4: the four bell-frame views are about 2x too tall (3.7H instead of 1.89H)
+- thin vertical separator lines between views; extra 1.11H guide lines in cell 6
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

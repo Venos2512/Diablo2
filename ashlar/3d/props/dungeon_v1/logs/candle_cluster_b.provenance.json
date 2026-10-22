@@ -1,0 +1,25 @@
+{
+  "id": "candle_cluster_b",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-0243-7663-bd15-9b844eef1eaa\\exec-e075a74a-a8dd-4d41-b243-a2da4f9d6a4a.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be7-0243-7663-bd15-9b844eef1eaa"
+  ],
+  "sha256": "a9664763583060c96bb37ab3d0a3510390fdb721fdb644ecd1b007afccdd5a78",
+  "bytes": 1639690,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_crypt.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\candle_cluster_b.png",
+  "started": "2026-10-21T00:40:28Z",
+  "finished": "2026-10-21T00:41:06Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\candle_cluster_b\\attempt-1",
+  "scratch_files": []
+}

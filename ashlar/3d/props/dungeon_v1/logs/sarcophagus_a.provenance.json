@@ -1,0 +1,25 @@
+{
+  "id": "sarcophagus_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-74b0-a245-f7acc6c537fc\\exec-116f5ae0-632c-4648-8645-b20e67cb8e74.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be5-f018-74b0-a245-f7acc6c537fc"
+  ],
+  "sha256": "f21027107a1b4a53a9d865f73d61fa7fa418074902bf82eeea92e0ea57646b44",
+  "bytes": 2215557,
+  "width": 1536,
+  "height": 1024,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_crypt.png",
+  "copied_to": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\textures\\sarcophagus_a.png",
+  "started": "2026-10-21T00:39:12Z",
+  "finished": "2026-10-21T00:40:23Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\art-output\\tripo-models\\dungeon_v1\\logs\\work\\sarcophagus_a\\attempt-1",
+  "scratch_files": []
+}

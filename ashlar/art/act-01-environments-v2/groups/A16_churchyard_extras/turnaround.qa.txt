@@ -1,0 +1,6 @@
+QA (AD 11) of turnaround.png - A16_turnaround - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cell 3: the headstone mark in the FRONT view has a vertical stroke and a crossbar inside the triangle (reads cross-like, CONTENT 3.8); orange dots at the jar wicks look lit
+- cell 6: lamp-post views about 1.4-1.75x too tall
+- cell 1: yew crowns about 1.6x wider than the block
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

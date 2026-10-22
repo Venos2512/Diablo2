@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround_v2.png - A16_turnaround - verdict: FAIL (NOT SELECTED) (lead QA, 2026-10-21)
+defects:
+- H silhouettes drawn smaller than the frame in cells 2, 4, 5, 6 (assets read 1.4-1.6x)
+- headstone mark is a triangle on a stem (no crossbar)
+passed: wick dots gone; assets follow their blocks

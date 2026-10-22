@@ -1,0 +1,9 @@
+QA (AD 11) of perspective.png - A15_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A15_perspective_frame.png; prompt: prompts/A15_perspective.txt; session: 01a15eb9-e977-7451-bb62-ec8fcb938e97
+defects:
+- cell 1 church about 1.6-2x too big against the drawn H (side walls about 5H instead of 2.5H; H drawn about 40 px instead of 46)
+- cell 2 thin outline of the placeholder block left in the image; no visible bellows; chimney about 3.6H
+- red ribbons on the name board and the stall (red should be only the poppy sprig)
+- flint walls drawn as a dense cobble pattern
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

@@ -1,0 +1,5 @@
+QA (AD 11) of perspective_v2e.png - A16_perspective - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cell 1 the yew still reads as a broadleaf oak (cloud of small leaf clumps) and is about 7H wide
+passed: cell 4 marker now a plain plank stake (no cross); all other cells kept
+action: yew-only edit -> perspective_v2e2.png

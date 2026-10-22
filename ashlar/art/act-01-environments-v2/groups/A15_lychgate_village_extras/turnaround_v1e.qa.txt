@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround_v1e.png - A15_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- the edit shrank the H silhouettes in cells 3-6 too (86/58/80/45 px instead of 119/91/107/76), so the board, bell frame, stall and watch post read 1.35-1.75x too big against their drawn H
+- cell 4 bell frames still about 1.8x against the drawn H
+passed: cell 1 H now 29 px (church on scale), separator lines and extra 1.11H lines removed
