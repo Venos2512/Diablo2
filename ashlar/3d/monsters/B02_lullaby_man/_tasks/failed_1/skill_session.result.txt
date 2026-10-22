@@ -1,0 +1,9 @@
+Chưa hoàn tất: `image_gen` chặn lượt sửa sheet 2 bằng lỗi `moderation_blocked`. [Skill](E:/Diablo2/.agents/skills/generate-tpose-for-tripo/SKILL.md) quy định: “If image_gen fails, write the exact error in tpose.log and stop.”
+
+- Giữ nguyên `design.txt` có sẵn theo skill.
+- Đã tạo và QA hai sheet; sheet 1 sửa một lần, sheet 2 sửa thất bại.
+- Chiều cao FRONT/BACK: **954/953 px**; LEFT/RIGHT: **950/955 px**. Hệ số chuẩn hóa dự kiến **1,00105**, chưa áp dụng.
+- Lỗi còn lại: lồng thừa phần kén thứ tư; tay góc bên sai trục T-pose.
+- **Chưa tạo bốn file `views/*.png`.**
+
+Lỗi nguyên văn, bảng QA, prompt và đường dẫn ảnh nguồn/session đã lưu trong [tpose.log](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/tpose.log).

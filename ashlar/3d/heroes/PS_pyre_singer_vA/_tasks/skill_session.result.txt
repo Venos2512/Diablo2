@@ -1,0 +1,19 @@
+Đã hoàn tất bước 1–5, giữ nguyên `design.txt` có sẵn; lưu hai sheet, prompt, bản loại và [tpose.log](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/tpose.log).
+
+Bốn ảnh 1024×1024:
+
+- [front.png](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/right.png)
+
+Đã xem [contact sheet](E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/_contact.png): đúng thứ tự, chân cùng hàng, không cắt nhân vật. Chiều cao sheet trước/sau **709/707 px**, trái/phải **831/832 px**; hệ số thu hai góc bên **0,851473×**.
+
+Mỗi sheet sửa **1 lần**: trước/sau sửa khoảng cách, khăn, đèn và cổ tay; hai góc bên sửa kích thước và viền xanh.
+
+**Chưa đạt toàn bộ QA:** còn viền xanh trắng ở góc trái, váy lộ hai đùi khác concept, tay/cổ tay hơi xuôi và mép khăn/lông còn mảnh.
+
+Nguồn được chọn nằm trong `E:/map01-batch/home/generated_images/01a15d76-55a6-7e30-9de8-c6075276a798/`:
+
+- Trước/sau: `exec-07b287a2-5e5d-4639-b023-a02c6c836b11.png`
+- Trái/phải: `exec-808e2abf-7536-4114-9189-cf785496b872.png`

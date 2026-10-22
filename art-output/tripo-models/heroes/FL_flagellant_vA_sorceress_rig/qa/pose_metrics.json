@@ -1,0 +1,112 @@
+{
+ "rest": {
+  "edge_ratio_p01": 1.0,
+  "edge_ratio_p99": 1.0,
+  "edge_ratio_min": 1.0,
+  "edge_ratio_max": 1.0,
+  "edges_stretched_gt_1.5x": 0,
+  "edges_squashed_lt_0.5x": 0,
+  "max_vertex_disp_m": 0.0,
+  "nan": false
+ },
+ "arms_down": {
+  "edge_ratio_p01": 0.855799115981936,
+  "edge_ratio_p99": 1.1452900289741488,
+  "edge_ratio_min": 0.5382117550114963,
+  "edge_ratio_max": 3.5925010027461934,
+  "edges_stretched_gt_1.5x": 33,
+  "edges_squashed_lt_0.5x": 0,
+  "max_vertex_disp_m": 0.5976593494415283,
+  "nan": false
+ },
+ "arms_up": {
+  "edge_ratio_p01": 0.8888793382057153,
+  "edge_ratio_p99": 1.0866411145819137,
+  "edge_ratio_min": 0.43608453966266914,
+  "edge_ratio_max": 2.9730559885694885,
+  "edges_stretched_gt_1.5x": 13,
+  "edges_squashed_lt_0.5x": 3,
+  "max_vertex_disp_m": 0.5496714115142822,
+  "nan": false
+ },
+ "elbows_bent": {
+  "edge_ratio_p01": 0.8186232604624714,
+  "edge_ratio_p99": 1.0383414000504192,
+  "edge_ratio_min": 0.642898212721616,
+  "edge_ratio_max": 2.560682144452287,
+  "edges_stretched_gt_1.5x": 13,
+  "edges_squashed_lt_0.5x": 0,
+  "max_vertex_disp_m": 0.48031827434897423,
+  "nan": false
+ },
+ "fingers_curl": {
+  "edge_ratio_p01": 0.8724584731677518,
+  "edge_ratio_p99": 1.1550009437208786,
+  "edge_ratio_min": 0.3103010076273311,
+  "edge_ratio_max": 8.231690484032615,
+  "edges_stretched_gt_1.5x": 70,
+  "edges_squashed_lt_0.5x": 1,
+  "max_vertex_disp_m": 0.11192286014556885,
+  "nan": false
+ },
+ "stride": {
+  "edge_ratio_p01": 0.8591888147025543,
+  "edge_ratio_p99": 1.2140697282863337,
+  "edge_ratio_min": 0.28631670391551456,
+  "edge_ratio_max": 3.867022008811031,
+  "edges_stretched_gt_1.5x": 57,
+  "edges_squashed_lt_0.5x": 9,
+  "max_vertex_disp_m": 0.6655678302049637,
+  "nan": false
+ },
+ "crouch_mid": {
+  "edge_ratio_p01": 0.8542912691059927,
+  "edge_ratio_p99": 1.1838699754191915,
+  "edge_ratio_min": 0.4182186215305422,
+  "edge_ratio_max": 2.7327623993851717,
+  "edges_stretched_gt_1.5x": 37,
+  "edges_squashed_lt_0.5x": 2,
+  "max_vertex_disp_m": 0.18350636959075928,
+  "nan": false
+ },
+ "crouch": {
+  "edge_ratio_p01": 0.7443042816060873,
+  "edge_ratio_p99": 1.3303160573369819,
+  "edge_ratio_min": 0.2686320102372336,
+  "edge_ratio_max": 3.7531134920947657,
+  "edges_stretched_gt_1.5x": 114,
+  "edges_squashed_lt_0.5x": 27,
+  "max_vertex_disp_m": 0.37858664989471436,
+  "nan": false
+ },
+ "twist_bend": {
+  "edge_ratio_p01": 0.9010434283931914,
+  "edge_ratio_p99": 1.114473475090378,
+  "edge_ratio_min": 0.13374632067280479,
+  "edge_ratio_max": 3.7499496706494697,
+  "edges_stretched_gt_1.5x": 19,
+  "edges_squashed_lt_0.5x": 2,
+  "max_vertex_disp_m": 0.6601369259878993,
+  "nan": false
+ },
+ "head_turn_nod": {
+  "edge_ratio_p01": 0.9402372074333666,
+  "edge_ratio_p99": 1.0418699863141194,
+  "edge_ratio_min": 0.6208798953770662,
+  "edge_ratio_max": 3.0017997052892773,
+  "edges_stretched_gt_1.5x": 7,
+  "edges_squashed_lt_0.5x": 0,
+  "max_vertex_disp_m": 0.04696211311966181,
+  "nan": false
+ },
+ "skirt_swing": {
+  "edge_ratio_p01": 0.9495941328092348,
+  "edge_ratio_p99": 1.297150984651019,
+  "edge_ratio_min": 0.4378655761438074,
+  "edge_ratio_max": 9.286207920926039,
+  "edges_stretched_gt_1.5x": 98,
+  "edges_squashed_lt_0.5x": 1,
+  "max_vertex_disp_m": 0.5719997733831406,
+  "nan": false
+ }
+}

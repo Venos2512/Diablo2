@@ -1,0 +1,12 @@
+﻿2026-10-21: User authorised one extra correction round for this asset only, explicitly no skill edits.
+Front/back generated successfully via built-in image_gen: exec-1042d4e2-692e-40c3-abb8-462becd7e5a7.png. Height 749/747 px, no clipping. Stored as _v2_fix/tpose_front_back.png.
+Sides built-in image_gen returned no image: image generation failed: network error: error sending request
+Recovery: fresh Astra image session for sides only per ashlar/artdirection.md section 13. Do not regenerate front/back or modify skill.
+
+Recovery completed: native subagent confirmed it had not invoked image_gen before interruption; no duplicate generation remained. Root called built-in image_gen on resume and received sides successfully.
+Selected sides source: C:/Users/HLC_2021/.codex/generated_images/01a15d73-1e37-7812-a676-8b8edb1efea9/exec-19cf4d2d-919b-4064-8d6d-3ddae80523af.png
+Measurements: front/back 749/747 px (mean 748); sides 830/830 px, +10.96%, within skill 12% tolerance. Uniform side scale = 748/830 = 0.9012048. Four split views 1024x1024, soles row 952. No edge warnings.
+Visual QA performed on actual output and final contact sheet: correct front/back/left/right order; all full figures; anatomical left mantle/red wraps and right bracer/lantern preserved. Main corrections achieved: front right-thigh opening closed, left high slit retained, right side fully clothed; physical pale-blue frost tips now present coherently on mantle/hem. Wrists less drooped, palm-down hands and foreshortened side arms readable as T-pose. Broad cloth shadows preserved, no micro-texture, extra props, text or forbidden content.
+Remaining caveats: shoulder/arm line still has a mild anatomical slope rather than a mathematically horizontal bar; small fur points, veil edges and lantern links may be simplified by Tripo. This is an image-input candidate pending user approval, not a guarantee of resulting mesh or strict perfect-pose compliance.
+No original image overwritten. Canonical old views remain unchanged until user selects this revision. No Tripo credit spent; no GLB/rig generated yet.
+SKILL.md SHA256 before/after identical: 497932F16BA4B2EDD628595A375580A5F0536D68DAD6C1F130B94EC9259F3C77. No skill/script edits made.

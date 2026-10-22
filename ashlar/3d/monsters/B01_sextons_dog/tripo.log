@@ -1,0 +1,11 @@
+[00:11:14] multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/B01_sextons_dog/views (Generate 100), credits 5765
+[00:11:45] B01 Generate 100 pressed (credits 5765 -> 5645)
+"/workspace/generate/525d8ed1-1722-4227-b5d8-f51e03f698d4"
+[00:12:33] mesh done, credits 5645
+[00:15:06] B01: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/525d8ed1-1722-4227-b5d8-f51e03f698d4 faces 7044 (clean body, legs apart, ring + tail intact; 1 and 3 jagged back/neck)
+[00:15:31] B01_sextons_dog: smart uv saved (credits ? -> ?)
+[00:17:59] B01_sextons_dog: texture 4K done (four views re-uploaded on the texture page)
+[00:19:42] B01_sextons_dog: pbr done (credits ? -> ?)
+[00:19:56] B01_sextons_dog: exported /e/Diablo2/ashlar/3d/monsters/B01_sextons_dog/B01_sextons_dog.glb (16496 KB)
+[00:31:11] GLB check: B01_sextons_dog.glb 16.9 MB, 1 mesh, 11184 tris, base JPEG + MR PNG + normal JPEG 4096x4096, 0 skins; bbox x 0.368 y 0.595 z 1.0 (long side 1 m, real shoulder ~0.55H)
+FINAL 2026-10-22: Generate 100 + UV 20 + texture 20 + PBR 5 = 145 credits; per-step balances mixed with the parallel A15-A20 thread (5765 before Generate, 4790 after). Texture: four views re-uploaded on the texture page (URL-opened model). final view sheet _shots/final_views.png (own Chrome window, tab D691513837BD8D9243E0215CE0A81DEB).

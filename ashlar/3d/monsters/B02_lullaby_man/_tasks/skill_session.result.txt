@@ -1,0 +1,14 @@
+Đã tạo và tách bốn ảnh 1024×1024:
+
+- [front.png](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/views/right.png)
+
+Giữ nguyên `design.txt` có sẵn theo skill. Đã lưu hai sheet, prompt, ảnh ghép và ảnh QA.
+
+Chiều cao sheet 1: **952/951 px**; sheet 2: **953/953 px**. Hệ số chuẩn hóa: **0,998426**. Mỗi sheet sửa một lần.
+
+**Chưa đạt QA hoàn toàn:** còn lệch mũ/lồng/thắt lưng, thừa mũi khâu trên mặt, ngón tay nghiêng còn cong và mảng vá chưa thống nhất.
+
+[Báo cáo đầy đủ](E:/Diablo2/ashlar/3d/monsters/B02_lullaby_man/tpose.log) ghi số đo, lỗi, lý do sửa và đường dẫn nguồn ảnh. Session: `01a15fac-8862-7e21-b17a-e0cc54f567d2`.

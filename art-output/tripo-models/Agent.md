@@ -30,7 +30,10 @@ Chạy tay lần đầu ngày 2026-10-17 (Sorcerer), chạy bằng script ngày 
 
 ## Thư mục asset
 
-Mỗi asset một thư mục `art-output/tripo-models/<nhóm>/<asset_id>/`, ví dụ `characters/sorceress/`, `monsters/D01_hodling/`:
+Mỗi asset một thư mục. Model của game ASHLAR đặt ở `ashlar/3d/<nhóm>/<asset_id>/` (nhóm `heroes`, `monsters`, `props/<lô>`),
+ví dụ `ashlar/3d/monsters/D01_hodling/`; quy ước và danh mục ở [`ashlar/3d/README.md`](../../ashlar/3d/README.md). Model không
+thuộc ASHLAR (đồ trại, nature Blood Moor, early kits) ở `art-output/tripo-models/<nhóm>/`. FL, D01, `dungeon_v1` và `clutter_v1`
+được chuyển sang `ashlar/3d/` ngày 2026-10-21; log viết trước ngày đó còn ghi đường dẫn cũ. Một thư mục asset gồm:
 
 | File | Nội dung |
 | --- | --- |
@@ -47,19 +50,51 @@ Mỗi asset một thư mục `art-output/tripo-models/<nhóm>/<asset_id>/`, ví 
 1. Xem concept bằng Read; ghi `brief.md` (tỉ lệ, silhouette, vật liệu, chi tiết bất đối xứng, phần Tripo khó dựng: vải mỏng bay
    rời, dây lủng lẳng, tóc rời, vật lơ lửng, phát sáng, trong suốt; xử lý bằng khối dày ôm sát thân hoặc bỏ). Vũ khí, đạo cụ cầm
    tay không để trong T-pose, dựng riêng.
-2. Viết `design.txt` (DESIGN / ASYMMETRY / REMOVE) trước khi chạy skill: mô tả đúng dáng người, chất liệu, bề mặt; nói rõ mũ,
+2. Viết `design.txt` (HUMANOID yes/no, DESIGN / ASYMMETRY / REMOVE; thêm PROPORTIONS nếu dạng người) trước khi chạy skill: mô tả đúng dáng người, chất liệu, bề mặt; nói rõ mũ,
    sừng, tai là MỘT hình cụ thể (hình dạng không đồng nhất giữa các ảnh tạo ra gai thừa trong mesh, xem "Bài học").
 3. Chạy skill bằng một phiên Codex mới (T3 `delegate_task` không có `image_gen`; gen lỗi thì mở phiên mới), nền, khoảng 8–12 phút:
 
    ```bash
-   bash /e/Diablo2/.agents/skills/generate-tpose-for-tripo/scripts/run_session.sh 'E:\Diablo2\art-output\tripo-models\<nhóm>\<asset_id>'
+   bash /e/Diablo2/.agents/skills/generate-tpose-for-tripo/scripts/run_session.sh 'E:\Diablo2\ashlar\3d\<nhóm>\<asset_id>'
    ```
 
    Log ở `<asset>/_tasks/skill_session.log`, báo cáo của Astra ở `_tasks/skill_session.result.txt`. Nhiều asset thì mở nhiều phiên
    song song (mỗi asset một thư mục). Trong lúc chờ: mở Chrome Tripo, kiểm đăng nhập và số credit (mục B), không đứng chờ.
 4. Đọc `views/_contact.png` bằng Read (không tin báo cáo của Astra) và gửi cho người dùng bằng đường dẫn tuyệt đối trong Markdown:
    T-pose đúng (tay thẳng, ngang vai, thân thẳng), bốn góc đủ và không bị cắt, cùng tỉ lệ, đúng thiết kế, bất đối xứng đúng bên, không
-   còn đồ cầm tay. Chờ người dùng duyệt rồi mới sang B. Ảnh bị loại giữ ở `_rejected/`.
+   còn đồ cầm tay. Concept dạng người: xem thêm `views/_guides.png` (đường vai/tay đỏ, hông, gối, sàn chung cho bốn góc) và kiểm vai
+   ngang bằng, tay không xệ, chân thẳng song song, góc bên không bước chân. Chờ người dùng duyệt rồi mới sang B. Ảnh bị loại giữ ở `_rejected/`.
+
+### A+. Quái không phải người (không T-pose được)
+
+Skill `generate-tpose-for-tripo` có nhánh CREATURE (mục cuối `SKILL.md`), mới viết họ bốn chân Q (bản nháp 2026-10-21, mẫu B01 Sexton's Dog
+ở `ashlar/3d/monsters/B01_sextons_dog/`). Họ A (nhiều chân), W (cánh), L (thân dài), F/O/N (khối, vật thể) chưa có template: dừng và báo,
+không dùng template T-pose cho chúng.
+Cập nhật 2026-10-22: họ A đã có pose block (bản nháp, mẫu thử W07 Shroud-Spinner ở `ashlar/3d/monsters/W07_shroud_spinner/`); W và O có bản nháp chưa chạy (chạy thử một con trước); L, F, N vẫn chưa có.
+Kết quả Tripo 2026-10-22 (lô quái đã chốt, xem "Đã chạy"): Q (B01), A (W07, đủ 8 chân), W (W02, cánh dang một mặt phẳng đứng dựng đặc) và
+`Qh` (người/ghoul bò bốn chi: U04, P04; khoang hàm há của U04 được giữ) đều cho mesh sạch ở cả 4 variant. Vật tĩnh (P06 gò hoa, xe nồi B03)
+đi nhánh prop: một ảnh Astra 3/4 từ trên + Smart Mesh một ảnh. Dáng nghỉ theo họ vẫn là giả thuyết về độ tốt so với tư thế concept
+(chưa thử A/B), nhưng không còn là điều chặn.
+Không có ảnh Astra (2026-10-22, Codex hết hạn mức) vẫn dựng được: multi-view nhận chỉ hai slot Front + Back (B05 8 tay, P03 bướm đêm;
+chiều sâu do Tripo đoán, vẫn 100 credit); khi concept đã vẽ bốn góc dáng đứng nghỉ sạch trên cùng một đường nền thì cắt thẳng bốn góc
+từ concept (W04; cùng hàng pixel cho mọi góc để giữ một tỉ lệ). Vũ khí/đồ cầm tay: cắt món đó từ cột WEAPON/PROP của concept, Smart
+Mesh một ảnh (9 món trong `ashlar/3d/weapons/`). Thứ chỉ vẽ dính trên thân (đèn B05, xích B03) vẫn cần ảnh Astra riêng.
+
+Bằng chứng, nói đúng mức (tra cứu 2026-10-21, tài liệu developers.tripo3d.ai):
+- **Chính thức:** multi-view cần ảnh Front, tối thiểu 2 ảnh, thứ tự front → left → back → right, quy tắc nội dung duy nhất là "cùng một vật,
+  ánh sáng nhất quán"; ảnh đơn cần chủ thể rõ, ít bị che, nền sạch. **Không có hướng dẫn tư thế nào cho quái không phải người.** Dáng nghỉ
+  trung tính theo họ là giả thuyết suy ra từ thực hành rigging và tài liệu hãng khác (Meshy: dáng đứng trung tính, dây mảnh không dựng
+  lại được, phần bị che có thể thành mảnh lơ lửng); chưa kiểm chứng trên Tripo.
+- **Rig:** model rig mặc định `v1.0-20240301` chỉ rig người. Quái không phải người cần model `v2.5-20260210` và `rig_type` (quadruped, hexapod,
+  octopod, avian, serpentine, aquatic; `others` chỉ có ở `v3.0-20260909`). Preset animation: quadruped:walk, hexapod:walk, octopod:walk,
+  serpentine:march, aquatic:march; chưa thấy preset avian. Rig-check miễn phí gợi ý `rig_type` nhưng không nói vì sao trượt. Công cụ MCP
+  `rig_model` không có tham số model, nên có nguy cơ rơi về bản chỉ rig người.
+- **Ngoài:** Cinevva (2026-08-19, bên thứ ba) đo thấy rig bốn chân của Tripo gập chân quá ít (fold 1,045 so với 1,30 của họa sĩ, 2/12 con lỗi):
+  dự kiến rig tay (route M) cho họ Q và A.
+- **Câu hỏi mở cho lần chạy Tripo đầu tiên:** (1) Tripo có chuẩn hoá kích thước từng ảnh riêng không (góc bên của quái dài có cạnh dài nhất khác
+  góc trước/sau)? Ảnh B01 giữ một tỉ lệ chung và một đường sàn chung. (2) Dáng nghỉ chân thẳng có cho mesh tốt hơn concept gốc không?
+  (3) Góc RIGHT lật từ LEFT có đủ cho quái đối xứng không? Đề xuất thử A/B trên B01 và W07 trước khi áp cho cả loạt (khoảng 400 credit, cần
+  người dùng đồng ý).
 
 ## B. Tripo: multi-view và Generate
 
@@ -127,10 +162,11 @@ Script có thể chạy lại từ bước lỗi: `... tripo_asset_finish.sh <di
 ## D. Kiểm tra và bàn giao
 
 - Kiểm GLB bằng JSON chunk (không mở viewer): 1 mesh, số tam giác (~10k), material có baseColor + metallicRoughness + normal, ba ảnh
-  4096². Mốc: Sorcerer 32 MB, 10.057 tam giác; D01 14,4 MB, 10.668 tam giác, JPEG/PNG/JPEG 4096²; FL 20,7 MB, 10.488 tam giác.
+  4096². Mốc: Sorcerer 32 MB, 10.057 tam giác; D01 14,8 MB, 10.668 tam giác, JPEG/PNG/JPEG 4096²; FL 20,7 MB, 10.488 tam giác.
   GLB dưới 1 MB là chưa có texture.
 - Một lệnh `tripo_views.sh` cho `_shots/final_views.png`. Đây là ảnh duy nhất người dùng nhận ở bước cuối, kèm đường dẫn GLB,
   credit từng bước + số dư, variant đã chọn, lỗi còn tồn tại. Không chụp thêm ảnh từng bước.
+- Model ASHLAR: thêm một dòng vào danh mục `ashlar/3d/README.md` (GLB, tam giác, kích thước thật, bản trong lab, lỗi còn tồn tại).
 - Chỉ đưa vào lab khi được yêu cầu: texture lab dùng 2048 (4096 của Tripo chỉ mang chi tiết cỡ 2048), đăng ký trong
   `lookdev-lab/src/assets/samples.json`. Rig và animation là việc riêng, hỏi trước.
 
@@ -173,6 +209,19 @@ Một lượt: 145 credit. Lượt lỗi vẫn bị trừ tiền. Chỉ tiêu tr
 - Ảnh T-pose dùng "soft even neutral light" làm vải phẳng, mất khối sáng tối (FL 2026-10-20, người dùng chê). Template skill giờ xin
   khối sáng tối vẽ tay của concept, đèn từ trên, giống nhau ở cả bốn góc.
 - Nút history ở viewer (1076,388) mở bảng lịch sử phiên bản, không phải nút reset góc nhìn.
+- Lỗi giữa các góc (B01, 2026-10-21): mỗi sheet qua QA riêng nhưng vòng cổ ở góc BACK nằm đè lên khối vai (góc bên đặt khối vai ngay sau vòng cổ nên từ phía sau nó phải che vòng cổ) và đuôi BACK dài hơn góc bên 18 % chiều cao; người dùng phát hiện, không phải bước kiểm. Skill giờ bắt buộc bước 4b: bảng VIEWS viết trước khi gen, `tpose_tools.py strip` sau khi tách, bảng đo ghi vào `tpose.log`. Concept là tranh 2D, góc sau của nó không nhất thiết khớp góc bên của chính nó.
+- Chrome 9333 dùng chung (2026-10-22): tab không phải tab đang hiển thị của cửa sổ thì không nhận chuột (`cdp.mjs drag` treo, `click`
+  trượt im lặng), và cửa sổ không được focus không vẽ khung mới (`shot` trả ảnh cũ, ảnh variant và ảnh bốn góc sai góc). Cách làm: mỗi asset
+  một CỬA SỔ riêng (`Target.createTarget {newWindow:true}`, đặt ngoài màn hình), `curl /json/activate/<id>` trước khi xoay/chụp, khoá
+  chụp chung khi chạy song song, click bằng JS (`document.elementFromPoint`) thay cho `cdp.mjs click`. Upload file chạy được khi không focus.
+- Panel Assets lẫn model của mọi thread: variant = link mới xuất hiện sau khi bấm Generate, rồi soát bằng mắt (thuyền, tháp chuông lọt vào).
+  Chạy Generate lần lượt từng asset; UV/texture/PBR/export chạy song song được.
+- Không sửa script bash khi nó đang chạy (bash đọc file từng đoạn): P07 chết sau khi đã trả Generate 100. Mỗi lượt chạy chép script ra file tạm.
+- Giữa lô (sau khi nạp credit) trang Texture tự chọn 8K: nút ghi "Generate Texture 30" thay vì 20. Trước khi bấm: chọn nút `4K`
+  (`data-state=on`) và kiểm nhãn "Generate Texture 20".
+- Texture vẫn còn sau khi Chrome tắt giữa chừng (B02): mở model bằng URL rồi chạy tiếp từ PBR.
+- Ba cửa sổ chạy Smart Mesh cùng lúc (vũ khí, 2026-10-22): mesh vẫn đúng từng món, nhưng bước chụp variant/ảnh cuối hay timeout
+  (rc=124, `drag` treo khi cửa sổ khác giành focus). GLB không ảnh hưởng; chụp lại tuần tự sau (`pv.sh`, `p2.sh <ID> <k> views`).
 
 ## Đã chạy
 
@@ -181,8 +230,12 @@ Một lượt: 145 credit. Lượt lỗi vẫn bị trừ tiền. Chỉ tiêu tr
 | 2026-10-17 | Sorcerer, bản xanh đen | Chạy tay. Ảnh T-pose trong `C:\Users\HLC_2021\.codex\generated_images\01a14779-3942-7c83-b26d-80cd7b5b6dd5\`. GLB: `C:\Users\HLC_2021\Downloads\fantasy mage 3d model.glb` |
 | 2026-10-18 | Camp props asset_13–24 | Mỗi lượt một ảnh sheet, không multi-view; `camp/` |
 | 2026-10-19 | Nature props 08–12 | Mỗi lượt một ảnh sheet, tốn 1.120 credit; `nature/` |
-| 2026-10-20 | D01 Hodling B (`monsters/D01_hodling/`) | Skill T-pose lần chạy thứ hai + multi-view; variant 2 (6108 faces); 145 credit (8795 → 8650); GLB 14,4 MB, 10.668 tam giác, 3 map 4096²; còn tồn tại: góc mũ nhọn, tai hơi to, tay mảnh; `_shots/final_views.png` |
-| 2026-10-20 | FL Flagellant A (`heroes/FL_flagellant_vA/`) | Hero concept v3. T-pose lượt 1 đèn đều, người dùng chê "mất khối sáng tối vải" (cất ở `_v1_flatlight/`), đã sửa template skill; lượt 2 giữ khối. Variant 0 (5974 faces); 145 credit (8645 → 8500); texture phải upload lại bốn góc ở trang Texture; GLB 20,7 MB, 10.488 tam giác, 3 map 4096²; còn tồn tại: ngón tay dính thành khối, góc RIGHT có 9/10 nút; `_shots/final_views.png` |
+| 2026-10-20 | D01 Hodling B (`ashlar/3d/monsters/D01_hodling/`) | Skill T-pose lần chạy thứ hai + multi-view; variant 2 (6108 faces); 145 credit (8795 → 8650); GLB 14,8 MB, 10.668 tam giác, 3 map 4096²; còn tồn tại: góc mũ nhọn, tai hơi to, tay mảnh; `_shots/final_views.png` |
+| 2026-10-20 | FL Flagellant A (`ashlar/3d/heroes/FL_flagellant_vA/`) | Hero concept v3. T-pose lượt 1 đèn đều, người dùng chê "mất khối sáng tối vải" (cất ở `_v1_flatlight/`), đã sửa template skill; lượt 2 giữ khối. Variant 0 (5974 faces); 145 credit (8645 → 8500); texture phải upload lại bốn góc ở trang Texture; GLB 20,7 MB, 10.488 tam giác, 3 map 4096²; còn tồn tại: ngón tay dính thành khối, góc RIGHT có 9/10 nút; `_shots/final_views.png` |
+| 2026-10-21 | Đồ rải mặt đất `ashlar/3d/props/clutter_v1/` (riverbank_stones, mushroom_cluster, mossy_stump) | Ảnh đầu vào Astra (`build_manifest.py`): một vật, góc 3/4 hơi cao, nền xám phẳng #BDBDBD, không tấm đất. Smart Mesh MỘT ảnh (không multi-view), rồi `tripo_asset_finish.sh`. Ba tab ghim chạy song song (mỗi vật một tab): ~10 phút cho cả ba. Mesh 5388 / 5489 / 5773 faces; GLB 15,5 / 16,6 / 11,7 MB, ~10k tam giác, 3 map 4096². Tổng 435 credit (8500 → 8065). Chạy song song làm số credit từng bước trong `tripo.log` lẫn của tab khác, chỉ tổng là đúng. `tripo_views.sh` lần này không xoay được viewer (4 ô cùng một góc) |
+| 2026-10-21 | Dungeon `ashlar/3d/props/dungeon_v1/` (hầm mộ: sarcophagus, bone_pile, broken_column, candle_cluster, fallen_bell, crypt_wall; hang động: stalagmites, mine_timber, flint_boulders) | Cùng quy trình với clutter_v1: ảnh Astra một vật, nền #BDBDBD, mỗi vật 2 phương án (`build_manifest.py`, lựa chọn trong `ashlar/art/terrain-dungeon-v1/selection.json`). Smart Mesh một ảnh, sau đó `tripo_asset_finish.sh`. Ba tab ghim chạy song song: 9 model trong ~13 phút. Mesh 5214–6763 faces, GLB 12,6–24,7 MB, ~10k tam giác, 3 map 4096². Tổng 1.300 credit (8065 → 6765). GLB Tripo **chuẩn hoá về cạnh dài 1 m**, pivot ở đáy giữa, nên lab phải tự scale về kích thước thật (ví dụ tường hốc mộ rộng 4 m). `crypt_wall` là một module phẳng, dùng ghép thành tường |
+| 2026-10-22 | Lô quái đã chốt (`ashlar-chot`), 24 con + xe nồi B03 trong `ashlar/3d/monsters/` | Ba agent Opus làm T-pose (16 dáng người), một agent mẫu nhện W07, ba agent nhân rộng (W01, B03, B05; U04, P04, P06; W02, P03, W04); agent chính duyệt từng bộ views và chạy Tripo. Multi-view, mỗi asset một cửa sổ Chrome riêng, Generate lần lượt, UV/texture/PBR/export song song. Mesh 4.8–7k faces, GLB 12–31 MB, 8.7–11.2k tam giác. 25 GLB × 145 credit + 30 (ba texture 8K lỡ chọn) ≈ 3.655 credit (cùng lúc thread prop A15–A20 tiêu song song; tài khoản được nạp lên ~17.000 giữa lô). Chưa dựng: B05, P03, W04 (Codex hết hạn mức 01:44, mở lại 10-27). P05 dựng với T-pose chưa đạt hẳn (tay xệ 6–9°). D04, P01, U01 ra base color 8192² vì tài khoản đổi mặc định texture sang 8K. Script thao tác tạm (ngoài repo) `E:\tmp_tripo_all\ops\` |
+| 2026-10-22 | Dựng nốt lô quái đã chốt: B05, P03, W04 + 9 vũ khí/đồ cầm tay (`ashlar/3d/weapons/`) | Codex vẫn khoá đến 10-27 nên không gen ảnh mới: B05 và P03 multi-view hai góc trước + sau (`SLOTS="Front Back"`), W04 bốn góc cắt từ concept, vũ khí một ảnh cắt từ cột WEAPON/PROP (`E:\tmp_tripo_all\ops\views_fb.py`). 12 asset × 145 = 1.740 credit (11.413 → 9.673, có thread khác chạy song song). Đủ 28/28 quái đã chốt; còn đèn B05 và xích B03 |
 
 ## Ghi chú UI
 

@@ -1,0 +1,61 @@
+FL_flagellant_vA — rig log
+=========================
+
+Route      : T, "template retarget (Sorceress D2R)". Họ skeleton H. Tên bone Sorceress giữ nguyên chủ ý (181 bone).
+Status     : thử rig / xem trước theo yêu cầu. G1 do người dùng cho phép route trong yêu cầu gốc (2026-10-21); G2 CHỜ người dùng xem;
+             G3, G4, R9 chưa duyệt (null). Không có clip thật. Không tích hợp game.
+Licence    : skeleton D2R (tên bone, thứ bậc, trục) và texture Sorceress là tài sản Blizzard. NỘI BỘ LOOKDEV, KHÔNG PHÁT HÀNH
+             (rig-anim/Agent.md §6, §9.1). FL_flagellant_vA_rig.glb mang skeleton đó nên cùng giới hạn.
+Credit     : không tốn (không dùng Tripo rig/animate, không dịch vụ trả phí).
+Tools      : Blender 5.2.2 LTS (E:\SteamLibrary\steamapps\common\Blender\blender.exe), chạy nền bpy; Blender MCP không kết nối được.
+             Script ở rig/scripts/. Python phụ trợ chạy `python -I`.
+
+Lịch sử
+-------
+2026-10-21  Thread khác dựng bản thử ở art-output/tripo-models/heroes/FL_flagellant_vA_sorceress_rig/ (giữ nguyên, không xoá).
+            Đầu vào lúc dựng là hai attachment T3 (đã chép/đối chiếu bên dưới).
+2026-10-21  Opus 5.5 review hẹp: PASS cho bản xem trước (rig/REVIEW_opus.md). Không phải duyệt G2.
+2026-10-21  Đóng gói vào ashlar/3d/heroes/FL_flagellant_vA/ (lượt này):
+            - GLB rig, qa/*.png, qa clip GLB, validation.json, build_report.json: chép từng byte từ thư mục art-output (hash bên dưới).
+            - FL_flagellant_vA_rig.blend: chép từ bản art-output rồi mở lại bằng scripts/set_blend_view.py để workspace Layout dùng
+              viewport solid + màu TEXTURE, nhìn 3/4 trước, vì bản gốc mở ra ở màu vật liệu phẳng (skill: lưu viewport có texture đọc
+              được). Chỉ đổi cài đặt viewport; mesh, rig, ảnh pack, NLA (3 track mute) giữ nguyên. Vì vậy hash .blend KHÁC bản art-output.
+            - Script chép sang rig/scripts/, đổi tên BASE thành FL_flagellant_vA_rig, bỏ đường dẫn attachments T3, thêm tham số
+              --src --tgt --glb (build_rig.py, validate_rig.py) và -Src -Tgt -RigDir -Glb (run_all.ps1). Thêm SHA-256 và đường dẫn
+              tương đối của hai đầu vào vào mapping_and_validation.json.
+            - rig/REPORT.md sửa: "76 bone có nhóm đỉnh" -> 68 bone có trọng số (76 nhóm trước khi cắt < 0,01), thêm ghi chú đóng gói.
+            - Sorceress GLB chép vào rig/refs/d2r-sorceress.glb (nội bộ, không phát hành).
+
+Đầu vào (chỉ đọc) và SHA-256 đầy đủ
+-----------------------------------
+rig/refs/d2r-sorceress.glb        1.265.128 B
+  a56291e76df475a3ef399e84a9c15e649272b5e0572f33299d5b3d00a932a39b
+  trùng attachment ...-8ac7bb44-5270-469b-afc9-ea55978e8516-glb.glb (so sánh đầy đủ)
+FL_flagellant_vA.glb              20.718.640 B   (GLB Tripo gốc, không sửa)
+  40642eba7323fbd31691ef81aeeb1b064978ca59f342c9339cd91030d09b10ad
+  trùng attachment ...-df4f46f7-90e0-4e21-9ace-e84092e9353f-glb.glb (so sánh đầy đủ)
+
+Đầu ra
+------
+FL_flagellant_vA_rig.glb          20.846.464 B  (181 joint, 1 mesh, 0 animation, 3 texture trùng từng byte với GLB Tripo)
+  ec8c21732c2d655d924cf843d0e9cae6ac991826c7eab5055b4cee23bf2d3672  (trùng bản art-output và bản dựng lại trong thư mục tạm)
+rig/FL_flagellant_vA_rig.blend    21.524.744 B
+  beba3b9efef1a246e9a2a115e8861dd03b6dc77bbdafce7729ef7f9bba158481
+  (bản art-output trước khi đổi viewport: c75f5b42981e7240741d080bfcdbb3f852a02ffa606c15b550258a1efda8ce16)
+rig/qa/FL_flagellant_vA_rig_qa_clips_geometry_only.glb   833.128 B  (3 clip tổng hợp, EXPERIMENT, không texture)
+  c6dff9ccacea117ead648428d2470bda35dffd197d29f264dc61f678256910d2  (trùng bản art-output và bản dựng lại)
+
+Kiểm chứng đóng gói (2026-10-21)
+--------------------------------
+- Dựng lại toàn bộ bằng rig/scripts/run_all.ps1 vào thư mục tạm (-RigDir/-Glb), đầu vào mặc định trong gói: GLB rig và clip QA
+  GLB trùng từng byte với gói; 8 ảnh SHEET_*.png trùng từng byte; validation.json và build_report.json trùng từng byte.
+- Sao cả gói sang thư mục sạch, chạy validate_rig.py với đường dẫn mặc định: validation.json trùng từng byte (nhập lại GLB sạch:
+  181 joint, 0 sai thứ bậc, 68 joint có trọng số, mesh nghỉ lệch tối đa 2,3e-6 m, clip QA lệch tối đa 1,0e-6 m, texture trùng).
+- Mở .blend: 181 bone, 3 ảnh FL pack (4096²), viewport Layout SOLID/TEXTURE, 3 track NLA mute, tư thế nghỉ.
+- Ghi chú: .blend còn 10 ảnh Sorceress nhỏ (≤256²) đã pack (dư từ lúc nhập mẫu), không ảnh hưởng mesh FL.
+
+Giới hạn còn lại
+----------------
+- Váy rách khi ngồi sâu; ngón dính khối; 113 bone không trọng số; không có rig điều khiển/IK; không có clip thật (Sorceress GLB
+  không có animation); chưa chuẩn hoá tên bone; chưa đăng ký trong lab; chưa tích hợp game.
+- Việc cần người dùng quyết: duyệt G2; có chuyển sang bộ bone riêng trước khi phát hành không (Agent.md §9.1).

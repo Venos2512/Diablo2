@@ -1,0 +1,1790 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a15f51-a67a-7d01-9d92-2ab264e7a17b
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+The previous attempt of this sheet had two cross-view errors in the BACK view, found by comparing it with the approved side views: (1) the iron collar was drawn as a full band lying across the upper back, on top of the shoulder fur; in the side views the shoulder hump, the highest point of the animal, stands directly behind the collar and is nearer the camera in the BACK view, so it must hide the neck and the collar completely (no iron band visible from behind, at most one rivet tip above the fur); (2) the tail hung much lower than in the side views (tip at about 88 % of the figure height instead of 70 %). Fix both. Keep the FRONT view and everything else of the previous attempt.
+Use case: character turnaround for image-to-3D (Tripo multi-view input), NON-HUMANOID creature (four-legged animal).
+REFERENCE IMAGES (attached in this order): (1) the concept sheet of the creature (a lineup with an H silhouette, a 3/4 view and four model views): identity reference for the DESIGN only (body build, head and face, fur or skin, colours, parts worn or attached, markings, proportions). Keep the same design. Do NOT copy the lineup layout, the H silhouette, the dashed guide lines, any text, or the pose of the 3/4 view or of the model views. (2) the placement template: a flat grey canvas with two slightly lighter rectangles; it is NOT artwork: use only its canvas shape and size, the two placement rectangles and their common floor line. (3) an earlier attempt of this sheet: keep its design, its stance and its FRONT view; only the error named at the top of this prompt must change. (4) the approved LEFT/RIGHT side views of the same animal: the 3D truth for heights, overlaps and what hides what; the BACK view must agree with them.
+STYLE CORE (ASHLAR art direction, mandatory): moderately stylized hand-painted dark fantasy in the spirit of Diablo Immortal (the Diablo III / Diablo Immortal family look). NOT photoreal, NOT Diablo IV realism, NOT cartoon, chibi, anime, cel-shaded or toy-like. Proportions follow real anatomy; exaggeration goes only to the identity features (heroes: hands, feet and class props slightly oversized; monsters: their signature features pushed further). Strong readable silhouette, clear value grouping, clean colour blocking: a dominant colour, a secondary colour and a small accent, plus neutrals. Surfaces are SIMPLE: broad painted planes with soft gradients and a few crisp highlights; detail comes from big shapes (large torn edges, plates, straps, bones, cracks, patches), never from texture. No micro texture: no pores, fabric weave, leather grain, scratches, stains, speckle noise, fine grunge or photoreal PBR. Low detail never means flat: keep clear 3D form shading with a lit side, a shadow side, big soft fold shadows and darker occlusion in deep folds. No black cartoon outlines.
+T-POSE RULES: keep the concept's design, build and smooth painted low-detail surface; only the pose changes. Keep the concept's hand-painted form shading: every big fold and cloth layer has a lit plane and a large dark shadow plane (deep shadow in fold recesses, under capes, hoods, collars, belts and sashes, inside splits); roughly a third of each cloth surface in shadow; never one evenly lit flat colour. One neutral white light from above and slightly from the camera side, the SAME in every view; no side light, no rim light, no coloured light, no glow or bloom. Cloth is one plain clean shape (no ragged fringe, no loose strips). Hands empty; hand-held weapons and props are built separately. Perfectly flat neutral mid-grey background; no text, no human silhouette.
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only; no nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+B01 Sexton's Dog, variant A: an old, sad, grave-risen mastiff, a very large heavy dog of Saint-Bernard build (about 0.72 H tall including the shoulder fur and 1.4 H long including the tail, H = adult human height). Massive broad head with a deep wrinkled brow, loose hanging jowls drawn as one broad plane, long soft brown ears hanging flat against the sides of the head, a short pale cream blaze down the forehead and a pale cream muzzle with a dark nose, small tired dark eyes. Very wide deep chest and heavy forequarters; thick shaggy dark-brown fur (#4A3526) built from a few big chunky tufts with clean painted edges (a ruff around the neck and chest, feathering behind the front elbows, the tail), never individual hairs. A wide flat iron-grey collar (#5A5F66) with a few rivets circles the neck; from its front centre a short chain with one large round dull-brass ring (#B59A5B), the lantern-hook, hangs on the chest down to elbow height, drawn as one chunky ring hugging the chest. Two or three large smooth pale tan-grey patches of grave soil on the rump and hind flanks. Large paws with pale toes and short dark claws. A long shaggy tail hanging down and back as one thick tapered shape. Smooth painted low-detail surface; no exposed bone, no wounds, no gore, no glow. Prologue creature: no accent colour; the brass ring is the only bright touch.
+Canvas and placement: ONE landscape image with exactly the shape of the template (3:1), with TWO full-body views of the same creature side by side: left = the FRONT view (the creature seen from the front, facing the camera), right = the BACK view (the true back, not a mirrored front). Each view is painted inside its lighter rectangle of the template: the paws rest on the bottom edge of the rectangle, the highest point of the creature touches the top edge, and the creature is centred horizontally in it. Both views share one floor line and one scale; whole body visible, nothing cropped, no overlap. Do NOT draw the rectangles, no outline, no floor line, no cast shadow: the background is perfectly flat neutral mid-grey (#808080) everywhere, with only a faint soft contact shadow directly under the paws.
+POSE = NEUTRAL STANDING (the most important requirement). This creature is a four-legged animal: there is NO T-pose and nothing is held out. It stands square, calm and symmetric on all four legs, like the rest pose of a skeleton rig. Proportions as in the concept: a large heavy dog: head about one third of the body length and very broad, thick short neck, deep chest, strong straight forelegs, hind legs with their natural relaxed standing angle, big paws; body (nose to rump) about 1.7 times the height at the shoulders; the tail hangs down to about hock height.
+- LEGS: all four paws flat on one ground line; the two front legs vertical and parallel under the shoulders with a clear gap of empty background between them; the two hind legs in the same relaxed standing posture, also parallel with a clear gap between them; the stance about as wide as the chest. Paws point straight forward: never splayed outward, never braced forward, never crouched, never lunging, no leg lifted, no leg crossed.
+- BODY: spine straight and level, no sway and no hunch, no tilt; the left and right halves are mirror images in stance. The belly is clearly above the ground; only the four paws touch it.
+- HEAD: carried in the concept's natural carriage (forward and heavy, not raised and not lowered further), pointing straight at the camera in the FRONT view and straight away from it in the BACK view; never turned, tilted, sniffing or snarling; mouth closed; ears hanging in their resting position.
+- TAIL: hangs down and slightly back as one simple tapered shape, so that it is seen in the BACK view; never curled, never raised, never tucked between the legs.
+- Thin or loose parts (hair tufts, whiskers, chain links, the tail tip) become chunky simple shapes that hug the body; nothing hangs free in a thin line.
+- The FRONT and BACK views have the same height, the same body width and the same floor line. In the FRONT view the head is not enlarged by perspective; in the BACK view the rump is not enlarged.
+- CROSS-VIEW: parts that wrap around the body (collar, belt, strap, chain) and the tail follow the per-view list below exactly: whatever a nearer body mass hides in a view stays hidden, and every height is the same in every view.
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle, no view from above.
+Fidelity: keep the concept's body build, face, fur and surface exactly (a heavy animal stays heavy; NO added muscle definition, NO exposed ribs or bone, NO claws or teeth beyond the concept, NO extra anatomy or ornaments the concept does not show). Only the pose changes.
+Left out of the pose: nothing (no weapon). The collar and the ring stay as body parts.
+Asymmetric details stay on the same body side in every view: The animal is bilaterally symmetric. Keep these placements the same in every view: the pale cream blaze is centred on the forehead and the muzzle; the brass ring hangs at the centre of the chest (seen in FRONT, hanging in front of the chest in LEFT and RIGHT, hidden in BACK); the pale grave-soil patches sit on the upper rump and hind flanks on BOTH sides (one large patch on the upper rump in each side view, patches across both hips and the base of the tail in BACK); the collar rivets run evenly around the neck.
+Per-view visibility and heights (cross-view consistency, critical: a body part that hides another in one view hides it in every view that looks from the same side, and every height below is the same in every view): Heights are percentages of the figure height, 0 % = the highest point of the figure, 100 % = the soles, and they are the SAME in every view. COLLAR AND SHOULDER HUMP: in the LEFT and RIGHT views the highest point of the whole animal is the shoulder hump (the fur at the withers), directly behind the iron collar; the collar's top edge is level with it (about 2 %) and the collar runs down the neck to about 48 %, where the chain hangs from its front. In the BACK view the shoulder hump is NEARER the camera than the neck, so it hides the neck and the collar completely: the BACK view shows NO iron band across the upper back (at most one rivet tip above the fur); the back line rises smoothly from the rump (about 22 %) to the shoulder hump at the very top of the figure (0 to 3 %). FRONT: the collar shows only as the upper arc behind the head (its top at about 2 to 5 %, going down to the sides of the head, which hide it) and as a dark band around the throat under the chin; the chain with the ring hangs from the middle of the throat band onto the chest, the ring between about 50 % and 70 %. HEAD: the top of the head is at about 15 % (between the ears); the ears hang from the top of the head down to about 40 %. TAIL: it hangs from the rump (about 24 %) down and slightly back at about 45 degrees in the side views, the tip ending at about 70 % (hock height); in the BACK view the tail hangs from the rump to the same 70 %, never lower and never longer. PATCHES: in each side view one large patch on the upper rump between about 20 % and 50 %; in the BACK view across both hips between about 24 % and 40 %. CHAIN RING in the side views: hangs in front of the chest between about 47 % and 69 %.
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+
+codex
+Tôi sẽ dùng image_gen đúng một lần để sửa vòng cổ và độ dài đuôi ở góc BACK, giữ góc FRONT theo ảnh trước.
+
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-Content Agent.md; Get-Content .agents/skills/generate-tpose-for-tripo/SKILL.md; Get-Content E:/map01-batch/home/skills/.system/imagegen/SKILL.md; Get-Content ashlar/artdirection.md' in E:\Diablo2
+ succeeded in 384ms:
+# Quy táº¯c phÃ¢n cÃ´ng agent
+
+Ãp dá»¥ng cho cÃ¡c tÃ¡c vá»¥ trong dá»± Ã¡n nÃ y, trá»« khi ngÆ°á»i dÃ¹ng chá»‰ Ä‘á»‹nh khÃ¡c.
+
+## PhÃ¢n cÃ´ng model
+
+| CÃ´ng viá»‡c | Model phá»¥ trÃ¡ch | Provider T3 | Model ID |
+| --- | --- | --- | --- |
+| Táº¡o hoáº·c chá»‰nh sá»­a áº£nh | Astra | `codex` | `gpt-6-astra` |
+| Research, tra cá»©u, tá»•ng há»£p nguá»“n | Haiku 5.5 | `claudeAgent` | `claude-haiku-5-5` |
+| Viáº¿t code, sá»­a lá»—i, refactor, viáº¿t test | Sonnet 5.5 | `claudeAgent` | `claude-sonnet-5-5` |
+| Review code sau khi triá»ƒn khai hoáº·c sá»­a | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+| Rigging (dá»±ng skeleton, skin, kiá»ƒm vÃ  áº£nh QA rig) | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+| Animation (lÃ m clip, kiá»ƒm clip, bake / xuáº¥t / reimport) | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+
+Astra phá»¥ trÃ¡ch tÃ¡c vá»¥ áº£nh vÃ  sá»­ dá»¥ng cÃ´ng cá»¥/skill táº¡o áº£nh kháº£ dá»¥ng Ä‘á»ƒ xuáº¥t áº£nh thá»±c táº¿.
+
+**Codex (Astra) chá»‰ dÃ¹ng Ä‘á»ƒ táº¡o hoáº·c chá»‰nh sá»­a áº£nh** (quyáº¿t Ä‘á»‹nh cá»§a ngÆ°á»i dÃ¹ng, 2026-10-21). KhÃ´ng giao cho Codex viá»‡c viáº¿t code,
+viáº¿t script, review code hay rigging.
+
+Rigging vÃ  animation cá»§a hero, quÃ¡i, NPC ASHLAR: Opus 5.5 lÃ m cáº£ rig láº«n animation, má»—i pháº§n má»™t phiÃªn riÃªng, theo bÆ°á»›c vÃ  cá»•ng duyá»‡t trong
+[`ashlar/3d/rig-anim/Agent.md`](./ashlar/3d/rig-anim/Agent.md) má»¥c 1. Hai dÃ²ng nÃ y Ã¡p dá»¥ng cho viá»‡c rig vÃ  clip cá»§a má»™t asset; viá»‡c viáº¿t script
+cÃ´ng cá»¥ dÃ¹ng chung váº«n lÃ  Sonnet viáº¿t, vÃ  vÃ²ng review code á»Ÿ dÆ°á»›i khÃ´ng Ä‘á»•i.
+
+## Quy trÃ¬nh code vÃ  review báº¯t buá»™c
+
+1. Giao Sonnet 5.5 triá»ƒn khai vá»›i yÃªu cáº§u, pháº¡m vi, file liÃªn quan vÃ  tiÃªu chÃ­ nghiá»‡m thu rÃµ rÃ ng.
+2. Sonnet cháº¡y cÃ¡c kiá»ƒm tra phÃ¹ há»£p, bÃ n giao thay Ä‘á»•i, káº¿t quáº£ kiá»ƒm tra vÃ  váº¥n Ä‘á» cÃ²n tá»“n táº¡i.
+3. Giao Opus 5.5 review thay Ä‘á»•i thá»±c táº¿ theo yÃªu cáº§u ban Ä‘áº§u; kiá»ƒm tra tÃ­nh Ä‘Ãºng Ä‘áº¯n, lá»—i há»“i quy, báº£o máº­t vÃ  má»©c Ä‘á»™ kiá»ƒm chá»©ng phÃ¹ há»£p.
+4. Opus tráº£ káº¿t luáº­n `PASS` hoáº·c `NEEDS_CHANGES`. Má»—i yÃªu cáº§u sá»­a cáº§n nÃªu vá»‹ trÃ­, váº¥n Ä‘á», tÃ¡c Ä‘á»™ng vÃ  hÆ°á»›ng kháº¯c phá»¥c. Opus review, Sonnet thá»±c hiá»‡n sá»­a code.
+5. Náº¿u `NEEDS_CHANGES`, tiáº¿p tá»¥c gá»i Sonnet 5.5 vá»›i Ä‘áº§y Ä‘á»§ findings Ä‘á»ƒ sá»­a vÃ  cháº¡y láº¡i cÃ¡c kiá»ƒm tra liÃªn quan.
+6. Sau má»—i lÆ°á»£t sá»­a, gá»i Opus 5.5 review láº¡i phiÃªn báº£n má»›i; cung cáº¥p yÃªu cáº§u gá»‘c, findings trÆ°á»›c Ä‘Ã³, pháº£n há»“i cá»§a Sonnet vÃ  cÃ¡c Ä‘iá»ƒm chÆ°a giáº£i quyáº¿t.
+7. Láº·p Sonnet â†’ Opus Ä‘áº¿n khi Opus káº¿t luáº­n `PASS` vÃ  cÃ¡c kiá»ƒm tra cáº§n thiáº¿t Ä‘áº¡t. Náº¿u bá»‹ cháº·n hoáº·c cÃ¡c vÃ²ng láº·p khÃ´ng tiáº¿n triá»ƒn, bÃ¡o rÃµ váº¥n Ä‘á» cÃ²n láº¡i; khÃ´ng tuyÃªn bá»‘ hoÃ n thÃ nh.
+
+KhÃ´ng bá» qua bÆ°á»›c review cá»§a Opus chá»‰ vÃ¬ Sonnet Ä‘Ã£ tá»± kiá»ƒm tra hoáº·c test Ä‘Ã£ pass.
+
+## Äiá»u phá»‘i trong T3 Code
+
+- Agent chÃ­nh phÃ¢n loáº¡i cÃ´ng viá»‡c vÃ  giao cho Ä‘Ãºng model á»Ÿ trÃªn; tÃ¡c vá»¥ há»—n há»£p Ä‘Æ°á»£c chia theo tá»«ng pháº§n viá»‡c.
+- DÃ¹ng `orchestrator_capabilities` Ä‘á»ƒ xÃ¡c nháº­n provider/model kháº£ dá»¥ng trÆ°á»›c khi giao viá»‡c. CÃ¡c ID trong báº£ng lÃ  cáº¥u hÃ¬nh Ä‘Ã£ xÃ¡c nháº­n khi táº¡o file; kiá»ƒm tra láº¡i khi báº¯t Ä‘áº§u phiÃªn má»›i.
+- DÃ¹ng cÆ¡ cháº¿ subagent/delegation kháº£ dá»¥ng vá»›i Ä‘Ãºng model. Khi native subagent khÃ´ng há»— trá»£ model yÃªu cáº§u hoáº·c cáº§n gá»i khÃ¡c provider, dÃ¹ng T3 `delegate_task`.
+- Má»—i vÃ²ng review T3 lÃ  má»™t láº§n `delegate_task` má»›i, cÃ³ `clientRequestId` riÃªng vÃ  giá»¯ nguyÃªn ID khi retry cÃ¹ng vÃ²ng. LÆ°u `taskId` Ä‘á»ƒ theo dÃµi; khÃ´ng dÃ¹ng `t3_thread_send` vÃ o `childThreadId` Ä‘á»ƒ má»Ÿ vÃ²ng review tiáº¿p theo.
+- Truyá»n rÃµ vai trÃ² cho tá»«ng subagent. Subagent hoÃ n thÃ nh pháº§n Ä‘Æ°á»£c giao rá»“i tráº£ káº¿t quáº£; agent chÃ­nh quáº£n lÃ½ vÃ²ng láº·p Sonnet/Opus Ä‘á»ƒ trÃ¡nh tá»± gá»i Ä‘á»‡ quy.
+- Äáº£m báº£o reviewer Ä‘á»c Ä‘Ãºng phiÃªn báº£n thay Ä‘á»•i má»›i nháº¥t. Worktree má»›i chá»‰ nháº­n commit hiá»‡n cÃ³, khÃ´ng tá»± nháº­n cÃ¡c thay Ä‘á»•i chÆ°a commit cá»§a agent chÃ­nh.
+- Náº¿u model hoáº·c cÃ´ng cá»¥ cáº§n thiáº¿t khÃ´ng kháº£ dá»¥ng, bÃ¡o rÃµ giá»›i háº¡n vÃ  xin lá»±a chá»n thay tháº¿; khÃ´ng Ã¢m tháº§m Ä‘á»•i model.
+- BÃ¡o cÃ¡o cuá»‘i nÃªu pháº§n Ä‘Ã£ lÃ m, kiá»ƒm tra Ä‘Ã£ cháº¡y, káº¿t luáº­n review vÃ  cÃ¡c Ä‘iá»ƒm cÃ²n tá»“n táº¡i náº¿u cÃ³.
+---
+name: generate-tpose-for-tripo
+description: Generate T-pose concept for Tripo. Reads a monster/character concept image and produces four T-pose reference images (front.png, back.png, left.png, right.png) ready to drop into Tripo Studio's multi-view slots. Use for steps 2-3 of art-output/tripo-models/Agent.md (T-pose by Astra, split into four views).
+---
+
+# Generate T-pose concept for Tripo
+
+Input: one concept image of a creature/character (usually a lineup: H silhouette + 3/4 + LEFT + RIGHT + FRONT + BACK).
+Output, in the asset folder `<ASSET>` (for example `E:\Diablo2\ashlar\3d\monsters\D01_hodling`; ASHLAR models live under `E:\Diablo2\ashlar\3d\`):
+
+| File | What |
+| --- | --- |
+| `views/front.png` `views/back.png` `views/left.png` `views/right.png` | the four T-pose views, same square canvas, same scale, soles on one pixel row |
+| `views/_contact.png` | the four views side by side, for a quick look |
+| `views/_guides.png` | HUMANOID only: the four views cropped tight with shared guide lines (head top, shoulder/hand, crotch, knee, soles) |
+| `tpose_front_back.png` | sheet 1: left = FRONT, right = BACK |
+| `tpose_sides.png` | sheet 2: left = LEFT side, right = RIGHT side |
+| `design.txt` | the design notes you wrote from the concept (step 1) |
+| `tpose.log` | what you generated, measurements, retries, problems |
+
+`<ASSET>/concept.png` must exist. Tools: `scripts/tpose_tools.py` in this skill folder (`E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\`).
+Run Python with `python -I` (it only crops and measures; never draw or edit art with code).
+
+## Hard rules
+
+- Make every bitmap with your BUILT-IN `image_gen` tool, one call per sheet. Never draw with PIL/SVG/canvas/HTML, never use an API key or `scripts/image_gen.py`, never start a nested `codex`. If `image_gen` fails, write the exact error in `tpose.log` and stop.
+- Do not redesign the creature. The concept is the identity reference for design, colours, materials, proportions.
+- Art direction: `E:\Diablo2\ashlar\artdirection.md` governs every image in this project (style = moderately stylized like Diablo Immortal). The templates here already carry its T-pose rules (Â§3.6) and content rules (Â§3.8); keep the concept's style, never restyle it.
+- At most 2 generations per sheet (1 + one retry). Keep rejected images in `<ASSET>/_rejected/` with a suffix; never delete them.
+- Generated images land in `<CODEX_HOME>\generated_images\<session>\`; copy the one you accept into `<ASSET>` (a shell copy is fine).
+
+## 0. Humanoid or not
+
+HUMANOID = a human-type biped with shoulders, two arms and two legs that stand under the hips: heroes, NPCs, humanoid monsters (goblin, zombie, skeleton, cultist). Anything else (quadruped, insect, serpent, bird, blob, winged or multi-limbed) is NOT humanoid. Write `HUMANOID: yes|no` first in `design.txt`. When yes, every step below also applies its HUMANOID lines (extra `PROPORTIONS` section, `templates/humanoid.block.md` pasted into the prompts, numeric `humanoid` checks, the `guides` image). When no, skip those lines and read the CREATURE flow at the end of this file: a creature that cannot stand in a T-pose gets a neutral rest pose of its body plan instead (write `FAMILY: Q|A|W|L|F|O` after HUMANOID). Only family Q (four-legged animal) has templates so far; for any other family stop and report, never feed it to the T-pose templates.
+
+## 1. Read the concept, write `design.txt`
+
+If `<ASSET>/design.txt` already exists (written by the orchestrator from the canon), USE IT as is and do not rewrite it; also read `<ASSET>/brief.md` if present. Otherwise open `concept.png` (view it) and write `<ASSET>/design.txt` with the sections below, plain English, short (`HUMANOID:` / `FAMILY:` lines first; see step 0):
+
+```text
+DESIGN: <one paragraph: species, size, build, head/face, horns/hat, clothing, sack/armour/props worn on the body, skin/material, the 3-4 key colours with hex if known, which large cracks/marks exist and where. No glow.>
+ASYMMETRY: <every detail that sits on ONE side of the body (which hand holds what, which shoulder has the strap/pauldron, hat tilted to which side, crack position, scar), stated as the creature's own left/right, and where it must appear in the FRONT, BACK, LEFT and RIGHT views>
+REMOVE: <hand-held weapons and loose props to leave out of the T-pose (they are built separately); say "nothing" if there are none>
+PROPORTIONS (HUMANOID only): <the concept's own numbers, read off its FRONT view, as one sentence: total height in head heights (for example "about 7 heads tall"), shoulder width in heads, arm length shoulder-to-fingertip as a share of height (a normal figure: about 0.44, so arm span about equals height), leg type (plantigrade human, digitigrade, hoofed, bird-like: it stays exactly as in the concept) and leg length (human: crotch at about 0.5 of height, knee about 0.27), neck length, hand size, and what hides the legs (long skirt, robe, coat, armour skirt). Stylized proportions (big head, short legs, long arms) stay as drawn; write them down so the T-pose keeps them.>
+VIEWS (required for creatures, recommended for humanoids with a cape, hood, backpack, sash, belt or chain): <the landmark table of step 4b in words: for every feature that wraps around the body or can be hidden (collar, belt, chain, strap, cape, hood, tail, ears, patches, marks), its height band in % of the figure height (0 % = highest point, 100 % = soles) and what hides it in which view. Measure it on the side views; the side views are the 3D truth.>
+```
+
+Rules: describe BODY BUILD and POSTURE of the concept exactly (lean vs stocky, thin vs muscular, hunched vs upright, proportions of head, arms and legs) and keep the concept's surface treatment: if the concept is smooth, painted and low-detail, say so; never invent anatomy the concept does not show (muscle definition, abs, veins, claws, extra ears, teeth). If the concept's identity is a material (clay, stone, bone), say it in DESIGN. Look at how the concept's LEFT and RIGHT views differ before writing ASYMMETRY. Loose cloth strips, dangling cords, floating or glowing parts: replace by one thick simple shape hugging the body (Tripo cannot build thin loose parts). Parts that belong to the body (a backpack/sack, a hat, horns) stay.
+
+## 2. Sheet 1: FRONT + BACK
+
+Attach `concept.png` as the reference and call `image_gen` once with the prompt in `templates/front_back.prompt.md` (fill `{{DESIGN}}`, `{{ASYMMETRY}}`, `{{REMOVE}}` from `design.txt`; the `{{IF_RETRY: ...}}` sentence only on a retry, with the rejected image attached). `{{HUMANOID}}` = the "For front_back.prompt.md" section of `templates/humanoid.block.md` with `{{PROPORTIONS}}` filled from `design.txt` when HUMANOID is yes, otherwise delete the line. Copy the result to `<ASSET>/tpose_front_back.png`.
+
+### QA of sheet 1 (view the image; every line must pass)
+
+1. TWO full figures, FRONT left, BACK right (the back is the true back, not a mirrored front), nothing cropped (arm tips included), clean flat grey background, no text.
+2. STRICT T-POSE: both arms fully straight, horizontal, at shoulder height, forming one straight line with the shoulders; palms down; arms clearly separated from torso, sack and head. Arms hanging down, bent, raised, or a relaxed "A" = FAIL.
+3. Torso nearly upright (a slight lean is fine; hunched or crouched = FAIL), legs apart, both feet flat on the floor, head level.
+4. Same size and same floor line in both views; asymmetric details on the right sides (see ASYMMETRY); no hand-held props.
+5. DESIGN FIDELITY (compare side by side with `concept.png`; every line must pass): same body build (lean/thin stays lean/thin, no added muscle, abs or six-pack), same head and face type, same ears, same hat/horns/armour and body-worn parts, same material and surface (smooth painted clay does not become "rocky" or "scaly"), same colours, the same light-and-shadow volume as the concept (big folds keep large dark shadow planes in the recesses, under capes, hoods and sashes and inside splits; cloth painted as one evenly lit flat colour with only thin fold lines = FAIL), nothing added that the concept does not show (claws, teeth, belts, jewellery), nothing from the concept missing except the REMOVE items. The only allowed change from the concept is the pose (T-pose instead of hunched/crouched). Any difference = FAIL.
+6. `python -I scripts\tpose_tools.py measure <ASSET>\tpose_front_back.png`: no WARNING (figure at least 12 px from every edge). If an arm tip touches the edge, retry asking for a smaller figure (about 45 % of the image height).
+7. HUMANOID only, look at the image for every line (the shoulder line is judged by eye as well as by the tool):
+   - SHOULDERS: both at the same height, one straight line with the arms; no shrug, no sloped or drooping shoulder; a pauldron or mantle on one side does not lift or drop that shoulder; the arms leave the body at shoulder height.
+   - ARMS: each arm one straight horizontal line, hand at shoulder height (not sagging, not rising); elbows and wrists straight; the two arms equal in length and height; arm length and arm span match PROPORTIONS (normal: span about equals height; not stubby, not spidery); hands open and flat, palms down.
+   - LEGS: both identical, no contrapposto, no hip tilt, no stepping or crossed leg, feet flat, parallel, pointing forward, about one shoulder width apart (not a wide stance); human legs straight from hip to ankle with straight knees, digitigrade or hoofed legs exactly as in the concept (hock bend kept, never turned into human legs); skirt or slit hangs straight and symmetric.
+   - Same head size, shoulder height, hip height and floor line in the FRONT and the BACK; the BACK shows the same pose.
+   - `python -I scripts\tpose_tools.py humanoid <ASSET>\tpose_front_back.png --kind fb`: no WARN line (arms within 4 degrees of horizontal, hand at 13-28 % from the top, span/height 0.80-1.12, feet centres at most 0.22 H apart, front and back alike). A WARN means retry or a logged reason; the tool is a heuristic, a clean result does not replace looking.
+
+Fail: one retry with the failure named first in the prompt ("The previous attempt had X; fix X"). Still failing: keep the best one, log it, and report it as the problem.
+
+## 3. Sheet 2: LEFT + RIGHT
+
+Run `measure` on sheet 1 and note its figure height as a percent of the image height (`FIG_PCT`). Attach `concept.png` and the accepted `tpose_front_back.png`, call `image_gen` once with `templates/sides.prompt.md` (same fills, plus `{{FIG_PCT}}`; `{{HUMANOID}}` = the "For sides.prompt.md" section of `templates/humanoid.block.md` when HUMANOID is yes, otherwise delete the line). Copy the result to `<ASSET>/tpose_sides.png`.
+
+### QA of sheet 2
+
+1. TWO full figures: LEFT side toward the camera, facing screen-left; RIGHT side toward the camera, facing screen-right (the true opposite side, not a mirrored copy). Exactly 90 degrees, no 3/4.
+2. Same T-pose as sheet 1 seen from the side: the near arm points straight at the camera (foreshortened, hand at shoulder height), the far arm is hidden. Arms hanging or drawn along the body = FAIL.
+3. Same design, proportions (leg length vs body, head size, sack size), surface treatment and asymmetric details as sheet 1 (and the same fidelity checks vs the concept as sheet 1 item 5).
+4. `measure` the sheet and compare its figure height with sheet 1. The generator often draws the sides larger. Within +-12 % is fine (the split step rescales it). Beyond that, or if leg length / body proportions clearly differ from sheet 1, retry once with the numbers in the prompt; if still off, accept and log it. Never rescale only part of a figure.
+5. HUMANOID only (look at the image for every line):
+   - Standing straight: spine and legs vertical, both legs identical (human legs: knees straight; digitigrade or hoofed legs as in the concept), both legs side by side so one hides the other and the feet overlap; no stride, no step, no bent knee, no lifted heel, no hip tilt, no forward lean, no open slit from a stepping leg.
+   - Shoulder line at the same height as in sheet 1 (same head-to-shoulder and shoulder-to-floor distances); near arm straight at the camera at shoulder height, foreshortened, hand open and flat (not hanging, not bent, not angled, not along the torso).
+   - Same head size, hip height, knee height, leg length, neck length as sheet 1; legs not lengthened, head not shrunk.
+   - `python -I scripts\tpose_tools.py humanoid <ASSET>\tpose_sides.png --kind sides`: no WARN line (soles span at most 0.26 H).
+
+## 4. Split into four views
+
+```text
+python -I E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\tpose_tools.py split <ASSET>
+```
+
+This cuts each sheet in two at the empty column between the figures, rescales the sides sheet to the front/back sheet's figure height, and writes `views/front.png`, `back.png`, `left.png`, `right.png` (1024x1024, soles on the same row, 7 % margin) and `views/_contact.png`. View `_contact.png` and check: order is front, back, left, right; all four same size; feet on one line; nothing cut. HUMANOID only: also run `python -I scripts\tpose_tools.py guides <ASSET>` and VIEW `views/_guides.png`: the same lines run across all four views (head top, hand/shoulder row from the front view in red, 50 % crotch in yellow, 27 % knee in green, soles) with a white centre line per figure. Check that the arms of FRONT and BACK lie on the red line and the near hand of LEFT and RIGHT sits on it; the shoulders are level; the head top and the soles sit on the same lines in all four views; the crotch and knees fall near their lines (or where PROPORTIONS says); the legs are straight, symmetric about the white line in FRONT and BACK, and overlap in LEFT and RIGHT. A view that breaks any of these goes back to the sheet it came from (retry rules above). `left.png` shows the creature's LEFT side (face toward screen-left); `right.png` its RIGHT side (face toward screen-right).
+
+## 4b. Cross-view check (mandatory; humanoid and creature)
+
+Every sheet is QA'd on its own, so errors BETWEEN views slip through. B01 (2026-10-21): the user found the iron collar in the BACK view lying across the top of the back, although in the side views the shoulder hump (the highest point of the animal) stands directly behind the collar and is nearer the camera from behind, so from behind it must hide the collar. The BACK tail also hung to 88 % of the figure height while the side views end it at 70 %. Do this check after the split and again after every retry, before reporting:
+1. Landmark table BEFORE generating: put it into `design.txt` as `VIEWS:` (see step 1), measured on the concept's side views or, once accepted, on the side sheet. One row per feature that wraps around the body or can be hidden (collar, belt, chain, strap, sash, cape, hood, tail, ears, patches, marks): height band in % of the figure height (0 % = highest point, 100 % = soles), and what hides it in each view. Wrapping parts and the tail are the usual offenders: what a nearer body mass hides in one view stays hidden in every view that looks from the same side, and a feature on the body axis (collar top, chain end, tail tip, belt) sits at the same % in every view where it shows.
+2. After the split run `python -I scripts	pose_tools.py strip <ASSET> --from-pct 0 --to-pct 60` and `--from-pct 40 --to-pct 100` and VIEW both `views/_strip_*.png`: the same band of the figure cut from FRONT, BACK, LEFT and RIGHT at one scale with a tick every 10 %.
+3. Walk the table row by row against the strips: height %, occlusion order, size, number of rivets or segments, colours, which side. The side views decide heights and depth order; FRONT and BACK are checked against them. Any mismatch fails the view that disagrees: retry that sheet with the mismatch named first (`fill_prompt.py --retry`), the VIEWS rows in the prompt, and the side sheet attached as a reference.
+4. Write the table with the measured percentages (feature, LEFT, RIGHT, FRONT, BACK, verdict) into `tpose.log`.
+
+## 5. Report
+
+Write `tpose.log` and reply with: the four file paths, the measured heights of both sheets and the rescale factor, retries and why, anything that still deviates (pose, proportions, asymmetry), and the Codex session ids / source paths of the images used. Never say the pose is correct without having viewed the images.
+
+## CREATURE flow (HUMANOID: no, FAMILY: Q)
+
+DRAFT 2026-10-21, first run on B01 Sexton's Dog (`ashlar/3d/monsters/B01_sextons_dog/`). Tripo documents no pose for creatures, so the neutral stand below is a hypothesis until a Tripo run confirms it (research: `art-output/tripo-models/Agent.md`).
+
+What differs from the T-pose flow:
+- `design.txt`: `HUMANOID: no`, `FAMILY: Q`, `DESIGN`, `ASYMMETRY`, `REMOVE`, `PROPORTIONS` (the concept's own numbers: height at the shoulders and body length in H units, head share, leg type, tail).
+- Prompts are built ONLY with `scripts/fill_prompt.py`, never by hand: it pastes STYLE CORE (Â§3.1), T-POSE RULES (Â§3.6) and CONTENT (Â§3.8) verbatim from `ashlar/artdirection.md` into `templates/front_back_creature.prompt.md` / `templates/sides_creature.prompt.md` and the pose text of `templates/creature_pose.blocks.md` (`--pose-section "Q front_back"` / `"Q sides"`).
+- Placement templates: `scripts/make_view_template.py` writes a 3:1 flat grey canvas with two lighter size blocks (one per view). They fix the canvas shape, the floor line and the scale, so sheet 1 and sheet 2 come out at one scale. Measure the block sizes from the concept's silhouettes in H units (its H silhouette = 1 H): FRONT/BACK block = width x height of the neutral stand (narrower than a braced stance), side block = nose-to-tail-tip length x height. B01: `--blocks 0.50x0.72 0.50x0.72` for sheet 1 and `--blocks 1.42x0.72 1.42x0.72` for sheet 2 (640 px per H).
+- Running Astra: the main agent runs one session per sheet with the batch runner (outside the repo) `python E:\map01-batch\map01_batch.py --jobfile <jobs.json> --jobs <id> --parallel 1`, with `CODEX_HOME=E:\map01-batch\home` and `TEMP`/`TMP` on E: (C: is nearly full). A job is `{id, promptPath, outputPath, referenceImages:[{path}]}`; references in this order: sheet 1 = `concept.png`, `template_fb.png`; sheet 2 = `concept.png`, the accepted `tpose_front_back.png`, `template_sides.png`. Attempts, task text and logs stay in `<ASSET>/_tasks/`; copy the accepted PNGs to `<ASSET>/tpose_front_back.png` and `tpose_sides.png`; rejected ones go to `_rejected/`. `run_session.sh` runs the T-pose flow only.
+- Numeric checks: `python -I scripts\tpose_tools.py creature <sheet> --kind fb|sides` (mirror symmetry at least 0.85, at least 2 paw groups, heights within 4 %, widths within 12 %). WARN lines only; they do not replace looking.
+- Split with `python -I scripts\tpose_tools.py split <ASSET> --vcenter` (a long low animal fills the width of the square canvas, so `--vcenter` puts the figure in the middle instead of the bottom; all four views keep one common scale and one floor row), then `python -I scripts\tpose_tools.py guides <ASSET> --creature` and view `views/_guides.png` (top, 50 %, soles lines and a centre line per figure).
+- Observed on B01 (2026-10-21): sheet 1 passed on the first try (193 s); sheet 2 failed once (the far legs stepped ahead of the near legs and the RIGHT view mirrored that, so LEFT and RIGHT disagreed about which leg is forward) and passed on the retry with "only TWO legs show, the far legs are completely hidden behind them" in the LEGS text. The generator ignored the template block height (it drew 87 % of the image height instead of 64 %): harmless, `split` normalises, but do not rely on the blocks for absolute size.
+
+CREATURE QA (look at the image; every line must pass; at most 2 generations per sheet as before):
+1. Sheet 1: FRONT left and BACK right, one animal each, nothing cropped; the background is flat grey with no placement rectangle, outline or floor line visible; no text.
+2. NEUTRAL STAND: all four paws flat on one ground line; front legs vertical and parallel with a visible gap of background, hind legs the same; paws pointing forward; spine level; head straight along the body axis (not turned, tilted or lowered further), mouth closed; tail hanging as one simple shape; no crouch, lunge, braced or lifted leg, no leg crossed.
+3. ORTHOGRAPHIC: no perspective (head not enlarged in FRONT, rump not enlarged in BACK), no view from above.
+4. FRONT and BACK have the same height, body width and floor line.
+5. Sheet 2: LEFT faces screen-left, RIGHT faces screen-right, exactly 90 degrees, RIGHT is the true opposite side (not a mirror where the design is asymmetric); far legs exactly behind the near legs (no stagger, no stride); same stance, proportions, head, tail and height as sheet 1; belly above the ground.
+6. DESIGN FIDELITY as step 2 item 5: same build, head, ears, worn parts, colours and markings as the concept, no added anatomy, form shading kept.
+7. CROSS-VIEW CHECK of step 4b: the landmark table (VIEWS) holds in all four views (heights, occlusion order, tail length).
+Fail: one retry with the failure named first (`fill_prompt.py --retry "The previous attempt had X; fix X."`, rejected image attached as image 3). Still failing: keep the best, log it, report it.
+
+## Lessons already paid for
+
+- A concept lineup drawn hunched/crouched makes the generator keep the hunch in the "T-pose". The prompt must say "arms horizontal at shoulder height, torso nearly upright, NOT hunched" and must say that any attached earlier attempt has the wrong pose.
+- Over-long arms make the T wider than the body is tall: ask for a smaller figure rather than letting arm tips touch the edge.
+- The sides sheet comes out bigger than the front/back sheet (measured 706 px vs 534 px on D01 Hodling); the split step normalises height. That is the only per-sheet scaling allowed.
+- Left to itself the generator turns a lean, scrawny concept creature into a muscular goblin (abs, claws, pointed ears) as soon as the pose is straightened. Keep "thin, lean, smooth, low detail, same build as the concept" in the prompt and fail the sheet on any added anatomy.
+- Loincloth fringes and rag strips come out as noisy detail: ask for one plain clean shape.
+- "Soft even neutral light" flattens cloth. FL Flagellant (2026-10-20): the crimson habit came out as one evenly lit red with thin fold lines (13-24 % of the cloth darker than L* 18, against 25-38 % in the concept; median L* 30 against 22), and the user rejected it ("máº¥t khá»‘i sÃ¡ng tá»‘i váº£i"). The templates now ask for the concept's hand-painted form shading under a top light that is the same in every view; "low detail" must not turn into "flat".
+- Humanoid turnaround, 2026-10-21 (hero with fur mantle and long split skirt): the generator drew the T with arms sagging about 5.5 degrees toward the hands, arms leaving below an uneven shoulder line (one fur pauldron lifted a shoulder), the feet 0.26 H apart in a wide stance, and the side views with one leg stepping forward, a bent knee and the skirt slit open, so FRONT and LEFT/RIGHT did not describe the same skeleton. The user asked for a careful check of shoulders, limb proportions and straight legs in every view. Hence the HUMANOID block, the PROPORTIONS line, the numeric `humanoid` check and the `guides` image. A skirt slit invites a stepping leg: ask for a skirt hanging straight and symmetric. Concept lineups that stand in contrapposto or with a stride make the generator copy it, so the prompt must forbid it explicitly.
+- Cross-view errors, B01 2026-10-21: each sheet passed its own QA, yet the collar in BACK lay on top of the shoulder hump (the side views put the hump directly behind it, so it hides the collar from behind) and the BACK tail was 18 % of the height longer than in the side views. Found by the user, not by the checks. Hence step 4b (VIEWS table before generating, `strip` after the split, table in `tpose.log`). The generator copies whatever the concept sheet drew, and a concept sheet is 2D art whose back view need not agree with its side views: never trust the concept for what hides what.
+- Tripo's multi-view mode is the cube icon with four slots Front / Left / Right / Back (not the "Batch Images to 3D" icon, which makes one model per image).
+---
+name: "imagegen"
+description: "Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Codex should create a brand-new image, transform an existing image, or derive visual variants from references, and the output should be a bitmap asset rather than repo-native code or vector. Do not use when the task is better handled by editing existing SVG/vector/code-native assets, extending an established icon or logo system, or building the visual directly in HTML/CSS/canvas."
+---
+
+# Image Generation Skill
+
+Generates or edits images for the current project (for example website assets, game assets, UI mockups, product mockups, wireframes, logo design, photorealistic images, or infographics).
+
+## Top-level modes and rules
+
+This skill has exactly two top-level modes:
+
+- **Default built-in tool mode (preferred):** built-in `image_gen` tool for image generation, editing, and transparent-image requests. Does not require `OPENAI_API_KEY`.
+- **Fallback CLI mode:** `scripts/image_gen.py` CLI. Use when the user explicitly asks for or confirms the CLI/API/model path. Requires `OPENAI_API_KEY`.
+
+Within CLI fallback, the CLI exposes three subcommands:
+
+- `generate`
+- `edit`
+- `generate-batch`
+
+Rules:
+- Use the built-in `image_gen` tool by default for normal image generation and editing requests.
+- Do not switch to CLI fallback for ordinary quality, size, or file-path control.
+- For transparent images, ask built-in `image_gen` for a transparent background and preserve the generated alpha.
+- Never silently switch from built-in `image_gen` or CLI `gpt-image-2` to CLI `gpt-image-1.5`; ask the user first unless they explicitly requested `gpt-image-1.5`.
+- The word `batch` by itself does not mean CLI fallback. If the user asks for many assets or says to batch-generate assets without explicitly asking for CLI/API/model controls, stay on the built-in path and issue one built-in call per requested asset or variant.
+- If the built-in tool fails or is unavailable, tell the user the CLI fallback exists and that it requires `OPENAI_API_KEY`. Proceed only if the user explicitly asks for that fallback.
+- If the user explicitly asks for CLI mode, use the bundled `scripts/image_gen.py` workflow. Do not create one-off SDK runners.
+- Never modify `scripts/image_gen.py`. If something is missing, ask the user before doing anything else.
+
+Built-in save-path policy:
+- In built-in tool mode, Codex saves generated images under `$CODEX_HOME/*` by default.
+- Do not describe or rely on OS temp as the default built-in destination.
+- Do not describe or rely on a destination-path argument (if any) on the built-in `image_gen` tool. If a specific location is needed, generate first and then move or copy the selected output from `$CODEX_HOME/generated_images/...`.
+- Save-path precedence in built-in mode:
+  1. If the user names a destination, move or copy the selected output there.
+  2. If the image is meant for the current project, move or copy the final selected image into the workspace before finishing.
+  3. If the image is only for preview or brainstorming, render it inline; the underlying file can remain at the default `$CODEX_HOME/*` path.
+- Never leave a project-referenced asset only at the default `$CODEX_HOME/*` path.
+- Do not overwrite an existing asset unless the user explicitly asked for replacement; otherwise create a sibling versioned filename such as `hero-v2.png` or `item-icon-edited.png`.
+
+Shared prompt guidance for both modes lives in `references/prompting.md` and `references/sample-prompts.md`.
+
+Fallback-only docs/resources for CLI mode:
+- `references/cli.md`
+- `references/image-api.md`
+- `references/codex-network.md`
+- `scripts/image_gen.py`
+
+## When to use
+- Generate a new image (concept art, product shot, cover, website hero)
+- Generate a new image using one or more reference images for style, composition, or mood
+- Edit an existing image (inpainting, lighting or weather transformations, background replacement, object removal, compositing, transparent background)
+- Produce many assets or variants for one task
+
+## When not to use
+- Extending or matching an existing SVG/vector icon set, logo system, or illustration library inside the repo
+- Creating simple shapes, diagrams, wireframes, or icons that are better produced directly in SVG, HTML/CSS, or canvas
+- Making a small project-local asset edit when the source file already exists in an editable native format
+- Any task where the user clearly wants deterministic code-native output instead of a generated bitmap
+
+## Decision tree
+
+Think about two separate questions:
+
+1. **Intent:** is this a new image or an edit of an existing image?
+2. **Execution strategy:** is this one asset or many assets/variants?
+
+Intent:
+- If the user wants to modify an existing image while preserving parts of it, treat the request as **edit**.
+- If the user provides images only as references for style, composition, mood, or subject guidance, treat the request as **generate**.
+- If the user provides no images, treat the request as **generate**.
+
+Built-in edit semantics:
+- Built-in edit mode is for images already visible in the conversation context, such as attached images or images generated earlier in the thread.
+- If the user wants to edit a local image file with the built-in tool, first load it with built-in `view_image` tool so the image is visible in the conversation context, then proceed with the built-in edit flow.
+- Do not promise arbitrary filesystem-path editing through the built-in tool.
+- If a local file still needs direct file-path control, masks, or other explicit CLI-only parameters, use the explicit CLI fallback only when the user asks for it.
+- For edits, preserve invariants aggressively and save non-destructively by default.
+
+Execution strategy:
+- In the built-in default path, produce many assets or variants by issuing one `image_gen` call per requested asset or variant.
+- In the CLI fallback path, use the CLI `generate-batch` subcommand only when the user explicitly chose CLI mode and needs many prompts/assets.
+- For many distinct assets, do not use `n` as a substitute for separate prompts. `n` is for variants of one prompt; distinct assets need distinct built-in calls or distinct CLI `generate-batch` jobs.
+
+Assume the user wants a new image unless they clearly ask to change an existing one.
+
+## Workflow
+1. Decide the top-level mode: built-in by default, including transparent-output requests; fallback CLI only if explicitly requested or confirmed.
+2. Decide the intent: `generate` or `edit`.
+3. Decide whether the output is preview-only or meant to be consumed by the current project.
+4. Decide the execution strategy: single asset vs repeated built-in calls vs CLI `generate-batch`.
+5. Collect inputs up front: prompt(s), exact text (verbatim), constraints/avoid list, and any input images.
+6. For every input image, label its role explicitly:
+   - reference image
+   - edit target
+   - supporting insert/style/compositing input
+7. If the edit target is only on the local filesystem and you are staying on the built-in path, inspect it with `view_image` first so the image is available in conversation context.
+8. If the user asked for a photo, illustration, sprite, product image, banner, or other explicitly raster-style asset, use `image_gen` rather than substituting SVG/HTML/CSS placeholders. If the request is for an icon, logo, or UI graphic that should match existing repo-native SVG/vector/code assets, prefer editing those directly instead.
+9. Augment the prompt based on specificity:
+   - If the user's prompt is already specific and detailed, normalize it into a clear spec without adding creative requirements.
+   - If the user's prompt is generic, add tasteful augmentation only when it materially improves output quality.
+10. Use the built-in `image_gen` tool by default.
+11. For transparent-output requests, ask built-in `image_gen` for a transparent background and preserve the generated alpha channel.
+12. Inspect outputs and validate: subject, style, composition, text accuracy, and invariants/avoid items.
+13. Iterate with a single targeted change, then re-check.
+14. For preview-only work, render the image inline; the underlying file may remain at the default `$CODEX_HOME/generated_images/...` path.
+15. For project-bound work, move or copy the selected artifact into the workspace and update any consuming code or references. Never leave a project-referenced asset only at the default `$CODEX_HOME/generated_images/...` path.
+16. For batches or multi-asset requests, persist every requested deliverable final in the workspace unless the user explicitly asked to keep outputs preview-only. Discarded variants do not need to be kept unless requested.
+17. If the user explicitly chooses or confirms the CLI fallback, then use the fallback-only docs for model, quality, size, `input_fidelity`, masks, output format, output paths, and network setup.
+18. Always report the final saved path(s) for any workspace-bound asset(s), plus the final prompt or prompt set and whether the built-in tool or fallback CLI mode was used.
+
+## Transparent image requests
+
+Ask built-in `image_gen` for a genuinely transparent background and preserve its alpha.
+
+## Prompt augmentation
+
+Reformat user prompts into a structured, production-oriented spec. Make the user's goal clearer and more actionable, but do not blindly add detail.
+
+Treat this as prompt-shaping guidance, not a closed schema. Use only the lines that help, and add a short extra labeled line when it materially improves clarity.
+
+### Specificity policy
+
+Use the user's prompt specificity to decide how much augmentation is appropriate:
+
+- If the prompt is already specific and detailed, preserve that specificity and only normalize/structure it.
+- If the prompt is generic, you may add tasteful augmentation when it will materially improve the result.
+
+Allowed augmentations:
+- composition or framing hints
+- polish level or intended-use hints
+- practical layout guidance
+- reasonable scene concreteness that supports the stated request
+
+Not allowed augmentations:
+- extra characters or objects that are not implied by the request
+- brand names, slogans, palettes, or narrative beats that are not implied
+- arbitrary side-specific placement unless the surrounding layout supports it
+
+## Use-case taxonomy (exact slugs)
+
+Classify each request into one of these buckets and keep the slug consistent across prompts and references.
+
+Generate:
+- photorealistic-natural â€” candid/editorial lifestyle scenes with real texture and natural lighting.
+- product-mockup â€” product/packaging shots, catalog imagery, merch concepts.
+- ui-mockup â€” app/web interface mockups and wireframes; specify the desired fidelity.
+- infographic-diagram â€” diagrams/infographics with structured layout and text.
+- scientific-educational â€” classroom explainers, scientific diagrams, and learning visuals with required labels and accuracy constraints.
+- ads-marketing â€” campaign concepts and ad creatives with audience, brand position, scene, and exact tagline/copy.
+- productivity-visual â€” slide, chart, workflow, and data-heavy business visuals.
+- logo-brand â€” logo/mark exploration, vector-friendly.
+- illustration-story â€” comics, childrenâ€™s book art, narrative scenes.
+- stylized-concept â€” style-driven concept art, 3D/stylized renders.
+- historical-scene â€” period-accurate/world-knowledge scenes.
+
+Edit:
+- text-localization â€” translate/replace in-image text, preserve layout.
+- identity-preserve â€” try-on, person-in-scene; lock face/body/pose.
+- precise-object-edit â€” remove/replace a specific element (including interior swaps).
+- lighting-weather â€” time-of-day/season/atmosphere changes only.
+- background-extraction â€” transparent background / clean cutout. Ask built-in `image_gen` for actual transparency.
+- style-transfer â€” apply reference style while changing subject/scene.
+- compositing â€” multi-image insert/merge with matched lighting/perspective.
+- sketch-to-render â€” drawing/line art to photoreal render.
+
+## Shared prompt schema
+
+Use the following labeled spec as shared prompt scaffolding for both top-level modes:
+
+```text
+Use case: <taxonomy slug>
+Asset type: <where the asset will be used>
+Primary request: <user's main prompt>
+Input images: <Image 1: role; Image 2: role> (optional)
+Scene/backdrop: <environment>
+Subject: <main subject>
+Style/medium: <photo/illustration/3D/etc>
+Composition/framing: <wide/close/top-down; placement>
+Lighting/mood: <lighting + mood>
+Color palette: <palette notes>
+Materials/textures: <surface details>
+Text (verbatim): "<exact text>"
+Constraints: <must keep/must avoid>
+Avoid: <negative constraints>
+```
+
+Notes:
+- `Asset type` and `Input images` are prompt scaffolding, not dedicated CLI flags.
+- `Scene/backdrop` refers to the visual setting. It is not the same as the fallback CLI `background` parameter, which controls output transparency behavior.
+- Fallback-only execution notes such as `Quality:`, `Input fidelity:`, masks, output format, and output paths belong in the CLI path only. Do not treat them as built-in `image_gen` tool arguments.
+
+Augmentation rules:
+- Keep it short.
+- Add only the details needed to improve the prompt materially.
+- For edits, explicitly list invariants (`change only X; keep Y unchanged`).
+- If any critical detail is missing and blocks success, ask a question; otherwise proceed.
+
+## Examples
+
+### Generation example (hero image)
+```text
+Use case: product-mockup
+Asset type: landing page hero
+Primary request: a minimal hero image of a ceramic coffee mug
+Style/medium: clean product photography
+Composition/framing: wide composition with usable negative space for page copy if needed
+Lighting/mood: soft studio lighting
+Constraints: no logos, no text, no watermark
+```
+
+### Edit example (invariants)
+```text
+Use case: precise-object-edit
+Asset type: product photo background replacement
+Primary request: replace only the background with a warm sunset gradient
+Constraints: change only the background; keep the product and its edges unchanged; no text; no watermark
+```
+
+## Prompting best practices
+- Structure prompt as scene/backdrop -> subject -> details -> constraints.
+- Include intended use (ad, UI mock, infographic) to set the mode and polish level.
+- Use camera/composition language for photorealism.
+- Only use SVG/vector stand-ins when the user explicitly asked for vector output or a non-image placeholder.
+- Quote exact text and specify typography + placement.
+- For tricky words, spell them letter-by-letter and require verbatim rendering.
+- For multi-image inputs, reference images by index and describe how they should be used.
+- For edits, repeat invariants every iteration to reduce drift.
+- Iterate with single-change follow-ups.
+- If the prompt is generic, add only the extra detail that will materially help.
+- If the prompt is already detailed, normalize it instead of expanding it.
+- For CLI fallback only, see `references/cli.md` and `references/image-api.md` for model, `quality`, `input_fidelity`, masks, output format, and output-path guidance.
+- For transparent images, ask built-in `image_gen` for actual transparency and preserve its alpha.
+
+More principles shared by both modes: `references/prompting.md`.
+Copy/paste specs shared by both modes: `references/sample-prompts.md`.
+
+## Guidance by asset type
+Asset-type templates (website assets, game assets, wireframes, logo) are consolidated in `references/sample-prompts.md`.
+
+## gpt-image-2 guidance for CLI fallback
+
+The fallback CLI defaults to `gpt-image-2`.
+
+- Use `gpt-image-2` for new CLI/API workflows unless the user confirms a different model.
+- CLI `gpt-image-2` does not support `background=transparent`; ask before using `gpt-image-1.5` unless the user explicitly requested that model.
+- `gpt-image-2` always uses high fidelity for image inputs; do not set `input_fidelity` with this model.
+- `gpt-image-2` supports `quality` values `low`, `medium`, `high`, and `auto`.
+- Use `quality low` for fast drafts, thumbnails, and quick iterations. Use `medium`, `high`, or `auto` for final assets, dense text, diagrams, identity-sensitive edits, or high-resolution outputs.
+- Square images are typically fastest to generate. Use `1024x1024` for fast square drafts.
+- If the user asks for 4K-style output, use `3840x2160` for landscape or `2160x3840` for portrait.
+- `gpt-image-2` size may be `auto` or `WIDTHxHEIGHT` if all constraints hold: max edge `<= 3840px`, both edges multiples of `16px`, long-to-short ratio `<= 3:1`, total pixels between `655,360` and `8,294,400`.
+
+Popular `gpt-image-2` sizes:
+- `1024x1024` square
+- `1536x1024` landscape
+- `1024x1536` portrait
+- `2048x2048` 2K square
+- `2048x1152` 2K landscape
+- `3840x2160` 4K landscape
+- `2160x3840` 4K portrait
+- `auto`
+
+## Fallback CLI mode only
+
+### Temp and output conventions
+These conventions apply only to the CLI fallback. They do not describe built-in `image_gen` output behavior.
+- Use `tmp/imagegen/` for intermediate files (for example JSONL batches); delete them when done.
+- Write final artifacts under `output/imagegen/`.
+- Use `--out` or `--out-dir` to control output paths; keep filenames stable and descriptive.
+
+### Dependencies
+Prefer `uv` for dependency management in this repo.
+
+Required Python package:
+```bash
+uv pip install openai
+```
+
+Optional for image inspection and downscaling:
+```bash
+uv pip install pillow
+```
+
+Portability note:
+- If you are using the installed skill outside this repo, install dependencies into that environment with its package manager.
+- In uv-managed environments, `uv pip install ...` remains the preferred path.
+
+### Environment
+- `OPENAI_API_KEY` must be set for live API calls.
+- Do not ask the user for `OPENAI_API_KEY` when using the built-in `image_gen` tool.
+- Never ask the user to paste the full key in chat. Ask them to set it locally and confirm when ready.
+
+If the key is missing, give the user these steps:
+1. Create an API key in the OpenAI platform UI: https://platform.openai.com/api-keys
+2. Set `OPENAI_API_KEY` as an environment variable in their system.
+3. Offer to guide them through setting the environment variable for their OS/shell if needed.
+
+If installation is not possible in this environment, tell the user which dependency is missing and how to install it into their active environment.
+
+### Script-mode notes
+- CLI commands + examples: `references/cli.md`
+- API parameter quick reference: `references/image-api.md`
+- Network approvals / sandbox settings for CLI mode: `references/codex-network.md`
+
+## Reference map
+- `references/prompting.md`: shared prompting principles for both modes.
+- `references/sample-prompts.md`: shared copy/paste prompt recipes for both modes.
+- `references/cli.md`: fallback-only CLI usage via `scripts/image_gen.py`.
+- `references/image-api.md`: fallback-only API/CLI parameter reference.
+- `references/codex-network.md`: fallback-only network/sandbox troubleshooting for CLI mode.
+- `scripts/image_gen.py`: fallback-only CLI implementation. Use only when the user explicitly chooses or confirms CLI mode.
+# ASHLAR â€” Art Direction
+
+**Until the Last Â· Báº£n chuáº©n cho má»i bÆ°á»›c táº¡o áº£nh Â· v2.0 Â· 21/10/2026**
+
+> Dark fantasy váº½ tay, **stylized vá»«a pháº£i, Ä‘Ãºng má»©c Diablo Immortal**: hÃ¬nh khá»‘i rÃµ, bá» máº·t sáº¡ch, sÃ¡ng tá»‘i cÃ³ khá»‘i. Má»™t tháº¿ giá»›i Ä‘Æ°á»£c giá»¯ láº¡i báº±ng nhá»¯ng má»‘i ná»‘i khÃ´ng hoÃ n háº£o, nÆ¡i váº» Ä‘áº¹p hoÃ n má»¹ dáº§n trá»Ÿ thÃ nh lá»i Ä‘e doáº¡.
+
+File nÃ y gá»“m:
+- style Ä‘Ã£ chá»‘t;
+- cÃ¡c khá»‘i prompt báº¯t buá»™c vÃ  Ä‘á»‹nh dáº¡ng sheet;
+- mÃ u theo act;
+- thá»© tá»± biome theo tiáº¿n trÃ¬nh chÆ¡i;
+- ná»™i dung Prologue, Act I vÃ  Act II.
+
+Sá»‘ liá»‡u chi tiáº¿t cá»§a tá»«ng quÃ¡i, tá»«ng biome vÃ  tá»«ng nghá» náº±m á»Ÿ cÃ¡c file chuyÃªn Ä‘á» (Â§15). Báº£n lÃ½ giáº£i dÃ i v1.1 váº«n lÃ  [ASHLAR_ART_DIRECTION_VI.md](ASHLAR_ART_DIRECTION_VI.md). **Khi hai file khÃ¡c nhau vá» cÃ¡ch váº½, file nÃ y tháº¯ng.**
+
+**NhÃ£n dÃ¹ng trong file:**
+
+| NhÃ£n | NghÄ©a |
+|---|---|
+| **ÄÃ£ chá»‘t** | Quyáº¿t Ä‘á»‹nh cá»§a ngÆ°á»i dÃ¹ng |
+| **Canon** | World Bible |
+| **LD** | Level Design and Atmosphere Guide; má»¥c LD tá»± gáº¯n *Proposal* Ä‘Æ°á»£c ghi lÃ  *(Ä‘á» xuáº¥t LD)* |
+| **Äá» xuáº¥t AD** | Quy táº¯c sáº£n xuáº¥t do file nÃ y Ä‘áº·t, sá»­a Ä‘Æ°á»£c |
+
+---
+
+## 0. Quy táº¯c báº¯t buá»™c khi gen áº£nh
+
+Ãp dá»¥ng cho **má»i** bÆ°á»›c táº¡o hoáº·c chá»‰nh sá»­a áº£nh:
+- concept sheet hero, quÃ¡i, asset;
+- texture terrain, normal map váº½ báº±ng `image_gen`;
+- áº£nh T-pose cho Tripo;
+- key art vÃ  áº£nh cáº£nh.
+
+1. **Äá»c trÆ°á»›c khi viáº¿t prompt:**
+   - Â§1â€“Â§2 (style, mood);
+   - Â§3 (khá»‘i prompt);
+   - má»¥c theo loáº¡i asset: Â§5 hero, Â§6 quÃ¡i, Â§7 mÃ´i trÆ°á»ng;
+   - Â§8 (mÃ u theo act);
+   - Â§9â€“Â§10 náº¿u asset thuá»™c má»™t area cá»¥ thá»ƒ.
+2. **DÃ¡n nguyÃªn vÄƒn** `STYLE CORE` (Â§3.1), `CONTENT` (Â§3.8) vÃ  khá»‘i theo loáº¡i asset (Â§3.2â€“Â§3.7) vÃ o prompt.
+   - Pháº§n riÃªng cá»§a asset (thiáº¿t káº¿, palette, kÃ­ch thÆ°á»›c, bá»‘ cá»¥c) viáº¿t sau cÃ¡c khá»‘i Ä‘Ã³.
+   - KhÃ´ng diá»…n Ä‘áº¡t láº¡i style báº±ng lá»i khÃ¡c.
+3. **Sá»‘ liá»‡u láº¥y tá»« file chuyÃªn Ä‘á», khÃ´ng tá»± Ä‘áº·t:**
+   - kÃ­ch thÆ°á»›c vÃ  mÃ u key quÃ¡i â†’ Quy chuáº©n quÃ¡i;
+   - palette biome â†’ Biome vÃ  khu vá»±c;
+   - thiáº¿t káº¿ nghá» â†’ Concept hero (Â§15).
+4. **QA Â§11 cho tá»«ng áº£nh** trÆ°á»›c khi gá»­i ngÆ°á»i dÃ¹ng hoáº·c Ä‘Ã¡nh dáº¥u chá»n. áº¢nh trÆ°á»£t thÃ¬ cháº¡y láº¡i vá»›i háº­u tá»‘ má»›i (`_v2`, `_r2b`â€¦); **khÃ´ng ghi Ä‘Ã¨** áº£nh cÅ©.
+5. **LÆ°u prompt cáº¡nh áº£nh** (`*.prompt.txt` hoáº·c trong `_brief/`) Ä‘á»ƒ truy láº¡i Ä‘Æ°á»£c.
+6. **Thá»© tá»± Æ°u tiÃªn khi mÃ¢u thuáº«n:**
+   1. quyáº¿t Ä‘á»‹nh má»›i nháº¥t cá»§a ngÆ°á»i dÃ¹ng;
+   2. file nÃ y (cÃ¡ch váº½);
+   3. World Bible (sá»± tháº­t tháº¿ giá»›i);
+   4. Cast, LD;
+   5. cÃ¡c file chuyÃªn Ä‘á» vÃ  báº£n v1.1.
+7. **Khi ngÆ°á»i dÃ¹ng ra quyáº¿t Ä‘á»‹nh má»›i vá» hÃ¬nh áº£nh:** ghi vÃ o Â§12 vÃ  sá»­a má»¥c liÃªn quan cá»§a file nÃ y **trÆ°á»›c khi** gen tiáº¿p.
+8. **Ai táº¡o áº£nh:** Astra (`codex` / `gpt-6-astra`), theo `Agent.md`. CÃ¡ch cháº¡y á»Ÿ Â§13.
+
+---
+
+## 1. Style chung (ÄÃ£ chá»‘t)
+
+**21/10/2026, ngÆ°á»i dÃ¹ng xÃ¡c nháº­n: ASHLAR pháº£i hÆ¡i stylized, nhÆ° Diablo Immortal.**
+
+Quyáº¿t Ä‘á»‹nh nÃ y ná»‘i tiáº¿p cÃ¡c láº§n chá»‘t trÆ°á»›c (Â§12):
+- terrain `stylized2` Ã­t chi tiáº¿t;
+- concept quÃ¡i "bÃ¡m style Diablo Immortal, Ä‘á»«ng render nhiá»u detail texture";
+- quÃ¡i "bÃ¡m Diablo hÆ¡n, há» Immortal / Diablo III";
+- hero v3â€“v5 cÃ¡ch Ä‘iá»‡u hÆ¡n vÃ  giáº£m texture.
+
+### 1.1 Vá»‹ trÃ­ trÃªn thang style
+
+| Má»©c | VÃ­ dá»¥ | ASHLAR |
+|---|---|---|
+| Realistic, áº£nh thá»±c | Diablo IV, PBR scan, áº£nh chá»¥p | KhÃ´ng dÃ¹ng |
+| **Stylized vá»«a pháº£i** | **Diablo Immortal** (cÃ¹ng há» Diablo III) | **Chuáº©n** |
+| Stylized máº¡nh, hoáº¡t hÃ¬nh | WoW, Fortnite, chibi, anime, cel/toon | KhÃ´ng dÃ¹ng |
+
+### 1.2 "HÆ¡i stylized" khi váº½ nghÄ©a lÃ  gÃ¬
+
+Báº£ng dÆ°á»›i lÃ  cÃ¡ch hiá»ƒu Ä‘á»ƒ gen (Ä‘á» xuáº¥t AD, rÃºt tá»« cÃ¡c báº£n Ä‘Ã£ qua ngÆ°á»i dÃ¹ng). NgÆ°á»i dÃ¹ng sá»­a thÃ¬ cáº­p nháº­t báº£ng.
+
+| Háº¡ng má»¥c | LÃ m | KhÃ´ng lÃ m |
+|---|---|---|
+| **Tá»· lá»‡** | Dá»±a trÃªn giáº£i pháº«u tháº­t; ngÆ°á»i trÆ°á»Ÿng thÃ nh khoáº£ng 7 Ä‘áº§u. Chá»‰ cÆ°á»ng Ä‘iá»‡u **Ä‘áº·c trÆ°ng nháº­n diá»‡n**: hero cÃ³ bÃ n tay, bÃ n chÃ¢n, Ä‘áº¡o cá»¥ nghá» to hÆ¡n tháº­t 10â€“15 %; quÃ¡i Ä‘Æ°á»£c Ä‘áº©y máº¡nh Ä‘áº·c trÆ°ng riÃªng (tay dÃ i, lÆ°ng gÃ¹, sá»«ng, khá»›p xÆ°Æ¡ng) theo ngÃ´n ngá»¯ quÃ¡i Diablo. | Äáº§u to kiá»ƒu chibi; cÆ¡ báº¯p siÃªu anh hÃ¹ng; phÃ³ng Ä‘áº¡i má»i bá»™ pháº­n cÃ¹ng lÃºc. |
+| **HÃ¬nh khá»‘i** | Silhouette Ä‘á»c Ä‘Æ°á»£c á»Ÿ thumbnail; khá»‘i lá»›n trÆ°á»›c. Chi tiáº¿t gom vÃ o Ä‘áº§u, thÃ¢n trÃªn, tay, vÅ© khÃ­ vÃ  Ä‘iá»ƒm ká»ƒ chuyá»‡n. | Ráº£i chi tiáº¿t Ä‘á»u kháº¯p hÃ¬nh. |
+| **Bá» máº·t** | Váº½ tay: máº£ng pháº³ng rá»™ng, chuyá»ƒn sáº¯c má»m, vÃ i highlight sáº¯c. Chi tiáº¿t náº±m á»Ÿ **hÃ¬nh** (mÃ©p rÃ¡ch lá»›n, máº£ng giÃ¡p, dÃ¢y, xÆ°Æ¡ng, váº¿t ná»©t, miáº¿ng vÃ¡), khÃ´ng náº±m á»Ÿ texture. | Micro texture: lá»— chÃ¢n lÃ´ng, dá»‡t váº£i, vÃ¢n da, xÆ°á»›c, váº¿t báº©n, nhiá»…u háº¡t, grunge, PBR áº£nh thá»±c. |
+| **Khá»‘i sÃ¡ng tá»‘i** | Form shading rÃµ: máº·t sÃ¡ng, máº·t tá»‘i, bÃ³ng náº¿p gáº¥p lá»›n, tá»‘i sÃ¢u trong khe. **Ãt chi tiáº¿t nghÄ©a lÃ  bá»›t nhiá»…u nhá», khÃ´ng bao giá» cÃ³ nghÄ©a lÃ  pháº³ng.** | Ãnh sÃ¡ng Ä‘á»u lÃ m pháº³ng váº£i; flat shading; cel shading. |
+| **NÃ©t** | MÃ©p sáº¡ch, rÃµ á»Ÿ cÃ¡c cáº¡nh mang thÃ´ng tin. | Viá»n Ä‘en hoáº¡t hÃ¬nh quanh má»i váº­t. |
+| **Váº­t liá»‡u** | ÄÃ¡, gá»—, váº£i, kim loáº¡i, xÆ°Æ¡ng, Ä‘áº¥t nung, muá»‘i/kÃ­nh/bÄƒng Ä‘á»c khÃ¡c nhau (Â§4.4). | Má»i thá»© cÃ¹ng Ä‘á»™ bÃ³ng; bÃ³ng nhÆ° nhá»±a, nhÆ° Ä‘á»“ chÆ¡i. |
+| **MÃ u** | Khá»‘i mÃ u rÃµ: má»™t mÃ u chá»§ Ä‘áº¡o, má»™t mÃ u phá»¥, má»™t Ä‘iá»ƒm nháº¥n nhá», cá»™ng mÃ u trung tÃ­nh. Hero tÆ°Æ¡i vÃ  sáº¡ch hÆ¡n tháº¿ giá»›i. QuÃ¡i vÃ  mÃ´i trÆ°á»ng theo palette act vÃ  mood map. | Cáº§u vá»“ng; má»i váº­t Ä‘á»u bÃ£o hoÃ  hoáº·c phÃ¡t sÃ¡ng. |
+
+### 1.3 áº¢nh máº«u style
+
+ÄÆ°á»ng dáº«n tÃ­nh tá»« `ashlar/`.
+
+| Loáº¡i | áº¢nh | DÃ¹ng Ä‘á»ƒ |
+|---|---|---|
+| Terrain | `art/terrain-dark-wood/_review_stylized2.jpg`; `art/terrain-biomes-v2-stylized/style_ref.png` (ba tile Ä‘Ã£ duyá»‡t: forest loam, shade grass, big-stone path) | Chuáº©n máº­t Ä‘á»™ nÃ©t vÃ  máº£ng. **KhÃ´ng láº¥y mÃ u.** |
+| Mood Map 1 | `art/terrain-dark-wood/_ingame/d2_webgl.png` (scene `darkWoodD2`) | HÆ°á»›ng mood; chÆ°a pháº£i Map 1 hoÃ n táº¥t. |
+| Hero | `art/heroes/_review/v5/` vÃ  `overview_3q.png` | Báº£n hiá»‡n hÃ nh v5: má»©c texture, form shading, Ä‘á»™ tÆ°Æ¡i mÃ u. ChÆ°a chá»n A/B. |
+| QuÃ¡i | Sheet `concept_r2.png` / `concept_r2b.png` trong `art/map-01-concepts/monsters/`; báº£n chá»n ghi trong `REVISION_2_VI.md` | Báº£n hiá»‡n hÃ nh rev 2: ngÃ´n ngá»¯ quÃ¡i Diablo, khá»‘i mÃ u, mÃ©p rÃ¡ch lá»›n. |
+| ÄÃ£ loáº¡i | `art/terrain-dark-wood/stylized/` (quÃ¡ chi tiáº¿t); `stylized3/path_cobble.png` (Ä‘Ã¡ nhá», lá»‘m Ä‘á»‘m); hero v1 (xá»‰n, bá»¥i); Ã¡nh trÄƒng Dark Wood v1 lÃ m mood máº·c Ä‘á»‹nh | Äá»‘i chiáº¿u Ä‘iá»u cáº§n trÃ¡nh. |
+
+**CÃ¡ch gáº¯n áº£nh tham chiáº¿u khi gen:**
+- **áº¢nh style:** ghi "match ONLY the painting style and level of detail; do NOT copy its colours, layout or design".
+- **Báº£n cÅ© cá»§a chÃ­nh asset khi váº½ láº¡i:** gáº¯n báº£n **lÃ m má»** (Gaussian r â‰ˆ 2,2) vÃ  thÃªm má»™t dÃ²ng "WRONG IN THE REFERENCE: â€¦" cho tá»«ng Ä‘iá»ƒm pháº£i Ä‘á»•i. Náº¿u gáº¯n báº£n sáº¯c nÃ©t, model chÃ©p láº¡i texture vÃ  bá» qua lá»i sá»­a (bÃ i há»c hero v5b).
+- **Khung tá»· lá»‡:** vá»›i sheet cÃ³ bÃ³ng ngÆ°á»i, gáº¯n khung tá»· lá»‡ lÃ m áº£nh thá»© hai (Â§6.5).
+
+---
+
+## 2. Style chung vÃ  mood tá»«ng map (ÄÃ£ chá»‘t)
+
+- **Style (Â§1) giá»‘ng nhau toÃ n game. Mood thuá»™c tá»«ng map:** palette, Ã¡nh sÃ¡ng, thá»i tiáº¿t, sÆ°Æ¡ng, tÆ°Æ¡ng pháº£n, nhá»‹p cáº£m xÃºc. KhÃ´ng cÃ³ mood chung cho cáº£ game; báº£ng mÃ u act (Â§8) chá»‰ lÃ  khung lore.
+- **Map 1 â†’ mood Act I Diablo II:**
+  - khÃ´ng khÃ­: Ä‘á»“ng hoang vÃ  rá»«ng áº©m láº¡nh, hoang váº¯ng nhÆ°ng váº«n Ä‘i Ä‘Æ°á»£c;
+  - mÃ u: xanh cá» sáº«m/Ã´liu, Ä‘áº¥t nÃ¢u bÃ¹n, Ä‘Ã¡ xÃ¡m cÅ©; Ä‘iá»ƒm áº¥m nhá» á»Ÿ nÆ¡i cÃ³ ngÆ°á»i (lá»­a, Ä‘Ã¨n, mÃ¡i);
+  - Ã¡nh sÃ¡ng: u Ã¡m, tiáº¿t cháº¿.
+  - Mood D2 lÃ  mÃ u vÃ  khÃ´ng khÃ­, khÃ´ng Ä‘Æ°a láº¡i chi tiáº¿t kiá»ƒu áº£nh thá»±c.
+  - Lookdev báº¯t Ä‘áº§u tá»« `stylized2_green` + scene `darkWoodD2`.
+- **Pháº¡m vi Map 1 chÆ°a xÃ¡c nháº­n.** KhÃ´ng tá»± Ä‘á»“ng nháº¥t Map 1 vá»›i cáº£ Act I hay vá»›i Prologue.
+- Ãnh trÄƒng xanh láº¡nh cá»§a Dark Wood v1 chá»‰ lÃ  mood cá»§a scene thá»­ Immortal, khÃ´ng pháº£i mood máº·c Ä‘á»‹nh.
+- **Concept sheet hero, quÃ¡i, prop khÃ´ng mang mood map:** dÃ¹ng ná»n studio xÃ¡m áº¥m trung tÃ­nh (Â§3.2). Palette quÃ¡i cá»§a Map 1 váº«n nghiÃªng vá» olive, than bÃ¹n, xÃ¡m láº¡nh cá»§a Act I D2. Mood map chá»‰ Ã¡p vÃ o key art, concept cáº£nh vÃ  scene.
+
+### 2.1 Tháº» mood (Ä‘iá»n trÆ°á»›c khi lookdev má»™t map)
+
+| TrÆ°á»ng | Ná»™i dung |
+|---|---|
+| Map | ID map; khÃ´ng suy ra tá»« act. |
+| Mood má»¥c tiÃªu | Má»™t cÃ¢u cáº£m xÃºc + tham chiáº¿u. |
+| Palette | Ná»n / Ä‘iá»ƒm áº¥m / accent; swatch chá»‰ lÃ  Ä‘iá»ƒm xuáº¥t phÃ¡t. |
+| Lighting vÃ  thá»i tiáº¿t | Nguá»“n sÃ¡ng chÃ­nh, sÆ°Æ¡ng, mÆ°a, giÃ³; giá» trong ngÃ y náº¿u Ä‘Ã£ chá»‘t. |
+| TÆ°Æ¡ng pháº£n vÃ  value | CÃ¡ch tÃ¡ch hero, Ä‘á»‹ch, ná»n. |
+| Nhá»‹p cáº£m xÃºc | Diá»…n biáº¿n theo tuyáº¿n Ä‘i. |
+| Style | Â§1, hoáº·c ghi rÃµ ngoáº¡i lá»‡. |
+| Tráº¡ng thÃ¡i | Äá» xuáº¥t / Ä‘ang lookdev / Ä‘Ã£ duyá»‡t (ngÃ y, ngÆ°á»i duyá»‡t). |
+| ChÆ°a khoÃ¡ | Camera, budget, chi tiáº¿t map. |
+
+---
+
+## 3. Khá»‘i prompt báº¯t buá»™c
+
+Prompt viáº¿t báº±ng tiáº¿ng Anh. DÃ¡n nguyÃªn vÄƒn cÃ¡c khá»‘i dÆ°á»›i Ä‘Ã¢y; pháº§n riÃªng cá»§a asset viáº¿t sau chÃºng. Khi má»™t khá»‘i theo loáº¡i asset nÃ³i khÃ¡c `STYLE CORE`, khá»‘i theo loáº¡i asset tháº¯ng á»Ÿ Ä‘Ãºng Ä‘iá»ƒm Ä‘Ã³.
+
+### 3.1 STYLE CORE (má»i áº£nh)
+
+```text
+STYLE CORE (ASHLAR art direction, mandatory): moderately stylized hand-painted dark fantasy in the spirit of Diablo Immortal (the Diablo III / Diablo Immortal family look). NOT photoreal, NOT Diablo IV realism, NOT cartoon, chibi, anime, cel-shaded or toy-like. Proportions follow real anatomy; exaggeration goes only to the identity features (heroes: hands, feet and class props slightly oversized; monsters: their signature features pushed further). Strong readable silhouette, clear value grouping, clean colour blocking: a dominant colour, a secondary colour and a small accent, plus neutrals. Surfaces are SIMPLE: broad painted planes with soft gradients and a few crisp highlights; detail comes from big shapes (large torn edges, plates, straps, bones, cracks, patches), never from texture. No micro texture: no pores, fabric weave, leather grain, scratches, stains, speckle noise, fine grunge or photoreal PBR. Low detail never means flat: keep clear 3D form shading with a lit side, a shadow side, big soft fold shadows and darker occlusion in deep folds. No black cartoon outlines.
+```
+
+### 3.2 CONCEPT SHEET (hero, quÃ¡i, prop)
+
+```text
+SHEET RULES: flat warm mid-grey studio backdrop, no environment, minimal soft contact shadows. Neutral studio light from above and slightly in front, the same in every view, with clear form shading (never a flat, evenly lit look); no bloom, no coloured light. No VFX and no particles unless stated. Every view shows the SAME design, proportions, colours and asymmetries; one-sided details stay on the same anatomical side in every view. LEFT = the subject's anatomical left side toward the camera, facing image-left; RIGHT = the true opposite side, facing image-right, never a mirror of LEFT; BACK = the true back, never a mirrored front. Model views use an eye-level orthographic camera. Nothing cropped, nothing overlapping. Concept art only: not a sprite, not a 3D model sheet with wireframes. Text: only the exact title and labels given; no other text, no watermark.
+```
+
+### 3.3 HERO (thÃªm vÃ o 3.2)
+
+```text
+HERO RULES: bold, colourful ARPG hero class art that stands out from the muted world: one rich saturated signature colour scheme per class, clean surfaces (no dust, grime or rags), exaggerated class props. At most two cloth layers; fitted leather and plate instead of layered robes, shawls, sashes, headscarves or fur cloaks. Silhouette language borrowed from the matching Diablo class archetype, never a copied Diablo costume. Class lights glow as small painted light: warm flame for lanterns, coals and pyre fire; still cold cyan-white points only for the Ossuarist's souls; no white-gold glow, no halo. A subtle cool rim light is allowed. Female heroes are attractive, confident adult women with fitted heroic silhouettes (bare shoulders or arms, a fitted bodice, a skirt slit where described), tasteful like modern ARPG class art: never nudity, lingerie, exaggerated anatomy or sexualised poses; the face plain and natural.
+```
+
+### 3.4 QUÃI (thÃªm vÃ o 3.2)
+
+```text
+MONSTER RULES: read clearly as a Diablo-series monster (Diablo Immortal / Diablo III family); push its identity features (Diablo monster language), not everything. Colour blocking: PRIMARY about 60 % of the figure, SECONDARY about 30 %, ONE small saturated ACCENT from its act (Prologue monsters: no accent at all); primary and secondary differ in hue AND value at thumbnail size. Undead cloth is cut into big chunky jagged rag strips and large torn holes with clean painted edges, never micro-fraying, thread noise or grunge. No strong rim light. The plain flat dark-grey featureless human silhouette labelled H stands on the same baseline at exactly 1H; the monster's size is set only by the scale guides.
+```
+
+### 3.5 TERRAIN TILE
+
+```text
+TERRAIN TILE RULES: match ONLY the painting style and the very LOW level of detail of the attached approved tiles (a few large simple shapes with smooth, clean, softly rounded outlines, soft painterly gradients inside each shape, a handful of broad brush strokes, calm nearly flat areas between them); do NOT copy their colours or layout. ONE square 1:1 seamless tileable ground texture, continuous on all four edges; strictly orthographic top-down view of a flat walkable floor; about 3.5 metres of ground in the frame; flat even lighting, no cast shadows, no light gradient, no vignette, no glints or reflections, no perspective, no text or symbols; nothing large or special touching the edges; even average brightness; irregular non-grid placement; a quiet low-contrast floor behind combat. No frilly, fractal or cauliflower edges; no lichen dabs, sponge texture or speckle; no tiny pebbles, crumbs or scattered small bits; no crackle or hairline cracks. Stones, slabs, planks or clumps are big simple shapes with clean soft edges.
+```
+
+### 3.6 T-POSE CHO TRIPO
+
+DÃ¹ng template cá»§a skill `.agents/skills/generate-tpose-for-tripo/`; template Ä‘Ã³ Ä‘Ã£ mang cÃ¡c quy táº¯c dÆ°á»›i Ä‘Ã¢y. Khi viáº¿t prompt T-pose ngoÃ i skill, dÃ¡n khá»‘i nÃ y:
+
+```text
+T-POSE RULES: keep the concept's design, build and smooth painted low-detail surface; only the pose changes. Keep the concept's hand-painted form shading: every big fold and cloth layer has a lit plane and a large dark shadow plane (deep shadow in fold recesses, under capes, hoods, collars, belts and sashes, inside splits); roughly a third of each cloth surface in shadow; never one evenly lit flat colour. One neutral white light from above and slightly from the camera side, the SAME in every view; no side light, no rim light, no coloured light, no glow or bloom. Cloth is one plain clean shape (no ragged fringe, no loose strips). Hands empty; hand-held weapons and props are built separately. Perfectly flat neutral mid-grey background; no text, no human silhouette.
+```
+
+Vá»›i concept dáº¡ng ngÆ°á»i (hero, NPC, quÃ¡i hÃ¬nh ngÆ°á»i) thÃªm khá»‘i dÆ°á»›i (báº£n Ä‘áº§y Ä‘á»§ theo tá»«ng sheet náº±m á»Ÿ `templates/humanoid.block.md` cá»§a skill):
+
+```text
+HUMANOID T-POSE RULES: upright and symmetric, weight even on both legs, no contrapposto, no hip tilt, no step, both legs identical (human legs straight with straight knees; digitigrade or hoofed legs kept exactly as in the concept), feet flat, parallel, pointing forward, about one shoulder width apart. Shoulders level, forming one straight horizontal line with both arms; a pauldron or mantle on one shoulder does not lift or drop it; arms leave the body at shoulder height. Each arm one perfectly horizontal straight line, hand at shoulder height (no sagging), arm length about 0.44 of the body height (arm span about equals height) unless the concept is stylized otherwise, hands open and flat, palms down. Crotch at about half the height, knee at about 27 percent. Skirts and robes hang straight and symmetric. Side views: legs vertical and overlapping, no stride, near arm straight at the camera at shoulder height. Same head size, shoulder height, hip height and floor line in every view.
+```
+
+Concept khÃ´ng pháº£i ngÆ°á»i (bá»‘n chÃ¢n, nhiá»u chÃ¢n, cÃ³ cÃ¡nh, thÃ¢n dÃ i, khá»‘i) **khÃ´ng dÃ¹ng T-pose**: dÃ¹ng dÃ¡ng nghá»‰ trung tÃ­nh cá»§a tá»«ng há» (template `*_creature.prompt.md` vÃ  `creature_pose.blocks.md` cá»§a skill). Má»›i viáº¿t há» bá»‘n chÃ¢n (**Ä‘á» xuáº¥t AD, Ä‘ang thá»­ trÃªn B01 Sexton's Dog 21/10, chÆ°a Ä‘Æ°á»£c ngÆ°á»i dÃ¹ng duyá»‡t**; Tripo khÃ´ng cÃ³ hÆ°á»›ng dáº«n tÆ° tháº¿ cho quÃ¡i nÃªn Ä‘Ã¢y lÃ  giáº£ thuyáº¿t):
+
+```text
+QUADRUPED NEUTRAL-POSE RULES: no T-pose and nothing held out. The animal stands square, calm and symmetric on all four legs, like the rest pose of a skeleton rig: four paws flat on one ground line, the front legs vertical and parallel under the shoulders with a clear gap of background between them, the hind legs in the same relaxed standing posture with a clear gap between them, paws pointing forward. Spine straight and level: no sway, hunch, crouch, lunge or lifted leg. Head in the concept's natural carriage, pointing straight along the body axis, mouth closed, never turned or tilted. Tail hanging down and slightly back as one simple tapered shape. Thin or loose parts (tufts, chains, whiskers) become chunky shapes that hug the body. Eye-level orthographic views with no perspective; in the side views the far legs stand exactly behind the near legs.
+```
+
+### 3.7 MÃ”I TRÆ¯á»œNG: SHEET ASSET VÃ€ Cáº¢NH
+
+```text
+ENVIRONMENT RULES: same moderately stylized hand-painted style; big readable masses, simplified surfaces, detail grouped at focal points (path edges, wall bases, story props). Human-made things show a few large, visible repairs (patched thatch, re-tied fences, re-pointed mortar, soot above candles); places a Perfection has taken are seamless and too clean. Every light belongs to a source in the world: humans = small warm flickering smoky light; a Perfection = steady, even, beautiful light, often many identical sources; the Discarded = red-orange kiln light pulsing from inside cracks; the Wall = cold white light through cracks; Mason stone never glows. Keep the playable floor quiet and low-contrast.
+```
+
+ThÃªm theo dáº¡ng áº£nh:
+
+- **Sheet 6 asset:**
+
+  ```text
+  SIX numbered cells 1-6 in a 3x2 grid, one asset per cell, no extra objects, no scenery; each cell has a flat dark-grey 1H human silhouette on the same baseline at the same local scale. Perspective sheet: 3/4 view from slightly above, neutral daylight. Turnaround sheet: LEFT, RIGHT, FRONT, BACK of each cell, using the perspective sheet as the identity reference.
+  ```
+
+- **Cáº£nh / key art:** dÃ¡n khá»‘i dÆ°á»›i, rá»“i thÃªm palette vÃ  cá»™t cáº¥m cá»§a act (Â§8) vÃ  tháº» mood map (Â§2.1).
+
+  ```text
+  In dark scenes compose for ONE small distant warm point of light against a large dark mass; never two equal light sources in a frightening view. Daytime skies stay covered (fog, soot, salt haze, dusk, storm); a clear blue sky only in the Seamless. Night stars are cold white points that do not twinkle.
+  ```
+
+### 3.8 CONTENT (má»i áº£nh)
+
+```text
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only; no nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+```
+
+---
+
+## 4. Quy táº¯c hÃ¬nh áº£nh chung
+
+### 4.1 Äá»c Ä‘Æ°á»£c trÆ°á»›c khi trang trÃ­
+
+- **Thá»© tá»± Ä‘á»c:** Ä‘Æ°á»ng bao â†’ khá»‘i sÃ¡ng tá»‘i â†’ Ä‘iá»ƒm mÃ u â†’ váº­t liá»‡u â†’ chi tiáº¿t.
+- **Value trÆ°á»›c hue:** bá» mÃ u Ä‘i váº«n pháº£i tÃ¡ch Ä‘Æ°á»£c hero, Ä‘á»‹ch, ná»n vÃ  cáº£nh bÃ¡o.
+- **Ná»n chÆ¡i** yÃªn vÃ  Ã­t tÆ°Æ¡ng pháº£n, Ä‘á»ƒ telegraph, loot vÃ  xÃ¡c Ä‘á»c Ä‘Æ°á»£c (LD Â§8.1).
+- **Telegraph** Ä‘á»c báº±ng hÃ¬nh vÃ  nhá»‹p trÆ°á»›c, mÃ u sau (LD Â§8.2).
+- **Rim light trong scene** (khÃ´ng Ã¡p cho concept sheet): má»i thá»© gÃ¢y sÃ¡t thÆ°Æ¡ng cÃ³ rim; rim láº¡nh á»Ÿ vÃ¹ng áº¥m, rim áº¥m á»Ÿ vÃ¹ng láº¡nh (LD Â§8.1).
+
+### 4.2 NÄƒm "ngÆ°á»i lÃ m" (LD Â§4.1)
+
+NgÆ°á»i chÆ¡i pháº£i nháº­n ra ai lÃ m ra má»™t váº­t chá»‰ báº±ng má»™t cÃ¡i nhÃ¬n.
+
+| NgÆ°á»i lÃ m | HÃ¬nh khá»‘i | Váº­t liá»‡u | Bá» máº·t | Ãnh sÃ¡ng |
+|---|---|---|---|---|
+| **Masons** | GÃ³c vuÃ´ng, tháº³ng Ä‘á»©ng, hÃ ng Ä‘Ã¡ chÃ­nh xÃ¡c, khÃ´ng trang trÃ­; má»i thá»© hÆ¡i quÃ¡ cá»¡ | ÄÃ¡ xÃ¡m Ä‘áº½o, Ã¡o nhÆ° bÃª tÃ´ng Ä‘á»•, cÃ´ng cá»¥ sáº¯t | Dáº¥u dá»¥ng cá»¥, dáº¥u thá»£, váº¡ch dáº«n | KhÃ´ng bao giá» tá»± phÃ¡t sÃ¡ng |
+| **Con ngÆ°á»i** (the Moss) | Lá»‡ch, nghiÃªng, cháº¯p vÃ¡, xÃ¢y thÃªm | Gá»—, Ä‘Ã¡ lá»­a, ráº¡, dÃ¢y, sÃ¡p, len; xÆ°Æ¡ng vÃ  kÃ­nh muá»‘i tÃ¡i dÃ¹ng | VÃ¡, máº¡ng, Ä‘inh tÃ¡n, vá»¯a trÃ¡t láº¡i, muá»™i trÃªn má»—i ngá»n náº¿n | Nhá», áº¥m, láº­p loÃ¨, cÃ³ khÃ³i |
+| **Perfections** | Äá»‘i xá»©ng, Ä‘Æ°á»ng cong liá»n, láº·p láº¡i, khÃ´ng má»‘i ná»‘i | Váº£i lanh, vÃ ng vÃ  sáº¯t, kÃ­nh muá»‘i, lá» thuá»· tinh, Ã¡nh Ä‘Ã¨n | HoÃ n háº£o: khÃ´ng xÆ°á»›c, khÃ´ng bá»¥i, khÃ´ng mÃ²n; phá»§ pháº³ng lÃªn Ä‘á»“ cá»§a ngÆ°á»i | Äá»u, Ä‘á»©ng yÃªn, Ä‘áº¹p; thÆ°á»ng tá»« nhiá»u nguá»“n giá»‘ng há»‡t nhau |
+| **Discarded** | Tháº¥p, cÃ³ sá»«ng, mÃ³c, náº·n tay | Äáº¥t nung, men, muá»™i, xá»‰; Ä‘á»“ tuá»³ tÃ¡ng vÃ  cÃ´ng cá»¥ Mason Äƒn trá»™m | Dáº¥u ngÃ³n tay, ná»©t men, váº¿t chÃ¡y lÃ², máº£ng bÃ¹n | Ãnh lÃ² Ä‘á» cam tá»« trong khe ná»©t, pháº­p phá»“ng nhÆ° bá»… |
+| **The Wall** | HÃ ng sá» vÃ  xÆ°Æ¡ng dÃ i; bÃ n tay náº¯m nhau qua vá»¯a | XÆ°Æ¡ng, vá»¯a xÃ¡m, bá»¥i linh há»“n | HÆ¡i áº¥m vÃ  áº©m (Ä‘Ã£ "khÃ³c" tá»« 999 AL) | Ãnh tráº¯ng qua khe ná»©t, nÆ¡i linh há»“n buÃ´ng tay |
+
+**Quy táº¯c má»‘i ná»‘i:** má»‘i ná»‘i, chá»— vÃ¡, chá»— sá»­a lÃ  dáº¥u hiá»‡u sá»± sá»‘ng. CÃ ng liá»n máº¡ch, Perfection cÃ ng gáº§n.
+
+**Gáº§n cult, chá»— vÃ¡ biáº¿n máº¥t**, má»—i act má»™t kiá»ƒu:
+
+| Act | Bá» máº·t thay cho chá»— vÃ¡ |
+|---|---|
+| I | VÃ´i má»›i |
+| II | Máº¡ vÃ ng |
+| III | Cá» tráº¯ng |
+| IV | ÄÃ¡nh vecni, phá»§i bá»¥i |
+| V | Náº¿n á»Ÿ má»i cá»­a sá»• |
+
+**Mason khÃ¡c Seamless:** Mason cÃ²n máº¡ch xÃ¢y vÃ  dáº¥u Ä‘á»¥c. Seamless xoÃ¡ má»i má»‘i ná»‘i: khÃ´ng tile, khÃ´ng mÃ²n.
+
+### 4.3 Ãnh sÃ¡ng cÃ³ chá»§ (LD Â§4.1, Â§5.1)
+
+| Chá»§ | Chuyá»ƒn Ä‘á»™ng | NhÃ¬n | NghÄ©a |
+|---|---|---|---|
+| Con ngÆ°á»i | Láº­p loÃ¨, cÃ³ khÃ³i | Nhá», áº¥m, khÃ´ng Ä‘á»u, cÃ³ muá»™i phÃ­a trÃªn | An toÃ n, cÃ³ ngÆ°á»i |
+| Perfection | Äá»©ng yÃªn tuyá»‡t Ä‘á»‘i | Äáº¹p, Ä‘á»u, nhiá»u nguá»“n giá»‘ng nhau xáº¿p hÃ ng | Cult, cell, lá»i nÃ³i dá»‘i |
+| Discarded | Pháº­p phá»“ng nhÆ° bá»… | Äá» cam, tá»« trong khe | ÄÃ³i, lÃ² nung, Ä‘á»™t kÃ­ch |
+| The Wall | Äiá»ƒm Ä‘á»©ng yÃªn hoáº·c lung linh cháº­m | Tráº¯ng láº¡nh | Unbroken rÃ² ra |
+| Masons | â€” | KhÃ´ng phÃ¡t sÃ¡ng | Bá»‹ theo dÃµi |
+
+- **Ãnh sÃ¡ng Ä‘áº¹p thÆ°á»ng lÃ  nÃ³i dá»‘i:** Ã¡nh sÃ¡ng áº¥m vÃ  Ä‘áº¹p thÆ°á»ng thuá»™c vá» Perfection; an toÃ n tháº­t náº±m á»Ÿ Ã¡nh sÃ¡ng má», khÃ´ng hoÃ n háº£o.
+  - ÄÃ¨n cá»§a Gentle House, Widower's Light vÃ  ngá»n Ä‘Ã¨n phÃ­a trÆ°á»›c Ä‘á»u khÃ´ng láº­p loÃ¨.
+  - Trong áº£nh tÄ©nh: Ã¡nh cá»§a ngÆ°á»i váº½ khÃ´ng Ä‘á»u, cÃ³ khÃ³i vÃ  muá»™i; Ã¡nh cá»§a Perfection váº½ sáº¡ch, Ä‘á»u, quáº§ng trÃ²n giá»‘ng nhau.
+- **Light radius lÃ  luáº­t cá»§a tháº¿ giá»›i (LD Â§5.3):**
+  - Ã¡nh sÃ¡ng pháº£i cÃ³ nguá»“n tháº­t: náº¿n, Ä‘Ã¨n há»“n, lÃ², giÃ n thiÃªu;
+  - ngoÃ i vÃ¹ng sÃ¡ng lÃ  bÃ³ng tá»‘i Ä‘en, khÃ´ng pháº£i sÆ°Æ¡ng xÃ¡m.
+
+### 4.4 Váº­t liá»‡u (Ä‘á» xuáº¥t AD)
+
+| Váº­t liá»‡u | CÃ¡ch váº½ | TrÃ¡nh |
+|---|---|---|
+| ÄÃ¡ | Khá»‘i pháº³ng lá»›n, cáº¡nh vá»¡ chá»n lá»c; rÃªu gom thÃ nh vÃ¹ng | RÃªu phá»§ Ä‘á»‘m Ä‘á»u |
+| Gá»— | Thá»› thÃ nh dáº£i rá»™ng; má»‘i ghÃ©p vÃ  Ä‘áº§u gá»— rÃµ | HÃ ng trÄƒm rÃ£nh nhá» |
+| Váº£i | Náº¿p lá»›n theo trá»ng lá»±c; Ä‘Æ°á»ng may cÃ³ chá»©c nÄƒng; váº£i Mercy sáº¡ch vÃ  liá»n hÆ¡n váº£i ngÆ°á»i | â€” |
+| Kim loáº¡i | Pháº£n sÃ¡ng theo máº·t vÃ  cáº¡nh chÃ­nh; giá»¯ khoáº£ng tá»‘i giá»¯a cÃ¡c máº£ng | Viá»n sÃ¡ng má»i cáº¡nh; giÃ¡p bÃ³ng nhÆ° nhá»±a |
+| XÆ°Æ¡ng | NgÃ  hoáº·c xÃ¡m, báº¥t cÃ¢n; cáº¥u trÃºc lá»›n trÆ°á»›c váº¿t ná»©t | â€” |
+| Äáº¥t nung | ThÃ¢n má»; men khÃ¡c Ä‘á»™ nhÃ¡m theo máº£ng; váº¿t ná»©t cÃ³ chiá»u sÃ¢u; chá»‰ sÃ¡ng khi Ä‘Ãºng nguá»“n gá»‘c | â€” |
+| Muá»‘i, kÃ­nh, bÄƒng | PhÃ¢n biá»‡t báº±ng Ä‘á»™ Ä‘á»¥c, cáº¡nh, khá»‘i vÃ  cÃ¡ch nháº­n sÃ¡ng | DÃ¹ng chung má»™t kiá»ƒu bÃ³ng xanh |
+
+### 4.5 Motif cá»§a ASHLAR (LD Â§4.2â€“Â§4.10)
+
+**TÆ°á»£ng khÃ´ng máº·t (Nameless Saint):**
+- Máº·t nháºµn, to hÆ¡n ngÆ°á»i tháº­t 10â€“15 %, tay Ä‘á»¡ má»™t vÃ²m; Ä‘Ã¡ xÃ¡m, khÃ´ng phÃ¡t sÃ¡ng; Ä‘áº·t á»Ÿ ngÆ°á»¡ng cá»­a.
+- TÆ°á»£ng chá»‰ Ä‘á»•i tÆ° tháº¿ khi á»Ÿ ngoÃ i mÃ n hÃ¬nh. áº¢nh tÄ©nh Ä‘Æ°á»£c váº½ Ä‘áº§u tÆ°á»£ng Ä‘Ã£ quay Ä‘i, nhÆ° á»Ÿ Prologue.
+- KhÃ´ng váº½ tÆ°á»£ng Ä‘ang chuyá»ƒn Ä‘á»™ng trÆ°á»›c cáº£nh Cathedral cá»§a Act II.
+
+**Ngá»n Ä‘Ã¨n phÃ­a trÆ°á»›c:**
+- Ãnh Ä‘Ã¨n tráº¯ng, Ä‘á»©ng yÃªn, á»Ÿ xa trong bÃ³ng tá»‘i.
+- Chá»‰ xuáº¥t hiá»‡n á»Ÿ Garden of Hush, Bell Catacombs vÃ  Old Salt Mine.
+- KhÃ´ng bao giá» váº½ ngÆ°á»i cáº§m Ä‘Ã¨n.
+
+**Widower's Light:** ngá»n lá»­a tráº¯ng á»Ÿ cá»­a sá»• cao nháº¥t Ebbmount, lÃ  "má»™t Ä‘iá»ƒm sÃ¡ng xa" cá»§a ASHLAR.
+
+**VÃ²m lÃ  hai váº­t nghiÃªng vÃ o nhau** *(Ä‘á» xuáº¥t LD)*. Má»—i act cÃ³ má»™t vÃ²m tá»± nhiÃªn, sau giá»‘ng ngÆ°á»i hÆ¡n trÆ°á»›c:
+
+| Act | VÃ²m cá»§a act |
+|---|---|
+| I | Hai Ä‘Ã¡ dá»±ng trÃªn Ä‘Ãª Dolmoor |
+| II | Hai ngÆ°á»i sÃ¡m há»‘i Ä‘Ã´ng cá»©ng trÃªn Pilgrim Road |
+| III | Hai cá»™t buá»“m Ä‘á»• vÃ o nhau á»Ÿ Wreck Fields |
+| IV | Hai ngÆ°á»i lÃ­nh Frozen Army Ä‘á»¡ nhau |
+| V | VÃ²m xÆ°Æ¡ng cÃ¡ voi dÆ°á»›i Ebbmount |
+
+CÃ¢y cá»§a Willow Bride nghiÃªng vá» khoáº£ng trá»‘ng: má»™t vÃ²m thiáº¿u má»™t viÃªn.
+
+**BÃ n tay náº¯m nhau:**
+- Giáº¥u hiáº¿m hoi trong hoa vÄƒn tÆ°á»ng xÆ°Æ¡ng *(Ä‘á» xuáº¥t LD)*.
+- Trong The Course thÃ¬ cÃ³ á»Ÿ kháº¯p nÆ¡i.
+
+**Cá»­a sá»• cÃ³ Ä‘Ã¨n:**
+- Má»Ÿ Ä‘áº§u má»—i act.
+- CÃ ng vá» sau, náº¿n cá»­a sá»• cÃ ng dÃ y *(Ä‘á» xuáº¥t LD)*.
+
+**Báº§u trá»i:**
+- Ban ngÃ y luÃ´n bá»‹ che: sÆ°Æ¡ng, muá»™i, mÃ¹ muá»‘i, cháº¡ng váº¡ng, bÃ£o. Trá»i xanh trong chá»‰ cÃ³ á»Ÿ Seamless.
+- Sao lÃ  Ä‘iá»ƒm tráº¯ng láº¡nh, khÃ´ng nháº¥p nhÃ¡y, xáº¿p hÆ¡i quÃ¡ Ä‘á»u.
+- Sá»‘ sao tÄƒng theo act *(Ä‘á» xuáº¥t LD)*.
+
+**Ossuary (máº·t TÆ°á»ng, waypoint):** luÃ´n cÃ³ ba pháº§n:
+- má»™t máº·t sá» trong vá»¯a xÃ¡m;
+- má»™t tÆ°á»£ng khÃ´ng máº·t;
+- má»™t Ä‘Ã¨n sexton.
+
+Kiá»ƒu ossuary theo vÃ¹ng:
+
+| VÃ¹ng | Kiá»ƒu ossuary |
+|---|---|
+| Dolmoor | ThÃ¡p trÃ²n Ä‘Ã¡ lá»­a mÃ¡i nÃ³n, sá» sau song sáº¯t, bÃ¡t sá»¯a cho Kind Ones |
+| Sepulcra | Há»‘c xÆ°Æ¡ng khoÃ©t trong Ä‘Ã¡ vÃ´i tráº¯ng, biá»ƒn Ä‘á»“ng ghi tÃªn ngÆ°á»i hiáº¿n |
+| Blanched Sea | Tá»§ xÆ°Æ¡ng trong thÃ¢n tÃ u máº¯c cáº¡n, giÃ¡ sá» Ä‘Ã³ng muá»‘i |
+| Hoarfast | Ossuary gá»—-Ä‘Ã¡ tháº¥p, sÆ°Æ¡ng giÃ¡ trÃªn má»i sá» |
+| Lanternshore | Hang biá»ƒn, sá» giá»¯a Ä‘Ã¡m hÃ , Ä‘á»n gá»— trÃ´i dáº¡t |
+
+**Biá»ƒu tÆ°á»£ng GiÃ¡o há»™i, thay cho thÃ¡nh giÃ¡:**
+- Wedge (hÃ¬nh Ä‘Ã¡ khoÃ¡);
+- tÆ°á»£ng khÃ´ng máº·t Ä‘á»¡ vÃ²m;
+- tro vá»¯a trÃªn trÃ¡n;
+- chuÃ´ng há»“n;
+- xáº»ng sexton;
+- quan tÃ i Ä‘inh báº¡c cá»§a Pallbearer;
+- áº¥n huyá»‡t má»Ÿ cá»§a Exhumer;
+- Wedge cÃ³ váº¿t ná»©t cá»§a phÃ¡i Odilian;
+- giÃ¡ náº¿n hÃ¬nh Wedge.
+
+### 4.6 Hai mÃ u tráº¯ng (LD Â§5.4)
+
+| MÃ u tráº¯ng | Cháº¥t | KhÃ´ng bao giá» |
+|---|---|---|
+| Act III | Muá»‘i vÃ  xÆ°Æ¡ng: má», bá»¥i, cÃ³ bá» máº·t, mÃ©p báº©n | PhÃ¡t sÃ¡ng |
+| Seamless | ChÃ­nh Ã¡nh sÃ¡ng: phÃ¡t sÃ¡ng, bloom, khÃ´ng texture | â€” |
+
+**KhÃ´ng bao giá» láº«n hai mÃ u tráº¯ng nÃ y.**
+
+---
+
+## 5. Hero (sÃ¡u nghá»)
+
+**Nguá»“n:**
+- `ASHLAR_HERO_CONCEPT_VI.md` Â§1.3â€“Â§1.4, Â§2, vÃ  Â§4â€“Â§9 (má»—i má»¥c má»™t nghá»);
+- `art/heroes/_brief/README_VI.md` Â§14â€“Â§15;
+- prompt `art/heroes/_brief/prompts_v5b/`.
+
+**SÃ¡u nghá»:** PB Pallbearer, FL Flagellant, OS Ossuarist, BR Brinecaller, EX Exhumer, PS Pyre-Singer. Má»—i nghá» cÃ³ hai hÆ°á»›ng A/B.
+
+### 5.1 Äá»‹nh dáº¡ng sheet hiá»‡n hÃ nh (v3, Ä‘Ã£ chá»‘t 20/10)
+
+Má»™t áº£nh 16:9, chia ba vÃ¹ng:
+
+1. **Má»™t pháº§n ba bÃªn trÃ¡i:** má»™t hÃ¬nh 3/4 lá»›n (gÃ³c trÆ°á»›c-trÃ¡i) **cáº§m vÅ© khÃ­**.
+   - DÃ¡ng anh hÃ¹ng tá»± tin, khÃ´ng pháº£i pose hÃ nh Ä‘á»™ng.
+   - Cao khoáº£ng 80 % canvas; nhÃ£n `3/4`.
+2. **Hai pháº§n ba bÃªn pháº£i, phÃ­a trÃªn:** bá»‘n gÃ³c `FRONT`, `LEFT`, `RIGHT`, `BACK`.
+   - CÃ¹ng má»™t Ä‘Æ°á»ng ná»n, cÃ¹ng má»™t tá»· lá»‡ nhá» hÆ¡n (khoáº£ng 55 % canvas).
+   - **A-pose, tay má»Ÿ, khÃ´ng cáº§m gÃ¬.** Má»i thá»© máº·c trÃªn ngÆ°á»i giá»¯ nguyÃªn nhÆ° á»Ÿ hÃ¬nh 3/4.
+3. **Dáº£i dÆ°á»›i:** vÅ© khÃ­ vÃ  class item váº½ riÃªng.
+   - CÃ¹ng tá»· lá»‡ vá»›i bá»‘n gÃ³c; váº­t dÃ i Ä‘áº·t náº±m ngang; má»—i mÃ³n cÃ³ nhÃ£n.
+
+**TiÃªu Ä‘á» vÃ  giá»›i háº¡n:**
+- TiÃªu Ä‘á» dáº¡ng `PB PALLBEARER â€” A`.
+- KhÃ´ng khung, khÃ´ng inset, khÃ´ng cáº£nh ná»n.
+- Sheet hero khÃ´ng cÃ³ bÃ³ng ngÆ°á»i H.
+
+### 5.2 Táº¡o hÃ¬nh (v4, Ä‘Ã£ chá»‘t 20/10)
+
+**Trang phá»¥c:**
+- Tá»‘i Ä‘a hai lá»›p váº£i.
+- DÃ¹ng da bÃ³ vÃ  giÃ¡p, thay cho Ã¡o choÃ ng nhiá»u lá»›p, khÄƒn choÃ ng, khÄƒn quáº¥n Ä‘áº§u, Ã¡o lÃ´ng. Nhiá»u lá»›p váº£i kÃ¨m lÃ´ng bá»‹ Ä‘á»c thÃ nh dÃ¢n du má»¥c tháº£o nguyÃªn.
+
+**Silhouette** mÆ°á»£n archetype class Diablo tÆ°Æ¡ng á»©ng, nhÆ°ng khÃ´ng chÃ©p trang phá»¥c:
+
+| Nghá» | Archetype Diablo |
+|---|---|
+| PB | Paladin / Crusader |
+| FL | Monk |
+| OS | Necromancer |
+| BR | Sorceress |
+| EX | Demon Hunter |
+| PS | Druid |
+
+**ThÃ¢n hiá»ƒn thá»‹** (lÃ  cÃ¡ch trÃ¬nh bÃ y, khÃ´ng khoÃ¡ giá»›i tÃ­nh cá»§a nghá»):
+- FL, OS, BR, PS lÃ  ná»¯, gá»£i cáº£m tinh táº¿: Ã¡o bÃ³, vai hoáº·c tay tráº§n, xáº» vÃ¡y.
+  - KhÃ´ng khoáº£ thÃ¢n, khÃ´ng pose gá»£i dá»¥c.
+  - LÆ°ng FL luÃ´n che kÃ­n, da khÃ´ng cÃ³ váº¿t.
+- PB vÃ  EX lÃ  nam.
+
+### 5.3 Bá» máº·t (v5, 20/10)
+
+Giá»¯ thiáº¿t káº¿ v4, **giáº£m máº¡nh texture bá» máº·t**, váº«n giá»¯ form shading.
+
+**Danh tÃ­nh giá»¯ báº±ng hÃ¬nh lá»›n,** vÃ­ dá»¥:
+- Ä‘inh lá»›n trÃªn náº¯p quan tÃ i;
+- há»‘c thÃ¡nh tÃ­ch;
+- giÃ¡p vai pha lÃª;
+- nan Ä‘Ã¨n;
+- áº¥n nÃºt tháº¯t.
+
+**KhÃ´ng váº½:** hoa vÄƒn kháº¯c, hoáº¡ tiáº¿t thÃªu, hÃ ng Ä‘inh tÃ¡n, Ä‘Æ°á»ng chá»‰, khoÃ¡ nhá».
+
+**Váº½ Ä‘Æ¡n giáº£n hoÃ¡:**
+- tÃ³c thÃ nh vÃ i lá»n lá»›n;
+- lÃ´ng thÃº thÃ nh vÃ i cá»¥m má»m lá»›n;
+- tinh thá»ƒ muá»‘i thÃ nh vÃ i máº·t cáº¯t lá»›n.
+
+### 5.4 MÃ u chá»¯ kÃ½ (v2, 20/10; palette cuá»‘i chÆ°a khoÃ¡)
+
+| Nghá» | MÃ u chá»¯ kÃ½ |
+|---|---|
+| PB | TÃ­m hoÃ ng gia + báº¡c |
+| FL | Äá» tháº«m + than há»“ng |
+| OS | ChÃ m ná»­a Ä‘Ãªm + xÆ°Æ¡ng + Ã¡nh há»“n láº¡nh |
+| BR | Teal biá»ƒn + bá»t biá»ƒn + muá»‘i xÃ¡m xanh |
+| EX | Xanh chai + Ä‘Ã¨n há»• phÃ¡ch + Ä‘á»“ng thau |
+| PS | Tráº¯ng tro + lá»­a + sÆ°Æ¡ng giÃ¡ + chá»‰ Ä‘á» |
+
+- MÃ£ HEX tá»«ng nghá» náº±m trong prompt `prompts_v5b/` vÃ  concept doc Â§4â€“Â§9.
+- Muá»‘i luÃ´n xÃ¡m xanh, sáº§n, lá»‡ch; khÃ´ng bao giá» tráº¯ng tinh hay Ä‘á»‘i xá»©ng.
+- NÆ°á»›c biá»ƒn lÃ  teal Ä‘á»¥c cÃ³ bá»t; khÃ´ng bao giá» xanh trong.
+
+### 5.5 Ãnh sÃ¡ng trÃªn hero (tá»« v2)
+
+**ÄÆ°á»£c váº½:**
+- ÄÃ¨n, than vÃ  lá»­a giÃ n thiÃªu Ä‘Æ°á»£c tháº¯p, váº½ thÃ nh váº§ng sÃ¡ng nhá».
+- OS cÃ³ cÃ¡c Ä‘iá»ƒm há»“n láº¡nh Ä‘á»©ng yÃªn.
+- Osric's Lantern: Ä‘Ã¨n sáº¯t nhá», lá»­a cam áº¥m (khÃ´ng xanh, khÃ´ng tráº¯ng), treo sau hÃ´ng pháº£i; cÃ³ trÃªn má»i sheet hero trá»« EX.
+
+**KhÃ´ng váº½:**
+- Ã¡nh tráº¯ng vÃ ng, hÃ o quang;
+- tia phÃ©p;
+- háº¡t sÃ¡ng ngoÃ i tÃ n lá»­a;
+- nháº«n phÃ¡t sÃ¡ng (nháº«n khÃ´ng bao giá» phÃ¡t sÃ¡ng).
+
+### 5.6 Prologue lineup
+
+SÃ¡u hero trong dÃ¡ng cuá»‘i Prologue:
+- váº£i liá»‡m xÃ¡m, khoÃ¡c Ã¡o len than bÃ¹n dÃ i vÃ  rá»™ng cá»§a Gennet;
+- vÅ© khÃ­ á»©ng biáº¿n;
+- bá»¥i vá»¯a, chÃ¢n tráº§n; khÃ´ng bao giá» khoáº£ thÃ¢n.
+
+Palette Act I ban Ä‘Ãªm, **khÃ´ng accent**, khÃ´ng cÃ³ Osric's Lantern.
+
+### 5.7 CÃ²n má»Ÿ
+
+- ChÆ°a chá»n A hay B cho nghá» nÃ o.
+- Palette cuá»‘i chÆ°a khoÃ¡.
+- Má»©c phÃ³ng Ä‘áº¡i tá»· lá»‡ cuá»‘i chÆ°a khoÃ¡.
+
+---
+
+## 6. QuÃ¡i vÃ  boss
+
+**Nguá»“n:**
+- `ASHLAR_QUY_CHUAN_QUAI_VI.md`: kÃ­ch thÆ°á»›c, mÃ u key, silhouette tá»«ng ID (Ä‘á» xuáº¥t, Ä‘ang review);
+- `ASHLAR_MONSTER_CHECKLIST_VI.md`: 116 ID;
+- `art/map-01-concepts/REVISION_2_VI.md`.
+
+### 6.1 Äá»‹nh dáº¡ng sheet hiá»‡n hÃ nh (rev 2, Ä‘Ã£ chá»‘t 20/10)
+
+**Má»™t hÃ ng ngang, tá»« trÃ¡i sang pháº£i:**
+1. **H:** bÃ³ng ngÆ°á»i xÃ¡m Ä‘áº­m pháº³ng, khÃ´ng máº·t, cao Ä‘Ãºng 1H.
+2. **3/4:** quÃ¡i cáº§m vÅ© khÃ­, trong tÆ° tháº¿ sáºµn sÃ ng Ä‘e doáº¡.
+3. **Ã” vÅ© khÃ­/Ä‘áº¡o cá»¥ váº½ riÃªng** (khi cÃ³).
+4. **LEFT, RIGHT, FRONT, BACK:** T-pose, tay khÃ´ng. QuÃ¡i khÃ´ng dáº¡ng ngÆ°á»i dÃ¹ng tÆ° tháº¿ Ä‘á»©ng trung tÃ­nh, chÃ¢n/cÃ¡nh/Ä‘uÃ´i tÃ¡ch khá»i thÃ¢n.
+
+**Tá»· lá»‡:**
+- Má»i gÃ³c cÃ¹ng má»™t tá»· lá»‡, cÃ¹ng Ä‘Æ°á»ng ná»n; khÃ´ng phÃ³ng to gÃ³c 3/4.
+- QuÃ¡i ráº¥t to hoáº·c ráº¥t rá»™ng (P06, B05): dÃ n hai hÃ ng, má»—i hÃ ng láº·p láº¡i H, váº«n cÃ¹ng tá»· lá»‡.
+
+**Chá»¯:** tiÃªu Ä‘á» dáº¡ng `U01 SHAMBLER â€” A`; nhÃ£n cá»™t Ä‘Ãºng thá»© tá»±.
+
+**Hai biáº¿n thá»ƒ A/B cho má»—i quÃ¡i:**
+- KhÃ¡c tháº­t vá» silhouette, cáº¥u trÃºc váº£i/giÃ¡p vÃ  vá»‹ trÃ­ phá»¥ kiá»‡n.
+- Giá»¯ cÃ¹ng danh tÃ­nh canon, cÃ¹ng kÃ­ch thÆ°á»›c, cÃ¹ng Ä‘áº¡o cá»¥ vÃ  hÃ nh vi Ä‘áº·c trÆ°ng.
+
+### 6.2 Style quÃ¡i
+
+DÃ¹ng Â§3.1 + Â§3.2 + Â§3.4.
+
+**NgÃ´n ngá»¯ zombie/ghoul kiá»ƒu Diablo:**
+- vai gÃ¹ náº·ng, ngá»±c lÃµm;
+- tay dÃ i, bÃ n tay to;
+- hÃ m trá»…, khá»›p xÆ°Æ¡ng ná»•i;
+- Ä‘e doáº¡, khÃ´ng Ä‘Ã¡ng thÆ°Æ¡ng.
+
+**Unlaid rÃ¡ch rÆ°á»›i vÃ  cÃ¡ch Ä‘iá»‡u:**
+- Má»—i lá»›p Ã¡o cÃ³ 5â€“9 dáº£i rÃ¡ch lá»›n.
+- Lá»— rÃ¡ch lá»›n Ä‘á»ƒ lá»™ thá»‹t xÃ¡m, xÆ°Æ¡ng sÆ°á»n hoáº·c sá»‘ng lÆ°ng.
+- á»ž cÃ¡c gÃ³c T-pose, dáº£i rÃ¡ch rá»§ sÃ¡t thÃ¢n Ä‘á»ƒ tay chÃ¢n váº«n Ä‘á»c Ä‘Æ°á»£c.
+
+**Äá»•i so vá»›i prompt rev 2:** bá» "soft even neutral light". Thay báº±ng Ã¡nh trung tÃ­nh tá»« trÃªn, cÃ³ form shading (Â§3.2). LÃ½ do: Ã¡nh Ä‘á»u lÃ m pháº³ng váº£i (bÃ i há»c T-pose 20/10).
+
+### 6.3 Äá»c theo há» (LD Â§8.1, Cast Â§12)
+
+| Há» | Äá»c báº±ng | Ghi chÃº khi váº½ |
+|---|---|---|
+| Unlaid (U) | TÆ° tháº¿ | Gá»¥c, lá»‡ch xÆ°Æ¡ng, phÃ¬nh, cÃµng quan tÃ i; váº£i liá»‡m vÃ  Ä‘á»“ tuá»³ tÃ¡ng thÃ nh máº£ng lá»›n |
+| Discarded (D) | Sá»«ng/mÃ³c + dÃ¡ng nghá» | Äáº¥t nung Ä‘á», men ná»©t máº£ng lá»›n; lá»­a chá»‰ á»Ÿ khe cÃ³ nghÄ©a, khÃ´ng phá»§ toÃ n thÃ¢n |
+| Warped (W) | Má»™t Ä‘áº·c trÆ°ng sinh há»c bá»‹ lÃ m sai | Giá»¯ ná»n sinh váº­t dá»… nháº­n ra |
+| Faithful (F) | Nghá», nghi thá»©c | Quá»³, mang chuÃ´ng, mang Ä‘Ã¨n, Ä‘eo vÃ²ng sáº¯t; giá»¯ Ä‘á»§ nÃ©t ngÆ°á»i |
+| Perfection-born (P) | Váº­t liá»‡u cá»§a Perfection | Xem báº£ng ngay dÆ°á»›i |
+| Lodge's servants (L) | Trá»ng lÆ°á»£ng Ä‘Ã¡, hÃ¬nh há»c Ä‘o Ä‘áº¡c | **KhÃ´ng bao giá» tá»± phÃ¡t sÃ¡ng:** khÃ´ng máº¯t sÃ¡ng, khÃ´ng viá»n sÃ¡ng, khÃ´ng lá»­a |
+| The Perfect (X) | Sá»± thiáº¿u chi tiáº¿t | Bá» máº·t trá»‘ng báº¥t thÆ°á»ng; khÃ´ng bÃ¹ báº±ng hoa vÄƒn |
+
+**Váº­t liá»‡u cá»§a tá»«ng Perfection:**
+
+| Perfection | Váº­t liá»‡u |
+|---|---|
+| Mercy | Váº£i lanh, bÃ n tay |
+| Devotion | Sáº¯t, chuÃ´ng |
+| Purity | Muá»‘i, kÃ­nh |
+| Memory | Lá», váº­t lÆ°u giá»¯ |
+| Hope | ÄÃ¨n, má»“i nhá»­ |
+
+**Boss:**
+- Má»™t Ã½ tÆ°á»Ÿng Ä‘á»§ máº¡nh khi nhÃ¬n á»Ÿ thumbnail, cá»™ng má»™t Ä‘áº·c trÆ°ng chuyá»ƒn Ä‘á»™ng.
+- KÃ­ch thÆ°á»›c theo cÆ¡ cháº¿ vÃ  camera arena; khÃ´ng máº·c Ä‘á»‹nh gáº¥p má»™t con sá»‘ cá»‘ Ä‘á»‹nh so vá»›i hero.
+
+### 6.4 MÃ u quÃ¡i (Quy chuáº©n quÃ¡i Â§2.2â€“Â§2.4)
+
+**Hai lá»›p mÃ u:**
+- **tint há»:** ná»n váº­t liá»‡u chung cá»§a há» quÃ¡i;
+- **accent act:** má»™t mÃ u bÃ£o hoÃ  theo act (LD Â§5.4). **Má»—i quÃ¡i chá»‰ má»™t accent.**
+
+**Ngoáº¡i lá»‡:**
+- QuÃ¡i Prologue (U01, U02, W01, B01): khÃ´ng accent.
+- Lodge (L01â€“L04): khÃ´ng accent, khÃ´ng phÃ¡t sÃ¡ng.
+- Act III: Ä‘á» `#9E1B1B` chá»‰ á»Ÿ dáº¡ng mÃ¡u (váº¿t, giá»t, vá»‡t); khÃ´ng dÃ¹ng cho váº­t liá»‡u, máº¯t hay pháº§n phÃ¡t sÃ¡ng.
+
+**KhÃ´ng lÃ m:**
+- nhuá»™m cáº£ con theo mÃ u act náº¿u lÃ m máº¥t tÆ°Æ¡ng pháº£n vá»›i ná»n;
+- dÃ¹ng mÃ u rarity cá»§a loot lÃ m mÃ u quÃ¡i.
+
+**Báº£ng mÃ u cÃ³ sáºµn:**
+- 30 quÃ¡i Map 1: `REVISION_2_VI.md`;
+- cÃ¡c ID khÃ¡c: Quy chuáº©n quÃ¡i Â§4.
+
+### 6.5 KÃ­ch thÆ°á»›c theo H
+
+**ÄÆ¡n vá»‹:**
+- **H** lÃ  chiá»u cao thÃ¢n hero Ä‘á»©ng trung tÃ­nh.
+- KÃ½ hiá»‡u: `h` chiá»u cao (quÃ¡i hai chÃ¢n), `V` chiá»u cao vai (quÃ¡i bá»‘n chÃ¢n), `L` chiá»u dÃ i, `W` bá» ngang hoáº·c sáº£i cÃ¡nh.
+- Sá»‘ liá»‡u theo Quy chuáº©n quÃ¡i (Ä‘á» xuáº¥t); mÃ´ táº£ canon lÃ  gá»‘c.
+
+**Ã‰p tá»· lá»‡ khi gen:** chá»‰ ghi kÃ­ch thÆ°á»›c báº±ng chá»¯ thÃ¬ khÃ´ng Ä‘á»§, vÃ¬ model kÃ©o má»i con vá» gáº§n 1H. Pháº£i lÃ m thÃªm:
+- **LuÃ´n gáº¯n khung tá»· lá»‡** váº½ báº±ng code lÃ m áº£nh thá»© hai: bÃ³ng H Ä‘Ãºng 1H, Ä‘Æ°á»ng ná»n, váº¡ch chiá»u cao cÃ³ nhÃ£n, thÆ°á»›c Ä‘o chiá»u dÃ i. Máº«u á»Ÿ `art/map-01-concepts/_brief/templates_r2/`.
+- **Con nhá»:** thÃªm khá»‘i Ä‘á»‹nh vá»‹ má» cho tá»«ng gÃ³c.
+- **Con bay hoáº·c Ä‘áº­u:** thÃªm Ä‘oáº¡n PIXEL CHECK, vÃ­ dá»¥ "human is N px; every view â‰¤ M px".
+
+**QA:** Ä‘o so vá»›i bÃ³ng ngÆ°á»i, **khÃ´ng** so vá»›i váº¡ch do model váº½, vÃ¬ model cÃ³ thá»ƒ tá»± dá»i váº¡ch.
+
+### 6.6 Lá»—i hay gáº·p
+
+- **GÃ³c LEFT/RIGHT á»Ÿ T-pose:**
+  - model váº½ tay chÄ©a ra trÆ°á»›c thay vÃ¬ cho tháº¥y tay theo chiá»u Ä‘áº§u tay;
+  - Ä‘Ã´i khi nhÃ£n LEFT/RIGHT bá»‹ Ä‘áº£o so vá»›i hÆ°á»›ng máº·t;
+  - khi tÃ¡ch gÃ³c cho Tripo, xÃ¡c Ä‘á»‹nh gÃ³c theo ná»™i dung hÃ¬nh, khÃ´ng theo nhÃ£n.
+- **QuÃ¡i ráº¥t nhá»** (P03 Hush-Moths) váº«n ra to khoáº£ng 1,7Ã—. BÆ°á»›m, chuá»™t, quáº¡ cáº§n khá»‘i Ä‘á»‹nh vá»‹ vÃ  PIXEL CHECK.
+- **Sinh váº­t gáº§y** bá»‹ biáº¿n thÃ nh goblin cÆ¡ báº¯p khi Ä‘á»•i pose. Ghi rÃµ "thin, lean, same build as the concept".
+
+---
+
+## 7. MÃ´i trÆ°á»ng
+
+### 7.1 Terrain
+
+**Chuáº©n `stylized2`:**
+- vÃ i máº£ng rá»™ng; rá»… vÃ  lÃ¡ chá»‰ lÃ  nÃ©t phá»¥;
+- bÃ¹n chuyá»ƒn sáº¯c má»m, pháº£n sÃ¡ng tiáº¿t cháº¿;
+- cá» Ä‘á»c thÃ nh cá»¥m lÃ¡, khÃ´ng thÃ nh nhiá»…u háº¡t;
+- Ä‘Æ°á»ng Ä‘Ã¡ dÃ¹ng **viÃªn lá»›n**; báº£n Ä‘Ã¡ nhá» `stylized3` Ä‘Ã£ bá»‹ loáº¡i;
+- khÃ´ng viá»n tráº¯ng quanh tá»«ng viÃªn Ä‘Ã¡.
+
+**Táº¡o tile:**
+- Prompt dÃ¹ng Â§3.5; áº£nh style lÃ  `terrain-biomes-v2-stylized/style_ref.png`.
+- Palette láº¥y tá»« tháº» biome (Biome vÃ  khu vá»±c Â§4) hoáº·c tháº» mood map; ghi HEX vÃ o prompt.
+
+**Chá»‹u Ä‘Æ°á»£c lÃ¡t láº·p:**
+- trÃ¡nh vÅ©ng sÃ¡ng, rá»… cÃ³ hÃ¬nh Ä‘áº·c biá»‡t, cá»¥m cá» Ä‘áº·t Ä‘á»u;
+- duyá»‡t cáº£ áº£nh láº·p 2Ã—2 / 3Ã—3 vÃ  áº£nh á»Ÿ khoáº£ng cÃ¡ch chÆ¡i.
+
+**Háº­u ká»³:**
+- LÃ m liá»n mÃ©p báº±ng phÃ¢n rÃ£ tuáº§n hoÃ n (periodic decomposition); khÃ´ng dÃ¹ng cÃ¡ch dá»‹ch ná»­a Ã´.
+- Normal map táº¡o báº±ng `image_gen` edit tá»« albedo (OpenGL); sá»­a mÃ©p trÆ°á»›c khi dá»‹ch.
+
+**Trong game:** blend giá»¯a cÃ¡c váº­t liá»‡u má»m vÃ  rá»™ng (khoáº£ng 1,5â€“3 m), khÃ´ng cáº¯t gáº¯t.
+
+### 7.2 Sheet asset mÃ´i trÆ°á»ng (Ä‘Ã£ chá»‘t 20/10)
+
+- **Bá»‘ cá»¥c:** khoáº£ng 6 asset má»™t áº£nh, lÆ°á»›i 3Ã—2 Ä‘Ã¡nh sá»‘ 1â€“6.
+  - Má»—i Ã´ má»™t asset, cÃ³ bÃ³ng ngÆ°á»i 1H cÃ¹ng Ä‘Æ°á»ng ná»n.
+- **Thá»© tá»± táº¡o:**
+  1. sheet **perspective** (gÃ³c 3/4 nhÃ¬n hÆ¡i tá»« trÃªn);
+  2. sheet **turnaround** (bá»‘n gÃ³c cá»§a tá»«ng Ã´), dÃ¹ng sheet perspective lÃ m tham chiáº¿u.
+- **Ãnh sÃ¡ng vÃ  chi tiáº¿t:** Ã¡nh sÃ¡ng ngÃ y trung tÃ­nh; dáº¥u vÃ¡ cá»§a ngÆ°á»i chá»‰ lÃ  vÃ i máº£ng lá»›n.
+- **Lá»—i hay gáº·p:** asset lá»›n (cÃ¢y, thÃ¡p, cá»•ng) hay bá»‹ váº½ nhá» hÆ¡n sá»‘ Ä‘o. Khi dá»±ng model, láº¥y kÃ­ch thÆ°á»›c theo spec.
+
+### 7.3 Kiáº¿n trÃºc, cÃ¢y cá», bá»‘ cá»¥c
+
+**Kiáº¿n trÃºc:**
+- Äá»c cÃ´ng trÃ¬nh theo thá»© tá»±: khá»‘i lá»›n â†’ cá»­a/vÃ²m â†’ há»‡ chá»‘ng Ä‘á»¡ â†’ váº­t liá»‡u â†’ dáº¥u sá»­ dá»¥ng.
+- Má»—i nÆ¡i chá»n motif há»£p vá»›i cÃ¢u chuyá»‡n; khÃ´ng gáº¯n má»i biá»ƒu tÆ°á»£ng lÃªn má»i asset.
+
+**CÃ¢y cá»:**
+- Cá» thÃ nh cá»¥m lá»›nâ€“vá»«aâ€“nhá» báº¥t Ä‘á»u, cÃ³ khoáº£ng Ä‘áº¥t trá»‘ng giá»¯a cÃ¡c cá»¥m.
+- CÃ¢y lá»›n táº¡o khung; cÃ nh tiá»n cáº£nh khÃ´ng che vÃ¹ng giao tranh.
+- PhÃ¢n biá»‡t biome báº±ng hÃ¬nh thÃ¢n, tÃ¡n vÃ  Ä‘á»™ dÃ y cá»¥m, khÃ´ng chá»‰ báº±ng Ä‘á»•i mÃ u.
+- ÄÃ¡ rÃªu vÃ  bá»¥i cá» khÃ´ng thÃ nh Ä‘iá»ƒm sÃ¡ng nháº¥t náº¿u khÃ´ng mang thÃ´ng tin gameplay.
+
+**Wild:**
+- CÃ³ má»™t landmark nhÃ¬n tháº¥y tá»« pháº§n lá»›n khu.
+- ÄÃ­ch cá»§a act nhÃ¬n tháº¥y Ä‘Æ°á»£c tá»« Ã­t nháº¥t má»™t chá»— cao (LD Â§7.4).
+
+### 7.4 Concept cáº£nh vÃ  key art
+
+- **Khá»‘i prompt:** Â§3.7, cá»™ng palette vÃ  cá»™t "Cáº¥m" cá»§a act (Â§8) vÃ  tháº» mood map.
+- **Chá»§ thá»ƒ Æ°u tiÃªn:** hÃ¬nh "pháº£i nhá»›" cá»§a area (Â§10).
+- **Bá»‘ cá»¥c:** má»™t Ä‘iá»ƒm sÃ¡ng xa giá»¯a khá»‘i tá»‘i lá»›n.
+
+---
+
+## 8. MÃ u theo act (LD Â§5.4)
+
+- ÄÃ¢y lÃ  swatch khá»Ÿi Ä‘iá»ƒm cá»§a LD, khÃ´ng pháº£i mÃ u pixel cuá»‘i.
+- Mood tá»«ng map cÃ³ thá»ƒ dá»‹ch cÃ¡c mÃ u nÃ y (Â§2), nhÆ°ng **cá»™t "Cáº¥m" váº«n giá»¯**.
+
+| Cháº·ng | Ná»n | Accent | Ãnh sÃ¡ng | Cáº¥m |
+|---|---|---|---|---|
+| Prologue | Palette Act I, ban Ä‘Ãªm | **KhÃ´ng cÃ³** | ÄÃ¨n cá»§a Gennet lÃ  mÃ u áº¥m Ä‘áº§u tiÃªn cá»§a game | NhÆ° Act I |
+| Act I Â· Dolmoor | Xanh xÃ¡m Æ°á»›t `#5E6B5A`, Ä‘en Ä‘áº§m `#1F2A24`, than bÃ¹n `#4A3526`, sÆ°Æ¡ng `#A9B1A6` | Äá» anh tÃºc `#B3262A` | Há»• phÃ¡ch náº¿n `#E0A050`; Ä‘Ã¨n ngá»§ há»“ng nháº¡t dÆ°á»›i lÃ²ng Ä‘áº¥t | Ãnh náº¯ng; tráº¯ng sáº¡ch á»Ÿ báº¥t cá»© Ä‘Ã¢u trá»« váº£i lanh cá»§a Mercy |
+| Act II Â· Sepulcra | Äen muá»™i `#17151A`, tráº¯ng xÆ°Æ¡ng `#E6DFCF` | Cam giÃ n thiÃªu `#E2622B` | VÃ ng náº¿n `#D9A441`; kÃ­nh mÃ u xanh Ä‘áº­m vÃ  Ä‘á» tháº«m, chá»‰ qua cá»­a sá»• | Xanh lÃ¡; Ã¡nh ngÃ y trong háº§m má»™ |
+| Act III Â· Blanched Sea | Tráº¯ng xÆ°Æ¡ng `#EDEAE0`, trá»i sá»¯a `#DCE3E6`, teal nÆ°á»›c muá»‘i `#3F8C88`, gá»‰ `#8A4B2D` | Äá» mÃ¡u trÃªn muá»‘i `#9E1B1B` | ChÃ³i tá»« trÃªn; khÃ´ng cÃ³ bÃ³ng lÃºc trÆ°a | Má»i mÃ u Ä‘á» trá»« mÃ¡u; mÃ u sáº¯c bÃªn ngoÃ i Undercity |
+| Act IV Â· Hoarfast | BÄƒng xanh Ä‘en `#14202E`, xanh sÆ°Æ¡ng `#6F8FA8` | MÃ u Ä‘Ã¡ quÃ½ cÅ©: garnet `#7A3B47`, emerald `#3F6B5A`, vÃ ng cÅ© `#B59A5B` | ÄÃ¨n há»• phÃ¡ch `#E5A44C` trong hoÃ ng hÃ´n báº¥t táº­n | Tuyáº¿t tráº¯ng tinh (tuyáº¿t xanh trong bÃ³ng, há»• phÃ¡ch dÆ°á»›i Ä‘Ã¨n) |
+| Act V Â· Lanternshore | Slate bÃ£o `#3B4650`, xanh biá»ƒn `#2F5A52`, Ä‘Ã¡ Æ°á»›t Ä‘en `#121417`, bá»t tráº¯ng `#E8EEEA` | VÃ ng Ä‘Ã¨n `#F2C14E` | ÄÃ¨n háº£i Ä‘Äƒng quÃ©t; ngá»n lá»­a tráº¯ng `#F8F6EE` | Trá»i quang; Ã¡nh náº¯ng trÆ°á»›c Epilogue |
+| The Course | Ochre `#A57F45`, xÆ°Æ¡ng `#D8CCB0`, xÃ¡m áº¥m `#8C847A` | â€” | Chá»‰ Ã¡nh tráº¯ng qua khe | Má»i Ã¡nh áº¥m, trá»« Ã¡nh lÃ² Discarded nÆ¡i Spoil xuyÃªn vÃ o |
+| The Seamless | Tráº¯ng tinh, vÃ ng `#F4D58D`, trá»i xanh hoÃ n háº£o `#8EC9F0` | â€” | ChÃ¡y sÃ¡ng, bloom | Texture, váº¿t mÃ²n, má»i bÃ³ng Ä‘á»• trá»« bÃ³ng cá»§a hero |
+
+- **Loot (LD Â§5.5):** Rubble xÃ¡m, Hewn xanh dÆ°Æ¡ng, Dressed vÃ ng, Graven cam, Hallowed vÃ ng kim. KhÃ´ng dÃ¹ng cÃ¡c mÃ u nÃ y lÃ m accent mÃ´i trÆ°á»ng lá»›n.
+- **Telegraph:** Ä‘á»c báº±ng hÃ¬nh vÃ  nhá»‹p trÆ°á»›c, mÃ u sau. Äá» cáº£nh bÃ¡o pháº£i Ä‘á»c Ä‘Æ°á»£c trÃªn mÃ¡u cá»§a Act III vÃ  lá»­a cá»§a Act II.
+
+---
+
+## 9. Thá»© tá»± biome theo tiáº¿n trÃ¬nh chÆ¡i
+
+- **Nguá»“n:** tuyáº¿n Main/Side trong LD Â§10, Â§11.1, Â§12.1, Â§13.1, Â§14.1, Â§15.1; mÃ£ biome theo file Biome vÃ  khu vá»±c Â§5.
+- **KÃ½ hiá»‡u:** â†º lÃ  quay láº¡i má»™t biome Ä‘Ã£ gáº·p trÆ°á»›c Ä‘Ã³ trÃªn Ä‘Æ°á»ng chÃ­nh.
+
+| # | Cháº·ng | Biome | Area |
+|---|---|---|---|
+| 1 | Prologue | BIO-04 Háº§m xÆ°Æ¡ng & vÆ°á»n Ä‘áº¥t | The Old Face |
+| 2 | Prologue | BIO-03 LÃ ng Ä‘Ã¡ lá»­a & sÃ¢n nhÃ  thá» | SÃ¢n nhÃ  thá» Lychgate, Ä‘Ãªm Vigil |
+| 3 | I | BIO-03 â†º | Lychgate (hub) â†’ Churchyard |
+| 4 | I | BIO-01 Äáº§m láº§y & lÃ ng nÆ°á»›c | Night Fens â†’ Rook's Weir |
+| 5 | I | BIO-02 Äá»“ng thuá»‘c phiá»‡n | Poppy Reach |
+| 6 | I | BIO-05 Hospice vÃ´i tráº¯ng | Gentle House |
+| 7 | I | BIO-04 â†º | Garden of Hush |
+| 8 | I | BIO-27 Cell | The Cradle |
+| 9 | II | BIO-09 ÄÃ¨o tuyáº¿t-tro | Pilgrim Road |
+| 10 | II | BIO-07 ThÃ nh báº­c Sepulcra | Lowcourse (hub) â†’ Stair of Penitence â†’ Chancery |
+| 11 | II | BIO-08 NhÃ  thá» & háº§m chuÃ´ng | Bell Catacombs â†’ Scriptorium â†’ Cathedral (yÃªn, rá»“i chÃ¡y) |
+| 12 | II | BIO-27 â†º | Kneeling Vault |
+| 13 | III | BIO-10 Biá»ƒn khÃ´ | White Road |
+| 14 | III | BIO-11 Hulk tráº¯ng & Namakhar | Namakhar (hub) |
+| 15 | III | BIO-12 Háº§m dÆ°á»›i Hulk | Undercity (cÃ¹ng má»™t bÆ°á»›c vá»›i Namakhar) |
+| 16 | III | BIO-11 â†º | Lye Baths |
+| 17 | III | BIO-10 â†º | Garden of Pillars |
+| 18 | III | BIO-06 Má» & Spoil (báº£n muá»‘i) | Old Salt Mine |
+| 19 | III | BIO-11 â†º | White Spire |
+| 20 | III | BIO-27 â†º | Salt Cell |
+| 21 | IV | BIO-14 BÄƒng Hoarfast | Frozen Army |
+| 22 | IV | BIO-16 Vesnagrad & vÆ°á»n kÃ­nh | Vesnagrad (hub) â†’ cuá»™c vÃ¢y thÃ nh |
+| 23 | IV | BIO-17 PhÃ²ng Æ°á»›p & kho lá» | Stillroom |
+| 24 | IV | BIO-15 Äá»“i tro lá»­a táº¿ | Pyre-groves (giÃ n thiÃªu Gennet) |
+| 25 | IV | BIO-14 â†º | Rimewood |
+| 26 | IV | BIO-17 â†º | Archive of Faces |
+| 27 | IV | BIO-27 â†º | Unforgetting Deep |
+| 28 | V | BIO-18 Wrackhaven | Hub ban ngÃ y |
+| 29 | V | BIO-19 VÃ¡ch Ä‘Ã¡ & háº£i Ä‘Äƒng | Cliffs and lighthouses |
+| 30 | V | BIO-21 NÆ°á»›c & tÃ u chÃ¬m | Sunken Chapel |
+| 31 | V | BIO-18 â†º | Wrackhaven by night |
+| 32 | V | BIO-20 Lá»™ triá»u & rá»«ng táº£o | Long Sands |
+| 33 | V | BIO-22 Tu viá»‡n thuá»· triá»u Ebbmount | Ebbmount Abbey |
+| 34 | V | BIO-23 The Course | BÃªn trong TÆ°á»ng |
+| 35 | V | BIO-25 The Seamless | Khu cuá»‘i |
+| 36 | Ending | BIO-24 Cá»•ng keystone | The keystone gate |
+
+**NhÃ¡nh phá»¥:**
+
+| Act | Area phá»¥ | Biome | VÃ o tá»« |
+|---|---|---|---|
+| I | Edda's Dream | BIO-26 | Lychgate |
+| I | Háº§m gia Ä‘Ã¬nh Barrow (side space dÆ°á»›i ossuary, khÃ´ng pháº£i area riÃªng) | â€” | Lychgate |
+| I | Willow Mere | BIO-01 | Ráº½ tá»« Night Fens |
+| I | Flint Delvings | BIO-06 (báº£n Ä‘Ã¡ lá»­a) | Ráº½ tá»« Poppy Reach |
+| III | Wreck Fields | BIO-10 | Ráº½ tá»« White Road |
+| III | Ship's Heart | BIO-13 | Táº§ng Ä‘Ã¡y cá»§a Hulk |
+| V | Wrack-Woods | BIO-20 | Chá»‰ má»Ÿ khi nÆ°á»›c rÃºt |
+| V | Dawn Ship | BIO-21 | NhÃ¡nh phá»¥ |
+
+Side quest khÃ´ng cÃ³ area riÃªng thÃ¬ náº±m trong area Ä‘Ã£ cÃ³ vÃ  khÃ´ng thÃªm biome.
+
+**Biome quay láº¡i thÃ¬ khÃ¡c á»Ÿ Ä‘Ã¢u:**
+
+| Biome | Láº§n Ä‘áº§u | Quay láº¡i | Láº§n sau khÃ¡c á»Ÿ chá»— |
+|---|---|---|---|
+| BIO-03 | SÃ¢n nhÃ  thá» Ä‘Ãªm Vigil | Lychgate + Churchyard | ÄÃªm mÆ°a khÃ´ng accent â†’ ban ngÃ y |
+| BIO-04 | The Old Face | Garden of Hush | Ossuary gáº§n nhÆ° tá»‘i háº³n â†’ háº§m má»™ thÃ nh vÆ°á»n ngÆ°á»i ngá»§, anh tÃºc má»c tá»« miá»‡ng |
+| BIO-27 | The Cradle (I) | Kneeling Vault (II), Salt Cell (III), Unforgetting Deep (IV) | Váº­t liá»‡u theo Perfection: váº£i lanh â†’ sáº¯t â†’ kÃ­nh muá»‘i â†’ lá» |
+| BIO-10 | White Road | Garden of Pillars | Äá»“ng muá»‘i trá»‘ng tráº£i â†’ vÆ°á»n tÆ°á»£ng muá»‘i khÃ©p kÃ­n |
+| BIO-11 | Namakhar | Lye Baths, White Spire | Boong tÃ u kiÃªm thÃ nh phá»‘ â†’ nhÃ  táº¯m kiá»m â†’ thÃ¡p tráº¯ng dá»±ng Ä‘á»©ng |
+| BIO-14 | Frozen Army | Rimewood | Äá»“ng bÄƒng cÃ³ Ä‘á»™i quÃ¢n Ä‘Ã³ng bÄƒng â†’ rá»«ng bÄƒng, tuyáº¿t bay ngÆ°á»£c |
+| BIO-17 | Stillroom | Archive of Faces | XÆ°á»Ÿng Æ°á»›p ngÆ°á»i â†’ thÆ° viá»‡n lá» máº·t ngÆ°á»i |
+| BIO-18 | Hub ban ngÃ y | Wrackhaven by night | CÃ¹ng thá»‹ tráº¥n; ban Ä‘Ãªm ngÆ°á»i cháº¿t vá» gÃµ cá»­a |
+
+Hai biome láº·p láº¡i nhÆ°ng láº§n Ä‘áº§u náº±m á»Ÿ nhÃ¡nh phá»¥:
+- **BIO-06:** Flint Delvings (phá»¥) â†’ Old Salt Mine (chÃ­nh).
+- **BIO-20:** Wrack-Woods (phá»¥) â†’ Long Sands (chÃ­nh).
+
+**Ghi chÃº:**
+- ÄÆ°á»ng chÃ­nh Ä‘i qua 25/27 biome. BIO-13 vÃ  BIO-26 chá»‰ cÃ³ á»Ÿ nhÃ¡nh phá»¥.
+- **Act IV chÆ¡i khÃ¡c thá»© tá»± sá»‘ má»¥c.** Rimewood (14.3) vÃ  pyre-groves (14.4) Ä‘áº¿n **sau** Stillroom (LD Â§14.1). LD Â§14.3 cÅ©ng ghi Rimewood lÃ  Ä‘Æ°á»ng tá»›i Archive sau khi Gennet cháº¿t. Báº£ng Â§5 cá»§a file biome xáº¿p theo sá»‘ má»¥c, khÃ´ng theo thá»© tá»± chÆ¡i.
+- **Tráº¡ng thÃ¡i "after":** sau má»—i act, hub vÃ  wild chuyá»ƒn sang tráº¡ng thÃ¡i sau act. Biome giá»¯ nguyÃªn, chá»‰ Ä‘á»•i tráº¡ng thÃ¡i. Khi lÃ m asset hub hoáº·c wild, váº½ cáº£ hai báº£n.
+- **Ná»™i dung má»Ÿ thÃªm:**
+  - **Remembrances (tá»« sau Act IV):** Ä‘Ã¡nh láº¡i boss trong arena cÃ³ lá»›p "kÃ½ á»©c": mÃ©p kÃ­nh bÄƒng, tuyáº¿t bay ngÆ°á»£c, máº¥t háº¿t mÃ u trá»« accent cá»§a act.
+  - **Inner Course (sau ending):** dungeon vÃ´ táº­n gá»“m BIO-23 cá»™ng váº­t liá»‡u Perfection theo Tide.
+  - **Tide:** má»—i mÃ¹a phá»§ lá»›p overlay lÃªn cÃ¡c khu cÅ©.
+
+---
+
+## 10. Prologue, Act I, Act II: ngÆ°á»i chÆ¡i lÃ m gÃ¬ vÃ  hÃ¬nh pháº£i cÃ³
+
+**CÃ¡ch Ä‘á»c:**
+- Má»—i area ghi hai pháº§n:
+  - **LÃ m gÃ¬:** gameplay.
+  - **HÃ¬nh:** hÃ¬nh pháº£i nhá»› (má»¥c "Remember" cá»§a LD, in Ä‘áº­m) cÃ¹ng cÃ¡c chi tiáº¿t look.
+- Thá»i gian lÃ  Æ°á»›c tÃ­nh cá»§a LD.
+- *(Ä‘á» xuáº¥t LD)* lÃ  má»¥c LD gáº¯n Proposal.
+- Act IIIâ€“V chÆ°a viáº¿t chi tiáº¿t; táº¡m dÃ¹ng LD Â§13â€“Â§15 vÃ  file biome.
+
+### 10.1 Prologue â€” *The Millennial Vigil* (khoáº£ng 15 phÃºt)
+
+**Bá»‘i cáº£nh:** ná»­a Ä‘Ãªm chuyá»ƒn tá»« nÄƒm 999 sang nÄƒm 1000 AL. ÄÃ¢y lÃ  tutorial: hero chui ra tá»« TÆ°á»ng vÃ  cháº¡y vá» phÃ­a Ã¡nh sÃ¡ng Ä‘áº§u tiÃªn.
+
+**Dáº¡y ngÆ°á»i chÆ¡i:**
+- di chuyá»ƒn, Ä‘Ã¡nh, nÃ©;
+- light radius;
+- nghe trÆ°á»›c khi tháº¥y;
+- Rite of Laying (chá»‰ xem Gennet lÃ m);
+- ranh giá»›i cá»§a Ã¡nh sÃ¡ng.
+
+**Palette:** Act I ban Ä‘Ãªm, khÃ´ng accent.
+
+#### Cold open
+
+- DÃ¢n lÃ ng hÃ¡t *"Hold fastâ€¦ until the lastâ€¦"*, chuÃ´ng vang, rá»“i má»i ngá»n náº¿n á»Ÿ Ashlar táº¯t trong má»™t hÆ¡i thá»Ÿ.
+- Xa vá» phÃ­a tÃ¢y, ngá»n Ä‘Ã¨n á»Ÿ cá»­a sá»• má»™t tu viá»‡n táº¯t rá»“i bÃ¹ng tráº¯ng. ÄÃ¢y lÃ  láº§n Ä‘áº§u Widower's Light xuáº¥t hiá»‡n.
+- Shot ngáº¯n, rá»™ng.
+
+#### The Old Face (BIO-04, 6 phÃºt)
+
+**LÃ m gÃ¬:**
+- BÃ² qua ossuary gáº§n nhÆ° tá»‘i háº³n. *(Ä‘á» xuáº¥t LD)* Hero bÃ², chÆ°a cháº¡y Ä‘Æ°á»£c.
+- Hai hoáº·c ba tráº­n nhá»: Shambler gÃµ trong há»‘c rá»“i xÃ´ng ra; Mortar-Rat tá»« bá»©c tÆ°á»ng áº¥m.
+- KhÃ´ng cÃ³ pop-up; khÃ´ng gian tá»± dáº¡y ngÆ°á»i chÆ¡i.
+
+**HÃ¬nh:**
+- **BÃ n tay náº¯m bÃ n tay, rá»“i bÃ n tay kia vá»¡ thÃ nh bá»¥i.**
+- Äi tá»« Ã¡nh tráº¯ng láº¡nh cá»§a cÃ¡i lá»— phÃ­a sau sang Ä‘Ã¨n há»• phÃ¡ch cá»§a Gennet phÃ­a trÆ°á»›c. Ãnh sÃ¡ng Ä‘áº§u tiÃªn lÃ  cá»§a TÆ°á»ng, thá»© hai lÃ  cá»§a Gennet.
+- Sá» vÃ  xÆ°Æ¡ng dÃ i trong vá»¯a xÃ¡m áº¥m, áº©m; náº¿n Vigil Ä‘Ã£ táº¯t.
+- DÃ²ng chá»¯ *BE KIND TO THEM*.
+- TrÆ°á»›c Old Face: má»™t gháº¿ gá»—, má»™t táº¥m chÄƒn gáº¥p, tÃ n thuá»‘c táº©u.
+- BÃ³ng hero xÃ¡m cÃ³ viá»n sÃ¡ng tá»« lá»— tráº¯ng phÃ­a sau.
+
+#### Lychgate churchyard (BIO-03, 9 phÃºt)
+
+**LÃ m gÃ¬:**
+- Cháº¡y dÆ°á»›i mÆ°a xuá»‘ng cá»•ng lychgate cÃ¹ng Gennet.
+- QuÃ¡i: Shambler trá»“i lÃªn theo Ä‘á»£t (Ä‘áº¥t phá»“ng lÃªn trÆ°á»›c má»—i con), Charnel Dead, Mortar-Rat.
+- Mini-boss **Sexton's Dog**: dÃ¹ng Ä‘á»ƒ dáº¡y nÃ©, khÃ´ng khÃ³.
+- Xem Gennet lÃ m Rite of Laying.
+- BÆ°á»›c qua cá»•ng lÃ  háº¿t Prologue.
+
+**HÃ¬nh:**
+- **MÃ¡i lychgate cÃ³ Ä‘Ã¨n trong mÆ°a, vÃ  tÆ°á»£ng khÃ´ng máº·t Ä‘Ã£ quay sang nhÃ¬n báº¡n.** KhÃ´ng nháº¥n tÆ°á»£ng báº±ng camera hay Ã¢m thanh.
+- Má»™t tuyáº¿n dá»‘c tá»« cá»­a nhÃ  thá» xuá»‘ng; cá»•ng cÃ³ Ä‘Ã¨n nhÃ¬n tháº¥y ngay tá»« báº­c nhÃ  thá».
+- Má»™ tháº¥p; thuá»· tÃ¹ng chá»‰ á»Ÿ rÃ¬a.
+- Mortsafe bá»‹ báº» tá»« bÃªn trong; náº¿n hÅ© trÃªn má»i ngÃ´i má»™ Ä‘á»u táº¯t.
+- Cá»­a sá»• lÃ ng mÃ u há»• phÃ¡ch sau sÆ°Æ¡ng.
+- ThÃ¡p ossuary trÃ²n, nhÃ  thá» Ä‘Ã¡ lá»­a.
+
+### 10.2 Act I â€” *The Gentle House* (Dolmoor, 3,5â€“4,5 giá»)
+
+**Bá»‘i cáº£nh:**
+- Ba nÄƒm nay bá»‡nh Hush lan kháº¯p Dolmoor: ngÆ°á»i bá»‡nh ngá»§ má»‰m cÆ°á»i rá»“i khÃ´ng dáº­y, Ä‘Æ°á»£c khiÃªng lÃªn Gentle House.
+- NgÆ°á»i ngá»§ á»Ÿ nhÃ  má»™ng du qua Ä‘áº§m, hÃ¡t má»™t bÃ i ru.
+
+**ThÃ´ng tin chung:**
+
+| Má»¥c | Ná»™i dung |
+|---|---|
+| Perfection | Eleisa (Mercy); cÃ¡m dá»— lÃ  **nghá»‰ ngÆ¡i** |
+| Há»‡ thá»‘ng má»›i | Rite of Laying, light radius, nghe trÆ°á»›c khi tháº¥y, ngá»§/cháº­m |
+| MÃ¹a | XuÃ¢n mÆ°a; sÆ°Æ¡ng náº±m trong trÅ©ng tá»›i trÆ°a |
+| Chuyá»ƒn mÃ u | Tá»« xanh Æ°á»›t sang tráº¯ng lanh vÃ  Ä‘á» anh tÃºc khi tá»›i gáº§n Gentle House |
+| HÃ¬nh cá»§a act | Cá»­a sá»• áº¥m trÃªn Ä‘á»“i, nhÃ¬n qua nÆ°á»›c Ä‘en, cÃ³ tiáº¿ng ru vá»ng ra |
+
+*(Ä‘á» xuáº¥t LD)* Gentle House nhÃ¬n tháº¥y Ä‘Æ°á»£c tá»« Churchyard, Night Fens, Rook's Weir vÃ  Poppy Reach. ÄÃ³ lÃ  Ã¡nh sÃ¡ng sÃ¡ng nháº¥t vÃ  Ä‘á»©ng yÃªn nháº¥t cá»§a act.
+
+#### ÄÆ°á»ng chÃ­nh
+
+1. **Lychgate (hub, BIO-03).**
+   - **LÃ m gÃ¬:** nháº­n quest; gáº·p Gennet, Brannoc, Osric, Nell, Tamsin.
+   - **HÃ¬nh:** **tráº» con nháº£y Ä‘áº¿m Ä‘áº§u lÃ¢u bÃªn ossuary trong mÆ°a.**
+     - NhÃ  sÃ n gá»—, tÆ°á»ng Ä‘Ã¡ lá»­a Ä‘áº½o, mÃ¡i ráº¡, khÃ³i than bÃ¹n, thÃ¹ng nÆ°á»›c mÆ°a, lá» lÆ°Æ¡n; chá»— vÃ¡ á»Ÿ kháº¯p nÆ¡i.
+     - Cá»­a sá»• há»• phÃ¡ch, lá»­a lÃ² rÃ¨n, Ä‘á»‘m tÃ n táº©u cá»§a Gennet.
+     - ThÃ¡p ossuary, báº£ng tÃªn ngÆ°á»i ngá»§, chuÃ´ng tang.
+     - KhÃ´ng pháº£i lÃ ng fantasy áº¥m cÃºng: nghÃ¨o, Æ°á»›t, hÆ¡i áº¥m pháº£i tráº£ giÃ¡.
+2. **Churchyard, quest *Grave Matters* (BIO-03, 20 phÃºt).**
+   - **LÃ m gÃ¬:** há»c Rite of Laying á»Ÿ nÄƒm ngÃ´i má»™: giá»¯ nÃºt, quá»³, há»i *"Will you hold?"*. Gáº·p quÃ¡i Ä‘Ã¡nh xa Ä‘áº§u tiÃªn (Charnel Bowman).
+   - **HÃ¬nh:** **quá»³ bÃªn má»™ trong mÆ°a.**
+     - MÆ°a phÃ¹n xÃ¡m, Ã¡nh sÃ¡ng khÃ´ng cÃ³ bÃ³ng.
+     - Mortsafe, má»™ má»›i, giÃ¡ treo cá»• táº©m háº¯c Ã­n, quáº¡, thuá»· tÃ¹ng.
+     - Khi cáº£ nÄƒm má»™ Ä‘Ã£ yÃªn: sÆ°Æ¡ng má»ng Ä‘i, quáº¡ Ä‘áº­u láº¡i.
+3. **Night Fens, quest *The Count of the Sleepers* (BIO-01, 35 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Theo tiáº¿ng ru qua Ä‘áº§m Ä‘Ãªm, khÃ´ng cÃ³ marker.
+     - Gáº·p the Soothed (lÃ  náº¡n nhÃ¢n) theo ba bÆ°á»›c: nghe, tháº¥y, rá»“i má»›i Ä‘Ã¡nh.
+     - Mid-boss **Lullaby Man**: khÃ´ng Ä‘Æ°á»£c Ä‘Ã¡nh trÃºng cÃ¡i nÃ´i-lá»“ng.
+   - **HÃ¬nh:** **hÃ ng ngÆ°á»i má»™ng du máº·c Ã¡o ngá»§ tráº¯ng, ngÃ¢n nga bÄƒng qua nÆ°á»›c Ä‘en vá» phÃ­a cá»­a sá»• áº¥m trÃªn Ä‘á»“i.**
+     - ÄÃª Ä‘áº¥t giá»¯a lau sáº­y vÃ  nÆ°á»›c Ä‘en; Ä‘Ã¡ dá»±ng phá»§ Ä‘á»‹a y; sÆ°Æ¡ng trÃªn máº·t nÆ°á»›c.
+     - Corpse-candle trÃ´i lÆ¡ lá»­ng, Ã¡nh Ä‘á»©ng yÃªn vÃ  Ä‘áº¹p vÃ¬ Ä‘Ã³ lÃ  má»“i nhá»­.
+     - Nhiá»u sao hÆ¡n bÃ¬nh thÆ°á»ng.
+     - VÃ²m cá»§a act: hai Ä‘Ã¡ dá»±ng nghiÃªng vÃ o nhau trÃªn Ä‘Ãª.
+     - Ão ngá»§ cá»§a the Soothed lÃ  mÃ u tráº¯ng sáº¡ch duy nháº¥t á»Ÿ Dolmoor.
+4. **Rook's Weir (BIO-01, 18 phÃºt).**
+   - **LÃ m gÃ¬:** nhá»‹p láº·ng, Ã­t Ä‘Ã¡nh nhau; Ä‘i trÃªn mÃ¡i nhÃ  vÃ  cáº§u vÃ¡n, khÃ´ng bÆ¡i; tháº¥y báº¿n thuyá»n cá»§a Gentle House. CÃ³ side quest *The Ferryman's Toll*.
+   - **HÃ¬nh:** **lÃ¡i Ä‘Ã² cháº¿t chá»‘ng thuyá»n chá»Ÿ ngÆ°á»i ngá»§ dÆ°á»›i mÃ¡i váº£i lanh tráº¯ng, há»i xin thÃªm má»™t Ä‘á»“ng.**
+     - NÆ°á»›c Ä‘en Ä‘á»©ng im, pháº£n chiáº¿u nhÃ  cá»­a.
+     - BÃ n Äƒn bÃ y sáºµn dÆ°á»›i nÆ°á»›c, rÃ¨m ren trÃ´i trong phÃ²ng ngáº­p.
+     - ThÃ¡p chuÃ´ng nhÃ´ lÃªn khá»i máº·t nÆ°á»›c.
+     - Thuyá»n mÃ¡i lanh, Ä‘Ã¨n tráº¯ng Ä‘á»©ng yÃªn: váº£i cá»§a Mercy vÃ  Ã¡nh sÃ¡ng cá»§a Perfection.
+5. **Poppy Reach (BIO-02, 28 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Leo qua Ä‘á»“ng anh tÃºc ban ngÃ y lÃªn Gentle House.
+     - *(Ä‘á» xuáº¥t LD)* KhÃ³i ngá»§ lÃ  Ä‘á»‹a hÃ¬nh: trÃ´i theo giÃ³, Ä‘Ã³ng má»Ÿ lá»‘i Ä‘i; Ä‘á»©ng trong khÃ³i thÃ¬ cháº­m dáº§n rá»“i ngá»§ thiáº¿p.
+     - Poppy Nurse hÃ¡t vÃ  há»“i mÃ¡u cho quÃ¡i quanh nÃ³.
+     - CÃ³ cá»­a vÃ o Flint Delvings.
+   - **HÃ¬nh:** **anh tÃºc Ä‘á» tá»›i chÃ¢n trá»i, cá»­a sá»• áº¥m cá»§a Gentle House trÃªn Ä‘á»‰nh dá»‘c.**
+     - Anh tÃºc Ä‘á» trong cá» xÃ¡m xanh: Ä‘iá»ƒm accent máº¡nh nháº¥t cá»§a act.
+     - Ãnh u Ã¡m má»m; khÃ³i cÃ³ viá»n rÃµ, tint áº¥m nháº¹.
+     - Xe bÃ² bá» láº¡i, cÃ²n chÄƒn Ä‘á»‡m; nhÃ  tráº¡i giÆ°á»ng trá»‘ng, má»—i giÆ°á»ng cÃ²n má»™t chiáº¿c gá»‘i sáº¡ch.
+     - CÃ¡nh Ä‘á»“ng pháº£i Ä‘áº¹p; Poppy Nurse khÃ´ng Ä‘Æ°á»£c trÃ´ng Ä‘á»™c Ã¡c.
+6. **Gentle House (BIO-05, 12 phÃºt, khÃ´ng chiáº¿n Ä‘áº¥u).**
+   - **LÃ m gÃ¬:**
+     - Mother Hawise má»i nghá»‰ vÃ  má»i trÃ  anh tÃºc. Uá»‘ng trÃ  thÃ¬ tháº¥y vision: tu viá»‡n bÃªn biá»ƒn, Ä‘Ã¨n cá»­a sá»• cao, giá»ng nÃ³i *"Come home."*
+     - ÄÆ°a Tamsin ra ngoÃ i trÆ°á»›c khi cÃ¡c sÆ¡ Ä‘á»ƒ Ã½.
+     - *(Ä‘á» xuáº¥t LD)* Chá»‰ Ä‘Æ°á»£c Ä‘i bá»™, áº©n UI chiáº¿n Ä‘áº¥u; bá»‹ báº¯t gáº·p thÃ¬ Ä‘Æ°á»£c dáº«n ra cá»•ng.
+   - **HÃ¬nh:** **chÃ©n trÃ  anh tÃºc trong Ã¡nh cá»­a sá»• áº¥m, má»™t ngÆ°á»i phá»¥ ná»¯ hiá»n báº£o báº¡n cÃ³ thá»ƒ nghá»‰ rá»“i.**
+     - Ná»™i tháº¥t Ä‘áº¹p nháº¥t Act I: vÃ´i tráº¯ng má»›i khÃ´ng má»™t chá»— vÃ¡ (Ä‘Ã³ chÃ­nh lÃ  lá»i cáº£nh bÃ¡o).
+     - Váº£i lanh sáº¡ch, bÃ¡nh mÃ¬, hoa trong bÃ¬nh; hÃ ng ngÆ°á»i ngá»§ má»‰m cÆ°á»i.
+     - CÃ¡c sÆ¡ Ä‘á»™i khÄƒn tráº¯ng thÃªu anh tÃºc Ä‘á»; náº¿n khÃ´ng láº­p loÃ¨.
+     - *(Ä‘á» xuáº¥t LD)* MÆ°a dá»«ng á»Ÿ cá»•ng.
+     - KhÃ´ng dÃ¹ng nháº¡c dá»“n, Ä‘Ã¨n Ä‘á», gÃ³c mÃ¡y nghiÃªng. Náº¿u chá»‰ nhÃ¬n art mÃ  ngÆ°á»i chÆ¡i Ä‘Ã£ nghi ngá» thÃ¬ cáº£nh nÃ y há»ng.
+7. **Garden of Hush (BIO-04, 35 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Xuá»‘ng háº§m má»™ dÆ°á»›i hospice. Fen náº±m á»Ÿ Ä‘Ã¢y, Tamsin khÃ´ng Ä‘Ã¡nh thá»©c Ä‘Æ°á»£c cáº­u.
+     - *(Ä‘á» xuáº¥t LD)* NhÆ° Ä‘i trong phÃ²ng bá»‡nh ban Ä‘Ãªm: dÃ¹ng ká»¹ nÄƒng á»“n gáº§n ngÆ°á»i ngá»§ sáº½ lÃ m chuÃ´ng treo trÃªn hÃ ng rung lÃªn vÃ  gá»i Poppy Nurse tá»›i.
+     - **Ngá»n Ä‘Ã¨n phÃ­a trÆ°á»›c** xuáº¥t hiá»‡n láº§n Ä‘áº§u, á»Ÿ chá»— khÃ³ Ä‘i nháº¥t.
+   - **HÃ¬nh:** **hÃ ng ngÆ°á»i ngá»§ vÃ¹i trong Ä‘áº¥t tá»‘i, hoa anh tÃºc Ä‘á» ná»Ÿ ra tá»« má»—i miá»‡ng.**
+     - Cáº¡nh má»—i ngÆ°á»i cÃ³ má»™t Ä‘Ã¨n ngá»§ nhá» Ä‘á»©ng yÃªn.
+     - MÃ¡i váº£i lanh, rá»… cÃ¢y trÃªn vÃ²m, tÆ°á»ng áº©m.
+     - KÃªnh tÆ°á»›i, giÃ¡ phÆ¡i, phÃ²ng thu hoáº¡ch.
+     - Xa trong bÃ³ng tá»‘i cÃ³ má»™t Ã¡nh tráº¯ng khÃ´ng láº­p loÃ¨.
+     - KhÃ´ng gore. Má»—i hÃ ng lÃ  nhá»¯ng ngÆ°á»i khÃ¡c nhau: máº·t, tuá»•i, quáº§n Ã¡o, ká»· váº­t.
+8. **The Cradle (BIO-27, 20 phÃºt).**
+   - **LÃ m gÃ¬:** Ä‘Ã¡nh boss **Hospice Mother**.
+     - Tiáº¿ng ru lÃ m tá»‘i mÃ n hÃ¬nh vÃ  lÃ m hero cháº­m láº¡i.
+     - Nhá»¯ng bÃ n tay má»m cá»‘ "Ä‘áº¯p chÄƒn" cho hero; Ä‘Ã¨n ngá»§ táº¯t dáº§n tá»«ng cÃ¡i.
+     - Tháº¯ng thÃ¬ Ã¡nh sÃ¡ng Mercy cháº£y vÃ o hero; quáº£ cáº§u mÃ¡u Ä‘á»•i tá»« xÃ¡m sang Ä‘á».
+   - **HÃ¬nh:** **hÃ ng chá»¥c bÃ n tay tráº¯ng má»m cÃºi xuá»‘ng Ä‘áº¯p chÄƒn cho báº¡n, trong khi Ä‘Ã¨n ngá»§ táº¯t tá»«ng cÃ¡i má»™t.**
+     - NÃ´i báº±ng xÆ°Æ¡ng, mÃ¡i lanh, Ã¡nh tráº¯ng sá»¯a Ä‘á»©ng yÃªn.
+     - Lá»‘i vÃ o lÃ  dÃ£y nÃ´i láº·p láº¡i vÃ o sÆ°Æ¡ng Ä‘en.
+     - Hospice Mother lÃ  má»™t khá»‘i váº£i lanh che máº¡ng khá»•ng lá»“, cÃ³ hÃ ng chá»¥c bÃ n tay tráº¯ng má»m, miá»‡ng luÃ´n "suá»µt".
+     - Má»—i bÃ n tay in bÃ³ng má»m xuá»‘ng sÃ n trÆ°á»›c khi Ä‘áº­p xuá»‘ng: Ä‘Ã³ lÃ  telegraph tá»± nhiÃªn.
+
+#### NhÃ¡nh phá»¥
+
+- **Edda's Dream (BIO-26, 6 phÃºt, quest *The Broth*).**
+  - **LÃ m gÃ¬:** vÃ o giáº¥c mÆ¡ cá»§a Edda; khÃ´ng cÃ³ nguy hiá»ƒm nÃ o.
+  - **HÃ¬nh:** **Ã¡nh náº¯ng duy nháº¥t á»Ÿ Dolmoor.**
+    - MÃ¡i ráº¡ má»›i, khÃ´ng vÃ¡, sáº¡ch quÃ¡ má»©c; rÃ¬a áº£nh chÃ¡y sÃ¡ng; máº·t trá»i Ä‘á»©ng yÃªn.
+    - *(Ä‘á» xuáº¥t LD)* Hero lÃ  bÃ³ng Ä‘á»• duy nháº¥t.
+    - ÄÃ¢y lÃ  Ã¡nh náº¯ng, khÃ¡c Ã¡nh ná»™i tháº¥t áº¥m cá»§a Gentle House. Cáº£nh nÃ y lÃ  má»™t báº£n nháº¹ cá»§a Seamless.
+- **Willow Mere (BIO-01, 12 phÃºt, quest *The Willow Bride*).**
+  - **LÃ m gÃ¬:** Ä‘Ã¡nh boss phá»¥ lÃ  cÃ´ dÃ¢u cháº¿t Ä‘uá»‘i.
+  - **HÃ¬nh:** **cÃ¢y liá»…u lá»›n nghiÃªng vá» khoáº£ng trá»‘ng.**
+    - MÃ n liá»…u rá»§, nÆ°á»›c Ä‘á»©ng, hoa tráº¯ng trÃ´i.
+    - Máº¡ng che má»¥c máº¯c trong rá»…; chuÃ´ng cÆ°á»›i gá»‰ treo trÃªn cÃ nh.
+    - Ãnh sÃ¡ng xÃ¡m, khÃ´ng cÃ³ Ä‘Ã¨n.
+    - ThÃ²ng lá»ng chá»‰ á»Ÿ trÃªn cao trong tÃ¡n cÃ¢y; khÃ´ng treo xÃ¡c.
+- **Flint Delvings (BIO-06, 30 phÃºt, dungeon tuá»³ chá»n).**
+  - **LÃ m gÃ¬:** láº§n Ä‘áº§u gáº·p Discarded; pháº£i giáº¿t Kiln-Shaman trÆ°á»›c; boss phá»¥ Ember-Pot.
+  - **HÃ¬nh:** **tÆ°á»£ng thÃ¡nh khÃ´ng máº·t bá»‹ trá»™m, mang má»™t khuÃ´n máº·t Ä‘áº¥t sÃ©t do nhá»¯ng bÃ n tay Ä‘á» nhá» áº¥n lÃªn.**
+    - Táº§ng trÃªn: pháº¥n tráº¯ng, Ä‘Ã¡ lá»­a Ä‘en, cá»™t chá»‘ng gá»—, cuá»‘c sá»«ng.
+    - SÃ¢u hÆ¡n: Ã¡nh lÃ² Ä‘á» cam pháº­p phá»“ng, muá»™i, vá»‡t Ä‘áº¥t sÃ©t, chá»“ng gáº¡ch, Ä‘á»“ tuá»³ tÃ¡ng Äƒn trá»™m.
+    - Táº§ng Spoil: khá»‘i Ä‘Ã¡ Mason khá»•ng lá»“ Ä‘á»• lá»‡ch, cÃ²n váº¡ch dáº«n vÃ  dáº¥u thá»£.
+    - Hodling vá»«a Ä‘Ã¡ng thÆ°Æ¡ng vá»«a nguy hiá»ƒm, khÃ´ng pháº£i vai hÃ i.
+- **One for the Footing** (háº§m gia Ä‘Ã¬nh Barrow) vÃ  **The Mortsafe Thieves**: náº±m trong Lychgate vÃ  Churchyard.
+
+#### Sau Act I
+
+- SÆ°Æ¡ng tan láº§n Ä‘áº§u sau ba nÄƒm. Wild chuyá»ƒn sang Ã¡nh xÃ¡m trong, nhÃ¬n Ä‘Æ°á»£c xa.
+- Gentle House táº¯t Ä‘Ã¨n.
+- Ossuary Ä‘áº§y, cÃ¡c má»™ má»›i Ä‘Ã£ yÃªn.
+- Äáº§m khÃ´ng cÃ²n Ä‘oÃ n ngÆ°á»i má»™ng du; áº¿ch kÃªu láº¡i.
+- *(Ä‘á» xuáº¥t LD)* Ruy bÄƒng Ä‘en thay nhÃ nh anh tÃºc trÃªn cá»­a nhÃ .
+- *(Ä‘á» xuáº¥t LD)* Anh tÃºc khÃ©p cÃ¡nh vÃ  rá»¥ng.
+
+### 10.3 Act II â€” *A Kneeling Fire* (Graveteeth & Sepulcra, 3,5â€“4,5 giá»)
+
+**Bá»‘i cáº£nh:**
+- Kneelers (dÃ²ng Iron Halo) chiáº¿m phá»‘, thiÃªu báº¥t ká»³ ai ngáº­p ngá»«ng khi cáº§u nguyá»‡n.
+- Cassian Ä‘Ã£ quá»³ 41 nÄƒm dÆ°á»›i nhÃ  thá»; lá»i cáº§u cá»§a Ã´ng vang trong Ä‘áº§u cáº£ thÃ nh.
+
+**ThÃ´ng tin chung:**
+
+| Má»¥c | Ná»™i dung |
+|---|---|
+| Perfection | Latreus (Devotion); cÃ¡m dá»— lÃ  **sá»± cháº¯c cháº¯n** |
+| Há»‡ thá»‘ng má»›i | *Doubt*; Mason Ä‘áº§u tiÃªn biáº¿t nÃ³i; ngÆ°á»i háº§u cá»§a Lodge báº¯t Ä‘áº§u Ä‘i lang thang; lá»›p tiáº¿ng cáº§u nguyá»‡n ná»n |
+| MÃ¹a | HÃ¨ trÃªn nÃºi; tuyáº¿t khÃ´ng tan |
+| Chuyá»ƒn mÃ u | Tá»« tuyáº¿t xÃ¡m muá»™i sang tráº¯ng xÆ°Æ¡ng vÃ  vÃ ng, rá»“i sang lá»­a |
+| HÃ¬nh cá»§a act | ThÃ nh phá»‘ leo vÃ¡ch theo tá»«ng táº§ng, giÃ n thiÃªu chÃ¡y trÃªn cáº§u thang, nhÃ  thá» trÃªn Ä‘á»‰nh vá»›i tiáº¿ng chuÃ´ng khÃ´ng bao giá» dá»©t |
+
+**HÆ°á»›ng Ä‘i cá»§a act:** Act I Ä‘i ngang, Act II Ä‘i **lÃªn**. CÃ¡c táº§ng cá»§a thÃ nh phá»‘ lÃ  cÃ¡c course cá»§a TÆ°á»ng; táº§ng Ä‘Ã¡y gÃ¡nh táº¥t cáº£.
+
+#### ÄÆ°á»ng chÃ­nh
+
+1. **Pilgrim Road (BIO-09, 40 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Há»™ tá»‘ng Ä‘oÃ n Pallbearer qua ba con Ä‘Ã¨o, theo nhá»‹p Ä‘i rá»“i dá»«ng giá»¯a cÃ¡c tráº¡m. Pháº§n há»™ tá»‘ng pháº£i dá»… thá»Ÿ.
+     - Gáº·p Ser Hamon.
+     - Cinder-Clan (Discarded sá»«ng dÃª) Ä‘á»™t kÃ­ch á»Ÿ cÃ¡c chá»— háº¹p.
+     - Exhumer phá»¥c kÃ­ch á»Ÿ Ä‘Ã¨o cuá»‘i; Ignatia gá»i hero lÃ  *"Deserter."*
+     - Cháº¡y qua cáº§u dÃ¢y Ä‘ang sáº­p.
+   - **HÃ¬nh:** **ngÆ°á»i hÃ nh hÆ°Æ¡ng Ä‘Ã´ng cá»©ng, quá»³ trong tuyáº¿t xÃ¡m, tro giÃ n thiÃªu cá»§a Sepulcra rÆ¡i lÃªn há».**
+     - Äá»‰nh nÃºi Ä‘en; tuyáº¿t xÃ¡m, sáº«m hÆ¡n á»Ÿ phÃ­a xuÃ´i giÃ³ vá» thÃ nh.
+     - Cá»c gá»— hÃ¬nh wedge ghi tÃªn; Pallbearer khiÃªng quan tÃ i Ä‘en.
+     - Náº¯ng nÃºi má»ng, máº·t trá»i tháº¥p, bÃ³ng dÃ i.
+     - HoÃ ng hÃ´n á»Ÿ Ä‘Ã¨o cuá»‘i: vÃ¡ch Ä‘Ã¡ xa rá»±c Ã¡nh giÃ n thiÃªu.
+     - VÃ²m cá»§a act: hai ngÆ°á»i sÃ¡m há»‘i Ä‘Ã´ng cá»©ng tá»±a vÃ o nhau.
+     - KhÃ´ng pháº£i nÃºi tuyáº¿t chung chung: tuyáº¿t xÃ¡m vÃ¬ tro cá»§a ngÆ°á»i.
+2. **Lowcourse (hub, BIO-07).**
+   - **LÃ m gÃ¬:** vÃ o thÃ nh á»Ÿ táº§ng Ä‘Ã¡y; gáº·p Old Vellum dÆ°á»›i háº§m lÃ² bÃ¡nh mÃ¬; nháº­n *Ash Ledger*, *The Saint in the Box*, *The Upper Course*.
+   - **HÃ¬nh:** **tro tá»« giÃ n thiÃªu trÃªn cao rÆ¡i nhÆ° tuyáº¿t xuá»‘ng lÃ² bÃ¡nh, nÆ¡i káº» dá»‹ giÃ¡o giá»¯ sá»± tháº­t.**
+     - ÄÃ¡ vÃ´i tráº¯ng xÆ°Æ¡ng, cÃ³ vá»‡t muá»™i cháº£y tá»« trÃªn xuá»‘ng.
+     - Trá»¥ chá»‘ng, giÃ n Ä‘á»¡ á»Ÿ kháº¯p nÆ¡i; dÃ¢y phÆ¡i, Ä‘á»n náº¿n nhá»; lÃ² Ä‘Ãºc chuÃ´ng láº­p loÃ¨.
+     - Ãnh vÃ ng cá»§a nhÃ  thá» rá»±c, Ä‘á»©ng yÃªn, tÃ­t trÃªn cao.
+     - VÃ²m cá»•ng lÃªn Stair lÃ  ngÆ°á»¡ng cá»§a hub; nhÃ¬n qua Ä‘Ã³ tháº¥y giÃ n thiÃªu.
+     - KhÃ´ng biáº¿m hoáº¡ khu á»• chuá»™t: cho tháº¥y lao Ä‘á»™ng, pháº©m giÃ¡, ngÆ°á»i Ä‘á»¡ nhau.
+3. **Stair of Penitence (BIO-07, 35 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Leo phá»‘ zÃ­c-záº¯c; má»—i chiáº¿u nghá»‰ cÃ³ má»™t giÃ n thiÃªu vÃ  lÃ  má»™t arena.
+     - ÄoÃ n rÆ°á»›c Kneeler lÃ  chÆ°á»›ng ngáº¡i: nÃ© hoáº·c Ä‘Ã¡nh.
+     - QuÃ¡i má»›i: Kneeler, Bell-Head, Censer-Bearer, Pyre-Risen.
+     - *(Ä‘á» xuáº¥t LD)* CÆ¡ cháº¿ *the Kneeling*: chuÃ´ng lá»›n Ä‘iá»ƒm thÃ¬ má»i tÃ­n Ä‘á»“ quá»³ xuá»‘ng. Hero cÃ²n Ä‘á»©ng thÃ¬ bá»‹ tháº¥y; quá»³ theo thÃ¬ láº«n Ä‘Æ°á»£c vÃ o Ä‘Ã¡m Ä‘Ã´ng.
+   - **HÃ¬nh:** **cáº£ thÃ nh phá»‘ quá»³ xuá»‘ng cÃ¹ng lÃºc, chá»‰ mÃ¬nh báº¡n cÃ²n Ä‘á»©ng.**
+     - Phá»‘ tráº¯ng xÆ°Æ¡ng phá»§ muá»™i; giÃ n thiÃªu cam trÃªn cÃ¡c chiáº¿u nghá»‰.
+     - Cá» Iron Halo, khÃ³i lÆ° hÆ°Æ¡ng, Ä‘Ã¡m Ä‘Ã´ng quá»³, giÃ¡ náº¿n hÃ¬nh wedge.
+     - Cá»­a sá»• nhÃ  nguyá»‡n sÃ¡ng mÃ u xanh Ä‘áº­m vÃ  Ä‘á» tháº«m.
+     - GiÃ n thiÃªu chá»‰ thá»ƒ hiá»‡n báº±ng silhouette vÃ  Ã¢m thanh, khÃ´ng cáº­n cáº£nh thiÃªu ngÆ°á»i.
+4. **Chancery, quest *The Bought Course* (BIO-07, 30 phÃºt, heist).**
+   - **LÃ m gÃ¬:**
+     - Äá»™t nháº­p Ä‘á»ƒ láº¥y sá»• sÃ¡ch; cÃ³ nhiá»u lá»‘i vÃ o.
+     - TÆ°á»£ng nhÃ¬n tháº¥y hero thÃ¬ Ä‘Ã¡nh thá»©c ngÆ°á»i háº§u cá»§a Lodge. Saint-Statue, Plumb-Hound, Gargoyle Mortarer xuáº¥t hiá»‡n láº§n Ä‘áº§u.
+     - KhÃ´ng pháº£i mÃ n stealth cÃ³ mÃ n thua.
+     - TÃ¬m Ä‘Æ°á»£c dÃ²ng *"Keystone's term: 1000 AL. Replacement: none found."*
+   - **HÃ¬nh:** **báº£n Ä‘á»“ thiÃªn Ä‘Æ°á»ng báº±ng Ä‘á»“ng thau, má»—i course kháº¯c má»™t giÃ¡ tiá»n** *(Ä‘á» xuáº¥t LD)*.
+     - KhÃ´ng gian giÃ u nháº¥t act: cáº©m tháº¡ch vÃ¢n tá»‘i, máº¡ vÃ ng, biá»ƒn Ä‘á»“ng, sá»• bÃ¬a da, Ã¡nh vÃ ng náº¿n Ä‘á»©ng yÃªn.
+     - TÆ°á»£ng quay Ä‘áº§u thÃªm má»™t chÃºt má»—i láº§n ngÆ°á»i chÆ¡i Ä‘i qua.
+     - SÃ n giá»¯ tá»‘i vÃ  yÃªn.
+5. **Bell Catacombs (BIO-08, 35 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - Dungeon chÃ­nh cá»§a act.
+     - *(Ä‘á» xuáº¥t LD)* CÆ¡ cháº¿ *resonance*: chuÃ´ng ngÃ¢n lÃ m lá»™ káº» Ä‘á»‹ch nhÆ° sonar, nhÆ°ng cÅ©ng Ä‘Ã¡nh thá»©c Charnel Chanter.
+     - Mid-boss **Choir of Nails**: lÃ m cÃ¢m tá»«ng giá»ng hÃ¡t má»™t.
+     - Ngá»n Ä‘Ã¨n phÃ­a trÆ°á»›c xuáº¥t hiá»‡n láº§n hai, á»Ÿ khu há»‘ chuÃ´ng.
+   - **HÃ¬nh:** **chuÃ´ng treo tháº£ xuá»‘ng bÃ³ng tá»‘i; khi chuÃ´ng ngÃ¢n, cÃ³ ngÆ°á»i hÃ¡t trong khá»‘i Ä‘á»“ng.**
+     - ChuÃ´ng Ä‘á»“ng xanh rá»‰, tÃªn ngÆ°á»i Ä‘Ãºc trÃªn vÃ nh.
+     - Há»‘c xÆ°Æ¡ng, gá»‘c náº¿n, vÃ²m tháº¥p.
+     - Choir of Nails lÃ  chá»¥c ca viÃªn Kneeler há»£p láº¡i thÃ nh má»™t cÃ¢y organ báº±ng thá»‹t vÃ  sáº¯t.
+6. **Scriptorium (BIO-08, 12 phÃºt).**
+   - **LÃ m gÃ¬:** vÃ o cÄƒn phÃ²ng niÃªm phong 600 nÄƒm, ráº¥t Ã­t quÃ¡i; Ä‘á»c *Unedited Testament*. Gennet nÃ³i: *"It's not an attack. It's an expiry."*
+   - **HÃ¬nh:** **nÃ©t chá»¯ run cá»§a má»™t ngÆ°á»i Ä‘Ã n bÃ  Ä‘Ã¡nh cÃ¡, Ä‘á»c dÆ°á»›i má»™t ngá»n náº¿n láº­p loÃ¨: "I choose it anyway."**
+     - Giáº¥y da, bá»¥i, máº¡ng nhá»‡n, sÃ¡ch bá»‹ xÃ­ch.
+     - KhÃ´ng cÃ³ Ã¡nh sÃ¡ng cho tá»›i khi nhÃ³m mang Ä‘Ã¨n vÃ o.
+     - CÃ¡c báº£n sao bá»‹ cáº¡o máº¥t chá»¯ "for a thousand years", bÃ y ra nhÆ° váº­t chá»©ng.
+7. **Cathedral, cáº£nh *The Plumb* (BIO-08, khÃ´ng chiáº¿n Ä‘áº¥u).**
+   - **LÃ m gÃ¬:** tÆ°á»£ng Nameless Saint khá»•ng lá»“ quay Ä‘áº§u vÃ  nÃ³i *"A stone has fallen from the Course. Return it."* BÃ n tay Ä‘Ã¡ khÃ©p quanh hero rá»“i má»Ÿ ra.
+   - **HÃ¬nh:** **tÆ°á»£ng khÃ´ng máº·t khá»•ng lá»“ quay sang nhÃ¬n báº¡n, bÃ n tay Ä‘Ã¡ khÃ©p láº¡i rá»“i khÃ´ng khÃ©p ná»•i.**
+     - KhÃ´ng gian lá»™ng láº«y nháº¥t Act II: vÃ²m tráº¯ng xÆ°Æ¡ng, máº¡ vÃ ng, kÃ­nh mÃ u, Wedge á»Ÿ kháº¯p nÆ¡i, Ã¡nh vÃ ng náº¿n Ä‘á»©ng yÃªn.
+     - TÆ°á»£ng quÃ¡ to, ngay cáº£ vá»›i gian thá» nÃ y.
+     - ÄÃ¢y lÃ  láº§n Ä‘áº§u ngÆ°á»i chÆ¡i tháº¥y tÆ°á»£ng chuyá»ƒn Ä‘á»™ng: cháº­m, khá»•ng lá»“, chá»‰ cÃ³ tiáº¿ng Ä‘Ã¡ nghiáº¿n.
+8. **Cathedral, cáº£nh *The Iron Halo* (BIO-08, set piece).**
+   - **LÃ m gÃ¬:** Kneeler kÃ©o Perpetua lÃªn giÃ n thiÃªu. Hero vÃ  Ignatia Ä‘Ã¡nh ngÆ°á»£c lÃªn qua nhÃ  thá» Ä‘ang chÃ¡y vÃ  kÃ©o bÃ  khá»i cá»c.
+   - **HÃ¬nh:**
+     - KhÃ³i, kÃ­nh vá»¡, vÃ ng máº¡ cháº£y, bÃ³ng Ä‘en.
+     - *(Ä‘á» xuáº¥t LD)* GiÃ n thiÃªu dá»±ng trÃªn gallery, trÆ°á»›c cá»­a sá»• hoa há»“ng.
+     - *(Ä‘á» xuáº¥t LD)* Lá»­a lá»™t bá»©c hoáº¡ Bulwark máº¡ vÃ ng, Ä‘á»ƒ lá»™ bá»©c tÆ°á»ng linh há»“n náº¯m tay nhau bÃªn dÆ°á»›i.
+     - Lá»­a á»Ÿ rÃ¬a khung; sÃ n giao tranh tá»‘i hÆ¡n lá»­a Ä‘á»ƒ quÃ¡i thÃ nh silhouette.
+9. **Kneeling Vault (BIO-27, 25 phÃºt).**
+   - **LÃ m gÃ¬:**
+     - ÄÃ¡nh boss **Brother Cassian**: lá»‡nh **"KNEEL."** Ã©p hero quá»³, phÃ¡ Ä‘Æ°á»£c báº±ng *Doubt*.
+     - Ã”ng cháº¿t thÃ¬ tiáº¿ng cáº§u nguyá»‡n táº¯t háº³n.
+     - SÃ n ná»©t thÃ nh breach; láº§n Ä‘áº§u ngÆ°á»i chÆ¡i tháº¥y váº­t liá»‡u cá»§a Course.
+   - **HÃ¬nh:** **Ã´ng lÃ£o giáº­t Ä‘Ã´i chÃ¢n Ä‘Ã¡ khá»i sÃ n sau 41 nÄƒm, Ä‘á»™i vÃ²ng gai hÆ°á»›ng vÃ o trong, ra lá»‡nh cho báº¡n quá»³.**
+     - Gian giá»¯a vÃ´ táº­n treo xÃ­ch; má»i hÃ ng gháº¿ Ä‘áº§y ngÆ°á»i cháº¿t Ä‘ang quá»³, láº·p vÃ o sÆ°Æ¡ng Ä‘en.
+     - *(Ä‘á» xuáº¥t LD)* VÃ²m tráº§n lÃ  cá»™t sá»‘ng vÃ  xÆ°Æ¡ng sÆ°á»n khá»•ng lá»“ cá»§a Latreus; háº­u cung viá»n gai cá»§a vÃ²ng sáº¯t. Kiáº¿n trÃºc vÃ  cÆ¡ thá»ƒ lÃ  má»™t.
+     - Sáº¯t, xÃ­ch, má»¡ náº¿n, Ã¡nh vÃ ng náº¿n Ä‘á»©ng yÃªn.
+     - Cassian khÃ´ng pháº£i pháº£n diá»‡n: Ã´ng cháº¿t trong nÆ°á»›c máº¯t.
+
+#### Káº¿t act â€” *Her Gravity*
+
+- Perpetua ká»ƒ sá»± tháº­t, rá»“i tá»± bÆ°á»›c vÃ o breach. TÆ°á»ng khÃ©p láº¡i vÃ  giá»¯ Ä‘Æ°á»£c.
+- Ignatia báº» áº¥n Exhumer vÃ  gia nháº­p Ä‘á»™i.
+- Ser Hamon cÅ©ng gia nháº­p trong Act II.
+
+#### Side quest (Ä‘á»u trong area Ä‘Ã£ cÃ³)
+
+| Quest | Náº±m á»Ÿ / ná»™i dung |
+|---|---|
+| *The Kneeler's Daughter* | NhÃ  nguyá»‡n trÃªn Stair |
+| *Ash Ledger* | Má»™t "káº» dá»‹ giÃ¡o" Ignatia tá»«ng thiÃªu |
+| *The Bell Without a Tongue* | ThÃ¡p chuÃ´ng |
+| *The Upper Course* | Máº·t TÆ°á»ng cá»§a Sepulcra |
+| *The Saint in the Box* | Äáº§u lÃ¢u biáº¿t nÃ³i á»Ÿ chá»£ thÃ¡nh tÃ­ch; pháº§n hÃ i Ä‘á»ƒ á»Ÿ vendor |
+
+#### Sau Act II
+
+- Tiáº¿ng cáº§u nguyá»‡n táº¯t khá»i má»i khu cá»§a Sepulcra.
+- Kneeler bá» vÃ²ng sáº¯t; nhiá»u ngÆ°á»i khÃ´ng Ä‘á»©ng dáº­y ná»•i.
+- GiÃ n thiÃªu táº¯t.
+- Thá»£ bÃ¡nh Ä‘á»c Testament giá»¯a phá»‘ mÃ  khÃ´ng ai bá»‹ thiÃªu.
+- *(Ä‘á» xuáº¥t LD)* TrÃªn phá»‘ cÃ³ Ä‘á»‘ng vÃ²ng sáº¯t; cá»c thiÃªu cÃ²n bá»‘c khÃ³i.
+- *(Ä‘á» xuáº¥t LD)* Tro háº¿t rÆ¡i xuá»‘ng Lowcourse.
+- *(Ä‘á» xuáº¥t LD)* MÃ¡i nhÃ  thá» má»Ÿ ra trá»i; bá»©c tÆ°á»ng linh há»“n váº«n lá»™.
+- *(Ä‘á» xuáº¥t LD)* Vá»¯a má»›i á»Ÿ breach in hÃ¬nh má»™t ngÆ°á»i Ä‘Ã n bÃ  chá»‘ng gáº­y.
+
+---
+
+## 11. QA báº¯t buá»™c cho tá»«ng áº£nh
+
+**Checklist:**
+- [ ] **Style:** Ä‘áº·t cáº¡nh áº£nh máº«u Â§1.3 á»Ÿ cÃ¹ng cá»¡.
+  - ÄÃºng má»©c stylized cá»§a Immortal: khÃ´ng realistic, khÃ´ng hoáº¡t hÃ¬nh.
+  - KhÃ´ng cÃ³ micro texture.
+  - CÃ²n form shading: váº£i cÃ³ máº£ng tá»‘i lá»›n, khÃ´ng pháº³ng.
+  - KhÃ´ng cÃ³ viá»n Ä‘en.
+- [ ] **Bá»‘ cá»¥c:**
+  - ÄÃºng sá»‘ hÃ¬nh, thá»© tá»±, nhÃ£n vÃ  tiÃªu Ä‘á»; chá»¯ chÃ­nh xÃ¡c.
+  - KhÃ´ng cÃ³ chá»¯ thá»«a, khÃ´ng watermark.
+  - KhÃ´ng bá»‹ cáº¯t, khÃ´ng chá»“ng lÃªn nhau.
+- [ ] **Tá»· lá»‡:**
+  - Äo theo bÃ³ng ngÆ°á»i H, khÃ´ng theo váº¡ch model váº½.
+  - Con nhá» hoáº·c con bay: kiá»ƒm báº±ng pixel.
+  - Äáº¡o cá»¥ cao náº±m trá»n trong khung.
+- [ ] **Nháº¥t quÃ¡n giá»¯a cÃ¡c gÃ³c:**
+  - Chi tiáº¿t má»™t bÃªn náº±m cÃ¹ng má»™t bÃªn giáº£i pháº«u á»Ÿ má»i gÃ³c.
+  - LEFT/RIGHT Ä‘Ãºng hÆ°á»›ng; BACK khÃ´ng pháº£i FRONT láº­t láº¡i.
+  - Bá»™ pháº­n quáº¥n quanh thÃ¢n (vÃ²ng cá»•, Ä‘ai, dÃ¢y, xÃ­ch) vÃ  Ä‘uÃ´i: cÃ¹ng Ä‘á»™ cao (% chiá»u cao) á»Ÿ má»i gÃ³c vÃ  Ä‘Ãºng thá»© tá»± che khuáº¥t so vá»›i gÃ³c bÃªn; gÃ³c bÃªn quyáº¿t Ä‘á»‹nh (skill T-pose, bÆ°á»›c 4b: báº£ng VIEWS + `strip`).
+  - á»ž T-pose, gÃ³c LEFT/RIGHT tháº¥y tay theo chiá»u Ä‘áº§u tay.
+- [ ] **MÃ u:**
+  - Khá»‘i mÃ u chÃ­nh / phá»¥ / nháº¥n Ä‘á»c Ä‘Æ°á»£c á»Ÿ thumbnail.
+  - ÄÃºng palette act; khÃ´ng dÃ¹ng mÃ u bá»‹ cáº¥m (Â§8).
+  - Prologue khÃ´ng cÃ³ accent; Lodge khÃ´ng phÃ¡t sÃ¡ng; Ä‘á» á»Ÿ Act III chá»‰ lÃ  mÃ¡u.
+  - Hai mÃ u tráº¯ng khÃ´ng láº«n nhau.
+- [ ] **Value:** chuyá»ƒn sang grayscale váº«n tÃ¡ch Ä‘Æ°á»£c chá»§ thá»ƒ khá»i ná»n.
+- [ ] **Ná»™i dung:** Ä‘áº¡t Â§3.8.
+- [ ] **Terrain:**
+  - LÃ¡t 2Ã—2 / 3Ã—3 khÃ´ng tháº¥y lÆ°á»›i, khÃ´ng tháº¥y mÃ©p.
+  - KhÃ´ng cÃ³ váº­t lá»›n cháº¡m mÃ©p; Ä‘á»™ sÃ¡ng Ä‘á»u.
+  - KhÃ´ng cÃ³ viá»n tráº¯ng quanh Ä‘Ã¡.
+- [ ] **T-pose cho Tripo:**
+  - Ãnh sÃ¡ng tá»« trÃªn, giá»‘ng nhau á»Ÿ má»i gÃ³c.
+  - Khoáº£ng má»™t pháº§n ba bá» máº·t váº£i náº±m trong bÃ³ng.
+  - KhÃ´ng thÃªm cÆ¡ báº¯p, mÃ³ng, rÄƒng so vá»›i concept.
+  - Dáº¡ng ngÆ°á»i: vai ngang báº±ng, tay tháº³ng ngang vai (khÃ´ng xá»‡), chÃ¢n tháº³ng vÃ  song song, gÃ³c bÃªn chÃ¢n chá»“ng nhau khÃ´ng bÆ°á»›c; cÃ¹ng chiá»u cao Ä‘áº§u, vai, hÃ´ng, sÃ n á»Ÿ bá»‘n gÃ³c (xem `views/_guides.png`).
+
+**Xá»­ lÃ½ káº¿t quáº£:**
+- **áº¢nh Ä‘áº¡t:** gá»­i Ä‘Æ°á»ng dáº«n áº£nh cho ngÆ°á»i dÃ¹ng ngay.
+- **áº¢nh trÆ°á»£t:** ghi lá»—i, cháº¡y láº¡i vá»›i háº­u tá»‘ má»›i, giá»¯ áº£nh cÅ©.
+- NgÆ°á»i dÃ¹ng lÃ  cá»•ng duyá»‡t cuá»‘i.
+
+---
+
+## 12. Nháº­t kÃ½ quyáº¿t Ä‘á»‹nh
+
+| NgÃ y | Quyáº¿t Ä‘á»‹nh cá»§a ngÆ°á»i dÃ¹ng | Ãp vÃ o |
+|---|---|---|
+| 19â€“20/10 | Chá»n ASHLAR lÃ m tháº¿ giá»›i | ToÃ n bá»™ |
+| 19â€“20/10 | Mood theo tá»«ng map; Map 1 = mood Act I Diablo II; Dark Wood v1 khÃ´ng pháº£i mood chung | Â§2 |
+| 20/10 | Terrain painterly Ã­t chi tiáº¿t, máº£ng lá»›n. Báº£n `stylized` Ä‘áº§u (nhiá»u chi tiáº¿t) vÃ  `stylized3` (Ä‘Ã¡ nhá» lá»‘m Ä‘á»‘m) bá»‹ loáº¡i; Ä‘Æ°á»ng Ä‘Ã¡ viÃªn lá»›n `stylized2` | Â§1, Â§7.1 |
+| 20/10 | Concept map Ä‘áº§u: bÃ¡m style Diablo Immortal vÃ  art direction, Ã­t texture, má»™t bÃ³ng ngÆ°á»i Ä‘á»ƒ so kÃ­ch thÆ°á»›c, gÃ³c 3/4 + bá»‘n gÃ³c. MÃ´i trÆ°á»ng khoáº£ng 6 asset má»™t áº£nh; má»—i quÃ¡i 2 phiÃªn báº£n; 30 loáº¡i (25 thÆ°á»ng + 5 boss); xong áº£nh nÃ o gá»­i áº£nh Ä‘Ã³ | Â§6, Â§7.2, Â§13 |
+| 20/10 | Rev 2 quÃ¡i: bÃ¡m Diablo hÆ¡n (Immortal / D3); mÃ u chÃ­nh, phá»¥, nháº¥n rÃµ; zombie rÃ¡ch vÃ  cÃ¡ch Ä‘iá»‡u hÆ¡n; 3/4 cáº§m vÅ© khÃ­ + vÅ© khÃ­ váº½ riÃªng + bá»‘n gÃ³c T-pose tay khÃ´ng; Ä‘Ãºng tá»· lá»‡ H | Â§3.4, Â§6 |
+| 20/10 | Hero qua nÄƒm vÃ²ng, xem báº£ng ngay dÆ°á»›i | Â§3.3, Â§5 |
+| 20/10 | T-pose cho Tripo pháº£i giá»¯ khá»‘i sÃ¡ng tá»‘i cá»§a váº£i ("máº¥t khá»‘i sÃ¡ng tá»‘i váº£i") | Â§3.6 |
+| 20/10 | Brief vÃ  prompt áº£nh khÃ´ng cháº¡y vÃ²ng tá»± review Opus ("bá» qua bÆ°á»›c tá»± review"); váº«n tá»± QA áº£nh | Â§13 |
+| 20â€“21/10 | Blend terrain trong game má»‹n vÃ  rá»™ng | Â§7.1 |
+| 21/10 | T-pose cho concept dáº¡ng ngÆ°á»i pháº£i kiá»ƒm ká»¹ vai, tá»· lá»‡ tay chÃ¢n, chÃ¢n Ä‘á»©ng tháº³ng á»Ÿ cáº£ bá»‘n gÃ³c (hero cÃ³ vÃ¡y xáº»: tay xá»‡, vai lá»‡ch, chÃ¢n dáº¡ng rá»™ng, gÃ³c bÃªn bÆ°á»›c chÃ¢n) | Â§3.6, Â§11 |
+| 21/10 | VÃ²ng cá»• B01 á»Ÿ gÃ³c BACK náº±m Ä‘Ã¨ lÃªn khá»‘i vai (sai thá»© tá»± che khuáº¥t so vá»›i gÃ³c bÃªn), Ä‘uÃ´i BACK dÃ i hÆ¡n gÃ³c bÃªn: báº¯t buá»™c Ä‘á»‘i chiáº¿u chÃ©o giá»¯a cÃ¡c gÃ³c, chá»§ Ä‘á»™ng, trÆ°á»›c khi bÃ¡o | Â§11 |
+| 21/10 | **XÃ¡c nháº­n: hÆ¡i stylized nhÆ° Diablo Immortal. Má»i bÆ°á»›c gen áº£nh pháº£i bÃ¡m file nÃ y** | Â§0, Â§1 |
+
+**CÃ¡c vÃ²ng hero (20/10):**
+
+| VÃ²ng | Quyáº¿t Ä‘á»‹nh |
+|---|---|
+| v1 | Bá»‹ loáº¡i: xá»‰n, bá»¥i |
+| v2 | Ná»•i báº­t, nhiá»u mÃ u, cÆ°á»ng Ä‘iá»‡u Ä‘áº¡o cá»¥ |
+| v3 | Bá»‘ cá»¥c 3/4 + bá»‘n gÃ³c + vÅ© khÃ­ váº½ riÃªng; cÃ¡ch Ä‘iá»‡u hÆ¡n |
+| v4 | Tá»‘i Ä‘a hai lá»›p váº£i; archetype Diablo; nhÃ¢n váº­t ná»¯ gá»£i cáº£m tinh táº¿ |
+| v5 | Giáº£m texture, giá»¯ khá»‘i sÃ¡ng tá»‘i |
+
+---
+
+## 13. CÃ¡ch cháº¡y gen
+
+**Ai táº¡o:** Astra (`codex` / `gpt-6-astra`), báº±ng cÃ´ng cá»¥ `image_gen` tÃ­ch há»£p.
+- KhÃ´ng dÃ¹ng API key.
+- KhÃ´ng váº½ báº±ng code (PIL, SVG, canvas).
+- KhÃ´ng má»Ÿ `codex` lá»“ng nhau.
+- Code chá»‰ dÃ¹ng Ä‘á»ƒ dá»±ng khung tá»· lá»‡, cáº¯t áº£nh vÃ  Ä‘o.
+
+**Cháº¡y loáº¡t:**
+- DÃ¹ng `codex exec` song song; 10 phiÃªn Ä‘Ã£ cháº¡y á»•n.
+- Äáº·t `CODEX_HOME=E:\map01-batch\home`. Copy `~/.codex/auth.json` sang thÆ° má»¥c nÃ y trÆ°á»›c khi dÃ¹ng láº¡i.
+- ÄÆ°a prompt qua stdin (`- < task.txt`) Ä‘á»ƒ phiÃªn khÃ´ng treo chá» input.
+- áº¢nh ra náº±m á»Ÿ `<CODEX_HOME>\generated_images\<session>\`; copy vá» thÆ° má»¥c asset.
+- Runner cÃ³ sáºµn ngoÃ i repo:
+  - `E:\map01-batch\`: quÃ¡i, terrain;
+  - `E:\hero-batch\`: hero.
+
+**Khi lá»—i:** gáº·p "model at capacity", bá»‹ tá»« chá»‘i an toÃ n nháº§m (hay gáº·p vá»›i prompt cÃ³ ngÆ°á»i ngá»§, Ã¡o ngá»§) hoáº·c phiÃªn treo thÃ¬ **má»Ÿ phiÃªn má»›i**. KhÃ´ng dá»«ng láº¡i Ä‘á»ƒ bÃ¡o "blocked".
+
+**Tham chiáº¿u:** quy táº¯c gáº¯n áº£nh á»Ÿ Â§1.3; khung tá»· lá»‡ á»Ÿ Â§6.5.
+
+**Review:**
+- Brief vÃ  prompt áº£nh khÃ´ng cháº¡y vÃ²ng Sonnet â†’ Opus (quyáº¿t Ä‘á»‹nh 20/10).
+- Tá»± QA tá»«ng áº£nh theo Â§11.
+- Code cá»§a pipeline (script, runner) váº«n theo `Agent.md`.
+
+**LÆ°u vÃ  Ä‘áº·t tÃªn:**
+- Má»—i áº£nh kÃ¨m prompt; náº¿u cháº¡y batch thÃ¬ kÃ¨m cáº£ task, log, result.
+- Cháº¡y láº¡i thÃ¬ Ä‘áº·t háº­u tá»‘ má»›i.
+- KhÃ´ng xoÃ¡ áº£nh bá»‹ loáº¡i; chuyá»ƒn vÃ o `_rejected/` náº¿u cáº§n.
+
+**Gá»­i ngÆ°á»i dÃ¹ng:**
+- Xong áº£nh nÃ o gá»­i áº£nh Ä‘Ã³, báº±ng Ä‘Æ°á»ng dáº«n tuyá»‡t Ä‘á»‘i dáº¡ng áº£nh Markdown; khÃ´ng Ä‘á»£i Ä‘á»§ bá»™.
+- Ghi rÃµ áº£nh nÃ o cÃ²n lá»—i.
+
+---
+
+## 14. ChÆ°a khoÃ¡
+
+**Map vÃ  trÃ¬nh bÃ y:**
+- Pháº¡m vi Map 1 (bao nhiÃªu area, thuá»™c act nÃ o).
+- Giá» trong ngÃ y, camera vÃ  budget cá»§a Map 1.
+- Mood cá»§a cÃ¡c map ngoÃ i Map 1.
+- MÃ u elite vÃ  cÆ°á»ng Ä‘á»™ cá»™t sÃ¡ng loot.
+- Camera chung, ná»n táº£ng phÃ¡t hÃ nh vÃ  budget hiá»‡u nÄƒng.
+
+**Hero:**
+- Chá»n hÆ°á»›ng A hay B cho tá»«ng nghá».
+- Palette cuá»‘i vÃ  má»©c phÃ³ng Ä‘áº¡i cuá»‘i.
+
+**Sá»‘ liá»‡u chuyÃªn Ä‘á»:** sá»‘ liá»‡u Quy chuáº©n quÃ¡i vÃ  27 biome váº«n lÃ  Ä‘á» xuáº¥t Ä‘ang review; biome chÆ°a Ä‘Æ°á»£c duyá»‡t.
+
+**Lá»—i canon chÆ°a sá»­a** (khÃ´ng tá»± sá»­a báº±ng hÃ¬nh):
+- Gennet nÃ³i "nine hundred years", trong khi nhÃ  Barrow Ä‘Ã£ canh Old Face tá»« nÄƒm 0 AL.
+- Sexton's Dog khÃ´ng cÃ³ trong pháº§n Prologue cá»§a Bible, vÃ  lÃ  con váº­t nhÆ°ng bá»‹ xáº¿p vÃ o Unlaid.
+- Ignatia "biáº¿t" Ezra Mott.
+- Hamon vÃ  Ignatia cÃ¹ng vÃ o Ä‘á»™i á»Ÿ Act II.
+- Quy táº¯c xáº¿p táº§ng cá»§a Course chÆ°a chá»‘t.
+- ÄÃ¨n cá»§a Severin vá»«a á»Ÿ cá»­a sá»• vá»«a Ä‘i theo hero.
+- Äá»™ng cÆ¡ cá»§a Act III mÃ¢u thuáº«n vá»›i viá»‡c Ebbmount Ä‘Æ°á»£c cÃ´ng khai.
+
+**PhÃ¢n há» quÃ¡i chÆ°a chá»‘t:**
+- NÄƒm quÃ¡i hai há»: F02, F05, F06, F08, F13.
+- Hai "Kneeler": F04 vÃ  P08.
+- Há» Warped cÃ³ chá»©a nhá»¯ng thá»© khÃ´ng pháº£i Ä‘á»™ng váº­t.
+
+---
+
+## 15. TÃ i liá»‡u liÃªn quan
+
+ÄÆ°á»ng dáº«n tÃ­nh tá»« `ashlar/`.
+
+| Cáº§n | File |
+|---|---|
+| LÃ½ giáº£i dÃ i, bÃ i há»c Immortal, nguá»“n cÃ´ng khai | `ASHLAR_ART_DIRECTION_VI.md` (v1.1), `ASHLAR_ART_DIRECTION_BOARD.html` |
+| 27 biome, 50 area, palette tá»«ng biome, hub | `ASHLAR_BIOME_VA_KHU_VUC_VI.md` |
+| KÃ­ch thÆ°á»›c, mÃ u key, silhouette tá»«ng ID quÃ¡i | `ASHLAR_QUY_CHUAN_QUAI_VI.md` |
+| 116 ID quÃ¡i, cá»™t duyá»‡t | `ASHLAR_MONSTER_CHECKLIST_VI.md` |
+| SÃ¡u nghá» hero | `ASHLAR_HERO_CONCEPT_VI.md`, `art/heroes/_brief/README_VI.md` |
+| Sheet quÃ¡i Map 1 rev 2, báº£ng mÃ u 30 quÃ¡i | `art/map-01-concepts/REVISION_2_VI.md`, `art/map-01-concepts/_brief/` |
+| Terrain stylized | `art/terrain-dark-wood/README.md`, `art/terrain-biomes-v2-stylized/` |
+| Tripo | `../art-output/tripo-models/Agent.md`, `../.agents/skills/generate-tpose-for-tripo/` |
+| Model 3D cá»§a ASHLAR (GLB, danh má»¥c) | `3d/README.md` |
+| Nguá»“n canon | World Bible, Bestiary and Cast, Level Design Guide (ba file trong T3 attachments, khÃ´ng náº±m trong repo) |
+
+codex
+E:\map01-batch\home\generated_images\01a15f51-a67a-7d01-9d92-2ab264e7a17b\exec-a020c281-1520-416a-99a5-ee484dc81244.png
+tokens used
+38,505
+E:\map01-batch\home\generated_images\01a15f51-a67a-7d01-9d92-2ab264e7a17b\exec-a020c281-1520-416a-99a5-ee484dc81244.png

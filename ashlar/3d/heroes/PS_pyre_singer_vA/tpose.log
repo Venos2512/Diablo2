@@ -1,0 +1,57 @@
+﻿PS Pyre-Singer A T-pose generation — 2026-10-21
+Asset: E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA
+Status: Steps 1–5 completed; best available sheets retained after maximum two generations per sheet. NOT a clean strict-QA PASS. Requires human review before Tripo.
+
+INPUTS AND METHOD
+Existing design.txt used verbatim and left unchanged; brief.md read. concept.png visually inspected.
+Read generate-tpose-for-tripo SKILL.md first, project Agent.md, Tripo workflow, artdirection sections 0–3, 5, 8, 11, 13, and imagegen skill.
+Built-in image_gen only: four calls total (front/back initial + retry; sides initial + retry). No API, nested Codex, drawing code, Tripo or credits.
+Saved full prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Each contains verbatim STYLE CORE, T-POSE RULES, CONTENT plus filled skill template. Retry failure paragraph comes first.
+Only provided python -I tpose_tools.py used for measurement/splitting; script unchanged.
+
+SOURCE SESSION AND FILES
+All generations session: 01a15d76-55a6-7e30-9de8-c6075276a798
+Source root: E:/map01-batch/home/generated_images/01a15d76-55a6-7e30-9de8-c6075276a798/
+Front/back initial: exec-e476fada-1c0b-4571-bc1c-9f3e2f879d0f.png
+  Preserved: _rejected/tpose_front_back_attempt1.png
+Front/back selected retry: exec-07b287a2-5e5d-4639-b023-a02c6c836b11.png
+  Copied: tpose_front_back.png
+Sides initial: exec-955e1bca-0b47-4ed6-b749-253682192a9b.png
+  Preserved: _rejected/tpose_sides_attempt1.png
+Sides selected retry: exec-808e2abf-7536-4114-9189-cf785496b872.png
+  Copied: tpose_sides.png
+Original generated files left in place. No image_gen errors.
+
+MEASUREMENTS (all source sheets 1536 x 1024)
+Front/back initial: front height 889 px (86.8%), back 884 px (86.3%). Bboxes (33,52,769,941), (774,55,1504,939).
+Front/back selected: front 709 px (69.2%), back 707 px (69.0%), mean 708 px (69.140625%). Bboxes (53,142,710,851), (824,144,1482,851). Minimum outer margin 53 px. No WARNING.
+Sides initial: left 879 px (85.8%), right 878 px (85.7%); mean 878.5 px, 24.08% taller than selected front/back.
+Sides selected: left 831 px (81.2%), right 832 px (81.2%), mean 831.5 px. Bboxes (319,80,551,911), (989,80,1216,912). No WARNING.
+Selected sides remain 17.4435% taller than front/back, above the +/-12% tolerance after retry. Uniform whole-side scaling 708 / 831.5 = 0.851473241 (tool prints 0.851). No part-only rescaling. Resulting front/back heights 709/707 px; side crops round to 708/708 px.
+Split: all views 1024 x 1024, floor row 952 per script, 7% minimum margin. No additional global shrink required. views/_contact.png is 2048 x 512.
+
+RETRY REASONS
+Front/back: visible lantern flame, translucent loose veil, wrists slightly drooped, oversized figures and only ~5 px central gap. Retry improved gap to 114 px, made lantern interior painted amber, reduced height and improved veil solidity; did not reach requested 55% figure height, but no clipping.
+Sides: +24% height mismatch and unwanted icy-blue rim/tips. Retry reduced mismatch to +17.4% and removed much blue on right side, but left mantle/hem still have blue-white tips. Maximum two calls per sheet reached; selected best available per skill.
+
+VISUAL QA (actual concept, all generated images and final contact viewed)
+Pass: adult human identity, lean proportions, face, low iron circlet, ivory veil, brick-red braid, dark fitted bodice, boots, belt rings and lantern recognizable; hand-painted broad shading and deep dark cloth planes retained; no added muscles/claws/teeth. Empty hands; staff removed; no text, watermark, scenery, blood, gore, religious symbols or other forbidden content.
+Pass: two complete figures per sheet; true front/back and opposite left/right profiles; left faces image-left, right faces image-right; near arms visibly foreshortened and far arms hidden in side views. Main asymmetries correct: mantle/wraps on anatomical left, bracer/lantern on right. Upright torso and level head; no hunch/crouch.
+Pass: final contact order front, back, left, right; matching overall height within 2 px; soles aligned; hands, head and boots not cut. No edge warnings from measure.
+Remaining deviations / strict-QA FAIL:
+- Front garment exposes both thighs around a central hanging red-bordered panel; concept has a dominant single anatomical-left opening. Hem panel arrangement and slit visibility are not exact concept fidelity.
+- LEFT side retains noticeable pale icy-blue tips on mantle and lower skirt despite no-coloured-light prompt; inconsistent with neutral front/back and right side.
+- Front/back arms are broadly T-shaped but not a mathematically straight shoulder-to-wrist line; wrists/fingers incline slightly downward. Side arms are foreshortened but hand plane slopes slightly. Do not claim perfectly strict T-pose.
+- Veil retains some thin/translucent edge treatment; pointed fur/hem tips and small dangling belt details remain rather than all becoming thick connected shapes. These may be difficult for Tripo.
+- Selected sides remain oversized before normalization; whole-sheet scaling fixes overall height, not every minor costume/veil proportion. Side veil/braid drape differs somewhat from front/back. Mantle still featherlike, with more narrow tips than requested simplification.
+- Generated sheet backgrounds have a subtle gradient/contact shadows rather than perfectly flat; provided split script flattens crop backgrounds. No external glow halo, but amber lantern is still visually luminous inside its cage.
+Art direction QA: style/form shading broadly pass, content pass, layout pass; strict colour/pose/fidelity consistency not fully met. Human approval pending.
+
+DELIVERABLES
+E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/front.png
+E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/back.png
+E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/left.png
+E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/right.png
+E:/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/views/_contact.png
+
+2026-10-21: User requested proceeding with mesh export only, rig deferred. Selected _v2_fix images for generation. Prior sheets/views/log preserved in _v1_before_fix. See _v2_fix/correction.log for image QA and source paths. No GLB exported yet; browser access pending.

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Launch ONE fresh Codex (Astra) session that runs the generate-tpose-for-tripo skill on an asset folder.
-# Usage: run_session.sh <asset_dir>      e.g. 'E:\Diablo2\art-output\tripo-models\monsters\D01_hodling'
+# Usage: run_session.sh <asset_dir>      e.g. 'E:\Diablo2\ashlar\3d\monsters\D01_hodling'
 # Needs <asset_dir>\concept.png. CODEX_HOME is on E: because C: is full (every image session writes ~8 MB).
 # Log: <asset_dir>\_tasks\skill_session.log ; Astra's final reply: <asset_dir>\_tasks\skill_session.result.txt
 ASSET="$1"

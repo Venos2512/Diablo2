@@ -1,0 +1,102 @@
+﻿B02 LULLABY MAN - T-POSE SESSION REPORT
+Date: 2026-10-22
+Status: DELIVERED WITH UNRESOLVED QA FAILURES; NOT a full QA pass.
+Workflow: generate-tpose-for-tripo steps 1-5, built-in image_gen only, two calls per sheet (initial + one retry). No Tripo run.
+Step 1: Existing orchestrator design.txt and brief.md read; design.txt preserved unchanged as required by skill. Concept viewed. Humanoid yes. Existing VIEWS table used before generation.
+Art direction: STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 pasted verbatim into saved filled prompts; humanoid blocks included. Concept is identity/style reference. QA section 11 applied visually.
+
+SOURCE SESSION
+01a15fac-8862-7e21-b17a-e0cc54f567d2
+Source directory: E:\map01-batch\home\generated_images\01a15fac-8862-7e21-b17a-e0cc54f567d2\
+Sheet 1 initial: exec-c2ea0a88-0853-4737-9ede-1475058a5118.png
+Sheet 1 selected retry: exec-2c1d3e7d-832e-457a-a6c1-9df6ee2b7a89.png -> tpose_front_back.png
+Sheet 2 initial: exec-123188fa-5484-42ed-8f0c-91d6045a2d64.png
+Sheet 2 selected retry: exec-765c419f-9769-4c64-8d97-930a57d12544.png -> tpose_sides.png
+Initial sheets preserved as _rejected/tpose_front_back_s2_attempt1.png and _rejected/tpose_sides_s2_attempt1.png. Prior session files untouched.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt.
+
+MEASUREMENTS
+Sheets both 1536x1024.
+Sheet 1 selected: FRONT bbox (32,19,755,971), height 952px (92.97%); BACK bbox (784,18,1504,969), height 951px (92.87%). Mean 951.5px.
+Sheet 2 selected: LEFT bbox (204,17,715,970), RIGHT bbox (814,17,1329,970); both height 953px (93.07%).
+Side normalization factor 951.5/953 = 0.998426 (tool rounded 0.998). Difference 0.16%, within 12% tolerance.
+Common final downscale reported 0.925. Four canvases 1024x1024, common placement sole row 952; guides detect silhouette last row 951. No clipped parts; measure has no edge WARNING.
+Raw final numeric checks saved in _tasks/qa_s2.txt.
+
+RETRIES
+Sheet 1: retry for four face stitches instead of three, hood at ~16% instead of 19-20%, belt ~42% instead of 45-48%, doubled rear belts, excessive small painted facets. Retry improved arm slopes (0.3-1.2 degrees) and simplified some patches; key design faults persist. Retained best after allowed retry, not approved as flawless.
+Sheet 2: initial cross-view strips showed hood/head shape mismatch, fingers curling down, hands ~32% versus front ~30%, inconsistent RIGHT rear patch. Retry raised hands and narrowed right patch, but failed to fully correct face profile, finger curvature or patch continuity. Selected retry for closer hand-row correspondence. Retry used measured sheet-1 landmarks to improve consistency; this does NOT erase deviations from original design targets.
+
+HUMANOID WARNINGS
+Sheet 1 six warnings: hands 30-31% vs generic 13-28%; span/height 0.76 vs generic 0.80-1.12. Tall cage above head invalidates generic normal-human total-height ranges: design explicitly asks span 0.74 and shoulders 33-34%. Span warning is expected for this asset; actual shoulder line still sits 3-4 percentage points above design target and is separately flagged.
+Sheet 2 two warnings: sole span 0.54H vs limit 0.26H. Detector measures wide bell-robe hem, not visible feet. Legs are covered; no visible stride, but hidden knees/feet cannot be anatomically verified.
+
+VISUAL QA
+Viewed each generated sheet, concept, contact, guides and BOTH strips before and after sides retry.
+Pass: correct two-view sheet order, true back, side facing directions, full figures and margins, three stacked cloth bundles, empty hands, slim build without added musculature, ivory/slate/red palette, no glow/text/scenery, visible large cloth fold shadows. Arms extend horizontally in front/back; side arms point toward camera rather than reaching forward. All final views share scale/floor.
+Qualified: grey background has slight tonal variation, not perfectly uniform. Surface still more faceted than ideal broad smooth low-detail paint. Shadows preserve volume but not an exact copy of concept value grouping. Finials remain relatively sharp. Orthographic side body silhouette is plausible but cage depth/cross-section cannot be proven from painted views.
+FAIL: front face still has four visible red stitch marks (small upper one plus three larger), not exactly three. Hood projects into a triangular wedge in side profile and starts too high. Cage is vertically compressed relative to design. Rear waist has an extra upper belt/buckle. Side fingers curl downward rather than staying flat. Lower patch boundaries do not fully describe one consistent wrapped garment.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages estimated visually against ticked strips, approximately +/-1-2 percentage points; 0=highest finial, 100=sole. Not exact segmentation measurements. Order below LEFT | RIGHT | FRONT | BACK | verdict.
+Cage tip/gable: 0/5 | 0/5 | 0/5 | 0/5 | PASS alignment.
+Cage lower floor band / post ends: 31-33 / 36 | 31-33 / 36 | lower cage hidden behind head/body | 32-34 / 37 | Similar across visible views; FAIL original cage bottom target 43. Frame/rivet counts not certified exact; same three large tier bands broadly present.
+Bundles centers/count: ~11,19,28 / 3 | ~11,19,28 / 3 | upper bundle ~11, lower bundles occluded by hood | ~11,19,28 / 3 | PASS count/occlusion; FAIL lower bundle height vs design 29-41 band.
+Hood highest corner/chin: ~14/26 | ~14/26 | ~16/28 | corners ~16, face hidden | FAIL 2% cross-view offset and original 19-20% corner target; profile shape inconsistent.
+Face X stitches: 3 visible | 3 visible | 4 visible | hidden | FAIL count consistency.
+Lappet end: ~40 | ~40 | ~40 | hidden by body/cage | PASS occlusion/approx height; FAIL original 45 target.
+Shoulder/hand row: ~30-31 | ~30-31 | ~30 | ~30-31 | Near common red guide; front/back straight, sides fingers bent; FAIL flat-hand requirement and original 33-34 target.
+Sleeve lower tip: ~46 | ~46 | ~49 | ~48 | Moderate mismatch; sleeves drape differently in side projection.
+Harness chest crossing: side partly occluded ~35-38 | side partly occluded ~35-38 | ~35 | hidden | Correct general occlusion; original 37-42 crossing somewhat high.
+Waist belt: ~41-44 | ~41-44 | ~41-43 | main ~40-42 plus extra upper belt ~37-39 | FAIL extra back belt and original 45-48 height.
+Large slate patches: rear ~68-100, front edge ~73-100 | narrow rear ~68-100, front edge ~79-100 | both sides ~72-100 | left ~69-100, right ~83-100 | FAIL boundary continuity, especially right rear onset and original front 78% start. Asymmetry direction generally retained, patch sizes/heights not exact.
+Robe stitch rows: side ~49-100 | side ~49-100 | paired ~48-100 | image-right ~65-100 | Placement pattern retained; back start too high vs 70 target.
+Robe hem/soles: 100 | 100 | 100 | 100 | PASS common floor, no crop. Wide hem hides knees/crotch; guides cannot verify their anatomy.
+
+DELIVERABLES
+views/front.png
+views/back.png
+views/left.png
+views/right.png
+views/_contact.png
+views/_guides.png
+views/_strip_0-60.png
+views/_strip_40-100.png
+tpose_front_back.png
+tpose_sides.png
+design.txt (existing preserved)
+tpose.log
+
+Stop reason: generation limit of two attempts per sheet reached. Best retained, all residual failures disclosed; no claim that full pose/design/cross-view QA passed.
+
+MAIN QA 2026-10-22 (Opus T-pose lead; own checks, Astra's report not relied on)
+History: session 1 (01a15f79-47b9-7801-9bb1-f84d4fc4d658) FAILED: four bundles in the cage, landmarks high, side arms pointing
+  forward, the sides retry was blocked by the image safety system (moderation_blocked, output stage). Its sheets are in
+  _rejected/*_s1_*, its logs in _tasks/failed_1/. design.txt was then revised by the lead (bundles described as plain stuffed cloth
+  cushion shapes, EXACTLY THREE) and brief.md got a "WRONG IN THE PREVIOUS ATTEMPT" section. Session 2 (this report above) = accepted.
+Checks re-run by the lead: strip 0-60 and 40-100, humanoid fb/sides, viewed _contact, _guides and both strips.
+Numeric: humanoid fb arms +0.3/+1.1 deg (front), +0.9/+1.2 deg (back): level. WARN hands at 30-31 % and span/height 0.76 = expected,
+  the cage adds ~16 % of the height above the hood (design.txt: arm line 33-34 %, span 0.74). humanoid sides WARN sole span 0.54 H
+  = the wide bell hem; the legs are hidden, no stride.
+Visual: strict T-pose, level shoulders, near hand foreshortened at the camera at shoulder height in LEFT/RIGHT (session-1 error
+  fixed), far arm hidden, LEFT faces screen-left, RIGHT screen-right, true BACK; exactly three slate bundles in the cage; thick cage
+  posts and short thick finials; tall thin build; linen / slate-blue / poppy-red palette; painted fold shadows; nothing cropped.
+
+CROSS-VIEW TABLE (final views/*.png, % of the figure height, 0 = central finial tip, 100 = soles)
+  feature                  LEFT        RIGHT       FRONT                 BACK                     verdict
+  cage finial tip          0           0           0                     0                        ok
+  hood point / corners     13.5        13.5        15.7                  16.5 (beside the cage)   ok (3 %; design said 19-20, all views agree)
+  face-sack chin           -           -           26                    hidden                   -
+  cage bottom              35.6        ~36         hidden by the body    ~35-37                   ok (design said 43; all views agree)
+  bundles                  3           3           top one above hood    3 (8-17, 17-26, 26-34)   ok (was 4 in session 1)
+  arm line / hands         30-31       30-31       30                    30.5                     ok
+  harness X + ring         -           -           ~37                   hidden                   ok
+  belt                     41-43       41-43       40-43                 40-43                    ok
+  blue patches start       68 rear / 74 front  68 rear / 76 front  70 both sides  69 left rear / 83 right   ok
+  stitch rows start        49          49          47 (two rows)         64 (right of centre)     ok
+  hem / soles              100         100         100 (toes show)       100                      ok
+  figure height px         880         880         880                   880                      ok (sides scaled 0.998)
+Remaining deviations (accepted): the face-sack seam shows four X stitches (design: three); hood corners, cage bottom and belt sit
+3-7 % higher than design.txt asked but agree between all four views; side bell sleeves partly overlap the near arm; RIGHT mirrors
+LEFT except the patch layout (design nearly symmetric).
+VERDICT: PASS for Tripo multi-view input (views/front.png back.png left.png right.png).

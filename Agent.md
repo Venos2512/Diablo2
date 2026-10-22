@@ -10,8 +10,17 @@
 | Research, tra cứu, tổng hợp nguồn | Haiku 5.5 | `claudeAgent` | `claude-haiku-5-5` |
 | Viết code, sửa lỗi, refactor, viết test | Sonnet 5.5 | `claudeAgent` | `claude-sonnet-5-5` |
 | Review code sau khi triển khai hoặc sửa | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+| Rigging (dựng skeleton, skin, kiểm và ảnh QA rig) | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
+| Animation (làm clip, kiểm clip, bake / xuất / reimport) | Opus 5.5 | `claudeAgent` | `claude-opus-5-5` |
 
 Astra phụ trách tác vụ ảnh và sử dụng công cụ/skill tạo ảnh khả dụng để xuất ảnh thực tế.
+
+**Codex (Astra) chỉ dùng để tạo hoặc chỉnh sửa ảnh** (quyết định của người dùng, 2026-10-21). Không giao cho Codex việc viết code,
+viết script, review code hay rigging.
+
+Rigging và animation của hero, quái, NPC ASHLAR: Opus 5.5 làm cả rig lẫn animation, mỗi phần một phiên riêng, theo bước và cổng duyệt trong
+[`ashlar/3d/rig-anim/Agent.md`](./ashlar/3d/rig-anim/Agent.md) mục 1. Hai dòng này áp dụng cho việc rig và clip của một asset; việc viết script
+công cụ dùng chung vẫn là Sonnet viết, và vòng review code ở dưới không đổi.
 
 ## Quy trình code và review bắt buộc
 

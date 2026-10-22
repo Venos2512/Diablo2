@@ -324,8 +324,11 @@ Checklist duyệt một tuyến từ waypoint → nông trại → đồng cỏ 
 | Plan mẫu 128×128 m đủ mọi vùng con và mọi quy tắc + hàm đất thuần | `lookdev-lab/src/env/biomeLayoutDemo.js` |
 | Kiểm thử — `npm run test:layout` (15 hạng mục nghiệm thu + hạng mục hồi quy 8b, 16–22b, 23 + hiệu năng) | `lookdev-lab/scripts/biome-layout.test.mjs` |
 | Ảnh duyệt nhìn từ trên xuống (SVG/HTML) — `npm run preview:layout` | `lookdev-lab/docs/biome-layout-preview.html` |
+| Sinh plan từ một seed: `generatePlan` / `checkPlan` / `generateMap` (§4.15) | `lookdev-lab/src/env/planGen.js`, `planGenZones.js` |
+| Kiểm thử bộ sinh — `npm run test:plangen` (13 hạng mục) | `lookdev-lab/scripts/plan-gen.test.mjs` |
+| Ảnh duyệt bộ sinh: contact sheet nhiều seed — `npm run preview:plangen -- --seeds 1-12` | `lookdev-lab/docs/plan-gen-preview.html` |
 
-Scene 3D xem kết quả: lab → "Act I · Bố trí biome (thuật toán)" (`lookdev-lab/src/scenes/biomeLayout.js`), HUONG_DAN §7h.
+Scene 3D xem kết quả: lab → "Act I · Bố trí biome (thuật toán)" (`lookdev-lab/src/scenes/biomeLayout.js`), HUONG_DAN §7h. Map sinh ra phải tải nhanh: chia module, thứ tự tải, ngân sách, bake / cache — §4.14.
 
 #### 4.13.1 Đơn vị: H và Sub không phải mét
 
@@ -427,7 +430,7 @@ Seed luồng = `hash32(plan.seed, seed nhóm, khóa mục)` → `mulberry32` (c�
 
 #### 4.13.7 Vào / ra
 
-Plan: `{ id, seed, bounds, camera?, ground(x, z) → { height, wet, grass, blood, rock, water }, zones, defaultZone, shade?, autoMasses?, paths (kind road|branch|trail|animal, width, inhabited, ruts), water (đường + bề rộng, hoặc đa giác), doors (door|gate|entrance, width, depth, important), interactions (kind?), spawns, arenas, masses (asset hoặc footprint+chiều cao, đặt tay; focal, label, scale, hostKinds?, `collision: false`? = khối tự dựng đi xuyên được), hosts, decisions?, events }`. `shade` = hướng bóng đổ của đèn chính ({x, z}, mặc định đông nam); `autoMasses: false` tắt khối tự động và việc chèn landmark. `hosts[]` = `{ id, recipe, at | mass, yaw | face, owns?, unspaced? }`: `mass` dùng khối do plan đặt làm vật chủ (không có `at`), `face` quay mặt trước về một điểm, `owns` = id vùng tương tác mà vật chủ giữ (thành viên đi xuyên được vào vùng ấy), `unspaced: true` bỏ luật `clusterSpacing` (dùng cho bố cục dày có chủ ý và test). `events[]` = `{ id, cause, host, at?, dir?, age }`, `host` = id vật chủ (cụm, khối, cửa, vùng tương tác, mảnh đã đặt) hoặc điểm `{ x, z, kind? }` — có `kind` thì được kiểm theo `TRACES[cause].hosts`. Kết quả: `placements[]` (`id, asset, kit, piece, group, step, role, layer, class, x, y, z, yaw, scale, tilt?, footprint, use?, occlusion?, host?, cluster?, event?, decision?, light?, label?`; khối do plan đặt làm vật chủ ghi thêm `cluster`), `ecology { tufts (mảng kiểu: x z h tone cluster kind), shrubs, carpet }`, `groundPaint[]`, `reserved[]`, `decisions[]`, `clusters[]` (thêm `sizeMix`, `pieces`, `mass`), `events[]` (thêm `hostKinds`, `hostPos.kinds`), `report { seeds, counts, drops, warnings, checks, tries, budgets, ms }`. `y` = đất thấp nhất dưới footprint trừ độ chìm (hoặc đất tại pivot trừ độ chìm kèm `tilt` cho vật nghiêng theo dốc).
+Plan: `{ id, seed, bounds, camera?, ground(x, z) → { height, wet, grass, blood, rock, water }, zones, defaultZone, shade?, autoMasses?, paths (kind road|branch|trail|animal, width, inhabited, ruts), water (đường + bề rộng, hoặc đa giác), doors (door|gate|entrance, width, depth, important), interactions (kind?), spawns, arenas (`rect: { x0, z0, x1, z1 }`, hoặc `rect: { x, z, w, d, yaw }` = hình chữ nhật xoay mà bộ sinh §4.15 dùng cho sân trại — `rectPoly` của engine đọc cả hai —, hoặc `{ at, r }`), masses (asset hoặc footprint+chiều cao, đặt tay; focal, label, scale, hostKinds?, `collision: false`? = khối tự dựng đi xuyên được), hosts, decisions?, events }`. `shade` = hướng bóng đổ của đèn chính ({x, z}, mặc định đông nam); `autoMasses: false` tắt khối tự động và việc chèn landmark. `hosts[]` = `{ id, recipe, at | mass, yaw | face, owns?, unspaced? }`: `mass` dùng khối do plan đặt làm vật chủ (không có `at`), `face` quay mặt trước về một điểm, `owns` = id vùng tương tác mà vật chủ giữ (thành viên đi xuyên được vào vùng ấy), `unspaced: true` bỏ luật `clusterSpacing` (dùng cho bố cục dày có chủ ý và test). `events[]` = `{ id, cause, host, at?, dir?, age }`, `host` = id vật chủ (cụm, khối, cửa, vùng tương tác, mảnh đã đặt) hoặc điểm `{ x, z, kind? }` — có `kind` thì được kiểm theo `TRACES[cause].hosts`. Kết quả: `placements[]` (`id, asset, kit, piece, group, step, role, layer, class, x, y, z, yaw, scale, tilt?, footprint, use?, occlusion?, host?, cluster?, event?, decision?, light?, label?`; khối do plan đặt làm vật chủ ghi thêm `cluster`), `ecology { tufts (mảng kiểu: x z h tone cluster kind), shrubs, carpet }`, `groundPaint[]`, `reserved[]`, `decisions[]`, `clusters[]` (thêm `sizeMix`, `pieces`, `mass`), `events[]` (thêm `hostKinds`, `hostPos.kinds`), `report { seeds, counts, drops, warnings, checks, tries, budgets, ms }`. `y` = đất thấp nhất dưới footprint trừ độ chìm (hoặc đất tại pivot trừ độ chìm kèm `tilt` cho vật nghiêng theo dốc).
 
 #### 4.13.8 Checklist §4.12: tự động hay cần mắt
 
@@ -457,6 +460,183 @@ Plan: `{ id, seed, bounds, camera?, ground(x, z) → { height, wet, grass, blood
 - Vùng che camera là bao lồi của footprint quét theo `forward`; tán cây là hộp mesh đã scale (không phải hình mesh). Cây bụi dưới 0,5 H nên không có vùng che.
 - Cỏ và cây bụi không đăng ký vào chỉ mục va chạm (decor); dấu vết gỡ chúng *sau* khi đặt. Engine chưa dựng hình 3D: scene đọc kết quả (lab Stage B).
 - Chưa mô hình hóa: đường nhìn của quái, vùng tuần tra, địa hình nhiều tầng. `size` chỉ là nhịp tham khảo (cảnh báo, không từ chối).
+
+### 4.14 Map chia module và quy chuẩn tải nhanh
+
+**[Diễn giải AD] — luật tải, không thêm quy tắc hình ảnh.** Một map sinh ra (§4.13) phải vào được màn hình đầu nhanh và nạp phần còn lại **sau khung đầu mà không giật hình**. Để làm được, map được cắt thành **module** (ô vuông trên lưới của plan) tải theo thứ tự, và mọi map phải thoả một bộ **ngân sách** — viết ở đây và **chạy thành kiểm tra** (`module-*`) trong báo cáo của scene. Phần máy hóa nằm ở `lookdev-lab/src/env/mapModules.js` (chia module, thứ tự tải, ngân sách, bake, khoá), `mapStream.js` (bộ tải dần), `mapCache.js` (IndexedDB) — cả ba không phụ thuộc renderer, mang sang `ashlar/gametest` như engine §4.13.
+
+**Vì sao (đo 2026-10-21, Chrome headless, dev server, kit nguội).** Chuyển studio → "Bố trí biome": 5,5 s đến khi scene hiện hành + 0,45 s cho 3 khung đầu (WebGL); 6,4 s + 1,6 s (WebGPU). Trong `init()`: tải **21 kit = 28,6 MB** dù khung đầu chỉ cần 9–12 kit (11,7–16 MB) ≈ 1,3 s; engine bố trí 0,41–0,52 s; `generateSplat` 0,38–0,40 s; terrain (4 lớp tải **tuần tự** + đóng gói CPU) 1,0–1,9 s; biên dịch shader 0,35–1,5 s. Một module 16 m chỉ cần ≤ 5–6 kit, ≤ 10–14 mảnh, ≤ 2–4 đèn, ≤ 226–335 tuft.
+
+#### 4.14.1 Lưới module và quyền sở hữu
+
+- **Ô 16 m**, gốc = `plan.bounds` (x0, z0), id `m{i}_{j}`. 16 m = ô instancing của scene (`cells: 16`) nên không ô GPU nào bị chia đôi; ≈ một phòng D2 8 × 8 tile (≈ 18,8 m ở 1 Sub ≈ 0,47 m, §4.13.1).
+- **Mỗi vật thuộc đúng một module:** placement, bụi, tuft, vệt đất (`groundPaint`) và đèn thuộc module chứa **tâm footprint** (không có footprint thì x/z); vật nằm đúng mép cuối map kẹp vào ô cuối. Module ghi `cell` (ô sở hữu), `bounds` (hộp bao footprint của nội dung — khối lớn tràn qua ô), danh sách chỉ số từng loại vật, `kits` (kit khác nhau, sắp xếp), `bytes`, `counts`. Module rỗng bỏ. Kết quả **tất định**: cùng đầu vào → cùng module, cùng id, vật giữ thứ tự gốc.
+- Kiểm tra `module-ownership`: số vật của từng loại cộng qua mọi module = số vật của layout.
+
+#### 4.14.2 Thứ tự tải
+
+- **Vòng 0** = module có **ô hoặc nội dung** (`bounds`) cách điểm xuất phát (`plan.start` của map sinh, nếu không thì 14 m dọc đường chính; chỗ hero đứng khi Play) ≤ **20 m**: nửa đường chéo nền của màn hình (≈ 16 m, §4.3 / §4.13) + ≈ 4 m chạy. Khoảng cách = nhỏ hơn của hộp ô → điểm và hộp nội dung → điểm, nên khối lớn hay đèn thuộc module ở xa vẫn không hiện muộn ở rìa màn hình đầu. Phần còn lại theo khoảng cách đó tăng dần, hoà thì theo id; `ring` = ⌈khoảng cách / 16⌉ (không có vòng 1 vì vòng 0 đã phủ 20 m).
+- **Khung đầu chỉ chờ kit của vòng 0** và dựng vòng 0. Kit xếp hàng theo ưu tiên = vị trí module đầu tiên cần nó trong thứ tự tải, **≤ 4 kit cùng lúc**; kit nền chỉ bắt đầu khi **khung đầu đã hiện** (mô hình hero, bầu trời và biên dịch shader được ưu tiên băng thông). Mỗi khung sau đó dựng thêm module sẵn sàng theo thứ tự trong **≤ 4 ms** (luôn ≥ 1 module nếu có, để chắc chắn tiến triển; renderer chậm hơn 60 fps được một phần tư thời gian khung đã làm mượt, tối đa 25 ms, để streaming không chậm thêm vì mỗi khung chỉ một module); module chưa đủ kit bị bỏ qua chứ không chặn module gần hơn.
+- Layout **không phụ thuộc thời điểm tải**: danh sách kit "có sẵn" của catalog lấy từ danh mục sample đã đăng ký, không phải từ cái đã tải xong.
+
+#### 4.14.3 Ngân sách (quy định)
+
+Số theo module và theo map hiệu chuẩn bằng **quét 24 seed** của plan mẫu (seed plan, rồi 2…24; điểm xuất phát = đường chính + 14 m; ô 16 m; cỡ kit = file GLB): max quan sát + ~20 %, làm tròn lên. Hai số của vòng 0 là **mục tiêu** cho khung đầu nhanh, không phải số hiệu chuẩn; quét cho thấy plan mẫu đạt cả hai ở mọi seed.
+
+| Kiểm tra | Ngân sách | Quét 24 seed (min – max) | Nguồn |
+|---|---|---|---|
+| `module-kits` | ≤ 9 kit / module | 5 – 7 | max + 20 % = 8,4 |
+| `module-pieces` | ≤ 18 mảnh (placement + bụi) / module | 9 – 15 | 18 |
+| `module-lights` | ≤ 5 đèn / module | 2 – 4 | 4,8 (§4.9: ≤ 4 mỗi màn hình) |
+| `module-tufts` | ≤ 410 tuft / module | 223 – 335 | 402 |
+| `module-start-kits` | vòng 0 cần ≤ 12 kit | 9 – 12 (của 21) | **mục tiêu** |
+| `module-start-mb` | vòng 0 cần ≤ 18 MB kit | 11,1 – 16,0 (của 28,6) | **mục tiêu** |
+| `module-map-kits` | cả map ≤ 25 kit | 20 – 21 | 25,2 |
+| `module-map-mb` | kit cả map ≤ 35 MB | 26,1 – 28,6 | 34,3 |
+| `module-bake-size` | file bake ≤ 560 KB (map lớn hơn 128 m: × số module / 64, vd. 192 m ≈ 1260 KB) | 399 – 459 (map sinh 128 m: 312 – 491) | 551 |
+| `module-ownership` | mỗi vật thuộc đúng một module | — | luật |
+
+Thông số tải dần: `frameBudgetMs` 4 (một khung 60 fps là 16,7 ms; phần còn lại cho renderer), `kitConcurrency` 4 (trình duyệt cho 6 kết nối mỗi host; chừa chỗ cho texture và splat). Tất cả nằm trong `MODULE_RULES` kèm nguồn từng số.
+
+**Khi một map vi phạm** ngân sách: map **không** được tải khác đi — kiểm tra ✗ hiện trong báo cáo (và ô đó đỏ trên overlay *Lưới module*). Bộ sinh plan sau này phải **sinh lại hoặc thưa** (bớt tuft / mảnh / đèn trong module đó, hoặc dời kit hiếm ra xa điểm xuất phát); plan dựng tay như bản mẫu do người thiết kế sửa.
+
+#### 4.14.4 Bake và cache
+
+- **Khoá layout** = băm của: plan (các trường JSON; hàm `ground()` được lấy mẫu trên lưới 17 × 17), tuỳ chọn đã chuẩn hóa (seed, mật độ, ngân sách, luật ghi đè), `LAYOUT_RULES`, `MAP_FORMAT_VERSION`, dấu vân catalog (asset, kích thước, kit có sẵn, công thức, dấu vết, dẫn đường, hồ sơ vùng con) **và mã nguồn**: `codeHash` = băm của các băm *văn bản* file (`fileHash`, `env/codeHash.js`) của `biomeLayout.js`, `biomePlacement.js`, `biomeCatalog.js`, `biomeLayoutDemo.js`; map sinh thêm `planGen.js`, `planGenZones.js` và `mapModules.js` (`MODULE_RULES`, `splitModules`, `loadOrder`, `checkModules`, `mapStart` quyết định lần thử nào được nhận); khoá splat thêm bộ vẽ (xem dưới). Khoá của map sinh còn có `accept` = băm đầu vào không phải mã của việc nhận lần thử (`acceptKey(kitBytes)`: cỡ GLB trong `kitBytes.json` mà `generateMap(…, { modules: { kitBytes } })` đọc). Băm file được tính **lúc build**: scene nhập `file.js?hash` (plugin esbuild `hashPlugin` trong `scripts/esbuild-plugins.mjs`, dùng cho cả `dev.mjs` lẫn `build.mjs`), bundle chỉ chứa 28 chữ số hex chứ không chứa mã nguồn (đo: −373 KB, −4,2 % của bundle 8,8 MB); script node đọc bằng `readFileSync` (`scripts/map-tools.mjs`). CRLF/LF và BOM được chuẩn hóa nên cùng file cho cùng băm, và `map-modules.test.mjs` chứng minh hai phía khớp cho mọi nhóm bằng cách bundle `mapCodeText.js` với esbuild. Đổi bất cứ thứ gì ở đó — kể cả sửa mã engine hay bộ sinh — → khoá đổi → bản bake / cache cũ tự bị bỏ.
+- **`MAP_FORMAT_VERSION`** (trong `mapModules.js`) chỉ phải **tăng khi hình dạng của một bản bake đổi** (mã hóa typed array, các trường kết quả mà `restoreLayout` cần): bản bake cũ khi đó không đọc được. Đổi *mã* engine không cần tăng nữa — `codeHash` đã nằm trong khoá.
+- **Nguồn layout, theo thứ tự:** IndexedDB (theo khoá) → file `assets/maps/<plan.id>/seed-<seed>.json` (`npm run bake:map -- --seed N`, chỉ nhận nếu khoá khớp) → chạy engine (rồi tự ghi vào cache sau vài khung đầu). Bake = kết quả engine với typed array dạng base64, khôi phục **y hệt** (kể cả khoá `undefined`); đo: khôi phục plan mẫu < 30 ms.
+- **Splat** (wet / grass / blood, 512²) cache riêng: khoá layout + `SPLAT_VERSION` (chỉ tăng khi *hình dạng* dữ liệu splat đổi) + cỡ splat + băm bộ vẽ = file scene `scenes/biomeLayout.js` (`weights()`, `carpetAt()`, `generateSplat()`), `env/kit.js` (`noise2` của `TerrainSplat.paint`) và `env/terrain.js`; sửa một trong ba file là khoá splat đổi (kể cả sửa phần giao diện của scene — chấp nhận, splat chỉ vẽ lại ≈ 1,2 s); độ mờ áp lên sau nên không nằm trong khoá. Bỏ `generateSplat` khi trúng cache, kết quả giống hệt.
+
+#### 4.14.5 Đèn và quy tắc không giật
+
+- **Mọi point light của plan được tạo ngay lúc tải**: số đèn nằm trong khoá program của mọi vật liệu lit; thêm đèn sau là biên dịch lại tất cả. Đèn khởi đầu tắt; ngọn lửa (và độ sáng) xuất hiện cùng module chứa nó.
+- **Vật liệu dùng chung:** module mới dùng lại vật liệu (và program) của module trước (bản bọc gió / shadow fill giữ theo vật liệu nguồn). Module dựng **ngoài scene**; nó chỉ phải chờ khi cần một **lớp program** chưa có (cấu trúc vật liệu — các map, mặt, alpha, màu đỉnh —, layout geometry, instancing, cờ bóng, loại bọc) hoặc một texture chưa lên GPU: khi đó `compileAsync` với đèn / môi trường của scene và đẩy texture lên **mỗi khung một cái**, rồi mới gắn; còn lại gắn ngay. Một program lần đầu cần trong khung hình làm cả khung đứng.
+- Dừng khi scene bị ẩn (`pause`, tiếp tục khi quay lại) và khi huỷ scene (`cancel`).
+
+#### 4.14.6 Số đo trước / sau
+
+Đo 2026-10-21: Chrome 155 headless (ANGLE d3d11), cửa sổ 1600 × 900, tắt HTTP cache (kit luôn tải lại), mở thẳng `?scene=biomeLayout`, **trung vị 3 lượt xen kẽ A/B** sau một lượt mồi. `all` + không cache = cách tải trước đây (khác duy nhất: danh sách kit "có sẵn" lấy từ danh mục sample). "Khung đầu" tính từ lúc mở trang; "đủ module" = module cuối cùng đã gắn vào scene (ở `all` thì mọi thứ có mặt từ khung đầu).
+
+| ms | WebGL khung đầu | init | đủ module | WebGPU khung đầu | init | đủ module |
+|---|---|---|---|---|---|---|
+| `all`, không cache (trước đây) | 6 508 | 3 924 | 6 508 | 11 843 | 3 254 | 11 843 |
+| `modules`, không cache | 5 580 (86 %) | 3 299 | 7 410 | 7 456 (63 %) | 3 034 | 15 900 |
+| `modules`, nguội (file bake, IndexedDB trống) | 5 538 (85 %) | 3 315 | 7 643 | 7 704 (65 %) | 2 978 | 17 066 |
+| `modules`, ấm (layout + splat từ cache) | **4 833 (74 %)** | **2 497 (64 %)** | 6 786 (+4 %) | **7 483 (63 %)** | **2 428 (75 %)** | 16 475 (+39 %) |
+
+- **Kit cho khung đầu:** vòng 0 = **10 kit / 12,5 MB** (so với 21 kit / 28,6 MB của `all`); lúc khung đầu hiện mới tải thêm mô hình hero. Draw call và tam giác khi chơi, sau khi tải đủ: **giống hệt `all`** — WebGL 145 draw / 1 043 112 tam giác, WebGPU 144 / 1 045 083; cùng số instance (cỏ 4 140, cây 13, bụi 47), cùng số mesh tĩnh (115), cùng tổng toạ độ đỉnh và ma trận instance (khác nhau chỉ ở thứ tự vẽ); hai ảnh chụp góc chơi / trại địch khác nhau không hơn hai lần chụp liên tiếp của chính `all` (khác biệt còn lại: tư thế hoạt ảnh của hero và độ chập chờn của lửa).
+- **Khựng hình khi stream:** WebGL khung dài nhất 40 ms khi cache ấm (không khung nào > 50 ms), 70 ms (một khung) khi nguội — bước parse GLB của kit nền. Dựng 63 module tốn tổng 139 ms CPU (trung vị 1 ms/module, nhiều nhất 17 ms). WebGPU: sau khung đầu lab tự khựng vài giây (tạo pipeline, PMREM) **ở cả hai chế độ** — `all`: +2,1 s (2,6 s) · +2,6 s (0,5 s) · +7,0 s (4,5 s); `modules`: +2,4 s (2,9 s) · +6,9 s (4,6 s), cộng hai khung 0,45 s và 0,33 s trùng với biên dịch của ba lớp program mới đầu tiên (kit PBR có normal / roughness / metalness); 562 khung còn lại ≤ 167 ms.
+- **Đường truyền 20 Mbit/s, trễ 30 ms (WebGL, 3 lượt):** khung đầu 42,9 s → 34,2 s (−20 %), `init` 24,8 s → 16,1 s, đủ module 39,6 s → 39,9 s (+1 %). Bộ tải (app, texture terrain, mô hình hero) chiếm phần lớn thời gian còn lại.
+- **Đổi seed** (seed 7: khoá không có trong cache lẫn file bake): lần đầu engine chạy 0,86–1,9 s và splat 1,3 s, khung đầu 5,3–6,0 s; lần sau cùng seed lấy từ cache, khung đầu 4,2–4,9 s.
+
+**Hai mục tiêu chưa đạt, và vì sao:** (1) khung đầu khi cache ấm ≤ 60 % của `all`: đạt gần trên WebGPU (63 %, 57 % tính từ lúc scene bắt đầu), 74 % trên WebGL. `init` còn 2,4 s mà module không bớt được: texture forge Valdren ≈ 1,0–1,2 s CPU (bệ waypoint của vòng 0 cần nó), terrain 4 lớp + đóng gói ≈ 0,9 s, `applyTime`, overlay và biên dịch shader của lab ≈ 1 s — các phần này không phụ thuộc số module. (2) "đủ module" không chậm hơn +10 %: đạt trên WebGL (+4 %) và trên đường truyền chậm (+1 %); trên WebGPU đủ module chậm hơn 39 % vì các khung khựng nói trên làm khung hình tiến chậm (mỗi khung chỉ dựng được vài module), trong khi `all` đã trả hết chi phí đó trước khung đầu.
+
+#### 4.14.7 Giới hạn đã biết
+
+- Phần cố định của lần tải (texture forge của Valdren ≈ 1 s CPU, texture terrain + đóng gói ≈ 1 s, biên dịch shader của lab, khởi động app) không thuộc module; số đo ở trên cho thấy phần module bớt được.
+- Khối lớn tràn ra khỏi ô sở hữu (`bounds` ≠ `cell`) đã được tính vào vòng 0 theo `bounds` (§4.14.2); module chủ của nó vẫn chỉ *dựng* khi đến lượt, nên chỉ ô chứa tâm footprint mới ghi nhận nó.
+- Ground blend (mặc định tắt) chỉ thấy toàn bộ mesh sau khi module cuối vào; mưa / lớp ướt của mood cũng áp lại một lần ở lúc đó.
+- Cache IndexedDB giữ **12 map gần dùng nhất** (mỗi map ≈ 1,5 MB: layout + splat + bản ghi lần thử của bộ sinh; nhóm theo khoá layout, xếp theo lần dùng cuối), map cũ hơn bị xoá sau mỗi lần ghi; nút *Xoá cache map* xoá hết. Nút 🎲 *Map mới* nhờ vậy không làm đầy ổ đĩa.
+- Kích thước kit cho kiểm tra MB đọc từ `src/env/kitBytes.json` (`npm run bake:map -- --kits` tạo lại khi đổi GLB).
+
+### 4.15 Sinh plan từ một seed (`planGen`)
+
+**[Diễn giải AD] — bước 0 của pipeline §4.13.2; không thêm quy tắc mới.** `layoutBiome` chỉ *trang trí* một plan đã có; plan mẫu (`DEMO_PLAN`) do tay vẽ. §4.15 là phần còn thiếu: **một con số (seed) → một plan đầy đủ** (đường chính có khúc cua khuất, nhánh/lối mòn, suối, ao, các vùng con kèm cửa, khối chính, vật chủ, sự kiện, spawn, arena, dải núi chắn phía sau, hàm đất `ground(x, z)`), rồi engine trang trí như với plan mẫu. Cùng seed → cùng map, mỗi lần. Mọi con số là hình thức máy hóa của §4.1–4.13 và §5.2 (camera, che khuất) hoặc được **đọc từ plan mẫu** (cột "nguồn" ở bảng dưới); không có nguồn nào cho số nào thì ghi `tuning` và để bước duyệt bằng mắt chỉnh.
+
+| Việc | Tệp |
+|---|---|
+| Bộ sinh: `generatePlan(seed, { size, biome, attempt })`, `checkPlan(plan)`, `generateMap(seed, catalog, options)`, `PLAN_GEN_RULES` (+ nguồn từng số), `BIOME_RECIPES.moor` (dữ liệu: map chứa gì, xác suất bao nhiêu — biome ASHLAR sau này là mục mới), đường / nước / ranh giới / hàm đất | `lookdev-lab/src/env/planGen.js` |
+| Khuôn vùng con (nông trại, trại địch, hang thú, nghĩa địa) viết theo khung (tâm, yaw, lật gương) từ chính bố cục của plan mẫu | `lookdev-lab/src/env/planGenZones.js` |
+| Kiểm thử — `node --test scripts/plan-gen.test.mjs` (13 hạng mục: tất định, hình dạng, đa dạng, nghiệm thu 40 seed, quy tắc dựng lại từ plan, độ dốc, `checkPlan` bắt lỗi, map 192/256 m, không ném lỗi, hiệu năng) | `lookdev-lab/scripts/plan-gen.test.mjs` |
+| Ảnh duyệt nhìn từ trên xuống: tấm contact sheet nhiều seed + xem lớn từng seed (cùng lớp bật/tắt với `preview:layout`) — `node scripts/plan-gen-preview.mjs [--seeds 1-12] [--size 128]` | `lookdev-lab/docs/plan-gen-preview.html` |
+
+#### 4.15.1 Camera quyết định cách bố trí (AD §5.2)
+
+Camera nhìn về tây bắc (`forward = normalize(−1, −1)` trên x/z): góc trên-trái màn hình = cạnh **tây**, trên-phải = cạnh **bắc**, phía dưới = cạnh **nam** và **đông**. Vì vậy bộ sinh theo ba luật:
+
+1. **Vật cao nằm phía sau** (bắc/tây của chỗ hero đi tới): dải núi chắn ở cạnh bắc (và cạnh tây, trừ khi đường vào/ra ở đó), nhà/kho/vách/đá ở *sau* lối mở. Phía trước (nam/đông) chỉ có mép thấp: viền đất ẩm hoặc suối; không có vách cao ở cạnh nam/đông.
+2. **Cửa, cổng, miệng hang quay về nửa mặt phẳng trước**: pháp tuyến cửa `(sin yaw, cos yaw)` thỏa `normal · (1, 1) > 0` (sinh: trong ±72° quanh hướng đông nam; kiểm: ≥ 0,28). Khuôn vùng con được quay *chỉ* để đạt điều này và để cửa nhìn về phía đường; tòa nhà/vách/đá khi đó đứng sau lối mở dưới con mắt camera.
+3. **Trại địch nằm sau đường** (phía tây bắc của đường), cổng quay ra đường trại; **vùng "bận" (trại, nông trại) cách điểm xuất phát ≥ 45 m** để các màn hình đầu còn nhẹ (việc nạp theo vùng quanh điểm xuất phát dựa vào đây).
+
+#### 4.15.2 Một map `moor` chứa gì (`BIOME_RECIPES.moor`)
+
+| Thành phần | Quy tắc | Xác suất / số lượng |
+|---|---|---|
+| Kích thước | 128 × 128 m (`bounds` −64…64); tùy chọn 192 / 256 m, số vùng nhân theo diện tích (tối thiểu ×0,8) | — |
+| Đường chính (`road`, rộng 4,2, `inhabited`) | Từ cạnh vào tới cạnh ra (đối diện; cạnh kề với xác suất 20 %, không bao giờ nối hai cạnh sau với nhau); 3–5 điểm điều khiển có lệch vuông góc; **ít nhất một khúc cua khuất** (cua ≥ 44° trong ~8 m, theo đúng phép đo `detectDecisions`); cách cạnh sau ≥ 14 m, cạnh trước ≥ 8 m; `smoothPath`; `start` = 14 m kể từ lối vào | vệt bánh xe (`ruts`) trên đoạn thẳng nhất 14 m: 60 % |
+| Ranh giới (§4.4: tự nhiên) | Dải núi dày 10 m dọc cạnh bắc (+ cạnh tây nếu đường không ở đó): đất nhô ≤ ~26° + đá, **1–2 khối `cliff`** (~26 × 4, cao ~4) mỗi cạnh, **chừa khe** nơi đường/suối chạm cạnh; cạnh nam/đông thấp, viền ẩm | luôn có |
+| Nước | Suối (rộng 3,2) từ cạnh này sang cạnh đối diện, uốn lượn, **cắt đường đúng một lần** (engine quyết định cầu/ford ở đó), vùng `bank` = `bufferPolyline(creek, 7)`; ao (đa giác r 4–6, ≥ 6 m cách mọi lối, vùng `bank` r + 4) | suối 70 %, ao 50 % |
+| Waypoint | `interaction` bán kính 2,6, cách đường 6–10 m, cách lối vào 10–24 m (theo đường), có nền riêng r 4 | luôn có |
+| Điểm quan tâm | 3–4 trong {nông trại, trại địch, hang thú, nghĩa địa}; vòng tròn vùng cách nhau ≥ 8 m, cách mép bản đồ ≥ r + 4, không đè nước; mỗi nơi có đường vào (nông trại/trại: `branch` 2,6; nghĩa địa: `trail` 1,6; hang: `animal` 1) | trại 85 %, nông trại 80 %, hang 75 %, nghĩa địa 70 % (rồi bù cho đủ 3) |
+| Xe hỏng | khối asset `tentsB.cart_awning` trên vai phía sau của đường + sự kiện `spill` | 50 % (thực tế ~43 %: cần chỗ) |
+| Cây landmark | `deadTrees.tall` scale 1,2–1,4 (≥ 2 H) gần một ngã ba, **thêm một cây cho mỗi cửa sổ 32 m của đường chưa có landmark** (beacon của trại cũng tính) | luôn có |
+| `ground(x, z)` | nhiễu thấp + gồ gần đường/nền, nền san phẳng dưới nhà, dải núi, lòng suối/ao → `water`, hõm → `wet`, đá quanh hang và trên dải núi, máu quanh bàn thờ và xác; cùng khoảng giá trị với `demoGround` | — |
+
+**Khuôn vùng con** (số đọc từ plan mẫu, quy về tâm vùng; thay đổi: số thành viên, thành phần tùy chọn, khoảng cách ±1–2 m, lật gương, yaw chỉ trong phạm vi cho phép ở §4.15.1):
+
+| Vùng | Thành phần |
+|---|---|
+| Nông trại (r 24) | nhà 7 × 5 cao ~4 (focal) + kho 9 × 6 cao ~4,3, cửa (`house-door` 1,6 × 3, `barn-door` 3 × 3) về phía sân; hai `farmyard`, `pen`, `tannery` (tùy chọn, cạnh đường vào), ruộng `field` (~16 × 18, `rows`) cạnh nhà; sự kiện `raid` ở cửa nhà, `collapse` ở kho; nền san phẳng dưới hai nhà (bán kính = nửa đường chéo + 0,8, hòa 3 m) |
+| Trại địch (r 22) | hàng rào cọc (`palisade.wall_c/wall_a`, 2 mảnh mỗi bên) + cổng 4 × 4 `important` hướng ra đường trại; `campfire` ở giữa, 1–3 `tent` quay về lửa, `kitchen`, `storage`, `smithy`/`training`/`ritual`/`hunt` tùy chọn (`ritual` → máu quanh bàn thờ); `lighting.beacon` (landmark) ở góc trước; 2 spawn; arena `camp-yard` giữa lửa và cổng; sự kiện `raid` ngoài cổng, `ritual` ở phía trống của bàn thờ; nền r 17 |
+| Hang thú (r 13) | khối `den` 6,4 × 5,8 cao 2, miệng (`entrance` 3 × 3) về phía trước; đá quanh hang; arena `meadow` r 8 cách miệng 12–22 m, xác thú (`collision: false`) ở mép bãi cách miệng 15–25 m; spawn cạnh hang; `predation` ở miệng và ở xác; lối thú hang → bãi → đường |
+| Nghĩa địa (r 12) | miếu `wayside` sở hữu vùng tương tác `wayside-shrine` (r 3,4), 2–3 hàng mộ `graves`, lối `trail` từ đường; sự kiện `grave` (mộ đào, ngoài vòng vùng như plan mẫu) |
+
+#### 4.15.3 Pipeline
+
+| Bước | Việc | Luồng seed |
+|---|---|---|
+| a | Đường: cạnh vào/ra, điểm điều khiển, khúc cua khuất (tăng biên độ 20 % mỗi lần cho tới khi engine thấy cua ≥ 44°), `start`, vệt bánh | `hash32(seed, attempt, 'road')` |
+| b | Waypoint | `'waypoint'` |
+| c | Suối (nhiều ứng viên; giữ ứng viên cắt đường đúng một lần, ở giữa đường, xa `start` và khúc cua, không chạm nước ở lối vào/ra) | `'creek'` |
+| d | Vùng: chọn loại theo xác suất; mỗi loại: lưới ứng viên 3 m (cạnh, khoảng cách vòng, xuất phát, khoảng cách tới đường, nước, trại sau lưng đường, cửa nhìn ra đường) xếp theo thứ tự seed + ưu tiên chỗ trống → dựng khuôn (cả hai ảnh gương) → kiểm chân (đường, nước, mép, vùng khác) → dẫn đường vào (nhánh tối đa 85 m, rẽ ≥ 35°, không qua nước/vùng khác/đường khác) ; thử tới 6 thứ tự đặt, lấy map đầy nhất | `'poi'`, `'poi:<loại>:<n>:<vòng>'`, `'lane:…'` |
+| e | Dải núi + khối `cliff` (tránh khe đường/suối, chân vùng khác, nước) | `'ridge'` |
+| f | Xe hỏng, cây landmark | `'cart'`, `'tree'` |
+| g | Ao | `'pond'` |
+| h | `ground()` (trường khoảng cách 1 m tính một lần) | `'ground'`, `'g-*'` |
+
+Không có `Math.random` hay đồng hồ trong bộ sinh (test đọc mã nguồn kiểm tra). `plan.seed` = seed người dùng (cũng là seed gốc của engine); `attempt` thay đổi **mọi** luồng nên mỗi lần thử là một map khác.
+
+#### 4.15.4 `checkPlan(plan)` — kiểm tra ở mức plan (trước engine, nhanh)
+
+Dựng lại từ dữ liệu plan (+ `preparePlan` cho hành lang/arena); không tin vào trạng thái nội bộ của bộ sinh.
+
+| Mã | Điều được kiểm |
+|---|---|
+| `bounds`, `refs` | mọi thứ nằm trong biên; id duy nhất; `host`/`mass`/`owns`/vật chủ sự kiện đều có thật |
+| `zone-separation` | vòng vùng cách nhau ≥ 8 m, cách mép ≥ r + 4 |
+| `on-water` | không vùng/cửa/spawn/tương tác/vật chủ/arena/khối nào trên (hay trong 1,2 m) nước |
+| `reach`, `branch-water`, `branch-zones` | mỗi vùng có **đường của riêng nó** (đường thuộc về vùng gần đầu xa của nó nhất, trong r + 8 m) chạm đường chính (rẽ nhánh) hoặc, với lối thú, trong 14 m; nhánh không cắt nước, không đi qua vùng/ruộng khác |
+| `road-creek`, `road-margins`, `hidden-bend`, `exits` | đường vào nước đúng một lần; lề 14 m / 8 m; có khúc cua engine thấy; `start` = 14 m, lối vào/ra nằm trên mép và trên đường |
+| `doors-front`, `walled-back`, `start-light`, `waypoint` | cửa/cổng/miệng hang hướng trước; trại sau lưng đường; vùng bận ≥ 45 m, spawn ≥ 25 m, cửa/arena/vật chủ ≥ 12 m cách `start`; waypoint 6–10 m cạnh đường, 10–24 m dọc đường |
+| `poi-count`, `boundary`, `landmark-spacing`, `combat-space` | 3–4 vùng, **tối đa đúng số tối đa** (nhân theo diện tích); dải núi + cliff ở cạnh sau, có khe; landmark tác giả cách nhau ≥ 6 m và cách vật chủ/sự kiện ≥ 8 m; arena ≥ 8×8 Sub, mỗi spawn có chỗ đánh trong 22 m |
+| `play-space`, `hosts`, `slopes` | khối tác giả (engine **luôn ghi nhận kể cả khi vi phạm**) không vào hành lang/nước/cửa/spawn/tương tác/arena, không chồng nhau; vật chủ ngoài hành lang đường; dốc trên lối và trong lõi vùng < 0,55 |
+
+#### 4.15.5 `generateMap` — thử lại có chặn
+
+Lần thử 0, 1, … tối đa `PLAN_GEN_RULES.maxAttempts` = 8: sinh plan → `checkPlan` → nếu qua thì `layoutBiome` → nhận khi **mọi** kiểm tra plan và cả **19** kiểm tra engine đạt. Kết quả: `{ ok, seed, plan, result, attempt, attempts: [{ attempt, failed: ['plan:<mã>' | 'engine:<mã>'] }], timing }`. Không lần nào đạt thì trả lần ít lỗi nhất với `ok: false` (lỗi plan tính nặng gấp 100 lần lỗi engine: một plan bị loại không bao giờ thắng một plan engine chỉ chê vài điểm); không bao giờ ném lỗi hay lặp vô hạn. Với map lớn, ngân sách engine (host, thành viên, dẫn đường, sự kiện: mặc định của engine, `mapBudgets(size)`) nhân theo diện tích. `PLAN_GEN_VERSION` = `plan-gen/2`; `plan.id` = `gen-moor-<cỡ>-s<seed>` (duy nhất theo cỡ + seed, để file bake của hai map không đè nhau). Tùy chọn `options.modules = { kitBytes }` (scene 3D và `npm run bake:map` bật) đưa cả **ngân sách tải nhanh §4.14.3** vào tiêu chí nhận (mã `module:<kiểm tra>`): quét seed 1–200 (128 m) cho thấy kiểm tra **vòng 0** (≤ 12 kit, ≤ 18 MB) **không seed nào vi phạm** (2–11 kit, 4,4–16,2 MB), chỉ `module-pieces` vi phạm ở seed 170 (20 > 18 mảnh trong một module) — với tùy chọn này seed đó thử lại và nhận ở lần 1. Kiểm tra `module-bake-size` tính theo diện tích nên map 192 / 256 m không bị loại oan.
+
+Kết quả đo (128 × 128 m, catalog đầy đủ): seed 1–40: **40/40 được nhận**; seed 1–200: **200/200**; qua ngay lần 0: khoảng 85–90 %; lỗi lần 0 thường gặp: `plan:poi-count` (chỉ xếp được 2 vùng; thử lại rẻ, không chạy engine), rồi `engine:landmark`, `engine:occlusion`, `engine:ecology-exclusion`. `generatePlan` ≈ 40 ms (p95 ≈ 63–78 ms), `generateMap` ≈ 0,4–0,5 s CPU trung bình (tối đa ~1,2 s).
+
+#### 4.15.6 Giới hạn đã biết và các lệch có chủ ý
+
+- **Bán kính vùng nhỏ hơn plan mẫu** (nông trại 24 thay 26, trại 22 thay 24, nghĩa địa 12 thay 13) và vòng vùng đặt ở giữa các vật chủ thay vì ở sân: với khoảng cách ≥ 8 m giữa các vòng và ≥ r + 4 m tới mép, bản đồ 128 m không chứa nổi hai vùng lớn bán kính 26/24 cùng hang và nghĩa địa. Cái nằm ngoài vòng (cọc rào xa, beacon, ruộng, bãi hang) thuộc vùng `moor`, như ở plan mẫu.
+- Khoảng cách tâm vùng → đường: nông trại 24–40 m, trại 22–38 m (quy định 12–35 m không đủ chỗ cho cổng + sân; vòng vùng tối đa chạm tim đường chính).
+- **Arena trại là hình chữ nhật xoay** (`{ x, z, w, d, yaw }`) để xoay cùng khuôn; xác thú nằm ngay *ngoài* mép bãi (khối tác giả không được vào arena), giống plan mẫu.
+- **Landmark do plan mang** (một cây cho mỗi cửa sổ 32 m chưa có): phép chèn của engine nhìn 9–16 m về tây bắc nên hụt ở đầu/cuối đường, trong nước và trong trại; engine vẫn chèn nếu còn thiếu.
+- Dải núi cạnh bắc có thể thiếu cliff (≈ 1/200) khi trại/suối chiếm cạnh; map bị loại ở `plan:boundary` và thử lại.
+- Vòng tròn vùng nông trại/trại tối đa chạm tim đường chính (hang/nghĩa địa không chạm); công trình thì luôn cách mép hành lang đường ≥ 3,6 m.
+- Map lớn: 192 m có 5–6 vùng, `generatePlan` 94–157 ms, cả map ~0,9–1,1 s CPU; 256 m có 9–10 vùng, `generatePlan` 266–610 ms, cả map 2,1–3,3 s CPU (vượt mục tiêu 100 ms của `generatePlan`; cache của scene trả lại lần thử đã chọn nên chỉ trả một lần).
+- `meta.rejected` chứa số ứng viên bị loại theo lý do (chẩn đoán, không dùng cho gameplay).
+
+#### 4.15.7 Trong scene 3D — một seed → cả map
+
+Lab → "Act I · Bố trí biome (thuật toán)" → *Bố trí biome* → **Map từ một seed** (đổi = tải lại trang; HUONG_DAN §7h):
+
+- **Nguồn plan** `seed` (mặc định) hoặc `demo` (plan làm tay); **Seed map** (số nguyên ≥ 1; cũng là seed gốc của engine); **Cỡ map** 128 / 192 / 256 m; nút **🎲 Map mới** (seed ngẫu nhiên rồi tải lại). Seed từng nhóm (mass, cluster, guide, ecology, trace) và mật độ nằm trong thư mục thu gọn **Nâng cao**.
+- **Tải lần đầu (nguội)**: `generateMap` thử lần 0, 1, … cho tới khi mọi kiểm tra plan + 19 kiểm tra engine đạt. **Tải lại (nóng)**: bản ghi `gen|<khoá>` trong IndexedDB (khoá = seed, cỡ, `PLAN_GEN_VERSION`, tuỳ chọn, catalog, `codeHash` gồm cả `mapModules.js`, `accept` = cỡ kit) lưu *lần thử được nhận*; scene chạy `generatePlan(seed, { attempt })` (≈ 40 ms, đủ cho `ground()`), lấy layout và splat từ cache, **không chạy lại engine hay tìm lần thử**. Layout bị dọn khỏi cache thì engine chạy đúng một lần trên plan của lần thử đã lưu. `npm run bake:map -- --plan seed --seed N [--size 192]` ghi bản ghi này vào `assets/maps/index.json` (`gen`) cùng file bake.
+- **Báo cáo**: nguồn + seed + cỡ + id plan, các vùng của map này, số lần thử và mã kiểm tra bị loại của từng lần thử, thời gian plan (`generateMap` hoặc `generatePlan`), rồi **22 kiểm tra plan** (`checkPlan`) cạnh **19 kiểm tra engine** và các kiểm tra `module-*` (§4.14.3). Plan demo không chạy `checkPlan` (nó khác quy tắc của bộ sinh có chủ ý).
+- Plan sinh có thể thiếu nông trại / trại / hang / nghĩa địa / suối / vách: **góc nhìn của vùng không có thì không có trong danh sách**; mặt nước chỉ vẽ cho nước có thật; hero xuất phát tại `plan.start` (cùng hàm `mapStart` với bake và thứ tự tải). **Giới hạn đã biết:** lưới nav của Play (`gameplay/host.js`, `GRID` = 128 m quanh điểm xuất phát) chỉ phủ một ô 128 m, nên map 192 / 256 m — và nửa xa của map 128 m khi xuất phát sát mép — chỉ *xem* được, không đi bộ tới hết (đo seed 2: sân trại nằm ngoài ô nav). Đó là việc của gameplay, chưa làm.
+
 
 ---
 

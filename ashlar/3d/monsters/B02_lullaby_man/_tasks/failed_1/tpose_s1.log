@@ -1,0 +1,38 @@
+﻿B02 Lullaby Man T-pose report — 2026-10-22
+STATUS: STOPPED at step 3 retry because built-in image_gen failed. Skill hard rule requires logging exact error and stopping. Steps 4, 4b post-split and 5 final deliverable completion NOT performed. No four-view exports created. Sheets are QA-failed working artifacts, NOT approved Tripo inputs.
+
+Step 1: Viewed concept.png, read existing design.txt and brief.md. Preserved design.txt unchanged as explicitly required by skill and brief. HUMANOID yes. VIEWS landmark table already exists in design.txt. Read project Agent.md and artdirection.md. Prompts prepend verbatim sections 3.1, 3.6 first block, 3.8 plus matching humanoid template and VIEWS.
+
+Built-in image generation only; no image editing by code. No Tripo run.
+Session/source directory: E:\map01-batch\home\generated_images\01a15f79-47b9-7801-9bb1-f84d4fc4d658
+Sheet 1 initial source: exec-e94a53c7-1d37-4a01-a1e8-4d6c65743762.png
+Sheet 1 retained retry source: exec-e96d42a3-25e6-495f-b3e3-daf30722e937.png
+Sheet 2 initial source: exec-7aefd5fe-1767-423f-b600-6309b3a90513.png
+Sheet 2 retry: FAILED, no output/source image.
+Full source paths are session/source directory joined with filenames above.
+
+Sheet 1 initial: 1536x1024. FRONT bbox (24,19,764,981), height 962px (93.9%). BACK bbox (785,18,1512,981), height 963px (94.0%). No margin warnings. Humanoid arms 4.3-4.6deg off horizontal; 10 warnings total including generic hand height/span. Visual FAIL: four cocoons (fourth partial below third), sagging hands, nonuniform grey background. Preserved in _rejected/tpose_front_back_attempt1.png.
+Sheet 1 retry: retained as tpose_front_back.png, best of two but NOT QA PASS. FRONT bbox (34,22,758,976), height 954px (93.2%). BACK bbox (778,22,1501,975), height 953px (93.1%). No margin warnings. Arms front +3.4/+3.6deg; back +3.6/+3.4deg. 6 humanoid warnings: hands at 30-31%, span/height 0.76. Generic bounds not suitable for tower-backed B02 (design span 0.74, hand 33-34%), but actual shoulders still higher than design. Visual remaining problems: fourth partial cocoon still visible; hood top around 16% versus 19-20% target; cage bottom around 38% versus 43%; belt about 40-42% versus 45-48%; subtle grey background gradient; hands not perfectly flat. Body remains tall/thin, empty hands, true back, long robe, ivory/slate/red palette and broad cloth shadows; no crop, no text. Facial seam has more than three X stitches. Exact PASS on fidelity cannot be claimed.
+
+Sheet 2 initial: tpose_sides.png, also preserved in _rejected/tpose_sides_attempt1.png. 1536x1024. LEFT bbox (177,24,724,974), height 950px (92.8%). RIGHT bbox (812,19,1357,974), height 955px (93.3%). No margin warnings. 2 humanoid warnings: sole span 0.46H/0.45H; broad floor-length robe causes silhouette heuristic to measure hem, not soles, and concealed legs cannot be verified directly. Visual FAIL: arms extend forward screen-left/right instead of end-on toward camera. Also cage reads with a partial extra bottom bundle and background has gradient. Tall thin silhouette, palette and cloth volume retained. Near-mirrored side patch layouts require further inspection against asymmetric back. Retry requested foreshortened near hand on shoulder, hidden far arm and three cocoons, but generation failed.
+
+Scale: retained sheet1 mean height 953.5px; sheet2 mean height 952.5px. Mean-height ratio 953.5/952.5 = 1.001050. This is a prospective estimate ONLY; split was not run and no actual rescale factor exists. Height difference about 0.10%, inside 12% limit.
+
+Preliminary unsplit visual landmark table (approximate percentages from highest finial to floor; NOT mandatory post-split strip QA):
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Cage tip | 0 | 0 | 0 | 0 | aligned
+Hood top | 14-15 | 15 | 16 | 16 corners | side hood higher, target 19-20; FAIL
+Arm/hand | 29-31 forward | 29-31 forward | 30-31 | 30-31 | height close, side axis WRONG; FAIL
+Cage bottom | 35-36 | 35-36 | hidden by torso | 37-38 | side/back depth and height need correction; FAIL
+Belt | 39-42 | 39-42 | 39-42 | 39-42 | roughly aligned, above design 45-48
+Hood lappets | front torso partially obscured | front torso partially obscured | end about 40 | hidden | front over torso/back hidden plausible; side arm obscures verification
+Cocoons | 3 full plus partial lower form | 3 full plus partial lower form | upper ones visible, lower hidden | 4 incl partial bottom | count FAIL (required 3)
+Lower slate patch onset | rear about 64-65 | rear about 65-67 | about 72 | large image-left about 67 | target front 78, back75, sides68; FAIL fidelity
+Hem | 100 | 100 | 100 | 100 | approximately aligned before normalisation
+Cross-view final verdict: NOT PASSED. No contact/guides/strip files generated or viewed because hard-stop rule applies.
+
+Retries: sheet1 one successful retry, improving pose but retaining design deviations; sheet2 one attempted retry, failed. Never exceeded two generation calls per sheet. All prompts saved next to sheets as tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt.
+
+EXACT TOOL ERROR (sheet2 retry):
+Script error:
+image generation failed: http 400 Bad Request: Some("{\n  \"error\": {\n    \"message\": \"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 33f287a9-9cf7-4649-b94b-e9040c4afa1a. safety_violations=[abuse].\",\n    \"type\": \"image_generation_user_error\",\n    \"param\": null,\n    \"code\": \"moderation_blocked\",\n    \"moderation_details\": {\n      \"moderation_stage\": \"output\",\n      \"categories\": [\n        \"other\"\n      ]\n    }\n  }\n}")

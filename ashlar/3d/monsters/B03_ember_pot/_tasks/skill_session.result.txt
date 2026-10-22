@@ -1,0 +1,12 @@
+Đã tạo hai sheet, tách bốn view 1024×1024 và ghi [tpose.log](/E:/Diablo2/ashlar/3d/monsters/B03_ember_pot/tpose.log). `design.txt` có sẵn được giữ nguyên theo skill.
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/B03_ember_pot/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/B03_ember_pot/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/B03_ember_pot/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/B03_ember_pot/views/right.png)
+
+Chiều cao nhân vật: sheet 1 **650 px**, sheet 2 **798 px**; hệ số thu góc bên **0,8145**. Bốn view cùng đường chân.
+
+**QA chưa đạt hoàn toàn:** mỗi sheet đã thử lại một lần; tay FRONT/BACK vẫn xệ khoảng 7–9°, tay góc bên thấp hơn và chiều dài áo choàng chưa khớp. Ảnh bị loại được giữ lại.
+
+Session nguồn: `01a15fb6-b874-7352-b681-a2ce8809d72c`. Đường dẫn từng ảnh nguồn, bảng kiểm chéo và lý do thử lại nằm trong log.

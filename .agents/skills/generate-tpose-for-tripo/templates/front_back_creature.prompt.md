@@ -1,0 +1,14 @@
+Use case: character turnaround for image-to-3D (Tripo multi-view input), NON-HUMANOID creature (its body plan is stated under POSE below).
+REFERENCE IMAGES (attached in this order): (1) the concept sheet of the creature (a lineup with an H silhouette, a 3/4 view and four model views): identity reference for the DESIGN only (body build, head and face, fur or skin, colours, parts worn or attached, markings, proportions). Keep the same design. Do NOT copy the lineup layout, the H silhouette, the dashed guide lines, any text, or the pose of the 3/4 view or of the model views. (2) the placement template: a flat grey canvas with two slightly lighter rectangles; it is NOT artwork: use only its canvas shape and size, the two placement rectangles and their common floor line. {{IF_RETRY: (3) an earlier attempt of this sheet: keep its design, its stance and its FRONT view; only the error named at the top of this prompt must change. (4) the approved LEFT/RIGHT side views of the same animal: the 3D truth for heights, overlaps and what hides what; the BACK view must agree with them.}}
+{{STYLE_CORE}}
+{{TPOSE_RULES}}
+{{CONTENT}}
+{{DESIGN}}
+Canvas and placement: ONE landscape image with exactly the shape of the template (3:1), with TWO full-body views of the same creature side by side: left = the FRONT view (the creature seen from the front, facing the camera), right = the BACK view (the true back, not a mirrored front). Each view is painted inside its lighter rectangle of the template: the feet (paws, or the leg tips of a many-legged creature) rest on the bottom edge of the rectangle, the highest point of the creature touches the top edge, and the creature is centred horizontally in it. Both views share one floor line and one scale; whole body visible, nothing cropped, no overlap. Do NOT draw the rectangles, no outline, no floor line, no cast shadow: the background is perfectly flat neutral mid-grey (#808080) everywhere, with only a faint soft contact shadow directly under the feet.
+{{POSE}}
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle, no view from above.
+Fidelity: keep the concept's body build, face, fur, skin or shell and surface exactly (a heavy animal stays heavy; NO added muscle definition, NO exposed ribs or bone, NO claws or teeth beyond the concept, NO extra anatomy or ornaments the concept does not show). Only the pose changes.
+Left out of the pose: {{REMOVE}}
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+Per-view visibility and heights (cross-view consistency, critical: a body part that hides another in one view hides it in every view that looks from the same side, and every height below is the same in every view): {{VIEWS}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.

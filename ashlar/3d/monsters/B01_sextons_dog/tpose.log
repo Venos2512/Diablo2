@@ -1,0 +1,51 @@
+B01 Sexton's Dog, variant A: creature (family Q, four-legged) turnaround for Tripo multi-view, 2026-10-21
+Concept: ashlar/art/map-01-concepts/monsters/B01_sextons_dog/vA/concept_r2.png (copied to concept.png)
+Flow: CREATURE flow of the generate-tpose-for-tripo skill (draft). design.txt: HUMANOID no, FAMILY Q, VIEWS table.
+Prompts built with scripts/fill_prompt.py (STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 pasted verbatim from artdirection.md).
+Placement templates (scripts/make_view_template.py, 2172x724, 640 px per H): template_fb.png blocks 0.50x0.72 H, template_sides.png blocks 1.42x0.72 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py (CODEX_HOME E:\map01-batch\home), one session per sheet.
+
+SHEET 2 (LEFT + RIGHT) - ACCEPTED: attempt 2 (tpose_sides.png)
+  attempt 1, session 01a15eff-64f1-77b1-b691-4e86117e4450, 108 s: REJECTED (_rejected/sides_attempt1_far_legs_staggered.png). The far hind leg
+    stepped about 140 px ahead of the near hind leg and RIGHT mirrored the stagger, so LEFT and RIGHT disagreed about which hind leg is forward.
+  attempt 2 (failure named first; LEGS text "only TWO legs show, far legs hidden behind them"), session 01a15f01-e8f6-70a0-bb67-d89c389f6986, 101 s:
+    ACCEPTED. 535 / 539 px tall, 898 / 899 px wide; far paws peek out 30-50 px (about 4 % of the body length).
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 3 + tail edit pass (tpose_front_back.png = _tasks/fb_attempt3_tailedit.png)
+  attempt 1, session 01a15efb-91ec-7261-b787-5325c7ba4905, 193 s: passed the single-sheet QA, then REJECTED after the user's report and the
+    cross-view check (_rejected/fb_attempt1_back_collar_and_tail_inconsistent.png):
+      - BACK: the iron collar lay across the top of the back as a full band; in the side views the shoulder hump (highest point of the animal) stands
+        directly behind the collar and is nearer the camera from behind, so it must hide the collar. The BACK hump was also 18 % of the height too low.
+      - BACK tail tip at 88 % of the figure height, side views 70 %.
+  attempt 2 (VIEWS table in the prompt, mismatch named first, attempt 1 + approved side sheet attached), session 01a15f51-a67a-7d01-9d92-2ab264e7a17b,
+    294 s: collar fixed (hump hides it), tail still about 83 %.
+  attempt 3 (same, tail named again), session 01a15f56-c8fa-72a1-a52a-08c621630ee1, 128 s: collar fixed, tail about 80 %.
+  edit pass on attempt 3 (templates/edit_creature.prompt.md: "EDIT: shorten the BACK tail ..."), session 01a15f59-e3ed-76e2-94bb-cc436e0a65fa, 39 s:
+    tail tip 72.9 %; the rest of the sheet changed by 2.2 grey levels on average (1.4 % of the pixels differ by more than 24): ACCEPTED.
+  Two full regenerations did not move the tail; the edit pass did. For a single wrong detail, prefer an edit pass on the accepted sheet.
+
+CROSS-VIEW TABLE (step 4b; final views, % of the figure height, 0 % = highest point, 100 % = soles; measured on views/*.png)
+  feature              LEFT        RIGHT       FRONT       BACK                          verdict
+  highest point        0           0           0           0                             ok
+  collar top edge      about 3     about 3     about 8     hidden (one rivet tip, ~5)    FRONT arc apex about 5 % lower than the side collar: minor, accepted
+  collar in BACK       -           -           -           no band: shoulder hump hides  ok (was the error)
+  chain ring           52.7-69.3   52.6-69.3   52.9-70.2   hidden                        ok
+  tail tip             69.5        69.4        hidden      72.9                          ok (3.4 % longer in BACK)
+  rump patches top     about 20    about 20    -           about 22                      ok
+  paws                 100         100         100         100                           ok
+  figure height px     524         527         526         524                           ok (one scale, one floor row)
+
+Numeric checks (tpose_tools.py creature): sheet 1 symmetry 0.90 / 0.89, 2 paw groups each, heights 632 / 630 px; sheet 2 heights 535 / 539 px; no WARN.
+Split: sides sheet scaled by 1.175 to the front/back height; all views by 0.834 to fit 1024 with the 7 % margin; --vcenter (floor row 776).
+  views/front.png back.png left.png right.png (1024x1024), _contact.png, _guides.png (guides --creature), _strip_0-60.png, _strip_40-100.png.
+
+Remaining deviations:
+  - FRONT collar arc apex about 5 % of the height lower than the side-view collar top.
+  - BACK tail 3.4 % of the height longer than in the side views.
+  - mouth slightly open (jowl drop) in the side views, closed in FRONT.
+  - far paws visible about 4 % of the body length ahead of the near paws in the side views.
+  - RIGHT is a mirror of LEFT (the design is bilaterally symmetric, so this is correct).
+  - side-view body is stockier than the concept (length/height 1.68 against 1.96) but equal in both sides and consistent with FRONT/BACK.
+  - fur strokes slightly finer than the concept's low-detail surface; the contact shadow under the paws is visible in the side views.
+Not done: no Tripo run, no credits spent. Open question for the Tripo test: does Tripo normalise each view's size separately (the long side views and
+the tall front/back views have different longest sides)? Here every view keeps one common scale and one floor row.
