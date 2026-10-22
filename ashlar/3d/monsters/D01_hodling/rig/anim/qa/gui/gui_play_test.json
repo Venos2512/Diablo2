@@ -1,0 +1,222 @@
+{
+ "blender": "5.2.2 LTS",
+ "background": false,
+ "gpu": {
+  "backend": "OPENGL",
+  "renderer": "NVIDIA GeForce RTX 4070/PCIe/SSE2"
+ },
+ "clips": {
+  "idle": {
+   "is_animation_playing": true,
+   "frame_at_sample": 11,
+   "frame_advanced": true,
+   "elapsed_s": 0.7,
+   "range": [
+    1,
+    49
+   ],
+   "action": "idle",
+   "slot": "OBD01_control",
+   "screenshot": "gui_idle.png",
+   "screenshot_bytes": 157204
+  },
+  "walk": {
+   "is_animation_playing": true,
+   "frame_at_sample": 12,
+   "frame_advanced": true,
+   "elapsed_s": 0.52,
+   "range": [
+    1,
+    27
+   ],
+   "action": "walk",
+   "slot": "OBD01_control",
+   "screenshot": "gui_walk.png",
+   "screenshot_bytes": 154946
+  },
+  "run": {
+   "is_animation_playing": true,
+   "frame_at_sample": 12,
+   "frame_advanced": true,
+   "elapsed_s": 0.52,
+   "range": [
+    1,
+    19
+   ],
+   "action": "run",
+   "slot": "OBD01_control",
+   "screenshot": "gui_run.png",
+   "screenshot_bytes": 152784
+  },
+  "attack": {
+   "is_animation_playing": true,
+   "frame_at_sample": 12,
+   "frame_advanced": true,
+   "elapsed_s": 0.52,
+   "range": [
+    1,
+    19
+   ],
+   "action": "attack",
+   "slot": "OBD01_control",
+   "screenshot": "gui_attack.png",
+   "screenshot_bytes": 158642
+  },
+  "hit": {
+   "is_animation_playing": true,
+   "frame_at_sample": 12,
+   "frame_advanced": true,
+   "elapsed_s": 0.52,
+   "range": [
+    1,
+    12
+   ],
+   "action": "hit",
+   "slot": "OBD01_control",
+   "screenshot": "gui_hit.png",
+   "screenshot_bytes": 157959
+  },
+  "death": {
+   "is_animation_playing": true,
+   "frame_at_sample": 12,
+   "frame_advanced": true,
+   "elapsed_s": 0.52,
+   "range": [
+    1,
+    31
+   ],
+   "action": "death",
+   "slot": "OBD01_control",
+   "screenshot": "gui_death.png",
+   "screenshot_bytes": 155153
+  }
+ },
+ "events": [
+  [
+   4.01,
+   "start",
+   "{'screen': 'Layout', 'shading': 'SOLID', 'color_type': 'TEXTURE', 'light': 'STUDIO', 'overlays': True, 'area_size': [900, 658], 'window_size': [1100, 760]}"
+  ],
+  [
+   4.11,
+   "idle",
+   "assigned",
+   "idle",
+   "OBD01_control",
+   "range",
+   "1",
+   "49",
+   "play started"
+  ],
+  [
+   4.82,
+   "idle",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 11, 'frame_advanced': True, 'elapsed_s': 0.7, 'range': [1, 49], 'action': 'idle', 'slot': 'OBD01_control', 'screenshot': 'gui_idle.png', 'screenshot_bytes': 157204}"
+  ],
+  [
+   4.84,
+   "walk",
+   "assigned",
+   "walk",
+   "OBD01_control",
+   "range",
+   "1",
+   "27",
+   "play started"
+  ],
+  [
+   5.36,
+   "walk",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 27], 'action': 'walk', 'slot': 'OBD01_control', 'screenshot': 'gui_walk.png', 'screenshot_bytes': 154946}"
+  ],
+  [
+   5.65,
+   "run",
+   "assigned",
+   "run",
+   "OBD01_control",
+   "range",
+   "1",
+   "19",
+   "play started"
+  ],
+  [
+   6.17,
+   "run",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 19], 'action': 'run', 'slot': 'OBD01_control', 'screenshot': 'gui_run.png', 'screenshot_bytes': 152784}"
+  ],
+  [
+   6.45,
+   "attack",
+   "assigned",
+   "attack",
+   "OBD01_control",
+   "range",
+   "1",
+   "19",
+   "play started"
+  ],
+  [
+   6.97,
+   "attack",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 19], 'action': 'attack', 'slot': 'OBD01_control', 'screenshot': 'gui_attack.png', 'screenshot_bytes': 158642}"
+  ],
+  [
+   7.26,
+   "hit",
+   "assigned",
+   "hit",
+   "OBD01_control",
+   "range",
+   "1",
+   "12",
+   "play started"
+  ],
+  [
+   7.78,
+   "hit",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 12], 'action': 'hit', 'slot': 'OBD01_control', 'screenshot': 'gui_hit.png', 'screenshot_bytes': 157959}"
+  ],
+  [
+   8.07,
+   "death",
+   "assigned",
+   "death",
+   "OBD01_control",
+   "range",
+   "1",
+   "31",
+   "play started"
+  ],
+  [
+   8.59,
+   "death",
+   "sample",
+   "{'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 31], 'action': 'death', 'slot': 'OBD01_control', 'screenshot': 'gui_death.png', 'screenshot_bytes': 155153}"
+  ],
+  [
+   8.87,
+   "done"
+  ]
+ ],
+ "viewport": {
+  "screen": "Layout",
+  "shading": "SOLID",
+  "color_type": "TEXTURE",
+  "light": "STUDIO",
+  "overlays": true,
+  "area_size": [
+   900,
+   658
+  ],
+  "window_size": [
+   1100,
+   760
+  ]
+ }
+}

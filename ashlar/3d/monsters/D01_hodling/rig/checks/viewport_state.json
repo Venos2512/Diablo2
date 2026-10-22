@@ -1,0 +1,19 @@
+{
+ "shading": {
+  "type": "SOLID",
+  "color_type": "TEXTURE",
+  "light": "STUDIO"
+ },
+ "bones_overlay": true,
+ "region": [
+  1574,
+  954
+ ],
+ "active": "D01_control",
+ "selected": [
+  "D01_control"
+ ],
+ "ok": false,
+ "error": "RuntimeError('Error: Cannot use OpenGL render in background mode (no opengl context)\\n')",
+ "note": "Blender -b khong co OpenGL context: khong chup duoc viewport; doc lai trang thai UI da luu (shading Solid/Texture/Studio, overlay bone, doi tuong active/selected). Mo file bang giao dien de xem."
+}

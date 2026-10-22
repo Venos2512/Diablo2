@@ -1,0 +1,163 @@
+{
+ "rest": {
+  "max_diff_vs_direct_pose_m": 0.0,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "hands_raised": {
+  "max_diff_vs_direct_pose_m": 0.0,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "hands_crossed": {
+  "max_diff_vs_direct_pose_m": 0.0,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "arms_down_fk": {
+  "max_diff_vs_direct_pose_m": 5.960464477539063e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "arms_forward_fk": {
+  "max_diff_vs_direct_pose_m": 7.450580596923828e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "elbows_max_fk": {
+  "max_diff_vs_direct_pose_m": 5.960464477539063e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "squat": {
+  "max_diff_vs_direct_pose_m": 3.203749656677246e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "long_step": {
+  "max_diff_vs_direct_pose_m": 0.0,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "twist_p45": {
+  "max_diff_vs_direct_pose_m": 3.5762786865234375e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "twist_m45": {
+  "max_diff_vs_direct_pose_m": 4.76837158203125e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "head_down": {
+  "max_diff_vs_direct_pose_m": 5.960464477539063e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "head_up": {
+  "max_diff_vs_direct_pose_m": 5.960464477539063e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "head_turn": {
+  "max_diff_vs_direct_pose_m": 4.470348358154297e-08,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "hip_flex_fk": {
+  "max_diff_vs_direct_pose_m": 8.307397365570068e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "hip_abduct_fk": {
+  "max_diff_vs_direct_pose_m": 6.407499313354492e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "aux_motion": {
+  "max_diff_vs_direct_pose_m": 1.1920928955078125e-07,
+  "slot": "OBD01_control",
+  "fcurves": 319,
+  "status": "experiment",
+  "frame_range": [
+   1.0,
+   1.0
+  ]
+ },
+ "_all_ok": true
+}

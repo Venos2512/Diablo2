@@ -1,0 +1,207 @@
+{
+ "rest": {
+  "flap_vertices": 159,
+  "flap_triangles": 228,
+  "inside_vertices_thigh": 0,
+  "inside_vertices_other": 3,
+  "max_depth_thigh_mm": 0.0,
+  "max_depth_other_mm": 1.9076535245403647,
+  "intersecting_flap_triangles_thigh": 0,
+  "intersecting_flap_triangles_other": 5,
+  "covered_by_thigh_vertices": 0,
+  "inside_thigh_regions": []
+ },
+ "sweep": [
+  {
+   "angle_deg": 0,
+   "new_inside_vertices_thigh": 4,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 9,
+   "new_covered_by_thigh_vertices": 4,
+   "max_depth_thigh_mm": 0.7565724663436413,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -5,
+   "new_inside_vertices_thigh": 2,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 7,
+   "new_covered_by_thigh_vertices": 2,
+   "max_depth_thigh_mm": 0.16547036648262292,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -10,
+   "new_inside_vertices_thigh": 2,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 6,
+   "new_covered_by_thigh_vertices": 2,
+   "max_depth_thigh_mm": 0.06483790639322251,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -15,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -20,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -25,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -30,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -35,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -40,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -45,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -50,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -55,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -60,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -65,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -70,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -75,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 2,
+   "intersecting_other_now": 4
+  },
+  {
+   "angle_deg": -80,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 1,
+   "intersecting_other_now": 3
+  },
+  {
+   "angle_deg": -85,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 1,
+   "intersecting_other_now": 3
+  },
+  {
+   "angle_deg": -90,
+   "new_inside_vertices_thigh": 0,
+   "new_inside_vertices_other": 0,
+   "new_intersecting_triangles_thigh": 0,
+   "new_covered_by_thigh_vertices": 0,
+   "max_depth_thigh_mm": 0.0,
+   "inside_other_now": 1,
+   "intersecting_other_now": 3
+  }
+ ],
+ "first_clear_angle_deg": -15
+}

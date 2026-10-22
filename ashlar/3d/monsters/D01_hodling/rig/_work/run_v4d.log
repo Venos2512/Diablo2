@@ -1,0 +1,532 @@
+﻿== R2/R3 build rig + skin -> D01_hodling_rig.blend (GHI DE ban nguon)
+16:28:17 | INFO: Data are loaded, start creating Blender stuff
+16:28:17 | INFO: Blender create Mesh node tripo_8d791fe1_65fe_4ee5_9952_381babb3cb2c
+16:28:17 | INFO: glTF import finished in 0.18s
+scale factor 0.6794956867949569
+pole angle search (rad deviation, deg): {'L_leg': {'coarse': [(0.0, -90), (1.5707924365997314, 0), (1.570801019668579, 180), (3.1415915489196777, 90)], 'fine_best': (0.0, -90.0)}, 'L_arm': {'coarse': [(0.0, -90), (1.5707958936691284, 180), (3.141592502593994, 90), (4.712388515472412, 0)], 'fine_best': (0.0, -90.0)}, 'R_leg': {'coarse': [(0.0, -90), (1.5707939863204956, 0), (1.5707992315292358, 180), (3.1415939331054688, 90)], 'fine_best': (0.0, -90.0)}, 'R_arm': {'coarse': [(0.0, -90), (1.5707958936691284, 0), (3.141592502593994, 90), (4.712388515472412, 180)], 'fine_best': (0.0, -90.0)}}
+Info: Saved as "D01_hodling_rig.blend"
+saved E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== chuc nang rig tren file da luu (IK, control, cuc tri, vai tui doc lap dau)
+00:00.797  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+tests 20 / 20 -> E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\checks\rig_function.json
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== do vai tui + kho truoc <-> dui (checks/sack_flap.json, loin_sweep.json)
+00:00.687  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+0 {'new_inside_vertices_thigh': 4, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 9, 'new_covered_by_thigh_vertices': 4, 'max_depth_thigh_mm': 0.7565724663436413} 2
+-5 {'new_inside_vertices_thigh': 2, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 7, 'new_covered_by_thigh_vertices': 2, 'max_depth_thigh_mm': 0.16547036648262292} 2
+-10 {'new_inside_vertices_thigh': 2, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 6, 'new_covered_by_thigh_vertices': 2, 'max_depth_thigh_mm': 0.06483790639322251} 2
+-15 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-20 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-25 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-30 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-35 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-40 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-45 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-50 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-55 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-60 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-65 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-70 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-75 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 2
+-80 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 1
+-85 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 1
+-90 {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0} 1
+first clear angle -15
+sack head poses max mm: 0.0 | flap rest 0 uncorr {'new_inside_vertices_thigh': 4, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 9, 'new_covered_by_thigh_vertices': 4, 'max_depth_thigh_mm': 0.7565776468254626} corr {'new_inside_vertices_thigh': 0, 'new_inside_vertices_other': 0, 'new_intersecting_triangles_thigh': 0, 'new_covered_by_thigh_vertices': 0, 'max_depth_thigh_mm': 0.0}
+-> E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\checks\sack_flap.json
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== xuat GLB runtime tam (chi de kiem A1)
+00:00.625  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+INFO Draco is available, use library at E:\SteamLibrary\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at E:\SteamLibrary\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+16:28:24 | INFO: Starting glTF 2.0 export
+16:28:24 | INFO: Extracting primitive: D01_hodling_mesh
+16:28:25 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+16:28:25 | INFO: Primitives created: 1
+16:28:25 | INFO: Finished glTF 2.0 export in 0.7256903648376465 s
+
+exported E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\checks\D01_hodling_runtime_check.glb 14855472
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R4 validation.json (A1.1-A1.14 + fix_checks_v4)
+00:01.000  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+16:28:27 | INFO: Data are loaded, start creating Blender stuff
+16:28:27 | INFO: Blender create Mesh node D01_hodling_mesh
+16:28:27 | INFO: glTF import finished in 0.20s
+fix checks v4: True | A1: {'checks': 14, 'passed': 14, 'failed': []} rig tests 20 / 20 -> E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\validation.json
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== trang thai viewport da luu
+00:00.610  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+Error: Cannot use OpenGL render in background mode (no opengl context)
+VPSHOT {"shading": {"type": "SOLID", "color_type": "TEXTURE", "light": "STUDIO"}, "bones_overlay": true, "region": [1574, 954], "active": "D01_control", "selected": ["D01_control"], "ok": false, "error": "RuntimeError('Error: Cannot use OpenGL render in background mode (no opengl context)\\n')", "note": "Blender -b khong co OpenGL context: khong chup duoc viewport; doc lai trang thai UI da luu (shading Solid/Texture/Studio, overlay bone, doi tuong active/selected). Mo file bang giao dien de xem."}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R5 render anh that
+00:00.765  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+00:02.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\skel_plain_front.png'
+00:02.687  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\skel_plain_side.png'
+00:03.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\skel_plain_back.png'
+00:03.406  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_dominant_front.png'
+00:03.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_dominant_side.png'
+00:03.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_dominant_back.png'
+00:04.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_blend_front.png'
+00:04.422  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_blend_side.png'
+00:04.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_blend_back.png'
+00:05.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_influences_front.png'
+00:05.312  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_influences_side.png'
+00:05.547  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\w_influences_back.png'
+00:05.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_pelvis_front.png'
+00:05.765  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_pelvis_side.png'
+00:05.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_pelvis_back.png'
+00:05.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_01_front.png'
+00:06.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_01_side.png'
+00:06.140  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_01_back.png'
+00:06.234  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_02_front.png'
+00:06.328  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_02_side.png'
+00:06.468  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_spine_02_back.png'
+00:06.578  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_chest_front.png'
+00:06.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_chest_side.png'
+00:06.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_chest_back.png'
+00:06.890  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_neck_front.png'
+00:07.000  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_neck_side.png'
+00:07.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_neck_back.png'
+00:07.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_head_front.png'
+00:07.281  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_head_side.png'
+00:07.390  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_head_back.png'
+00:07.500  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_UpperArm_front.png'
+00:07.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_UpperArm_side.png'
+00:07.687  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_UpperArm_back.png'
+00:07.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ForeArm_front.png'
+00:07.890  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ForeArm_side.png'
+00:07.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ForeArm_back.png'
+00:08.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Hand_front.png'
+00:08.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Hand_side.png'
+00:08.281  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Hand_back.png'
+00:08.359  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Thigh_front.png'
+00:08.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Thigh_side.png'
+00:08.547  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Thigh_back.png'
+00:08.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Calf_front.png'
+00:08.718  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Calf_side.png'
+00:08.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Calf_back.png'
+00:08.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Foot_front.png'
+00:08.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Foot_side.png'
+00:09.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Foot_back.png'
+00:09.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Toe_front.png'
+00:09.250  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Toe_side.png'
+00:09.328  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_Toe_back.png'
+00:09.422  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_UpperArm_front.png'
+00:09.531  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_UpperArm_side.png'
+00:09.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_UpperArm_back.png'
+00:09.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ForeArm_front.png'
+00:09.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ForeArm_side.png'
+00:09.875  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ForeArm_back.png'
+00:09.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Hand_front.png'
+00:10.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Hand_side.png'
+00:10.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Hand_back.png'
+00:10.265  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Thigh_front.png'
+00:10.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Thigh_side.png'
+00:10.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Thigh_back.png'
+00:10.578  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Calf_front.png'
+00:10.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Calf_side.png'
+00:10.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Calf_back.png'
+00:10.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Foot_front.png'
+00:10.953  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Foot_side.png'
+00:11.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Foot_back.png'
+00:11.125  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Toe_front.png'
+00:11.250  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Toe_side.png'
+00:11.359  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_Toe_back.png'
+00:11.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_helmet_front.png'
+00:11.562  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_helmet_side.png'
+00:11.640  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_helmet_back.png'
+00:11.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_sack_front.png'
+00:11.828  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_sack_side.png'
+00:11.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_sack_back.png'
+00:12.015  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_loincloth_front_front.png'
+00:12.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_loincloth_front_side.png'
+00:12.203  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_loincloth_front_back.png'
+00:12.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ear_front.png'
+00:12.390  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ear_side.png'
+00:12.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_L_ear_back.png'
+00:12.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ear_front.png'
+00:12.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ear_side.png'
+00:12.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\b_R_ear_back.png'
+00:12.890  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_L_front.png'
+00:12.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_L_side.png'
+00:13.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_L_back.png'
+00:13.140  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_R_front.png'
+00:13.218  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_R_side.png'
+00:13.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_shoulder_R_back.png'
+00:13.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_L_front.png'
+00:13.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_L_side.png'
+00:13.515  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_L_back.png'
+00:13.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_R_front.png'
+00:13.687  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_R_side.png'
+00:13.765  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_elbow_R_back.png'
+00:13.828  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_L_front.png'
+00:13.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_L_side.png'
+00:13.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_L_back.png'
+00:14.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_R_front.png'
+00:14.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_R_side.png'
+00:14.218  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hand_R_back.png'
+00:14.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hip_pelvis_front.png'
+00:14.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hip_pelvis_side.png'
+00:14.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_hip_pelvis_back.png'
+00:14.531  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_L_front.png'
+00:14.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_L_side.png'
+00:14.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_L_back.png'
+00:14.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_R_front.png'
+00:14.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_R_side.png'
+00:14.953  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_knee_R_back.png'
+00:15.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_L_front.png'
+00:15.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_L_side.png'
+00:15.203  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_L_back.png'
+00:15.281  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_R_front.png'
+00:15.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_R_side.png'
+00:15.422  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_ankle_foot_R_back.png'
+00:15.515  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_head_neck_front.png'
+00:15.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_head_neck_side.png'
+00:15.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_head_neck_back.png'
+00:15.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_sack_helmet_front.png'
+00:15.828  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_sack_helmet_side.png'
+00:15.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_sack_helmet_back.png'
+00:16.000  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_loincloth_front.png'
+00:16.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_loincloth_side.png'
+00:16.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\r_loincloth_back.png'
+00:16.250  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_L_front.png'
+00:16.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_L_side.png'
+00:16.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_L_back.png'
+00:16.578  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_R_front.png'
+00:16.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_R_side.png'
+00:16.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_shoulder_R_back.png'
+00:16.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_L_front.png'
+00:16.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_L_side.png'
+00:16.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_L_back.png'
+00:17.047  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_R_front.png'
+00:17.125  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_R_side.png'
+00:17.203  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_elbow_R_back.png'
+00:17.281  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_L_front.png'
+00:17.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_L_side.png'
+00:17.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_L_back.png'
+00:17.515  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_R_front.png'
+00:17.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_R_side.png'
+00:17.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hand_R_back.png'
+00:17.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hip_pelvis_front.png'
+00:17.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hip_pelvis_side.png'
+00:17.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_hip_pelvis_back.png'
+00:17.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_L_front.png'
+00:18.062  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_L_side.png'
+00:18.140  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_L_back.png'
+00:18.218  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_R_front.png'
+00:18.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_R_side.png'
+00:18.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_knee_R_back.png'
+00:18.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_L_front.png'
+00:18.531  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_L_side.png'
+00:18.609  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_L_back.png'
+00:18.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_R_front.png'
+00:18.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_R_side.png'
+00:18.875  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_ankle_foot_R_back.png'
+00:18.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_head_neck_front.png'
+00:19.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_head_neck_side.png'
+00:19.203  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_head_neck_back.png'
+00:19.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_sack_helmet_front.png'
+00:19.390  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_sack_helmet_side.png'
+00:19.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_sack_helmet_back.png'
+00:19.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_loincloth_front.png'
+00:19.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_loincloth_side.png'
+00:19.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\rt_loincloth_back.png'
+00:19.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_rest_front.png'
+00:20.140  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_rest_side.png'
+00:20.312  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_rest_back.png'
+00:20.500  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_raised_front.png'
+00:20.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_raised_side.png'
+00:20.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_raised_back.png'
+00:20.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_crossed_front.png'
+00:21.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_crossed_side.png'
+00:21.312  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hands_crossed_back.png'
+00:21.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_down_fk_front.png'
+00:21.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_down_fk_side.png'
+00:21.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_down_fk_back.png'
+00:22.015  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_forward_fk_front.png'
+00:22.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_forward_fk_side.png'
+00:22.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_arms_forward_fk_back.png'
+00:22.515  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_elbows_max_fk_front.png'
+00:22.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_elbows_max_fk_side.png'
+00:22.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_elbows_max_fk_back.png'
+00:22.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_squat_front.png'
+00:23.125  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_squat_side.png'
+00:23.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_squat_back.png'
+00:23.468  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_long_step_front.png'
+00:23.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_long_step_side.png'
+00:23.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_long_step_back.png'
+00:23.937  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_p45_front.png'
+00:24.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_p45_side.png'
+00:24.234  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_p45_back.png'
+00:24.390  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_m45_front.png'
+00:24.562  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_m45_side.png'
+00:24.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_twist_m45_back.png'
+00:24.890  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_down_front.png'
+00:25.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_down_side.png'
+00:25.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_down_back.png'
+00:25.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_up_front.png'
+00:25.500  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_up_side.png'
+00:25.687  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_up_back.png'
+00:25.843  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_turn_front.png'
+00:26.015  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_turn_side.png'
+00:26.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_head_turn_back.png'
+00:26.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_front.png'
+00:26.531  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_side.png'
+00:26.843  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_back.png'
+00:27.093  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_loin_front.png'
+00:27.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_loin_side.png'
+00:27.500  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_flex_fk_loin_back.png'
+00:27.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_abduct_fk_front.png'
+00:27.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_abduct_fk_side.png'
+00:28.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_hip_abduct_fk_back.png'
+00:28.297  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_aux_motion_front.png'
+00:28.468  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_aux_motion_side.png'
+00:28.640  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\p_aux_motion_back.png'
+00:28.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_down_fk_front.png'
+00:28.828  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_down_fk_fl.png'
+00:28.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_down_fk_side.png'
+00:29.015  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_down_fk_fr.png'
+00:29.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_down_fk_back.png'
+00:29.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_forward_fk_front.png'
+00:29.265  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_forward_fk_fl.png'
+00:29.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_forward_fk_side.png'
+00:29.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_forward_fk_fr.png'
+00:29.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_arms_forward_fk_back.png'
+00:29.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_raised_front.png'
+00:29.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_raised_fl.png'
+00:29.953  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_raised_side.png'
+00:30.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_raised_fr.png'
+00:30.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_raised_back.png'
+00:30.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_crossed_front.png'
+00:30.281  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_crossed_fl.png'
+00:30.359  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_crossed_side.png'
+00:30.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_crossed_fr.png'
+00:30.547  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_shoulders_hands_crossed_back.png'
+00:30.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_front.png'
+00:30.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_fl.png'
+00:30.843  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_side.png'
+00:30.953  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_fr.png'
+00:31.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_back.png'
+00:31.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_loin_front.png'
+00:31.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_loin_fl.png'
+00:31.265  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_loin_side.png'
+00:31.359  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_loin_fr.png'
+00:31.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_flex_fk_loin_back.png'
+00:31.531  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_abduct_fk_front.png'
+00:31.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_abduct_fk_fl.png'
+00:31.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_abduct_fk_side.png'
+00:31.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_abduct_fk_fr.png'
+00:31.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_hip_abduct_fk_back.png'
+00:32.000  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_squat_front.png'
+00:32.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_squat_fl.png'
+00:32.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_squat_side.png'
+00:32.234  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_squat_fr.png'
+00:32.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_squat_back.png'
+00:32.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_long_step_front.png'
+00:32.500  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_long_step_fl.png'
+00:32.578  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_long_step_side.png'
+00:32.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_long_step_fr.png'
+00:32.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_hips_legs_long_step_back.png'
+00:32.828  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_elbows_max_fk_front.png'
+00:32.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_elbows_max_fk_fl.png'
+00:33.000  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_elbows_max_fk_side.png'
+00:33.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_elbows_max_fk_fr.png'
+00:33.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_elbows_max_fk_back.png'
+00:33.265  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_hands_crossed_front.png'
+00:33.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_hands_crossed_fl.png'
+00:33.468  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_hands_crossed_side.png'
+00:33.562  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_hands_crossed_fr.png'
+00:33.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_elbows_hands_crossed_back.png'
+00:33.750  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_down_front.png'
+00:33.843  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_down_fl.png'
+00:33.937  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_down_side.png'
+00:34.031  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_down_fr.png'
+00:34.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_down_back.png'
+00:34.234  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_up_front.png'
+00:34.328  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_up_fl.png'
+00:34.406  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_up_side.png'
+00:34.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_up_fr.png'
+00:34.562  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_up_back.png'
+00:34.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_turn_front.png'
+00:34.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_turn_fl.png'
+00:34.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_turn_side.png'
+00:34.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_turn_fr.png'
+00:34.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_head_neck_head_turn_back.png'
+00:35.078  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_p45_front.png'
+00:35.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_p45_fl.png'
+00:35.328  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_p45_side.png'
+00:35.468  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_p45_fr.png'
+00:35.547  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_p45_back.png'
+00:35.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_m45_front.png'
+00:35.718  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_m45_fl.png'
+00:35.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_m45_side.png'
+00:35.875  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_m45_fr.png'
+00:35.968  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cu_torso_sack_twist_m45_back.png'
+00:36.843  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_rest_front.png'
+00:36.906  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_rest_fl.png'
+00:36.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_rest_side.png'
+00:37.047  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_rest_fr.png'
+00:37.125  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_rest_front.png'
+00:37.187  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_rest_fl.png'
+00:37.265  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_rest_side.png'
+00:37.343  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_rest_fr.png'
+00:37.437  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_front.png'
+00:37.515  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_fl.png'
+00:37.593  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_side.png'
+00:37.656  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_fr.png'
+00:37.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_front.png'
+00:37.812  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_fl.png'
+00:37.875  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_side.png'
+00:37.937  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_fr.png'
+00:38.047  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_loin_front.png'
+00:38.109  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_loin_fl.png'
+00:38.172  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_loin_side.png'
+00:38.250  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_tex_hip_flex_fk_loin_fr.png'
+00:38.312  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_loin_front.png'
+00:38.375  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_loin_fl.png'
+00:38.453  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_loin_side.png'
+00:38.547  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\loin_map_hip_flex_fk_loin_fr.png'
+powershell : Traceback (most recent call last):
+At line:1 char:393
++ ... un_v4c.log; powershell -NoProfile -File tools\run_all.ps1 -Tag v4 -Ov ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\tools\q1_render.py", line 228, in <module>
+    with open(os.path.join(RAW, "info.json"), "w", encoding="utf-8", newline="\n") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'E:\\Diablo2\\ashlar\\3d\\monsters\\D01_hodling\\rig\\qa\\_raw\\v4\\info.json'
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R5 socket vu khi theo ban tay
+00:00.704  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\tools\q4_sockets.py:16: DeprecationWarning: 'Material.use_nodes' is 
+expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(name); m.use_nodes = True
+00:02.125  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_rest_front.png'
+00:02.219  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_rest_side.png'
+00:02.313  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_rest_back.png'
+00:02.422  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_forward_fk_front.png'
+00:02.532  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_forward_fk_side.png'
+00:02.625  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_forward_fk_back.png'
+00:02.735  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_raised_front.png'
+00:02.844  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_raised_side.png'
+00:02.954  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_raised_back.png'
+00:03.047  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_crossed_front.png'
+00:03.157  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_crossed_side.png'
+00:03.250  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_hands_crossed_back.png'
+00:03.360  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_down_fk_front.png'
+00:03.485  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_down_fk_side.png'
+00:03.594  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_arms_down_fk_back.png'
+00:03.719  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_twist_p45_front.png'
+00:03.844  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_twist_p45_side.png'
+00:03.954  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\sock_twist_p45_back.png'
+sockets done
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R5 doi chieu vai tui v3 vs hien hanh
+00:00.672  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\_snapshots\v3\D01_hodling_rig.blend"
+00:04.516  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_rest_back.png'
+00:04.594  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_rest_fr.png'
+00:04.672  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_rest_side.png'
+00:04.734  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_down_back.png'
+00:04.797  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_down_fr.png'
+00:04.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_down_side.png'
+00:04.922  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_up_back.png'
+00:04.984  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_up_fr.png'
+00:05.094  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_up_side.png'
+00:05.156  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_turn_back.png'
+00:05.266  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_turn_fr.png'
+00:05.328  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_v3_head_turn_side.png'
+00:05.328  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+00:06.094  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_rest_back.png'
+00:06.188  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_rest_fr.png'
+00:06.266  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_rest_side.png'
+00:06.344  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_down_back.png'
+00:06.406  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_down_fr.png'
+00:06.484  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_down_side.png'
+00:06.578  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_up_back.png'
+00:06.641  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_up_fr.png'
+00:06.703  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_up_side.png'
+00:06.781  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_turn_back.png'
+00:06.859  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_turn_fr.png'
+00:06.969  render           | Saved: 'E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4\cmp_cur_head_turn_side.png'
+cmp done E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\_raw\v4
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R5 ghep nhan (python)
+wrote qa\A2_skeleton_overlay_front_v4.jpg (2000, 1826)
+wrote qa\A2_skeleton_overlay_side_v4.jpg (1836, 1826)
+wrote qa\A2_skeleton_overlay_back_v4.jpg (2000, 1826)
+wrote qa\A2_skeleton_overlay_3view_v4.jpg (2934, 1002)
+wrote qa\A2_control_rig_overlay_front_v4.jpg (2000, 1822)
+wrote qa\A2_control_rig_overlay_side_v4.jpg (2000, 1822)
+wrote qa\A2_weights_dominant_v4.jpg (3016, 944)
+wrote qa\A2_weights_blend_v4.jpg (3016, 944)
+wrote qa\A2_weights_influences_v4.jpg (3016, 910)
+wrote qa\A2_weights_bone_spine_v4.jpg (1936, 2866)
+wrote qa\A2_weights_bone_neck_head_v4.jpg (1936, 2184)
+wrote qa\A2_weights_bone_arm_L_v4.jpg (1936, 2184)
+wrote qa\A2_weights_bone_arm_R_v4.jpg (1936, 2184)
+wrote qa\A2_weights_bone_leg_L_v4.jpg (1936, 2866)
+wrote qa\A2_weights_bone_leg_R_v4.jpg (1936, 2866)
+wrote qa\A2_weights_bone_aux_v4.jpg (1936, 2866)
+wrote qa\A2_regions_1_v4.jpg (3020, 3938)
+wrote qa\A2_regions_2_v4.jpg (3020, 3938)
+wrote qa\A2_pose_rest_v4.jpg (3016, 1668)
+wrote qa\A2_pose_hands_raised_v4.jpg (3016, 2174)
+wrote qa\A2_pose_hands_crossed_v4.jpg (3016, 2188)
+wrote qa\A2_pose_arms_down_fk_v4.jpg (3016, 2188)
+wrote qa\A2_pose_arms_forward_fk_v4.jpg (3016, 2188)
+wrote qa\A2_pose_elbows_max_fk_v4.jpg (3016, 2188)
+wrote qa\A2_pose_squat_v4.jpg (3016, 1474)
+wrote qa\A2_pose_long_step_v4.jpg (3016, 1638)
+wrote qa\A2_pose_twist_p45_v4.jpg (3016, 2128)
+wrote qa\A2_pose_twist_m45_v4.jpg (3016, 2128)
+wrote qa\A2_pose_head_down_v4.jpg (3016, 1668)
+wrote qa\A2_pose_head_up_v4.jpg (3016, 1668)
+wrote qa\A2_pose_head_turn_v4.jpg (3016, 1668)
+wrote qa\A2_pose_hip_flex_fk_v4.jpg (3016, 1670)
+wrote qa\A2_pose_hip_flex_fk_loin_v4.jpg (3016, 1670)
+wrote qa\A2_pose_hip_abduct_fk_v4.jpg (3016, 1564)
+wrote qa\A2_pose_aux_motion_v4.jpg (3016, 1658)
+wrote qa\A2_pose_contact_sheet_v4.jpg (2536, 3643)
+wrote qa\A2_pose_closeup_shoulders_v4.jpg (2816, 2508)
+wrote qa\A2_pose_closeup_hips_legs_v4.jpg (2816, 3114)
+wrote qa\A2_pose_closeup_elbows_v4.jpg (2816, 1296)
+wrote qa\A2_pose_closeup_head_neck_v4.jpg (2816, 1902)
+wrote qa\A2_pose_closeup_torso_sack_v4.jpg (2816, 1296)
+wrote qa\A2_loincloth_clearance_v4.jpg (2092, 3484)
+wrote qa\A2_compare_sack_head_v4.jpg (2600, 2132)
+wrote qa\A2_sockets_v4.jpg (2108, 4208)
+compose done
+== R5 Action tu the QA (file QA rieng)
+00:00.703  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig.blend"
+00:01.000  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\D01_hodling_qa_poses.blend"
+Info: Saved as "D01_hodling_qa_poses.blend"
+qa actions 17 ok True -> E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\qa\D01_hodling_qa_poses.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+== R5 don dep (chuyen anh tag cu vao _superseded, xoa raw)
+qa cleanup ok; kept v4
+done
+EXIT 0

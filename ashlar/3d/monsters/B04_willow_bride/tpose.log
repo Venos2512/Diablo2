@@ -1,0 +1,100 @@
+﻿B04 WILLOW BRIDE - T-POSE REPORT
+Date: 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; not a full QA pass. Two generations per sheet, retry limit reached.
+Workflow: generate-tpose-for-tripo steps 1-5; built-in image_gen only. Existing design.txt and brief.md read and preserved unchanged as required by skill step 1. No Tripo run.
+
+Sources: E:/map01-batch/home/generated_images/01a15f79-fc76-7fe2-b9c2-f6ac8004dd7a/
+Codex image session: 01a15f79-fc76-7fe2-b9c2-f6ac8004dd7a
+FB attempt 1: exec-460cc335-f7f7-4a51-939d-0259a76013aa.png
+FB selected attempt 2: exec-19e3d196-f3ce-4f53-953a-6e0914cfd94e.png
+Sides attempt 1: exec-170b7a11-83a4-4218-8d0b-28592b219acf.png
+Sides selected attempt 2: exec-5d830c3b-2d02-40ab-89ef-f7636b34bf4b.png
+Rejected first attempts retained in _rejected/. Full prompts saved beside sheets, including retry prompts. Concept unchanged.
+
+MEASUREMENTS (tpose_tools.py):
+All sheets: 1536x1024.
+FB attempt 1: front/back 777/777 px (75.9%); margins minimum 13px.
+FB selected: front bbox (47,162,759,876), 714px (69.7%); back bbox (778,164,1497,875), 711px (69.4%); minimum edge margin 39px; no measure WARNING.
+Sides attempt 1: 826/827px (80.7/80.8%).
+Sides selected: left bbox (38,91,763,919), 828px (80.9%); right bbox (771,90,1495,919), 829px (81.0%); minimum edge margin 38px; no measure WARNING.
+Mean FB 712.5px, sides 828.5px: sides 16.28% larger. Split applies uniform side-sheet rescale 0.860 (712.5/828.5 = 0.8600); no part-only scaling.
+Four output canvases 1024x1024; floor placement row 952 (guides detected occupied soles row 951); top around row 238; front shoulder guide row 373 (~19%). Small 3px original FB height difference remains; split uses common per-sheet scale.
+
+RETRIES:
+FB retry: requested closed root/gown gaps, fewer projecting leaves/twigs, smaller figures/more margin, shorter front hair, arm row at 24-25%, veil end 58%. Margin improved. Some gaps/leaves and landmark deviations persist.
+Sides retry: requested 712px height rather than 826/827px; rear veil end 58% rather than 50%; closed root gaps, level head. Generator largely retained prior size and veil length. Kept second attempt as best available; no third generation per skill limit.
+
+NUMERIC HUMANOID QA:
+Selected FB: span/height 1.00 front, 1.01 back (silhouette width includes root base). Arm slopes front +2.0/+1.2 degrees, back +2.7/+2.6 degrees, within 4-degree heuristic. Front left and back right hand rows returned NaN WARN: broad skirt/root silhouette confuses hand detection; visual inspection confirms both hands present at shoulder row. Visible arm span is slightly narrower than full root base.
+Selected sides: both sole-span 0.86H WARN against 0.26H threshold. This measures the long gown/root train, not feet or stride. Feet, knees and crotch fully covered by design; skeletal leg pose cannot be independently verified from these images.
+
+VISUAL QA:
+Viewed concept, both attempts of both sheets, _contact.png, _guides.png and BOTH strips after split. Correct front/back/left/right order; true back, left faces screen-left, right faces screen-right; near hands foreshortened at shoulder height, far arms hidden. No cropping, text, props, glow, added muscles/claws, sexualization or gore. Muted grey/ivory/peat-brown/olive palette and broad painted cloth shadows preserved. Head-top and floor nearly align. Slight wrist/finger droop and downward chin in profiles remain; strict perfect mannequin pose not claimed. Background is neutral grey but has slight tonal variation rather than perfectly uniform fill.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages below are approximate VISUAL measurements against 10% strip ticks (not automatic landmark detections). Order LEFT | RIGHT | FRONT | BACK | verdict.
+Circlet: 2-6 | 2-6 | 2-6 | 3-6 | consistent within ~2%; higher than design 4-9 in places; leaves project beyond requested flat ring.
+Face/chin: chin ~12 | ~12 | ~12 | hidden by veil | consistent head size; target chin 17 not met; profiles chin slightly lowered.
+Shoulder/hand: ~19-20 | ~19-20 | ~18-19 | ~18-19 | close cross-view alignment (~1-2%); target 24-25 not met.
+Front hair locks: ends ~27 | ~27 | ~27 | hidden | generally consistent, longer than collarbone target ~25.
+Front veil: ends ~25 | ~25 | ~25 | not visible | short vs design 30%; front flap visible in profile; no separate extra cape.
+Rear veil tip: ~50-51 | ~50-51 | occluded by torso/gown | ~58-59 | FAIL: side/back tip differs about 8% of figure height. Retry did not correct it.
+Waist tie: ~29 | ~29 | ~29 | hidden by veil/hair | cross-view PASS; design target 36-38 not met.
+Hair/root emergence: ~29-35 | ~29-35 | side roots ~32-40 | veil hides centre until ~59 | broad occlusion order consistent; exact five-root topology cannot be verified, branching/gaps remain.
+Root/train spread: starts widening ~70-80, ends 100 | ~70-80 to100 | ~75-100 | ~75-100 | floor consistent; connected skirt majority but open holes and protruding leaf/tips remain, does not fully meet simplification brief.
+Gown stains: ~70-100 | ~70-100 | ~74-100 | visible cloth ~78-100 | similar lower band, slight height/shape drift; not identical wrapping patches.
+Rear veil stain: ~25-44 partly edge-on | ~25-44 partly edge-on | hidden | ~25-49 | broad olive region retained, precise wrap continuity not verified.
+
+LIMITATIONS / FINAL VERDICT:
+Best available within generation cap, NOT ready to claim full strict QA approval. Primary unresolved cross-view error: rear veil length. Other deviations: holes and projecting leaf tips in root base, ambiguous five-root count/topology, arm/waist/head landmark proportions shifted from design, mildly lowered profile chin and finger droop, side size mismatch normalized during split. Human legs remain intentionally hidden. No further edits performed.
+
+DELIVERABLES:
+views/front.png
+views/back.png
+views/left.png
+views/right.png
+views/_contact.png
+views/_guides.png
+views/_strip_0-60.png
+views/_strip_40-100.png
+tpose_front_back.png
+tpose_sides.png
+design.txt (existing canon preserved)
+tpose_front_back.prompt.txt
+tpose_front_back_retry.prompt.txt
+tpose_sides.prompt.txt
+tpose_sides_retry.prompt.txt
+
+MAIN QA 2026-10-22 (Opus T-pose lead; own checks, Astra's report not relied on)
+Fix applied: EDIT PASS on the sides sheet (map01_batch.py, session 01a15fa9-d759-7930-9115-7b12fba0b7de, 53 s,
+  source E:\map01-batch\home\generated_images\01a15fa9-d759-7930-9115-7b12fba0b7de\exec-2443a21c-1438-4445-b122-9d08892a9e5a.png,
+  prompt E:\tmp_tripo_all\B04_willow_bride\edit_sides_veil.prompt.txt): "lengthen the side-view back veil to about 58 %".
+  Mean change 2.7 grey levels, 1.4 % of pixels changed by more than 24 (the veil only). Old sheet kept as
+  _rejected/tpose_sides_attempt2_veil_short.png; _tasks/sides_veil_edit.png = tpose_sides.png.
+Re-run after the edit: measure, split (sides scaled 0.859 to the front/back height 714/711 px; sides 829/829 px), guides, strip 0-60 and 40-100.
+Numeric: humanoid fb: arms +2.0/+1.2 deg (front), +2.7/+2.6 deg (back), span/height 1.00/1.01; WARN "hand at nan%" on one side
+  of each view = the root fan is as wide as the arm span, the tool cannot isolate the hand (arms visibly on the red line).
+  humanoid sides: WARN sole span 0.87-0.88 H = the root base on the floor, not a stride (legs hidden by gown and roots).
+Visual: strict T-pose, arms straight and level on the shoulder row (19 %), near hand foreshortened at shoulder height in LEFT/RIGHT,
+  far arm hidden, LEFT faces screen-left, RIGHT faces screen-right, true BACK; nothing cropped; one floor row; gentle face,
+  closed eyes, fully covered gown; palette grey/ivory/peat brown/olive, no red; painted fold shadows kept (not flat).
+
+CROSS-VIEW TABLE (final views/*.png, % of the figure height, 0 = veil top, 100 = soles)
+  feature               LEFT      RIGHT     FRONT                 BACK       verdict
+  head top / circlet    0 / 3-8   0 / 3-8   0 / 3-8               0 / 3-8    ok
+  arm line / hand       19-20     19-20     19                    19         ok
+  back veil lower end   ~54       ~55       front: on shoulders   ~58        ok (3-4 % apart; was 8 % before the edit)
+  waist tie             ~29-30    ~29-30    ~28-29                hidden     ok between views (design text said 36-38)
+  roots leave the body  ~15-20 (back)  same  ~25-30 (sides)       ~25 (under veil)  ok, roots stay below/behind the arms
+  root base on floor    ~90-100, 0.88 H front-to-back   same      ~85-100, ~1.0 H wide   ~85-100   ok
+  soles / floor         100       100       100                   100        ok
+  figure height px      713       713       713                   711        ok (one scale, one floor row)
+
+Remaining deviations (accepted):
+  - roots spread on the floor in front of the hem as well as behind (about 0.3 H forward in the side views); the concept had them
+    mostly behind; consistent with FRONT (a ring of roots all around).
+  - narrow open gaps between root strands remain (risk of webbing/holes in the Tripo mesh); a few small leaves on the roots.
+  - FRONT hair locks reach the bust and merge into the root strands at the sides (design asked them to end at the collarbones).
+  - waist tie at about 29 % instead of 36-38 % (same in every view).
+  - slight wrist droop and chin lowered in the side views.
+VERDICT: PASS for Tripo multi-view input (views/front.png back.png left.png right.png).

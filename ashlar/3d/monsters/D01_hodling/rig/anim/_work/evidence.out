@@ -1,0 +1,10 @@
+nodes 37 skins 1 joints [35] meshes 1 images 3 extensionsUsed ['KHR_materials_specular']
+'idle': channels 105 t0 0.0000 t1 2.0000 dur 2.0000s samples 49
+'walk': channels 105 t0 0.0000 t1 1.0833 dur 1.0833s samples 27
+'run': channels 105 t0 0.0000 t1 0.7500 dur 0.7500s samples 19
+'attack': channels 105 t0 0.0000 t1 0.7500 dur 0.7500s samples 19
+'hit': channels 105 t0 0.0000 t1 0.4583 dur 0.4583s samples 12
+'death': channels 105 t0 0.0000 t1 1.2500 dur 1.2500s samples 31
+c5996c2bbe8dc8df26cd929d9e4aee649a7c102ec721525c737407a612eb37b9 *E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/anim/../D01_hodling_rig_anim.blend
+75698584789d00b2554a892aabf2618722274ba4441d7cd15fa8b6d8c3556620 *E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/anim/checks/D01_hodling_anim_review_UNAPPROVED.glb
+[gui] done

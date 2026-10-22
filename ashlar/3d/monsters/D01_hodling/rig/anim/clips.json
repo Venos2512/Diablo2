@@ -1,0 +1,1239 @@
+{
+ "asset_id": "D01_hodling",
+ "manifest_version": 1,
+ "generated": "2026-10-21",
+ "stage": "R7 (R6 clips + R7 QA); G3, R8, R9 NOT done",
+ "approvals": {
+  "G1": "2026-10-21 user ('duyệt')",
+  "G2": "2026-10-21 user ('duyệt') - rig v4",
+  "G3": null,
+  "G4": null,
+  "R9": null
+ },
+ "units": "metres; Blender Z up / -Y forward; glTF Y up / +Z forward; character left = +X",
+ "fps": 24,
+ "target_height_m": 0.5,
+ "scale": 0.679495687,
+ "files": {
+  "source_blend_with_actions": {
+   "path": "rig/D01_hodling_rig_anim.blend",
+   "sha256": "c5996c2bbe8dc8df26cd929d9e4aee649a7c102ec721525c737407a612eb37b9",
+   "bytes": 15031704,
+   "note": "NEW file; the G2-approved rig is untouched at rig/D01_hodling_rig.blend and snapshotted. Never run tools/run_all.ps1 / b1_build_rig.py on this: they rebuild and overwrite the rig."
+  },
+  "g2_rig_blend": {
+   "path": "rig/D01_hodling_rig.blend",
+   "sha256": "bf6c53dc783842774b6c75b2f35eb708bbbbe47cee0139e560c97efa97bc0bcb",
+   "bytes": 14843252
+  },
+  "g2_snapshot": {
+   "path": "rig/_snapshots/g2_approved/D01_hodling_rig_g2.blend",
+   "sha256": "bf6c53dc783842774b6c75b2f35eb708bbbbe47cee0139e560c97efa97bc0bcb"
+  },
+  "original_glb": {
+   "path": "D01_hodling.glb",
+   "sha256": "bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a"
+  },
+  "review_glb_intermediate": {
+   "path": "rig/anim/checks/D01_hodling_anim_review_UNAPPROVED.glb",
+   "sha256": "75698584789d00b2554a892aabf2618722274ba4441d7cd15fa8b6d8c3556620",
+   "bytes": 15042528,
+   "note": "R7 review export only (in-memory bake onto D01_runtime). Not the R8 release (D01_hodling_rig.glb does not exist). Blender's exporter dropped KHR_materials_volume (only KHR_materials_specular kept): the final material extension decision is R8, NOT passed here."
+  }
+ },
+ "skin_mesh_untouched": {
+  "hash_anim_blend": "d2bf6d39cb6f782cfa23705dbebc999da214ef41400d8d8132624346aec002fe",
+  "hash_g2": "d2bf6d39cb6f782cfa23705dbebc999da214ef41400d8d8132624346aec002fe",
+  "equal": true,
+  "what": "sha256 of rest vertex coordinates + all vertex-group weights + group names (r7_qa.py)"
+ },
+ "scene_state_after_reopen": {
+  "fps": 24,
+  "fps_base": 1.0,
+  "frame_start": 1,
+  "frame_end": 49,
+  "preview": false,
+  "nla_tracks": 0
+ },
+ "source_library": {
+  "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+  "license": "CC0-1.0",
+  "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+  "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+  "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+  "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+  "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+  "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+  "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified"
+ },
+ "bone_mapping": {
+  "method": "FK: world-space rotation delta of the KayKit bone vs the shared T-pose (KayKit rest, Hodling rest are both T-pose, +X = character left), composed on the Hodling rest rotation of the ctl_ bone and converted to pose-bone basis. Legs: end-effector retarget (hip-joint centre + ankles scaled by S_leg and given to ctl_cog / ctl_*_Foot_IK, heel/ball roll from foot pitch); knees solved by the rig's own IK. Arms stay FK (ik_arm_L/R keyed 0, ik_leg_L/R keyed 1).",
+  "S_leg": 0.34758100317245205,
+  "S_leg_definition": "hip-joint-to-ankle height of the Hodling rest (0.130 m) / the same on the KayKit T-pose",
+  "rotation": {
+   "ctl_pelvis": "hips",
+   "ctl_spine_01": "slerp(hips, spine, 0.6)",
+   "ctl_spine_02": "spine",
+   "ctl_chest": "chest",
+   "ctl_neck": "slerp(chest, head, 0.35)",
+   "ctl_head": "head",
+   "ctl_L_UpperArm": "upperarm.l",
+   "ctl_L_ForeArm": "lowerarm.l",
+   "ctl_L_Hand": "hand.l",
+   "ctl_R_UpperArm": "upperarm.r",
+   "ctl_R_ForeArm": "lowerarm.r",
+   "ctl_R_Hand": "hand.r"
+  },
+  "translation": {
+   "ctl_cog": "mean(upperleg.l, upperleg.r) position, scaled by S_leg, delta from T-pose",
+   "ctl_L_Foot_IK / ctl_R_Foot_IK": "foot.l / foot.r ankle position, scaled by S_leg, delta from T-pose; yaw+pitch from the source foot orientation"
+  },
+  "secondary_not_from_source": {
+   "ctl_sack": "damped lag (3 Hz, zeta 0.45) of chest rotation, 70 % blend",
+   "ctl_helmet": "damped lag (4 Hz, 0.40) of head rotation, 35 %",
+   "ctl_L_ear / ctl_R_ear": "same lag of the head, x1.5",
+   "ctl_loincloth_front": "hip-flexion rule (-30 deg at 70 deg) raised per frame to the MEASURED smallest world-X angle that leaves no new flap<->thigh intersection (+5 deg), smoothed"
+  },
+  "unused_source_bones": [
+   "root",
+   "toes.l",
+   "toes.r",
+   "wrist.*",
+   "handslot.*"
+  ],
+  "no_finger_bones": "the Hodling has no finger bones; hands cannot close (attack = open-hand strike)"
+ },
+ "lab_character_test": {
+  "file": "rig/anim/qa/lab_character_test.json",
+  "autoClip_map": {
+   "idle": "idle",
+   "walk": "walk",
+   "run": "run",
+   "attack": "attack",
+   "hit": "hit",
+   "death": "death",
+   "attack2": null,
+   "cast": null,
+   "block": null,
+   "blockHit": null,
+   "revive": null,
+   "jump": null,
+   "dodge": null
+  },
+  "natural": {
+   "walk": {
+    "speed_mps": 0.278,
+    "stride_m": 0.301
+   },
+   "run": {
+    "speed_mps": 1.611,
+    "stride_m": 1.209
+   }
+  }
+ },
+ "gui_session": "rig/anim/qa/gui/gui_play_test.json (real Blender window, ordinary Play operator driven by a timer; not a human click)",
+ "clips": {
+  "idle": {
+   "name": "idle",
+   "state": "idle",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Idle",
+    "source_duration_s": 1.066667,
+    "source_max_keys_per_channel": 31,
+    "source_range_used_s": [
+     0.0,
+     1.066667
+    ]
+   },
+   "derived_from": "KayKit Idle (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.0
+     ],
+     [
+      24,
+      1.0666667222976685
+     ],
+     [
+      24,
+      0.0
+     ],
+     [
+      48,
+      1.0666667222976685
+     ]
+    ],
+    "speed_factor_source_over_target": 1.0667,
+    "note": "idle = two cycles of the 1.0667 s source in 2.0 s"
+   },
+   "adaptation": {
+    "gain": 1.8,
+    "feet": "planted"
+   },
+   "frame_start": 1,
+   "frame_end": 49,
+   "fps": 24,
+   "intervals": 48,
+   "sample_count": 49,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel; the last frame closes the loop (== first) and is dropped by a runtime export that loops",
+   "duration_s": 2.0,
+   "duration_check": "(49 - 1) / 24 = 2.000000",
+   "loop": true,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 0.0,
+    "max_bone_rot_diff_deg": 0.262,
+    "worst_bone": "ctl_loincloth_front"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.0,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "cog_range_m": [
+     0.0,
+     0.0,
+     0.015
+    ],
+    "note": "none; in-place: ctl_root / runtime root never move horizontally (cog sways inside the body)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     -0.007,
+     -0.001
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [],
+   "contacts_s": {},
+   "foot_slip": {
+    "planted_xy_drift_mm_over_clip": {
+     "L": 0.014,
+     "R": 0.022
+    },
+    "note": "feet stay on their rest spots (Foot_IK at rest); sole contact verified on deformed geometry"
+   },
+   "loincloth": {
+    "frames_searched": 0,
+    "req_deg_max": 0.0,
+    "applied_deg_max": 11.532831880750294,
+    "uncleared_frames": [],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 0,
+     "new_intersecting_triangles_thigh": 0,
+     "new_covered_by_thigh_vertices": 0,
+     "max_depth_thigh_mm": 0.0
+    },
+    "frames_measured": 13
+   },
+   "ownership": {
+    "action": "idle",
+    "assigned": "idle",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     49
+    ],
+    "use_cyclic": true,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_idle_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_idle_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_idle.png"
+   }
+  },
+  "walk": {
+   "name": "walk",
+   "state": "walk",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Walking_A",
+    "source_duration_s": 1.066667,
+    "source_max_keys_per_channel": 33,
+    "source_range_used_s": [
+     0.0,
+     1.066667
+    ]
+   },
+   "derived_from": "KayKit Walking_A (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.0
+     ],
+     [
+      26,
+      1.0666667222976685
+     ]
+    ],
+    "speed_factor_source_over_target": 0.9846,
+    "note": null
+   },
+   "adaptation": {
+    "lift": 0.65
+   },
+   "frame_start": 1,
+   "frame_end": 27,
+   "fps": 24,
+   "intervals": 26,
+   "sample_count": 27,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel; the last frame closes the loop (== first) and is dropped by a runtime export that loops",
+   "duration_s": 1.0833333333333333,
+   "duration_check": "(27 - 1) / 24 = 1.083333",
+   "loop": true,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 0.0,
+    "max_bone_rot_diff_deg": 0.262,
+    "worst_bone": "ctl_loincloth_front"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.0,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "cog_range_m": [
+     0.0,
+     0.0,
+     0.0185
+    ],
+    "note": "none; in-place: ctl_root / runtime root never move horizontally (cog sways inside the body)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     -0.152,
+     0.252
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [
+    {
+     "type": "footstep",
+     "foot": "L",
+     "frame": 1,
+     "offset_frames": 0,
+     "time_s": 0.0
+    },
+    {
+     "type": "footstep",
+     "foot": "R",
+     "frame": 14,
+     "offset_frames": 13,
+     "time_s": 0.541667
+    }
+   ],
+   "contacts_s": {
+    "L": [
+     {
+      "touchdown": {
+       "frame": 1,
+       "offset_frames": 0,
+       "time_s": 0.0
+      },
+      "last_stance_frame": {
+       "frame": 13,
+       "offset_frames": 12,
+       "time_s": 0.5
+      },
+      "stance_frames": 13,
+      "derived_from": "source foot/toe height (KayKit), after retime"
+     }
+    ],
+    "R": [
+     {
+      "touchdown": {
+       "frame": 14,
+       "offset_frames": 13,
+       "time_s": 0.541667
+      },
+      "last_stance_frame": {
+       "frame": 25,
+       "offset_frames": 24,
+       "time_s": 1.0
+      },
+      "stance_frames": 12,
+      "derived_from": "source foot/toe height (KayKit), after retime"
+     }
+    ]
+   },
+   "stride_m": 0.3878,
+   "stride_definition": "ground distance per full cycle (same foot to same foot) = ground_speed * cycle_s; measured on the deformed sole vertices that stay in contact",
+   "step_m": 0.1939,
+   "ground_speed_mps": 0.358,
+   "cycle_s": 1.0833333333333333,
+   "ground_speed_by_stance_mps": [
+    0.3578,
+    0.3582
+   ],
+   "lab_measured_natural": {
+    "speed_mps": 0.278,
+    "stride_m": 0.301
+   },
+   "foot_slip": {
+    "sole_geometry_flat_stance_max_mm_per_frame": 1.558,
+    "sole_geometry_toe_off_transition_max_mm_per_frame": 11.902,
+    "lab_FootCheck": {
+     "average_cm_s": 3.1,
+     "plants": 11,
+     "green": 8,
+     "yellow": 3,
+     "red": 0,
+     "max_cm_s": 14.5,
+     "comment": "long stance plants 0.1-5.3 cm/s; the yellow ones are the 0.117 s toe-off plant of each step (14.5 cm/s)"
+    }
+   },
+   "loincloth": {
+    "frames_searched": 20,
+    "req_deg_max": 60.0,
+    "applied_deg_max": 65.0,
+    "uncleared_frames": [],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 0,
+     "new_intersecting_triangles_thigh": 0,
+     "new_covered_by_thigh_vertices": 0,
+     "max_depth_thigh_mm": 0.0
+    },
+    "frames_measured": 27
+   },
+   "ownership": {
+    "action": "walk",
+    "assigned": "walk",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     27
+    ],
+    "use_cyclic": true,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_walk_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_walk_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_walk.png"
+   }
+  },
+  "run": {
+   "name": "run",
+   "state": "run",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Running_A",
+    "source_duration_s": 0.8,
+    "source_max_keys_per_channel": 25,
+    "source_range_used_s": [
+     0.0,
+     0.8
+    ]
+   },
+   "derived_from": "KayKit Running_A (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.0
+     ],
+     [
+      18,
+      0.800000011920929
+     ]
+    ],
+    "speed_factor_source_over_target": 1.0667,
+    "note": null
+   },
+   "adaptation": {
+    "lift": 0.85,
+    "stance_extend": true
+   },
+   "frame_start": 1,
+   "frame_end": 19,
+   "fps": 24,
+   "intervals": 18,
+   "sample_count": 19,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel; the last frame closes the loop (== first) and is dropped by a runtime export that loops",
+   "duration_s": 0.75,
+   "duration_check": "(19 - 1) / 24 = 0.750000",
+   "loop": true,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 0.0,
+    "max_bone_rot_diff_deg": 0.265,
+    "worst_bone": "ctl_loincloth_front"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.0,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "cog_range_m": [
+     0.0,
+     0.0007,
+     0.0472
+    ],
+    "note": "none; in-place: ctl_root / runtime root never move horizontally (cog sways inside the body)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     0.0,
+     40.384
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [
+    {
+     "type": "footstep",
+     "foot": "L",
+     "frame": 4,
+     "offset_frames": 3,
+     "time_s": 0.125
+    },
+    {
+     "type": "footstep",
+     "foot": "R",
+     "frame": 13,
+     "offset_frames": 12,
+     "time_s": 0.5
+    }
+   ],
+   "contacts_s": {
+    "L": [
+     {
+      "touchdown": {
+       "frame": 4,
+       "offset_frames": 3,
+       "time_s": 0.125
+      },
+      "last_stance_frame": {
+       "frame": 5,
+       "offset_frames": 4,
+       "time_s": 0.166667
+      },
+      "stance_frames": 2,
+      "derived_from": "source foot/toe height (KayKit), after retime"
+     }
+    ],
+    "R": [
+     {
+      "touchdown": {
+       "frame": 13,
+       "offset_frames": 12,
+       "time_s": 0.5
+      },
+      "last_stance_frame": {
+       "frame": 14,
+       "offset_frames": 13,
+       "time_s": 0.541667
+      },
+      "stance_frames": 2,
+      "derived_from": "source foot/toe height (KayKit), after retime"
+     }
+    ]
+   },
+   "stride_m": 1.2205,
+   "stride_definition": "ground distance per full cycle (same foot to same foot) = ground_speed * cycle_s; measured on the deformed sole vertices that stay in contact",
+   "step_m": 0.6102,
+   "ground_speed_mps": 1.6273,
+   "cycle_s": 0.75,
+   "ground_speed_by_stance_mps": [
+    1.6266,
+    1.628
+   ],
+   "lab_measured_natural": {
+    "speed_mps": 1.611,
+    "stride_m": 1.209
+   },
+   "foot_slip": {
+    "sole_geometry_flat_stance_max_mm_per_frame": 0.0,
+    "sole_geometry_toe_off_transition_max_mm_per_frame": 0.0,
+    "lab_FootCheck": {
+     "average_cm_s": 2.6,
+     "plants": 9,
+     "green": 9,
+     "yellow": 0,
+     "red": 0,
+     "max_cm_s": 4.2
+    }
+   },
+   "loincloth": {
+    "frames_searched": 6,
+    "req_deg_max": 45.0,
+    "applied_deg_max": 50.0,
+    "uncleared_frames": [],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 0,
+     "new_intersecting_triangles_thigh": 0,
+     "new_covered_by_thigh_vertices": 0,
+     "max_depth_thigh_mm": 0.0
+    },
+    "frames_measured": 19
+   },
+   "ownership": {
+    "action": "run",
+    "assigned": "run",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     19
+    ],
+    "use_cyclic": true,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_run_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_run_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_run.png"
+   }
+  },
+  "attack": {
+   "name": "attack",
+   "state": "attack",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Unarmed_Melee_Attack_Punch_A",
+    "source_duration_s": 1.466667,
+    "source_max_keys_per_channel": 45,
+    "source_range_used_s": [
+     0.1,
+     1.3333
+    ]
+   },
+   "derived_from": "KayKit Unarmed_Melee_Attack_Punch_A (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.1
+     ],
+     [
+      8,
+      0.5
+     ],
+     [
+      18,
+      1.3333
+     ]
+    ],
+    "speed_factor_source_over_target": 1.6444,
+    "note": null
+   },
+   "adaptation": {
+    "hip_xy": 0.45,
+    "feet": "planted"
+   },
+   "frame_start": 1,
+   "frame_end": 19,
+   "fps": 24,
+   "intervals": 18,
+   "sample_count": 19,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel",
+   "duration_s": 0.75,
+   "duration_check": "(19 - 1) / 24 = 0.750000",
+   "loop": false,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 109.8778,
+    "max_bone_rot_diff_deg": 22.993,
+    "worst_bone": "ctl_R_Hand"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.0,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "cog_range_m": [
+     0.0001,
+     0.0427,
+     0.0065
+    ],
+    "note": "none; in-place: ctl_root / runtime root never move horizontally (cog sways inside the body)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     -0.005,
+     -0.0
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [
+    {
+     "type": "hit",
+     "frame": 9,
+     "offset_frames": 8,
+     "time_s": 0.333333,
+     "percent_of_clip": 44.4,
+     "kind": "offset (relative to frame_start) and absolute Blender frame both given",
+     "measured": {
+      "peak_hand_reach_frame": 9,
+      "peak_hand_reach_s": 0.3333333333333333,
+      "peak_reach_from_chest_m": 0.2418,
+      "peak_hand_speed_frame": 8,
+      "peak_hand_speed_mps": 2.635,
+      "note": "right hand (KayKit hand.r = Hodling R, -X side) is the striking hand; lab hitAt default 0.45 -> 0.444 here"
+     }
+    }
+   ],
+   "contacts_s": {},
+   "foot_slip": {
+    "planted_xy_drift_mm_over_clip": {
+     "L": 0.013,
+     "R": 0.306
+    },
+    "note": "feet stay on their rest spots (Foot_IK at rest); sole contact verified on deformed geometry"
+   },
+   "recovery": {
+    "hit_to_end_s": 0.4167,
+    "note": "recovery to guard in 10 frames (0.417 s)"
+   },
+   "weapon": "none (unarmed, open-hand strike: no finger bones, cannot make a fist); spear is a separate future asset",
+   "loincloth": {
+    "frames_searched": 0,
+    "req_deg_max": 0.0,
+    "applied_deg_max": 9.573954465107267,
+    "uncleared_frames": [],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 0,
+     "new_intersecting_triangles_thigh": 0,
+     "new_covered_by_thigh_vertices": 0,
+     "max_depth_thigh_mm": 0.0
+    },
+    "frames_measured": 19
+   },
+   "ownership": {
+    "action": "attack",
+    "assigned": "attack",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     19
+    ],
+    "use_cyclic": false,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_attack_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_attack_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_attack.png"
+   }
+  },
+  "hit": {
+   "name": "hit",
+   "state": "hit",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Hit_A",
+    "source_duration_s": 0.666667,
+    "source_max_keys_per_channel": 21,
+    "source_range_used_s": [
+     0.0,
+     0.666667
+    ]
+   },
+   "derived_from": "KayKit Hit_A (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.0
+     ],
+     [
+      11,
+      0.6666666865348816
+     ]
+    ],
+    "speed_factor_source_over_target": 1.4545,
+    "note": null
+   },
+   "adaptation": {
+    "gain": 1.8,
+    "hip_xy": 0.45,
+    "feet": "planted"
+   },
+   "frame_start": 1,
+   "frame_end": 12,
+   "fps": 24,
+   "intervals": 11,
+   "sample_count": 12,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel",
+   "duration_s": 0.4583333333333333,
+   "duration_check": "(12 - 1) / 24 = 0.458333",
+   "loop": false,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 2.2627,
+    "max_bone_rot_diff_deg": 3.764,
+    "worst_bone": "ctl_L_ear"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.0,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "cog_range_m": [
+     0.0,
+     0.0419,
+     0.0022
+    ],
+    "note": "none; in-place: ctl_root / runtime root never move horizontally (cog sways inside the body)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     -0.005,
+     -0.001
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [],
+   "contacts_s": {},
+   "foot_slip": {
+    "planted_xy_drift_mm_over_clip": {
+     "L": 0.006,
+     "R": 0.013
+    },
+    "note": "feet stay on their rest spots (Foot_IK at rest); sole contact verified on deformed geometry"
+   },
+   "loincloth": {
+    "frames_searched": 0,
+    "req_deg_max": 0.0,
+    "applied_deg_max": 12.626353414049628,
+    "uncleared_frames": [],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 0,
+     "new_intersecting_triangles_thigh": 0,
+     "new_covered_by_thigh_vertices": 0,
+     "max_depth_thigh_mm": 0.0
+    },
+    "frames_measured": 4
+   },
+   "ownership": {
+    "action": "hit",
+    "assigned": "hit",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     12
+    ],
+    "use_cyclic": false,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_hit_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_hit_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_hit.png"
+   }
+  },
+  "death": {
+   "name": "death",
+   "state": "death",
+   "stance": "unarmed",
+   "status": "experiment",
+   "status_note": "candidate for G3 (user approval of the motion); not approved",
+   "source": {
+    "library": "KayKit Adventurers 1.0 (Kay Lousberg)",
+    "license": "CC0-1.0",
+    "license_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+    "git_commit": "12ee5abe75ada7356f45916f73feaf1cffa21994",
+    "file": "lookdev-lab/assets/samples/kaykit-anims-medium.glb (extracted to rig/anim/refs/, file deleted from the lab working tree on purpose, never restored there)",
+    "blob": "27fd96a347189b135b0facd83fab7527b301a950",
+    "sha256": "35a136f28c9f9d219ead9e47ddad241fff937063a5578532f2fbde4b80dbe5cf",
+    "prepared_by": "lookdev-lab/scripts/prepare-kaykit.py (IK/control channels dropped, rest-pose channels dropped, linear-redundant keys dropped, rotations 16-bit normalized; copy in rig/anim/refs/)",
+    "source_fps": "30 (inferred: every duration is a multiple of 1/30 s); the pack's original fps was not verified",
+    "clip": "Death_A",
+    "source_duration_s": 0.8,
+    "source_max_keys_per_channel": 23,
+    "source_range_used_s": [
+     0.0,
+     0.8
+    ]
+   },
+   "derived_from": "KayKit Death_A (library clip, retargeted: FK world-delta + IK end-effector). Not a video reconstruction and not generated by code; the secondary motion (sack/helmet/ears/loincloth) is derived procedurally from the retargeted body motion.",
+   "retime": {
+    "kind": "piecewise-linear time warp of the source, then resampling at 24 fps (not an fps relabel)",
+    "timemap_out_frame_to_source_s": [
+     [
+      0,
+      0.0
+     ],
+     [
+      30,
+      0.800000011920929
+     ]
+    ],
+    "speed_factor_source_over_target": 0.64,
+    "note": null
+   },
+   "adaptation": {
+    "feet": "free",
+    "loin_max": 130
+   },
+   "frame_start": 1,
+   "frame_end": 31,
+   "fps": 24,
+   "intervals": 30,
+   "sample_count": 31,
+   "sample_count_note": "keyed frame_start..frame_end inclusive, one key per frame on every keyed channel",
+   "duration_s": 1.25,
+   "duration_check": "(31 - 1) / 24 = 1.250000",
+   "loop": false,
+   "seam": {
+    "max_vertex_diff_first_vs_last_mm": 562.0251,
+    "max_bone_rot_diff_deg": 112.805,
+    "worst_bone": "ctl_R_Hand"
+   },
+   "root_displacement": {
+    "horizontal_m": [
+     0.0,
+     0.0
+    ],
+    "vertical_m": 0.02186185121536255,
+    "ctl_root_range_m": [
+     0.0,
+     0.0,
+     0.02186185121536255
+    ],
+    "cog_range_m": [
+     0.0078,
+     0.1979,
+     0.1606
+    ],
+    "note": "ctl_root vertical lift only in death (floor clamp); in-place: ctl_root / runtime root never move horizontally (cog sways inside the body); ctl_root is lifted vertically by up to 21.9 mm so no vertex sinks below the floor (the body lies on the sack)"
+   },
+   "floor": {
+    "mesh_min_z_mm": [
+     -0.0,
+     64.343
+    ],
+    "frames_below_-1mm": []
+   },
+   "bone_mapping": "see manifest.bone_mapping",
+   "textures": {
+    "set": [
+     "D01_hodling_basecolor.jpg",
+     "D01_hodling_normal.jpg",
+     "D01_hodling_rm.png"
+    ],
+    "resolution": 4096,
+    "origin": "byte-identical to ../../D01_hodling.glb (rig/validation.json A1.10)",
+    "where": "packed in rig/D01_hodling_rig_anim.blend; the review GLB embeds the same three maps",
+    "relative_path_set": null,
+    "relative_path_note": "relative-path release set is an R8 deliverable"
+   },
+   "tolerance": {
+    "export_reimport_vertex_m": null,
+    "proposed_m": 0.001,
+    "note": "R8 (clean reimport) not done; proposed from QA_CHECKLIST B1.8"
+   },
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   },
+   "events": [
+    {
+     "type": "ground_impact_settle",
+     "note": "first frame after peak vertex speed where the fastest vertex < 0.35 m/s (use for dust at ground)",
+     "frame": 21,
+     "offset_frames": 20,
+     "time_s": 0.833333
+    },
+    {
+     "type": "death_end",
+     "frame": 31,
+     "offset_frames": 30,
+     "time_s": 1.25
+    }
+   ],
+   "contacts_s": {},
+   "final_hold": {
+    "fastest_vertex_speed_mps_last_3_intervals": [
+     0.012,
+     0.021,
+     0.013
+    ],
+    "note": "no loop; the runtime holds the last pose"
+   },
+   "loincloth": {
+    "frames_searched": 16,
+    "req_deg_max": 130.0,
+    "applied_deg_max": 130.0,
+    "uncleared_frames": [
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ],
+    "measured_flap_vs_thigh": {
+     "new_inside_vertices_thigh": 13,
+     "new_intersecting_triangles_thigh": 15,
+     "new_covered_by_thigh_vertices": 15,
+     "max_depth_thigh_mm": 17.513498663902283
+    },
+    "frames_measured": 31
+   },
+   "ownership": {
+    "action": "death",
+    "assigned": "death",
+    "slot": "OBD01_control",
+    "slots": [
+     "OBD01_control"
+    ],
+    "slot_target_id_type": "OBJECT",
+    "use_frame_range": true,
+    "frame_range": [
+     1,
+     31
+    ],
+    "use_cyclic": false,
+    "fake_user": true,
+    "users": 2
+   },
+   "review_evidence": {
+    "strip": "rig/qa/R7_death_strip.jpg",
+    "preview_gif": "rig/anim/qa/previews/R7_death_preview.gif",
+    "gui_viewport": "rig/anim/qa/gui/gui_death.png"
+   }
+  }
+ }
+}

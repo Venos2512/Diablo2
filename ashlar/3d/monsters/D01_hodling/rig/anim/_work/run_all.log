@@ -1,0 +1,22 @@
+00:01.344  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\_snapshots\g2_approved\D01_hodling_rig_g2.blend"
+[r6] leg scale S = 0.34758
+[r6] build idle
+[r6] idle keyed; slot ['OBD01_control'] fcurves ok
+[r6] build walk
+[r6] walk common stance speed 0.3659 m/s
+[r6] walk keyed; slot ['OBD01_control'] fcurves ok
+[r6] build run
+[r6] run common stance speed 1.6701 m/s
+[r6] run keyed; slot ['OBD01_control'] fcurves ok
+[r6] build attack
+[r6] attack keyed; slot ['OBD01_control'] fcurves ok
+[r6] build hit
+[r6] hit keyed; slot ['OBD01_control'] fcurves ok
+[r6] build death
+[r6] death root lift max mm 21.86
+[r6] death keyed; slot ['OBD01_control'] fcurves ok
+Info: Saved as "D01_hodling_rig_anim.blend"
+[r6] saved E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/D01_hodling_rig_anim.blend
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

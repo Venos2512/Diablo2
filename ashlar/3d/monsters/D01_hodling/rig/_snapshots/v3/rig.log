@@ -1,0 +1,27 @@
+D01_hodling rig log
+2026-10-21  R0  phân loại: họ S (humanoid nhỏ, topology H), quái Discarded D01 Hodling
+2026-10-21  R1  preflight GLB gốc: tools/preflight_glb.py -> preflight.json; tools/blender_import_probe.py (Blender 5.2.2 LTS, import chỉ-đọc, không lưu .blend) -> preflight_blender.json
+            GLB gốc sha256 bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a (14778932 B), không bị sửa
+2026-10-21  R1  rig_brief.md viết (route đề xuất M + retarget clip CC0 KayKit; chưa retarget, chưa mở clip trong Blender)
+Credit: 0 (không gọi Tripo/Meshy/UniRig). Không dựng rig, skin, animation. Không chép file KayKit vào repo.
+G1 (brief): PENDING — chờ người dùng duyệt. Chưa có G2, G3, G4.
+2026-10-21  R1  rig_brief.md sửa theo review Opus (chỉ tài liệu; GLB, scripts, preflight*.json không đổi, không chạy lại):
+            - giấy phép KayKit CC0 ghi là đã kiểm trên README repo chính thức; bỏ các dòng "theo Haiku"/"Haiku còn tìm"
+            - tách "retime" (đổi thời lượng nguồn -> đích, ghi cả hai, co giãn sự kiện) khỏi "lấy mẫu 24 fps"; thêm cột thời lượng đích đề xuất (N/24 s)
+            - hạ lời khẳng định chân đối xứng về đúng bằng chứng (X-width, thống kê Z; chưa kiểm từng đỉnh)
+            - gộp 7 câu hỏi thành bảng mặc định, một lần duyệt G1 (0,5 m = điểm cao nhất toàn mesh, hệ số 0,679496; M + KayKit; không ngón; helmet/sack/loincloth_front/L_ear/R_ear; không clavicle; attack tay không, không giáo; hoãn panic/revive; 24 fps)
+            - số bone: lõi 22 + phụ 5 + socket 8 = 35 runtime, ~25 có trọng số (nếu thêm 2 clavicle: 37 / ~27); bỏ đề nghị thêm bone ngón đủ ngưỡng; nêu dọn bone giữ root/cog/tổ tiên
+            ANIMATION_INVENTORY.md dòng D01: "Chờ một lần duyệt G1 với mặc định trong brief"
+Credit: vẫn 0. G1 (brief): PENDING.
+2026-10-21 R0/R1 technical review: Opus 5.5 PASS after Sonnet documentation fixes (review round 2). Preflight scripts passed round 1; all six documentation findings resolved. This is technical review only, not user G1 approval. G1 remains PENDING; rig/skin/clips not started; 0 service credits.
+2026-10-21  G1  PASS — người dùng đã duyệt brief (trả lời "duyệt"), chấp nhận toàn bộ mặc định của brief. Đây là duyệt người dùng thật (khác với review kỹ thuật Opus ở trên). Được phép chạy liền R2–R5 tới G2; không làm R6 (clip production) và không tích hợp game/lab trước G2. Credit dịch vụ = 0.
+            Trạng thái sau G1: brief (qua G1), rig đang làm / chờ G2. G2 CHƯA duyệt.
+2026-10-21  R2-R5  Sonnet 5.5 (dung lien tuc sau G1, khong R6, khong lab/game). Route M, ho S. Blender 5.2.2 LTS. Credit dich vu = 0.
+            R2 skeleton: tools/landmarks.json (do tren mesh da scale; chan lech +0,0105 m X, tai phai khong doi xung) -> tools/d01_rig_def.py: 35 bone runtime (22 loi + 5 phu + 8 socket), 25 co trong so; rig dieu khien rieng 45 bone ctl_ (27 FK + 18 IK/pole/tiep xuc), runtime bam dieu khien bang Copy Transforms; IK chan/tay co pole + khoa ban le, got/mui/bong; khuyu pre-bend 3,3 mm, goi giu cong 9 do do duoc (chuoi IK khong thang tuyet doi).
+            R3 skin: tools/d01_skin.py (khoi diem tu dong theo vung + sua theo soi: de ban chan, vai tui, tai, ban tay, chuyen tiep khuyu/co tay). Khong clavicle (ly do trong qa_report.md 5.2).
+            R4: tools/v1_validate.py -> validation.json: A1.1-A1.14 = 14/14 dat (do that); v2_rig_function.py: 16/16 phep thu control dat, cuc tri 16 tu the khong NaN. GLB runtime tam: checks/D01_hodling_runtime_check.glb (KHONG phai D01_hodling_rig.glb, chua dang ky lab).
+            R5: tools/q1_render.py, q4_sockets.py, q2_compose.py (anh Workbench that trong Blender, anh sang trung tinh, texture goc, khong hau ky) -> qa/A2_*_v3.jpg; qa/D01_hodling_qa_poses.blend = 16 Action tinh QA (experiment, khong phai clip production).
+            Lan chay cu giu o qa/_superseded/ (v1: R_ear dat sai, bat boi phep do khop-trong-mesh; v2: tai an da thai duong, anh rig dieu khien 1 mau, khung socket cat). Chay lai: tools/run_all.ps1 -Tag <tag>.
+            sha256: D01_hodling_rig.blend 57d8aba1de5b56b18f254c07583594750ff9d414ac09a86e23546cdad8f9794c ; runtime_check.glb 328914f969ff79f26cbd13846ded5d886e016c95103a68f08d4057e7e3c0951e ; GLB goc bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a (khong doi).
+            Khuyet diem con lai (chi tiet qa_report.md 5.2): khong bone ngon; khong clavicle (da giang ~23 mm khi vat cheo tay); vai tui sat gay keo 31 mm khi quay dau 50 do; kho khong co va cham; long_step gioi han boi chan ngan; Blender -b khong chup duoc viewport nen chi doc lai trang thai UI.
+G2 (rig): PENDING — cho nguoi dung xem rig/qa/ (hoac mo rig/D01_hodling_rig.blend). Chua duyet. Chua R6.

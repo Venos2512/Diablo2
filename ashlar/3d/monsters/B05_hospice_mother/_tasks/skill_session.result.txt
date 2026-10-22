@@ -1,0 +1,12 @@
+Đã tạo hai sheet, tách bốn ảnh 1024×1024 và ghi [tpose.log](E:/Diablo2/ashlar/3d/monsters/B05_hospice_mother/tpose.log). `design.txt` có sẵn được giữ nguyên theo skill.
+
+- [front.png](E:/Diablo2/ashlar/3d/monsters/B05_hospice_mother/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/monsters/B05_hospice_mother/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/monsters/B05_hospice_mother/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/monsters/B05_hospice_mother/views/right.png)
+
+Chiều cao sheet 1: **748/750 px**; sheet 2: **848/848 px**; hệ số thu nhỏ góc bên: **0,8833**. Đã xem contact, guides và hai strip để QA.
+
+**Chưa đạt QA hoàn toàn:** mỗi sheet đã sửa một lần; cao độ tay còn lệch brief, góc bên chưa đúng 90°, tay/ngón còn gập và một số vạt áo chưa khớp giữa các góc.
+
+Session ảnh: `01a15fb8-5260-71d3-9151-d286192686fa`. Đường dẫn nguồn từng ảnh, prompt, phép đo và lỗi còn lại đều nằm trong log.

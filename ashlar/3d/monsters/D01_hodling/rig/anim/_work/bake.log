@@ -1,0 +1,13 @@
+00:00.765  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig_anim.blend"
+INFO Draco is available, use library at E:\SteamLibrary\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at E:\SteamLibrary\steamapps\common\Blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:03:19 | INFO: Starting glTF 2.0 export
+19:03:19 | INFO: Extracting primitive: D01_hodling_mesh
+19:03:20 | WARNING: More than one shader node tex image used for a texture. The resulting glTF sampler will behave like the first shader node tex image.
+19:03:20 | INFO: Primitives created: 1
+19:03:21 | INFO: Finished glTF 2.0 export in 2.084927797317505 s
+
+[bake] wrote E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/anim/checks/D01_hodling_anim_review_UNAPPROVED.glb 15042528 bytes; clips {'idle': (1, 49), 'walk': (1, 27), 'run': (1, 19), 'attack': (1, 19), 'hit': (1, 12), 'death': (1, 31)}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

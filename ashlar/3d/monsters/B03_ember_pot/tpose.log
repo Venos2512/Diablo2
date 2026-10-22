@@ -1,0 +1,80 @@
+﻿B03 EMBER-POT T-POSE REPORT — 2026-10-22
+STATUS: DELIVERED WITH QA FAILURES; not a clean approved Tripo reference.
+Steps 1-5 executed. Existing design.txt and brief.md read; design.txt preserved unchanged as explicitly required by skill and brief. Concept visually inspected. Built-in image_gen only; 2 generations per sheet (maximum), no further edits. Text prompts saved beside sheets. Existing tpose_tools.py used for measurement, cropping/rescaling and QA guides only.
+
+SOURCES
+Session: 01a15fb6-b874-7352-b681-a2ce8809d72c
+Source directory: E:\map01-batch\home\generated_images\01a15fb6-b874-7352-b681-a2ce8809d72c\
+Sheet 1 attempt 1: exec-b67fd9a9-2821-419e-980e-8108e41fe6b4.png
+Sheet 1 selected attempt 2: exec-ba8a59f3-26ca-49ac-94e7-bb3c041f4b06.png
+Sheet 2 attempt 1: exec-87021e79-cf25-42bb-9a62-dd43bdd83063.png
+Sheet 2 selected attempt 2: exec-c4bfcce8-2c33-4ad9-a81a-f9951467ec18.png
+Rejected attempts preserved in _rejected/tpose_front_back_attempt1.png and tpose_sides_attempt1.png. Selected means best retained under attempt limit, NOT full QA approval.
+
+MEASUREMENTS
+All sheets 1536x1024.
+FB attempt 1: both heights 673px (65.7%); width 739/738px; nearest edge 23px. Arms 8.7/9.7 front and 9.5/8.3 back degrees off horizontal; feet centres 0.24H.
+FB attempt 2: both heights 650px (63.5%); front bbox (47,187,763,837), back (777,187,1488,837); widths 716/711px. No edge warnings. Span/height 1.10/1.09. Humanoid: FOUR WARNINGS, front arms 7.7/8.6 degrees, back arms 8.4/7.4 degrees. Feet warning resolved. Broad sleeves influence heuristic, but visible sag remains; not waived as a false positive.
+Sides attempt 1: both heights 870px (85.0%), widths 361px; humanoid OK. 33.85% larger than FB; rejected for scale, hand height and cloak mismatch.
+Sides attempt 2: both heights 798px (77.9%), widths 344px; left bbox (317,121,661,919), right (871,121,1215,919). No edge warnings. Humanoid OK: sole spans 0.25H / 0.21H. Still 22.77% taller than FB (>12% tolerance); logged after allowed retry. Whole-figure rescale 650/798 = 0.81453634. No partial-body scaling.
+
+RETRIES
+FB retry requested level horizontal arms, cloak hem 62% instead of approximately 82%, scarf tip 45%, narrower stance, smaller placement. Stance improved; scarf now approximately 47%; cloak still approximately 79%; arm sag persists.
+Sides retry requested 650px instead of 870px, hands at 27%, and matching selected BACK cloak end 79%. Scale improved to 798px; near hand and cloak mismatch persist. Attempts exhausted, best retained as required.
+
+VISUAL QA
+Viewed both generated sheets, first split guides and both strips, then final _contact.png, _guides.png and both strips after retry.
+Correct FRONT/BACK and LEFT/RIGHT order, full figures, no crop, no labels, empty hands, no pot/cart/chain, no glow. Same broad silhouette, cream/olive/terracotta masses and substantial cloth form shadows. No added muscle/claws/teeth. Front/back legs symmetric and narrow; side feet overlap with no visible stride. Top and soles aligned after split. Overall torso upright, short legs retained. Background close to grey, slightly mottled rather than perfectly flat. Surface folds somewhat more faceted/detailed than concept.
+Not passed: arms sag; side hand is low and fingers curl rather than a clean flat open palm; crown/face vertically compressed against design landmarks; cloak too long and inconsistent across views. The side images are highly mirrored in appearance; removed chain leaves symmetric body, but exact seven-brick ring topology and rivet correspondence cannot be established confidently from overlaps.
+
+CROSS-VIEW LANDMARK TABLE
+Visual estimates from final strips, approximately +/-2 percentage points; not automated landmark detections. 0=crown top, 100=sole. Order LEFT | RIGHT | FRONT | BACK | verdict.
+Crown: 0-11 | 0-11 | 0-11 | 0-11 | heights consistent, shorter than specified 13%; exact seven-brick geometry unverified, back ring ordering uncertain.
+Iron band: 10-13 | 10-13 | 11-14 | 11-14 | approx consistent, above specified 13-16%; individual rivets not reliably corresponding.
+Face guard: 13-18 edge | 13-18 edge | 14-18 | hidden, linen visible | occlusion correct, compressed versus 15-22 design; small skin-like flecks beside mask are undesired detail.
+Chin wrap: 17-21 | 17-21 | 18-23 | hidden by cowl | approximately consistent; higher than design 22-27.
+Scarf cowl/chest tip: 17-46 front edge | 17-46 front edge | 18-47 | 16-28 roll/point | approximately matched occlusion; back has pointed scarf extension, design called for roll at 24-32.
+Hands: 29-33 | 29-33 | 27-30 | 27-30 | FAIL side hand low; generic heuristic OK does not clear visual mismatch.
+Cloak: starts 20, rear tip 71 | starts 20, rear tip 71 | side edges to 60 | starts 20, centre tip 79 | FAIL rear tip 8 percentage points inconsistent; all longer than design target 62; back should be corrected to side depth truth, but FB retry budget exhausted.
+Apron: 31-83 front edge | 31-83 front edge | 31-85 | hidden | broadly consistent; correct front-only occlusion.
+Red-brown robe: visible side to 84 | visible side to 84 | edges to 83 | below cloak to 84 | consistent lower hem, amount exposed differs because cloak mismatch.
+Dark underskirt: 82-90 | 82-90 | 83-90 | 83-90 | consistent.
+Wrapped shins: 88-96 | 88-96 | 88-96 | 88-96 | consistent.
+Feet: 96-100 | 96-100 | 96-100 | 96-100 | aligned, side overlap; sole-row pass.
+Chain / pot / cart: absent in all views | correct per REMOVE.
+
+OUTPUTS
+views/front.png, views/back.png, views/left.png, views/right.png: each 1024x1024, figure height 650px, common sole boundary row 952 (last foreground row 951), top row 302.
+views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png.
+tpose_front_back.png, tpose_sides.png; original and retry prompts saved adjacent.
+No Tripo generation, rigging or animation performed.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Session 1 (run_session.sh, Astra 01a15fb6-b874-7352-b681-a2ce8809d72c): 2 generations per sheet, attempt 2 of each kept.
+Arms: the humanoid tool reports +7.4 to +8.6 deg, but that is the broad sleeves (top edge rises to the bulky shoulders, sleeve hangs
+  under the upper arm). Measured centre line of the FRONT left arm: y 363/365/361/365 at x 60/100/150/200 = horizontal forearm and
+  hand; hands at 27 % on the red line in FRONT and BACK. Accepted with this reason (not a real sag).
+Cross-view fail found: BACK cloak middle point hung to 78 % (row 697) while the side views end the cloak at 68-71 % at the rear.
+Edit pass 1 (map01_batch, _tasks/fb_edit_cloak.png, target 71 %): BACK cloak middle point now 65 % (row 613), side points 55-58 %;
+  FRONT half changed by 1.9 grey levels. ACCEPTED as tpose_front_back.png (pre-edit: _rejected/tpose_front_back_attempt2_longcloak.png).
+Edit pass 2 on the side sheet (target: rear 65 %, side 55 %): overshot, cloak ended at 41-51 % in profile (worse against the BACK
+  65 %); rejected -> _rejected/tpose_sides_attempt2_edit_cloak_overshot.png. Original attempt-2 side sheet kept. Codex budget used.
+Sheet heights: FB 650/651 px; sides 798/798 px; split rescale 0.815. Re-ran split, guides, strip 0-60 and 40-100 and viewed them.
+humanoid fb: 4 arm-angle WARNs = sleeve shape (see above); span/height 1.09-1.10 (PROPORTIONS 1.15); feet gap 0.21 H. sides: OK, sole span 0.25/0.21 H.
+Cross-view table (% of figure height, 0 = top of the centre brick, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Brick crown        | 0-11 (in profile, tallest at front) | same | 0-11, 7 bricks fanned | 0-11 | PASS (a little shorter than the planned 13 %)
+Iron band          | 10-13       | 10-13       | 11-14        | 11-14         | PASS
+Face guard         | 13-21 front of head | same | 13-21   | hidden (wrapped head) | PASS
+Scarf              | 15-42 drape on chest/neck | same | cowl, V to 46 | roll 19-24 on the cloak | PASS
+Arms / hands       | near hand 29-31 | 29-31   | 26-29        | 26-29         | PASS (within 3 %)
+Cloak hem          | rear 71, mid-depth 60-66 | rear 68 | side edges 51 | centre point 65, side points 55-58 | DEVIATION: profile hem 5-9 % lower than FB side points; rear within 3-6 %
+Apron              | front edge to 80 | same    | 27-80 point  | hidden        | PASS
+Robe hem           | 78-82       | 78-82       | 75-80        | 75-80         | PASS
+Underskirt / wraps / feet | 80-90 / 88-96 / 96-100 | same | same | same | PASS
+Fidelity vs concept: swollen heavy figure, brick crown on a riveted iron band, black face guard, cream head wrap and chin wrap, cream
+  scarf cowl, olive cloak, orange-terracotta apron, red-brown robe, dark underskirt, cream-wrapped arms, hands with terracotta fingers,
+  wrapped shins and feet; chain, pot and cart removed (cart = separate prop, cart/prop_input.png). Torso upright and head above the
+  shoulders instead of the concept's deep hunch (intended). Surface a little faceted (angular painted planes) but low detail with form
+  shading kept. Side near hands open palm-up rather than palm-down.
+Verdict: PASS with one logged deviation (cloak hem height in profile vs FRONT/BACK side points, 5-9 %).

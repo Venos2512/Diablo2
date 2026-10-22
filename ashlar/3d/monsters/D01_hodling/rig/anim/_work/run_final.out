@@ -1,0 +1,27 @@
+[r6] leg scale S = 0.34758
+[r6] build idle
+[r6] idle keyed; slot ['OBD01_control'] fcurves ok
+[r6] build walk
+[r6] walk common stance speed 0.3659 m/s
+[r6] walk keyed; slot ['OBD01_control'] fcurves ok
+[r6] build run
+[r6] run common stance speed 1.6701 m/s
+[r6] run keyed; slot ['OBD01_control'] fcurves ok
+[r6] build attack
+[r6] attack keyed; slot ['OBD01_control'] fcurves ok
+[r6] build hit
+[r6] hit keyed; slot ['OBD01_control'] fcurves ok
+[r6] build death
+[r6] death root lift max mm 21.86
+[r6] death keyed; slot ['OBD01_control'] fcurves ok
+[r6] saved E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/D01_hodling_rig_anim.blend
+[r7] sole verts {'L': 118, 'R': 118} hand verts {'L': 435, 'R': 435}
+[r7] loincloth rest baseline {'flap_vertices': 159, 'flap_triangles': 228, 'inside_vertices_thigh': 0, 'inside_vertices_other': 3, 'max_depth_thigh_mm': 0.0, 'max_depth_other_mm': 1.9076508469879627, 'intersecting_flap_triangles_thigh': 0, 'intersecting_flap_triangles_other': 5, 'covered_by_thigh_vertices': 0, 'inside_thigh_regions': []}
+[r7] idle done 0.5 s
+[r7] walk done 0.7 s
+[r7] run done 0.5 s
+[r7] attack done 0.6 s
+[r7] hit done 0.1 s
+[r7] death done 0.8 s
+[r7] wrote E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/anim/qa/r7_metrics.json
+[r7] g2 hash equal: True

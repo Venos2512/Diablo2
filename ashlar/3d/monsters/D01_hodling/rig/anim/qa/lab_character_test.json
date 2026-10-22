@@ -1,0 +1,24 @@
+{
+  "status": "R7 review test, UNAPPROVED (G3/G4 not given). Intermediate review GLB, not the R8 release.",
+  "date": "2026-10-21",
+  "model_file": "rig/anim/checks/D01_hodling_anim_review_UNAPPROVED.glb (in-memory bake of the control rig onto D01_runtime, 35 bones, 6 NLA-named clips, times start at 0 s)",
+  "lab": "lookdev-lab/dist/index.html (existing build, 272 MB, built 2026-10-21 14:11, NOT rebuilt by this task) served with `node scripts/serve.mjs --port 4291`; T3 preview browser tab, WebGL2 backend (?backend=webgl), scene Act I Dark Wood",
+  "how_loaded": "preview_upload into the lab's own #file-input (the 'Open files' input) -> app.loader.loadFiles -> subject; Character tab",
+  "how_driven": "the headless preview tab renders ~1 frame per 4 s (software GL), so Play could not run in real time. The lab controller was stepped with ctrl.update(1/60) (same code path as the frame loop: animator, controller movement, FootCheck) with key W held; no frame was skipped in the simulation. Lab walkSpeed/runSpeed were set to the measured natural speeds so the animator rate is 1.0 (the lab defaults 1.6 / 4 m/s are for a 1.8 m human and make the clip play at rate 2.5 and skate).",
+  "clips_loaded": ["idle:2.0000s", "walk:1.0833s", "run:0.7500s", "attack:0.7500s", "hit:0.4583s", "death:1.2500s"],
+  "autoClip_map": {"idle": "idle", "walk": "walk", "run": "run", "attack": "attack", "hit": "hit", "death": "death", "attack2": null, "cast": null, "block": null, "blockHit": null, "revive": null, "jump": null, "dodge": null},
+  "autoClip_note": "every required state resolved by name with no manual override; unused states (attack2, cast, block, blockHit, revive, jump, dodge) are null by design (not in the S family minimum set)",
+  "rig_detected": {"hips": "pelvis", "head": "head", "left": {"hand": "L_Hand", "slot": "L_weapon_attach", "foot": "L_Foot", "toe": "L_Toe"}, "right": {"hand": "R_Hand", "slot": "R_weapon_attach", "foot": "R_Foot", "toe": "R_Toe"}},
+  "height_m": 0.5,
+  "natural_speed_measured_by_lab": {"walk": {"speed_mps": 0.278, "stride_m": 0.301}, "run": {"speed_mps": 1.611, "stride_m": 1.209}},
+  "natural_speed_note": "the lab measures foot plants from the TOE bones; r7_metrics.json measures deformed sole vertices (walk 0.358 m/s, run 1.627 m/s). They differ (walk 22 %) because the toe bone leaves the floor earlier than the sole patch; run agrees within 1 %. clips.json records both; the lab value is what the lab sets as playback speed.",
+  "foot_slip_lab_FootCheck": {
+    "thresholds_cm_s": "green < 8, yellow < 20, red >= 20 (lookdev-lab/src/character/footCheck.js)",
+    "window": "240 simulated frames at 60 Hz after 100 frames of warm-up, from the origin, W held",
+    "walk": {"average_cm_s": 3.1, "plants": 11, "green": 8, "yellow": 3, "red": 0, "max_cm_s": 14.5, "comment": "long stance plants 0.1-5.3 cm/s; the yellow ones are the 0.117 s toe-off plant of each step (14.5 cm/s)"},
+    "run": {"average_cm_s": 2.6, "plants": 9, "green": 9, "yellow": 0, "red": 0, "max_cm_s": 4.2}
+  },
+  "earlier_iterations_kept_honest": "before the planted-contact and stance-entry fixes the same test gave walk avg 5.1 cm/s (green) and run avg 11.2 cm/s with 2 red plants of 0.03-0.05 s (99 and 44 cm/s); those builds were replaced, this file describes the build with the sha256 in clips.json",
+  "not_done_in_lab": "real-time Play in a visible window, gameplay events (hit marker), crossfades idle<->walk<->run<->attack, revive. Hit-contact lab hitAt (0.45) was not exercised in the lab; attack.hit event is measured in Blender (peak hand reach frame 9 = offset 8 = 0.333 s = 44.4 %)",
+  "screenshot": "rig/qa/R7_lab_character_play_UNAPPROVED.png (the Hodling, 0.5 m, standing in Play, idle clip, next to the lab's 1.8 m scale mannequins)"
+}

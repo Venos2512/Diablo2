@@ -1,0 +1,314 @@
+{
+ "blend": "_snapshots/v3/D01_hodling_rig.blend",
+ "blend_sha256": "57d8aba1de5b56b18f254c07583594750ff9d414ac09a86e23546cdad8f9794c",
+ "body_mesh_closed_check": {
+  "body_triangles": 7720,
+  "edges": 11587,
+  "boundary_edges": 14,
+  "nonmanifold_edges": 0
+ },
+ "class_counts": {
+  "belt": 225,
+  "brick": 442,
+  "ear": 118,
+  "eye": 62,
+  "flap_back": 222,
+  "flap_front": 159,
+  "helmet": 663,
+  "horn": 159,
+  "main": 3846,
+  "sack": 538,
+  "strap": 71
+ },
+ "sack_static_weights": {
+  "sack_vertices": 538,
+  "brick_vertices": 442,
+  "max_weight_outside_allowed": 0.9150066375732422,
+  "vertices_with_outside_weight_gt_0.001": 384,
+  "max_weight_by_bone": {
+   "head": 0.9150066375732422,
+   "neck": 0.0,
+   "pelvis": 0.4672737419605255,
+   "L_UpperArm": 0.07010950893163681,
+   "R_UpperArm": 0.0
+  },
+  "head_plus_neck_max": 0.9150066375732422
+ },
+ "sack_motion_by_pose": {
+  "rest": {
+   "max_mm": 0.0,
+   "p99_mm": 0.0,
+   "mean_mm": 0.0,
+   "worst_vertex": 212,
+   "worst_rest_xyz": [
+    -0.0237,
+    0.0032,
+    0.2319
+   ],
+   "boundary": {
+    "boundary_edges": 194,
+    "max_growth_mm": 0.0,
+    "p99_growth_mm": 0.0,
+    "max_edge_len_mm": 90.8206409125716,
+    "rest_mean_edge_mm": 18.07060535373859
+   }
+  },
+  "hands_raised": {
+   "max_mm": 3.6243622145117116,
+   "p99_mm": 0.0,
+   "mean_mm": 0.006736732740728089,
+   "worst_vertex": 5324,
+   "worst_rest_xyz": [
+    0.0586,
+    0.0078,
+    0.3673
+   ]
+  },
+  "hands_crossed": {
+   "max_mm": 5.877821927210792,
+   "p99_mm": 0.0,
+   "mean_mm": 0.010925319567306304,
+   "worst_vertex": 5324,
+   "worst_rest_xyz": [
+    0.0586,
+    0.0078,
+    0.3673
+   ]
+  },
+  "arms_down_fk": {
+   "max_mm": 3.4742782223671536,
+   "p99_mm": 0.0,
+   "mean_mm": 0.006457766212578353,
+   "worst_vertex": 5324,
+   "worst_rest_xyz": [
+    0.0586,
+    0.0078,
+    0.3673
+   ]
+  },
+  "arms_forward_fk": {
+   "max_mm": 3.370293361639577,
+   "p99_mm": 0.0,
+   "mean_mm": 0.006264485802304046,
+   "worst_vertex": 5324,
+   "worst_rest_xyz": [
+    0.0586,
+    0.0078,
+    0.3673
+   ]
+  },
+  "elbows_max_fk": {
+   "max_mm": 9.313225746154785e-07,
+   "p99_mm": 0.0,
+   "mean_mm": 1.7310828524451273e-09,
+   "worst_vertex": 5324,
+   "worst_rest_xyz": [
+    0.0586,
+    0.0078,
+    0.3673
+   ]
+  },
+  "squat": {
+   "max_mm": 109.69320619898994,
+   "p99_mm": 107.39082398765717,
+   "mean_mm": 74.33852029806236,
+   "worst_vertex": 5250,
+   "worst_rest_xyz": [
+    0.0562,
+    0.0022,
+    0.4134
+   ]
+  },
+  "long_step": {
+   "max_mm": 18.729090186305207,
+   "p99_mm": 16.55539180995789,
+   "mean_mm": 15.648845760727202,
+   "worst_vertex": 2467,
+   "worst_rest_xyz": [
+    0.043,
+    0.0542,
+    0.2057
+   ]
+  },
+  "twist_p45": {
+   "max_mm": 112.02552620772519,
+   "p99_mm": 110.72329765878554,
+   "mean_mm": 63.4620360523625,
+   "worst_vertex": 4556,
+   "worst_rest_xyz": [
+    -0.0343,
+    0.1528,
+    0.356
+   ]
+  },
+  "twist_m45": {
+   "max_mm": 110.4519813472364,
+   "p99_mm": 108.71581582389437,
+   "mean_mm": 62.81115704857217,
+   "worst_vertex": 4556,
+   "worst_rest_xyz": [
+    -0.0343,
+    0.1528,
+    0.356
+   ]
+  },
+  "head_down": {
+   "max_mm": 77.32420363687352,
+   "p99_mm": 75.65302190527703,
+   "mean_mm": 12.188612959706841,
+   "worst_vertex": 4591,
+   "worst_rest_xyz": [
+    -0.0138,
+    0.1415,
+    0.3636
+   ],
+   "boundary": {
+    "boundary_edges": 194,
+    "max_growth_mm": 17.668068427124652,
+    "p99_growth_mm": 15.17082717642292,
+    "max_edge_len_mm": 96.64967956223286,
+    "rest_mean_edge_mm": 18.07060535373859
+   }
+  },
+  "head_up": {
+   "max_mm": 70.44928573892024,
+   "p99_mm": 68.90191639836776,
+   "mean_mm": 10.915658004807488,
+   "worst_vertex": 4591,
+   "worst_rest_xyz": [
+    -0.0138,
+    0.1415,
+    0.3636
+   ],
+   "boundary": {
+    "boundary_edges": 194,
+    "max_growth_mm": 11.088123092666367,
+    "p99_growth_mm": 2.8965792162745845,
+    "max_edge_len_mm": 80.86319718579244,
+    "rest_mean_edge_mm": 18.07060535373859
+   }
+  },
+  "head_turn": {
+   "max_mm": 95.10214493947083,
+   "p99_mm": 94.15996422570034,
+   "mean_mm": 18.576136119992082,
+   "worst_vertex": 842,
+   "worst_rest_xyz": [
+    -0.0509,
+    0.1355,
+    0.364
+   ],
+   "boundary": {
+    "boundary_edges": 194,
+    "max_growth_mm": 30.68667215996409,
+    "p99_growth_mm": 22.111022572197463,
+    "max_edge_len_mm": 95.53220685886345,
+    "rest_mean_edge_mm": 18.07060535373859
+   }
+  },
+  "hip_flex_fk": {
+   "max_mm": 12.497796508697355,
+   "p99_mm": 3.769110033645017,
+   "mean_mm": 0.12117898442368659,
+   "worst_vertex": 2468,
+   "worst_rest_xyz": [
+    0.0529,
+    0.043,
+    0.2087
+   ]
+  },
+  "hip_flex_fk_loin": {
+   "max_mm": 12.497796508697355,
+   "p99_mm": 3.769110033645017,
+   "mean_mm": 0.12117898442368659,
+   "worst_vertex": 2468,
+   "worst_rest_xyz": [
+    0.0529,
+    0.043,
+    0.2087
+   ]
+  },
+  "hip_abduct_fk": {
+   "max_mm": 6.525106263416836,
+   "p99_mm": 3.3804956596975337,
+   "mean_mm": 0.07874265709742448,
+   "worst_vertex": 2468,
+   "worst_rest_xyz": [
+    0.0529,
+    0.043,
+    0.2087
+   ]
+  },
+  "aux_motion": {
+   "max_mm": 17.562795527888706,
+   "p99_mm": 16.817410792259064,
+   "mean_mm": 5.709299130661034,
+   "worst_vertex": 4535,
+   "worst_rest_xyz": [
+    -0.0058,
+    0.1478,
+    0.3162
+   ]
+  }
+ },
+ "sack_head_poses_max_mm": 95.10214493947083,
+ "sack_head_poses_max_mm_threshold": 3.0,
+ "flap_front": {
+  "rest": {
+   "flap_vertices": 159,
+   "flap_triangles": 228,
+   "inside_vertices_thigh": 0,
+   "inside_vertices_other": 3,
+   "max_depth_thigh_mm": 0.0,
+   "max_depth_other_mm": 1.9076543394476175,
+   "intersecting_flap_triangles_thigh": 0,
+   "intersecting_flap_triangles_other": 5,
+   "inside_thigh_regions": []
+  },
+  "hip_flex_fk": {
+   "flap_vertices": 159,
+   "flap_triangles": 228,
+   "inside_vertices_thigh": 4,
+   "inside_vertices_other": 2,
+   "max_depth_thigh_mm": 0.7565776468254626,
+   "max_depth_other_mm": 0.9499145089648664,
+   "intersecting_flap_triangles_thigh": 9,
+   "intersecting_flap_triangles_other": 4,
+   "inside_thigh_regions": [
+    "L_Thigh"
+   ],
+   "vs_rest": {
+    "new_inside_vertices_thigh": 4,
+    "new_inside_vertices_other": 0,
+    "new_intersecting_triangles_thigh": 9,
+    "max_depth_thigh_mm": 0.7565776468254626
+   }
+  },
+  "hip_flex_fk_loin": {
+   "flap_vertices": 159,
+   "flap_triangles": 228,
+   "inside_vertices_thigh": 0,
+   "inside_vertices_other": 2,
+   "max_depth_thigh_mm": 0.0,
+   "max_depth_other_mm": 0.48238024464808404,
+   "intersecting_flap_triangles_thigh": 0,
+   "intersecting_flap_triangles_other": 4,
+   "inside_thigh_regions": [],
+   "vs_rest": {
+    "new_inside_vertices_thigh": 0,
+    "new_inside_vertices_other": 0,
+    "new_intersecting_triangles_thigh": 0,
+    "max_depth_thigh_mm": 0.0
+   }
+  }
+ },
+ "flap_front_corr_angle_deg": -40.0,
+ "flap_validation": {
+  "method": "dinh kh\u1ed1 trong khoi than (bo phieu 3 tia, mesh than kin) + giao tam giac (BVH overlap) loc theo vung than (nhom trong so troi nhat); tru gia tri rest",
+  "body_mesh_closed": false,
+  "rest_inside_thigh": 0,
+  "uncorrected_detects_overlap": true,
+  "limit": "chi do hinh hoc dinh/tam giac cua kh\u1ed1 doi voi than; khong co mo phong vai, khong do kh\u1ed1 vs kh\u1ed1 sau/tay"
+ },
+ "flap_pass": true
+}

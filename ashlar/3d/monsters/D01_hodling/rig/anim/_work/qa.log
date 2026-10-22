@@ -1,0 +1,15 @@
+00:01.125  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig_anim.blend"
+[r7] sole verts {'L': 118, 'R': 118} hand verts {'L': 435, 'R': 435}
+[r7] loincloth rest baseline {'flap_vertices': 159, 'flap_triangles': 228, 'inside_vertices_thigh': 0, 'inside_vertices_other': 3, 'max_depth_thigh_mm': 0.0, 'max_depth_other_mm': 1.9076508469879627, 'intersecting_flap_triangles_thigh': 0, 'intersecting_flap_triangles_other': 5, 'covered_by_thigh_vertices': 0, 'inside_thigh_regions': []}
+[r7] idle done 0.5 s
+[r7] walk done 0.7 s
+[r7] run done 0.5 s
+[r7] attack done 0.6 s
+[r7] hit done 0.1 s
+[r7] death done 0.8 s
+[r7] wrote E:/Diablo2/ashlar/3d/monsters/D01_hodling/rig/anim/qa/r7_metrics.json
+00:05.282  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\_snapshots\g2_approved\D01_hodling_rig_g2.blend"
+[r7] g2 hash equal: True
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

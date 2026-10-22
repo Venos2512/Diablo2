@@ -1,0 +1,18 @@
+00:02.250  blend            | Read blend: "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\D01_hodling_rig_anim.blend"
+[gui] start {'screen': 'Layout', 'shading': 'SOLID', 'color_type': 'TEXTURE', 'light': 'STUDIO', 'overlays': True, 'area_size': [900, 658], 'window_size': [1100, 760]}
+[gui] idle assigned idle OBD01_control range 1 49 play started
+[gui] idle sample {'is_animation_playing': True, 'frame_at_sample': 11, 'frame_advanced': True, 'elapsed_s': 0.7, 'range': [1, 49], 'action': 'idle', 'slot': 'OBD01_control', 'screenshot': 'gui_idle.png', 'screenshot_bytes': 157204}
+[gui] walk assigned walk OBD01_control range 1 27 play started
+[gui] walk sample {'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 27], 'action': 'walk', 'slot': 'OBD01_control', 'screenshot': 'gui_walk.png', 'screenshot_bytes': 154946}
+[gui] run assigned run OBD01_control range 1 19 play started
+[gui] run sample {'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 19], 'action': 'run', 'slot': 'OBD01_control', 'screenshot': 'gui_run.png', 'screenshot_bytes': 152784}
+[gui] attack assigned attack OBD01_control range 1 19 play started
+[gui] attack sample {'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 19], 'action': 'attack', 'slot': 'OBD01_control', 'screenshot': 'gui_attack.png', 'screenshot_bytes': 158642}
+[gui] hit assigned hit OBD01_control range 1 12 play started
+[gui] hit sample {'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 12], 'action': 'hit', 'slot': 'OBD01_control', 'screenshot': 'gui_hit.png', 'screenshot_bytes': 157959}
+[gui] death assigned death OBD01_control range 1 31 play started
+[gui] death sample {'is_animation_playing': True, 'frame_at_sample': 12, 'frame_advanced': True, 'elapsed_s': 0.52, 'range': [1, 31], 'action': 'death', 'slot': 'OBD01_control', 'screenshot': 'gui_death.png', 'screenshot_bytes': 155153}
+[gui] done
+00:11.360  blend            | Saved session recovery to "E:\Diablo2\ashlar\3d\monsters\D01_hodling\rig\anim\_work\tmp\quit.blend"
+
+Blender quit

@@ -1,0 +1,1064 @@
+{
+ "asset": "D01_hodling",
+ "date": "2026-10-21",
+ "blender": "5.2.2 LTS",
+ "scope": "R4 kiem tu dong cho G2. GLB runtime la ban tam de kiem A1 (rig/checks/), KHONG phai <asset>_rig.glb release, chua dang ky lab.",
+ "inputs": {
+  "source_glb": "..\\D01_hodling.glb",
+  "source_glb_sha256": "bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a",
+  "source_glb_sha256_expected": "bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a",
+  "blend": "D01_hodling_rig.blend",
+  "blend_sha256": "57d8aba1de5b56b18f254c07583594750ff9d414ac09a86e23546cdad8f9794c",
+  "runtime_check_glb": "checks\\D01_hodling_runtime_check.glb",
+  "runtime_check_glb_sha256": "328914f969ff79f26cbd13846ded5d886e016c95103a68f08d4057e7e3c0951e",
+  "runtime_check_glb_bytes": 14855472,
+  "scale_factor": 0.679495687
+ },
+ "A1": {
+  "A1.1": {
+   "pass": true,
+   "measured": {
+    "skins": 1,
+    "meshes": 1,
+    "primitives": 1,
+    "mesh_nodes": 1,
+    "skinned_nodes": 1
+   },
+   "threshold": "1 skin, 1 mesh, 1 primitive, node mesh = node co skin",
+   "note": "tren GLB runtime tam"
+  },
+  "A1.2": {
+   "pass": true,
+   "measured": {
+    "count": 35,
+    "unique": 35,
+    "missing_core": [],
+    "missing_socket": [],
+    "extra": [],
+    "bad_chars": []
+   },
+   "threshold": "ten dung SKELETON_STANDARD muc 3 (+ phu D01: helmet,sack,loincloth_front,L_ear,R_ear); khong trung; chi [A-Za-z0-9_]; tien to L_/R_",
+   "note": ""
+  },
+  "A1.3": {
+   "pass": true,
+   "measured": {
+    "roots": [
+     "root"
+    ],
+    "joint_count": 35,
+    "skeleton_node_parent": "D01_runtime"
+   },
+   "threshold": "dung 1 goc trong so joint, ten = root",
+   "note": "root co cha la node armature D01_runtime (khong phai joint)"
+  },
+  "A1.4": {
+   "pass": true,
+   "measured": {
+    "vertices": 6505,
+    "empty_vertices": 0
+   },
+   "threshold": "0 dinh trong",
+   "note": ""
+  },
+  "A1.5": {
+   "pass": true,
+   "measured": {
+    "max_abs_sum_minus_1": 1.3e-07,
+    "min_sum": 0.99999987,
+    "max_sum": 1.000000112
+   },
+   "threshold": "1 +- 1e-6",
+   "note": "WEIGHTS_0 float32 trong GLB"
+  },
+  "A1.6": {
+   "pass": true,
+   "measured": {
+    "max_nonzero_influences": 4,
+    "has_JOINTS_1": false,
+    "histogram": {
+     "1": 3006,
+     "2": 1638,
+     "3": 950,
+     "4": 911
+    }
+   },
+   "threshold": "<= 4",
+   "note": ""
+  },
+  "A1.7": {
+   "pass": true,
+   "measured": {
+    "joints_in_skin": 35,
+    "max_index_used": 32,
+    "min_index": 0,
+    "distinct_joints_with_weight": 25
+   },
+   "threshold": "0 <= index < so joint",
+   "note": ""
+  },
+  "A1.8": {
+   "pass": true,
+   "measured": {
+    "max_abs_err": 2.514e-06,
+    "joints": 35,
+    "mesh_node_world_is_identity": true
+   },
+   "threshold": "<= 1e-5",
+   "note": "IBM_j == inverse(inverse(mesh_world) @ joint_world) tai tu the rest"
+  },
+  "A1.10": {
+   "pass": true,
+   "measured": {
+    "source_sha256": {
+     "baseColor": "9bf5cece4b050c8bc6d513128ecf262a7cc598dd3917ea217b560f94af1c8128",
+     "metallicRoughness": "8c1047525b3d63cb4547f637fca5232fd63fff0f109e6012b8b94e6549b93c14",
+     "normal": "b3502fa33b086e1ecdafb012ab04a031e9cdfeb69d4a9498256bf31654690d3a"
+    },
+    "runtime_sha256": {
+     "baseColor": "9bf5cece4b050c8bc6d513128ecf262a7cc598dd3917ea217b560f94af1c8128",
+     "metallicRoughness": "8c1047525b3d63cb4547f637fca5232fd63fff0f109e6012b8b94e6549b93c14",
+     "normal": "b3502fa33b086e1ecdafb012ab04a031e9cdfeb69d4a9498256bf31654690d3a"
+    },
+    "runtime_image_mime": {
+     "baseColor": "image/jpeg",
+     "metallicRoughness": "image/png",
+     "normal": "image/jpeg"
+    },
+    "bytes": {
+     "baseColor": 2008101,
+     "metallicRoughness": 11397198,
+     "normal": 1034927
+    }
+   },
+   "threshold": "byte giong nhau theo vai tro (baseColor/metallicRoughness/normal)",
+   "note": "so sanh sha256 byte anh nhung trong GLB; Blender exporter khong ma hoa lai"
+  },
+  "A1.11": {
+   "pass": true,
+   "measured": {
+    "bounds_y_max_m": 0.5,
+    "bounds_y_min_m": 0.0,
+    "target_m": 0.5,
+    "deviation_pct": 0.0,
+    "bbox_min": [
+     -0.339581937,
+     0.0,
+     -0.155773059
+    ],
+    "bbox_max": [
+     0.339581937,
+     0.5,
+     0.155773059
+    ]
+   },
+   "threshold": "+-2% quanh 0,5 m",
+   "note": "chieu cao = dinh cao nhat toan mesh (mu/sung/tui) theo brief G1"
+  },
+  "A1.12": {
+   "pass": true,
+   "measured": {
+    "lowest_vertex_y_m": 0.0
+   },
+   "threshold": "0 +- 0,01 m",
+   "note": ""
+  },
+  "A1.14": {
+   "pass": true,
+   "measured": {
+    "blend_objects": {
+     "D01_control": {
+      "loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "rot_euler": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "scale": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "delta_loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_rot": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_scale": [
+       1.0,
+       1.0,
+       1.0
+      ]
+     },
+     "D01_runtime": {
+      "loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "rot_euler": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "scale": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "delta_loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_rot": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_scale": [
+       1.0,
+       1.0,
+       1.0
+      ]
+     },
+     "D01_hodling": {
+      "loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "rot_euler": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "scale": [
+       1.0,
+       1.0,
+       1.0
+      ],
+      "delta_loc": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_rot": [
+       0.0,
+       0.0,
+       0.0
+      ],
+      "delta_scale": [
+       1.0,
+       1.0,
+       1.0
+      ]
+     }
+    },
+    "mesh_parent": "D01_runtime",
+    "mesh_parent_inverse_identity": true,
+    "glb_armature_and_mesh_nodes_identity_TRS": true,
+    "glb_root_bone_identity_TRS": true,
+    "glb_bone_max_scale_dev": 4.172e-06,
+    "glb_negative_scale": false
+   },
+   "threshold": "scale = 1, khong am, xoay da ap dung (object transform don vi), bone scale = 1 +- 1e-5",
+   "note": "bone scale lech nho la nhieu float32 cua exporter"
+  },
+  "A1.13": {
+   "pass": true,
+   "measured": {
+    "zero_weight_bones": [
+     "root",
+     "cog",
+     "fx_chest",
+     "fx_hand_L",
+     "L_weapon_attach",
+     "fx_head",
+     "fx_hand_R",
+     "R_weapon_attach",
+     "hit_origin",
+     "ground"
+    ],
+    "of_which_sockets": [
+     "fx_chest",
+     "fx_hand_L",
+     "L_weapon_attach",
+     "fx_head",
+     "fx_hand_R",
+     "R_weapon_attach",
+     "hit_origin",
+     "ground"
+    ],
+    "of_which_structural_ancestors": [
+     "root",
+     "cog"
+    ],
+    "weighted_bones": 25
+   },
+   "threshold": "chi socket + to tien cau truc (root, cog) - ngoai le da thong nhat o G1",
+   "note": "root, cog giu du trong so 0 (cha cua bone co trong so)"
+  },
+  "A1.9": {
+   "pass": true,
+   "measured": {
+    "blender_reimport_forward_max_m": 1.25e-07,
+    "blender_reimport_reverse_max_m": 1.25e-07,
+    "glb_direct_forward_max_m": 0.0,
+    "glb_direct_reverse_max_m": 0.0,
+    "triangle_position_multisets_equal": true,
+    "reimport_vertex_count": 6505,
+    "source_vertex_count": 6505,
+    "reimport_bones": 35,
+    "reimport_vertex_groups": 35,
+    "reimport_images": {
+     "D01_hodling_basecolor": [
+      4096,
+      4096
+     ],
+     "D01_hodling_normal": [
+      4096,
+      4096
+     ],
+     "D01_hodling_rm": [
+      4096,
+      4096
+     ]
+    },
+    "tolerance_m": 0.0001,
+    "reimport_dir_note": "thu muc tam checks/reimport_tmp* (ban sao GLB, scene trong) bi xoa sau khi kiem"
+   },
+   "threshold": "<= 1e-4 m hai chieu (khop theo khong gian, bo qua dinh nhan doi o duong noi UV/normal; khong so theo chi so dinh)",
+   "note": "so dinh runtime 6505, nguon 6505 (neu khac nhau la do tach dinh o duong noi); so sanh theo vi tri, khong theo chi so dinh"
+  }
+ },
+ "A1_summary": {
+  "checks": 14,
+  "passed": 14,
+  "failed": []
+ },
+ "source_consistency": {
+  "blend_mesh_vs_scaled_source": {
+   "vertex_count": 6505,
+   "source_vertex_count": 6505,
+   "polygon_count": 10668,
+   "max_vertex_diff_m": 1.5e-08,
+   "topology_identical_by_index": true,
+   "uv_max_diff": 0.0,
+   "scale_factor": 0.679495687,
+   "uv_layers": [
+    "UVMap"
+   ],
+   "materials": [
+    "Material_tripo_8d791fe1_65fe_4ee5_9952_381babb3cb2c"
+   ]
+  },
+  "blend_images_packed_sha256_vs_source": {
+   "packed": {
+    "D01_hodling_basecolor.jpg": "9bf5cece4b050c8bc6d513128ecf262a7cc598dd3917ea217b560f94af1c8128",
+    "D01_hodling_normal.jpg": "b3502fa33b086e1ecdafb012ab04a031e9cdfeb69d4a9498256bf31654690d3a",
+    "D01_hodling_rm.png": "8c1047525b3d63cb4547f637fca5232fd63fff0f109e6012b8b94e6549b93c14"
+   },
+   "source_by_role": {
+    "baseColor": "9bf5cece4b050c8bc6d513128ecf262a7cc598dd3917ea217b560f94af1c8128",
+    "metallicRoughness": "8c1047525b3d63cb4547f637fca5232fd63fff0f109e6012b8b94e6549b93c14",
+    "normal": "b3502fa33b086e1ecdafb012ab04a031e9cdfeb69d4a9498256bf31654690d3a"
+   },
+   "all_match": true
+  },
+  "glb_vs_source_spatial": {
+   "runtime_vertices": 6505,
+   "source_vertices": 6505,
+   "runtime_triangles": 10668,
+   "source_triangles": 10668,
+   "forward_max_dist_m": 0.0,
+   "reverse_max_dist_m": 0.0,
+   "uv_max_diff_matched": 0.0,
+   "triangle_welded_vertex_triples_equal": true,
+   "unmatched_runtime_vertices": 0
+  },
+  "blend_weights_vs_runtime_glb": {
+   "max_abs_weight_diff": 1.19e-07,
+   "vertex_groups_in_blend": 25,
+   "note": "so sanh theo vi tri+UV, nhom dinh theo ten bone"
+  },
+  "blend_runtime_rest_vs_glb": {
+   "max_abs_matrix_diff": 2.541e-06,
+   "worst_bone": "loincloth_front",
+   "bone_count_blend": 35,
+   "bone_count_glb": 35
+  },
+  "control_vs_runtime_rest_max_diff": 0.0,
+  "hidden_helpers": {
+   "glb_node_names_with_ctl_prefix": [],
+   "runtime_armature_bones_with_ctl_prefix": [],
+   "glb_node_count": 37,
+   "glb_expected_node_count": 37,
+   "glb_nodes_not_bones": [
+    "D01_hodling",
+    "D01_runtime"
+   ],
+   "control_armature_objects_in_glb": [],
+   "glb_animations": 0,
+   "glb_extra_meshes": 0
+  },
+  "bones": {
+   "runtime_total": 35,
+   "control_total": 45,
+   "control_ik_helpers": 18,
+   "deform": 25,
+   "weighted_in_glb": [
+    "L_Calf",
+    "L_Foot",
+    "L_ForeArm",
+    "L_Hand",
+    "L_Thigh",
+    "L_Toe",
+    "L_UpperArm",
+    "L_ear",
+    "R_Calf",
+    "R_Foot",
+    "R_ForeArm",
+    "R_Hand",
+    "R_Thigh",
+    "R_Toe",
+    "R_UpperArm",
+    "R_ear",
+    "chest",
+    "head",
+    "helmet",
+    "loincloth_front",
+    "neck",
+    "pelvis",
+    "sack",
+    "spine_01",
+    "spine_02"
+   ],
+   "weighted_count": 25
+  }
+ },
+ "rig_function_tests": {
+  "passed": 16,
+  "total": 16,
+  "tests": [
+   {
+    "test": "L foot IK move (0,-0.03,0.02)",
+    "pass": true,
+    "moved_mean": [
+     6.170115633824161e-05,
+     -0.029852430635307608,
+     0.020012806692164056
+    ],
+    "other_foot_max": 0.0,
+    "torso_max": 0.0
+   },
+   {
+    "test": "R foot IK move (0,-0.03,0.02)",
+    "pass": true,
+    "moved_mean": [
+     -6.332338705765096e-05,
+     -0.029852928264971355,
+     0.020024917392619735
+    ],
+    "other_foot_max": 0.0,
+    "torso_max": 0.0
+   },
+   {
+    "test": "L hand IK move (-0.05, -0.05, 0.03)",
+    "pass": true,
+    "moved_mean": [
+     -0.05007113249137484,
+     -0.05002599216719297,
+     0.030012328323276563
+    ],
+    "other_hand_max": 0.0,
+    "leg_max": 0.0
+   },
+   {
+    "test": "R hand IK move (0.05, -0.05, 0.03)",
+    "pass": true,
+    "moved_mean": [
+     0.05012085811160077,
+     -0.04999559782733124,
+     0.030009928242913608
+    ],
+    "other_hand_max": 0.0,
+    "leg_max": 0.0
+   },
+   {
+    "test": "L knee pole outward 6cm (goi dang gap)",
+    "pass": true,
+    "knee_region_dx_toward_pole": 0.02124,
+    "sole_max": 0.00109
+   },
+   {
+    "test": "L elbow pole up 8cm (khuyu dang gap)",
+    "pass": true,
+    "elbow_region_dz": 0.02637,
+    "hand_max": 0.0
+   },
+   {
+    "test": "R knee pole outward 6cm (goi dang gap)",
+    "pass": true,
+    "knee_region_dx_toward_pole": 0.0212,
+    "sole_max": 0.00105
+   },
+   {
+    "test": "R elbow pole up 8cm (khuyu dang gap)",
+    "pass": true,
+    "elbow_region_dz": 0.02588,
+    "hand_max": 0.0
+   },
+   {
+    "test": "L heel_roll (lift toes, pivot heel)",
+    "pass": true,
+    "toe_dz": 0.0409,
+    "heel_dz": 0.00141
+   },
+   {
+    "test": "L toe_roll (lift heel, pivot toe tip)",
+    "pass": true,
+    "heel_dz": 0.04214,
+    "toe_dz": 0.00311
+   },
+   {
+    "test": "L ball_roll (lift heel, toes flat)",
+    "pass": true,
+    "heel_dz": 0.02879,
+    "toe_dz": -0.00323
+   },
+   {
+    "test": "root move (0.05,0.02,0): ca model di theo",
+    "pass": true,
+    "max_dev": 0.0
+   },
+   {
+    "test": "cog down 3cm: than ha, de ban chan dung nguyen (IK)",
+    "pass": true,
+    "chest_dz": -0.03,
+    "sole_max": 0.00222
+   },
+   {
+    "test": "chest rotate 20deg: dau/tay/tui xoay theo, chan khong doi",
+    "pass": true,
+    "head_max": 0.04958
+   },
+   {
+    "test": "head rotate: helmet + ear theo, chest dung",
+    "pass": true,
+    "helmet_max": 0.0662
+   },
+   {
+    "test": "IK off (leg L) + FK thigh: chan trai xoay qua FK",
+    "pass": true,
+    "foot_dy": -0.1002
+   }
+  ]
+ },
+ "pose_extremes": {
+  "rest": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.0,
+   "max_edge_growth_mm": 0.0,
+   "p99_edge_growth_mm": 0.0,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.15577305853366852,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "hands_raised": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.24846200166387314,
+   "max_edge_growth_mm": 15.469714655197782,
+   "p99_edge_growth_mm": 2.3382721303229324,
+   "bbox_min": [
+    -0.17158213257789612,
+    -0.15577305853366852,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.17158211767673492,
+    0.1557730734348297,
+    0.5190552473068237
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "hands_crossed": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.32606718875895646,
+   "max_edge_growth_mm": 22.92111022176999,
+   "p99_edge_growth_mm": 5.3604142208237935,
+   "bbox_min": [
+    -0.10202404856681824,
+    -0.15577305853366852,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.12392169237136841,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "arms_down_fk": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.3341099110102812,
+   "max_edge_growth_mm": 16.431103845101052,
+   "p99_edge_growth_mm": 1.4213172220234953,
+   "bbox_min": [
+    -0.12643209099769592,
+    -0.15577305853366852,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.12412089109420776,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "arms_forward_fk": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.43658171083894703,
+   "max_edge_growth_mm": 10.28158986022244,
+   "p99_edge_growth_mm": 1.6276070062961085,
+   "bbox_min": [
+    -0.10202404856681824,
+    -0.21712908148765564,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.12392169237136841,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "elbows_max_fk": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.3106827652164752,
+   "max_edge_growth_mm": 5.194917596837975,
+   "p99_edge_growth_mm": 7.438598812435637e-05,
+   "bbox_min": [
+    -0.17784497141838074,
+    -0.15577305853366852,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.1770552694797516,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "squat": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.0848045349121094e-05,
+   "max_bone_det_dev": 1.6570091247558594e-05,
+   "max_vertex_move_m": 0.14511669160586357,
+   "max_edge_growth_mm": 7.325939950162693,
+   "p99_edge_growth_mm": 2.421964965825584,
+   "bbox_min": [
+    -0.3395819365978241,
+    -0.19967195391654968,
+    -3.4305862754990812e-06
+   ],
+   "bbox_max": [
+    0.3395819664001465,
+    0.10951852053403854,
+    0.4196386933326721
+   ],
+   "sole_min_z_L_mm": -0.0034305862754990812,
+   "sole_min_z_R_mm": -0.003128588332401705
+  },
+  "long_step": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.0848045349121094e-05,
+   "max_bone_det_dev": 1.3470649719238281e-05,
+   "max_vertex_move_m": 0.058265502970461465,
+   "max_edge_growth_mm": 3.5672670082234816,
+   "p99_edge_growth_mm": 0.8127583738334263,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.16577304899692535,
+    -2.2585418264498003e-06
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.14577306807041168,
+    0.48799997568130493
+   ],
+   "sole_min_z_L_mm": -0.0022585418264498003,
+   "sole_min_z_R_mm": 2.898192498832941
+  },
+  "twist_p45": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.26568993235592236,
+   "max_edge_growth_mm": 11.727457956990019,
+   "p99_edge_growth_mm": 1.7737056734744092,
+   "bbox_min": [
+    -0.2287132292985916,
+    -0.2776440382003784,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.2850767970085144,
+    0.23802298307418823,
+    0.4999999403953552
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "twist_m45": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.26326870669423186,
+   "max_edge_growth_mm": 10.455535689627448,
+   "p99_edge_growth_mm": 1.753033177248195,
+   "bbox_min": [
+    -0.2865462899208069,
+    -0.2707096338272095,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.22912071645259857,
+    0.2430802881717682,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "head_down": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.09051910138140472,
+   "max_edge_growth_mm": 17.668068427124652,
+   "p99_edge_growth_mm": 4.001684905977193,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.14312461018562317,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.14743386209011078,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "head_up": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.08551616024913582,
+   "max_edge_growth_mm": 11.088123092666367,
+   "p99_edge_growth_mm": 2.7922734083703555,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.13067278265953064,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.1465754508972168,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "head_turn": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.11835728349547812,
+   "max_edge_growth_mm": 30.68667215996409,
+   "p99_edge_growth_mm": 5.781681220212504,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.14590300619602203,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.14568562805652618,
+    0.5
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  },
+  "hip_flex_fk": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2516975402832031e-05,
+   "max_bone_det_dev": 1.3589859008789062e-05,
+   "max_vertex_move_m": 0.15216488399266273,
+   "max_edge_growth_mm": 8.277787422160511,
+   "p99_edge_growth_mm": 1.0146586239976643,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.15577305853366852,
+    -0.0009053163230419159
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.1670786589384079,
+    0.5
+   ],
+   "sole_min_z_L_mm": 27.25779451429844,
+   "sole_min_z_R_mm": -0.9053163230419159
+  },
+  "hip_abduct_fk": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.239776611328125e-05,
+   "max_bone_det_dev": 1.33514404296875e-05,
+   "max_vertex_move_m": 0.12806003548095465,
+   "max_edge_growth_mm": 4.427323811119345,
+   "p99_edge_growth_mm": 0.73120222535158,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.15577305853366852,
+    0.04219992458820343
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.1557730734348297,
+    0.5
+   ],
+   "sole_min_z_L_mm": 42.19992458820343,
+   "sole_min_z_R_mm": 42.689405381679535
+  },
+  "aux_motion": {
+   "mesh_finite": true,
+   "bone_matrices_finite": true,
+   "max_bone_scale_dev": 1.2636184692382812e-05,
+   "max_bone_det_dev": 1.3113021850585938e-05,
+   "max_vertex_move_m": 0.049686914432518325,
+   "max_edge_growth_mm": 11.719076218661508,
+   "p99_edge_growth_mm": 1.309641454555364,
+   "bbox_min": [
+    -0.33958184719085693,
+    -0.14620672166347504,
+    -3.0112295235085185e-07
+   ],
+   "bbox_max": [
+    0.33958184719085693,
+    0.16214503347873688,
+    0.49631550908088684
+   ],
+   "sole_min_z_L_mm": -0.00030112295235085185,
+   "sole_min_z_R_mm": 1.1496988250314644e-05
+  }
+ },
+ "pose_extremes_all_finite": true,
+ "reopened_blend_state": {
+  "actions": [],
+  "pose_bones_identity": true,
+  "ik_props": {
+   "ik_leg_L": 1.0,
+   "ik_arm_L": 1.0,
+   "ik_leg_R": 1.0,
+   "ik_arm_R": 1.0
+  },
+  "objects": {
+   "D01_control": {
+    "type": "ARMATURE",
+    "hide_viewport_eye": false,
+    "parent": null,
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "D01_hodling": {
+    "type": "MESH",
+    "hide_viewport_eye": false,
+    "parent": "D01_runtime",
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "D01_runtime": {
+    "type": "ARMATURE",
+    "hide_viewport_eye": true,
+    "parent": null,
+    "loc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rot": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "scale": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "active_object": "D01_control",
+  "selected": [
+   "D01_control"
+  ],
+  "viewport_shading": [
+   {
+    "screen": "Animation",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Animation",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Geometry Nodes",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Layout",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Modeling",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Scripting",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Sculpting",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Shading",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "Texture Paint",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   },
+   {
+    "screen": "UV Editing",
+    "type": "SOLID",
+    "color_type": "TEXTURE",
+    "light": "STUDIO"
+   }
+  ],
+  "scene": {
+   "fps": 24,
+   "frame_start": 1,
+   "frame_end": 24,
+   "unit_system": "METRIC",
+   "unit_scale": 1.0
+  },
+  "images_packed": {
+   "D01_hodling_basecolor.jpg": true,
+   "D01_hodling_normal.jpg": true,
+   "D01_hodling_rm.png": true
+  },
+  "modifiers": [
+   [
+    "ARMATURE",
+    "D01_runtime"
+   ]
+  ],
+  "mesh_vertex_groups": 25
+ },
+ "source_glb_unchanged": true
+}

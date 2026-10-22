@@ -1,0 +1,119 @@
+{
+  "blender": "5.2.2 LTS",
+  "objects": [
+    {
+      "name": "RootNode",
+      "type": "EMPTY",
+      "parent": null,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_mode": "QUATERNION",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_quaternion": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dimensions": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "tripo_8d791fe1_65fe_4ee5_9952_381babb3cb2c",
+      "type": "MESH",
+      "parent": "RootNode",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_mode": "QUATERNION",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_quaternion": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "dimensions": [
+        0.999512,
+        0.458496,
+        0.73584
+      ],
+      "vertices": 6505,
+      "polygons": 10668,
+      "loop_triangles": 10668,
+      "materials": [
+        "Material_tripo_8d791fe1_65fe_4ee5_9952_381babb3cb2c"
+      ],
+      "uv_layers": [
+        "UVMap"
+      ],
+      "vertex_groups": 0,
+      "modifiers": [],
+      "shape_keys": false,
+      "world_bbox_min": [
+        -0.499756,
+        -0.229248,
+        0.0
+      ],
+      "world_bbox_max": [
+        0.499756,
+        0.229248,
+        0.73584
+      ]
+    }
+  ],
+  "armatures": 0,
+  "actions": 0,
+  "images": [
+    {
+      "name": "D01_hodling_basecolor.jpg",
+      "size": [
+        4096,
+        4096
+      ],
+      "source": "FILE"
+    },
+    {
+      "name": "D01_hodling_normal.jpg",
+      "size": [
+        4096,
+        4096
+      ],
+      "source": "FILE"
+    },
+    {
+      "name": "D01_hodling_rm.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "source": "FILE"
+    }
+  ]
+}

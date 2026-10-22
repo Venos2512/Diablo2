@@ -1,0 +1,353 @@
+{
+ "scene": {
+  "name": "Scene",
+  "fps": 24,
+  "fps_base": 1.0,
+  "frame_start": 1,
+  "frame_end": 49,
+  "frame_current": 1,
+  "use_preview_range": false,
+  "frame_preview": [
+   0,
+   0
+  ]
+ },
+ "assigned": {
+  "action": "idle",
+  "slot": "OBD01_control",
+  "nla_tracks": 0
+ },
+ "actions": {
+  "attack": {
+   "range": [
+    1.0,
+    19.0
+   ],
+   "use_frame_range": true,
+   "cyclic": false,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  },
+  "death": {
+   "range": [
+    1.0,
+    31.0
+   ],
+   "use_frame_range": true,
+   "cyclic": false,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  },
+  "hit": {
+   "range": [
+    1.0,
+    12.0
+   ],
+   "use_frame_range": true,
+   "cyclic": false,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  },
+  "idle": {
+   "range": [
+    1.0,
+    49.0
+   ],
+   "use_frame_range": true,
+   "cyclic": true,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  },
+  "run": {
+   "range": [
+    1.0,
+    19.0
+   ],
+   "use_frame_range": true,
+   "cyclic": true,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  },
+  "walk": {
+   "range": [
+    1.0,
+    27.0
+   ],
+   "use_frame_range": true,
+   "cyclic": true,
+   "fake_user": true,
+   "slots": [
+    "OBD01_control"
+   ],
+   "status": "experiment"
+  }
+ },
+ "ik_switches": {
+  "ik_leg_L": 1.0,
+  "ik_leg_R": 1.0,
+  "ik_arm_L": 0.0,
+  "ik_arm_R": 0.0
+ },
+ "viewports": [
+  {
+   "screen": "Animation",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": false,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Animation",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Geometry Nodes",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Layout",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Modeling",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Scripting",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Sculpting",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Shading",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "Texture Paint",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  },
+  {
+   "screen": "UV Editing",
+   "shading_type": "SOLID",
+   "color_type": "TEXTURE",
+   "light": "STUDIO",
+   "show_overlays": true,
+   "show_bones": true,
+   "show_armature_overlay": null
+  }
+ ],
+ "screens": [
+  {
+   "name": "Animation",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "VIEW_3D",
+    "DOPESHEET_EDITOR",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "Compositing",
+   "areas": [
+    "PROPERTIES",
+    "IMAGE_EDITOR",
+    "DOPESHEET_EDITOR",
+    "NODE_EDITOR"
+   ]
+  },
+  {
+   "name": "Geometry Nodes",
+   "areas": [
+    "PROPERTIES",
+    "NODE_EDITOR",
+    "VIEW_3D",
+    "SPREADSHEET",
+    "OUTLINER",
+    "DOPESHEET_EDITOR"
+   ]
+  },
+  {
+   "name": "Layout",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "DOPESHEET_EDITOR",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "Modeling",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "Rendering",
+   "areas": [
+    "PROPERTIES",
+    "DOPESHEET_EDITOR",
+    "IMAGE_EDITOR"
+   ]
+  },
+  {
+   "name": "Scripting",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "INFO",
+    "OUTLINER",
+    "TEXT_EDITOR",
+    "VIEW_3D",
+    "CONSOLE"
+   ]
+  },
+  {
+   "name": "Sculpting",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "Shading",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "IMAGE_EDITOR",
+    "NODE_EDITOR",
+    "FILE_BROWSER",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "Texture Paint",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "IMAGE_EDITOR",
+    "VIEW_3D"
+   ]
+  },
+  {
+   "name": "UV Editing",
+   "areas": [
+    "PROPERTIES",
+    "OUTLINER",
+    "IMAGE_EDITOR",
+    "VIEW_3D"
+   ]
+  }
+ ],
+ "objects": [
+  {
+   "name": "D01_control",
+   "type": "ARMATURE",
+   "hide_viewport": false,
+   "hide_get": false,
+   "select": true
+  },
+  {
+   "name": "D01_hodling",
+   "type": "MESH",
+   "hide_viewport": false,
+   "hide_get": false,
+   "select": false
+  },
+  {
+   "name": "D01_runtime",
+   "type": "ARMATURE",
+   "hide_viewport": false,
+   "hide_get": true,
+   "select": false
+  }
+ ],
+ "images": [
+  {
+   "name": "D01_hodling_basecolor.jpg",
+   "size": [
+    4096,
+    4096
+   ],
+   "packed": true
+  },
+  {
+   "name": "D01_hodling_normal.jpg",
+   "size": [
+    4096,
+    4096
+   ],
+   "packed": true
+  },
+  {
+   "name": "D01_hodling_rm.png",
+   "size": [
+    4096,
+    4096
+   ],
+   "packed": true
+  }
+ ]
+}

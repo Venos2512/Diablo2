@@ -1,0 +1,15 @@
+B03 Ember-Pot cart prop image (prop route) — 2026-10-22, T-pose lead (Opus)
+Route: one Astra image, single-image Smart Mesh in Tripo later (props/clutter_v1 + dungeon_v1 pattern). Static prop, no rig.
+Prompt: cart_attempt1.prompt.txt = artdirection §3.1 STYLE CORE + §3.7 ENVIRONMENT RULES + §3.8 CONTENT (verbatim) + asset text.
+References: (1) ../../concept.png (identity of pot and cart only), (2) cart_ref_crops.png (3/4, LEFT, BACK crops of the pot on its cart).
+Runner: E:\map01-batch\map01_batch.py, job B03_cart_a1, 51 s, session 01a15fba-3668-7423-ada3-16daeb3d0a89,
+  src E:\map01-batch\home\generated_images\01a15fba-3668-7423-ada3-16daeb3d0a89\exec-3a433aec-0791-4262-9139-51e67b883c37.png
+Accepted on attempt 1 -> ../prop_input.png (1536x1024).
+QA (image viewed): one object, front-left 3/4 from slightly above, rim, mouth, front ring, left side with two wheels and one right
+  wheel readable; nothing cropped (bbox x 215-1319, y 43-965: top margin 43 px, bottom 59 px); no ground slab, no cast shadow, no
+  chain, no figure, no text. Design vs concept: round dark red-brown pot #5A2A1E with one broad crack, flared red-brick rim with
+  mottled kiln-orange bands, dark soot interior (no glow, fire, embers or smoke), iron neck band, iron belly hoop with one thick
+  ring on a short strap lying against the pot, orange-brown clay collar at the base, low beam cart with square beam ends and four
+  plank disc wheels with iron hubs. Style: moderately stylized hand-painted, broad planes, form shading under a top light, matte.
+Deviations: background is flat #AAAAAA, not #BDBDBD (Tripo removes it; harmless). The wheel planks read a little like stone blocks
+  in their lit faces. The ring and strap are part of the pot; the chain is a separate prop or engine object.

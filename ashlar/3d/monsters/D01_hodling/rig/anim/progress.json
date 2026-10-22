@@ -1,0 +1,64 @@
+{
+ "phase": "R6-R7 complete (Sonnet); waiting for Opus review, then user G3. R8/R9 not started.",
+ "updated": "2026-10-21",
+ "milestones": [
+  {
+   "id": "g2_snapshot",
+   "done": true,
+   "evidence": "rig/_snapshots/g2_approved/D01_hodling_rig_g2.blend sha256 bf6c53dc...bc0bcb"
+  },
+  {
+   "id": "kaykit_refs",
+   "done": true,
+   "evidence": "rig/anim/refs/*.glb hashes match pinned blobs"
+  },
+  {
+   "id": "six_actions_built",
+   "done": true,
+   "evidence": "rig/D01_hodling_rig_anim.blend sha256 c5996c2b...37b9; tools/run_r6.sh"
+  },
+  {
+   "id": "r7_numeric_qa_reopened",
+   "done": true,
+   "evidence": "rig/anim/qa/r7_metrics.json; skin/mesh hash == G2"
+  },
+  {
+   "id": "viewport_probe_reopened",
+   "done": true,
+   "evidence": "rig/anim/qa/viewport_probe_reopened.json"
+  },
+  {
+   "id": "gui_play_session",
+   "done": true,
+   "evidence": "rig/anim/qa/gui/gui_play_test.json (scripted timer in a real Blender window; not a human click)"
+  },
+  {
+   "id": "strips_and_gifs",
+   "done": true,
+   "evidence": "rig/qa/R7_*_strip.jpg ; rig/anim/qa/previews/R7_*_preview.gif"
+  },
+  {
+   "id": "lab_character_test",
+   "done": true,
+   "evidence": "rig/anim/qa/lab_character_test.json (controller stepped, not real time)"
+  },
+  {
+   "id": "manifest",
+   "done": true,
+   "evidence": "rig/anim/clips.json (approved.* null)"
+  },
+  {
+   "id": "docs",
+   "done": true,
+   "evidence": "rig.log, rig_brief.md, ANIMATION_INVENTORY.md, rig/anim/R7_report.md"
+  }
+ ],
+ "not_done": [
+  "Opus review",
+  "G3 user approval",
+  "R8 bake/export/clean reimport/KHR_materials_volume decision",
+  "G4",
+  "R9",
+  "human Play in Blender GUI and lab real-time"
+ ]
+}

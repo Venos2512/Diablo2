@@ -1,0 +1,104 @@
+﻿B05 HOSPICE MOTHER - T-POSE REPORT
+Date: 2026-10-22
+STATUS: DELIVERED WITH QA FAILURES; not a fully approved Tripo reference set.
+Step 1: Existing orchestrator design.txt and brief.md read and preserved unchanged, as skill requires. Asset-specific eight-arm humanoid variant takes precedence over generic two-arm classification. No rigging or Tripo run.
+Generation: built-in image_gen only; two calls per sheet (initial + one retry). No image API, nested Codex or programmatic painting. Existing tpose_tools.py used only for measurement/cropping/rescaling and QA overlays.
+
+SOURCES / SESSION
+Session: 01a15fb8-5260-71d3-9151-d286192686fa
+Source directory: E:\map01-batch\home\generated_images\01a15fb8-5260-71d3-9151-d286192686fa\
+Sheet 1 attempt 1: exec-faef7dc0-443d-48c9-8a04-8584179cee84.png
+Sheet 1 selected attempt 2: exec-cce8179a-3f3a-4743-a5f9-ea08e0d94e13.png
+Sheet 2 attempt 1: exec-75231446-29e8-4c2b-a874-b109d016baa6.png
+Sheet 2 selected attempt 2: exec-2044519c-5a56-4928-8ebb-592c04d72630.png
+Initial attempts retained under _rejected/. Selected means best available within retry budget, not QA approval.
+Full prompts saved beside sheets, including *_retry.prompt.txt; verbatim art direction 3.1, 3.6 and 3.8 included.
+
+MEASUREMENTS
+Both sheets: 1536x1024.
+Selected FRONT bbox (41,130,759,878), height 748 px, 73.0%; BACK (780,129,1495,879), 750 px, 73.2%. Mean 749 px (73.14%). No edge WARNING.
+Selected LEFT bbox (154,81,748,929), height 848 px, 82.8%; RIGHT (788,81,1380,929), 848 px, 82.8%. No edge WARNING.
+Side height 13.22% larger than front/back mean, beyond 12% target even after retry. Whole-view normalization factor 749/848 = 0.883255, tool prints 0.883.
+Initial sides: 868/870 px (84.8/85.0%). Retry prompt estimated 866 px; measured actual mean was 869 px.
+Split: four 1024x1024 PNGs, common floor row 952 (guide foreground row 951), head around row 202. No parts cropped; order front/back/left/right verified visually.
+
+RETRIES
+FB retry: incorrect arm rows (~14/25/36/48 versus requested 22/34/46/58%), back veil too long, gold pattern, bent fingers. Retry retained eight arms and true back but did not resolve the landmark offsets; hands remain slightly drooped and some gold decoration remains. No further generation per two-attempt limit.
+Sides retry: oblique camera, bent/reaching arms and curled fingers, figure too tall, landmark inconsistencies. Second attempt slightly improves scale and reduces obliqueness but still fails strict profile/end-on arm pose. No further generation per two-attempt limit.
+
+VISUAL QA (all generated images and final _contact, _guides, both strips viewed)
+PASS: two complete figures per sheet, correct order and left/right facing directions; true back with rear veil and violet panel; eight arms in FB and four visible near arms in each side; lamp/chain/glow removed; faceless linen hood, bell gown and core colours retained; no text/symbols; painted form shading with dark sleeve recesses retained; no exposed feet, no added claws/teeth; no frame clipping.
+FAIL: side camera still oblique, near forearms not strictly end-on, elbows and fingers bent; FB hands slightly angled and arms not all perfectly horizontal; landmark heights depart from design; cloth panels/occlusions not consistent across sheets. Fine mottled painted variations and ochre patterns remain beyond requested clean broad planes.
+No asymmetry issue after lamp removal, but opposing sides are nearly mirrored because design is symmetric.
+
+NUMERIC HUMANOID CHECKS
+FB: 7 WARNs. Tool samples a lower arm at ~28-29% rather than top pair; angles +4.1/+4.5 degrees front and +4.6/+4.1 back; span/height 0.96/0.95. Multi-arm heuristic cannot identify a unique shoulder row, yet visible hand droop remains a real issue. Do not dismiss all angle warnings.
+Sides: 2 WARNs, sole span 0.70H vs 0.26H limit. These are expected false positives from the bell gown, not evidence of a stepping leg; no feet visible.
+Guides red line at 28% follows a lower arm, not anatomical top shoulders. Knee/crotch checks cannot be verified through opaque gown. Head/floor alignment passes.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages below are visual estimates from normalized strip ticks, typically +/-2-4 percentage points; hidden points cannot be measured reliably. Side views define depth/occlusion checks. Columns: feature | LEFT | RIGHT | FRONT | BACK | verdict
+Hood/head | 0-15 | 0-15 | 0-15 | 0-15 | broadly consistent
+Arm/hand rows | 16/27/39/49 | 16/27/39/49 | 15/26/37/48 | 15/26/37/48 | near alignment within ~2%, but all fail intended 22/34/46/58 and side pose fails
+Front veil tip | edge extends about 63 | edge extends about 63 | 55 | hidden | FAIL, side front drape too long / merged with gown
+Back veil tip | layered edge around 54-60, identity ambiguous | layered edge around 54-60, identity ambiguous | hidden | 66 | FAIL / not reliably identifiable across views
+Upper sleeve tier | 12-33 | 12-33 | 10-33 | 10-33 | approximate agreement but intended 16-42 not met
+Lower sleeve tier | 33-59 | 33-59 | 33-58 | 33-58 | approximate agreement but intended 42-72 not met
+Front ochre band end | 82 | 82 | 81 | hidden | approximate agreement; short of intended 85
+Rear ochre edging | ends ~67 and detached from expected panel boundary | same | hidden | 95 | FAIL, incompatible side/back occlusion and length
+Violet back panel tip | obscured/merged with side inner robe | same | hidden | 95 | FAIL vs intended 85; side sheet cannot establish matching panel geometry
+Linen outer hem | 72-100 | 72-100 | 72-100 | 72-100 | broad agreement
+Violet inner hem | 90-100 | 90-100 | 90-100 | 90-100 | PASS approximate
+Base width/depth relative to height | 0.70 | 0.70 | 0.93 approx | 0.93 approx | broadly follows bell silhouette and desired side depth
+No rivets, chain or segmented accessories retained.
+Cross-view failures remain after both retry budgets were exhausted. No additional edit pass used.
+
+OUTPUTS (relative to asset folder)
+views/front.png
+views/back.png
+views/left.png
+views/right.png
+views/_contact.png
+views/_guides.png
+views/_strip_0-60.png
+views/_strip_40-100.png
+tpose_front_back.png
+tpose_sides.png
+Recommendation: review the listed pose and cloth landmark failures before using these as final reconstruction inputs.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Session 1 (run_session.sh, Astra 01a15fb8-5260-71d3-9151-d286192686fa): 2 generations per sheet, attempt 2 of each kept.
+Arm count: the approved concept draws FOUR arms per side (two sleeve tiers of two); the main agent confirmed 4 pairs (8 arms).
+Sheet 1 (FRONT/BACK): PASS by eye. Eight arms straight and horizontal at 14/25/36/47 % (FRONT and BACK alike), evenly spaced with
+  clear background gaps, hands open, palms down (fingers only slightly relaxed); faceless linen hood, long front veil panel to 51 %,
+  back veil panel to 63 % over a violet back panel with ochre edging, two ochre stoles in front, two linen sleeve tiers per side,
+  bell gown to the floor with jagged linen points over a violet hem; lamp and chain removed; form shading kept. The arms sit higher
+  than design.txt asked (22/34/46/58 %); both sheets agree with each other, so design.txt PROPORTIONS/VIEWS were updated to the
+  measured 14/25/36/47 % after acceptance (and the veil ends to 51 % / 63 %).
+Sheet 2 (LEFT/RIGHT): FAIL. The four near arms reach FORWARD past the front outline (about 0.06 H) with curled fingers, copied from
+  the concept's side views, instead of pointing at the camera; Astra also notes a slightly oblique camera. Hand heights agree with
+  sheet 1 (16/26/38/48 % in LEFT, 16/27/37/49 % in RIGHT), the gown, hood, ochre bands and hems agree.
+Fix attempted: edit pass on the side sheet (replace the forward arms by end-on foreshortened arms on the side of the body) ->
+  NOT RUN: Codex usage limit ("try again at Oct 27th, 2026 3:40 PM"), log in _tasks/failed_limit_1/. The job is ready:
+  E:\tmp_tripo_all\B05\jobs_edit1.json (prompt _tasks/sides_edit_arms.prompt.src.txt, reference tpose_sides.png, output
+  _tasks/sides_edit_arms.png). Fallback if the edit fails: one fresh sides generation with only the FRONT/BACK of the concept as
+  identity reference (its side views cause the forward arms).
+Sheet heights: FB 748/750 px; sides 848/848 px; split rescale 0.883. Views, guides and strips were made by Astra from these sheets.
+Cross-view table (% of figure height, 0 = veil top, 100 = floor):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Hood               | 0-10        | 0-10        | 0-10         | 0-10          | PASS
+Arm / hand rows    | 16/26/38/48 reaching forward | 16/27/37/49 reaching forward | 14/25/36/47 | 14/25/36/47 | FAIL pose (heights PASS)
+Front veil panel   | front edge  | front edge  | to 51        | hidden        | PASS
+Back veil panel    | rear edge   | rear edge   | hidden       | to 63         | PASS
+Ochre bands        | 30-78 near front | same   | 18-77        | edging of violet panel to 95 | PASS
+Sleeve tiers       | near tiers behind the hands | same | 10-30 and 30-60 | same | PASS
+Linen hem / violet hem | 75-95 / 90-100 | same | 75-95 / 90-100 | 75-95 / 90-100 | PASS
+humanoid checks: multi-arm and footless figure break the two-arm heuristic (see NOTES); judged by eye.
+Verdict: ISSUES (side sheet near arms reach forward; fix blocked by the Codex usage limit).
+
+TRIPO 2026-10-22 08:23 (main agent): Codex still at its usage limit (retry 08:15 "try again at Oct 27th, 2026 3:40 PM"), so the
+  side-sheet edit was NOT made. Built from FRONT + BACK only (views/front.png, views/back.png; Tripo multi-view accepts two
+  slots, still Generate 100). The side views with the forward arms were left out on purpose. Variant 0 (5313 faces): eight arms
+  straight out at four heights, open hands, gown and veils clean; depth of the gown and sleeves guessed by Tripo. Texture 4K
+  with the same two views. GLB 16.7 MB, 8357 tris, 3 maps 4096². Verdict: PASS for the batch; a rebuild with fixed side views is
+  optional after the Codex reset (job E:\tmp_tripo_all\B05\jobs_edit1.json).
