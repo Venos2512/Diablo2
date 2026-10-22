@@ -1,0 +1,16 @@
+[00:49:49] A17_1_leaning_stones: input = textures/A17_1_leaning_stones_a.png; credits before 4050 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[00:51:23] A17_1_leaning_stones: mesh done, credits 4050 -> 3930; variants: 8c13123c-7e17-463e-a72e-92f9c0df4e57|stone arch 3d model;81c5f515-1295-4e59-b851-0c51591d2e22|rock arch 3d model;b6ada6cb-9ae6-41e9-84c6-e14f7c5ed67d|rock arch 3d model;5f9f051f-8926-47d5-b372-3a4d295e5e3a|stone arch 3d model
+[00:51:30] A17_1_leaning_stones: variants in _shots/variants.txt / variants.png
+[00:54:37] A17_1_leaning_stones: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/81c5f515-1295-4e59-b851-0c51591d2e22 faces 5679
+[01:27:33] A17_1_leaning_stones: finish failed (Tripo wait timeout, see finlane.err); requeued from uv (lead)
+[01:44:19] A17_1_leaning_stones: Chrome closed at 01:41 (launcher 2 h limit); requeued (lead)
+[01:44:48] A17_1_leaning_stones: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/81c5f515-1295-4e59-b851-0c51591d2e22 faces 
+[01:50:45] A17_1_leaning_stones: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[01:50:49] A17_1_leaning_stones: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/81c5f515-1295-4e59-b851-0c51591d2e22 faces undefined
+[01:51:26] A17_1_leaning_stones: smart uv saved
+[01:51:37] A17_1_leaning_stones: texture reference was empty: uploaded textures/A17_1_leaning_stones_a.png
+[01:56:23] A17_1_leaning_stones: texture 4K done (credits 13113 -> 12923, other tabs may spend at the same time)
+[01:59:23] act1_extras_v1_leaning_stones: pbr done (credits ? -> ?)
+[01:59:39] act1_extras_v1_leaning_stones: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A17_1_leaning_stones/act1_extras_v1_leaning_stones.glb (29236 KB)
+[01:59:39] A17_1_leaning_stones: finish credits 13133 -> 12438 (shared balance)
+GLB check: 29.9 MB, meshes 1, tris 9434, maps ['base', 'mr', 'normal'], images 3
