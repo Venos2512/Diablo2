@@ -1,0 +1,13 @@
+[01:22:56] A20_1_sleeper_young_woman: input = textures/A20_1_sleeper_young_woman_a.png; credits before 15268 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:24:23] A20_1_sleeper_young_woman: mesh done, credits 15268 -> 15168; variants: 28047a56-ea43-4183-9f83-3f55f564e7c7|3d model of woman resting;1473986a-707f-4c96-a4bd-f03f07999270|soil mound 3d model;b5f84a2d-3eee-4295-b585-202a65e368d4|earthy reclining woman 3d model;15e8ef16-2ca1-4f40-b691-faa23abeea3d|rocky bed woman 3d model
+[01:24:29] A20_1_sleeper_young_woman: variants in _shots/variants.txt / variants.png
+[01:44:58] A20_1_sleeper_young_woman: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/15e8ef16-2ca1-4f40-b691-faa23abeea3d faces 
+[01:50:45] A20_1_sleeper_young_woman: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:08:00] A20_1_sleeper_young_woman: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/15e8ef16-2ca1-4f40-b691-faa23abeea3d faces 4380
+[02:09:03] A20_1_sleeper_young_woman: smart uv saved
+[02:09:14] A20_1_sleeper_young_woman: texture reference was empty: uploaded textures/A20_1_sleeper_young_woman_a.png
+[02:13:23] A20_1_sleeper_young_woman: texture 4K done (credits 12163 -> 12028, other tabs may spend at the same time)
+[02:16:23] act1_extras_v1_sleeper_young_woman: pbr done (credits 12028 -> 11923)
+[02:16:37] act1_extras_v1_sleeper_young_woman: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A20_1_sleeper_young_woman/act1_extras_v1_sleeper_young_woman.glb (16720 KB)
+[02:16:37] A20_1_sleeper_young_woman: finish credits 12183 -> 11893 (shared balance)
+GLB check: 17.1 MB, meshes 1, tris 7305, maps ['base', 'mr', 'normal'], images 3

@@ -1,0 +1,14 @@
+[01:15:50] A19_3_window_chair: input = textures/A19_3_window_chair_a.png; credits before 16158 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:17:23] A19_3_window_chair: mesh done, credits 16158 -> 16058; variants: 54ebe016-a42b-4d5f-beac-be0080e8ad49|wooden armchair 3d model;a5fa8b1c-4cdb-4ba6-883a-880ca1bb2512|wooden chair 3d model;931202cf-976f-4ae9-9c05-ecae8239473b|wooden armchair 3d model;53f4233a-ec9c-4286-92fd-b37dbae20c09|wooden armchair 3d model
+[01:17:30] A19_3_window_chair: variants in _shots/variants.txt / variants.png
+[01:48:55] A19_3_window_chair: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/54ebe016-a42b-4d5f-beac-be0080e8ad49 faces 5042
+[01:49:28] A19_3_window_chair: smart uv saved
+[01:50:45] A19_3_window_chair: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:26:00] A19_3_window_chair: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/54ebe016-a42b-4d5f-beac-be0080e8ad49 faces 5042
+[02:26:10] A19_3_window_chair: smart uv saved
+[02:26:21] A19_3_window_chair: texture reference was empty: uploaded textures/A19_3_window_chair_a.png
+[02:29:20] A19_3_window_chair: texture 4K done (credits 11683 -> 11623, other tabs may spend at the same time)
+[02:29:57] act1_extras_v1_window_chair: pbr done (credits ? -> ?)
+[02:30:11] act1_extras_v1_window_chair: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_3_window_chair/act1_extras_v1_window_chair.glb (20860 KB)
+[02:30:11] A19_3_window_chair: finish credits 11683 -> 11568 (shared balance)
+GLB check: 21.4 MB, meshes 1, tris 9440, maps ['base', 'mr', 'normal'], images 3

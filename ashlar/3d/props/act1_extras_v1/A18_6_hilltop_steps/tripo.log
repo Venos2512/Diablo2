@@ -1,0 +1,20 @@
+[01:09:52] A18_6_hilltop_steps: input = textures/A18_6_hilltop_steps_a.png; credits before 16663 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:12:23] A18_6_hilltop_steps: mesh done, credits 16663 -> 16563; variants: d7013792-675f-478c-92c5-f5436d1e01c1|stone stairway 3d model;b85dd555-a88a-4a20-94ab-991ea7a774f4|stone staircase 3d model;c64cbadb-491a-44cb-b9f4-e96a17e7fb88|stone stairway 3d model;84b41ca0-6043-4f7e-b811-bd8f90ee9716|stone staircase 3d model
+[01:12:29] A18_6_hilltop_steps: variants in _shots/variants.txt / variants.png
+[01:44:54] A18_6_hilltop_steps: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/84b41ca0-6043-4f7e-b811-bd8f90ee9716 faces undefined
+[01:45:31] A18_6_hilltop_steps: smart uv saved
+[01:45:42] A18_6_hilltop_steps: texture reference was empty: uploaded textures/A18_6_hilltop_steps_a.png
+[01:45:57] A18_6_hilltop_steps: texture 4K done (credits 13573 -> 13573, other tabs may spend at the same time)
+[01:48:23] act1_extras_v1_hilltop_steps: pbr done (credits ? -> ?)
+[01:48:33] act1_extras_v1_hilltop_steps: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A18_6_hilltop_steps/act1_extras_v1_hilltop_steps.glb (1040 KB)
+[01:48:33] A18_6_hilltop_steps: finish credits 13853 -> 13278 (shared balance)
+GLB check: 1.1 MB, meshes 1, tris 9973, maps ['normal'], images 1
+[01:50:45] A18_6_hilltop_steps: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:01:19] A18_6_hilltop_steps: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/84b41ca0-6043-4f7e-b811-bd8f90ee9716 faces undefined
+[02:02:45] A18_6_hilltop_steps: smart uv saved
+[02:02:56] A18_6_hilltop_steps: texture reference was empty: uploaded textures/A18_6_hilltop_steps_a.png
+[02:07:23] A18_6_hilltop_steps: texture 4K done (credits 12308 -> 12268, other tabs may spend at the same time)
+[02:10:23] act1_extras_v1_hilltop_steps: pbr done (credits 12268 -> 12183)
+[02:10:35] act1_extras_v1_hilltop_steps: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A18_6_hilltop_steps/act1_extras_v1_hilltop_steps.glb (15416 KB)
+[02:10:35] A18_6_hilltop_steps: finish credits 12328 -> 12008 (shared balance)
+GLB check: 15.8 MB, meshes 1, tris 8209, maps ['base', 'mr', 'normal'], images 3

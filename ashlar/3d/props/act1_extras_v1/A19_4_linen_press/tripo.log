@@ -1,0 +1,14 @@
+[01:17:51] A19_4_linen_press: input = textures/A19_4_linen_press_a.png; credits before 15908 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:19:23] A19_4_linen_press: mesh done, credits 15908 -> 15808; variants: 273b208b-7c56-4ad8-9d26-4962f39b43c3|wooden cabinet 3d model;68230766-89fa-4ac6-8b18-01617d67c57d|wooden cabinet 3d model;28fb6455-ea5f-4664-b189-181fd69a46b0|wooden cabinet 3d model;cbacd958-b2f1-45d6-a857-74d23e4717e2|wooden cabinet 3d model
+[01:19:30] A19_4_linen_press: variants in _shots/variants.txt / variants.png
+[01:49:11] A19_4_linen_press: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/28fb6455-ea5f-4664-b189-181fd69a46b0 faces 
+[01:49:56] A19_4_linen_press: smart uv saved
+[01:50:45] A19_4_linen_press: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:26:21] A19_4_linen_press: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/28fb6455-ea5f-4664-b189-181fd69a46b0 faces 5688
+[02:26:55] A19_4_linen_press: smart uv saved
+[02:27:03] A19_4_linen_press: texture reference was empty: uploaded textures/A19_4_linen_press_a.png
+[02:30:48] A19_4_linen_press: texture 4K done (credits 11603 -> 11573, other tabs may spend at the same time)
+[02:33:23] act1_extras_v1_linen_press: pbr done (credits 11573 -> 11538)
+[02:33:37] act1_extras_v1_linen_press: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_4_linen_press/act1_extras_v1_linen_press.glb (21520 KB)
+[02:33:37] A19_4_linen_press: finish credits 11653 -> 11508 (shared balance)
+GLB check: 22.0 MB, meshes 1, tris 9940, maps ['base', 'mr', 'normal'], images 3

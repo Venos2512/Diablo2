@@ -1,0 +1,13 @@
+[01:21:49] A19_6_tall_ward_window: input = textures/A19_6_tall_ward_window_a.png; credits before 15393 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:22:30] A19_6_tall_ward_window: mesh done, credits 15393 -> 15288; variants: cdfd7641-f661-4f0e-9dc3-2d48451dadc2|stone wall with window 3d model;d25128a4-5f39-4c7a-a043-c908513254b5|stone wall window 3d model;819d9cc3-e852-4722-86a2-4d1992e1e94d|arched window 3d model;2ddacb1a-cb43-4e73-a83f-cf575cbfd3c8|stone wall window 3d model
+[01:22:37] A19_6_tall_ward_window: variants in _shots/variants.txt / variants.png
+[01:49:30] A19_6_tall_ward_window: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/d25128a4-5f39-4c7a-a043-c908513254b5 faces undefined
+[01:50:45] A19_6_tall_ward_window: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:34:00] A19_6_tall_ward_window: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/d25128a4-5f39-4c7a-a043-c908513254b5 faces 6094
+[02:34:10] A19_6_tall_ward_window: smart uv saved
+[02:34:22] A19_6_tall_ward_window: texture reference was empty: uploaded textures/A19_6_tall_ward_window_a.png
+[02:36:34] A19_6_tall_ward_window: texture 4K done (credits 11508 -> 11478, other tabs may spend at the same time)
+[02:37:46] act1_extras_v1_tall_ward_window: pbr done (credits 11478 -> 11418)
+[02:37:57] act1_extras_v1_tall_ward_window: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_6_tall_ward_window/act1_extras_v1_tall_ward_window.glb (18020 KB)
+[02:37:57] A19_6_tall_ward_window: finish credits 11508 -> 11418 (shared balance)
+GLB check: 18.4 MB, meshes 1, tris 10361, maps ['base', 'mr', 'normal'], images 3

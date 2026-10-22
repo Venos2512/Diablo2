@@ -1,0 +1,16 @@
+[01:12:48] A19_1_vase_flowers: input = textures/A19_1_vase_flowers_a.png; credits before 16508 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:13:27] A19_1_vase_flowers: mesh done, credits 16508 -> 16408; variants: 8956968c-6127-4711-9e5a-43c51c90096e|flower bouquet 3d model;767f8964-95bb-4c8d-a62c-0775f56761bc|flower bouquet vase 3d model;d45cf387-258e-4aa6-94c2-2c18fc7eca5b|vase with flowers 3d model;cece55fe-1e3e-4e54-89a0-915da73efd61|flower bouquet 3d model
+[01:13:34] A19_1_vase_flowers: variants in _shots/variants.txt / variants.png
+[01:46:30] A19_1_vase_flowers: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/d45cf387-258e-4aa6-94c2-2c18fc7eca5b faces undefined
+[01:48:24] A19_1_vase_flowers: smart uv saved
+[01:49:08] A19_1_vase_flowers: texture 4K done (credits 13278 -> 13178, other tabs may spend at the same time)
+[01:49:10] act1_extras_v1_vase_flowers: pbr done (credits ? -> ?)
+[01:50:45] A19_1_vase_flowers: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:20:37] A19_1_vase_flowers: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/d45cf387-258e-4aa6-94c2-2c18fc7eca5b faces undefined
+[02:21:49] A19_1_vase_flowers: smart uv saved
+[02:21:58] A19_1_vase_flowers: texture reference was empty: uploaded textures/A19_1_vase_flowers_a.png
+[02:23:44] A19_1_vase_flowers: texture 4K done (credits 11748 -> 11718, other tabs may spend at the same time)
+[02:24:44] act1_extras_v1_vase_flowers: pbr done (credits 11718 -> 11703)
+[02:24:56] act1_extras_v1_vase_flowers: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_1_vase_flowers/act1_extras_v1_vase_flowers.glb (16120 KB)
+[02:24:56] A19_1_vase_flowers: finish credits 11768 -> 11703 (shared balance)
+GLB check: 16.5 MB, meshes 1, tris 7862, maps ['base', 'mr', 'normal'], images 3

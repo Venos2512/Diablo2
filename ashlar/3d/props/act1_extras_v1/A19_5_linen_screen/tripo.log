@@ -1,0 +1,13 @@
+[01:19:50] A19_5_linen_screen: input = textures/A19_5_linen_screen_a.png; credits before 15683 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:21:23] A19_5_linen_screen: mesh done, credits 15683 -> 15583; variants: 02e4a96d-fa9b-4836-a30d-28d70a2b4453|folding screen 3d model;1a17bced-be9b-471d-b319-b734e86a3a1d|folding screen 3d model;710e384f-dba2-42c2-b718-53c1eb67e9d7|folding room divider 3d model;f1335e4c-f4d6-4a3a-a5e3-7bb46ee25bf3|wooden room divider 3d model
+[01:21:30] A19_5_linen_screen: variants in _shots/variants.txt / variants.png
+[01:49:14] A19_5_linen_screen: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/1a17bced-be9b-471d-b319-b734e86a3a1d faces undefined
+[01:50:45] A19_5_linen_screen: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:30:35] A19_5_linen_screen: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/1a17bced-be9b-471d-b319-b734e86a3a1d faces 5596
+[02:31:39] A19_5_linen_screen: smart uv saved
+[02:31:48] A19_5_linen_screen: texture reference was empty: uploaded textures/A19_5_linen_screen_a.png
+[02:34:37] A19_5_linen_screen: texture 4K done (credits 11543 -> 11508, other tabs may spend at the same time)
+[02:37:23] act1_extras_v1_linen_screen: pbr done (credits 11508 -> 11453)
+[02:37:36] act1_extras_v1_linen_screen: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_5_linen_screen/act1_extras_v1_linen_screen.glb (23016 KB)
+[02:37:36] A19_5_linen_screen: finish credits 11563 -> 11418 (shared balance)
+GLB check: 23.6 MB, meshes 1, tris 9914, maps ['base', 'mr', 'normal'], images 3

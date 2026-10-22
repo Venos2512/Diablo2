@@ -1,0 +1,13 @@
+[01:13:53] A19_2_poppy_tea_tray: input = textures/A19_2_poppy_tea_tray_a.png; credits before 16288 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:15:23] A19_2_poppy_tea_tray: mesh done, credits 16288 -> 16158; variants: 1d383952-d688-46e6-be4f-820ee8e84e4a|teapot and cups 3d model;c36725e8-4afb-4964-b171-cd81d66ae644|tea set 3d model;9edd050c-1ec4-4789-99f5-572ce4cdf8dd|tea set 3d model;01d10514-bf5e-46a3-bbb0-4c9ca0c92f41|tea set 3d model
+[01:15:29] A19_2_poppy_tea_tray: variants in _shots/variants.txt / variants.png
+[01:48:27] A19_2_poppy_tea_tray: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/9edd050c-1ec4-4789-99f5-572ce4cdf8dd faces undefined
+[01:50:45] A19_2_poppy_tea_tray: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:25:18] A19_2_poppy_tea_tray: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/9edd050c-1ec4-4789-99f5-572ce4cdf8dd faces undefined
+[02:25:58] A19_2_poppy_tea_tray: smart uv saved
+[02:26:09] A19_2_poppy_tea_tray: texture reference was empty: uploaded textures/A19_2_poppy_tea_tray_a.png
+[02:30:23] A19_2_poppy_tea_tray: texture 4K done (credits 11683 -> 11653, other tabs may spend at the same time)
+[02:33:23] act1_extras_v1_poppy_tea_tray: pbr done (credits 11653 -> 11563)
+[02:33:37] act1_extras_v1_poppy_tea_tray: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A19_2_poppy_tea_tray/act1_extras_v1_poppy_tea_tray.glb (16928 KB)
+[02:33:37] A19_2_poppy_tea_tray: finish credits 11703 -> 11508 (shared balance)
+GLB check: 17.3 MB, meshes 1, tris 10430, maps ['base', 'mr', 'normal'], images 3

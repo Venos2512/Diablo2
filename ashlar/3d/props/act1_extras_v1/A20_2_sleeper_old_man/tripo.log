@@ -1,0 +1,16 @@
+[01:24:51] A20_2_sleeper_old_man: input = textures/A20_2_sleeper_old_man_a.png; credits before 15158 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[01:26:24] A20_2_sleeper_old_man: mesh done, credits 15158 -> 15058; variants: cb67701a-3653-4feb-9e77-5a3ded53f70e|grave scene 3d model;888a90d6-6cb6-4d9d-a9c1-0d48ce0c91b0|buried man 3d model;b0d5fd5e-3894-4201-95a4-3f3a96c60e5b|elderly man 3d model;7163fb7b-bfa7-45f3-9605-890c26135a23|old man sculpture 3d model
+[01:26:30] A20_2_sleeper_old_man: variants in _shots/variants.txt / variants.png
+[01:45:00] A20_2_sleeper_old_man: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/888a90d6-6cb6-4d9d-a9c1-0d48ce0c91b0 faces undefined
+[01:45:43] A20_2_sleeper_old_man: smart uv saved
+[01:46:25] A20_2_sleeper_old_man: texture 4K done (credits 13553 -> 13523, other tabs may spend at the same time)
+[01:46:26] act1_extras_v1_sleeper_old_man: pbr done (credits ? -> ?)
+[01:50:45] A20_2_sleeper_old_man: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:09:59] A20_2_sleeper_old_man: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/888a90d6-6cb6-4d9d-a9c1-0d48ce0c91b0 faces 5060
+[02:10:22] A20_2_sleeper_old_man: smart uv saved
+[02:10:33] A20_2_sleeper_old_man: texture reference was empty: uploaded textures/A20_2_sleeper_old_man_a.png
+[02:14:23] A20_2_sleeper_old_man: texture 4K done (credits 12008 -> 11978, other tabs may spend at the same time)
+[02:17:23] act1_extras_v1_sleeper_old_man: pbr done (credits 11978 -> 11918)
+[02:17:36] act1_extras_v1_sleeper_old_man: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A20_2_sleeper_old_man/act1_extras_v1_sleeper_old_man.glb (18968 KB)
+[02:17:36] A20_2_sleeper_old_man: finish credits 12028 -> 11873 (shared balance)
+GLB check: 19.4 MB, meshes 1, tris 8357, maps ['base', 'mr', 'normal'], images 3
