@@ -13,12 +13,17 @@ import { SPAWNABLE, PACKS } from '../gameplay/host.js';
 import { CLASSES } from '../gameplay/player.js';
 import { MDEF } from '../gameplay/monsters.js';
 import { SKILLS, SKILL_ORDER } from '../skills/skills.js';
+import { KEY_SCHEMES } from '../skills/castControl.js';
+import { NATIVE_SKILLS } from '../gameplay/nativeSkills.js';
+import { SURFACES } from '../env/surfaces.js';
+
+const SURFACE_LABEL = Object.fromEntries(Object.entries(SURFACES).map(([id, def]) => [id, def.label]));
 
 export function buildCharacterPanel(app, el) {
 	const ctrl = app.character;
 	const s = ctrl.settings;
 	const save = () => ctrl.save();
-	intro(el, 'Character preview', '<p>Play the model like a game character in any scene: <b>WASD</b> or <b>click</b> to move (hold to keep walking), <b>Space</b> attack, <b>E</b> attack 2, <b>Q</b> / right click cast, <b>B</b> block, <b>G</b> get hit, <b>K</b> death / revive, <b>R</b> walk ↔ run, <b>Shift</b> walk. Gamepad: left stick, A / Y attacks, X cast, B block.</p>');
+	intro(el, 'Character preview', '<p>Play the model like a game character in any scene: <b>WASD</b> or <b>click</b> to move (hold to keep walking), <b>Space</b> attack, <b>E</b> attack 2, <b>Q</b> / right click (hold to repeat) cast the selected spell or skill, <b>1</b>–<b>9</b> pick + cast, <b>B</b> block, <b>G</b> get hit, <b>K</b> death / revive, <b>R</b> walk ↔ run, <b>Shift</b> walk. Gamepad: left stick, A / Y attacks, X cast, B block.</p>');
 	const gui = createGUI(el);
 
 	// Character ---------------------------------------------------------------------------------------
@@ -50,7 +55,7 @@ export function buildCharacterPanel(app, el) {
 		gsave();
 		if (!v && game.active) game.stop();
 	});
-	fGame.add(gs, 'cls', { 'Auto (procedural hero → its class, else Barbarian)': 'auto', ...Object.fromEntries(Object.entries(CLASSES).map(([id, c]) => [c.name, id])) }).name('Class (stats)').onChange(() => {
+	fGame.add(gs, 'cls', { 'Auto (Sorceress)': 'auto', ...Object.fromEntries(Object.entries(CLASSES).map(([id, c]) => [c.name, id])) }).name('Class (stats)').onChange(() => {
 		gsave();
 		if (game.active) game.restart();
 	});
@@ -62,7 +67,9 @@ export function buildCharacterPanel(app, el) {
 		gsave();
 		if (game.active) game.restart();
 	});
-	fGame.add(gs, 'right', Object.fromEntries(SKILL_ORDER.map((id, i) => [`${i < 8 ? `F${i + 1} · ` : ''}${SKILLS[id].label}`, id]))).name('Right-click skill').listen().onChange((v) => game.setRightSkill(v));
+	fGame.add(gs, 'right', Object.fromEntries(SKILL_ORDER.map((id, i) => [`${i < 8 ? `${i + 1} · ` : ''}${SKILLS[id].label}${app.backend.language === 'GLSL' || NATIVE_SKILLS.includes(id) ? '' : ' (needs WebGL2 · GLSL)'}`, id]))).name('Right-click skill').listen().onChange((v) => game.setRightSkill(v));
+	fGame.add(gs, 'keys', Object.fromEntries(Object.entries(KEY_SCHEMES).map(([id, k]) => [k.label, id]))).name('Hotkeys').onChange((v) => game.setKeys(v));
+	fGame.add(gs, 'quickcast').name('Quick-cast (skill hotkey also casts)').onChange(gsave);
 	fGame.add(gs, 'monster', Object.fromEntries(SPAWNABLE.map((id) => [`${MDEF[id].name} (${id})`, id]))).name('Monster').onChange(gsave);
 	fGame.add(gs, 'pack', Object.fromEntries(Object.entries(PACKS).map(([id, label]) => [label, id]))).name('Pack').onChange(gsave);
 	fGame.add(gs, 'count', 1, 12, 1).name('Pack size').onChange(gsave);
@@ -73,7 +80,7 @@ export function buildCharacterPanel(app, el) {
 	fGame.add(gs, 'waveSize', 2, 30, 1).name('Wave: monsters alive').onChange(gsave);
 	fGame.add({ revive: () => game.revive() }, 'revive').name('Revive (Enter)');
 	const gameLive = readout(fGame);
-	note(fGame, 'Ashen Crown v1 rules: left click moves on an A* path (hold to steer) or attacks the monster under the cursor, Shift + click attacks in place, right click casts the selected skill (F1–F8). Monsters use v1 stats, packs (champions, uniques with modifiers) and AI (aggro, packs, flee, ranged kiting, shaman revives). Characters are scaled to the hero height; monsters keep their v1 sizes relative to it.');
+	note(fGame, 'Ashen Crown v1 rules: left click moves on an A* path (hold to steer) or attacks the monster under the cursor, Shift + click attacks in place, right click casts the selected skill at the monster or ground under the cursor (hold to repeat; a click while busy is buffered; no mana or a cooldown shows over the hero). Hotkeys pick the skill: classic <kbd>F1</kbd>–<kbd>F8</kbd> with potions on <kbd>1</kbd>–<kbd>4</kbd>, or modern <kbd>1</kbd>–<kbd>4</kbd> with potions on <kbd>Q</kbd> <kbd>E</kbd> <kbd>Z</kbd> <kbd>X</kbd>; with quick-cast on, the hotkey also casts. On WebGL2 · GLSL skills use the full three.quarks VFX; on WebGPU the Sorceress skills (Fireball, Frozen Orb, Chain Lightning, Meteor, Blizzard, Fire Wall, Teleport) still cast with simpler mesh effects and the rest say they need WebGL2. Monsters use v1 stats, packs (champions, uniques with modifiers) and AI (aggro, packs, flee, ranged kiting, shaman revives). Characters are scaled to the hero height; monsters keep their v1 sizes relative to it.');
 
 	// Movement ------------------------------------------------------------------------------------------
 	const fMove = gui.addFolder('Movement');
@@ -91,8 +98,20 @@ export function buildCharacterPanel(app, el) {
 	fMove.add(s, 'targets').name('Training dummies as targets').onChange((v) => {
 		save();
 		if (v && ctrl.active && !app.vfxLab.armed) app.vfxLab.arm(true);
+		if (ctrl.active && app.vfxLab.armed) app.vfxLab.spawnDummies();
 	});
-	note(fMove, 'Attacks stop the character (like Diablo). A swing hits the dummy in front at the clip’s impact frame — the same blood / sparks as the VFX tab’s “Hit” spell; spells come from the VFX castbar.');
+	note(fMove, 'Attacks stop the character (like Diablo). A swing hits the dummy in front at the clip’s impact frame — the same blood / sparks as the VFX tab’s “Hit” spell; the cast keys (right click, Q, 1–9) fire the VFX lab’s selected spell or skill whether or not the VFX tab is open — the lab arms itself on the first cast.');
+
+	// Environment interaction ---------------------------------------------------------------------------
+	const st = s.steps;
+	const fEnv = gui.addFolder('Environment interaction');
+	fEnv.add(st, 'enabled').name('Footprints, water & foliage (Play)').onChange(save);
+	fEnv.add(st, 'prints').name('Footprints on soft ground').onChange(save);
+	fEnv.add(st, 'water').name('Water ripples & splash').onChange(save);
+	fEnv.add(st, 'grass').name('Grass & foliage bend').onChange(save);
+	fEnv.add(st, 'strength', 0.2, 1.5, 0.05).name('Strength').onChange(save);
+	const envOut = readout(fEnv);
+	note(fEnv, 'Per step of the playing hero (either Play core): soil, mud, sand, snow and dust keep a fading print, stone only while wet; open water gets rings and a splash instead (never a print on the bed); grass cards, reeds and shrubs lean away from the feet. Reads the scene’s own ground data — scenes without it (Studio) show nothing. Not the foot-slide check below.');
 
 	// Animation states -----------------------------------------------------------------------------------
 	const fAnim = gui.addFolder('Animation states');
@@ -100,7 +119,7 @@ export function buildCharacterPanel(app, el) {
 		clearFolder(fAnim);
 		const clips = app.subject.clips;
 		if (!clips.length) {
-			note(fAnim, 'This model has no clips. Load a KayKit character, Robot Expressive, or your own animated GLB.');
+			note(fAnim, 'This model has no clips. Load the D2R Sorceress or your own animated GLB.');
 			return;
 		}
 		const stanceOptions = { [`Auto from equipment (${STANCES[ctrl.autoStance] || '—'})`]: 'auto', ...Object.fromEntries(Object.entries(STANCES).map(([id, label]) => [label, id])) };
@@ -123,7 +142,7 @@ export function buildCharacterPanel(app, el) {
 		for (const state of ['attack', 'attack2', 'cast', 'hit', 'jump', 'dodge']) fTest.add({ go: () => (ctrl.active ? ctrl.trigger(state) : toast('Start Play first', 'info', 1200)) }, 'go').name(STATES[state].label);
 		fTest.add({ go: () => (ctrl.active ? ctrl.toggleDeath() : toast('Start Play first', 'info', 1200)) }, 'go').name('Death / revive');
 		fAnim.add({ add: () => pickModelFile((gltf, name) => ctrl.addClips(gltf.animations, name)) }, 'add').name('Add clips from a file… (same rig)');
-		note(fAnim, `${clips.length} clips. States are matched by name per stance (KayKit, Mixamo, Quaternius and plain names); pick a clip to override it — saved for this model. Walk / run play in sync and blend by speed; one-shots crossfade over the locomotion.`);
+		note(fAnim, `${clips.length} clips. States are matched by name per stance (D2R stance_action names, Mixamo, Quaternius, KayKit and plain names); pick a clip to override it — saved for this model. Walk / run play in sync and blend by speed; one-shots crossfade over the locomotion.`);
 	}
 
 	// Equipment ------------------------------------------------------------------------------------------
@@ -162,7 +181,7 @@ export function buildCharacterPanel(app, el) {
 			const json = eq.exportGrips(app.subject.name);
 			navigator.clipboard?.writeText(json).then(() => toast('Grips copied as JSON', 'ok', 1500), () => download(json));
 		} }, 'copy').name('Copy grips JSON');
-		note(fEquip, `Hand bones: <b>${boneName(eq.bone('right'))}</b> / <b>${boneName(eq.bone('left'))}</b>. Props from the KayKit pack sit like the pack’s own weapons on KayKit rigs; on other rigs adjust the grip with the gizmo (saved per model and item).`);
+		note(fEquip, `Hand bones: <b>${boneName(eq.bone('right'))}</b> / <b>${boneName(eq.bone('left'))}</b>. Props from the KayKit weapon library sit on the hand bone; on any rig adjust the grip with the gizmo (saved per model and item).`);
 	}
 	function equip(side, id) {
 		ctrl.equipment.equip(side, id).then(() => {
@@ -187,7 +206,7 @@ export function buildCharacterPanel(app, el) {
 	// Foot sliding ------------------------------------------------------------------------------------------
 	const fFoot = gui.addFolder('Foot sliding');
 	fFoot.add(s, 'syncRate').name('Animation follows speed (no sliding)').onChange(save);
-	fFoot.add(s, 'footprints').name('Footprints (green holds · red skates)').onChange(save);
+	fFoot.add(s, 'footSlideMarks').name('Foot-slide marks (debug · green holds · red skates)').onChange(save);
 	const footOut = readout(fFoot);
 	fFoot.add({ match: () => {
 		const n = ctrl.animator.natural;
@@ -262,6 +281,8 @@ export function buildCharacterPanel(app, el) {
 		const fmt = (r) => (r ? `${r.speed.toFixed(2)} m/s (stride ${r.stride.toFixed(2)} m)` : 'not measured');
 		const foot = (side) => (f[side] ? `${(f[side].slip * 100).toFixed(1)} cm/s${f[side].planted ? ' ●' : ''}` : '—');
 		footOut(`walk clip ${fmt(n.walk)}\nrun clip  ${fmt(n.run)}\nslip L ${foot('left')} · R ${foot('right')}\naverage ${(f.slip * 100).toFixed(1)} cm/s while planted`);
+		const fx = app.footsteps?.info();
+		envOut(fx?.mode ? `${SURFACE_LABEL[fx.surface] ?? fx.surface}${fx.water ? ' · in water' : ''} · last step by ${fx.source}\nprints ${fx.prints} · ripples ${fx.rings} · droplets ${fx.flecks}${fx.bending ? ' · foliage bending' : ''}` : 'Not playing');
 	}, 250);
 
 	// The controller finishes its model setup (clip map, equipment) asynchronously.

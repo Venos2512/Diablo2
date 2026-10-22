@@ -11,12 +11,13 @@ import {
 	positionView, positionViewDirection, normalView, normalWorldGeometry, modelWorldMatrix, modelWorldMatrixInverse, cameraPosition,
 	cameraViewMatrix, cameraProjectionMatrix, cameraNear, cameraFar, perspectiveDepthToViewZ, orthographicDepthToViewZ,
 	materialColor, materialEmissive, materialRoughness, materialMetalness, materialNormal, materialAO, texture, cross, dFdx, dFdy, output, diffuseColor,
-	sqrt, normalWorld, roughness as roughnessProperty,
+	sqrt, normalWorld, roughness as roughnessProperty, specularColor, specularF90, F_Schlick,
 } from 'three/tsl';
 import { EFFECTS, defaultParams } from '../../effects/registry.js';
 import { labNoise3, labFbm3, labHash12, labHash13, labHash22 } from './tsl/noise.js';
 import { labLuma } from './tsl/common.js';
 import { createBakedShadowGPU } from './bakedShadow.js';
+import { TRAMPLE } from '../../core/trample.js';
 
 const DEG = Math.PI / 180;
 
@@ -75,7 +76,7 @@ function restoreSource(twin) {
 
 // -------------------------------------------------------------------------------------------------
 // Node patches: { id, order, position?(n), color?(n), roughness?(n), metalness?(n), emissive?(n),
-// normal?(n), ao?(n), output?(o), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
+// specularScale?() -> float node (scales the lit specular, direct + IBL) and directF90?: true (direct Fresnel honours the material's F90): see rebuildSlots, normal?(n), ao?(n), output?(o), mask?() -> bool node, shadow?: true }. Each slot function receives the node built so far.
 // `ao` scales the indirect light (the material's aoNode, like an aoMap). `output` is the final lit colour (vec4, the
 // material's outputNode; the default reads the lit result).
 
@@ -85,6 +86,7 @@ const SLOTS = [
 	['roughness', 'roughnessNode', materialRoughness],
 	['metalness', 'metalnessNode', materialMetalness],
 	['emissive', 'emissiveNode', materialEmissive],
+	// (no 'specular' slot: three r180's MeshPhysicalNodeMaterial.setupSpecular reads only the `specularIntensity` uniform, `specularIntensityNode` is never read; see specularScale)
 	['normal', 'normalNode', materialNormal],
 	['ao', 'aoNode', (material) => (material.aoMap ? materialAO : float(1))],
 	['output', 'outputNode', output],
@@ -94,6 +96,13 @@ const nodePatches = new WeakMap(); // node material -> [patch]
 const authored = new WeakMap(); // node material -> its own slot nodes before any patch
 const shadowMasks = new WeakMap(); // node material -> mask node used by the shadow pass
 
+let warnedSpecularScale = false;
+function warnSpecularScaleOnce() {
+	if (warnedSpecularScale) return;
+	warnedSpecularScale = true;
+	console.warn(`specularScale (backends/webgpu/effects.js) is written for three r180 (this is r${THREE.REVISION}): check whether PhysicalLightingModel.direct still hard-codes f90 = 1 and whether specularIntensityNode is read; the half-wet puddle edge may be too bright on WebGPU.`);
+}
+
 function rebuildSlots(material) {
 	const list = nodePatches.get(material) || [];
 	const base = authored.get(material);
@@ -102,6 +111,42 @@ function rebuildSlots(material) {
 		const start = base[prop] || (typeof fallback === 'function' ? fallback(material) : fallback);
 		material[prop] = users.length ? users.reduce((node, p) => p[slot](node), start) : base[prop];
 	}
+	// `specularScale`: scales the lit specular (direct lights + IBL) by a float node, e.g. to damp the sun's grazing Fresnel and the sky reflection on a half-wet puddle edge.
+	// `directF90`: makes the direct-light Fresnel honour the material's F90 (the pond's water caps `specularIntensity`, so its F90 is 0.1, not 1): the direct specular delta is
+	// scaled per light by F_Schlick(f0, f90, dotVH) / F_Schlick(f0, 1, dotVH), which is exact (BRDF_GGX = D * V * F).
+	// Why a wrapper: in three r180 PhysicalLightingModel.direct hard-codes f90 = 1, and MeshPhysicalNodeMaterial never reads `specularIntensityNode` (only the `specularIntensity`
+	// uniform), so no material input can damp either term. Only direct() and indirectSpecular() are wrapped; directRectArea() is not (no rect-area lights in the lab).
+	// r186 upgrade: check whether direct() still hard-codes f90 = 1 and whether specularIntensityNode is read; if both are fixed, drop the wrappers and scale F0 / F90 instead
+	// (`directF90` becomes unnecessary as soon as direct() passes f90 = specularF90).
+	const scalers = list.filter((p) => p.specularScale);
+	const f90s = list.filter((p) => p.directF90);
+	if ((scalers.length || f90s.length) && THREE.REVISION !== '180') warnSpecularScaleOnce();
+	if (scalers.length || f90s.length) {
+		const proto = Object.getPrototypeOf(material);
+		material.setupLightingModel = function (builder) {
+			const model = proto.setupLightingModel.call(this, builder);
+			if (typeof model?.direct !== 'function' || typeof model.indirectSpecular !== 'function') return model;
+			const k = () => scalers.reduce((acc, p) => acc.mul(p.specularScale()), float(1));
+			const f90Ratio = (input) => {
+				if (!f90s.length || !input?.lightDirection) return float(1);
+				const dotVH = positionViewDirection.dot(input.lightDirection.add(positionViewDirection).normalize()).clamp();
+				const actual = F_Schlick({ f0: specularColor, f90: float(1), dotVH });
+				return F_Schlick({ f0: specularColor, f90: specularF90, dotVH }).div(max(actual, 1e-5));
+			};
+			const scaled = (light, key, factor, call) => {
+				if (!light?.[key]) return call();
+				const before = light[key].toVar();
+				const result = call();
+				light[key].assign(before.add(light[key].sub(before).mul(factor())));
+				return result;
+			};
+			const direct = model.direct.bind(model);
+			const indirectSpecular = model.indirectSpecular.bind(model);
+			model.direct = (input, b) => scaled(input?.reflectedLight, 'directSpecular', () => k().mul(f90Ratio(input)), () => direct(input, b));
+			if (scalers.length) model.indirectSpecular = (b) => scaled(b?.context?.reflectedLight, 'indirectSpecular', k, () => indirectSpecular(b));
+			return model;
+		};
+	} else delete material.setupLightingModel;
 	const masks = list.filter((p) => p.mask);
 	const combine = (items) => items.map((p) => p.mask()).reduce((a, b) => a.and(b));
 	material.maskNode = masks.length ? (base.maskNode ? base.maskNode.and(combine(masks)) : combine(masks)) : base.maskNode;
@@ -200,6 +245,9 @@ export function createTSLEffects(backend) {
 		};
 	}
 
+	// Foot bend of the wind effect (mirrors labTrampleOffset in shaders/effects/wind.glsl): the shared slots of core/trample.js, written by character/footsteps.js.
+	const trampleSlots = TRAMPLE.points.map((p) => uniform(p));
+	const trampleParams = uniform(TRAMPLE.params);
 	const builders = {
 		// #region wind
 		wind(u) {
@@ -212,6 +260,21 @@ export function createTSLEffects(backend) {
 				const amount = u.strength.mul(mix(1.0, gust.mul(2.0), u.gust)).mul(mask).mul(mask);
 				return vec3(dir.x.mul(sway), abs(sway).negate().mul(0.2), dir.y.mul(sway)).mul(amount);
 			});
+			const trampleOffset = Fn(([worldPos, bend]) => {
+				const out = vec3(0.0, 0.0, 0.0).toVar('labTrampleOut');
+				If(trampleParams.w.greaterThan(0.0), () => {
+					for (const p of trampleSlots) {
+						const d = worldPos.xz.sub(p.xy);
+						const dist = length(d);
+						const h = worldPos.y.sub(p.z);
+						const f = smoothstep(0.0, trampleParams.x, dist).oneMinus().mul(p.w).mul(smoothstep(0.9, 1.5, h).oneMinus()).mul(smoothstep(-0.3, -0.05, h));
+						const hh = clamp(h, 0.0, 0.9);
+						const away = d.div(max(dist, 0.0001));
+						out.addAssign(vec3(away.x.mul(f).mul(hh).mul(trampleParams.y), f.mul(hh).mul(trampleParams.z).negate(), away.y.mul(f).mul(hh).mul(trampleParams.y)));
+					}
+				});
+				return vec3(clamp(out.x, -0.7, 0.7), clamp(out.y, -0.5, 0.0), clamp(out.z, -0.7, 0.7)).mul(bend);
+			});
 			return surface({
 				id: 'lab-wind',
 				order: 10,
@@ -219,7 +282,7 @@ export function createTSLEffects(backend) {
 				position: (local) => {
 					const world = modelWorldMatrix.mul(vec4(local, 1.0)).xyz;
 					const mask = clamp(positionGeometry.y.mul(modelScaleX).div(u.height), 0.0, 1.0);
-					return local.add(modelWorldMatrixInverse.mul(vec4(windOffset(world, mask), 0.0)).xyz);
+					return local.add(modelWorldMatrixInverse.mul(vec4(windOffset(world, mask).add(trampleOffset(world, u.bend)), 0.0)).xyz);
 				},
 			}, (m) => !!m && !m.isShaderMaterial);
 		},
@@ -495,6 +558,19 @@ export function createTSLEffects(backend) {
 				...surface({ id: 'lab-cutaway', order: 5, mask: () => cut.not() }, (m) => !!m && (m.isMeshStandardMaterial === true || m.isMeshStandardNodeMaterial === true) && !m.transparent),
 			};
 		},
+		/** Mirrors createWallFade() in ../webgl/effects.js: the wall between the camera and the focus point dithers out round the line of sight. */
+		createWallFade() {
+			const u = { focus: uniform(new THREE.Vector3()), params: uniform(new THREE.Vector4(5, 0, 0.35, 0)) };
+			const a = u.focus.sub(cameraPosition);
+			const t = positionWorld.sub(cameraPosition).dot(a).div(max(a.dot(a), 1e-4));
+			const d = length(positionWorld.sub(cameraPosition.add(a.mul(clamp(t, 0.0, 1.0)))));
+			const amount = smoothstep(u.params.x.mul(0.55), u.params.x, d).oneMinus().mul(smoothstep(0.8, 0.97, t).oneMinus()).mul(smoothstep(u.params.z, u.params.z.add(0.8), positionWorld.y)).mul(u.params.y);
+			const noise = fract(fract(dot(screenCoordinate.xy, vec2(0.06711056, 0.00583715))).mul(52.9829189));
+			return {
+				uniforms: u,
+				...surface({ id: 'lab-wallfade', order: 6, mask: () => noise.greaterThanEqual(amount.mul(0.92)) }, (m) => !!m && (m.isMeshStandardMaterial === true || m.isMeshStandardNodeMaterial === true) && !m.transparent),
+			};
+		},
 		/** Mirrors createHeroRim() in ../webgl/effects.js and shaders/effects/hero_rim.glsl. */
 		createHeroRim() {
 			const u = { color: uniform(new THREE.Color(0x8fb2ff)), intensity: uniform(0), power: uniform(3), bias: uniform(0.6) };
@@ -622,6 +698,220 @@ export function createTSLEffects(backend) {
 					ao: (a) => a.mul(mix(float(1.0), splatW.a, u.bakedAo)), // baked sky visibility (splat A) on the indirect light
 				}),
 			};
+		},
+		/** Mirrors createTerrainLayers() in ../webgl/effects.js and shaders/effects/terrain_layers.glsl (every layer is read: TSL has no cheap per-pixel skip). */
+		createTerrainLayers({ library, count, splats, rect }) {
+			const params = Array.from({ length: count }, () => new THREE.Vector4(0.2, 1, 1, 0));
+			const params2 = Array.from({ length: count }, () => new THREE.Vector4(0.1, 0.1, 0.1, 0.7));
+			const u = {
+				params,
+				params2,
+				contrast: uniform(0.65),
+				macroCool: uniform(new THREE.Color(1, 1, 1)),
+				macroWarm: uniform(new THREE.Color(1, 1, 1)),
+				sky: uniform(new THREE.Color(0.1, 0.12, 0.14)),
+				puddleRefl: uniform(1.0),
+				waterY: uniform(-1e4),
+				puddleCompress: uniform(2.2),
+				rain: uniform(0),
+				softness: uniform(0.3),
+				heightBlend: uniform(0.35),
+				edgeNoise: uniform(0.2),
+				variation: uniform(1),
+				variationScale: uniform(0.18),
+				macro: uniform(0.12),
+				water: uniform(0.32),
+				waterRough: uniform(0.05),
+				wetDarken: uniform(0.45),
+				roughMin: uniform(0.8),
+				wetRough: uniform(0.88),
+				puddleTint: uniform(new THREE.Color(0.86, 0.90, 0.90)),
+				// radial lantern: see the GLSL twin (strength 0 = off)
+				lantern: uniform(new THREE.Vector4(0, 0, 0, 8)),
+				lanternP: uniform(new THREE.Vector4(2.5, 0, 0, 0)),
+				lanternColor: uniform(new THREE.Color(1.0, 0.74, 0.42)),
+				debug: uniform(0),
+				rect: uniform(rect),
+			};
+			const P = params.map((v) => uniform(v)); // nodes on the same Vector4 objects: the scene edits them in place
+			const P2 = params2.map((v) => uniform(v));
+			const mask = (weight, delta) => {
+				const x = weight.mul(u.heightBlend.mul(2.0).add(1.0)).sub(u.heightBlend).add(delta.mul(u.heightBlend));
+				return smoothstep(float(0.5).sub(u.softness), u.softness.add(0.5), x);
+			};
+			const breakup = (weight, n) => clamp(weight.add(n.mul(u.edgeNoise).mul(4.0).mul(weight).mul(weight.oneMinus())), 0.0, 1.0);
+			const st = vec2(positionWorld.x, positionWorld.z.negate());
+			const k = labNoise3(vec3(st.mul(u.variationScale), 1.7)).mul(0.5).add(0.5).toVar('labTLK');
+			const macro = labNoise3(vec3(st.mul(0.035), 4.2));
+			const edge = labNoise3(vec3(st.mul(0.55), 9.1)).toVar('labTLEdge');
+			const l = k.mul(8.0);
+			const ia = floor(l);
+			const f = l.sub(ia);
+			const turn = (v, q) => {
+				const c = cos(q.mul(Math.PI / 2));
+				const s = sin(q.mul(Math.PI / 2));
+				return vec2(c.mul(v.x).sub(s.mul(v.y)), s.mul(v.x).add(c.mul(v.y)));
+			};
+			/** labTLSample(): albedo (rgb), normal (xyz 0..1, height in w, strength applied) and roughness of layer i, two cross-faded reads. */
+			const layer = (i) => {
+				const p = P[i];
+				const uv = st.mul(p.x);
+				const dx = dFdx(uv);
+				const dy = dFdy(uv);
+				const vr = u.variation.mul(step(-0.5, p.z));
+				const rt = step(0.5, p.z).mul(step(0.001, u.variation));
+				const half = step(1.5, p.z);
+				const offA = sin(vec2(3.0, 7.0).mul(ia)).mul(vr);
+				const offB = sin(vec2(3.0, 7.0).mul(ia.add(1.0))).mul(vr);
+				const qA = mix(ia.mul(3.0).mod(4.0), ia.mul(3.0).mod(2.0).mul(2.0), half).mul(rt);
+				const qB = mix(ia.add(1.0).mul(3.0).mod(4.0), ia.add(1.0).mul(3.0).mod(2.0).mul(2.0), half).mul(rt);
+				const read = (tex, off, q) => texture(tex, turn(uv, q).add(off)).depth(p.w).grad(turn(dx, q), turn(dy, q));
+				const readNormal = (off, q) => {
+					const n = read(library.normalMap, off, q);
+					return vec4(turn(n.xy.mul(2.0).sub(1.0), q.negate()).mul(0.5).add(0.5), n.z, n.w);
+				};
+				const aA = read(library.map, offA, qA);
+				const aB = read(library.map, offB, qB);
+				const w = smoothstep(0.2, 0.8, f.sub(dot(aA.rgb.sub(aB.rgb), vec3(1.0)).mul(0.1))).toVar(`labTLW${i}`);
+				const n = mix(readNormal(offA, qA), readNormal(offB, qB), w);
+				return {
+					a: mix(aA, aB, w),
+					n: vec4(n.xy.sub(0.5).mul(p.y).add(0.5), n.z, n.w),
+					r: mix(read(library.ormMap, offA, qA).g, read(library.ormMap, offB, qB).g, w),
+				};
+			};
+			const suv = positionWorld.xz.sub(u.rect.xy).mul(u.rect.zw);
+			const s0 = texture(splats[0], suv);
+			const s1 = texture(splats[1], suv);
+			const W = [float(1.0), s0.r, s0.g, s0.b, s0.a, s1.r, s1.g, s1.b];
+			const wet = s1.a;
+			const L0 = layer(0);
+			let albedo = L0.a.rgb;
+			let nrm = L0.n.xyz;
+			let h = L0.n.a;
+			let rough = L0.r;
+			let mu = P2[0].xyz; // running mean of what the albedo blends (variance-preserving cross-fades)
+			let por = P2[0].w;
+			// coarse height for the puddles (see terrain_layers.glsl): the layers' normal-map height at 8x the pixel's gradient (never finer than ~0.1 m of the world), read only where
+			// there is wetness (explicit gradients are legal inside the If; the derivatives themselves are taken out here, in uniform control flow)
+			const dxs = dFdx(st).toVar('labTLdx');
+			const dys = dFdy(st).toVar('labTLdy');
+			const gs = max(float(8.0), float(0.1).div(max(max(length(dxs), length(dys)), 1e-5))).toVar('labTLgs');
+			const wetHere = wet.greaterThan(0.3);
+			const coarse = (i) => texture(library.normalMap, st.mul(P[i].x)).depth(P[i].w).grad(dxs.mul(P[i].x).mul(gs), dys.mul(P[i].x).mul(gs)).a;
+			const ms = [];
+			for (let i = 1; i < count; i++) {
+				const L = layer(i);
+				const m = mask(breakup(W[i], i % 2 === 0 ? edge : edge.negate()), L.n.a.sub(h)).mul(smoothstep(0.0, 0.03, W[i])).toVar(`labTLm${i}`);
+				ms.push(m);
+				const mu2 = mix(mu, P2[i].xyz, m);
+				const gain = float(1.0).div(sqrt(m.oneMinus().mul(m.oneMinus()).add(m.mul(m))));
+				albedo = max(mu2.add(mix(albedo, L.a.rgb, m).sub(mu2).mul(mix(float(1.0), gain, u.contrast))), 0.0).toVar(`labTLa${i}`);
+				mu = mu2.toVar(`labTLmu${i}`);
+				por = mix(por, P2[i].w, m).toVar(`labTLpor${i}`);
+				nrm = mix(nrm, L.n.xyz, m).toVar(`labTLn${i}`);
+				h = mix(h, L.n.a, m).toVar(`labTLh${i}`);
+				rough = mix(rough, L.r, m).toVar(`labTLr${i}`);
+			}
+			// (If() needs a function scope: the reads live in an Fn)
+			const hb = Fn(() => {
+				const v = float(0.5).toVar();
+				If(wetHere, () => {
+					v.assign(coarse(0));
+					for (let i = 1; i < count; i++) v.assign(mix(v, coarse(i), ms[i - 1]));
+				});
+				return v;
+			})();
+			// Final weight per layer (debug view): m_i times what covers it above.
+			const palette = [[0.45, 0.28, 0.15], [0.55, 0.12, 0.12], [0.85, 0.65, 0.15], [0.55, 0.8, 0.2], [0.1, 0.6, 0.2], [0.05, 0.35, 0.3], [0.6, 0.3, 0.8], [0.9, 0.9, 0.9]];
+			let above = float(1.0);
+			let dbg = vec3(0.0);
+			for (let i = count - 1; i >= 0; i--) {
+				dbg = dbg.add(vec3(...palette[i]).mul(i ? ms[i - 1].mul(above) : above));
+				if (i) above = above.mul(ms[i - 1].oneMinus());
+			}
+			const roughDry = max(rough, u.roughMin);
+			const macroTint = mix(vec3(u.macroCool), vec3(u.macroWarm), macro.mul(0.5).add(0.5));
+			const dry = albedo.mul(macroTint).mul(macro.mul(u.macro).add(1.0));
+			const N0 = normalize(normalWorldGeometry);
+			const V = normalize(cameraPosition.sub(positionWorld));
+			// Wet ground (Lagarde): how wet x how porous; puddles: a flat dark film from a low-frequency field, glossy with a micro-ripple, sky only as emission. See terrain_layers.glsl.
+			const wetK = smoothstep(0.05, 0.9, wet).toVar('labTLWet');
+			const sub = smoothstep(u.waterY.sub(0.04), u.waterY.add(0.01), positionWorld.y).oneMinus().toVar('labTLSub');
+			const level = u.water.mul(smoothstep(0.35, 0.95, wet));
+			const gate = step(0.001, u.water).mul(smoothstep(0.35, 0.5, wet)).mul(sub.oneMinus());
+			const field = clamp(labNoise3(vec3(st.mul(0.7), 3.3)).mul(0.7).add(labNoise3(vec3(st.mul(1.9), 5.1)).mul(0.3)).mul(2.0), -1.0, 1.0).mul(0.5).add(0.5);
+			const hq = mix(field, hb, 0.3);
+			const depth = level.sub(hq).mul(gate);
+			const pud = smoothstep(0.0, max(float(0.15), max(length(dxs), length(dys)).mul(2.6)), depth).toVar('labTLPud');
+			const halo = pow(smoothstep(level.sub(0.02), level.add(0.45), hq).oneMinus(), float(1.5)).mul(gate).mul(0.85);
+			const wetAmt = max(max(wetK, sub), halo).mul(por).toVar('labTLWetAmt');
+			const lum = dot(dry, vec3(0.2126, 0.7152, 0.0722));
+			const darkened = dry.mul(float(1.0).sub(u.wetDarken.mul(wetAmt).mul(smoothstep(0.02, 0.25, lum).mul(0.45).add(0.55))));
+			const wetCol = max(mix(vec3(lum).mul(float(1.0).sub(u.wetDarken.mul(wetAmt))), darkened, wetAmt.mul(0.3).add(1.0)), 0.0);
+			const floorFade = mix(float(1.0), exp(max(u.waterY.sub(positionWorld.y), 0.0).mul(-2.5)), sub);
+			const ripple = (p) => {
+				const q = p.mul(0.8);
+				const cell = floor(q);
+				const f = fract(q).sub(0.5);
+				const r = fract(sin(dot(cell, vec2(12.9898, 78.233))).mul(43758.5453));
+				const t = fract(labTime.mul(0.6).add(r));
+				const d = f.sub(vec2(r.sub(0.5), fract(r.mul(7.13)).sub(0.5)).mul(0.5));
+				const dist = length(d);
+				const ring = sin(dist.sub(t.mul(0.45)).mul(38.0)).mul(exp(abs(dist.sub(t.mul(0.45))).mul(-14.0))).mul(t.oneMinus());
+				return d.div(max(dist, 1e-3)).mul(ring).mul(0.35);
+			};
+			const fres = pow(float(1.0).sub(clamp(dot(N0, V), 0.0, 1.0)), 4.0).mul(0.95).add(0.05);
+			const final = mix(wetCol, wetCol.mul(vec3(u.puddleTint)), pud).mul(floorFade);
+			const glow = vec3(u.sky).mul(fres.mul(u.puddleRefl).mul(pud));
+			const debugAlbedo = mix(mix(dbg, vec3(0.0, 0.3, 1.0), wetAmt.mul(0.5)), vec3(0.0, 1.0, 1.0), pud);
+			const roughF = mix(mix(mix(roughDry, roughDry.mul(u.wetRough), wetAmt), float(1.0), sub), u.waterRough, smoothstep(0.45, 0.8, pud));
+			const specK = float(1.0).sub(smoothstep(0.02, 0.25, pud).mul(smoothstep(0.8, 0.88, pud).oneMinus()).mul(0.95));
+			const nrmF = mix(nrm, vec3(0.5, 0.5, 1.0), smoothstep(0.1, 0.6, pud));
+			// the micro-ripple (and the rain rings) only where there is a puddle to ripple (no noise elsewhere)
+			const pp = positionWorld.xz;
+			const ripples = Fn(() => {
+				const v = vec2(0.0).toVar();
+				If(pud.greaterThan(0.01), () => {
+					v.assign(vec2(labNoise3(vec3(pp.mul(5.0), labTime.mul(0.4))), labNoise3(vec3(pp.mul(5.0).add(31.7), labTime.mul(0.4).add(9.0)))).mul(0.05).mul(pud));
+					If(u.rain.greaterThan(0.001), () => {
+						v.addAssign(ripple(positionWorld.xz).mul(u.rain).mul(pud).mul(0.5));
+					});
+				});
+				return v;
+			})();
+			const nrmR = vec3(nrmF.xy.add(ripples), nrmF.z);
+			const worldNormal = Fn(() => {
+				const N = normalWorldGeometry;
+				const T = normalize(vec3(1, 0, 0).sub(N.mul(N.x)));
+				const B = cross(N, T);
+				const tn = nrmR.mul(2.0).sub(1.0);
+				return normalize(T.mul(tn.x).add(B.mul(tn.y)).add(N.mul(tn.z)));
+			});
+			return {
+				uniforms: u,
+				...surface({
+					id: `lab-terrain-layers-${count}`,
+					order: 2,
+					color: (c) => vec4(c.rgb.mul(mix(final, debugAlbedo, step(0.5, u.debug))), c.a),
+					roughness: (r) => r.mul(roughF),
+					normal: () => normalize(cameraViewMatrix.mul(vec4(worldNormal(), 0.0)).xyz),
+					emissive: (e) => e.add(glow),
+					specularScale: () => specK,
+					// the sun on a satin film burns out: soft-compress the lit colour of puddle pixels above a knee of 0.08 (like terrain_layers.glsl's opaque_fragment hook)
+					output: (o) => {
+						// the lantern pool (off at strength 0): warm light on the albedo inside the radius, a darker ground outside it
+						const pool = smoothstep(u.lantern.w.sub(u.lanternP.x), u.lantern.w, length(positionWorld.xz.sub(u.lantern.xz))).oneMinus();
+						const lit = o.rgb.mul(float(1.0).sub(u.lanternP.z.mul(pool.oneMinus()))).add(diffuseColor.rgb.mul(vec3(u.lanternColor)).mul(u.lanternP.y.mul(pool)));
+						const e = max(lit.sub(0.08), 0.0);
+						return vec4(mix(lit, lit.sub(e).add(e.div(e.mul(u.puddleCompress).add(1.0))), pud), o.a);
+					},
+				}),
+			};
+		},
+		/** Mirrors createWaterSpecular() in ../webgl/effects.js (a no-op there): the pond's water caps `specularIntensity`, so its F90 is below 1; r180's direct() hard-codes f90 = 1 (see rebuildSlots). */
+		createWaterSpecular() {
+			return surface({ id: 'lab-water-f90', order: 5, directF90: true });
 		},
 		/** Mirrors createShadowFill() in ../webgl/effects.js and shaders/effects/shadow_fill.glsl. */
 		createShadowFill() {

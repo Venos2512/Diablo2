@@ -10,6 +10,7 @@ import { spawnProjectile } from './projectiles.js';
 import { FX } from './fx.js';
 import { Engine } from './engine.js';
 import { clamp } from './util.js';
+import { CastHold, Notice, TRANSIENT, gateCast, castMessage } from '../skills/castControl.js';
 
 export const CLASSES = {
 	barbarian: { name: 'Barbarian', base: { str: 30, dex: 20, vit: 25, ene: 10 }, perLevel: { str: 2, dex: 1, vit: 2 }, life: [55, 2, 4], mana: [10, 1, 1], arC: 20, block: 25 },
@@ -55,7 +56,7 @@ export class Player extends Actor {
 		this.radius = 0.38;
 		this.ranged = !!o.ranged;
 		this.reachOverride = o.reach || 0;
-		this.skills = o.skills || null; // { cast(id, localPoint, target) -> bool, cost(id) }
+		this.skills = o.skills || null; // { cast(id, localPoint, target) -> bool, cost(id), supports?(id), status?(id) -> null | 'cooldown' | 'casting' | 'town', label?(id) }
 		this.right = o.right || null;
 		this.walk = false;
 		this.cooldowns = {};
@@ -63,6 +64,10 @@ export class Player extends Actor {
 		this.input = null;
 		this.swing = 0;
 		this.special = {};
+		this.castHold = new CastHold(); // the right button: a press is buffered while busy, a hold repeats
+		this.castFail = null; // why the last useSkill() failed (see castControl REASONS)
+		this.onNotice = null; // (text, kind, key) -> void, set by the host; default is a floating text over the hero
+		this.notice = new Notice((text, kind, key) => (this.onNotice ? this.onNotice(text, kind, key) : floatAt(this, text, 'miss', 1.2)), { interval: 1.2, clock: () => G.time });
 		this.stats = {};
 		this.xp = 0;
 		this.kills = 0;
@@ -170,25 +175,41 @@ export class Player extends Actor {
 		this.st.freeze = this.st.chill = this.st.poison = this.st.burn = this.st.bleed = this.st.stun = 0;
 		this.life = this.maxLife;
 		this.mana = this.maxMana;
+		this.castHold.clear();
 		this.model.setTint(null);
 		this.model.revive();
 	}
 
 	// ---------------------------------------------------------------- skill use (v1 useSkill)
-	/** 'ok' | 'move' | 'busy' | 'fail' */
-	useSkill(id, point, target, inPlace = false) {
-		if (this.action && this.action.lock) return 'busy';
-		if (id === 'attack') return this.attack(point, target, inPlace);
-		if (!this.skills) return 'fail';
-		if ((this.cooldowns[id] || 0) > G.time) return 'fail';
-		const cost = this.skills.cost(id);
-		if (this.mana < cost) {
-			floatAt(this, 'Not enough mana', 'miss', 1.2);
-			return 'fail';
+	/**
+	 * 'ok' | 'move' | 'busy' | 'fail'. A failure sets `castFail` to the reason (castControl REASONS, or 'town') and, unless `quiet`
+	 * (a held button retrying), tells the player; transient reasons (busy, cooling) stay quiet while the button repeats.
+	 */
+	useSkill(id, point, target, inPlace = false, quiet = false) {
+		if (this.action && this.action.lock) {
+			this.castFail = 'busy';
+			return 'busy';
 		}
+		if (id === 'attack') return this.attack(point, target, inPlace);
+		const S = this.skills;
+		const name = S?.label?.(id) || id;
+		const fail = (reason) => {
+			this.castFail = reason;
+			if (!quiet || !TRANSIENT.has(reason)) this.notice.say(`${id}:${reason}`, castMessage(reason, name), reason === 'unsupported' ? 'error' : 'info');
+			return 'fail';
+		};
+		this.castFail = null;
+		if (!S || (S.supports && !S.supports(id))) return fail('unsupported');
+		const status = S.status ? S.status(id) : null;
+		if (status === 'town' || status === 'unknown') return fail(status === 'unknown' ? 'unsupported' : status);
+		const cost = S.cost(id);
+		const why = gateCast({ dead: this.dead, casting: status === 'casting', cooling: status === 'cooldown', mana: this.mana, cost });
+		if (why) return fail(why);
+		const refused = S.check?.(id, point, target); // a skill that can see up front it has nowhere to go: nothing is spent, nobody turns
+		if (refused) return fail(refused);
 		const tp = target && !target.dead ? target.pos : point;
 		this.face(tp.x, tp.z, true);
-		if (!this.skills.cast(id, point, target)) return 'fail';
+		if (!S.cast(id, point, target)) return fail('failed');
 		this.mana -= cost;
 		return 'ok';
 	}
@@ -253,7 +274,7 @@ export class Player extends Actor {
 
 	processIntent(dt) {
 		const I = this.input;
-		if (I) this.handleInput(I);
+		if (I) this.handleInput(I, dt);
 		const it = this.intent;
 		if (!it) return 0;
 		if (this.action && this.action.lock) return 0;
@@ -300,7 +321,7 @@ export class Player extends Actor {
 		return sp;
 	}
 
-	handleInput(I) {
+	handleInput(I, dt) {
 		// Left button: attack what is under the cursor, shift attacks in place, otherwise move (hold to steer).
 		if (I.lmbDown) {
 			const h = I.hover;
@@ -316,13 +337,25 @@ export class Player extends Actor {
 			} else if (this.intent.type === 'skill' && this.intent.inPlace) this.intent.point.copy(I.ground);
 		}
 		if (!I.lmb && this.intent && this.intent.type === 'skill' && this.intent.repeat) this.intent.repeat = false;
-		// Right button: the selected skill (repeats while held).
-		if ((I.rmbDown || I.rmb) && this.right && !(this.action && this.action.lock)) {
-			const h = I.hover;
-			const target = h && h.type === 'actor' ? h.ref : null;
-			const r = this.useSkill(this.right, target ? target.pos.clone() : I.ground.clone(), target, false);
-			if (r === 'ok') this.intent = null;
-		}
+		// Right button: the selected skill at the monster / ground under the cursor. A press is buffered while the hero is busy, a hold repeats
+		// (never through a running cast or a cooldown); the same press / hold / release intent as the reference controls.
+		if (I.rmbDown) this.castHold.press('mouse');
+		if (!I.rmb) this.castHold.release('mouse');
+		if (this.right) {
+			this.castHold.step(dt, ({ fresh }) => {
+				const h = I.hover;
+				const target = h && h.type === 'actor' ? h.ref : null;
+				const r = this.useSkill(this.right, target ? target.pos.clone() : I.ground.clone(), target, false, !fresh);
+				if (r === 'ok') this.intent = null;
+				return { ok: r === 'ok', reason: r === 'ok' ? null : this.castFail };
+			});
+		} else this.castHold.clear();
+	}
+
+	/** Cast the right-button skill at the cursor once (a quickcast hotkey): a buffered press, like the right button. */
+	quickcast() {
+		this.castHold.press('quick');
+		this.castHold.release('quick');
 	}
 
 	heal(amount) {

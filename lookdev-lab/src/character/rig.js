@@ -14,11 +14,11 @@ export function sideOf(name) {
 }
 
 const FINGERS = /thumb|index|middle|ring|pinky|little|finger|digit|metacarpal/;
-const IK = /(^|[^a-z])ik([^a-z]|$)|ik-|-ik|pole|target|control|ctrl/;
+const IK = /(^|[^a-z])ik([^a-z]|$)|ik-|-ik|pole|target|control|ctrl|adjust/; // adjust: D2 grip helpers (R_hand_adjust)
 
 // Priority lists: the first pattern that matches a bone on the requested side wins.
 const PARTS = {
-	slot: [/handslot|hand[^a-z]*slot|weapon[^a-z]*(slot|socket)|grip|prop/],
+	slot: [/handslot|hand[^a-z]*slot|weapon[^a-z]*(slot|socket|attach)|grip|prop/], // weapon_attach: Diablo II rigs
 	hand: [/(^|[^a-z])hand($|[^a-z])|hand(?!le)/, /palm/, /wrist/, /fore[^a-z]*arm|lower[^a-z]*arm/],
 	foot: [/foot|ankle/, /toe/],
 	toe: [/toe|ball/],

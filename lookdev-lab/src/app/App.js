@@ -19,6 +19,7 @@ import { VfxLab } from '../vfx/vfxLab.js';
 import { importQuarks } from '../panels/vfx.js';
 import { CharacterController } from '../character/controller.js';
 import { GameplayHost } from '../gameplay/host.js';
+import { Footsteps } from '../character/footsteps.js';
 import { MoodController } from '../lighting/moodController.js';
 import { Atmosphere } from '../env/atmosphere.js';
 import { measureHeight } from '../character/rig.js';
@@ -27,18 +28,16 @@ import { Recorder, Presentation } from './capture.js';
 import * as bench from './bench.js';
 import { parseCubeLUT, generateLook, storeCustomLut, loadCustomLut, disposeLut, withCheck } from '../core/lut.js';
 import { applyStoredOverrides, dropOverride } from '../core/shaderOverrides.js';
-import { PROCEDURAL, isProcedural, proceduralById, createProcedural, defaultOptions } from '../procedural/catalog.js';
-import { useNodeMaterial } from '../procedural/nodeMaterial.js';
 
 /** Grade values that belong to a scene's look (saved and restored per scene with tone mapping, exposure and fog). */
 const SCENE_GRADE_KEYS = ['vignette', 'contrast', 'saturation', 'lift', 'temperature', 'tint'];
 const SCENE_GRADE_DEFAULTS = { vignette: 0.22, contrast: 1, saturation: 1, lift: 0, temperature: 0, tint: 0 };
 const SCENE_TONE_MAPPING = 'agx'; // unless the scene's postDefaults name one
 const DEFAULT_SCENE = 'darkWood'; // an unknown saved scene id opens this one (the settings default, core/settings.js)
+const DEFAULT_CHARACTER = 'd2r-sorceress'; // the only character sample; sessions that saved a removed one reopen with her
 
-registerDefaults('subject', { sample: 'shader-ball', turntable: false, turntableSpeed: 20, speed: 1 });
+registerDefaults('subject', { sample: DEFAULT_CHARACTER, turntable: false, turntableSpeed: 20, speed: 1 });
 registerDefaults('view', { mode: 'lit', renderScale: 1 });
-registerDefaults('procedural', defaultOptions());
 
 const $ = (id) => document.getElementById(id);
 
@@ -190,13 +189,14 @@ export class App {
 		this.status('Building scene…');
 		await this.setScene(SCENES[s.scene] ? s.scene : DEFAULT_SCENE, { keepCamera: false });
 		this.status('Loading sample model…');
-		await this.loadSample(this.sceneSubject(s.subject.sample || 'shader-ball'), { frame: false }).catch((e) => console.warn(e));
+		await this.loadSample(this.sceneSubject(this.restorableSubject(s.subject.sample)), { frame: false }).catch((e) => console.warn(e));
 
 		this.shaderLab = new ShaderLab(this);
 		this.shaderLab.init();
 		this.vfxLab = new VfxLab(this);
 		this.character = new CharacterController(this);
 		this.gameplay = new GameplayHost(this); // Ashen Crown v1 gameplay core for Play
+		this.footsteps = new Footsteps(this); // footprints / ripples / foliage bend of the playing hero (after both Play cores in the update order)
 		this.mood = new MoodController(this);
 		this.atmosphere = new Atmosphere(this); // GPU particles in the air of the Act I scenes (env/atmosphere.js)
 		this.stress = new StressTests(this);
@@ -259,7 +259,7 @@ export class App {
 		});
 
 		const list = this.dom.sampleList;
-		const groups = { lookdev: 'Lookdev', validation: 'Validation', prop: 'Props', character: 'Animated', hdri: 'HDRI (studio env)' };
+		const groups = { character: 'Character', lookdev: 'Lookdev', validation: 'Validation', prop: 'Props', hdri: 'HDRI (studio env)' };
 		for (const [role, title] of Object.entries(groups)) {
 			const items = SAMPLES.filter((a) => (a.kind === 'hdri' ? 'hdri' : a.role) === role);
 			if (!items.length) continue;
@@ -274,23 +274,6 @@ export class App {
 				button.innerHTML = `<span>${asset.name}</span><span class="kind">${asset.license.split(' ')[0]}</span>`;
 				button.title = `${asset.credit}\n${asset.license}`;
 				button.addEventListener('click', () => (asset.kind === 'hdri' ? this.useStudioEnv(asset.id) : this.loadSample(asset.id)));
-				list.appendChild(button);
-			}
-		}
-		// Characters built in code (src/procedural): heroes, monsters, NPCs. Options live in the Procedural tab.
-		const groupTitles = { hero: 'Procedural · heroes', monster: 'Procedural · monsters', npc: 'Procedural · NPCs' };
-		for (const [group, title] of Object.entries(groupTitles)) {
-			const head = document.createElement('div');
-			head.className = 'sample-group';
-			head.textContent = title;
-			list.appendChild(head);
-			for (const entry of PROCEDURAL.filter((e) => e.group === group)) {
-				const button = document.createElement('button');
-				button.className = 'sample-item';
-				button.dataset.id = entry.id;
-				button.innerHTML = `<span>${entry.name}</span><span class="kind">code</span>`;
-				button.title = 'Procedural character (src/procedural) — options in the Procedural tab';
-				button.addEventListener('click', () => this.loadSample(entry.id));
 				list.appendChild(button);
 			}
 		}
@@ -363,10 +346,11 @@ export class App {
 					<tr><td><kbd>V</kbd></td><td>Next view mode</td><td><kbd>X</kbd></td><td>Exposure false colour</td></tr>
 					<tr><td><kbd>T</kbd></td><td>Turntable</td><td><kbd>P</kbd></td><td>Screenshot (PNG)</td></tr>
 					<tr><td><kbd>C</kbd></td><td>A/B compare (first press captures A)</td><td><kbd>Esc</kbd></td><td>Clear selection</td></tr>
-					<tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Cast a spell (VFX lab active)</td><td><kbd>Click</kbd></td><td>Select mesh → material inspector</td></tr>
-					<tr><td><kbd>Right click</kbd></td><td>Cast the selected spell at the cursor</td><td><kbd>Click</kbd> (play mode)</td><td>Walk there / attack a dummy</td></tr>
+					<tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Pick + cast a spell / skill (VFX lab active or Play)</td><td><kbd>Click</kbd></td><td>Select mesh → material inspector</td></tr>
+					<tr><td><kbd>Right click</kbd></td><td>Cast the selected spell / skill at the cursor (hold to repeat)</td><td><kbd>Click</kbd> (play mode)</td><td>Walk there / attack a dummy</td></tr>
 					<tr><td><kbd>Enter</kbd></td><td>Character tab: play on / off</td><td><kbd>W A S D</kbd></td><td>Move (camera-relative), <kbd>Shift</kbd> walk, <kbd>R</kbd> walk ↔ run</td></tr>
-					<tr><td><kbd>Space</kbd> <kbd>E</kbd> <kbd>Q</kbd></td><td>Attack, attack 2, cast</td><td><kbd>B</kbd> <kbd>G</kbd> <kbd>K</kbd></td><td>Block (hold), get hit, death / revive</td></tr>
+					<tr><td><kbd>Space</kbd> <kbd>E</kbd> <kbd>Q</kbd></td><td>Attack, attack 2, cast the selected one (hold Q to repeat)</td><td><kbd>B</kbd> <kbd>G</kbd> <kbd>K</kbd></td><td>Block (hold), get hit, death / revive</td></tr>
+					<tr><td><kbd>F1</kbd>–<kbd>F8</kbd> / <kbd>1</kbd>–<kbd>4</kbd></td><td>Gameplay (Play): pick the right-button skill — classic scheme; the modern scheme (Character tab) uses <kbd>1</kbd>–<kbd>4</kbd> and potions on <kbd>Q E Z X</kbd></td><td><kbd>Right click</kbd> (Play)</td><td>Cast the picked skill at the monster / ground under the cursor, hold to repeat, <kbd>Esc</kbd> leaves</td></tr>
 				</table>
 				<h3>Workflow</h3>
 				<p class="muted">Shaders tab: every effect is written in GLSL and TSL with the same parameters — enable it, open the source viewer (GLSL, glue, TSL, compiled WGSL/GLSL), measure off vs on, then switch the renderer and measure again. Performance tab keeps the results of both renderers side by side.</p>
@@ -498,8 +482,16 @@ export class App {
 		return id === 'shader-ball' && this.current?.defaultSubject ? this.current.defaultSubject : id;
 	}
 
+	/**
+	 * Subject id of an old session, made loadable. The only character is the D2R Sorceress: a session that saved a
+	 * removed sample (Fox, Robot, KayKit, procedural 'proc:*') or an unknown id comes back with her.
+	 */
+	restorableSubject(id) {
+		const entry = id ? sampleById(id) : null;
+		return entry && entry.kind === 'model' ? id : DEFAULT_CHARACTER;
+	}
+
 	async loadSample(id, { frame = true } = {}) {
-		if (isProcedural(id)) return this.loadProcedural(id, { frame });
 		const entry = sampleById(id);
 		if (!entry || entry.kind !== 'model') return;
 		const gltf = await this.loader.loadSample(id);
@@ -521,24 +513,8 @@ export class App {
 		if (frame) this.frameSubject();
 	}
 
-	/** Builds a procedural character with the Procedural tab's options (settings.data.procedural). */
-	async loadProcedural(id, { frame = true } = {}) {
-		if (!proceduralById(id)) return;
-		const started = performance.now();
-		const { entry, model } = await createProcedural(id, this.settings.data.procedural);
-		// Its shader is an onBeforeCompile patch (GLSL); node materials need the TSL port.
-		if (this.backend.kind !== 'webgl') useNodeMaterial(model);
-		this.setSubject(model, [], entry.name, id, { procedural: true });
-		this.settings.data.subject.sample = id;
-		this.settings.changed('subject');
-		if (frame) this.frameSubject();
-		const ms = performance.now() - started;
-		if (ms > 1500) toast(`${entry.name}: sculpted live in ${(ms / 1000).toFixed(1)} s (this variant is not in the baked data)`, 'info', 4000);
-	}
-
-	setSubject(object, animations, name, sourceId = null, { procedural = false } = {}) {
-		if (procedural) this.subject.setProcedural(object, name, sourceId);
-		else this.subject.set(object, animations, name, sourceId);
+	setSubject(object, animations, name, sourceId = null) {
+		this.subject.set(object, animations, name, sourceId);
 		this.subject.turntable = this.settings.data.subject.turntable;
 		this.subject.turntableSpeed = this.settings.data.subject.turntableSpeed;
 		this.subject.speed = this.settings.data.subject.speed;
@@ -798,6 +774,7 @@ export class App {
 
 		addEventListener('keydown', (e) => {
 			if (e.target.closest?.('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+			if (this.gameplay?.claimsKey(e)) return; // the running game owns its hotkeys (modern potions: Q E Z X would toggle false colour…)
 			const k = e.key.toLowerCase();
 			if (k === 'h') this.toggleUI();
 			else if (k === 'f') this.frameSubject();

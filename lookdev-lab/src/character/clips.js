@@ -70,8 +70,39 @@ const PATTERNS = {
 
 const POSE = /pose$|t[^a-z]?pose/i;
 
+// Diablo II: Resurrected animation sets are named <stance>_<action> (hth_walk, 1hs_attack1, stf_cast ...), where the
+// stance prefix is the weapon class: hth hand to hand, 1hs / 2hs one / two-handed sword, bow, xbw crossbow, stf staff.
+// The generic patterns above would pick the first "walk" of any stance, so these names are resolved exactly. A state
+// the weapon class has no clip for falls back to hand to hand.
+const D2_STANCE = { unarmed: 'hth', '1h': '1hs', '2h': '2hs', dual: '1hs', ranged1h: 'xbw', ranged2h: 'bow', spell: 'stf' };
+const D2_ACTIONS = {
+	idle: ['neutral'],
+	walk: ['walk'],
+	run: ['run'],
+	attack: ['attack1'],
+	attack2: ['attack2', 'kick'],
+	cast: ['cast'],
+	block: ['block'],
+	hit: ['gethit'],
+	death: ['death'],
+};
+const D2_CLIP = /^(hth|[12]h[st]|bow|xbw|stf)_/;
+
+function d2Clip(clips, state, stance) {
+	const actions = D2_ACTIONS[state];
+	if (!actions) return null;
+	for (const prefix of [D2_STANCE[stance] || 'hth', 'hth']) {
+		for (const action of actions) {
+			const clip = clips.find((c) => c.name === `${prefix}_${action}` && c.duration > 0);
+			if (clip) return clip.name;
+		}
+	}
+	return null;
+}
+
 /** Clip name for a state and stance (null when nothing fits). */
 export function autoClip(clips, state, stance = 'unarmed') {
+	if (clips.some((c) => D2_CLIP.test(c.name))) return d2Clip(clips, state, stance);
 	const table = PATTERNS[state];
 	if (!table) return null;
 	const lists = [table[stance], table.default].filter(Boolean);

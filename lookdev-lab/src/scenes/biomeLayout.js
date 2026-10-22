@@ -1,5 +1,7 @@
 // Act I · Bố trí biome (thuật toán) — the 3D view of the biome layout engine (env/biomeLayout.js, art direction 12 §4.13).
-// The scene renders layoutBiome(DEMO_PLAN, catalog, options) with the real kits so the result can be judged from the game
+// ONE seed → the whole map: planSource 'seed' (default) generates the plan from `mapSeed` (env/planGen.js, AD 12 §4.15) and dresses it with the
+// engine; planSource 'demo' is the hand-made DEMO_PLAN. The plan is chosen per scene instance (this.plan), in init(), before anything reads it.
+// The scene renders layoutBiome(plan, catalog, options) with the real kits so the result can be judged from the game
 // camera, and shows WHY things stand where they stand: overlays for the locked play space, footprints, use zones, camera
 // occlusion zones, decision points, clusters, trace events and the drops, a report panel (counts, drops, warnings, the 15
 // checks, per-step ms) and per-group seeds / densities.
@@ -11,6 +13,13 @@
 //
 // Lights: the moon (one shadow map) + sky ambient + the player's light. The plan's lights (torches, lanterns, braziers,
 // candles) are flames with small point lights WITHOUT shadows: the terrain's fragment stage has 16 sampler slots on WebGPU.
+//
+// Load: the map is cut into 16 m modules (env/mapModules.js, AD 12 §4.14). loadMode 'modules' loads only the kits of the modules around
+// the hero before the first frame and streams the rest in (env/mapStream.js) without a hitch; 'all' loads every kit and builds every
+// module first, as it always did (A/B). The layout and the splat come from the browser cache (env/mapCache.js) or the baked file
+// assets/maps/ (npm run bake:map) when their key matches, so a known map never runs the engine on load. A generated map is cached by (seed, size,
+// generator version, options, code) → the accepted attempt: a warm load regenerates the plan from it (generatePlan(seed, { attempt }), ≈ 40 ms)
+// and takes the layout and the splat from the cache; the engine and the attempt search run only on a cold load.
 import * as THREE from 'three';
 import { registerDefaults } from '../core/settings.js';
 import { kelvinToColor } from '../core/grading.js';
@@ -20,21 +29,30 @@ import { FIELD_TIMES as WEEPING_TIMES } from '../env/fieldTimes.js';
 import { TerrainSplat, TERRAIN_SETS, BRUSH_LAYERS, createTerrainMaterial, loadRibbonTextures, grassCardGeometry } from '../env/terrain.js';
 import * as V from '../env/valdren.js';
 import * as kit from '../env/kit.js';
-import { InstanceBuilder } from '../env/instancing.js';
+import { InstanceBuilder, InstanceCells } from '../env/instancing.js';
 import { FlameField } from '../env/flames.js';
 import { GroundBlend, GROUND_PROFILES } from '../env/groundBlend.js';
 import { loadKits, ribbonGeometry, twoSided, smooth } from '../env/outdoor.js';
 import { groundLabel } from '../env/signals.js';
+import { polylineDistance, pathCoverage } from '../env/surfaces.js';
 import { layoutBiome, obbFrom, pointInPoly, toWorld, DEFAULT_OPTIONS } from '../env/biomeLayout.js';
+import { PLAN_GEN_VERSION, checkPlan, generateMap, generatePlan, mapBudgets } from '../env/planGen.js';
 import { ASSETS, buildCatalog } from '../env/biomeCatalog.js';
 import { DEMO_PLAN } from '../env/biomeLayoutDemo.js';
+import { KIT_SAMPLES, MODULE_RULES, bakeBytes, bakeLayout, checkModules, acceptKey, genKey, layoutKey, loadOrder, mapStart, restoreLayout, splitModules } from '../env/mapModules.js';
+import { codeOf } from '../env/mapCodeText.js';
+import { MapStream } from '../env/mapStream.js';
+import { mapCache } from '../env/mapCache.js';
+import { sampleById } from '../core/assets.js';
 import sizes from '../env/kitSizes.json';
+import kitBytes from '../env/kitBytes.json';
 
-const PLAN = DEMO_PLAN;
-const BOUNDS = PLAN.bounds;
-const SIZE = Math.max(BOUNDS.x1 - BOUNDS.x0, BOUNDS.z1 - BOUNDS.z0); // the terrain covers the plan's square
-const ORIGIN = { x: BOUNDS.x0, z: BOUNDS.z0 };
+const MAP_SIZES = [128, 192, 256]; // m. planGen makes all three (192 / 256 scale the zone counts) and the scene, terrain, splat and modules handle them; Play's nav grid is 128 m around the spawn (gameplay/host.js GRID) whatever the size
 const LOOK = 1;
+const RULES = MODULE_RULES;
+const SPLAT_VERSION = 1; // bump when the SHAPE of the cached splat data changes; a different painter is already a different key (the splat key hashes this file, kit.js and terrain.js)
+const SPLAT_CACHE = 'splat';
+const TUFT_DRAWS = 5; // random numbers one grass tuft draws (width, three angles, colour): see buildGrass
 
 registerDefaults('biomeLayout', {
 	...TERRAIN_DEFAULTS,
@@ -58,8 +76,12 @@ registerDefaults('biomeLayout', {
 	fillColor: '#4c5a50',
 	fillThreshold: 0.08,
 	cells: 16, // instancing cell (m); 0 = map-wide
-	// The algorithm: master seed (plan.seed), one seed per group, densities. Build-time: a change reloads the scene.
-	seed: PLAN.seed ?? 1,
+	// One seed → the whole map (planGen). Build-time: a change reloads the scene.
+	planSource: 'seed', // 'seed' = generated from mapSeed; 'demo' = the hand-made DEMO_PLAN
+	mapSeed: 1,
+	mapSize: 128,
+	// The algorithm: the demo's master seed (plan.seed; a generated map's master seed is mapSeed), one seed per group, densities. Build-time: a change reloads the scene.
+	seed: DEMO_PLAN.seed ?? 1,
 	seedMass: DEFAULT_OPTIONS.seeds.mass,
 	seedCluster: DEFAULT_OPTIONS.seeds.cluster,
 	seedGuide: DEFAULT_OPTIONS.seeds.guide,
@@ -80,18 +102,17 @@ registerDefaults('biomeLayout', {
 	ovEvents: false,
 	ovDrops: false,
 	pointLights: true,
+	// Fast load (AD 12 §4.14). Build-time: a change reloads the scene.
+	loadMode: 'modules', // 'modules' = the first frame needs only the kits around the hero, the rest streams in; 'all' = everything first (A/B)
+	useCache: true, // layout + splat from the browser cache / the baked file (off = the engine and the generator run on every load)
+	ovModules: false, // overlay: the module grid
 });
 
 /** Time presets: the Weeping Fields ones (Night = Diablo II light radius, Overcast = neutral colour check, Dusk). */
 export const BIOME_TIMES = { night: WEEPING_TIMES.night, overcast: WEEPING_TIMES.overcast, dusk: WEEPING_TIMES.dusk };
 
-// kit key (as the catalog's assets name it) → library sample id
-const KIT_IDS = {
-	fence: 'kit-wooden-fence', palisade: 'kit-palisade', tents: 'kit-tents', tentsB: 'kit-tents-b', shrubs: 'kit-shrubs',
-	kitchen: 'kit-camp-kitchen', storage: 'kit-camp-storage', training: 'kit-camp-training', crafts: 'kit-camp-crafts', lighting: 'kit-camp-lighting',
-	banners: 'kit-camp-banners', seating: 'kit-camp-seating', shrine: 'kit-camp-shrine', animals: 'kit-camp-animals', clutter: 'kit-camp-clutter',
-	stations: 'kit-camp-stations', rocks: 'kit-moor-rocks', mossy: 'kit-mossy-rocks', corpses: 'kit-buried-corpses', deadTrees: 'kit-dead-trees', burnedTrees: 'kit-burned-trees',
-};
+// kit key (as the catalog's assets name it) → library sample id (one table for the scene and the node scripts)
+const KIT_IDS = KIT_SAMPLES;
 const TREE_KITS = new Set(['deadTrees', 'burnedTrees']);
 const WALK_CLEAR = 0.3; // the hero stands at least this far from walk-through pieces (m)
 const CLASS_ORDER = ['obstacle', 'destructible', 'decor', 'guide', 'interactive', 'hazard'];
@@ -121,28 +142,30 @@ const centreOf = (shape) => {
 	if (shape.x0 !== undefined) return { x: (shape.x0 + shape.x1) / 2, z: (shape.z0 + shape.z1) / 2 };
 	return null;
 };
+/** kit.rng(seed) already advanced by `skip` draws, in O(1): mulberry32's state moves by a constant per draw, so every tuft can draw from its own place in the stream. */
+const rngAt = (seed, skip) => kit.rng((seed + skip * 0x6d2b79f5) >>> 0);
 const toVec3 = (points) => points.map((p) => new THREE.Vector3(p.x, 0, p.z));
 
-/** Distance (m) to the nearest of `segments` ([a, b] pairs) or, with `inside`, 0 inside the polygons; exact, on a `cell` grid over the plan. */
-function exactField(segments, polygons = [], cell = 0.5) {
-	const n = Math.round(SIZE / cell) + 1;
+/** Distance (m) to the nearest of `segments` ([a, b] pairs) or, with `inside`, 0 inside the polygons; exact, on a `cell` grid over the square `{ origin, size }`. */
+function exactField(segments, polygons, { origin, size }, cell = 0.5) {
+	const n = Math.round(size / cell) + 1;
 	const field = new Float32Array(n * n);
 	for (let j = 0; j < n; j++) {
 		for (let i = 0; i < n; i++) {
-			const x = ORIGIN.x + i * cell;
-			const z = ORIGIN.z + j * cell;
+			const x = origin.x + i * cell;
+			const z = origin.z + j * cell;
 			let best = Infinity;
 			for (const [a, b] of segments) best = Math.min(best, segDist(x, z, a, b));
 			if (polygons.some((poly) => pointInPoly(poly, x, z))) best = 0;
 			field[j * n + i] = best;
 		}
 	}
-	return { field, n, cell };
+	return { field, n, cell, origin };
 }
 
-function lookup({ field, n, cell }, x, z) {
-	const fx = clamp((x - ORIGIN.x) / cell, 0, n - 1.001);
-	const fz = clamp((z - ORIGIN.z) / cell, 0, n - 1.001);
+function lookup({ field, n, cell, origin }, x, z) {
+	const fx = clamp((x - origin.x) / cell, 0, n - 1.001);
+	const fz = clamp((z - origin.z) / cell, 0, n - 1.001);
 	const i = Math.floor(fx);
 	const j = Math.floor(fz);
 	const tx = fx - i;
@@ -153,7 +176,6 @@ function lookup({ field, n, cell }, x, z) {
 }
 
 const pathSegments = (path) => path.points.slice(1).map((p, k) => [path.points[k], p]);
-const polylines = () => PLAN.paths.map((p) => p.points);
 
 /** Points of a polyline resampled every `step` m (closed: back to the first point). */
 function sampleLine(points, closed, step = 0.8) {
@@ -181,33 +203,59 @@ export class BiomeLayoutScene extends TerrainScene {
 		super(app, 'biomeLayout');
 		this.label = 'Act I · Bố trí biome (thuật toán)';
 		this.scene.name = 'Biome layout';
-		this.plan = PLAN;
-		// The base class sized its splat for 120 m: the plan is 128 m.
+		// The plan is chosen in init() (adoptPlan: a generated one may come from the cache), so everything that reads it - the splat, the distance
+		// fields, the views, the start - is made there. The base class sized its splat for 120 m: it is replaced.
+		this.plan = null;
 		this.splat.dispose();
-		this.splat = new TerrainSplat({ size: 512, originX: ORIGIN.x, originZ: ORIGIN.z, extent: SIZE });
+		this.splat = null;
 		this.times = BIOME_TIMES;
-		this.defaultSubject = 'proc:hero:barbarian'; // the map is judged with a hero next to it
+		this.defaultSubject = 'd2r-sorceress'; // the map is judged with the hero next to it
 		this.cell = this.settings.cells > 0 ? this.settings.cells : Infinity; // read once: a change reloads the scene
-		this.pathField = exactField(PLAN.paths.flatMap(pathSegments));
-		const waterSegments = PLAN.water.filter((w) => w.points && !w.polygon).flatMap((w) => w.points.slice(1).map((p, k) => [w.points[k], p]));
-		this.waterField = exactField(waterSegments, PLAN.water.filter((w) => w.polygon).map((w) => w.polygon));
-		this.hero = this.heroSpot();
-		this.views = this.makeViews();
-		this.home = this.viewCamera(this.views.play);
 		this.overlays = {};
 		this.classMeshes = {};
 		this.groups = {};
 		this.warnedKinds = new Set();
 		this.warmFrames = 0;
+		this.stream = null;
+		this.ready = false; // init finished: later builds (streamed modules) tag their programs themselves
+		this.deferred = [];
+		this.lastFrameAt = 0;
+		this.staging = null; // while a streamed module is built: { id, root, attach[], classes }, see attach()
+		this.uploaded = new WeakSet(); // textures a mesh of the scene has used (or that were uploaded ahead of it)
+		this.compiledClasses = new Set(); // program classes (programClass) that exist: the ring-0 content and every module compiled since
+		this.pendingReveals = 0; // staged modules that are compiling
+		this.disposed = false;
 	}
 
 	// -- plan → base class ------------------------------------------------------------------------------------------
 
-	/** The main road and the creek of the plan (the base constructor builds its distance fields from these; ours are exact). */
+	/** The main road and the creek of the plan (the base constructor builds its distance fields from these; ours are exact). The base constructor runs before the plan exists: nothing then. */
 	curves() {
-		const main = PLAN.paths.find((p) => p.kind === 'road') ?? PLAN.paths[0];
-		const creek = PLAN.water.find((w) => w.points && !w.polygon);
+		if (!this.plan) return { road: [], creek: [] };
+		const main = this.plan.paths.find((p) => p.kind === 'road') ?? this.plan.paths[0];
+		const creek = this.plan.water.find((w) => w.points && !w.polygon);
 		return { road: toVec3(main.points), creek: creek ? toVec3(creek.points) : [] };
+	}
+
+	/**
+	 * Makes the plan this scene instance is about: its square, the terrain splat, the distance fields, the start, the views. Called once, from
+	 * loadLayout, as soon as the plan exists (the layout and the checks come after it).
+	 */
+	adoptPlan(plan) {
+		this.plan = plan;
+		this.bounds = plan.bounds;
+		this.size = Math.max(plan.bounds.x1 - plan.bounds.x0, plan.bounds.z1 - plan.bounds.z0); // the terrain covers the plan's square
+		this.origin = { x: plan.bounds.x0, z: plan.bounds.z0 };
+		this.splat = new TerrainSplat({ size: 512, originX: this.origin.x, originZ: this.origin.z, extent: this.size });
+		this.splat.blur = this.settings.splatBlur;
+		const extent = { origin: this.origin, size: this.size };
+		this.pathField = exactField(plan.paths.flatMap(pathSegments), [], extent);
+		const waterSegments = plan.water.filter((w) => w.points && !w.polygon).flatMap((w) => w.points.slice(1).map((p, k) => [w.points[k], p]));
+		this.waterField = exactField(waterSegments, plan.water.filter((w) => w.polygon).map((w) => w.polygon), extent);
+		this.hero = mapStart(plan); // the same start the bake checks and the module order use; resolveStands() moves it to the free spot near it
+		this.views = this.makeViews();
+		if (!this.views[this.settings.view]) this.settings.view = 'play'; // a saved view of an area this map does not have
+		this.home = this.viewCamera(this.views.play);
 	}
 
 	roadDistance(x, z) {
@@ -220,7 +268,7 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	/** The plan's ground — the SAME function the engine placed everything on. */
 	height(x, z) {
-		return PLAN.ground(x, z).height;
+		return this.plan.ground(x, z).height;
 	}
 
 	/** Carpet density (0..1) of the engine's ecology at (x, z): zero where grass may not grow (corridors, footprints, water). */
@@ -241,7 +289,7 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	/** [wet, grass, blood]: the plan's ground; the grass layer (and so the shell grass) follows the engine's carpet, so it stops at corridors and footprints. */
 	weights(x, z) {
-		const g = PLAN.ground(x, z);
+		const g = this.plan.ground(x, z);
 		const grass = Math.min(g.grass, this.carpetAt(x, z) * 1.15);
 		return [g.water ? 1 : g.wet, grass, g.blood];
 	}
@@ -255,66 +303,71 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	// -- views --------------------------------------------------------------------------------------------------------
 
-	/** Where Play starts: a few metres along the main path from its start (derived from the plan). */
-	heroSpot() {
-		const path = PLAN.paths.find((p) => p.kind === 'road') ?? PLAN.paths[0];
-		let left = 14;
-		for (let i = 1; i < path.points.length; i++) {
-			const a = path.points[i - 1];
-			const b = path.points[i];
-			const len = Math.hypot(b.x - a.x, b.z - a.z);
-			if (len >= left) return { x: a.x + ((b.x - a.x) * left) / len, z: a.z + ((b.z - a.z) * left) / len };
-			left -= len;
-		}
-		return { ...path.points[path.points.length - 1] };
-	}
-
-	/** Camera views, derived from the plan's zones / hosts / water: play (D2 iso 2:1), overview, and each area in ¾ and in the game camera. */
+	/**
+	 * Camera views, derived from the plan's zones / hosts / water: play (D2 iso 2:1), overview, and each area in ¾ and in the game camera.
+	 * A generated plan may lack a farm, camp, den, graveyard, creek or cliff: the views of an area the map does not have are not offered.
+	 */
 	makeViews() {
+		const PLAN = this.plan;
+		const BOUNDS = PLAN.bounds;
 		const inside = (shape, p) => (shape.r !== undefined ? Math.hypot(p.x - shape.x, p.z - shape.z) <= shape.r : Array.isArray(shape) && pointInPoly(shape, p.x, p.z));
 		const area = (kind, fallback) => {
 			const zone = PLAN.zones.find((z) => z.kind === kind);
-			if (!zone) return fallback;
+			if (!zone) return null;
 			const members = [...(PLAN.hosts ?? []), ...(PLAN.masses ?? [])].map((h) => h.at).filter((p) => p && inside(zone.shape, p));
 			const c = centreOf(members.length ? members : zone.shape);
 			return { x: c.x, z: c.z, r: zone.shape.r ?? 14 };
 		};
 		const creek = PLAN.water.find((w) => w.points && !w.polygon);
 		const road = PLAN.paths.find((p) => p.kind === 'road') ?? PLAN.paths[0];
-		let ford = { x: 0, z: 0 };
-		let best = Infinity;
-		for (const p of sampleLine(road.points, false, 1)) {
-			const d = this.creekDistanceRaw(p.x, p.z, creek);
-			if (d < best) {
-				best = d;
-				ford = p;
+		let ford = null;
+		if (creek) {
+			let best = Infinity;
+			for (const p of sampleLine(road.points, false, 1)) {
+				const d = this.creekDistanceRaw(p.x, p.z, creek);
+				if (d < best) {
+					best = d;
+					ford = p;
+				}
 			}
 		}
-		const farm = this.farmArea(area('farm', { x: 0, z: 0, r: 20 }));
-		const camp = area('camp', { x: 0, z: 0, r: 20 });
-		const den = area('den', { x: 0, z: 0, r: 12 });
-		const grave = area('graveyard', { x: 0, z: 0, r: 12 });
-		const cliff = (PLAN.masses ?? []).find((m) => m.kind === 'cliff')?.at ?? { x: 0, z: BOUNDS.z0 + 6 };
+		const farmZone = area('farm');
+		const farm = farmZone && this.farmArea(farmZone);
+		const camp = area('camp');
+		const den = area('den');
+		const grave = area('graveyard');
+		const cliff = (PLAN.masses ?? []).find((m) => m.kind === 'cliff')?.at ?? null;
 		const views = {
 			play: { label: 'Góc chơi D2 · isometric 2:1 (mặc định)', iso: true, target: [this.hero.x, 0.9, this.hero.z], height: 12 },
-			overview: { label: 'Tổng quan cả map (game ¾)', target: [0, 0, 0], distance: 150 },
-			farm: { label: 'Trang trại · nhà, kho, ruộng (¾)', target: [farm.x, 1, farm.z], distance: farm.distance },
-			camp: { label: 'Trại địch · lửa, lều, cổng (¾)', target: [camp.x, 1, camp.z], distance: 42 },
-			den: { label: 'Hang sói · xác thú, đường mòn (¾)', target: [den.x, 1, den.z], distance: 30 },
-			graveyard: { label: 'Nghĩa địa + miếu ven đường (¾)', target: [grave.x, 1, grave.z], distance: 30 },
-			ridge: { label: 'Sườn đá phía bắc · ranh giới sau lưng (¾)', target: [cliff.x, 1.5, cliff.z], distance: 40 },
-			ford: { label: 'Suối + đường: ford / cầu (¾)', target: [ford.x, 0.5, ford.z], distance: 26 },
-			farmPlay: { label: 'Trang trại · góc chơi D2 (iso)', iso: true, target: [farm.x, 0.9, farm.z], height: 12 },
-			campPlay: { label: 'Trại địch · góc chơi D2 (iso)', iso: true, target: [camp.x, 0.9, camp.z], height: 12 },
-			denPlay: { label: 'Hang sói · góc chơi D2 (iso)', iso: true, target: [den.x, 0.9, den.z], height: 12 },
-			gravePlay: { label: 'Nghĩa địa · góc chơi D2 (iso)', iso: true, target: [grave.x, 0.9, grave.z], height: 12 },
-			fordPlay: { label: 'Suối + đường · góc chơi D2 (iso)', iso: true, target: [ford.x, 0.9, ford.z], height: 12 },
+			overview: { label: 'Tổng quan cả map (game ¾)', target: [(BOUNDS.x0 + BOUNDS.x1) / 2, 0, (BOUNDS.z0 + BOUNDS.z1) / 2], distance: this.size * 1.17 },
 		};
+		if (farm) {
+			views.farm = { label: 'Trang trại · nhà, kho, ruộng (¾)', target: [farm.x, 1, farm.z], distance: farm.distance };
+			views.farmPlay = { label: 'Trang trại · góc chơi D2 (iso)', iso: true, target: [farm.x, 0.9, farm.z], height: 12 };
+		}
+		if (camp) {
+			views.camp = { label: 'Trại địch · lửa, lều, cổng (¾)', target: [camp.x, 1, camp.z], distance: 42 };
+			views.campPlay = { label: 'Trại địch · góc chơi D2 (iso)', iso: true, target: [camp.x, 0.9, camp.z], height: 12 };
+		}
+		if (den) {
+			views.den = { label: 'Hang sói · xác thú, đường mòn (¾)', target: [den.x, 1, den.z], distance: 30 };
+			views.denPlay = { label: 'Hang sói · góc chơi D2 (iso)', iso: true, target: [den.x, 0.9, den.z], height: 12 };
+		}
+		if (grave) {
+			views.graveyard = { label: 'Nghĩa địa + miếu ven đường (¾)', target: [grave.x, 1, grave.z], distance: 30 };
+			views.gravePlay = { label: 'Nghĩa địa · góc chơi D2 (iso)', iso: true, target: [grave.x, 0.9, grave.z], height: 12 };
+		}
+		if (cliff) views.ridge = { label: 'Sườn đá phía bắc · ranh giới sau lưng (¾)', target: [cliff.x, 1.5, cliff.z], distance: 40 };
+		if (ford) {
+			views.ford = { label: 'Suối + đường: ford / cầu (¾)', target: [ford.x, 0.5, ford.z], distance: 26 };
+			views.fordPlay = { label: 'Suối + đường · góc chơi D2 (iso)', iso: true, target: [ford.x, 0.9, ford.z], height: 12 };
+		}
 		return views;
 	}
 
 	/** The farm's buildings plus the field zones inside the farm circle: the ¾ view frames both (the barley field is part of the farm). */
 	farmArea(area) {
+		const PLAN = this.plan;
 		const zone = PLAN.zones.find((z) => z.kind === 'farm');
 		const pts = [{ x: area.x, z: area.z }];
 		const spread = [];
@@ -350,11 +403,20 @@ export class BiomeLayoutScene extends TerrainScene {
 		return { position: target.clone().add(offset), target };
 	}
 
+	/** The streamer builds the modules around a view next (the focus moved from the hero's start): called when the view changes mid-stream and when the scene opens on a saved view. */
+	refocus(id) {
+		const view = this.views[id];
+		if (!view || !this.stream || this.streamEnded) return;
+		const at = view.stand ?? { x: view.target[0], z: view.target[2] };
+		this.stream.reprioritise(at);
+	}
+
 	/** Frame a view; the iso views also stand the hero in the middle so the scale reads. */
 	frameView(id) {
 		const view = this.views[id];
 		if (!view) return;
 		this.settings.view = id;
+		this.refocus(id);
 		const camera = this.viewCamera(view);
 		if (view.iso) {
 			const at = view.stand ?? { x: view.target[0], z: view.target[2] };
@@ -375,7 +437,7 @@ export class BiomeLayoutScene extends TerrainScene {
 	 * authored masses, trees) and WALK_CLEAR m from walk-through pieces (arrows, helmets, a carcass: the hero does not pierce them).
 	 */
 	isFreeSpot(x, z, margin = 0.7) {
-		if (PLAN.ground(x, z).water || this.waterDistance(x, z) < 0.4) return false;
+		if (this.plan.ground(x, z).water || this.waterDistance(x, z) < 0.4) return false;
 		const inside = (fp, m) => {
 			const c = Math.cos(fp.yaw);
 			const s = Math.sin(fp.yaw);
@@ -390,6 +452,24 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	waterDistance(x, z) {
 		return lookup(this.waterField, x, z);
+	}
+
+	/** The plan's worn paths (roads, lanes, the shrine trail; not the faint animal trail) as packed earth, by their own widths. */
+	pathCoverageAt(x, z) {
+		this._stepPaths ??= this.plan.paths.filter((p) => p.kind !== 'animal').map((p) => ({ points: p.points, width: p.width ?? this.catalogRules().pathWidth[p.kind] ?? 2, surface: 'packed' }));
+		return pathCoverage(this._stepPaths, x, z, (this._pathCoverage ??= { amount: 0, surface: 'packed' }));
+	}
+
+	/** The creek and the pond of the plan, where the water surface is shown: a film `waterLevel` m over the ground (shallow, a ford where the road crosses). */
+	waterAt(x, z) {
+		const s = this.settings;
+		if (!s.creekWater || !this.waterMeshes?.length || s.waterLevel <= 0) return null;
+		const hit = this.plan.water.some((w) => (w.polygon ? pointInPoly(w.polygon, x, z) : polylineDistance(w.points, x, z) <= (w.width ?? 3) / 2));
+		if (!hit) return null;
+		const w = (this._water ??= { depth: 0, level: 0 });
+		w.depth = s.waterLevel;
+		w.level = this.height(x, z) + s.waterLevel;
+		return w;
 	}
 
 	/**
@@ -464,39 +544,55 @@ export class BiomeLayoutScene extends TerrainScene {
 	async init() {
 		const app = this.app;
 		const t0 = performance.now();
-		this.mat = V.valdrenMaterials(app);
-		this.scene.add(this.anchor);
-		this.anchor.position.set(this.hero.x, this.height(this.hero.x, this.hero.z) + 0.02, this.hero.z);
+		this.t0 = t0;
 		const s = this.settings;
+		const modular = s.loadMode !== 'all'; // read once: a change reloads the scene
+		// The Valdren materials (forged textures, ~1 s of CPU) are only needed by the builders. 'all' makes them first, as it always did;
+		// 'modules' makes them while the kits and terrain textures download.
+		if (!modular) this.mat = V.valdrenMaterials(app);
+		const matMs = performance.now() - t0;
+		this.scene.add(this.anchor); // placed by resolveStands() once the plan and its start exist
 		if (s.look !== LOOK) {
 			delete app.settings.data.scenePost?.[this.id]; // saved exposure / fog / vignette of an older look
 			Object.assign(s, { look: LOOK, layerSet: 'moor', time: 'night', view: 'play', fill: false, waterRough: 0.32, waterLevel: 0.05 });
 			this.useSetDefaults('moor');
 		}
-		this.splat.blur = s.splatBlur;
-		this.kits = await loadKits(app, this.kitList());
-		this.runLayout();
+		// 'modules': the terrain's painted textures start loading now (their fetch and decode overlap the forge and the layout); buildTerrain takes the same promise
+		if (modular) this.earlySets = { id: s.layerSet, promise: super.layerSets(s.layerSet) };
+		this.loadMode = modular ? 'modules' : 'all';
+		this.timing = { mode: this.loadMode, cache: !!s.useCache, frames: { max: 0, count: 0, over33: 0, over50: 0 }, phases: { materials: matMs } };
+		const phase = (name, since) => (this.timing.phases[name] = performance.now() - since);
+		let p0 = performance.now();
+		await this.loadLayout();
+		phase('layout', p0);
+		p0 = performance.now();
 		this.resolveStands();
-		this.generateSplat();
-		await this.buildTerrain();
-		await this.buildRibbons();
-		this.buildProps();
-		await this.loadCards();
-		this.buildGrass();
-		this.buildShrubs();
+		this.planModules();
+		this.makeEffects();
+		this.makeContainers();
 		this.buildLights();
+		phase('plan + lights', p0);
+		p0 = performance.now();
+		// 'all' = every kit and every module before the first frame (the way it was). 'modules' = ring 0's kits only, in parallel with the
+		// terrain textures; the streamer builds the rest behind the first frame.
+		this.kits = modular ? {} : await loadKits(app, this.kitList());
+		const globals = this.buildGlobals();
+		if (modular) {
+			this.stream = this.makeStream();
+			const started = this.stream.start();
+			const m0 = performance.now();
+			this.mat = V.valdrenMaterials(app);
+			this.timing.phases.materials = performance.now() - m0;
+			await Promise.all([globals, started]);
+			this.buildProps([], { ...this.cellOptions(), pads: true }); // the waypoint pads belong to no module
+		} else {
+			await globals;
+			this.buildContent(this.wholeMap(), { ...this.cellOptions(), pads: true });
+		}
+		phase(modular ? 'terrain + ring 0' : 'terrain + all', p0);
+		p0 = performance.now();
 		this.buildCursor();
 		this.fire = new THREE.Vector3(1e4, 0, 1e4); // the base class' campfire lies far off the map
-		this.windGrass = app.backend.effects.create('wind', { strength: s.wind, height: 1, frequency: 1.9 });
-		this.windTrees = app.backend.effects.create('wind', { strength: s.wind * 0.35, height: 4, frequency: 0.9, gust: 0.8 });
-		this.windShrubs = app.backend.effects.create('wind', { strength: s.wind * 0.6, height: 1.2, frequency: 1.4, gust: 0.6 });
-		this.grass.material = this.windGrass.apply(this.grass.material);
-		this.swapMaterials(this.trees, (m) => this.windTrees.apply(m));
-		if (this.shrubs.length) {
-			const material = this.windShrubs.apply(this.shrubs[0].material);
-			for (const m of this.shrubs) m.material = material;
-		}
-		this.shadowFill = app.backend.effects.createShadowFill();
 		this.applyFill();
 		this.buildCards();
 		this.buildShells();
@@ -507,29 +603,480 @@ export class BiomeLayoutScene extends TerrainScene {
 		this.applyOverlays();
 		await this.applyTime();
 		this.buildGroundBlend();
+		phase('overlays + time', p0);
+		this.ready = true;
+		this.noteUploaded(this.scene);
 		this.loadMs = performance.now() - t0;
-		console.info(`Biome layout: ${this.result.placements.length} placements + ${this.result.ecology.tufts.x.length} tufts in ${this.layoutMs.toFixed(0)} ms (engine ${this.result.report.ms.total} ms), scene built in ${this.loadMs.toFixed(0)} ms`);
+		const loaded = Object.keys(this.kits);
+		this.timing.initMs = this.loadMs;
+		this.timing.initAt = performance.now();
+		this.timing.t0 = t0;
+		this.timing.kitsAtInit = loaded.length;
+		this.timing.kitMBAtInit = loaded.reduce((n, k) => n + (kitBytes[k] ?? 0), 0) / 1e6;
+		this.timing.modulesAtInit = this.loadedModules.size;
+		if (s.view !== 'play') this.refocus(s.view); // opened on a saved view: the modules around it come next, not the ones around the hero
+		this.timing.requiredKits = modular ? this.stream.ring0Kits() : loaded;
+		this.timing.requiredMB = this.timing.requiredKits.reduce((n, k) => n + (kitBytes[k] ?? 0), 0) / 1e6;
+		if (!modular) this.markAllLoaded();
+		console.info(`Biome layout [${this.loadMode}] ${this.mapInfo.source === 'seed' ? `seed ${this.mapInfo.seed} · ${this.mapInfo.size} m` : 'demo'}: ${this.result.placements.length} placements + ${this.result.ecology.tufts.x.length} tufts, layout from ${this.layoutSource} in ${this.layoutMs.toFixed(0)} ms, scene built in ${this.loadMs.toFixed(0)} ms (${this.timing.requiredKits.length} kits / ${this.timing.requiredMB.toFixed(1)} MB before the first frame)`);
 	}
 
-	/** [key, sample id] of every kit the catalog's assets use. */
+	/** [key, sample id] of every kit the catalog's assets use and the library has (the palette decided from the registry, not from what has loaded). */
 	kitList() {
 		const keys = [...new Set(ASSETS.map((a) => a.kit))];
 		for (const key of keys) if (!KIT_IDS[key]) console.warn(`Biome layout: no sample id for kit "${key}"`);
-		return keys.filter((k) => KIT_IDS[k]).map((k) => [k, KIT_IDS[k]]);
+		return keys.filter((k) => KIT_IDS[k] && sampleById(KIT_IDS[k])).map((k) => [k, KIT_IDS[k]]);
 	}
 
-	/** The engine, on the kits that loaded: placements, ecology, ground paint, report. */
-	runLayout() {
+	/** The engine's options from the settings (seeds, densities). */
+	layoutOptions() {
 		const s = this.settings;
-		const catalog = buildCatalog({ sizes, available: new Set(Object.keys(this.kits)) });
-		const t0 = performance.now();
-		this.result = layoutBiome({ ...PLAN, seed: s.seed }, catalog, {
+		return {
 			seeds: { mass: s.seedMass, cluster: s.seedCluster, guide: s.seedGuide, ecology: s.seedEcology, trace: s.seedTrace },
 			density: { grass: s.densityGrass, shrubs: s.densityShrubs, traces: s.densityTraces, masses: s.densityMasses },
-		});
-		this.layoutMs = performance.now() - t0;
+		};
+	}
+
+	/**
+	 * The map: plan + layout, from the cheapest source. planSource 'demo' = the hand-made plan; 'seed' = one seed → the whole map (planGen).
+	 *   layout: browser cache (IndexedDB, by layout key) → the baked file assets/maps/ (when its key matches) → the engine.
+	 *   generated plan: the record under the generator key (seed, size, PLAN_GEN_VERSION, options, catalog, code) holds the accepted attempt, so a
+	 *   warm load regenerates the plan with generatePlan(seed, { attempt }) (≈ 40 ms) and takes the layout from the cache; only a cold load
+	 *   searches the attempts (generateMap: plan checks + the engine's 19 checks). A fresh result is stored after the first frames.
+	 * The catalog's availability is the registered palette, never what has loaded yet: the layout must not depend on load timing.
+	 */
+	async loadLayout() {
+		const s = this.settings;
+		const t0 = performance.now();
+		const catalog = buildCatalog({ sizes, available: new Set(this.kitList().map(([key]) => key)) });
+		const options = this.layoutOptions();
+		const generated = s.planSource !== 'demo';
+		const size = MAP_SIZES.includes(s.mapSize) ? s.mapSize : MAP_SIZES[0];
+		const seed = generated ? Math.max(1, Math.floor(s.mapSeed) || 1) : s.seed;
+		const code = codeOf(generated ? ['layout', 'generator'] : ['layout']); // the source text of the engine / generator: an edit of the code is a new key
+		let plan;
+		let key;
+		let found = null;
+		let gen = null;
+		let genStore = null;
+		const timing = { source: generated ? 'seed' : 'demo', planMs: 0, generateMs: null };
+		if (generated) {
+			const genId = `gen|${genKey({ seed, size, version: PLAN_GEN_VERSION }, options, catalog, { code, accept: acceptKey(kitBytes) })}`;
+			let record = s.useCache ? await mapCache.get(genId) : null;
+			let from = 'cache';
+			if (!record && s.useCache) {
+				record = await this.fetchBakedGen(genId.slice(4));
+				from = 'file';
+			}
+			if (record?.version !== PLAN_GEN_VERSION) record = null; // a stale record never survives a new generator
+			if (record) {
+				const p0 = performance.now();
+				plan = generatePlan(seed, { size, attempt: record.attempt });
+				timing.planMs = performance.now() - p0;
+				key = layoutKey(plan, options, catalog, { code });
+				found = await this.cachedLayout(key);
+				gen = { ...record, source: from };
+				if (from === 'file') genStore = { id: genId, record };
+				if (!found) {
+					// the layout was evicted (or never stored): the engine on the plan the record names - no attempt search
+					found = { result: layoutBiome(plan, catalog, { ...options, budgets: mapBudgets(size, options.budgets) }), source: 'engine', bakeSize: null, store: 'bake' };
+				}
+			} else {
+				const g0 = performance.now();
+				const map = generateMap(seed, catalog, { size, modules: { kitBytes }, ...options }); // the fast-load rules (§4.14) are acceptance criteria too
+				timing.generateMs = performance.now() - g0;
+				if (!map.plan || !map.result) throw new Error(`Biome layout: generateMap(${seed}) found no usable attempt (${map.attempts.map((a) => a.failed.join('+')).join(' | ')})`);
+				plan = map.plan;
+				key = layoutKey(plan, options, catalog, { code });
+				found = { result: map.result, source: 'engine', bakeSize: null, store: 'bake' };
+				gen = { version: PLAN_GEN_VERSION, attempt: map.attempt, attempts: map.attempts, ok: map.ok, key, source: 'engine' };
+				genStore = { id: genId, record: { version: PLAN_GEN_VERSION, attempt: map.attempt, attempts: map.attempts, ok: map.ok, key } };
+			}
+		} else {
+			plan = { ...DEMO_PLAN, seed };
+			key = layoutKey(plan, options, catalog, { code });
+			found = await this.cachedLayout(key);
+			if (!found) found = { result: layoutBiome(plan, catalog, options), source: 'engine', bakeSize: null, store: 'bake' };
+		}
+		this.adoptPlan(plan); // the square, the splat, the fields, the start and the views of THIS map
+		this.result = found.result;
 		this.catalog = catalog;
+		this.layoutKey = key;
+		this.layoutSource = found.source;
+		this.layoutMs = performance.now() - t0;
+		this.bakeSize = found.bakeSize;
+		this.mapInfo = { source: timing.source, seed, size: this.size, planId: plan.id, zones: plan.meta?.zones ?? plan.zones.filter((z) => z.shape?.r !== undefined).map((z) => z.id), gen, mapSeed: seed };
+		this.planChecks = null;
+		this.timing.layout = { source: found.source, ms: this.layoutMs, key, engineMs: found.source === 'engine' ? found.result.report.ms.total : null };
+		this.timing.plan = timing;
+		if (found.store || genStore) this.defer(() => this.storeLayout(found.store, genStore));
+		if (generated) this.defer(() => this.runPlanChecks());
 		this.checkGround();
+	}
+
+	/** The 22 plan checks of the generator (not run for the hand-made demo, which differs from the generator's rules on purpose), after the first frames. */
+	runPlanChecks() {
+		const t0 = performance.now();
+		this.planChecks = checkPlan(this.plan, { catalog: this.catalog });
+		this.timing.planChecksMs = performance.now() - t0;
+		this.refreshReports();
+	}
+
+	/** The layout under `key` from the browser cache, else the baked file: { result, source, bakeSize, store } or null (store: what to put into the cache). */
+	async cachedLayout(key) {
+		if (!this.settings.useCache) return null;
+		const hit = await mapCache.get(key);
+		if (hit?.baked) {
+			try {
+				return { result: restoreLayout(hit.baked), source: 'cache', bakeSize: hit.size ?? null, store: null };
+			} catch (error) {
+				console.warn('Biome layout: the cached map could not be read; it is generated again', error);
+			}
+		}
+		const file = await this.fetchBaked(key);
+		if (file) {
+			try {
+				return { result: restoreLayout(file.baked), source: 'file', bakeSize: file.size, store: { baked: file.baked, size: file.size } };
+			} catch (error) {
+				console.warn('Biome layout: the baked map could not be read; it is generated again', error);
+			}
+		}
+		return null;
+	}
+
+	/** The terrain's layer sets: the first call for the id init started early takes that promise, every other call is the base class'. */
+	layerSets(id) {
+		const early = this.earlySets;
+		if (early?.id !== id) return super.layerSets(id);
+		this.earlySets = null;
+		return early.promise;
+	}
+
+	/** assets/maps/index.json (relative to the page: the lab may be hosted under a sub-path), read once; null when there is none (offline build, file://). */
+	bakedIndex() {
+		this._bakedIndex ??= (async () => {
+			if (location.protocol === 'file:') return null;
+			try {
+				const index = await fetch('assets/maps/index.json');
+				return index.ok ? await index.json() : null;
+			} catch {
+				return null;
+			}
+		})();
+		return this._bakedIndex;
+	}
+
+	/** The baked file of layout `key` ({ baked, size }), or null (no index, no entry, another key). */
+	async fetchBaked(key) {
+		const entry = (await this.bakedIndex())?.maps?.[key];
+		if (!entry) return null;
+		try {
+			const response = await fetch(`assets/maps/${entry.file}`);
+			if (!response.ok) return null;
+			const file = await response.json();
+			if (file.key !== key) return null;
+			return { baked: { format: file.format, meta: file.meta, result: file.result }, size: entry.bakeBytes ?? null };
+		} catch {
+			return null;
+		}
+	}
+
+	/** The generator record a bake left for `genKey` (accepted attempt of a seed + size), or null. */
+	async fetchBakedGen(genKeyText) {
+		const record = (await this.bakedIndex())?.gen?.[genKeyText];
+		return record ? { ...record } : null;
+	}
+
+	/** Puts the layout (and the generator record) into the browser cache: a baked file's content as it is, or a fresh engine result encoded now. */
+	async storeLayout(store, genStore = null) {
+		let entry = store;
+		if (store === 'bake') {
+			const baked = bakeLayout(this.result, { key: this.layoutKey, plan: this.plan.id, seed: this.mapInfo.seed });
+			entry = { baked, size: bakeBytes(baked) };
+			this.bakeSize = entry.size;
+			this.runModuleChecks();
+			this.refreshReports();
+		}
+		if (entry) await mapCache.put(this.layoutKey, entry, this.layoutKey); // one group per map: the least recently used maps are evicted
+		if (genStore) await mapCache.put(genStore.id, genStore.record, this.layoutKey);
+	}
+
+	/** Runs `fn` on a later frame (one per frame, after the first frames): work that must not sit in front of the first frame. */
+	defer(fn) {
+		(this.deferred ??= []).push(fn);
+	}
+
+	/**
+	 * The splat (R wet, G grass, B blood): painted data from the cache when the key matches (layout key + splat version + size; the
+	 * blur is applied on top, it is not part of the data), else generated from the plan's ground and the engine's carpet and ground paint.
+	 */
+	async initSplat() {
+		const t0 = performance.now();
+		const key = `${this.layoutKey}|${SPLAT_CACHE}${SPLAT_VERSION}|${this.splat.size}|${this.splat.extent}|${codeOf(['splat']).slice(0, 14)}`; // the painter's source (this scene's weights / carpet / generateSplat, kit.js noise2, terrain.js) is part of the key
+		let source = 'engine';
+		if (this.settings.useCache) {
+			const hit = await mapCache.get(key);
+			if (hit instanceof Uint8Array && hit.length === this.splat.data.length) {
+				this.splat.data.set(hit);
+				this.splat.refresh();
+				source = 'cache';
+			}
+		}
+		if (source === 'engine') {
+			this.generateSplat();
+			if (this.settings.useCache) {
+				const data = this.splat.data.slice();
+				this.defer(() => mapCache.put(key, data, this.layoutKey));
+			}
+		}
+		this.timing.splat = { source, ms: performance.now() - t0 };
+	}
+
+	/** Cuts the layout into modules, orders them from the hero's stand and runs the fast-load checks (AD 12 §4.14). */
+	planModules() {
+		const { manifest, modules } = splitModules(this.plan, this.result, { kitBytes });
+		this.manifest = manifest;
+		this.moduleList = modules;
+		this.moduleById = new Map(modules.map((m) => [m.id, m]));
+		this.moduleSize = manifest.size;
+		this.order = loadOrder(manifest, this.hero, RULES);
+		this.orderIndex = new Map(this.order.map((o, k) => [o.id, k]));
+		this.loadedModules = new Set();
+		this.runModuleChecks();
+	}
+
+	runModuleChecks() {
+		this.moduleChecks = checkModules(this.manifest, this.order, RULES, { bakeBytes: this.bakeSize });
+		this.overBudget = new Set(this.moduleChecks.flatMap((c) => (c.details?.violations ?? []).map((v) => v.id)).filter((id) => this.moduleById.has(id)));
+		this.moduleOverlayDirty = true;
+	}
+
+	/** Wind and shadow fill, made once: the builders apply them to each module's meshes as they come (one wrapped copy per source material). */
+	makeEffects() {
+		const s = this.settings;
+		const fx = this.app.backend.effects;
+		this.windGrass = fx.create('wind', { strength: s.wind, height: 1, frequency: 1.9 });
+		this.windTrees = fx.create('wind', { strength: s.wind * 0.35, height: 4, frequency: 0.9, gust: 0.8, bend: 0 });
+		this.windShrubs = fx.create('wind', { strength: s.wind * 0.6, height: 1.2, frequency: 1.4, gust: 0.6 });
+		this.shadowFill = fx.createShadowFill();
+		this.memo = { windTrees: new Map(), fill: new Map() };
+	}
+
+	/** The map-wide containers the module builders add their meshes to (the scene's lists and the panels read these, whatever the load mode). */
+	makeContainers() {
+		this.classMeshes = Object.fromEntries(CLASS_ORDER.map((c) => [c, []]));
+		this.treeInstances = Object.fromEntries(CLASS_ORDER.map((c) => [c, 0]));
+		this.treeCells = new InstanceCells('Biome layout trees (instanced cells)');
+		this.scene.add(this.treeCells);
+		this.trees = [];
+		this.staticGroup = new THREE.Group(); // the base class' lists read its children; the real groups are in this.groups
+		this.staticGroup.name = 'Biome layout statics';
+		this.scene.add(this.staticGroup);
+		this.groups = {};
+		for (const cls of CLASS_ORDER) {
+			const group = new THREE.Group();
+			group.name = `Biome layout · ${cls}`;
+			group.matrixAutoUpdate = false; // baked in place, like StaticBatch's own groups
+			group.userData.pieceCount = 0;
+			group.userData.meshCount = 0;
+			if (cls === 'decor') group.userData.labNoCollide = true;
+			this.groups[cls] = group;
+			this.staticGroup.add(group);
+		}
+		this.grass = new InstanceCells('Biome layout grass (instanced cells)');
+		this.scene.add(this.grass);
+		this.shrubCells = new InstanceCells('Biome layout shrubs (instanced cells)');
+		this.shrubs = [];
+		this.scene.add(this.shrubCells);
+	}
+
+	/** The parts that need no kit: splat, terrain, ribbons, the grass-card texture. */
+	async buildGlobals() {
+		const t0 = performance.now();
+		await this.initSplat();
+		await this.buildTerrain();
+		await this.buildRibbons();
+		await this.loadCards();
+		this.timing.globalsMs = performance.now() - t0;
+	}
+
+	/** Instancing / batching cells for the build: 'all' keeps the `cells` setting; a module is its own cell (16 m, aligned with the instancing grid). */
+	cellOptions() {
+		if (this.loadMode === 'all') return { staticCell: this.cell, treeCell: this.cell * 2, cell: this.cell };
+		return { staticCell: 0, treeCell: this.moduleSize, cell: this.moduleSize };
+	}
+
+	/** Everything the map has, as one build (the 'all' mode). */
+	wholeMap() {
+		const r = this.result;
+		return { placements: r.placements, shrubs: r.ecology.shrubs, tufts: null, lights: r.placements.map((p, k) => (p.light ? k : -1)).filter((k) => k >= 0) };
+	}
+
+	/** The streamer: ring 0 first, then by distance, kits by priority; it builds through buildModule(). */
+	makeStream() {
+		const ids = Object.fromEntries(this.kitList());
+		return new MapStream({
+			order: this.order,
+			kitsOf: (id) => this.moduleById.get(id).kits.filter((k) => ids[k]),
+			loadKit: async (key) => Object.assign(this.kits, await loadKits(this.app, [[key, ids[key]]])),
+			buildModule: (id) => this.buildModule(id),
+			reorder: (point) => loadOrder(this.manifest, point, RULES),
+			rules: RULES,
+			holdBackground: true,
+		});
+	}
+
+	/** One module's content (props, trees, shrubs, tufts, flames) from the layout result; the kits it needs are loaded. */
+	buildModule(id) {
+		const m = this.moduleById.get(id);
+		const r = this.result;
+		const content = { placements: m.placements.map((k) => r.placements[k]), shrubs: m.shrubs.map((k) => r.ecology.shrubs[k]), tufts: m.tufts, lights: m.lights };
+		if (!this.ready) {
+			// before the first frame: built into the scene; the scene's own compile pass links its programs
+			this.buildContent(content, this.cellOptions());
+			this.loadedModules.add(id);
+			this.moduleOverlayDirty = true;
+			return;
+		}
+		// after it: built off-scene, its programs linked with the scene's lights, then attached in one go — a program first needed inside a frame would stall it
+		const stage = (this.staging = { id, root: new THREE.Scene(), attach: [], classes: new Set(), lights: m.lights });
+		stage.root.name = `Module ${id} (staging)`;
+		(this.stagedModules ??= new Set()).add(stage); // not in the scene until revealed: dispose() frees what never got there
+		try {
+			this.buildContent(content, this.cellOptions(), true);
+		} finally {
+			this.staging = null;
+		}
+		stage.textures = this.newTextures(stage.root);
+		if (!stage.textures.length && [...stage.classes].every((k) => this.compiledClasses.has(k))) {
+			this.commit(stage); // every program and texture it needs exists: nothing to prepare, it is part of the scene at once
+			(this.timing.reveals ??= []).push({ id, start: performance.now(), compileMs: 0, revealMs: 0 });
+			return;
+		}
+		this.pendingReveals++;
+		this.compileQueue = (this.compileQueue ?? Promise.resolve()).then(() => this.reveal(stage));
+	}
+
+	/** Textures of the meshes under `root` that no mesh in the scene has used yet. */
+	newTextures(root) {
+		const out = new Set();
+		root.traverse((o) => {
+			if (!o.isMesh) return;
+			for (const value of Object.values(o.material)) if (value?.isTexture && !this.uploaded.has(value)) out.add(value);
+		});
+		return [...out];
+	}
+
+	/** The textures of everything in the scene now: drawn by the first frames, so not worth a pre-upload. */
+	noteUploaded(root) {
+		root.traverse((o) => {
+			if (!o.isMesh || !o.material) return;
+			for (const m of Array.isArray(o.material) ? o.material : [o.material]) for (const value of Object.values(m)) if (value?.isTexture) this.uploaded.add(value);
+		});
+	}
+
+	/** A staged module becomes part of the scene: meshes into their containers, its lamps lit. */
+	commit(stage) {
+		this.stagedModules?.delete(stage);
+		for (const attach of stage.attach) attach();
+		this.lightFlames(stage.lights);
+		this.loadedModules.add(stage.id);
+		this.moduleOverlayDirty = true;
+	}
+
+	/** Adds a built mesh to its map-wide container now, or (while a module is staged) when the module is revealed. */
+	attach(container, mesh) {
+		const tag = container === this.treeCells ? 'tree' : container === this.grass ? 'grass' : container === this.shrubCells ? 'shrub' : 'static';
+		const key = this.programClass(mesh, tag);
+		if (!this.staging) {
+			container.add(mesh);
+			this.compiledClasses.add(key); // in the scene before the first frame: the scene's own compile pass links it
+			return;
+		}
+		this.staging.root.add(mesh);
+		this.staging.attach.push(() => container.add(mesh));
+		this.staging.classes.add(key);
+	}
+
+	/**
+	 * What decides whether the first draw of a mesh needs a program that does not exist yet: the material's structure (the maps it has, side,
+	 * alpha, vertex colours; never its textures), the geometry layout, instancing, the shadow flags and which wrapper (wind, fill) it got.
+	 * A module whose classes are all known needs no compile pass.
+	 */
+	programClass(mesh, tag) {
+		const src = this.app.backend.effects.sourceOf(mesh.material);
+		const g = mesh.geometry;
+		const flags = ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'bumpMap', 'alphaMap'].map((k) => (src[k] ? 1 : 0)).join('');
+		return [tag, src.type, flags, src.side, src.transparent ? 1 : 0, src.alphaTest > 0 ? 1 : 0, src.vertexColors ? 1 : 0, mesh.isInstancedMesh ? 1 : 0, mesh.instanceColor ? 1 : 0, mesh.castShadow ? 1 : 0, mesh.receiveShadow ? 1 : 0, Object.keys(g.attributes).sort().join(','), g.index ? 1 : 0].join('|');
+	}
+
+	/** Links the programs of a staged module (compileAsync of its root with this scene's lights), then makes it part of the scene. */
+	async reveal(stage) {
+		const t0 = performance.now();
+		try {
+			// an earlier module in the queue may have linked what this one needs
+			if (!this.disposed && ![...stage.classes].every((k) => this.compiledClasses.has(k))) await this.precompile(stage.root);
+		} catch (error) {
+			console.warn(`Biome layout: precompile of ${stage.id} failed; it is shown anyway`, error);
+		}
+		for (const k of stage.classes) this.compiledClasses.add(k);
+		const compiled = performance.now();
+		// textures that no mesh of the scene has used yet: uploaded here, one per frame (a kit's atlas is 2048² with mips; a first draw would stall the frame)
+		const renderer = this.app.backend.renderer;
+		for (const texture of stage.textures) {
+			if (this.disposed) break;
+			if (this.uploaded.has(texture)) continue;
+			try {
+				const u0 = performance.now();
+				renderer.initTexture?.(texture);
+				(this.timing.uploads ??= []).push({ name: texture.name, at: u0, ms: performance.now() - u0 });
+			} catch (error) {
+				console.warn('Biome layout: texture pre-upload failed; it uploads on its first draw', error);
+			}
+			this.uploaded.add(texture);
+			await new Promise((resolve) => requestAnimationFrame(resolve));
+		}
+		if (!this.disposed) this.commit(stage);
+		this.pendingReveals--;
+		(this.timing.reveals ??= []).push({ id: stage.id, start: t0, compileMs: compiled - t0, revealMs: performance.now() - compiled });
+	}
+
+	/**
+	 * compileAsync on a group that is not in the scene yet: the lights, fog and environment come from this scene, the meshes are not
+	 * frustum-culled while it runs (the pass only compiles what the camera would see). Bounded: a stuck compile does not hold the module back for ever.
+	 */
+	async precompile(root) {
+		const backend = this.app.backend;
+		const renderer = backend.renderer;
+		if (!renderer?.compileAsync) return;
+		const meshes = [];
+		root.traverse((o) => o.isMesh && meshes.push(o));
+		const culled = meshes.map((o) => o.frustumCulled);
+		for (const o of meshes) o.frustumCulled = false;
+		// WebGPU keys a render object by the scene it belongs to (environment, fog): the staging scene carries this scene's
+		root.environment = this.scene.environment;
+		root.environmentIntensity = this.scene.environmentIntensity;
+		root.fog = this.scene.fog;
+		const target = !backend.isWebGPU ? backend.pipeline?.sceneRT : null; // the WebGL path compiles against the HDR scene target (its program keys differ from the screen's)
+		const previous = target ? renderer.getRenderTarget() : null;
+		let timer = 0;
+		try {
+			if (target) renderer.setRenderTarget(target);
+			const done = renderer.compileAsync(root, this.app.rig.camera, this.scene);
+			if (target) renderer.setRenderTarget(previous);
+			await Promise.race([done, new Promise((resolve) => (timer = setTimeout(resolve, 4000)))]);
+		} finally {
+			clearTimeout(timer);
+			meshes.forEach((o, i) => (o.frustumCulled = culled[i]));
+		}
+	}
+
+	/** Builds a set of items { placements, shrubs, tufts (indices; null = all), lights (placement indices) } into the map-wide containers. */
+	buildContent(content, options, staged = false) {
+		this.buildProps(content.placements, options);
+		this.buildShrubs(content.shrubs, options);
+		this.buildGrass(content.tufts, options);
+		if (!staged) this.lightFlames(content.lights); // a staged module lights its lamps when it is revealed
 	}
 
 	/**
@@ -565,9 +1112,9 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	async buildTerrain() {
 		const segs = 224;
-		const g = new THREE.PlaneGeometry(SIZE, SIZE, segs, segs);
+		const g = new THREE.PlaneGeometry(this.size, this.size, segs, segs);
 		g.rotateX(-Math.PI / 2);
-		g.translate(ORIGIN.x + SIZE / 2, 0, ORIGIN.z + SIZE / 2);
+		g.translate(this.origin.x + this.size / 2, 0, this.origin.z + this.size / 2);
 		const pos = g.attributes.position;
 		for (let i = 0; i < pos.count; i++) pos.setY(i, this.height(pos.getX(i), pos.getZ(i)));
 		g.computeVertexNormals();
@@ -619,7 +1166,7 @@ export class BiomeLayoutScene extends TerrainScene {
 			m.needsUpdate = true;
 		}
 		const heightAt = (x, z) => this.height(x, z) + 0.025;
-		for (const path of PLAN.paths) {
+		for (const path of this.plan.paths) {
 			const width = path.width ?? this.catalogRules().pathWidth[path.kind] ?? 2;
 			const pts = toVec3(sampleLine(path.points, false, 1.4));
 			const first = pts[0];
@@ -643,7 +1190,7 @@ export class BiomeLayoutScene extends TerrainScene {
 		Object.assign(this.waterMaterial, { map: tex.water.map, alphaMap: tex.water.alphaMap, emissive: new THREE.Color('#2f4048'), emissiveIntensity: 0.45 });
 		this.waterMaterial.needsUpdate = true;
 		const level = this.settings.waterLevel;
-		for (const water of PLAN.water) {
+		for (const water of this.plan.water) {
 			let geometry;
 			if (water.polygon) geometry = this.pondGeometry(water.polygon, level);
 			else {
@@ -742,8 +1289,7 @@ export class BiomeLayoutScene extends TerrainScene {
 	}
 
 	/** meshes' materials through fn, once per distinct material (the meshes of a set share one). */
-	swapMaterials(meshes, fn) {
-		const done = new Map();
+	swapMaterials(meshes, fn, done = new Map()) { // `done` kept by the caller: later calls reuse the wrapped copies
 		for (const mesh of meshes) {
 			if (!mesh?.material) continue;
 			if (!done.has(mesh.material)) {
@@ -769,10 +1315,14 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	// -- placements → meshes ------------------------------------------------------------------------------------------
 
-	/** Engine placements → one StaticBatch per class (cells), kit trees as instanced cells with wind, authored masses as procedural builds. */
-	buildProps() {
+	/**
+	 * Engine placements → one StaticBatch per class (cells), kit trees as instanced cells with wind, authored masses as procedural builds.
+	 * Builds the placements given (a module's, or all of them) into the map-wide containers: `staticCell` is the batching cell (0 = one mesh
+	 * per material), `treeCell` the tree instancing cell; `pads` adds the waypoint platforms of the plan (they belong to no module).
+	 */
+	buildProps(placements, { staticCell, treeCell, pads = false }) {
 		const batches = Object.fromEntries(CLASS_ORDER.map((c) => [c, new kit.StaticBatch(`Biome layout · ${c}`)]));
-		const trees = new InstanceBuilder('Biome layout trees (instanced cells)', { cell: this.cell * 2, pad: 1, castShadow: true });
+		const trees = new InstanceBuilder('Biome layout trees (instanced cells)', { cell: treeCell, pad: 1, castShadow: true });
 		const treeClass = new Map(); // geometry uuid|material uuid → class (the class view colours the instances)
 		const m4 = new THREE.Matrix4();
 		const qYaw = new THREE.Quaternion();
@@ -780,9 +1330,7 @@ export class BiomeLayoutScene extends TerrainScene {
 		const up = new THREE.Vector3(0, 1, 0);
 		const tilt = new THREE.Vector3();
 		const missing = new Set();
-		this.classMeshes = Object.fromEntries(CLASS_ORDER.map((c) => [c, []]));
-		this.treeInstances = Object.fromEntries(CLASS_ORDER.map((c) => [c, 0]));
-		for (const p of this.result.placements) {
+		for (const p of placements) {
 			if (p.procedural) {
 				this.buildProcedural(p, batches[p.class] ?? batches.obstacle);
 				continue;
@@ -807,30 +1355,52 @@ export class BiomeLayoutScene extends TerrainScene {
 			batches[cls].add(piece.geometry, this.kitMaterial(piece.material), { position: [p.x, p.y, p.z], rotation: [euler.x, euler.y, euler.z], scale: p.scale, uv: 'keep', castShadow: !(cls === 'decor' && (p.height ?? 1) < 0.3) });
 		}
 		for (const asset of missing) console.warn(`Biome layout: kit piece of ${asset} is missing; skipped`);
-		this.interactionPads(batches.interactive);
-		this.treeCells = trees.build();
-		for (const mesh of this.treeCells.children) {
+		if (pads) this.interactionPads(batches.interactive);
+		const treeMeshes = [...trees.build().children];
+		for (const mesh of treeMeshes) {
 			mesh.userData.labSolid = true;
-			this.classMeshes[treeClass.get(mesh.geometry.uuid) ?? 'obstacle'].push(mesh);
+			this.attach(this.treeCells, mesh);
+			this.trees.push(mesh);
+			this.addClassMesh(treeClass.get(mesh.geometry.uuid) ?? 'obstacle', mesh);
 		}
-		this.trees = [...this.treeCells.children];
-		this.scene.add(this.treeCells);
-		this.staticGroup = new THREE.Group(); // the base class' lists read its children; the real groups are in this.groups
-		this.staticGroup.name = 'Biome layout statics';
-		this.scene.add(this.staticGroup);
-		this.groups = {};
+		this.adoptMeshes(treeMeshes, this.windTrees, 'windTrees');
 		for (const [cls, batch] of Object.entries(batches)) {
-			const group = batch.build(true, { cell: this.cell });
-			if (cls === 'decor') group.userData.labNoCollide = true;
-			this.groups[cls] = group;
-			this.staticGroup.add(group);
-			this.classMeshes[cls].push(...group.children);
+			const built = batch.build(true, { cell: staticCell });
+			const group = this.groups[cls];
+			group.userData.pieceCount += built.userData.pieceCount;
+			group.userData.meshCount += built.userData.meshCount;
+			const meshes = [...built.children];
+			for (const mesh of meshes) {
+				this.attach(group, mesh);
+				this.addClassMesh(cls, mesh);
+			}
+			this.adoptMeshes(meshes);
 		}
+	}
+
+	/**
+	 * Materials of meshes that were just built: the wind effect (when given; one wrapped copy per source material, kept in this.memo so
+	 * a later module reuses it and its program) and the shadow fill; after init also the backend's program tagging (WebGL: shadow twins).
+	 */
+	adoptMeshes(meshes, wind = null, memoKey = null) {
+		if (!meshes.length) return;
+		if (wind) this.swapMaterials(meshes, (m) => wind.apply(m), this.memo[memoKey]);
+		this.swapMaterials(meshes, (m) => this.shadowFill.apply(m), this.memo.fill);
+		if (this.ready) for (const mesh of meshes) this.app.backend.prepareObject(mesh);
+	}
+
+	/** A built mesh joins its class (the class view colours it); the class view's own mesh follows when that exists. */
+	addClassMesh(cls, mesh) {
+		this.classMeshes[cls].push(mesh);
+		if (!this.classOverlay) return;
+		const overlay = this.classOverlayMesh(mesh, cls);
+		this.classOverlay.add(overlay);
+		if (this.ready) this.app.backend.prepareObject(overlay);
 	}
 
 	/** Flat, walkable platform of an interaction the plan names a waypoint; other interactions are only zones (their owner builds the piece). */
 	interactionPads(batch) {
-		for (const it of PLAN.interactions ?? []) {
+		for (const it of this.plan.interactions ?? []) {
 			if (!/waypoint/i.test(it.id)) continue;
 			let hi = -Infinity;
 			for (let k = 0; k < 12; k++) hi = Math.max(hi, this.height(it.at.x + Math.cos((k / 12) * Math.PI * 2) * 1.75, it.at.z + Math.sin((k / 12) * Math.PI * 2) * 1.75));
@@ -903,7 +1473,7 @@ export class BiomeLayoutScene extends TerrainScene {
 			const c = Math.cos(p.yaw);
 			const s = Math.sin(p.yaw);
 			let door = 0;
-			for (const d0 of PLAN.doors ?? []) {
+			for (const d0 of this.plan.doors ?? []) {
 				const dx = d0.at.x - p.x;
 				const dz = d0.at.z - p.z;
 				const lx = dx * c - dz * s;
@@ -1020,8 +1590,12 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	// -- ecology → tufts, shrubs, cards -----------------------------------------------------------------------------------
 
-	/** Grass tufts of the engine (positions, heights, tones, kinds) as instanced cells; the kit-free blade tuft of the other maps. */
-	buildGrass() {
+	/**
+	 * Grass tufts of the engine (positions, heights, tones, kinds) as instanced cells; the kit-free blade tuft of the other maps.
+	 * `indices` = the tufts to build (a module's), null = all. Every tuft draws its random numbers from its own place in the stream
+	 * (rngAt), so a tuft looks the same whichever module — or the whole-map build — makes it.
+	 */
+	buildGrass(indices, { cell }) {
 		const t = this.result.ecology.tufts;
 		const strawKind = t.kinds.row;
 		const look = TERRAIN_SETS[this.settings.layerSet] ?? TERRAIN_SETS.moor;
@@ -1032,26 +1606,37 @@ export class BiomeLayoutScene extends TerrainScene {
 			g.scale(1, 1 / Math.max(0.1, g.boundingBox.max.y), 1); // unit height: the engine's h is metres
 			this.tuftGeometry = g;
 		}
-		const material = this.grassBase.clone();
-		const builder = new InstanceBuilder('Biome layout grass (instanced cells)', { cell: this.cell, pad: 0.4 });
-		const r = kit.rng(77);
+		this.grassMaterial ??= this.grassBase.clone();
+		const builder = new InstanceBuilder('Biome layout grass (instanced cells)', { cell, pad: 0.4 });
 		const m4 = new THREE.Matrix4();
 		const q = new THREE.Quaternion();
 		const e = new THREE.Euler();
 		const color = new THREE.Color();
 		const straw = new THREE.Color(V.VALDREN.straw);
-		for (let i = 0; i < t.x.length; i++) {
+		const count = indices ? indices.length : t.x.length;
+		for (let n = 0; n < count; n++) {
+			const i = indices ? indices[n] : n;
+			const r = rngAt(77, i * TUFT_DRAWS);
 			const h = t.h[i];
 			const w = 0.75 + r() * 0.45;
 			e.set((r() - 0.5) * 0.22, r() * Math.PI * 2, (r() - 0.5) * 0.22);
 			m4.compose(new THREE.Vector3(t.x[i], this.height(t.x[i], t.z[i]) - 0.02, t.z[i]), q.setFromEuler(e), new THREE.Vector3(w, h, w));
 			if (t.kind[i] === strawKind) color.copy(straw).multiplyScalar(0.75 + r() * 0.2);
 			else color.setRGB(...look.tuftColor.map((c) => c[0] + t.tone[i] * c[1])).multiplyScalar(0.9 + r() * 0.15);
-			builder.add(this.tuftGeometry, material, m4, color);
+			builder.add(this.tuftGeometry, this.grassMaterial, m4, color);
 		}
-		this.grass = builder.build();
-		this.grass.material = material;
-		this.scene.add(this.grass);
+		const meshes = [...builder.build().children];
+		if (!meshes.length) return;
+		if (!this.grassWrapped) {
+			const windy = this.windGrass.apply(this.grassMaterial);
+			this.grassWrapped = this.shadowFill.apply(windy);
+			for (const m of [this.grassMaterial, windy, this.grassWrapped]) (this.wrapped ??= new Set()).add(m); // disposed with the scene
+		}
+		for (const mesh of meshes) {
+			mesh.material = this.grassWrapped;
+			this.attach(this.grass, mesh);
+		}
+		if (this.ready) for (const mesh of meshes) this.app.backend.prepareObject(mesh);
 	}
 
 	rebuildGrass() {
@@ -1060,31 +1645,38 @@ export class BiomeLayoutScene extends TerrainScene {
 		this.app.mood?.onSceneRebuilt(this);
 	}
 
-	/** Shrubs of the engine (kit shrubs, 0.3–0.7 H, walk-through): instanced cells with wind. */
-	buildShrubs() {
-		this.shrubs = [];
-		const list = this.result.ecology.shrubs;
-		const builder = new InstanceBuilder('Biome layout shrubs (instanced cells)', { cell: this.cell, pad: 0.3, castShadow: true });
+	/** Shrubs of the engine (kit shrubs, 0.3–0.7 H, walk-through): `list` = the shrubs to build (a module's, or all), instanced cells with wind. */
+	buildShrubs(list, { cell }) {
+		const builder = new InstanceBuilder('Biome layout shrubs (instanced cells)', { cell, pad: 0.3, castShadow: true });
 		const m4 = new THREE.Matrix4();
 		const q = new THREE.Quaternion();
 		const up = new THREE.Vector3(0, 1, 0);
-		let material = null;
 		for (const p of list) {
 			const piece = this.piece(p.kit, p.piece);
 			if (!piece) continue;
-			if (!material) {
-				material = piece.material.clone();
+			if (!this.shrubMaterial) {
+				const material = piece.material.clone();
 				material.side = THREE.DoubleSide; // single-sided leaf cards
 				material.color.multiplyScalar(0.85);
 				material.name = 'Biome layout shrubs';
 				this.shrubMaterial = material;
 			}
 			m4.compose(new THREE.Vector3(p.x, p.y, p.z), q.setFromAxisAngle(up, p.yaw), new THREE.Vector3(p.scale, p.scale, p.scale));
-			builder.add(piece.geometry, material, m4);
+			builder.add(piece.geometry, this.shrubMaterial, m4);
 		}
-		this.shrubCells = builder.build();
-		this.shrubs = [...this.shrubCells.children];
-		this.scene.add(this.shrubCells);
+		const meshes = [...builder.build().children];
+		if (!meshes.length) return;
+		if (!this.shrubWrapped) {
+			const windy = this.windShrubs.apply(this.shrubMaterial);
+			this.shrubWrapped = this.shadowFill.apply(windy);
+			for (const m of [windy, this.shrubWrapped]) (this.wrapped ??= new Set()).add(m);
+		}
+		for (const mesh of meshes) {
+			mesh.material = this.shrubWrapped;
+			this.attach(this.shrubCells, mesh);
+			this.shrubs.push(mesh);
+		}
+		if (this.ready) for (const mesh of meshes) this.app.backend.prepareObject(mesh);
 	}
 
 	/** Atlas grass cards on the engine's tufts of the open ground (so they obey every exclusion the tufts do): the 3D edge grass. */
@@ -1150,18 +1742,24 @@ export class BiomeLayoutScene extends TerrainScene {
 		this.fireLight = { color: new THREE.Color(), distance: 0, shadow: { intensity: 0 } };
 		this.torchLights = [];
 		this.propLights = [];
-		// The plan's lights: a flame and a small warm point light each, no shadows (sampler budget).
-		const spots = this.result.placements.filter((p) => p.light);
+		// The plan's lights: a flame and a small warm point light each, no shadows (sampler budget). ALL point lights exist from here on:
+		// the light count is part of every lit material's program key, so a light added later would recompile every lit material. In
+		// 'modules' mode a light starts dark and its flame is added when the module that owns it is built (lightFlames).
+		const modular = this.loadMode === 'modules';
+		const spots = [];
+		this.result.placements.forEach((p, k) => p.light && spots.push([k, p]));
 		this.flames = new FlameField(this.app, Math.max(8, spots.length + 4));
 		this.vfx.add(this.flames.mesh);
-		this.lampLights = spots.map((p) => {
+		this.lampOf = new Map(); // placement index → { light, position, width, height, power }
+		this.lampLights = spots.map(([k, p]) => {
 			const [width, height, power] = FLAMES[p.piece] ?? FLAME_DEFAULT;
-			const light = new THREE.PointLight(kelvinToColor(1900), power, 7.5, 2);
+			const light = new THREE.PointLight(kelvinToColor(1900), modular ? 0 : power, 7.5, 2);
 			light.position.set(p.light.x, p.light.y + 0.25, p.light.z);
 			light.castShadow = false;
 			light.name = `Light · ${p.asset}`;
 			this.scene.add(light);
-			this.flames.add(new THREE.Vector3(p.light.x, p.light.y, p.light.z), { light, width, height, strength: 1 });
+			this.lampOf.set(k, { light, position: new THREE.Vector3(p.light.x, p.light.y, p.light.z), width, height, power });
+			if (!modular) this.flames.add(this.lampOf.get(k).position, { light, width, height, strength: 1 });
 			return light;
 		});
 		this.heroLight = new THREE.PointLight(0xffffff, 0, 12, 1.2);
@@ -1245,20 +1843,24 @@ export class BiomeLayoutScene extends TerrainScene {
 		}
 	}
 
-	/** Shadow fill on the ground, paths, statics, trees, grass and shrubs (each distinct material once). */
+	/** Shadow fill on the ground and the paths; the meshes of the content get theirs as they are adopted (adoptMeshes). */
 	applyFill() {
 		this.updateFill();
-		const meshes = [this.ground, ...this.roadMeshes, ...Object.values(this.groups).flatMap((g) => g.children), ...this.trees, ...this.grass.children, ...this.shrubs].filter((m) => m?.isMesh);
-		this.swapMaterials(meshes, (m) => this.shadowFill.apply(m));
+		this.swapMaterials([this.ground, ...this.roadMeshes].filter((m) => m?.isMesh), (m) => this.shadowFill.apply(m), this.memo.fill);
 	}
 
 	buildGroundBlend() {
+		this.groundBlend = new GroundBlend(this.app, { ground: this.ground, terrain: this.terrain, heightAt: (x, z) => this.height(x, z), splat: this.splat });
+		this.setBlendAssets();
+	}
+
+	/** The blend's asset list (statics and trees built so far) and how each is classified; the atlases are read from the kits loaded now. */
+	setBlendAssets() {
 		const fx = this.app.backend.effects;
 		const atlas = (keys) => new Set(keys.flatMap((k) => Object.values(this.kits?.[k] ?? {}).map((piece) => piece.material.map)).filter(Boolean));
 		const rocks = atlas(['rocks', 'mossy']);
 		const wood = atlas(['deadTrees', 'burnedTrees']);
 		const remains = atlas(['corpses']);
-		this.groundBlend = new GroundBlend(this.app, { ground: this.ground, terrain: this.terrain, heightAt: (x, z) => this.height(x, z), splat: this.splat });
 		const assets = [...Object.values(this.groups).flatMap((g) => g.children), ...this.trees];
 		this.groundBlend.setAssets(assets, (mesh) => {
 			const material = fx.sourceOf(mesh.material);
@@ -1275,28 +1877,29 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	// -- class view (AD 12 §4.12) and the explanation overlays --------------------------------------------------------
 
-	/** Flat class colour over each lit mesh (the Weeping Fields class view): obstacle · destructible · decor · guide · interactive · hazard. */
+	/** Flat class colour over each lit mesh (the Weeping Fields class view): obstacle · destructible · decor · guide · interactive · hazard. Streamed modules add theirs (addClassMesh). */
 	buildClassOverlay() {
 		this.classOverlay = new THREE.Group();
 		this.classOverlay.name = 'Gameplay class view';
 		this.classOverlay.userData.labNoPick = this.classOverlay.userData.labNoCollide = true;
 		this.classOverlay.visible = false;
-		const materials = Object.fromEntries(Object.entries(CLASS_COLORS).map(([id, color]) => [id, new THREE.MeshBasicMaterial({ name: `Class view · ${id}`, color: new THREE.Color(color), transparent: true, opacity: 0.62, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })]));
-		for (const [cls, meshes] of Object.entries(this.classMeshes)) {
-			for (const mesh of meshes) {
-				let o;
-				if (mesh.isInstancedMesh) {
-					o = new THREE.InstancedMesh(mesh.geometry, materials[cls], mesh.count);
-					o.instanceMatrix = mesh.instanceMatrix; // the same instances
-				} else o = new THREE.Mesh(mesh.geometry, materials[cls]);
-				o.matrixAutoUpdate = false;
-				o.userData.labNoPick = o.userData.labNoCollide = true;
-				o.renderOrder = 6;
-				this.classOverlay.add(o);
-			}
-		}
-		this.classMaterials = materials;
+		this.classMaterials = Object.fromEntries(Object.entries(CLASS_COLORS).map(([id, color]) => [id, new THREE.MeshBasicMaterial({ name: `Class view · ${id}`, color: new THREE.Color(color), transparent: true, opacity: 0.62, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 })]));
+		for (const [cls, meshes] of Object.entries(this.classMeshes)) for (const mesh of meshes) this.classOverlay.add(this.classOverlayMesh(mesh, cls));
 		this.scene.add(this.classOverlay);
+	}
+
+	/** The class view's twin of a lit mesh: same geometry (and, instanced, the same instances) in the class colour. */
+	classOverlayMesh(mesh, cls) {
+		const material = this.classMaterials[cls];
+		let o;
+		if (mesh.isInstancedMesh) {
+			o = new THREE.InstancedMesh(mesh.geometry, material, mesh.count);
+			o.instanceMatrix = mesh.instanceMatrix; // the same instances
+		} else o = new THREE.Mesh(mesh.geometry, material);
+		o.matrixAutoUpdate = false;
+		o.userData.labNoPick = o.userData.labNoCollide = true;
+		o.renderOrder = 6;
+		return o;
 	}
 
 	/** Overlay group by id (built once, hidden; the labels are canvases). */
@@ -1322,6 +1925,8 @@ export class BiomeLayoutScene extends TerrainScene {
 		this.classOverlay.visible = s.classView || warm;
 		const flags = { play: s.ovPlay, footprints: s.ovFootprints, use: s.ovUse, occlusion: s.ovOcclusion, decisions: s.ovDecisions, clusters: s.ovClusters, events: s.ovEvents, drops: s.ovDrops };
 		for (const [id, on] of Object.entries(flags)) this.overlay(id).visible = on || warm;
+		if (s.ovModules) this.overlay('modules').visible = true; // built the first time it is shown
+		else if (this.overlays.modules) this.overlays.modules.visible = false;
 	}
 
 	/** Line segments draped on the terrain (`dy` above it): lines = [{ pts, closed }]. */
@@ -1589,16 +2194,176 @@ export class BiomeLayoutScene extends TerrainScene {
 
 	// -- frame --------------------------------------------------------------------------------------------------------
 
+	/** Flames of the lights a module owns: the lights exist since init, a module only lights its own (dark → its power) and adds the flame sprite. */
+	lightFlames(indices) {
+		if (this.loadMode !== 'modules' || !indices.length) return; // 'all' added them with the lights
+		for (const k of indices) {
+			const lamp = this.lampOf.get(k);
+			lamp.light.intensity = lamp.power;
+			this.flames.add(lamp.position, { light: lamp.light, width: lamp.width, height: lamp.height, strength: 1 });
+		}
+		this.applyLampSettings();
+	}
+
+	/** 'all' mode: every module is in when init ends. */
+	markAllLoaded() {
+		for (const m of this.moduleList) this.loadedModules.add(m.id);
+		this.timing.allMs = this.loadMs;
+		this.timing.allLoadedAt = performance.now();
+		this.moduleOverlayDirty = true;
+	}
+
+	/** The streamer finished: ground blend and the wet layer see every mesh, the reports get the final numbers. */
+	onStreamDone() {
+		this.timing.allLoadedAt = performance.now();
+		this.timing.allMs = this.timing.allLoadedAt - this.t0;
+		this.timing.stream = this.stream.stats();
+		if (this.groundBlend) this.setBlendAssets();
+		this.app.mood?.onSceneRebuilt(this);
+		this.refreshReports();
+	}
+
+	/** Re-renders the report panel and the module status (they were drawn when the panel opened). */
+	refreshReports() {
+		if (this.reportEl?.isConnected) this.reportEl.innerHTML = this.reportHtml();
+		if (this.moduleStatusEl?.isConnected) this.moduleStatusEl.innerHTML = this.moduleStatusHtml();
+		if (this.instancingEl?.isConnected) this.instancingEl.innerHTML = this.instancingHtml();
+	}
+
+	/**
+	 * Build budget of a frame (ms): the rules' 4 ms at 60 fps. A renderer that is slower is not slowed further by a one-module frame, so it gets a
+	 * quarter of its smoothed frame time instead, at most 25 ms (and one stall is not a frame time: samples are clamped at 250 ms).
+	 */
+	streamBudget(frameMs) {
+		const sample = Math.min(frameMs, 250);
+		this.frameEma = this.frameEma ? this.frameEma * 0.8 + sample * 0.2 : sample;
+		return Math.min(25, Math.max(RULES.frameBudgetMs, 0.25 * this.frameEma));
+	}
+
+	/** Once per frame after the warm-up: a module or two inside the frame budget, deferred work, frame-time bookkeeping. */
+	stepStream(now) {
+		const stream = this.stream;
+		if (this.warmFrames < 3) return;
+		if (stream && !this.streamEnded) {
+			if (this.lastFrameAt) {
+				const ms = now - this.lastFrameAt;
+				const f = this.timing.frames;
+				f.max = Math.max(f.max, ms);
+				f.count++;
+				if (ms > 33.4) f.over33++;
+				if (ms > 50) f.over50++;
+			}
+			const built = stream.step(this.streamBudget(this.lastFrameAt ? now - this.lastFrameAt : 16.7));
+			if (built && stream.builtCount % 8 === 0) this.refreshReports();
+			if (stream.builtCount === stream.modules.length && this.pendingReveals === 0) {
+				this.streamEnded = true;
+				this.onStreamDone();
+			}
+		}
+		this.lastFrameAt = now;
+		if (this.deferred?.length && this.warmFrames >= 6) this.deferred.shift()();
+		if (this.moduleOverlayDirty && this.overlays.modules?.visible) this.refreshModuleOverlay();
+	}
+
 	update(delta, elapsed) {
 		if (this.heroLight.visible) {
 			this.app.subject.root.getWorldPosition(this.heroLight.position);
 			this.heroLight.position.y += this.heroHeight ?? 3;
 		}
 		this.placeMoon();
+		if (!this.timing.firstFrameAt) {
+			this.timing.firstFrameAt = performance.now(); // ms since the page opened
+			this.stream?.release(); // the background kits may start now: until the first frame the hero's model, the sky and the shaders own the bandwidth
+		}
 		if (this.warmFrames < 3 && ++this.warmFrames === 3) this.applyOverlays();
+		else if (this.warmFrames >= 3 && this.warmFrames < 6) this.warmFrames++;
 		this.flames.update(elapsed);
 		if (this.waterMesh?.visible) this.waterMaterial.map.offset.y = (-elapsed * this.settings.waterFlow) % 1;
 		this.groundBlend?.update();
+		this.stepStream(performance.now());
+	}
+
+	activate() {
+		super.activate();
+		this.lastFrameAt = 0;
+		this.stream?.resume();
+	}
+
+	deactivate() {
+		this.stream?.pause(); // streaming goes on when the scene comes back
+		super.deactivate();
+	}
+
+	/**
+	 * "Lưới module": the 16 m squares of the module grid with id · ring · load order. Colour = state: green loaded, grey waiting,
+	 * red = breaks a budget (dim red until loaded). Built the first time it is shown; the squares swap between three shared materials.
+	 */
+	build_modules(group) {
+		const colors = { loaded: '#8fd070', pending: '#6c7a88', over: '#ff4f4f', overPending: '#8a3a3a' };
+		this.moduleMaterials = Object.fromEntries(Object.entries(colors).map(([k, c]) => [k, new THREE.LineBasicMaterial({ color: c, transparent: true, opacity: 0.95, depthWrite: false, toneMapped: false })]));
+		this.moduleLines = new Map();
+		this.moduleLabels = new Map();
+		for (const m of this.manifest.modules) {
+			const { x0, z0, x1, z1 } = m.cell;
+			const line = this.drapedLines([{ pts: [{ x: x0, z: z0 }, { x: x1, z: z0 }, { x: x1, z: z1 }, { x: x0, z: z1 }], closed: true }], '#ffffff', 0.2);
+			line.material.dispose();
+			line.material = this.moduleMaterials.pending;
+			this.moduleLines.set(m.id, line);
+			group.add(line);
+			const o = this.order[this.orderIndex.get(m.id)];
+			const label = this.groundText(`${m.id} · ${o.ring === 0 ? 'vòng 0' : `v${o.ring}`} · #${this.orderIndex.get(m.id) + 1}`, (x0 + x1) / 2, (z0 + z1) / 2, '#e8e4d8', 8);
+			this.moduleLabels.set(m.id, label);
+			group.add(label);
+		}
+		this.refreshModuleOverlay();
+	}
+
+	/** Squares and labels follow the state: loaded or waiting, over budget or not. */
+	refreshModuleOverlay() {
+		if (!this.moduleLines) return;
+		this.moduleOverlayDirty = false;
+		for (const [id, line] of this.moduleLines) {
+			const loaded = this.loadedModules.has(id);
+			const over = this.overBudget.has(id);
+			line.material = this.moduleMaterials[over ? (loaded ? 'over' : 'overPending') : loaded ? 'loaded' : 'pending'];
+			const label = this.moduleLabels.get(id);
+			label.material.transparent = true;
+			label.material.opacity = loaded ? 1 : 0.45;
+		}
+	}
+
+	/** Module & tải nhanh: source of the layout and the splat, time to the first frame and to the last module, kits and MB, streaming frame times. */
+	moduleStatusHtml() {
+		const t = this.timing ?? {};
+		const row = (a, b, c = '') => `<div class="wf-row"><b>${a}</b><span>${b}</span><em>${c}</em></div>`;
+		const ms = (v) => (Number.isFinite(v) ? `${v.toFixed(0)} ms` : '…');
+		const src = { cache: 'cache trình duyệt (IndexedDB)', file: 'file bake assets/maps/', engine: 'engine (chạy lại thuật toán)' };
+		const total = this.moduleList.length;
+		const stream = this.stream?.stats();
+		const kitsNow = Object.keys(this.kits ?? {}).length;
+		const f = t.frames ?? { max: 0, count: 0, over33: 0, over50: 0 };
+		return `<div class="wf-palette">
+			${row('Chế độ', t.mode === 'all' ? 'all' : 'modules', t.mode === 'all' ? 'mọi kit + mọi module trước khung đầu (như cũ)' : `vòng 0 trước, ${total - (this.order.filter((o) => o.ring === 0).length)} module còn lại tải dần`)}
+			${row('Layout', ms(t.layout?.ms), `${src[t.layout?.source] ?? ''}${t.layout?.engineMs ? ` · engine ${t.layout.engineMs} ms` : ''} · key ${t.layout?.key?.slice(0, 8) ?? ''}`)}
+			${row('Plan', t.plan?.source === 'seed' ? ms(t.plan.generateMs ?? t.plan.planMs) : 'demo', t.plan?.source === 'seed' ? (t.plan.generateMs !== null ? 'generateMap: tìm lần thử + engine (nguội)' : `generatePlan(seed, { attempt }) từ ${this.mapInfo?.gen?.source === 'file' ? 'file bake' : 'cache'} (không tìm lại)`) : 'DEMO_PLAN làm tay')}
+				${row('Splat', ms(t.splat?.ms), t.splat?.source === 'cache' ? 'từ cache (bỏ generateSplat)' : 'generateSplat')}
+			${row('Khung đầu', ms(t.initMs), `init (kit vòng 0 + terrain song song, phần toàn cục ${ms(t.globalsMs)}) · hình hiện ở ${ms(t.firstFrameAt)} kể từ lúc mở trang`)}
+			${row('Kit trước khung đầu', `${t.requiredKits?.length ?? '…'} kit`, `${(t.requiredMB ?? 0).toFixed(1)} MB cần thiết (vòng 0) · lúc hết init đã tải ${t.kitsAtInit ?? '…'} kit / ${(t.kitMBAtInit ?? 0).toFixed(1)} MB`)}
+			${row('Module đã vào', `${this.loadedModules.size}/${total}`, `${t.modulesAtInit ?? 0} trước khung đầu · đủ sau ${t.allMs ? ms(t.allMs) : '…'}${stream ? ` · dựng ${stream.buildMsTotal.toFixed(0)} ms (CPU)` : ''}`)}
+			${row('Kit đã tải', `${kitsNow}`, stream ? `đồng thời tối đa ${stream.maxInflight}${stream.kitErrors.length ? ` · lỗi ${stream.kitErrors.map((e) => e.key).join(', ')}` : ''}` : '')}
+			${row('Khung hình khi stream', `max ${f.max.toFixed(1)} ms`, `${f.count} khung · >33 ms: ${f.over33} · >50 ms: ${f.over50}`)}
+		</div>`;
+	}
+
+	/** Module checks and the per-module timing table, for the report panel. */
+	moduleReportHtml() {
+		const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+		const checks = this.moduleChecks ?? [];
+		const passed = checks.filter((c) => c.pass).length;
+		const rows = checks.map((c) => `<div class="wf-row" title="${esc(JSON.stringify(c.details ?? '').slice(0, 600))}"><b style="color:${c.pass ? '#8fd070' : '#ff6a5e'}">${c.pass ? '✓' : '✗'} ${esc(c.id)}</b><span>${c.details?.max ?? c.details?.value ?? ''}${c.details?.limit !== undefined ? ` / ${c.details.limit}` : ''}</span><em>${esc(c.rule)}${c.details?.violations?.length ? ` — ${c.details.violations.length} vi phạm` : ''}${c.details?.skipped ? ` — bỏ qua: ${esc(c.details.skipped)}` : ''}</em></div>`).join('');
+		const stream = this.stream?.stats();
+		const table = stream ? stream.modules.filter((m) => m.built).map((m) => `<div class="wf-row"><b>${m.id}</b><span>vòng ${m.ring}</span><em>kit ${m.kitWaitMs === null ? '—' : m.kitWaitMs.toFixed(0)} ms · dựng ${m.buildMs.toFixed(1)} ms · chờ khung ${m.lagMs.toFixed(0)} ms</em></div>`).join('') : '';
+		return `<h4>Module & tải nhanh §4.14 · ${passed}/${checks.length} đạt</h4>${rows}${table ? `<details><summary>Thời gian từng module (kit chờ · dựng · chờ khung)</summary>${table}</details>` : ''}`;
 	}
 
 	// -- panels -------------------------------------------------------------------------------------------------------
@@ -1628,7 +2393,17 @@ export class BiomeLayoutScene extends TerrainScene {
 
 		// The algorithm ---------------------------------------------------------------------------------------
 		const fb = folder.addFolder('Bố trí biome · thuật toán');
-		note(fb, 'Map này vẽ kết quả của <b>layoutBiome()</b> (art-direction/12 §4.13) trên plan demo: đạo cụ kit thật, cỏ/bụi từ <b>ecology</b>, đèn từ <b>light</b>. Bật overlay để xem <b>vì sao</b> mỗi thứ nằm ở đó; báo cáo ở thư mục dưới.');
+		note(fb, 'Map này vẽ kết quả của <b>layoutBiome()</b> (art-direction/12 §4.13) trên một plan: đạo cụ kit thật, cỏ/bụi từ <b>ecology</b>, đèn từ <b>light</b>. Bật overlay để xem <b>vì sao</b> mỗi thứ nằm ở đó; báo cáo ở thư mục dưới.');
+		const fseed = fb.addFolder('Map từ một seed (đổi = tải lại map)');
+		note(fseed, 'Một con số → cả map: <b>planGen</b> (art-direction/12 §4.15) sinh đường, suối/ao, vùng (trại, nông trại, hang, nghĩa địa), công trình và địa hình; <b>layoutBiome</b> trang trí. Cùng seed → cùng map. Lần đầu thuật toán thử vài lần cho tới khi mọi kiểm tra đạt; lần sau lấy từ cache (không chạy lại engine).');
+		fseed.add(s, 'planSource', { 'Sinh từ một seed (mặc định)': 'seed', 'Plan demo làm tay': 'demo' }).name('Nguồn plan').onChange(reload);
+		fseed.add(s, 'mapSeed', 1, 99999999, 1).name('Seed map').onFinishChange(reload);
+		fseed.add(s, 'mapSize', Object.fromEntries(MAP_SIZES.map((n) => [`${n} × ${n} m${n > 128 ? ' (Play chỉ đi được 128 m quanh điểm xuất phát)' : ''}`, n]))).name('Cỡ map').onChange(reload);
+		fseed.add({ roll: () => {
+			s.mapSeed = Math.floor(Math.random() * 99999999) + 1;
+			s.planSource = 'seed';
+			reload();
+		} }, 'roll').name('🎲 Map mới');
 		fb.add(s, 'view', Object.fromEntries(Object.entries(this.views).map(([id, v]) => [v.label, id]))).name('Góc camera').onChange((id) => (save(), this.frameView(id)));
 		fb.add({ frame: () => this.frameView(s.view) }, 'frame').name('↺ Đưa camera về góc đã chọn');
 		fb.add(s, 'classView').name('Class view (§4.12): cản · phá · trang trí · đường · tương tác').onChange(() => (save(), this.applyOverlays()));
@@ -1646,8 +2421,8 @@ export class BiomeLayoutScene extends TerrainScene {
 		fo.add(s, 'ovDrops').name('Drops (✕ + lý do)').onChange(ov);
 		note(fo, `<div class="wf-legend"><span><i style="background:${OV.path}"></i>đường</span><span><i style="background:${OV.door}"></i>cửa</span><span><i style="background:${OV.interaction}"></i>tương tác</span><span><i style="background:${OV.spawn}"></i>spawn</span><span><i style="background:${OV.arena}"></i>arena</span><span><i style="background:${OV.water}"></i>nước</span><span><i style="background:${OV.use}"></i>use</span><span><i style="background:${OV.occlusion}"></i>che</span><span><i style="background:${OV.drop}"></i>drop</span></div>`);
 
-		const fs = fb.addFolder('Seed & mật độ (đổi = tải lại map)');
-		const seeds = [['seed', 'Seed gốc (plan.seed)'], ['seedMass', 'Seed khối lớn (mass)'], ['seedCluster', 'Seed cụm chức năng (cluster)'], ['seedGuide', 'Seed dẫn đường (guide)'], ['seedEcology', 'Seed sinh thái (ecology)'], ['seedTrace', 'Seed dấu vết (trace)']];
+		const fs = fb.addFolder('Nâng cao · seed nhóm & mật độ (đổi = tải lại map)').close();
+		const seeds = [['seed', 'Seed gốc của plan demo (plan.seed; map sinh dùng Seed map)'], ['seedMass', 'Seed khối lớn (mass)'], ['seedCluster', 'Seed cụm chức năng (cluster)'], ['seedGuide', 'Seed dẫn đường (guide)'], ['seedEcology', 'Seed sinh thái (ecology)'], ['seedTrace', 'Seed dấu vết (trace)']];
 		for (const [key, name] of seeds) fs.add(s, key, 0, 99999999, 1).name(name).onFinishChange(reload);
 		fs.add({ roll: () => {
 			const roll = () => Math.floor(Math.random() * 99999) + 1;
@@ -1655,7 +2430,7 @@ export class BiomeLayoutScene extends TerrainScene {
 			reload();
 		} }, 'roll').name('🎲 Đổi cả 5 seed nhóm');
 		fs.add({ reset: () => {
-			Object.assign(s, { seed: PLAN.seed ?? 1, seedMass: DEFAULT_OPTIONS.seeds.mass, seedCluster: DEFAULT_OPTIONS.seeds.cluster, seedGuide: DEFAULT_OPTIONS.seeds.guide, seedEcology: DEFAULT_OPTIONS.seeds.ecology, seedTrace: DEFAULT_OPTIONS.seeds.trace });
+			Object.assign(s, { seed: DEMO_PLAN.seed ?? 1, seedMass: DEFAULT_OPTIONS.seeds.mass, seedCluster: DEFAULT_OPTIONS.seeds.cluster, seedGuide: DEFAULT_OPTIONS.seeds.guide, seedEcology: DEFAULT_OPTIONS.seeds.ecology, seedTrace: DEFAULT_OPTIONS.seeds.trace });
 			reload();
 		} }, 'reset').name('↺ Seed mặc định');
 		fs.add(s, 'densityGrass', 0, 2, 0.05).name('Mật độ cỏ').onFinishChange(reload);
@@ -1663,8 +2438,20 @@ export class BiomeLayoutScene extends TerrainScene {
 		fs.add(s, 'densityTraces', 0, 2, 0.05).name('Mật độ dấu vết').onFinishChange(reload);
 		fs.add(s, 'densityMasses', 0, 2, 0.05).name('Mật độ khối lớn').onFinishChange(reload);
 
+		const fm = fb.addFolder('Module & tải nhanh');
+		note(fm, 'Map chia thành <b>module 16 m</b> (art-direction/12 §4.14). Chế độ <b>modules</b> chỉ tải kit của vòng 0 (quanh điểm xuất phát) trước khung đầu, phần còn lại tải dần theo khoảng cách mà không khựng hình; <b>all</b> tải mọi thứ trước (như cũ, để so A/B). Layout và splat lấy từ cache trình duyệt hoặc file bake (<code>npm run bake:map</code>) khi khoá khớp, nên map đã biết không chạy lại thuật toán.');
+		fm.add(s, 'loadMode', { 'modules · vòng 0 trước, còn lại tải dần (mặc định)': 'modules', 'all · mọi kit + module trước khung đầu (như cũ)': 'all' }).name('Chế độ tải (tải lại trang)').onChange(reload);
+		fm.add(s, 'useCache').name('Dùng cache map (IndexedDB + file bake)').onChange(reload);
+		const cleared = note(fm, '');
+		fm.add({ clear: async () => {
+			const n = await mapCache.clear();
+			cleared.textContent = `Đã xoá ${n} mục cache; tải lại trang để thấy lần tải nguội.`;
+		} }, 'clear').name('Xoá cache map');
+		fm.add(s, 'ovModules').name('Lưới module: ô, vòng tải, đỏ = vượt ngân sách').onChange(ov);
+		this.moduleStatusEl = note(fm, this.moduleStatusHtml());
+
 		const fr = fb.addFolder('Báo cáo');
-		const report = note(fr, this.reportHtml());
+		const report = (this.reportEl = note(fr, this.reportHtml()));
 		report.addEventListener('click', (e) => {
 			const el = e.target.closest('[data-x]');
 			if (el) this.frameAt(+el.dataset.x, +el.dataset.z, el.dataset.overlay || null);
@@ -1736,8 +2523,9 @@ export class BiomeLayoutScene extends TerrainScene {
 			this.windTrees.uniforms.strength.value = v * 0.35;
 			this.windShrubs.uniforms.strength.value = v * 0.6;
 		});
-		fg.add(s, 'cells', { 'Tắt · mỗi bộ một khối cả map': 0, '16 m (mặc định)': 16, '24 m': 24, '32 m': 32 }).name('Cỡ ô (tải lại trang)').onChange(reload);
-		note(fg, this.instancingHtml());
+		fg.add(s, 'cells', { 'Tắt · mỗi bộ một khối cả map': 0, '16 m (mặc định)': 16, '24 m': 24, '32 m': 32 }).name('Cỡ ô · chế độ all (tải lại trang)').onChange(reload);
+		note(fg, this.loadMode === 'modules' ? 'Chế độ <b>modules</b>: mỗi module 16 m là một ô (cài đặt cỡ ô bên trên chỉ áp dụng cho chế độ <b>all</b>).' : '');
+		this.instancingEl = note(fg, this.instancingHtml());
 		this.groundBlend?.buildControls(folder);
 	}
 
@@ -1758,6 +2546,33 @@ export class BiomeLayoutScene extends TerrainScene {
 		const pieces = groups.reduce((n, g) => n + (g.userData.pieceCount ?? 0), 0);
 		const meshes = groups.reduce((n, g) => n + (g.userData.meshCount ?? 0), 0);
 		return `<div class="wf-palette">${row('Cỏ (tuft)', this.grass)}${row('Thẻ cỏ', this.cards)}${row('Bụi', this.shrubCells)}${row('Cây (kit)', this.treeCells)}<div class="wf-row"><b>Đạo cụ tĩnh</b><em>${pieces} mảnh → ${meshes} mesh (theo class × vật liệu × ô)</em></div></div>`;
+	}
+
+	/** The map section of the report: the source, seed and size, the zones, the attempts the generator needed (and why it rejected the others), the plan time. */
+	mapReportHtml() {
+		const info = this.mapInfo;
+		const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+		const row = (a, b, c = '') => `<div class="wf-row"><b>${a}</b><span>${b}</span><em>${c}</em></div>`;
+		if (info.source === 'demo') return `<h4>Map · plan demo</h4>${row('Plan', esc(info.planId), `DEMO_PLAN làm tay · seed gốc ${info.seed} · ${info.size} m`)}`;
+		const g = info.gen;
+		const t = this.timing.plan;
+		const rejected = g.attempts.filter((a) => a.failed.length);
+		const where = t.generateMs !== null ? `generateMap ${t.generateMs.toFixed(0)} ms (nguội)` : `generatePlan ${t.planMs.toFixed(0)} ms (nóng: lần thử đã lưu, từ ${g.source === 'file' ? 'file bake' : 'cache'})`;
+		return `<h4>Map · một seed → cả map</h4>
+			${row('Seed · cỡ', `${info.seed} · ${info.size} m`, `plan ${esc(info.planId)} · ${esc(g.version)}`)}
+			${row('Vùng', `${info.zones.length}`, esc(info.zones.join(', ') || '—'))}
+			${row('Lần thử', `<span style="color:${g.ok ? '#8fd070' : '#ff6a5e'}">${g.ok ? 'đạt' : 'KHÔNG đạt'} · lần ${g.attempt + 1}/${g.attempts.length}</span>`, rejected.length ? rejected.map((a) => `lần ${a.attempt + 1} bị loại: ${esc(a.failed.join(', '))}`).join(' · ') : 'lần đầu đạt mọi kiểm tra plan + engine')}
+			${row('Thời gian plan', where, '')}`;
+	}
+
+	/** The generator's plan checks (checkPlan), next to the engine's: run after the first frames. */
+	planChecksHtml() {
+		if (this.mapInfo.source !== 'seed') return '';
+		const checks = this.planChecks;
+		if (!checks) return '<h4>Kiểm tra plan §4.15 · đang chạy…</h4>';
+		const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+		const rows = checks.map((c) => `<div class="wf-row" title="${esc(JSON.stringify(c.details ?? '').slice(0, 600))}"><b style="color:${c.pass ? '#8fd070' : '#ff6a5e'}">${c.pass ? '✓' : '✗'} ${esc(c.id)}</b><span></span><em>${esc(c.rule)}${c.details?.violations?.length ? ` — ${c.details.violations.length} vi phạm` : ''}</em></div>`).join('');
+		return `<h4>Kiểm tra plan §4.15 · ${checks.filter((c) => c.pass).length}/${checks.length} đạt${this.timing.planChecksMs ? ` (${this.timing.planChecksMs.toFixed(0)} ms)` : ''}</h4>${rows}`;
 	}
 
 	/** The report panel: counts, checks, drops (click → camera), warnings, per-step ms, seeds. */
@@ -1783,6 +2598,7 @@ export class BiomeLayoutScene extends TerrainScene {
 		const ms = Object.entries(rep.ms).map(([k, v]) => `${k} ${v}`).join(' · ');
 		const ground = this.groundCheck;
 		return `<div class="wf-palette">
+			${this.mapReportHtml()}
 			<h4>Tổng quan</h4>
 			${row('Placement', `${r.placements.length}`, counts(byClass))}
 			${row('Theo bước', '', counts(Object.fromEntries(Object.entries(rep.counts.step ?? {}).map(([k, v]) => [`bước ${k}`, v]))))}
@@ -1790,11 +2606,13 @@ export class BiomeLayoutScene extends TerrainScene {
 			${row('Theo vai trò', '', counts(rep.counts.role))}
 			${row('Sinh thái', `${eco.tufts} tuft`, `${eco.shrubs} bụi · ${counts(kindCounts)}`)}
 			${row('Cluster / trace', `${r.clusters.length} / ${r.events.length}`, `${r.events.filter((e) => e.dropped).length} trace bị bỏ`)}
-			${row('Thời gian', `${(this.layoutMs ?? 0).toFixed(0)} ms`, ms)}
+			${row('Thời gian', `${(this.layoutMs ?? 0).toFixed(0)} ms`, `${this.layoutSource === 'engine' ? '' : `layout lấy từ ${this.layoutSource} (engine lúc tạo: ${rep.ms.total} ms) · `}${ms}`)}
 			${row('Seed', '', seeds)}
 			${row('Mật độ', '', dens)}
 			${row('y trên mặt đất', ground ? `${ground.floating + ground.buried}/${ground.checked}` : '', `lệch > 2 cm so với điểm thấp nhất dưới footprint trừ độ lún (nổi ${ground?.floating ?? 0} · chìm ${ground?.buried ?? 0})`)}
-			<h4>Kiểm tra §4.12 · ${passed}/${rep.checks.length} đạt</h4>${checks}
+			${this.planChecksHtml()}
+			<h4>Kiểm tra engine §4.12 · ${passed}/${rep.checks.length} đạt</h4>${checks}
+			${this.moduleReportHtml()}
 			<h4>Drops · ${rep.drops.length} (bấm để xem trên map)</h4>${drops || '<p>Không có.</p>'}
 			<h4>Cảnh báo · ${rep.warnings.length}</h4>${warnings || '<p>Không có.</p>'}
 		</div>`;
@@ -1805,12 +2623,16 @@ export class BiomeLayoutScene extends TerrainScene {
 	}
 
 	dispose() {
+		this.disposed = true;
+		this.stream?.cancel();
 		this.groundBlend?.dispose();
 		this.scene.traverse((o) => o.geometry?.dispose());
+		for (const stage of this.stagedModules ?? []) stage.root.traverse((o) => o.geometry?.dispose()); // modules still waiting to compile
+		this.stagedModules?.clear();
 		this.flames?.dispose();
-		this.splat.dispose();
+		this.splat?.dispose();
 		for (const m of this.kitMaterials?.values() ?? []) m.dispose();
 		for (const m of this.wrapped ?? []) m.dispose();
-		for (const m of [this.cardBase, this.roadMaterial, this.trailMaterial, this.waterMaterial, this.shrubMaterial, this.grassBase, ...Object.values(this.classMaterials ?? {})]) m?.dispose();
+		for (const m of [this.cardBase, this.roadMaterial, this.trailMaterial, this.waterMaterial, this.shrubMaterial, this.grassBase, ...Object.values(this.classMaterials ?? {}), ...Object.values(this.moduleMaterials ?? {})]) m?.dispose();
 	}
 }

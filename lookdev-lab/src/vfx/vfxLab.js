@@ -11,6 +11,7 @@ import { SPELLS, SPELL_ORDER } from './spells.js';
 import { FlameField } from '../env/flames.js';
 import { SkillSystem } from '../skills/runtime.js';
 import { SKILLS, SKILL_ORDER, SKILL_KEYS } from '../skills/skills.js';
+import { Notice, castMessage, forwardAim } from '../skills/castControl.js';
 import { toast } from '../ui/toast.js';
 
 registerDefaults('vfxLab', {
@@ -53,6 +54,7 @@ export class VfxLab {
 		this.texts = [];
 		this.casts = 0;
 		this.skills = null;
+		this.notice = new Notice((text, kind) => toast(text, kind, 1600));
 
 		const canvas = app.backend.canvas;
 		let rightDown = null;
@@ -64,9 +66,10 @@ export class VfxLab {
 		canvas.addEventListener('pointerdown', (e) => {
 			if (e.button === 2) rightDown = { x: e.clientX, y: e.clientY };
 		});
-		// Right click casts the selected spell (a right-drag still pans the orbit camera).
+		// Right click casts the selected spell (a right-drag still pans the orbit camera). While Play runs the right button
+		// belongs to the Character controller (press / hold, see pressCast / tryCast there); a Gameplay session owns the input outright.
 		canvas.addEventListener('contextmenu', (e) => {
-			if (!this.armed) return;
+			if (!this.armed || this.playing) return;
 			e.preventDefault();
 			const dragged = rightDown && Math.hypot(e.clientX - rightDown.x, e.clientY - rightDown.y) > 5;
 			rightDown = null;
@@ -99,8 +102,18 @@ export class VfxLab {
 	// ---------------------------------------------------------------------------------------------
 	// Arm / disarm (pooled lights change the light count once, so materials recompile once here)
 
-	arm(on = true) {
+	get gameplayActive() {
+		return !!this.app.gameplay?.active;
+	}
+
+	/** Arm / disarm. The lab stays off while a Gameplay session runs: its dummies, castbar keys and right click would fight the game input. */
+	arm(on = true, { quiet = false } = {}) {
 		if (on === this.armed) return;
+		if (on && this.gameplayActive) {
+			if (!quiet) toast('The VFX lab is off while Gameplay runs (Esc leaves play)', 'info', 2600);
+			this.notify();
+			return;
+		}
 		this.armed = on;
 		this.settings.armed = on;
 		this.save();
@@ -231,8 +244,14 @@ export class VfxLab {
 	// ---------------------------------------------------------------------------------------------
 	// Dummies
 
+	/** Dummies follow the Character tab's "Training dummies as targets" while Play runs; the VFX tab always has them. */
+	dummyCount() {
+		const c = this.app.character;
+		return c?.active && c.settings.targets === false ? 0 : this.settings.dummies;
+	}
+
 	spawnDummies() {
-		const n = this.settings.dummies;
+		const n = this.dummyCount();
 		while (this.dummies.length > n) this.dummies.pop().dispose();
 		while (this.dummies.length < n) {
 			const d = new Dummy(this.app, this.dummies.length);
@@ -298,14 +317,13 @@ export class VfxLab {
 		};
 	}
 
+	/** Cast a lab spell at the cursor. Returns { ok, reason }. */
 	cast(name) {
 		const spell = SPELLS[name];
-		if (!spell || !this.armed) return;
-		if (!this.cursor.valid) this.updateCursor();
-		if (!this.cursor.valid) {
-			toast('Point at the ground or a dummy to cast', 'info', 1500);
-			return;
-		}
+		if (!spell) return { ok: false, reason: 'unknown' };
+		if (!this.armed) this.arm(true);
+		if (!this.armed) return { ok: false, reason: 'unsupported' };
+		this.ensureAim();
 		// Persistent spells toggle / move: recasting closes the previous one.
 		const existing = this.persistent[name];
 		if (existing && this.actors.has(existing)) {
@@ -313,7 +331,7 @@ export class VfxLab {
 			delete this.persistent[name];
 			if (name === 'campfire') {
 				this.highlight(name);
-				return;
+				return { ok: true, reason: null };
 			}
 		}
 		this.lastActor = null;
@@ -323,12 +341,72 @@ export class VfxLab {
 		this.casts++;
 		this.highlight(name);
 		this.playCastAnimation();
+		return { ok: true, reason: null };
 	}
 
-	/** Right click / Q: the selected lab spell, or the selected skill when the castbar shows skills. */
-	castSelected() {
-		if (this.skillMode) this.castSkill(this.settings.skill);
-		else this.cast(this.settings.selected);
+	/**
+	 * What "cast the selected one" does now: the selected skill when the castbar shows skills and the renderer can run them
+	 * (WebGL2 · GLSL), otherwise the selected lab spell — `substituted` when skills were asked for but the renderer cannot.
+	 */
+	castPlan() {
+		const wantsSkills = this.settings.castMode === 'skills';
+		if (wantsSkills && this.skillsSupported) {
+			const id = this.settings.skill;
+			return { kind: 'skill', id, label: SKILLS[id]?.label || id, reason: this.skills?.canCast(id) ?? null, substituted: false };
+		}
+		const id = this.settings.selected;
+		return { kind: 'spell', id, label: SPELLS[id]?.label || id, reason: SPELLS[id] ? null : 'unknown', substituted: wantsSkills };
+	}
+
+	/**
+	 * Right click / Q / gamepad: the selected lab spell or skill (see castPlan) at the current aim. `quiet` suppresses the
+	 * feedback (held buttons retry every few frames). Returns { ok, reason, label }.
+	 */
+	castSelected({ quiet = false } = {}) {
+		if (!this.armed) this.arm(true); // casting is an intent: it brings the runtime up, the panel does not have to be open
+		if (!this.armed) return { ok: false, reason: 'unsupported', label: '' };
+		const plan = this.castPlan();
+		if (plan.substituted && !this.notedSubstitute) {
+			this.notedSubstitute = true;
+			toast(`Skills need the WebGL2 · GLSL renderer — casting the lab spell “${plan.label}” instead`, 'info', 5000);
+		}
+		const done = plan.kind === 'skill' ? this.castSkill(plan.id, { quiet }) : this.cast(plan.id);
+		this.aimFresh = false;
+		return { ...done, label: plan.label };
+	}
+
+	/** Aim for a cast: what the controller just picked, else the cursor ray, else straight ahead of the caster (never a silent no-op). */
+	ensureAim() {
+		if (this.aimFresh) {
+			this.aimFresh = false;
+			return;
+		}
+		if (this.pointer) this.updateCursor();
+		if (!this.cursor.valid) this.aimForward();
+		this.aimFresh = false;
+	}
+
+	/** Point the next cast at `point` (a controller pick) — at `dummy` when one is under it. */
+	aimAt(point, dummy = null) {
+		const c = this.cursor;
+		c.dummy = dummy && dummy.alive ? dummy : null;
+		if (c.dummy) {
+			c.dummy.center(c.point);
+			c.ground.copy(c.dummy.root.getWorldPosition(new THREE.Vector3()));
+		} else {
+			c.point.copy(point);
+			c.ground.copy(point);
+		}
+		c.valid = true;
+		this.aimFresh = true;
+	}
+
+	/** Straight ahead of the caster (where the model faces), on the ground. */
+	aimForward(distance = 6) {
+		const p = this.casterGround();
+		const yaw = this.playing ? this.app.character.facing : this.app.subject.root.rotation.y;
+		const f = forwardAim(p.x, p.z, yaw, distance);
+		this.aimAt(new THREE.Vector3(f.x, this.groundAt(f.x, f.z, p.y), f.z));
 	}
 
 	select(name) {
@@ -458,21 +536,35 @@ export class VfxLab {
 	}
 
 	onKey(k) {
-		if (!this.armed) return;
-		if (this.skillMode) {
-			const id = SKILL_ORDER[SKILL_KEYS.indexOf(k)];
-			if (!id) return;
-			this.selectSkill(id);
-			this.updateCursor();
-			this.castSkill(id);
+		if (!this.armed && !this.playing) return; // in Play a hotkey is a cast intent: it arms the lab itself
+		let id = null;
+		if (this.skillMode) id = SKILL_ORDER[SKILL_KEYS.indexOf(k)];
+		else id = SPELL_ORDER['123456789'.indexOf(k)];
+		if (!id) return;
+		if (this.playing) {
+			const reason = this.app.character.castBlocker();
+			if (reason) {
+				this.notice.say(`key:${reason}`, castMessage(reason));
+				return;
+			}
+			// Pick it, then cast through the controller's buffered press like Q / the right button: a digit pressed mid-action
+			// waits for the hero (or is dropped after the buffer) instead of casting over a running clip.
+			if (this.skillMode) this.selectSkill(id);
+			else this.select(id);
+			const ctrl = this.app.character;
+			ctrl.pressCast('digit'); // its own source: a held Q is not released by it
+			ctrl.castHold.release('digit');
 			return;
 		}
-		const index = '123456789'.indexOf(k);
-		if (index < 0) return;
-		const name = SPELL_ORDER[index];
-		this.select(name);
 		this.updateCursor();
-		this.cast(name);
+		if (this.skillMode) {
+			this.selectSkill(id);
+			this.castSkill(id);
+		} else {
+			this.select(id);
+			this.cast(id);
+		}
+		this.aimFresh = false;
 	}
 
 	/** Melee / ranged impact from the character controller: the "Hit" spell aimed at `dummy`. */
@@ -539,23 +631,27 @@ export class VfxLab {
 		return this.skills;
 	}
 
-	castSkill(id) {
+	/** Cast a skill (three.quarks, WebGL2 · GLSL only) at the aim. Returns { ok, reason }; `quiet` skips the on-screen reason. */
+	castSkill(id, { quiet = false } = {}) {
+		if (!SKILLS[id]) return { ok: false, reason: 'unknown' };
 		if (!this.armed) this.arm(true);
+		if (!this.armed) return { ok: false, reason: 'unsupported' };
 		if (!this.ensureSkills()) {
-			toast('Skills run on three.quarks, which needs the WebGL2 · GLSL renderer.', 'error', 5000);
-			return;
+			this.notice.say('skills-unsupported', 'Skills run on three.quarks, which needs the WebGL2 · GLSL renderer.', 'error');
+			return { ok: false, reason: 'unsupported' };
 		}
-		if (!this.cursor.valid) this.updateCursor();
-		if (!this.cursor.valid && !SKILLS[id]?.toggle) {
-			toast('Point at the ground or a dummy to cast', 'info', 1500);
-			return;
+		const why = this.skills.canCast(id);
+		if (why) {
+			if (!quiet) this.notice.say(`${id}:${why}`, castMessage(why, SKILLS[id].label));
+			return { ok: false, reason: why };
 		}
+		this.ensureAim();
 		const c = this.cursor;
-		const aim = { point: (c.valid ? c.point : this.casterGround()).clone(), ground: (c.valid ? c.ground : this.casterGround()).clone(), target: c.dummy ? this.skills.host.targets()[this.dummies.indexOf(c.dummy)] ?? null : null };
-		if (this.skills.cast(id, aim)) {
-			this.casts++;
-			this.highlight(id);
-		}
+		const aim = { point: c.point.clone(), ground: c.ground.clone(), target: c.dummy ? this.skills.host.targets()[this.dummies.indexOf(c.dummy)] ?? null : null };
+		if (!this.skills.cast(id, aim)) return { ok: false, reason: this.skills.canCast(id) || 'failed' };
+		this.casts++;
+		this.highlight(id);
+		return { ok: true, reason: null };
 	}
 
 	selectSkill(id) {

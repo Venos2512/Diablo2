@@ -52,8 +52,17 @@ export class SkillSystem {
 		return !!this.toggles[id];
 	}
 
+	/** Why `id` cannot be cast now: 'unknown' | 'casting' | 'cooldown', or null when it can (an aura that is on can always switch off). */
+	canCast(id) {
+		if (!SKILLS[id]) return 'unknown';
+		if (SKILLS[id].toggle && this.toggles[id]) return null;
+		if (this.casting) return 'casting';
+		if (this.cooldown(id) > 0) return 'cooldown';
+		return null;
+	}
+
 	/**
-	 * Cast `id` at `aim` = { point, ground, target }. Returns false when it cannot (cooldown, still casting).
+	 * Cast `id` at `aim` = { point, ground, target }. Returns false when it cannot (cooldown, still casting; see canCast).
 	 * Toggle skills (auras) switch off when recast.
 	 */
 	cast(id, aim) {
@@ -64,7 +73,7 @@ export class SkillSystem {
 			delete this.toggles[id];
 			return true;
 		}
-		if (this.cooldown(id) > 0 || this.casting) return false;
+		if (this.canCast(id)) return false;
 		const host = this.host;
 		host.caster.face?.(aim.point);
 		host.caster.onCast?.(skill);

@@ -3,6 +3,7 @@
 //   movement   walk / run speeds, acceleration, turn rate, ground following and wall collision
 //   animation  Animator (locomotion blend + crossfaded overlays) with clips auto-mapped per stance
 //   combat     attacks / spells against the VFX lab's training dummies (hit frame drives the impact)
+//   casting    right button / Q / gamepad X: press (buffered while busy) or hold (repeats) -> the VFX lab casts its selected spell / skill
 //   checks     equipment + grips, scale reference lineup, foot-slide check
 import * as THREE from 'three';
 import { registerDefaults } from '../core/settings.js';
@@ -15,6 +16,7 @@ import { FootCheck } from './footCheck.js';
 import { ScaleReference, MARKERS } from './scaleRef.js';
 import { Cutaway } from './cutaway.js';
 import { toast } from '../ui/toast.js';
+import { CastHold, Notice, RightGesture, gateCast, castMessage, isTypingTarget, rightRotatesCamera } from '../skills/castControl.js';
 
 registerDefaults('character', {
 	camera: 'diablo',
@@ -28,7 +30,11 @@ registerDefaults('character', {
 	stance: 'auto',
 	collide: true,
 	cutaway: true,
-	footprints: true,
+	// The foot-slide check's marks (debug: green holds, red skates), opt-in. A new key on purpose: the old `footprints` default was true and sits in
+	// every saved session, so reading it would keep the debug marks drawn over the gameplay footprints below for existing users.
+	footSlideMarks: false,
+	// Environment interaction in Play (character/footsteps.js): footprints by surface, water ripples / splash, foliage bend.
+	steps: { enabled: true, prints: true, water: true, grass: true, strength: 1 },
 	gamepad: true,
 	targets: true,
 	scale: { enabled: false, ruler: 3, human: 1.8, small: 1.1, large: 2.6, boss: 3.8, door: 2.4, tree: 6 },
@@ -79,30 +85,56 @@ export class CharacterController {
 		this.listeners = new Set();
 		this.pad = { buttons: [], connected: false };
 		this.status = { state: 'idle', speed: 0, rate: 1 };
+		this.castHold = new CastHold({ buffer: 0.3, gap: 0.45 });
+		this.notice = new Notice((text, kind) => toast(text, kind, 1600));
+		this.rightGesture = new RightGesture();
+		this.aimPad = false;
 		this.animator.onEvent = (type, state) => this.onAnimEvent(type, state);
 
 		const canvas = app.backend.canvas;
-		canvas.addEventListener('pointermove', (e) => (this.pointer = { x: e.clientX, y: e.clientY }));
-		canvas.addEventListener('pointerdown', (e) => {
-			if (!this.active || e.button !== 0) return;
+		canvas.addEventListener('pointermove', (e) => {
 			this.pointer = { x: e.clientX, y: e.clientY };
+			this.rightGesture.move(e.clientX, e.clientY);
+		});
+		canvas.addEventListener('pointerdown', (e) => {
+			if (!this.active) return;
+			this.pointer = { x: e.clientX, y: e.clientY };
+			if (e.button === 2) {
+				// The right button casts on press and keeps casting while held. Where a right drag turns the camera (orbit, chase) it
+				// could be a rotation, so only a click (no drag beyond a few px, even one that came back) casts, on release.
+				if (this.rightRotates()) this.rightGesture.start(e.clientX, e.clientY);
+				else this.pressCast('mouse');
+				return;
+			}
+			if (e.button !== 0) return;
 			this.mouseHeld = true;
 			this.holdTimer = 0.18; // a short press is a click; holding keeps walking towards the cursor
 		});
-		addEventListener('pointerup', () => (this.mouseHeld = false));
+		addEventListener('pointerup', (e) => {
+			if (e.button === 2) {
+				this.castHold.release('mouse');
+				if (this.rightGesture.finish(e.clientX, e.clientY) === 'click' && this.active && this.rightRotates()) {
+					if (Number.isFinite(e.clientX) && Number.isFinite(e.clientY)) this.pointer = { x: e.clientX, y: e.clientY };
+					this.pressCast('mouse');
+					this.castHold.release('mouse');
+				}
+			} else if (e.button === 0) this.mouseHeld = false;
+		});
+		addEventListener('pointercancel', () => {
+			this.mouseHeld = false;
+			this.rightGesture.cancel();
+			this.castHold.release('mouse');
+		});
 		canvas.addEventListener('contextmenu', (e) => {
-			if (!this.active || app.vfxLab?.armed) return; // the VFX lab casts spells on right click
-			e.preventDefault();
-			this.pointer = { x: e.clientX, y: e.clientY };
-			const hit = this.pick();
-			if (hit) this.faceTowards(hit.point);
-			this.trigger('cast');
+			if (this.active) e.preventDefault(); // the cast itself happens on the button release (pointerup), whatever the platform's menu timing
 		});
 		addEventListener('keydown', (e) => this.onKeyDown(e));
 		addEventListener('keyup', (e) => this.onKeyUp(e));
 		addEventListener('blur', () => {
 			this.keys.clear();
 			this.mouseHeld = false;
+			this.rightGesture.cancel();
+			this.castHold.clear();
 		});
 		app.on('click', (e) => this.onClick(e));
 		app.on('update', (dt) => this.update(dt));
@@ -280,8 +312,12 @@ export class CharacterController {
 	setActive(on, { quiet = false } = {}) {
 		const app = this.app;
 		on = !!on;
+		if (on && app.gameplay?.active) {
+			if (!quiet) toast('Gameplay is running — press Esc to leave it before using the lab controller', 'info', 3000);
+			on = false;
+		}
 		if (on && !app.subject.clips.length) {
-			if (!quiet) toast('This model has no animation clips — load a character (KayKit, Robot) or your own animated GLB.', 'error', 5000);
+			if (!quiet) toast('This model has no animation clips — load the D2R Sorceress or your own animated GLB.', 'error', 5000);
 			on = false;
 		}
 		if (on === this.active) return;
@@ -308,11 +344,13 @@ export class CharacterController {
 			app.current.scene.add(this.foot.group);
 			app.backend.prepareObject(this.foot.group);
 			document.activeElement?.blur?.();
-			if (!quiet) toast('Character: WASD / click to move · Space attack · E attack 2 · Q / right click cast · B block · G get hit · K death · R walk/run', 'info', 6000);
+			if (!quiet) toast('Character: WASD / click to move · Space attack · E attack 2 · right click (hold) or Q cast the selected spell / skill · 1–9 pick + cast · B block · G get hit · K death · R walk/run', 'info', 6500);
 		} else {
 			this.active = false;
 			this.keys.clear();
 			this.mouseHeld = false;
+			this.rightGesture.cancel();
+			this.castHold.clear();
 			this.cutaway.update(app.world.camera, _v, 0, 1, false);
 			this.animator.detach();
 			app.rig.follow = null;
@@ -333,6 +371,7 @@ export class CharacterController {
 
 	applyCamera() {
 		const rig = this.app.rig;
+		this.rightGesture.cancel();
 		rig.followHeight = THREE.MathUtils.clamp((this.height || 1.8) * 0.55, 0.4, 2.5);
 		rig.follow = this.app.subject.root;
 		const mode = { diablo: 'play', iso: 'iso', chase: 'chase', orbit: 'orbit' }[this.settings.camera] || 'play';
@@ -352,8 +391,14 @@ export class CharacterController {
 		c.update();
 	}
 
+	/** A right drag turns the camera in the current mode (so the button casts on release, not on press). */
+	rightRotates() {
+		return rightRotatesCamera(this.settings.camera, this.app.rig?.controls);
+	}
+
 	setCamera(id) {
 		this.settings.camera = id;
+		this.rightGesture.cancel(); // a press that started under the old camera must not cast under the new one
 		this.save();
 		if (this.active) this.applyCamera();
 	}
@@ -364,7 +409,7 @@ export class CharacterController {
 	/** Things that move or belong to the tools (never collided with, never cut away). */
 	isDynamic(o) {
 		const app = this.app;
-		return o === app.subject.root || o === app.vfxLab?.stage || o === this.scale.group || o === this.foot.group || o === this.equipment.helper || !!o.userData?.dummy;
+		return o === app.subject.root || o === app.vfxLab?.stage || o === this.scale.group || o === this.foot.group || o === app.footsteps?.group || o === this.equipment.helper || !!o.userData?.dummy;
 	}
 
 	ensureCollision() {
@@ -411,7 +456,7 @@ export class CharacterController {
 	// Input
 
 	onKeyDown(e) {
-		if (!this.active || e.target.closest?.('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+		if (!this.active || isTypingTarget(e.target) || e.metaKey || e.ctrlKey || e.altKey) return;
 		const k = e.key.toLowerCase();
 		if (MOVE_KEYS[k]) {
 			this.keys.add(k);
@@ -425,7 +470,7 @@ export class CharacterController {
 			e.preventDefault();
 			this.attack('attack');
 		} else if (k === 'e') this.attack('attack2');
-		else if (k === 'q') this.castAtCursor();
+		else if (k === 'q') this.pressCast('key');
 		else if (k === 'b') this.trigger('block', { hold: true });
 		else if (k === 'g') this.getHit();
 		else if (k === 'k') this.toggleDeath();
@@ -439,8 +484,9 @@ export class CharacterController {
 
 	onKeyUp(e) {
 		const k = e.key.toLowerCase();
-		if (this.active && k === ' ' && !e.target.closest?.('input, select, textarea')) e.preventDefault();
+		if (this.active && k === ' ' && !isTypingTarget(e.target)) e.preventDefault();
 		this.keys.delete(k);
+		if (k === 'q') this.castHold.release('key');
 		if (k === 'shift') this.walkHeld = false;
 		if (k === 'b' && this.active) this.animator.release('block');
 	}
@@ -499,7 +545,8 @@ export class CharacterController {
 		const edge = (i) => pressed[i] && !was[i];
 		if (edge(0)) this.attack('attack');
 		if (edge(3)) this.attack('attack2');
-		if (edge(2)) this.castAtCursor(true);
+		if (edge(2)) this.pressCast('pad');
+		if (!pressed[2] && was[2]) this.castHold.release('pad');
 		if (edge(1)) this.trigger('block', { hold: true });
 		if (!pressed[1] && was[1]) this.animator.release('block');
 		if (edge(4)) this.getHit();
@@ -524,7 +571,7 @@ export class CharacterController {
 	trigger(state, options) {
 		if (!this.active || (this.animator.dead && state !== 'revive')) return false;
 		const ok = this.animator.trigger(state, options);
-		if (!ok && !STATES[state]?.loop) toast(`No clip mapped for “${STATES[state]?.label || state}” — pick one in the Character tab.`, 'error', 2500);
+		if (!ok && !STATES[state]?.loop && !options?.quiet) toast(`No clip mapped for “${STATES[state]?.label || state}” — pick one in the Character tab.`, 'error', 2500);
 		if (ok) this.velocity.set(0, 0, 0);
 		this.notify();
 		return ok;
@@ -544,31 +591,63 @@ export class CharacterController {
 		this.trigger(state);
 	}
 
+	// ----------------------------------------------------------------------------------------------
+	// Casting: the right button, Q and the gamepad's X press (buffered while busy) or hold (repeat) -> tryCast -> the VFX lab
+
+	/** A cast press from `source` ('mouse' | 'key' | 'pad'); the next frame tries it, a hold keeps trying. */
+	pressCast(source) {
+		this.aimPad = source === 'pad';
+		this.castHold.press(source);
+	}
+
+	/** One-shot cast at the cursor (kept for callers; same path as a press). */
 	castAtCursor(fromPad = false) {
+		this.pressCast(fromPad ? 'pad' : 'key');
+		this.castHold.release(fromPad ? 'pad' : 'key');
+	}
+
+	/** Why a cast cannot even start (the hero is dead), else null. */
+	castBlocker() {
+		return gateCast({ dead: this.animator.dead });
+	}
+
+	/** Aim the VFX lab: the dummy / ground under the pointer (same picking as the move click), else the nearest dummy for the pad. */
+	aimLab({ pad = false } = {}) {
 		const lab = this.app.vfxLab;
-		if (lab?.armed) {
-			if (!fromPad) lab.updateCursor();
-			else {
-				const target = this.nearestTarget(12);
-				if (target) {
-					lab.cursor.dummy = target;
-					target.center(lab.cursor.point);
-					lab.cursor.ground.copy(target.root.getWorldPosition(_v));
-					lab.cursor.valid = true;
-				}
-			}
-			lab.castSelected(); // calls back onCast() for the animation
+		if (!lab) return;
+		if (pad) {
+			const target = this.nearestTarget(12);
+			if (target) lab.aimAt(target.root.getWorldPosition(_v), target);
+			else lab.aimForward();
 			return;
 		}
 		const hit = this.pick();
-		if (hit) this.faceTowards(hit.point);
-		this.trigger('cast');
+		if (hit) lab.aimAt(hit.point, hit.dummy || null);
+		// no pointer over the canvas: the lab falls back to its cursor ray, then straight ahead
 	}
 
-	/** Called by the VFX lab when it casts a spell. */
+	/**
+	 * One cast attempt (called by CastHold). Returns { ok, reason }. The lab arms itself on the first cast, so this does not
+	 * depend on the VFX tab or on the "training dummies as targets" switch.
+	 */
+	tryCast({ fresh = true } = {}) {
+		const lab = this.app.vfxLab;
+		if (!this.active || !lab) return { ok: false, reason: 'unsupported' };
+		const why = gateCast({ dead: this.animator.dead, locked: this.animator.busy });
+		if (why) {
+			if (why === 'dead' && fresh) this.notice.say('dead', castMessage(why));
+			return { ok: false, reason: why };
+		}
+		this.aimLab({ pad: this.aimPad });
+		const result = lab.castSelected({ quiet: !fresh });
+		this.aimPad = false;
+		return result;
+	}
+
+	/** Called by the VFX lab when it casts a spell: play the cast clip (quietly, a held button would repeat the warning). */
 	onCast() {
 		if (!this.active) return;
-		this.trigger('cast');
+		if (!this.trigger('cast', { quiet: true })) this.notice.say('noclip', 'No cast clip mapped — pick one in the Character tab (the spell still fires).', 'error');
 	}
 
 	getHit() {
@@ -667,6 +746,7 @@ export class CharacterController {
 		}
 		if (!this.active || !this.app.subject.model) return;
 		dt = Math.min(dt, 0.05) * (this.app.vfxLab?.settings.timeScale ?? 1);
+		this.castHold.step(dt, (o) => this.tryCast(o));
 		const s = this.settings;
 		const app = this.app;
 		const root = app.subject.root;
@@ -794,8 +874,8 @@ export class CharacterController {
 		root.updateMatrixWorld(true);
 		const chest = next.clone().add(new THREE.Vector3(0, (this.height || 1.8) * 0.6, 0));
 		this.cutaway.update(app.world.camera, chest, next.y, this.height || 1.8, s.cutaway);
-		this.foot.enabled = s.footprints;
-		this.foot.group.visible = s.footprints;
+		this.foot.enabled = s.footSlideMarks;
+		this.foot.group.visible = s.footSlideMarks;
 		this.foot.update(dt, root, (x, z) => this.groundAt(x, z, this.groundY), this.facing, speed);
 		this.status = { state: this.animator.current(), speed, rate: this.animator.rate };
 	}

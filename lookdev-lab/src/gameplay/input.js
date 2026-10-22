@@ -3,6 +3,7 @@
 import * as THREE from 'three';
 import { G } from './state.js';
 import { Engine } from './engine.js';
+import { RightGesture, isTypingTarget } from '../skills/castControl.js';
 
 const _a = { x: 0, y: 0, visible: false };
 const _b = { x: 0, y: 0, visible: false };
@@ -21,6 +22,9 @@ export const Input = {
 	ground: new THREE.Vector3(),
 	hover: null,
 	enabled: false,
+	/** Set by the host: does a right drag turn the camera now (orbit / chase)? Then a click casts on release, a drag never casts. */
+	rightRotates: () => false,
+	rightGesture: new RightGesture(),
 	keyHandlers: [],
 	_bound: false,
 
@@ -32,17 +36,35 @@ export const Input = {
 			this.mx = e.clientX;
 			this.my = e.clientY;
 			if (e.button === 0) this.lmb = this.lmbDown = true;
-			if (e.button === 2) this.rmb = this.rmbDown = true;
+			if (e.button === 2) {
+				if (this.rightRotates()) this.rightGesture.start(e.clientX, e.clientY);
+				else this.rmb = this.rmbDown = true;
+			}
 		});
 		addEventListener('pointerup', (e) => {
 			if (e.button === 0) this.lmb = false;
-			if (e.button === 2) this.rmb = false;
+			if (e.button === 2) {
+				this.rmb = false;
+				// A rotate-mode click is one press + release in the same frame (the player buffers it); a drag was the camera's.
+				if (this.rightGesture.finish(e.clientX, e.clientY) === 'click' && this.enabled && this.rightRotates()) { // (not if the camera mode changed under the press)
+					if (Number.isFinite(e.clientX) && Number.isFinite(e.clientY)) {
+						this.mx = e.clientX;
+						this.my = e.clientY;
+					}
+					this.rmbDown = true;
+				}
+			}
+		});
+		addEventListener('pointercancel', () => {
+			this.rmb = false;
+			this.rightGesture.cancel();
 		});
 		addEventListener(
 			'pointermove',
 			(e) => {
 				this.mx = e.clientX;
 				this.my = e.clientY;
+				this.rightGesture.move(e.clientX, e.clientY);
 				this.shift = e.shiftKey;
 				this.alt = e.altKey;
 				this.ctrl = e.ctrlKey;
@@ -52,13 +74,14 @@ export const Input = {
 		canvas.addEventListener('contextmenu', (e) => this.enabled && e.preventDefault());
 		addEventListener('blur', () => {
 			this.lmb = this.rmb = false;
+			this.rightGesture.cancel();
 			this.shift = this.alt = this.ctrl = false;
 		});
 		addEventListener('keydown', (e) => {
 			this.shift = e.shiftKey;
 			this.alt = e.altKey;
 			this.ctrl = e.ctrlKey;
-			if (!this.enabled || e.target.closest?.('input, select, textarea')) return;
+			if (!this.enabled || isTypingTarget(e.target)) return;
 			for (const h of this.keyHandlers) if (h(e) === true) {
 				e.preventDefault();
 				break;
@@ -87,6 +110,7 @@ export const Input = {
 
 	release() {
 		this.lmb = this.rmb = this.lmbDown = this.rmbDown = false;
+		this.rightGesture.cancel();
 		this.hover = null;
 	},
 

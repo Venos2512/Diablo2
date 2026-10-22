@@ -9,6 +9,41 @@ import { createTSLVfx } from './vfx.js';
 import { glFence } from '../../core/gpuSync.js';
 import { RectAreaLightTexturesLib } from 'three/addons/lights/RectAreaLightTexturesLib.js';
 
+/**
+ * three r180's node builders drop the array slice of a gradient sample (TextureNode calls generateTextureGrad(texture, prop, uv, grad, depth, offset); WGSL's
+ * has a "TODO ... array_index" and ignores `depth`, the GLSL fallback's has no `depth` parameter, so the slice lands in `offset`). A layer texture read with
+ * .depth(i).grad(dx, dy) — the N-layer terrain's (createTerrainLayers) — therefore fails to compile on both. The missing argument is put back, for WGSL
+ * (textureSampleGrad(tex, sampler, uv, slice, dx, dy[, offset])) and for GLSL (textureGrad(tex, vec3(uv, slice), dx, dy)). Remove this when the three
+ * upgrade (r186) ships the fix; it only runs on r180 (the signatures are r180's).
+ */
+function patchArrayTextureGrad(renderer, isWebGPU) {
+	if (THREE.REVISION !== '180') {
+		console.warn(`patchArrayTextureGrad is written for three r180 (this is r${THREE.REVISION}): check whether the array-texture gradient sample still needs it; the N-layer terrain may not compile.`);
+		return;
+	}
+	try {
+		const proto = Object.getPrototypeOf(renderer.backend.createNodeBuilder(new THREE.Mesh(), renderer));
+		if (proto.generateTextureGrad.labArrayPatched) return;
+		const original = proto.generateTextureGrad;
+		proto.generateTextureGrad = isWebGPU
+			? function (texture, textureProperty, uvSnippet, gradSnippet, depthSnippet, offsetSnippet, shaderStage = this.shaderStage) {
+				if (!depthSnippet || shaderStage !== 'fragment') return original.call(this, texture, textureProperty, uvSnippet, gradSnippet, depthSnippet, offsetSnippet, shaderStage);
+				const offset = offsetSnippet ? `, ${offsetSnippet}` : '';
+				return `textureSampleGrad( ${textureProperty}, ${textureProperty}_sampler, ${uvSnippet}, ${depthSnippet}, ${gradSnippet[0]}, ${gradSnippet[1]}${offset} )`;
+			}
+			: function (texture, textureProperty, uvSnippet, gradSnippet, depthSnippet, offsetSnippet) {
+				if (!depthSnippet) return original.apply(this, arguments);
+				const coord = `vec3( ${uvSnippet}, ${depthSnippet} )`;
+				return offsetSnippet
+					? `textureGradOffset( ${textureProperty}, ${coord}, ${gradSnippet[0]}, ${gradSnippet[1]}, ${offsetSnippet} )`
+					: `textureGrad( ${textureProperty}, ${coord}, ${gradSnippet[0]}, ${gradSnippet[1]} )`;
+			};
+		proto.generateTextureGrad.labArrayPatched = true;
+	} catch (error) {
+		console.warn('Could not patch the array-texture gradient sample; the N-layer terrain will not compile on the TSL renderers', error);
+	}
+}
+
 export async function createWebGPUBackend({ container, forceWebGL = false, onShaderError }) {
 	const renderer = new THREE.WebGPURenderer({ antialias: false, forceWebGL, trackTimestamp: true, powerPreference: 'high-performance' });
 	renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -20,6 +55,7 @@ export async function createWebGPUBackend({ container, forceWebGL = false, onSha
 	await renderer.init();
 
 	const isWebGPU = renderer.backend.isWebGPUBackend === true;
+	patchArrayTextureGrad(renderer, isWebGPU);
 	const pipeline = new WebGPUPipeline(renderer);
 
 	// three r180 caches node-builder states per material, not per MRT layout. When the scene pass

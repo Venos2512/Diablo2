@@ -13,6 +13,7 @@ import { modelsReady } from '../procedural/models.js';
 import { useNodeMaterial } from '../procedural/nodeMaterial.js';
 import { SkillSystem } from '../skills/runtime.js';
 import { SKILLS, SKILL_ORDER } from '../skills/skills.js';
+import { resolveKey, rightRotatesCamera, isTypingTarget, hasShortcutModifier, keyLabel, KEY_SCHEMES, DEFAULT_SCHEME } from '../skills/castControl.js';
 import { measureHeight } from '../character/rig.js';
 import { G, hash, tickTimers, clearTimers, Events } from './state.js';
 import { Nav } from './nav.js';
@@ -23,9 +24,10 @@ import { ModelHost, createMonster } from './models.js';
 import { Input } from './input.js';
 import { HeroModel } from './heroModel.js';
 import { Player, CLASSES } from './player.js';
-import { MDEF, spawnPack, updateAuras } from './monsters.js';
+import { MDEF, spawnMonster, spawnPack, updateAuras } from './monsters.js';
 import { updateProjectiles, updateEffects, clearProjectiles } from './projectiles.js';
-import { dealDamage } from './combat.js';
+import { dealDamage, floatAt } from './combat.js';
+import { createNativeSkills } from './nativeSkills.js';
 import { GameHud } from './hud.js';
 
 registerDefaults('gameplay', {
@@ -40,6 +42,8 @@ registerDefaults('gameplay', {
 	waves: false,
 	waveSize: 8,
 	right: 'fireball',
+	keys: DEFAULT_SCHEME, // hotkey scheme (skills/castControl.js): 'classic' F1–F8 skills + 1–4 potions, 'modern' 1–4 skills + Q E Z X potions
+	quickcast: false, // a skill hotkey also casts at the cursor
 });
 
 /** Monsters offered in the panel (allies-only summons are left out). */
@@ -62,7 +66,9 @@ export class GameplayHost {
 		this.group = null;
 		this.collision = null;
 		this.groundGrid = null;
-		this.skills = null;
+		this.skills = null; // the three.quarks SkillSystem (WebGL2 · GLSL), null otherwise
+		this.targetOf = null; // monster -> skill-target proxy (quarks path)
+		this.skillAdapter = null; // what the Player casts through: the quarks adapter, or the native fallback (gameplay/nativeSkills.js)
 		this.hud = new GameHud(app.dom.viewport);
 		this.listeners = new Set();
 		this.flowT = 0;
@@ -71,6 +77,7 @@ export class GameplayHost {
 		this.rng = G.rng;
 
 		Input.init(app.backend.canvas);
+		Input.rightRotates = () => rightRotatesCamera(app.character?.settings?.camera, app.rig?.controls);
 		Input.onKey((e) => this.onKey(e));
 		Engine.canvas = app.backend.canvas;
 		Engine.host = {
@@ -120,9 +127,7 @@ export class GameplayHost {
 	heroClass() {
 		const s = this.settings;
 		if (s.cls !== 'auto') return s.cls;
-		const id = this.app.subject.sourceId || '';
-		const m = /^proc:hero:(\w+)/.exec(id);
-		return m && CLASSES[m[1]] ? m[1] : 'barbarian';
+		return 'sorceress'; // the only character is the D2R Sorceress
 	}
 
 	// ---------------------------------------------------------------------------------------------
@@ -145,7 +150,7 @@ export class GameplayHost {
 		if (this.active || this.starting) return;
 		if (!subject.model) return toast('Load a character first (Character tab or the sample rail).', 'error', 4000);
 		if (!subject.procedural && !subject.clips.length) {
-			return toast('This model has no animation clips — load an animated character (KayKit, Robot, Fox, a procedural hero) or your own GLB.', 'error', 5000);
+			return toast('This model has no animation clips — load the D2R Sorceress or your own animated GLB.', 'error', 5000);
 		}
 		this.starting = true;
 		try {
@@ -208,6 +213,7 @@ export class GameplayHost {
 				right: this.settings.right,
 				skills: this.ensureSkills(),
 			});
+			player.onNotice = (text, kind) => (kind === 'error' ? toast(text, 'error', 3500) : floatAt(player, text, 'miss', 1.2));
 			const local = Engine.toLocal(spawn, new THREE.Vector3());
 			player.pos.set(local.x, spawn.y, local.z);
 			G.player = player;
@@ -224,10 +230,11 @@ export class GameplayHost {
 			Input.enabled = true;
 			Input.release();
 			this.active = true;
+			this.hud.setKeys(this.settings.keys);
 			this.hud.show(true);
 			this.waveT = 2;
 			document.activeElement?.blur?.();
-			if (!quiet) toast('Gameplay (Ashen Crown v1): left click move / attack · Shift + click attack in place · right click skill · F1–F8 pick skill · 1–4 potions · N spawn pack · R walk/run · Esc quit', 'info', 7000);
+			if (!quiet) toast(`Gameplay (Ashen Crown v1): left click move / attack · Shift + click attack in place · right click (hold) casts the selected skill · ${this.keyHelp()} · N spawn pack · R walk/run · Esc quit`, 'info', 7500);
 		} catch (error) {
 			console.error(error);
 			toast(`Gameplay failed to start: ${error.message}`, 'error', 6000);
@@ -254,6 +261,7 @@ export class GameplayHost {
 		G.player = null;
 		G.mode = 'menu';
 		this.skills?.clear?.();
+		this.skillAdapter?.clear?.();
 		this.player?.model.dispose();
 		this.player = null;
 		this.group?.removeFromParent();
@@ -375,8 +383,11 @@ export class GameplayHost {
 		const app = this.app;
 		const host = this;
 		if (app.backend.language !== 'GLSL') {
+			// three.quarks builds GLSL ShaderMaterials: not on WebGPU · TSL. The Sorceress skills still cast, with mesh effects.
 			FX.lib = null;
-			return null;
+			this.skills = null;
+			this.skillAdapter = createNativeSkills();
+			return this.skillAdapter;
 		}
 		if (!this.skills) {
 			const targetOf = (m) =>
@@ -401,6 +412,7 @@ export class GameplayHost {
 						dealDamage(m, packet, host.player);
 					},
 				});
+			this.targetOf = targetOf; // a monster's skill-target proxy, created on first use (the first cast at a monster needs it before targets() ever ran)
 			this.skills = new SkillSystem(
 				{
 					fxScene: app.world.vfxScene,
@@ -437,30 +449,80 @@ export class GameplayHost {
 		}
 		FX.lib = this.skills.fx;
 		const skills = this.skills;
-		return {
+		this.skillAdapter = {
+			kind: 'quarks',
+			label: (id) => SKILLS[id]?.label || id,
+			supports: (id) => !!SKILLS[id],
+			status: (id) => skills.canCast(id),
 			cost: (id) => Math.round(4 + (SKILLS[id]?.cooldown || 0.5) * 5),
 			cast: (id, localPoint, target) => {
 				if (!SKILLS[id]) return false;
 				skills.level = 1 + Math.floor((host.player.level - 1) / 4);
 				const ground = Engine.toWorld(new THREE.Vector3(localPoint.x, host.groundAt(localPoint.x, localPoint.z, host.player.pos.y), localPoint.z), new THREE.Vector3());
-				const aimTarget = target && !target.dead ? target.skillTarget || null : null;
+				const aimTarget = target && !target.dead ? host.targetOf(target) : null;
 				const point = aimTarget ? aimTarget.center() : ground.clone().add(new THREE.Vector3(0, 1, 0));
 				return skills.cast(id, { point, ground, target: aimTarget });
 			},
 		};
+		return this.skillAdapter;
+	}
+
+	/** True when the right-button skill can run in this renderer (all skills with three.quarks, the Sorceress set with mesh effects otherwise). */
+	supportsSkill(id) {
+		return !!this.skillAdapter?.supports?.(id);
 	}
 
 	skillLabel() {
 		const id = this.player?.right;
-		if (!this.skills) return 'Right click: attack (skills need the WebGL2 · GLSL renderer)';
-		return `Right click: ${SKILLS[id]?.label || '—'} (F1–F8)`;
+		const label = SKILLS[id]?.label || '—';
+		const slot = SKILL_ORDER.indexOf(id);
+		const key = slot >= 0 && KEY_SCHEMES[this.settings.keys]?.skills[slot] ? ` (${keyLabel(KEY_SCHEMES[this.settings.keys].skills[slot])})` : '';
+		if (!this.skillAdapter) return 'Right click: no skills';
+		if (!this.supportsSkill(id)) return `Right click: ${label}${key} — needs the WebGL2 · GLSL renderer`;
+		if (this.skillAdapter.kind === 'native') return `Right click: ${label}${key} · simple mesh effects (WebGL2 · GLSL renders the full VFX)`;
+		return `Right click: ${label}${key}`;
 	}
 
-	setRightSkill(id) {
+	/** Pick the right-button skill. An unsupported one is still picked (the HUD shows it) but the player is told it will not cast here. */
+	setRightSkill(id, { quiet = false } = {}) {
+		if (!SKILLS[id]) return false;
 		this.settings.right = id;
 		this.save();
 		if (this.player) this.player.right = id;
+		if (!quiet) {
+			if (this.skillAdapter && !this.supportsSkill(id)) toast(`${SKILLS[id].label}: needs the WebGL2 · GLSL renderer (WebGPU casts the Sorceress skills only)`, 'error', 3500);
+			else toast(`Right click: ${SKILLS[id].label}`, 'info', 900);
+		}
 		this.notify();
+		return true;
+	}
+
+	/** A skill hotkey: pick the slot's skill for the right button; with quickcast it also casts at the cursor. */
+	selectSkillSlot(slot) {
+		const id = SKILL_ORDER[slot];
+		if (!id) return false;
+		this.setRightSkill(id);
+		if (this.settings.quickcast && this.player && !this.player.dead) this.player.quickcast();
+		return true;
+	}
+
+	setKeys(scheme) {
+		if (!KEY_SCHEMES[scheme]) return;
+		this.settings.keys = scheme;
+		this.save();
+		this.hud.setKeys(scheme);
+		this.notify();
+	}
+
+	keyHelp() {
+		const s = KEY_SCHEMES[this.settings.keys] || KEY_SCHEMES[DEFAULT_SCHEME];
+		const range = (list) => (list.length > 1 ? `${keyLabel(list[0])}–${keyLabel(list[list.length - 1])}` : keyLabel(list[0]));
+		return `${range(s.skills)} pick skill${this.settings.quickcast ? ' + cast' : ''} · ${s.potions.map(keyLabel).join(' ')} potions`;
+	}
+
+	/** Keys the running game owns, so the lab's single-letter shortcuts (X false colour, C compare…) stay out of the way. */
+	claimsKey(e) {
+		return this.active && !!resolveKey(this.settings.keys, e.code);
 	}
 
 	// ---------------------------------------------------------------------------------------------
@@ -520,6 +582,28 @@ export class GameplayHost {
 		return count;
 	}
 
+	/** The hero's world position (scene-triggered encounters: scenes/oldFace.js), or null outside Play. */
+	heroWorld(out = new THREE.Vector3()) {
+		if (!this.active || !this.player) return null;
+		return Engine.toWorld(this.player.pos, out);
+	}
+
+	/**
+	 * One monster of `type` at a world xz, on the nearest walkable cell (a scene's own triggers; additive, spawnCamps() stays the camp API).
+	 * `rise` plays the model's spawn clip with a dust burst when it has one. Returns the monster or null (outside Play / no walkable cell).
+	 */
+	spawnAt({ type, x, z, mlvl = 1, name, rise = false }) {
+		if (!this.active || !G.nav) return null;
+		const l = Engine.toLocal(_l.set(x, 0, z), _l);
+		const p = G.nav.walkableAt(l.x, l.z) ? l : G.nav.nearestWalkable(l.x, l.z, 4);
+		if (!G.nav.walkableAt(p.x, p.z)) return null;
+		const m = spawnMonster(type, mlvl + G.difficulty * 20, { x: p.x, z: p.z, name, rise });
+		m.pos.y = this.groundAt(m.pos.x, m.pos.z, this.player?.pos.y ?? 0);
+		m.home.y = m.pos.y;
+		this.notify();
+		return m;
+	}
+
 	clearMonsters() {
 		for (const a of G.actors) if (a !== this.player) a.removeFromWorld();
 		G.actors = this.player ? [this.player] : [];
@@ -575,21 +659,16 @@ export class GameplayHost {
 
 	onKey(e) {
 		if (!this.active) return false;
+		if (isTypingTarget(e.target) || hasShortcutModifier(e)) return false; // typing in a field never casts; Ctrl+1 / Ctrl+F5 stay the browser's
+		const bound = resolveKey(this.settings.keys, e.code);
+		if (bound) {
+			if (e.repeat) return true;
+			if (bound.kind === 'skill') this.selectSkillSlot(bound.slot);
+			else this.drink(bound.slot);
+			return true;
+		}
 		const k = e.key.toLowerCase();
-		const f = /^f([1-8])$/.exec(k);
-		if (f) {
-			const id = SKILL_ORDER[Number(f[1]) - 1];
-			if (id) {
-				this.setRightSkill(id);
-				toast(`Right click: ${SKILLS[id].label}`, 'info', 900);
-			}
-			return true;
-		}
 		if (e.repeat) return false;
-		if (/^[1-4]$/.test(k)) {
-			this.drink(Number(k) - 1);
-			return true;
-		}
 		if (k === 'escape') {
 			this.stop();
 			return true;

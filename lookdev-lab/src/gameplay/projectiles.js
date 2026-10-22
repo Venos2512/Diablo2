@@ -81,6 +81,14 @@ export function updateProjectiles(dt) {
 
 // ------------------------------------------------------------------ timed area effects
 export function spawnEffect(e) { e.t = 0; e.alive = true; G.effects.push(e); return e; }
+/** End an effect once: `cancelled` tells its end() it is only being cleaned up (a stop), not finishing (no impact, no new effects). */
+function endEffect(e, cancelled) {
+  if (e.ended) return;
+  e.ended = true;
+  e.alive = false;
+  e.cancelled = cancelled;
+  try { e.end?.(e); } catch (err) { console.error(err); }
+}
 export function updateEffects(dt) {
   for (let i = G.effects.length - 1; i >= 0; i--) {
     const e = G.effects[i];
@@ -88,12 +96,14 @@ export function updateEffects(dt) {
     e.t += dt;
     let keep = true;
     try { keep = e.update(dt, e) !== false; } catch (err) { console.error(err); keep = false; }
-    if (!keep || (e.dur && e.t >= e.dur)) { e.alive = false; e.end?.(e); G.effects.splice(i, 1); }
+    if (!keep || (e.dur && e.t >= e.dur)) { endEffect(e, false); G.effects.splice(i, 1); }
   }
 }
 export function clearProjectiles() {
   for (const p of G.projectiles) { p.alive = false; p.fx?.destroy?.(); }
   G.projectiles.length = 0;
-  for (const e of G.effects) { e.alive = false; e.end?.(e); }
+  const effects = G.effects.slice();
+  G.effects.length = 0; // emptied first: a cancelled end() cannot add to what is being cleared
+  for (const e of effects) endEffect(e, true);
   G.effects.length = 0;
 }

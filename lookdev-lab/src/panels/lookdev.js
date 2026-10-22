@@ -58,7 +58,7 @@ export function buildLookdevPanel(app, el) {
 		clearFolder(fAnim);
 		const subj = app.subject;
 		if (!subj.clips.length) {
-			note(fAnim, 'This model has no animation clips. Try <b>Fox</b> or <b>Robot Expressive</b>.');
+			note(fAnim, 'This model has no animation clips. Pick the <b>D2R Sorceress</b>.');
 			return;
 		}
 		const options = Object.fromEntries(subj.clips.map((c, i) => [`${c.name || 'Clip ' + (i + 1)} · ${c.duration.toFixed(2)} s`, i]));

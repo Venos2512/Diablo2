@@ -14,7 +14,7 @@ export const EFFECTS = {
 	wind: {
 		label: 'Vertex wind',
 		kind: 'surface',
-		summary: 'World-space sway with travelling gusts (grass, trees, banners). Height-masked so roots stay planted; shadows sway too.',
+		summary: 'World-space sway with travelling gusts (grass, trees, banners). Height-masked so roots stay planted; shadows sway too. Foliage also leans away from the hero\'s feet in Play (Character tab → Environment interaction).',
 		lab: { target: 'subject' },
 		params: {
 			strength: num(0.25, 0, 1.5, 0.01, 'Strength (m)'),
@@ -22,6 +22,7 @@ export const EFFECTS = {
 			gust: num(0.6, 0, 1, 0.01, 'Gust amount'),
 			direction: num(35, -180, 180, 1, 'Direction °'),
 			height: num(1, 0.05, 20, 0.05, 'Mask height (m)'),
+			bend: num(1, 0, 1, 0.01, 'Foot bend (0 = rigid)'),
 		},
 	},
 	flame: {

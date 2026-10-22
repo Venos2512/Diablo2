@@ -1,5 +1,5 @@
 // Global uniforms read by the procedural characters (src/procedural): time for shader effects, wind for capes.
-// The Subject advances uTime while a procedural character is loaded; the Procedural tab edits uWind.
+// The Subject advances uTime while a procedural character is loaded; the gameplay monsters read uWind.
 import * as THREE from 'three';
 
 export const SHARED = {

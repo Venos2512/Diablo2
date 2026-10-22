@@ -1,6 +1,7 @@
 // Shared esbuild plugins for dev and production builds.
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileHash } from '../src/env/codeHash.js';
 
 const toPosix = (p) => p.split(path.sep).join('/');
 
@@ -52,6 +53,27 @@ export function rawPlugin() {
 	};
 }
 
+/**
+ * `import h from './file.js?hash'` → the 28-hex-digit hash of the file's source text (BOM / CRLF normalised, exactly like the node side:
+ * src/env/codeHash.js `fileHash`), and nothing else: the map cache keys (env/mapCodeText.js) need the hash, not 370 KB of source.
+ */
+export function hashPlugin() {
+	return {
+		name: 'lab-hash',
+		setup(build) {
+			build.onResolve({ filter: /\?hash$/ }, (args) => ({
+				path: path.resolve(args.resolveDir, args.path.replace(/\?hash$/, '')),
+				namespace: 'lab-hash',
+			}));
+			build.onLoad({ filter: /.*/, namespace: 'lab-hash' }, async (args) => ({
+				contents: `export default ${JSON.stringify(fileHash(await readFile(args.path, 'utf8')))};`,
+				loader: 'js',
+				watchFiles: [args.path],
+			}));
+		},
+	};
+}
+
 export function bundleOptions(root, { dev }) {
 	return {
 		entryPoints: { main: path.join(root, 'src/main.js') },
@@ -64,6 +86,6 @@ export function bundleOptions(root, { dev }) {
 		define: { __DEV__: dev ? 'true' : 'false' },
 		loader: { '.css': 'css', '.webp': 'dataurl' },
 		logLevel: 'silent',
-		plugins: [glslPlugin(root), rawPlugin()],
+		plugins: [glslPlugin(root), rawPlugin(), hashPlugin()],
 	};
 }

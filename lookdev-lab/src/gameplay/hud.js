@@ -4,6 +4,7 @@
 // hovered-target name plate, death banner.
 import { toast } from '../ui/toast.js';
 import { SKILLS, SKILL_ORDER } from '../skills/skills.js';
+import { KEY_SCHEMES, DEFAULT_SCHEME, keyLabel } from '../skills/castControl.js';
 
 import orbFrameLife from './hud/orb_frame_life.webp';
 import orbFrameMana from './hud/orb_frame_mana.webp';
@@ -121,6 +122,20 @@ export class GameHud {
 
 	show(on) {
 		this.el.hidden = !on;
+	}
+
+	/** Key labels on the skill and potion slots for a hotkey scheme (classic: F1–F8 / 1–4, modern: 1–4 / Q E Z X). */
+	setKeys(scheme) {
+		const keys = KEY_SCHEMES[scheme] || KEY_SCHEMES[DEFAULT_SCHEME];
+		this.el.querySelectorAll('.gp-skillslot').forEach((slot, i) => {
+			const key = keys.skills[i] ? keyLabel(keys.skills[i]) : '';
+			const label = SKILLS[slot.dataset.skill]?.label ?? slot.dataset.skill;
+			slot.querySelector('b').textContent = key;
+			slot.title = key ? `${label} (${key})` : label;
+		});
+		this.el.querySelectorAll('.gp-potion').forEach((slot, i) => {
+			slot.querySelector('b').textContent = keyLabel(keys.potions[i]);
+		});
 	}
 
 	hurt(amount) {

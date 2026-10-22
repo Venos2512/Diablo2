@@ -175,6 +175,14 @@ export class DarkWoodScene extends TerrainScene {
 		return 99;
 	}
 
+	/** The paved cobble (within the wandering paved edge of the path ribbon) is stone; with the path ribbon hidden it is the splat's bare earth. */
+	pathCoverageAt(x, z) {
+		const c = (this._pathCoverage ??= { amount: 0, surface: 'stone' });
+		c.amount = this.settings.roadRuts && this.roadDistance(x, z) <= pavedEdge(x, z) ? 1 : 0;
+		c.surface = 'stone';
+		return c;
+	}
+
 	/** Rolling forest floor, calm round the player and flattened where the path runs. */
 	height(x, z, road = this.roadDistance(x, z)) {
 		let h = kit.noise2(x * 0.03, z * 0.03, 21) * 2.0 + kit.noise2(x * 0.09, z * 0.09, 22) * 0.55 + kit.noise2(x * 0.3, z * 0.3, 24) * 0.07;
@@ -408,7 +416,7 @@ export class DarkWoodScene extends TerrainScene {
 		this.buildLights();
 		this.buildCursor();
 		this.windGrass = this.app.backend.effects.create('wind', { strength: s.wind, height: 1, frequency: 1.9 });
-		this.windTrees = this.app.backend.effects.create('wind', { strength: s.wind * 0.35, height: 6 * TREE_SCALE, frequency: 0.9, gust: 0.8 });
+		this.windTrees = this.app.backend.effects.create('wind', { strength: s.wind * 0.35, height: 6 * TREE_SCALE, frequency: 0.9, gust: 0.8, bend: 0 });
 		this.windShrubs = this.app.backend.effects.create('wind', { strength: s.wind * 0.6, height: 1.2, frequency: 1.4, gust: 0.6 });
 		this.grass.material = this.windGrass.apply(this.grass.material);
 		this.swapMaterials(this.trees, (m) => this.windTrees.apply(m));

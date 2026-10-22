@@ -28,14 +28,6 @@ const KAYKIT_GRIPS = {
 	},
 };
 
-// Default loadout per KayKit character (their files show every weapon at once).
-const DEFAULT_LOADOUT = [
-	[/knight/i, { right: '1H_Sword', left: 'Round_Shield' }],
-	[/barbarian/i, { right: '1H_Axe', left: 'Barbarian_Round_Shield' }],
-	[/mage/i, { right: '2H_Staff', left: null }],
-	[/rogue/i, { right: '2H_Crossbow', left: null }],
-];
-
 const label = (name) => name.replace(/_/g, ' ');
 
 export class Equipment {
@@ -80,11 +72,10 @@ export class Equipment {
 			left: attachedItems(rig.left.slot).concat(rig.left.slot !== rig.left.hand ? attachedItems(rig.left.hand) : []),
 		};
 		const saved = this.store()?.items;
-		const fallback = DEFAULT_LOADOUT.find(([re]) => re.test(name))?.[1];
 		for (const side of ['right', 'left']) {
 			let id = saved?.[side];
 			if (id === undefined) {
-				const builtinName = fallback ? fallback[side] : this.builtins[side][0] ? originalName(this.builtins[side][0]) : null;
+				const builtinName = this.builtins[side][0] ? originalName(this.builtins[side][0]) : null;
 				id = builtinName ? `builtin:${builtinName}` : 'none';
 			}
 			await this.equip(side, id, { persist: false }).catch((e) => console.warn(e));

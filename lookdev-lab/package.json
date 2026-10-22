@@ -11,9 +11,17 @@
     "check": "node scripts/check.mjs",
     "test:placement": "node --test scripts/biome-placement.test.mjs",
     "test:layout": "node --test scripts/biome-layout.test.mjs",
-    "test": "node --test scripts/biome-placement.test.mjs scripts/biome-layout.test.mjs",
+    "test:footsteps": "node --test scripts/footsteps.test.mjs",
+    "test:modules": "node --test scripts/map-modules.test.mjs",
+    "test:plangen": "node --test scripts/plan-gen.test.mjs",
+    "test:oldface": "node --test scripts/old-face.test.mjs",
+    "test:act1": "node --test \"scripts/act1-*.test.mjs\"",
+    "test:cast": "node --import ./scripts/test-assets-register.mjs --test scripts/cast.test.mjs",
+    "test": "node --test scripts/biome-placement.test.mjs scripts/biome-layout.test.mjs scripts/map-modules.test.mjs scripts/plan-gen.test.mjs scripts/footsteps.test.mjs && npm run test:cast",
     "share": "node scripts/share.mjs",
     "preview:layout": "node scripts/biome-layout-preview.mjs",
+    "preview:plangen": "node scripts/plan-gen-preview.mjs",
+    "bake:map": "node scripts/bake-map.mjs",
     "measure:kits": "node scripts/measure-kits.mjs"
   },
   "dependencies": {

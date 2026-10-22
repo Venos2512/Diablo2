@@ -5,6 +5,7 @@
 // ground near it. Where assets touch each other a per-vertex contact, baked once on the CPU (env/contact.js), fills the
 // crevice with ground. The capture is drawn again only when the view leaves it or the terrain changes (settings, layer
 // sets, painting), on a stable texel grid so the blend never swims while the camera follows the hero.
+// Off by default: until it is switched on in a shown scene (realize()) there is no bake, no patch and no capture.
 // The settings have their own section ('groundBlend'), shared by every scene that uses it; so are the capture targets
 // (one effect per app: only the active scene draws into them).
 import * as THREE from 'three';
@@ -13,10 +14,13 @@ import { note, readout } from '../ui/gui.js';
 import { bakeContacts, instancedGround } from './contact.js';
 import * as kit from './kit.js';
 
-/** Goes up when DEFAULTS are retuned: older saved values are replaced once (the lab saves every section on any change). */
-const VERSION = 2;
+/**
+ * Goes up when DEFAULTS are retuned: older saved values are replaced once (the lab saves every section on any change).
+ * 2 → 3 only switches the blend off (it is off by default now, it costs frame time); the saved tuning stays.
+ */
+const VERSION = 3;
 const DEFAULTS = {
-	enabled: true,
+	enabled: false, // off until switched on: the bake, the patches and the capture programs only exist from then on (realize())
 	debug: false,
 	band: 0.22, // m: how far up a vertical face the ground creeps
 	width: 0.3, // m across the ground: flatter faces get a lower band (a mud rim only a sliver)
@@ -60,7 +64,10 @@ export class GroundBlend {
 	constructor(app, { ground, terrain, heightAt = null, splat = null, pileKit = null }) {
 		this.app = app;
 		this.settings = app.settings.adopt('groundBlend');
-		if (this.settings.version !== VERSION) Object.assign(this.settings, DEFAULTS, { version: VERSION });
+		if (this.settings.version === 2) {
+			Object.assign(this.settings, { enabled: false, version: VERSION }); // once; switching it on again is kept from here on
+			app.settings.changed('groundBlend');
+		} else if (this.settings.version !== VERSION) Object.assign(this.settings, DEFAULTS, { version: VERSION });
 		this.effect = app._groundBlend ??= GroundBlend.createEffect(app, this.settings.resolution);
 		this.ground = ground;
 		this.terrain = terrain;
@@ -74,6 +81,7 @@ export class GroundBlend {
 		this.region = null; // { x, z, size } of the capture in the targets
 		this.dirty = true;
 		this.active = false;
+		this.live = false; // realize() ran: the contacts are baked, the materials patched, the capture programs linking
 		this.key = NaN;
 		this.frames = 0;
 		this.stats = { captures: 0, ms: 0, contacts: null };
@@ -97,13 +105,18 @@ export class GroundBlend {
 		};
 		this.restoreLayers = () => (terrain.setLayers = setLayers);
 		this.ready = false;
-		this.compile().then(() => (this.ready = true));
 		this.applySettings();
 	}
 
-	/** The app's one effect, with both capture targets cleared (coverage 0 = no blend) before anything samples them. */
+	/** The app's one effect (the capture targets are only allocated and cleared by clearTargets, when the blend is first used). */
 	static createEffect(app, size) {
-		const effect = app.backend.effects.createGroundBlend({ size });
+		return app.backend.effects.createGroundBlend({ size });
+	}
+
+	/** Both capture targets cleared (coverage 0 = no blend) before anything samples them; once per app. */
+	static clearTargets(app, effect) {
+		if (effect.cleared) return;
+		effect.cleared = true;
 		const renderer = app.backend.renderer;
 		const previous = renderer.getRenderTarget();
 		const color = renderer.getClearColor(_color);
@@ -115,7 +128,20 @@ export class GroundBlend {
 		}
 		renderer.setRenderTarget(previous);
 		renderer.setClearColor(color, alpha);
-		return effect;
+	}
+
+	/**
+	 * First time the blend is on in a shown scene: clear the targets, link the capture programs, bake the contacts and patch
+	 * the asset materials. Until then none of that runs (a scene that never switches it on pays nothing). The patches stay
+	 * once made, see activate().
+	 */
+	realize() {
+		if (this.live) return;
+		this.live = true;
+		GroundBlend.clearTargets(this.app, this.effect);
+		this.compile().then(() => (this.ready = true));
+		this.bake();
+		this.applyPatches();
 	}
 
 	/** Link the capture programs (one per target format) before the first capture needs them. */
@@ -137,11 +163,13 @@ export class GroundBlend {
 	/**
 	 * The assets to blend (static meshes: merged batches, trees, props); classify(mesh) → a profile ({ top, contact,
 	 * band } factors, see GROUND_PROFILES) or null to leave the mesh alone. Bakes their contacts and patches their
-	 * materials. A material that drops out keeps its patch (inert on its own; see activate() for why it stays).
+	 * materials (once the blend is live, see realize(); before that only remembers them). A material that drops out keeps
+	 * its patch (inert on its own; see activate() for why it stays).
 	 */
 	setAssets(meshes, classify) {
 		this.assets = meshes.filter((m) => m?.isMesh && !m.isSkinnedMesh && !Array.isArray(m.material));
 		this.classify = classify;
+		if (!this.live) return;
 		this.bake();
 		this.applyPatches();
 	}
@@ -201,6 +229,7 @@ export class GroundBlend {
 		for (const key of ['band', 'width', 'fraction', 'noise', 'softness', 'normal', 'unroll', 'top', 'contact', 'darken', 'contactHeight']) u[key].value = s[key];
 		u.debug.value = s.debug ? 1 : 0;
 		u.strength.value = s.enabled && this.active ? 1 : 0;
+		if (s.enabled && this.active) this.realize();
 		this.dirty = true;
 	}
 
@@ -380,6 +409,7 @@ export class GroundBlend {
 	}
 
 	statsText() {
+		if (!this.live) return 'Đang tắt: chưa bake khe, chưa patch shader, chưa chụp đất (chạy từ lúc bật).';
 		const r = this.region;
 		const c = this.stats.contacts;
 		const res = this.effect.targets.albedo.width;
@@ -397,7 +427,7 @@ export class GroundBlend {
 		const set = () => (app.settings.changed('groundBlend'), this.applySettings());
 		const f = folder.addFolder('Ground blend · asset ăn vào đất');
 		note(f, 'Chân asset lấy đúng vật liệu mặt đất ngay dưới nó (màu, độ nhám, normal: ánh sáng liền mạch), mép có nhiễu; đá chạm đá, cây chạm đá thì khe được lấp đất. Mặt đất được chụp từ trên xuống quanh camera (kiểu runtime virtual texture), không thêm pass nào mỗi frame.');
-		f.add(s, 'enabled').name('Bật hòa trộn').onChange(set);
+		f.add(s, 'enabled').name('Bật hòa trộn (mặc định tắt, tốn máy)').onChange(() => (set(), this.onStats?.()));
 		f.add(s, 'debug').name('Xem vùng trộn: đỏ chân · lục mặt trên · lam khe').onChange(set);
 		f.add(s, 'band', 0, 0.8, 0.01).name('Đất leo lên mặt đứng (m)').onChange(set);
 		f.add(s, 'width', 0.02, 1.5, 0.01).name('Bề rộng chuyển tiếp trên đất (m)').onChange(set);
@@ -412,7 +442,7 @@ export class GroundBlend {
 		f.add(s, 'contactHeight', 0.2, 4, 0.05).name('Khe tắt dần trên độ cao (m)').onChange(set);
 		f.add(s, 'contactRadius', 0.05, 1, 0.01).name('Bán kính dò khe (m, bake lại)').onFinishChange(() => {
 			app.settings.changed('groundBlend');
-			this.bake();
+			if (this.live) this.bake();
 			this.onStats?.();
 		});
 		f.add(s, 'resolution', RESOLUTIONS).name('Độ phân giải capture').onChange(() => (app.settings.changed('groundBlend'), this.resize()));

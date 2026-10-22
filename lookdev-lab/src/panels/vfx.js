@@ -42,7 +42,7 @@ export function buildVfxPanel(app, el) {
 	const s = lab.settings;
 	const language = app.backend.language;
 	const webgpu = !!app.backend.vfx.createComputeField;
-	intro(el, 'VFX lab', `<p>Spells built from one particle material (${language}), pooled lights and decals, cast at training dummies that react with the Shaders-tab surface effects. Keys <b>1–9</b> or <b>right click</b> cast at the cursor; <b>Play mode</b> lets you walk the model around.</p>`);
+	intro(el, 'VFX lab', `<p>Spells built from one particle material (${language}), pooled lights and decals, cast at training dummies that react with the Shaders-tab surface effects. Keys <b>1–9</b> or <b>right click</b> cast at the cursor; <b>Play mode</b> lets you walk the model around (right click or <kbd>Q</kbd> casts there, hold to repeat — it works without this tab open). The lab is off while a Gameplay session runs.</p>`);
 	const gui = createGUI(el);
 	const viewer = new CodeViewer();
 
@@ -64,7 +64,7 @@ export function buildVfxPanel(app, el) {
 	const play = { get play() { return !!lab.playing; }, set play(v) { lab.setPlay(v); } };
 	fPlay.add(play, 'play').name('Play mode (character controller)').listen();
 	fPlay.add({ open: () => app.panels.show('character') }, 'open').name('Character tab (speeds, clips, camera)…');
-	note(fPlay, 'Same controller as the <b>Character</b> tab: WASD or left click to walk, click a dummy to attack it, right click or <kbd>1</kbd>–<kbd>9</kbd> casts the selected spell (the character plays its cast clip). Try a <b>KayKit</b> character.');
+	note(fPlay, 'Same controller as the <b>Character</b> tab: WASD or left click to walk, click a dummy to attack it, right click (hold to repeat), <kbd>Q</kbd> or the gamepad’s X casts the selected spell or skill, <kbd>1</kbd>–<kbd>9</kbd> pick + cast (the character plays its cast clip). Casting arms this lab by itself; a click while the hero is busy is buffered, and a cooldown or a missing renderer says so on screen.');
 
 	// Dummies --------------------------------------------------------------------------------------------
 	const fDummies = gui.addFolder('Training dummies');
@@ -107,9 +107,9 @@ export function buildVfxPanel(app, el) {
 		});
 		fSkills.add({ load: () => input.click() }, 'load').name('Load quarks editor JSON…');
 		fSkills.add({ again: () => (lab.lastImport ? importQuarks(app, lab.lastImport.json, lab.lastImport.name) : toast('Load a quarks JSON first', 'info', 1500)) }, 'again').name('Replay last JSON at cursor');
-		note(fSkills, 'With <b>Castbar shows skills</b> on, keys <kbd>1</kbd>–<kbd>9</kbd> <kbd>0</kbd> <kbd>-</kbd> <kbd>=</kbd> cast the 12 skills, right click / <kbd>Q</kbd> the selected one; the buttons show cooldowns. A cast plays a charge effect at the hand for its cast time, then the skill runs: projectiles, a homing spirit, an expanding nova, a chain between targets, ticking areas, an aura that follows the caster. Kills play an elemental death (fire ash, cold shatter, shock, poison, bone). <b>Skill level</b> multiplies damage and scales the effects by √level — same look, bigger.<br>Engine: <a href="https://github.com/Alchemist0823/three.quarks" target="_blank" rel="noopener">three.quarks</a> (MIT) — effects are pooled and every system sharing a material is one draw (see the stats below). Design new effects in the <a href="https://quarks.art" target="_blank" rel="noopener">quarks editor</a> and drop the exported <code>.json</code> on the viewport.');
+		note(fSkills, 'With <b>Castbar shows skills</b> on, keys <kbd>1</kbd>–<kbd>9</kbd> <kbd>0</kbd> <kbd>-</kbd> <kbd>=</kbd> pick + cast the 12 skills, right click / <kbd>Q</kbd> the selected one (hold repeats once the cooldown and the cast clip allow); the buttons show cooldowns. A cast plays a charge effect at the hand for its cast time, then the skill runs: projectiles, a homing spirit, an expanding nova, a chain between targets, ticking areas, an aura that follows the caster. Kills play an elemental death (fire ash, cold shatter, shock, poison, bone). <b>Skill level</b> multiplies damage and scales the effects by √level — same look, bigger.<br>Engine: <a href="https://github.com/Alchemist0823/three.quarks" target="_blank" rel="noopener">three.quarks</a> (MIT) — effects are pooled and every system sharing a material is one draw (see the stats below). Design new effects in the <a href="https://quarks.art" target="_blank" rel="noopener">quarks editor</a> and drop the exported <code>.json</code> on the viewport.');
 	} else {
-		note(fSkills, 'The skill system runs on <b>three.quarks</b>, which builds GLSL <code>ShaderMaterial</code>s — <code>WebGPURenderer</code> cannot run them. Switch the renderer at the top to <b>WebGL2 · GLSL</b>.');
+		note(fSkills, 'The skill system runs on <b>three.quarks</b>, which builds GLSL <code>ShaderMaterial</code>s — <code>WebGPURenderer</code> cannot run them. Switch the renderer at the top to <b>WebGL2 · GLSL</b> for the full skill VFX. Here the right click / <kbd>Q</kbd> casts the selected lab <b>spell</b> instead (it works on both renderers), and in Gameplay the Sorceress skills still cast with simpler mesh effects.');
 	}
 
 	// Compute field ------------------------------------------------------------------------------------------
@@ -195,7 +195,7 @@ export function buildVfxPanel(app, el) {
 	return {
 		gui,
 		onShow() {
-			if (!lab.armed) lab.arm(true);
+			if (!lab.armed) lab.arm(true, { quiet: true }); // stays off while a Gameplay session runs
 		},
 		refresh: refreshStats,
 	};

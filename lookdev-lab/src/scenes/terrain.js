@@ -10,6 +10,7 @@ import { kelvinToColor } from '../core/grading.js';
 import { shellTexture, createGrassShells } from '../env/grassShells.js';
 import { TerrainSplat, createTerrainMaterial, loadPaintedSets, loadGrassCards, proceduralSets, TERRAIN_SETS, BRUSH_LAYERS } from '../env/terrain.js';
 import * as kit from '../env/kit.js';
+import { classifySplat, applyWater } from '../env/surfaces.js';
 
 /** The terrain scene's settings defaults (the Dark Wood scene starts from the same list). */
 export const TERRAIN_DEFAULTS = {
@@ -133,6 +134,30 @@ export class TerrainScene {
 
 	roadDistance(x, z) {
 		return TerrainScene.lookup(this.roadField, x, z);
+	}
+
+	/**
+	 * What the hero stands on at world xz, for footprints / ripples / foliage bend (env/surfaces.js, read by character/footsteps.js): the splat's wet and
+	 * grass channels, the path under the point (pathCoverageAt) and open water (waterAt). Precedence: water > path > mud > grass > soil.
+	 */
+	surfaceAt(x, z, out) {
+		classifySplat(out, this.splat.sample(x, z), this.pathCoverageAt(x, z));
+		const water = this.waterAt(x, z);
+		if (water) applyWater(out, water.depth, water.level);
+		return out;
+	}
+
+	/** { amount 0..1, surface } of the worn road under xz; subclasses with other paths override. */
+	pathCoverageAt(x, z) {
+		const c = (this._pathCoverage ??= { amount: 0, surface: 'packed' });
+		c.amount = this.roadDistance(x, z) <= 1.3 ? 1 : 0;
+		c.surface = 'packed';
+		return c;
+	}
+
+	/** { depth (m), level (world y of the surface) } when xz is open water, else null; scenes with a creek / pond override. */
+	waterAt() {
+		return null;
 	}
 
 	generateSplat() {

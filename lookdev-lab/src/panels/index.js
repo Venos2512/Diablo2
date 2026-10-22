@@ -7,12 +7,10 @@ import { buildShadersPanel } from './shaders.js';
 import { buildVfxPanel } from './vfx.js';
 import { buildEnvironmentPanel } from './environment.js';
 import { buildPerfPanel } from './perf.js';
-import { buildProceduralPanel } from './procedural.js';
 
 const TABS = [
 	['lookdev', 'Lookdev', buildLookdevPanel],
 	['character', 'Character', buildCharacterPanel],
-	['procedural', 'Procedural', buildProceduralPanel],
 	['lighting', 'Lighting', buildLightingPanel],
 	['post', 'Post & camera', buildPostPanel],
 	['shaders', 'Shaders', buildShadersPanel],
