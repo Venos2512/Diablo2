@@ -1,0 +1,11 @@
+[10-22 13:19:07] R01_lychgate_cottage_ossuary: polycount set to 10000 (account default)
+[10-22 13:19:13] R01_lychgate_cottage_ossuary: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 9673), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 13:19:44] R01_lychgate_cottage_ossuary: mesh done (credits now 9573); new models: 431491fd-5393-446b-8631-99adabcf9fa5 4e4bd23f-2a4b-485d-bb6a-ba15c7543ed5 b612f758-e7cd-4f13-9a95-29271ce181c6 d45355f5-d7af-498b-9fca-ea19ea3827b8
+[10-22 13:20:39] R01_lychgate_cottage_ossuary: variants (index uuid faces): 0 431491fd-5393-446b-8631-99adabcf9fa5 10908;1 4e4bd23f-2a4b-485d-bb6a-ba15c7543ed5 10539;2 b612f758-e7cd-4f13-9a95-29271ce181c6 11493;3 d45355f5-d7af-498b-9fca-ea19ea3827b8 12859;
+[10-22 13:21:53] R01_lychgate_cottage_ossuary: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/431491fd-5393-446b-8631-99adabcf9fa5 faces 10908; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:22:18] R01_lychgate_cottage_ossuary: smart uv saved (credits 9573 -> 9553)
+[10-22 13:23:20] R01_lychgate_cottage_ossuary: texture 4K done in 32s (credits 9553 -> 9533, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 13:25:04] R01_lychgate_cottage_ossuary: pbr done (credits 9533 -> 9428)
+[10-22 13:26:07] R01_lychgate_cottage_ossuary: exported act1_kit_v1_R01_lychgate_cottage_ossuary.glb (format GLB, texture 4kCurrent, 25044 KB)
+[10-22 13:26:07] R01_lychgate_cottage_ossuary: GLB check: {"file": "act1_kit_v1_R01_lychgate_cottage_ossuary.glb", "MB": 25.6, "meshes": 1, "tris": 18564, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.223], "max": [0.5, 0.469, 0.223]}
+[10-22 13:26:28] R01_lychgate_cottage_ossuary: FINISHED: balance 9428 (shared); _shots/final_views.png

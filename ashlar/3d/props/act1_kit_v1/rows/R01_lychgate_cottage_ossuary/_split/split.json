@@ -1,0 +1,83 @@
+{
+ "row": "R01",
+ "row_glb": "rows/R01_lychgate_cottage_ossuary/act1_kit_v1_R01_lychgate_cottage_ossuary.glb",
+ "variant": "0",
+ "faces": 18564,
+ "objects": 3,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A01.1",
+   "slug": "stilt_cottage",
+   "name": "Repaired thatched stilt cottage",
+   "dir": "A01_1_stilt_cottage",
+   "glb": "A01_1_stilt_cottage/act1_kit_v1_stilt_cottage.glb",
+   "mb": 9.6,
+   "tris": 11333,
+   "objects": [
+    1,
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.24",
+   "yaw_deg": -20.8,
+   "normalised": [
+    1.0,
+    0.96,
+    0.966
+   ],
+   "real_size_m": [
+    4.6,
+    5.2,
+    4.0
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    5.42,
+    4.14
+   ],
+   "shape_spread": 1.31,
+   "texture": "own atlas 3328x3792 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A02.4",
+   "slug": "ossuary_tower",
+   "name": "Round ossuary tower",
+   "dir": "A02_4_ossuary_tower",
+   "glb": "A02_4_ossuary_tower/act1_kit_v1_ossuary_tower.glb",
+   "mb": 7.0,
+   "tris": 7231,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.19",
+   "yaw_deg": 0.6,
+   "normalised": [
+    0.812,
+    1.0,
+    0.896
+   ],
+   "real_size_m": [
+    4.8,
+    7.8,
+    4.8
+   ],
+   "m_per_unit_xyz": [
+    5.91,
+    7.8,
+    5.36
+   ],
+   "shape_spread": 1.46,
+   "texture": "own atlas 3584x2640 (row atlas 4096x4096)"
+  }
+ ]
+}

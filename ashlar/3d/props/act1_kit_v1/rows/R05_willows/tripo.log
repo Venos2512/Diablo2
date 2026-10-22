@@ -1,0 +1,11 @@
+[10-22 13:22:39] R05_willows: polycount set to 10000 (account default)
+[10-22 13:22:45] R05_willows: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 9533), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 13:24:09] R05_willows: mesh done (credits now 9433); new models: 01cc3ac1-c279-49b1-992f-3746e44edeac 6c0f3fe9-77a4-4c95-a8c8-1f1e2190fae9 b5cde88a-d20d-470d-9a99-28bd4273d437 a4ce2770-821d-4c0b-ab76-c9f3364a069b
+[10-22 13:25:05] R05_willows: variants (index uuid faces): 0 01cc3ac1-c279-49b1-992f-3746e44edeac 9857;1 6c0f3fe9-77a4-4c95-a8c8-1f1e2190fae9 9494;2 b5cde88a-d20d-470d-9a99-28bd4273d437 9551;3 a4ce2770-821d-4c0b-ab76-c9f3364a069b 9376;
+[10-22 13:28:38] R05_willows: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/6c0f3fe9-77a4-4c95-a8c8-1f1e2190fae9 faces 9494; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:29:05] R05_willows: smart uv saved (credits 9428 -> 9408)
+[10-22 13:30:20] R05_willows: texture 4K done in 45s (credits 9408 -> 9288, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 13:32:04] R05_willows: pbr done (credits 9288 -> 9283)
+[10-22 13:33:07] R05_willows: exported act1_kit_v1_R05_willows.glb (format GLB, texture 4kCurrent, 19928 KB)
+[10-22 13:33:07] R05_willows: GLB check: {"file": "act1_kit_v1_R05_willows.glb", "MB": 20.4, "meshes": 1, "tris": 15852, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.282], "max": [0.5, 0.45, 0.282]}
+[10-22 13:34:01] R05_willows: FINISHED: balance 9183 (shared); _shots/final_views.png

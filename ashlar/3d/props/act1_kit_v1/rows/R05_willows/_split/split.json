@@ -1,0 +1,82 @@
+{
+ "row": "R05",
+ "row_glb": "rows/R05_willows/act1_kit_v1_R05_willows.glb",
+ "variant": "1",
+ "faces": 15852,
+ "objects": 2,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A04.1",
+   "slug": "old_willow",
+   "name": "Old broad weeping willow",
+   "dir": "A04_1_old_willow",
+   "glb": "A04_1_old_willow/act1_kit_v1_old_willow.glb",
+   "mb": 20.2,
+   "tris": 11817,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 3.2,
+   "support_gain": 31.79,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.95,
+    0.787,
+    1.0
+   ],
+   "real_size_m": [
+    6.0,
+    5.4,
+    6.0
+   ],
+   "m_per_unit_xyz": [
+    6.31,
+    6.86,
+    6.0
+   ],
+   "shape_spread": 1.14,
+   "texture": "row atlas kept whole"
+  },
+  {
+   "id": "A04.2",
+   "slug": "young_willow",
+   "name": "Young willow",
+   "dir": "A04_2_young_willow",
+   "glb": "A04_2_young_willow/act1_kit_v1_young_willow.glb",
+   "mb": 3.5,
+   "tris": 4035,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 4.3,
+   "support_gain": 11.08,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.823,
+    1.0,
+    0.871
+   ],
+   "real_size_m": [
+    4.0,
+    6.0,
+    4.0
+   ],
+   "m_per_unit_xyz": [
+    4.86,
+    6.0,
+    4.59
+   ],
+   "shape_spread": 1.31,
+   "texture": "own atlas 3456x1536 (row atlas 4096x4096)"
+  }
+ ]
+}

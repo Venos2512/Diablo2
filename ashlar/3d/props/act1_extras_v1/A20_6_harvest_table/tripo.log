@@ -1,0 +1,13 @@
+[01:46:48] A20_6_harvest_table: input = textures/A20_6_harvest_table_a.png; credits before 13523 (tab 4E7517BE00D27838186C6BCE671C16E1)
+[01:49:23] A20_6_harvest_table: mesh done, credits 13523 -> 13403; variants: 5be67c46-00fe-423a-8d73-341c74c23897|market stall 3d model;7a3b7a48-02d3-4dbb-bdf2-54455db563e3|wooden market stall 3d model;3931a518-a192-4a4b-a663-8c69222e0ab6|market stall 3d model;9edf8631-e49b-4908-8140-a26adce46f37|rustic market stall 3d model
+[01:49:30] A20_6_harvest_table: variants in _shots/variants.txt / variants.png
+[01:50:45] A20_6_harvest_table: lead: 01:44-01:50 duplicate lanes (old finish lanes survived TaskStop) drove the same tabs; entries in that window are unreliable; requeued clean from uv
+[02:20:00] A20_6_harvest_table: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/9edf8631-e49b-4908-8140-a26adce46f37 faces 6698
+[02:34:22] A20_6_harvest_table: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/9edf8631-e49b-4908-8140-a26adce46f37 faces 6698
+[02:35:32] A20_6_harvest_table: smart uv saved
+[02:35:41] A20_6_harvest_table: texture reference was empty: uploaded textures/A20_6_harvest_table_a.png
+[02:41:23] A20_6_harvest_table: texture 4K done (credits 11458 -> 11423, other tabs may spend at the same time)
+[02:43:23] act1_extras_v1_harvest_table: pbr done (credits 11423 -> 11413)
+[02:43:38] act1_extras_v1_harvest_table: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A20_6_harvest_table/act1_extras_v1_harvest_table.glb (21960 KB)
+[02:43:38] A20_6_harvest_table: finish credits 11508 -> 11413 (shared balance)
+GLB check: 22.5 MB, meshes 1, tris 9512, maps ['base', 'mr', 'normal'], images 3

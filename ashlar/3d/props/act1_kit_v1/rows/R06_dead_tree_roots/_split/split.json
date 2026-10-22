@@ -1,0 +1,82 @@
+{
+ "row": "R06",
+ "row_glb": "rows/R06_dead_tree_roots/act1_kit_v1_R06_dead_tree_roots.glb",
+ "variant": "3",
+ "faces": 19626,
+ "objects": 2,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A04.3",
+   "slug": "dead_tree",
+   "name": "Dead angular tree",
+   "dir": "A04_3_dead_tree",
+   "glb": "A04_3_dead_tree/act1_kit_v1_dead_tree.glb",
+   "mb": 4.8,
+   "tris": 6833,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.602,
+    1.0,
+    0.585
+   ],
+   "real_size_m": [
+    3.0,
+    7.0,
+    3.0
+   ],
+   "m_per_unit_xyz": [
+    4.98,
+    7.0,
+    5.12
+   ],
+   "shape_spread": 1.4,
+   "texture": "own atlas 4096x2256 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A04.6",
+   "slug": "willow_roots",
+   "name": "Exposed willow root cluster",
+   "dir": "A04_6_willow_roots",
+   "glb": "A04_6_willow_roots/act1_kit_v1_willow_roots.glb",
+   "mb": 19.4,
+   "tris": 12793,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 2.0,
+   "support_gain": 288.54,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    1.0,
+    0.438,
+    0.988
+   ],
+   "real_size_m": [
+    4.6,
+    2.2,
+    4.0
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    5.02,
+    4.05
+   ],
+   "shape_spread": 1.24,
+   "texture": "row atlas kept whole"
+  }
+ ]
+}

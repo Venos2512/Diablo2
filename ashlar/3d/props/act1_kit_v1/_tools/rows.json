@@ -1,0 +1,103 @@
+{
+  "_doc": "Act I kit rows (tmp/act1-base-maps/TRIPO_ROWS.md §2): assets left to right in each row image, real size w x h x d in metres (w = width of the FRONT face). Optional per asset: front (camera = face the camera of the row image, for organic or round assets; default: footprint axes), objects (object numbers from --list), cut (ground layer to cut, fraction of size), dome, yaw (degrees about +y, overrides the automatic front), attach (gap for loose parts, fraction of size), keep_all, note.",
+  "R01": [
+    {"id": "A01.1", "slug": "stilt_cottage", "name": "Repaired thatched stilt cottage", "size": [4.6, 5.2, 4.0]},
+    {"id": "A02.4", "slug": "ossuary_tower", "name": "Round ossuary tower", "size": [4.8, 7.8, 4.8]}
+  ],
+  "R02": [
+    {"id": "A02.1", "slug": "lychgate", "name": "Lychgate roofed gate", "size": [3.4, 3.8, 2.6]},
+    {"id": "A02.5", "slug": "saint_statue_arch", "name": "Faceless saint statue supporting an arch", "size": [2.4, 4.3, 1.2]},
+    {"id": "A01.5", "slug": "village_well", "name": "Village well", "size": [2.2, 3.4, 2.0]}
+  ],
+  "R03": [
+    {"id": "A01.3", "slug": "flint_wall", "name": "Patched low flint wall", "size": [3.4, 1.4, 0.7]},
+    {"id": "A01.4", "slug": "hurdle_fence", "name": "Willow hurdle fence", "size": [3.2, 1.4, 0.18]},
+    {"id": "A01.2", "slug": "walkway", "name": "Raised wooden walkway segment", "size": [4.0, 1.2, 1.4]}
+  ],
+  "R04": [
+    {"id": "A02.2", "slug": "mortsafe", "name": "Mortsafe grave cage", "size": [2.6, 1.2, 1.4]},
+    {"id": "A02.3", "slug": "headstones", "name": "Small mismatched headstone cluster", "size": [3.0, 1.6, 2.0]},
+    {"id": "A02.6", "slug": "hand_cart", "name": "Funeral hand cart", "size": [3.2, 1.2, 1.4]}
+  ],
+  "R05": [
+    {"id": "A04.1", "slug": "old_willow", "name": "Old broad weeping willow", "size": [6.0, 5.4, 6.0], "front": "camera"},
+    {"id": "A04.2", "slug": "young_willow", "name": "Young willow", "size": [4.0, 6.0, 4.0], "front": "camera"}
+  ],
+  "R06": [
+    {"id": "A04.3", "slug": "dead_tree", "name": "Dead angular tree", "size": [3.0, 7.0, 3.0], "front": "camera"},
+    {"id": "A04.6", "slug": "willow_roots", "name": "Exposed willow root cluster", "size": [4.6, 2.2, 4.0], "front": "camera"}
+  ],
+  "R07": [
+    {"id": "A03.4", "slug": "moss_rock", "name": "Large moss rock", "size": [2.3, 1.6, 2.0], "front": "camera"},
+    {"id": "A03.5", "slug": "peat_bank", "name": "Peat bank chunk", "size": [2.9, 1.4, 1.2]},
+    {"id": "A03.6", "slug": "root_stump", "name": "Waterlogged root stump", "size": [1.4, 1.3, 1.4], "front": "camera"}
+  ],
+  "R08": [
+    {"id": "A06.2", "slug": "marker_stone", "name": "Upright marker stone", "size": [0.9, 2.6, 0.7]},
+    {"id": "A06.4", "slug": "bog_lure_post", "name": "Unlit bog-lure post", "size": [1.3, 2.9, 0.9]},
+    {"id": "A06.6", "slug": "bridge_pier", "name": "Broken bridge pier", "size": [3.8, 5.0, 2.2]}
+  ],
+  "R09": [
+    {"id": "A06.1", "slug": "causeway", "name": "Fen causeway segment", "size": [4.0, 0.9, 0.4]},
+    {"id": "A06.3", "slug": "stepping_ford", "name": "Stepping-stone ford", "size": [2.4, 0.5, 7.0], "keep_all": true, "note": "seven loose pieces (six stones and a plank) kept as one asset"},
+    {"id": "A07.5", "slug": "plank_raft", "name": "Pontoon plank raft", "size": [3.6, 1.7, 2.4]}
+  ],
+  "R10": [
+    {"id": "A07.1", "slug": "drowned_cottage", "name": "Half-drowned flint cottage", "size": [7.0, 6.2, 5.0]},
+    {"id": "A07.4", "slug": "roof_platform", "name": "Sunken roof-ridge platform", "size": [6.0, 3.2, 4.8]}
+  ],
+  "R11": [
+    {"id": "A07.3", "slug": "gable_wall", "name": "Gable wall with door arch", "size": [5.0, 5.3, 0.7]},
+    {"id": "A07.6", "slug": "roost_pole", "name": "Rook roost pole", "size": [2.8, 6.2, 1.4]},
+    {"id": "A07.2", "slug": "weir", "name": "Timber-and-stone weir segment", "size": [4.2, 1.9, 1.0]}
+  ],
+  "R12": [
+    {"id": "A04.5", "slug": "hollow_trunk", "name": "Fallen hollow trunk", "size": [5.0, 1.3, 1.6]},
+    {"id": "A06.5", "slug": "fen_punt", "name": "Half-sunk fen punt", "size": [3.4, 0.7, 1.2]}
+  ],
+  "R13": [
+    {"id": "A08.3", "slug": "farmhouse", "name": "Abandoned hillside farmhouse", "size": [8.0, 6.4, 5.4]},
+    {"id": "A08.4", "slug": "hay_rick", "name": "Hay rick", "size": [3.0, 3.2, 3.0], "front": "camera"}
+  ],
+  "R14": [
+    {"id": "A08.2", "slug": "drystone_wall", "name": "Drystone wall module", "size": [3.2, 1.3, 0.7]},
+    {"id": "A08.2-stile", "dir": "A08_2_squeeze_stile", "slug": "squeeze_stile", "name": "Squeeze stile in a drystone wall", "size": [3.2, 1.3, 0.7]},
+    {"id": "A08.5", "slug": "field_gate", "name": "Field gate between stone posts", "size": [4.4, 1.6, 0.7]}
+  ],
+  "R15": [
+    {"id": "A01.6", "slug": "eel_trap_rack", "name": "Eel-trap fishing rack", "size": [3.4, 3.0, 1.6]},
+    {"id": "A08.6", "slug": "poppy_rack", "name": "Poppy-drying rack", "size": [3.6, 2.3, 1.4]}
+  ],
+  "R16": [
+    {"id": "A11.4", "slug": "gate_tower", "name": "Gate tower", "size": [4.32, 7.2, 4.32]},
+    {"id": "A11.1", "slug": "cloister_bay", "name": "Whitewashed cloister bay", "size": [5.4, 4.32, 2.16]}
+  ],
+  "R17": [
+    {"id": "A11.5", "slug": "kitchen_hearth", "name": "Kitchen hearth with cauldron", "size": [3.6, 2.88, 1.8]},
+    {"id": "A11.6", "slug": "candle_stand", "name": "Steady candle stand", "size": [0.9, 2.34, 0.9], "front": "camera"},
+    {"id": "A11.2", "slug": "hospice_bed", "name": "Hospice bed", "size": [1.08, 0.72, 2.16]}
+  ],
+  "R18": [
+    {"id": "A11.3", "slug": "refectory_table", "name": "Refectory table with bread", "size": [4.32, 0.81, 1.44]},
+    {"id": "A14.5", "slug": "quilted_platform", "name": "Quilted floor platform", "size": [5.4, 0.72, 5.4]}
+  ],
+  "R19": [
+    {"id": "A13.5", "slug": "root_wall_bay", "name": "Root-vaulted wall bay", "size": [5.4, 5.04, 1.8]},
+    {"id": "A13.2", "slug": "canopy_frame", "name": "Cloth canopy frame", "size": [6.3, 4.32, 4.32]}
+  ],
+  "R20": [
+    {"id": "A13.4", "slug": "bell_post", "name": "Hush bell post", "size": [1.62, 3.6, 0.7]},
+    {"id": "A13.3", "slug": "night_light_jar", "name": "Pink night-light jar", "size": [0.63, 0.81, 0.63], "front": "camera"},
+    {"id": "A13.1", "slug": "bed_furrow", "name": "Sleeping bed furrow", "size": [1.4, 0.5, 2.7]},
+    {"id": "A13.6", "slug": "poppy_furrow", "name": "Poppy furrow", "size": [4.32, 1.26, 1.62]}
+  ],
+  "R21": [
+    {"id": "A14.1", "slug": "crib_frame", "name": "Bone-rail crib frame", "size": [6.3, 3.6, 3.6]},
+    {"id": "A14.2", "slug": "curtain_pair", "name": "Linen curtain pair", "size": [4.32, 5.4, 0.7]}
+  ],
+  "R22": [
+    {"id": "A14.6", "slug": "rocker_runners", "name": "Rocker runner pair", "size": [5.4, 1.44, 2.88]},
+    {"id": "A14.4", "slug": "bone_mobile", "name": "Bone mobile on stand", "size": [2.52, 3.24, 0.9]},
+    {"id": "A14.3", "slug": "milk_night_light", "name": "Milk-white night-light", "size": [1.08, 2.16, 1.08], "front": "camera"}
+  ]
+}
