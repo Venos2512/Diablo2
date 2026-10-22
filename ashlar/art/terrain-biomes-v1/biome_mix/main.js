@@ -25,6 +25,7 @@ document.body.appendChild(renderer.domElement);
 // shader compile/link failures must reach window.__BIOME_MIX.errors (ready stays false)
 renderer.debug.onShaderError = (gl, program, vs, fs) => {
   const log = [gl.getProgramInfoLog(program), gl.getShaderInfoLog(vs), gl.getShaderInfoLog(fs)].filter(Boolean).join(' | ');
+  console.error(log); // keeps the numbered shader source in the console
   pushError('shader error: ' + log.slice(0, 600));
 };
 const MAX_ANISO = Math.min(renderer.capabilities.getMaxAnisotropy(), 8);
@@ -133,6 +134,35 @@ const labelHost = document.getElementById('labels');
 const info = document.getElementById('info');
 const statusEl = document.getElementById('status');
 
+let gui = null, adv = null, viewCtl = null, layerFolder = null, blendFolder = null;
+
+// ---------- smoothness: one slider drives the mask softness, octave detail, edge noise and the height blend together
+// 0 = the crisp look (sample/layer defaults in samples.js), 1 = very soft. Individual sliders (Advanced) edit the effective values.
+const lerp = (a, b, t) => a + (b - a) * t;
+const SOFT_TARGET = { patch: 0.12, low: 0.12, path: 1.4, cell: 1.7 }; // patch/low: noise-threshold units; path/cell: metres
+const smooth = { value: THREE.MathUtils.clamp(Number(params.get('smooth') ?? 0.7), 0, 1) };
+SAMPLES.forEach((s) => { s.crisp = { depth: s.depth, hi: s.hi, warp: s.warp }; s.layers.forEach((l) => { l.crispSoft = l.soft; }); });
+function applySmooth(v) {
+  smooth.value = v;
+  const G = GLOBALS;
+  G.uLin.value = v;
+  G.uDetail.value = lerp(1, 0.15, v);
+  G.uContrast.value = lerp(2.1, 1.0, v);
+  G.uWarpFreq.value = lerp(0.7, 0.4, v);
+  G.uEdgeAmp.value = lerp(1.3, 0.5, v);
+  G.uEdgeFreq.value = lerp(0.75, 0.4, v);
+  for (const s of SAMPLES) {
+    s.depth = lerp(s.crisp.depth, 0.45, v);
+    s.hi = lerp(s.crisp.hi, 0.45, v);
+    s.warp = lerp(s.crisp.warp, 2.2, v);
+    s.layers.forEach((l, i) => { if (SOFT_TARGET[l.role]) l.soft = lerp(l.crispSoft, SOFT_TARGET[l.role], v); if (s.uniforms) pUpdate(s, i); });
+    if (s.uniforms) { s.uniforms.uDepth.value = s.depth; s.uniforms.uHI.value = s.hi; s.uniforms.uWarp.value = s.warp; }
+  }
+  if (gui) gui.controllersRecursive().forEach((c) => c.updateDisplay());
+}
+function pUpdate(s, i) { const l = s.layers[i]; s.uniforms.uP.value[i].set(l.coverage, l.width, l.soft, s.seed + i * 7.31); }
+applySmooth(smooth.value);
+
 // URL overrides for automation: ?hi= ?depth= ?over= ?noise= ?warp= (all samples), ?at=0 (anti-tiling off), ?varscale= ?macro=
 for (const key of ['hi', 'depth', 'over', 'noise', 'warp']) if (params.has(key)) SAMPLES.forEach((s) => { s[key] = Number(params.get(key)); });
 if (params.get('at') === '0') GLOBALS.uAT.value = 0;
@@ -213,7 +243,6 @@ function setView(v) {
 }
 
 // ---------- GUI
-let gui = null, viewCtl = null, layerFolder = null, blendFolder = null;
 const display = { normals: params.get('normals') !== '0', weights: params.get('debug') === 'weights', albedoOnly: params.get('unlit') === '1', applyAll: false };
 function applyDisplay() {
   SAMPLES.forEach((s) => {
@@ -225,18 +254,17 @@ function applyDisplay() {
 function setBlend(key, uniform, v) {
   (display.applyAll ? SAMPLES : [byId(state.edit)]).forEach((s) => { s[key] = v; s.uniforms[uniform].value = v; });
 }
-function pUpdate(s, i) { const l = s.layers[i]; s.uniforms.uP.value[i].set(l.coverage, l.width, l.soft, s.seed + i * 7.31); }
 function rebuildEditFolders() {
   blendFolder?.destroy(); layerFolder?.destroy();
   const s = byId(state.edit);
-  blendFolder = gui.addFolder(`Blend – ${s.id}`);
+  blendFolder = adv.addFolder(`Blend – ${s.id}`);
   blendFolder.add(s, 'depth', 0.01, 0.6, 0.005).name('blend depth (độ nét)').onChange((v) => setBlend('depth', 'uDepth', v));
   blendFolder.add(s, 'over', 0, 1, 0.01).name('priority suppress').onChange((v) => setBlend('over', 'uOver', v));
   blendFolder.add(s, 'hi', 0, 1.5, 0.01).name('height influence').onChange((v) => setBlend('hi', 'uHI', v));
   blendFolder.add(s, 'noise', 0.05, 1.5, 0.005).name('noise scale (1/m)').onChange((v) => setBlend('noise', 'uNoise', v));
   blendFolder.add(s, 'warp', 0, 8, 0.05).name('domain warp (m)').onChange((v) => setBlend('warp', 'uWarp', v));
   blendFolder.add(display, 'applyAll').name('áp dụng cho mọi mẫu');
-  layerFolder = gui.addFolder(`Layers – ${s.name}`);
+  layerFolder = adv.addFolder(`Layers – ${s.name}`);
   s.layers.forEach((l, i) => {
     const f = layerFolder.addFolder(`${i + 1}. ${l.id} (${l.role})`);
     f.add(l, 'visible').onChange((v) => { s.uniforms.uVis.value[i] = v ? 1 : 0; });
@@ -244,7 +272,7 @@ function rebuildEditFolders() {
     f.add(l, 'ns', 0, 2, 0.01).name('normalScale').onChange((v) => { s.uniforms.uNS.value[i] = v; });
     f.add(l, 'hBias', -0.3, 0.3, 0.005).name('height bias').onChange((v) => { s.uniforms.uHB.value[i] = v; });
     f.add(l, 'variation', 0, 1, 0.01).name('anti-tiling offset').onChange((v) => { s.uniforms.uVar.value[i] = v; });
-    f.add(l, 'rotate').name('anti-tiling turns').onChange((v) => { s.uniforms.uRot.value[i] = v ? 1 : 0; });
+    f.add(l, 'rotate', { none: 0, 'quarter turns': 1, 'half turns': 2 }).name('anti-tiling turns').onChange((v) => { s.uniforms.uRot.value[i] = Number(v); });
     if (l.role === 'patch' || l.role === 'low') f.add(l, 'coverage', 0, 1, 0.01).onChange(() => pUpdate(s, i));
     if (l.role === 'path') f.add(l, 'width', 0.3, 14, 0.05).name('width (m)').onChange(() => pUpdate(s, i));
     if (l.role === 'path' || l.role === 'cell') f.add(l, 'soft', 0.02, 3, 0.01).name('soft (m)').onChange(() => pUpdate(s, i));
@@ -258,6 +286,7 @@ function buildGui() {
   SAMPLES.forEach((s) => { opts[s.name] = s.id; });
   viewCtl = gui.add(state, 'view', opts).name('Mẫu').onChange((v) => { if (v !== dbg.view) setView(v); });
   gui.add({ overview: () => setView('overview') }, 'overview').name('◀ Overview');
+  gui.add(smooth, 'value', 0, 1, 0.01).name('Độ mịn (smoothness)').onChange(applySmooth);
   const d = gui.addFolder('Hiển thị');
   d.add(display, 'normals').name('normal maps').onChange(applyDisplay);
   d.add(display, 'weights').name('debug: weights').onChange(applyDisplay);
@@ -271,6 +300,8 @@ function buildGui() {
   lf.add(light, 'el', 5, 85, 1).name('elevation').onChange(applyLight);
   lf.add(light, 'sun', 0, 6, 0.05).name('sun').onChange(applyLight);
   lf.add(light, 'hemi', 0, 3, 0.05).name('hemisphere').onChange(applyLight);
+  adv = gui.addFolder('Advanced (giá trị hiệu dụng)');
+  adv.close();
   rebuildEditFolders();
 }
 

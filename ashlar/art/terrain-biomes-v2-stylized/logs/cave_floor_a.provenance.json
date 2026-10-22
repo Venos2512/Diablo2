@@ -1,0 +1,25 @@
+{
+  "id": "cave_floor_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15c2f-c396-7802-b0e3-0618aa06b55f\\exec-10b6b405-6df8-48f9-91d5-9b4b10174474.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15c2f-c396-7802-b0e3-0618aa06b55f"
+  ],
+  "sha256": "e77f21d8d83ce8c346dddd5549701620efbcfabdd5027753f647e558bedad2ee",
+  "bytes": 1855087,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\style_ref.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_floor_a.png",
+  "started": "2026-10-21T01:59:56Z",
+  "finished": "2026-10-21T02:01:19Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\logs\\work\\cave_floor_a\\attempt-1",
+  "scratch_files": []
+}

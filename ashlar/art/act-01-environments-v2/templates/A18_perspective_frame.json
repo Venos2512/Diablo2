@@ -1,0 +1,160 @@
+{
+ "kind": "perspective",
+ "title": "A18 POPPY REACH AND GENTLE HOUSE EXTERIOR — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Abandoned ox cart",
+   "hpx": 154,
+   "silW": 78,
+   "base": 489,
+   "block": [
+    40,
+    285,
+    362,
+    489
+   ],
+   "blockPx": [
+    322,
+    204
+   ],
+   "blockH": [
+    2.09,
+    1.32
+   ],
+   "lines": [
+    "0.89H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Bed with clean pillow",
+   "hpx": 226,
+   "silW": 115,
+   "base": 489,
+   "block": [
+    542,
+    279,
+    809,
+    489
+   ],
+   "blockPx": [
+    267,
+    210
+   ],
+   "blockH": [
+    1.18,
+    0.93
+   ],
+   "lines": [
+    "0.61H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Flint Delvings mouth",
+   "hpx": 131,
+   "silW": 66,
+   "base": 489,
+   "block": [
+    1046,
+    170,
+    1389,
+    489
+   ],
+   "blockPx": [
+    343,
+    319
+   ],
+   "blockH": [
+    2.62,
+    2.44
+   ],
+   "lines": [
+    "1H",
+    "1.28H",
+    "2H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Hospice ward range",
+   "hpx": 25,
+   "silW": 13,
+   "base": 966,
+   "block": [
+    41,
+    738,
+    454,
+    966
+   ],
+   "blockPx": [
+    413,
+    228
+   ],
+   "blockH": [
+    16.52,
+    9.12
+   ],
+   "lines": [
+    "3.61H",
+    "6.11H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Hospice wall niche",
+   "hpx": 119,
+   "silW": 60,
+   "base": 966,
+   "block": [
+    543,
+    686,
+    894,
+    966
+   ],
+   "blockPx": [
+    351,
+    280
+   ],
+   "blockH": [
+    2.95,
+    2.36
+   ],
+   "lines": [
+    "1H",
+    "1.78H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Hilltop steps",
+   "hpx": 106,
+   "silW": 54,
+   "base": 966,
+   "block": [
+    1046,
+    721,
+    1408,
+    966
+   ],
+   "blockPx": [
+    362,
+    245
+   ],
+   "blockH": [
+    3.41,
+    2.31
+   ],
+   "lines": [
+    "1.11H"
+   ]
+  }
+ ]
+}

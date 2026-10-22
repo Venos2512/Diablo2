@@ -1,0 +1,66 @@
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_dust_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_dust_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_damp_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_damp_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_rubble_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_rubble_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_floor_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_floor_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_clay_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_clay_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_rubble_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_rubble_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_flowstone_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "cave_flowstone_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_crypt_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_crypt_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_cave_a", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_cave_b", "event": "queued"}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_dust_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_dust_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_damp_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:39:12Z", "id": "crypt_damp_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_crypt_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:39:12Z", "id": "decals_crypt_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:30Z", "id": "crypt_damp_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_damp_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7241-b1a0-b1b751ecbbc8\\exec-f46dc52c-b7ff-4874-8091-4b7a568dafe2.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:30Z", "id": "crypt_rubble_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:37Z", "id": "crypt_dust_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_dust_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7b32-86db-429518672c71\\exec-af655d85-487e-4785-8eb0-86a789c18cde.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:37Z", "id": "crypt_rubble_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:39Z", "id": "crypt_dust_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_dust_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7201-bd65-650b0b454362\\exec-e3cbfcf9-d2ea-4f0b-a0dd-a726acaeeda4.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:39Z", "id": "cave_floor_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:41Z", "id": "crypt_damp_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_damp_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7ff3-bae2-d306ff913155\\exec-3e74cd26-e9ca-4df0-98d5-b60aecd2d886.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:41Z", "id": "cave_floor_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_crypt_b", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_damp_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_crypt_b", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_damp_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_crypt_b", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_dust_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_crypt_b", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_dust_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_crypt_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\decals_crypt_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7532-a7db-cb67c16c2dbe\\exec-396afde9-f3a2-4ebe-bee8-ccd5eb9f332e.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:45Z", "id": "decals_cave_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:40:51Z", "id": "decals_crypt_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\decals_crypt_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7eb0-a604-fcd3cd1925e5\\exec-3b54ab2c-daaf-407d-8740-96a0c75c3dc9.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:40:51Z", "id": "decals_cave_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:41:11Z", "id": "crypt_rubble_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "decals_crypt_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:11Z", "id": "crypt_rubble_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "decals_crypt_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:11Z", "id": "crypt_rubble_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_rubble_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-09ec-7e10-b88c-604cfadcdc27\\exec-2bb2d83e-ae20-443c-a374-621082ff780f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:11Z", "id": "cave_clay_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:41:21Z", "id": "crypt_rubble_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\crypt_rubble_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-2454-71d3-b3b1-3891116f0a27\\exec-f0f865a2-45aa-4385-9f97-bff44299623a.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:21Z", "id": "cave_clay_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:41:23Z", "id": "cave_floor_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_floor_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-33ae-7c31-96d7-140fb610c4f3\\exec-c88eb0a5-2bbc-421f-a0ed-ec98081ec3eb.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:23Z", "id": "cave_rubble_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:41:23Z", "id": "cave_floor_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_floor_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-2bc0-7413-b101-1f220d21c52f\\exec-775574ea-faf4-4d7c-ae8b-2bf5d8d8ebcb.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:23Z", "id": "cave_rubble_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:41:31Z", "id": "decals_cave_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "cave_floor_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:31Z", "id": "decals_cave_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "cave_floor_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:31Z", "id": "decals_cave_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_rubble_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:31Z", "id": "decals_cave_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "crypt_rubble_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:31Z", "id": "decals_cave_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\decals_cave_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-4669-7803-81a6-321b3aac10f6\\exec-94f17f5a-b86f-4380-b000-f1acb1ce140f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:35Z", "id": "decals_cave_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\decals_cave_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-5b9b-74f3-9b23-af502a20841c\\exec-5b185c47-8c8c-4c2b-987e-d754e850ec89.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:55Z", "id": "cave_clay_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "decals_cave_a.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:55Z", "id": "cave_clay_a", "event": "warning", "kind": "texture_mutation_not_by_runner", "phase": "after attempt 1", "file": "decals_cave_b.png", "change": "unexpected_new"}
+{"ts": "2026-10-21T00:41:55Z", "id": "cave_clay_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_clay_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-ac46-73a0-9ad3-9db180a080b5\\exec-c240bd62-05ae-4ce5-bd67-c7f7bc2056bd.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:41:55Z", "id": "cave_flowstone_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:42:08Z", "id": "cave_rubble_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_rubble_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-d836-74e2-811f-a0e4f09bd869\\exec-21a893f0-5b2c-4666-a9f6-cc013ca56347.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:42:08Z", "id": "cave_flowstone_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T00:42:13Z", "id": "cave_clay_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_clay_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-d247-7413-b20e-39031cdacd4d\\exec-9847289d-a272-4ddd-b626-444013c18645.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:42:19Z", "id": "cave_rubble_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_rubble_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be7-d7f8-7fd3-8a53-8770902a199b\\exec-e1638ef9-c3a3-4776-8a62-d76a0484395f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:42:46Z", "id": "cave_flowstone_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_flowstone_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be8-57b3-76e1-b5bb-0e25b1adad5e\\exec-a118da78-3f0e-4289-82f5-e553fababff5.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T00:43:06Z", "id": "cave_flowstone_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_flowstone_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15be8-8a4c-7a01-be3c-8b639d2bd8d9\\exec-93539b5e-7470-4492-a7a7-12eb5dd0250c.png", "dims": "1254x1254"}

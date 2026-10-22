@@ -1,0 +1,8 @@
+QA (AD 11) of perspective.png - A19_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A19_perspective_frame.png; prompt: prompts/A19_perspective.txt; session: 01a15eb9-e977-7403-b551-15b62badb36a
+defects:
+- cell 2 tray about 1.7x too big (0.57H long, teapot top 0.2H)
+- cell 5 screen about 1.5x too tall (1.54H instead of 1H)
+- cell 1 flowers reach 0.42H instead of 0.28H (minor)
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

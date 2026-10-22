@@ -1,0 +1,8 @@
+crypt_dust_a: conv opengl r 2.689/3.013 relief GL/DX 0.726/-0.097  | shift -1.92,-1.28 applied NCC 0.4047->0.5287 | relief +0.76 | warnings 0
+crypt_damp_a: conv opengl r 2.114/2.557 relief GL/DX 0.586/-0.127  | shift -1.00,-0.04 applied NCC 0.5604->0.5872 | relief +0.60 | warnings 0
+crypt_rubble_a: conv opengl r 2.418/2.774 relief GL/DX 0.635/-0.118  | shift -1.69,-0.55 applied NCC 0.4368->0.5457 | relief +0.68 | warnings 0
+cave_floor_a: conv directx r 0.97/0.855 relief GL/DX -0.182/0.504  | shift +1.28,+0.99 rejected: uncertain, 9/16 usable blocks within 1 px of their median (need >= 6 usable, 60% agreeing) NCC 0.4176->0.4176 | relief +0.50 | warnings 2
+cave_clay_a: conv opengl r 1.714/1.923 relief GL/DX 0.78/0.012  | shift -1.27,+0.27 applied NCC 0.5303->0.5942 | relief +0.80 | warnings 0
+cave_rubble_a: conv opengl r 2.66/2.494 relief GL/DX 0.393/-0.13  | shift -1.56,-1.18 applied NCC 0.284->0.3872 | relief +0.42 | warnings 0
+cave_flowstone_a: conv opengl r 1.79/1.861 relief GL/DX 0.493/0.062  | shift -2.99,-0.14 rejected: uncertain, 9/16 usable blocks within 1 px of their median (need >= 6 usable, 60% agreeing) NCC 0.2504->0.2504 | relief +0.49 | warnings 1
+{"counts": {"manifest_jobs": 7, "raw_present": 7, "delivered": 7, "missing": 0, "raw_only": 0, "errors": 0, "with_warnings": 2}, "sources_unchanged": true}

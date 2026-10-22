@@ -1,0 +1,163 @@
+{
+ "kind": "perspective",
+ "title": "A17 FENS AND DROWNED VILLAGE EXTRAS — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "The leaning stones",
+   "hpx": 141,
+   "silW": 71,
+   "base": 489,
+   "block": [
+    71,
+    114,
+    341,
+    489
+   ],
+   "blockPx": [
+    270,
+    375
+   ],
+   "blockH": [
+    1.91,
+    2.66
+   ],
+   "lines": [
+    "1H",
+    "2.56H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Drowned bell tower",
+   "hpx": 65,
+   "silW": 33,
+   "base": 489,
+   "block": [
+    639,
+    115,
+    840,
+    489
+   ],
+   "blockPx": [
+    201,
+    374
+   ],
+   "blockH": [
+    3.09,
+    5.76
+   ],
+   "lines": [
+    "5.56H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Gentle House boat",
+   "hpx": 119,
+   "silW": 60,
+   "base": 489,
+   "block": [
+    1046,
+    298,
+    1398,
+    489
+   ],
+   "blockPx": [
+    352,
+    191
+   ],
+   "blockH": [
+    2.96,
+    1.6
+   ],
+   "lines": [
+    "1H",
+    "1.22H",
+    "1.44H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Flooded supper table",
+   "hpx": 189,
+   "silW": 96,
+   "base": 966,
+   "block": [
+    38,
+    833,
+    335,
+    966
+   ],
+   "blockPx": [
+    297,
+    133
+   ],
+   "blockH": [
+    1.57,
+    0.71
+   ],
+   "lines": [
+    "0.44H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Flooded lace window",
+   "hpx": 229,
+   "silW": 116,
+   "base": 966,
+   "block": [
+    542,
+    608,
+    808,
+    966
+   ],
+   "blockPx": [
+    266,
+    358
+   ],
+   "blockH": [
+    1.16,
+    1.56
+   ],
+   "lines": [
+    "1H",
+    "1.44H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Gentle House dock",
+   "hpx": 123,
+   "silW": 62,
+   "base": 966,
+   "block": [
+    1048,
+    713,
+    1395,
+    966
+   ],
+   "blockPx": [
+    347,
+    253
+   ],
+   "blockH": [
+    2.82,
+    2.06
+   ],
+   "lines": [
+    "0.33H",
+    "1H",
+    "1.67H"
+   ]
+  }
+ ]
+}

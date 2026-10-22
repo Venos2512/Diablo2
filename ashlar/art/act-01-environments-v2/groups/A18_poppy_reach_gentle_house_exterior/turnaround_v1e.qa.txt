@@ -1,0 +1,4 @@
+QA (AD 11) of turnaround_v1e.png - A18_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cell 5 LEFT and RIGHT redrawn as angled 3/4 wall pieces instead of orthographic end-on views
+passed: cell 2 bed LEFT/RIGHT now correct; all other cells kept

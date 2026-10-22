@@ -1,0 +1,545 @@
+{
+ "kind": "turnaround",
+ "title": "A19 GENTLE HOUSE INTERIOR PROPS — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Flowers in a vase",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 242,
+   "silW": 123,
+   "scores": {
+    "row": 242,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        221,
+        440,
+        255,
+        507
+       ],
+       "px": [
+        34,
+        67
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        292,
+        440,
+        326,
+        507
+       ],
+       "px": [
+        34,
+        67
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        362,
+        440,
+        396,
+        507
+       ],
+       "px": [
+        34,
+        67
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        432,
+        440,
+        466,
+        507
+       ],
+       "px": [
+        34,
+        67
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.28H"
+  },
+  {
+   "cell": 2,
+   "label": "Poppy tea tray",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 202,
+   "silW": 102,
+   "scores": {
+    "row": 202,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        693,
+        485,
+        732,
+        507
+       ],
+       "px": [
+        39,
+        22
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        763,
+        485,
+        802,
+        507
+       ],
+       "px": [
+        39,
+        22
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        833,
+        485,
+        889,
+        507
+       ],
+       "px": [
+        56,
+        22
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        919,
+        485,
+        975,
+        507
+       ],
+       "px": [
+        56,
+        22
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.11H"
+  },
+  {
+   "cell": 3,
+   "label": "Window chair",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 179,
+   "silW": 91,
+   "scores": {
+    "row": 144,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1258,
+        175,
+        1318,
+        294
+       ],
+       "px": [
+        60,
+        119
+       ],
+       "parts": 2
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1384,
+        175,
+        1444,
+        294
+       ],
+       "px": [
+        60,
+        119
+       ],
+       "parts": 2
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1208,
+        388,
+        1318,
+        507
+       ],
+       "px": [
+        109,
+        119
+       ],
+       "parts": 2
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1359,
+        388,
+        1468,
+        507
+       ],
+       "px": [
+        109,
+        119
+       ],
+       "parts": 2
+      }
+     ]
+    }
+   ],
+   "topLine": "0.67H"
+  },
+  {
+   "cell": 4,
+   "label": "Linen press",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 170,
+   "silW": 86,
+   "scores": {
+    "row": 144,
+    "2x2": 170,
+    "2x2b": 170
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        260,
+        591,
+        307,
+        770
+       ],
+       "px": [
+        47,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        381,
+        591,
+        428,
+        770
+       ],
+       "px": [
+        47,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        194,
+        805,
+        307,
+        984
+       ],
+       "px": [
+        113,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        348,
+        805,
+        461,
+        984
+       ],
+       "px": [
+        113,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.06H"
+  },
+  {
+   "cell": 5,
+   "label": "Linen screen",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 178,
+   "silW": 90,
+   "scores": {
+    "row": 105,
+    "2x2": 126,
+    "2x2b": 178
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        674,
+        592,
+        714,
+        770
+       ],
+       "px": [
+        40,
+        178
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        742,
+        592,
+        979,
+        770
+       ],
+       "px": [
+        237,
+        178
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        674,
+        806,
+        714,
+        984
+       ],
+       "px": [
+        40,
+        178
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        742,
+        806,
+        979,
+        984
+       ],
+       "px": [
+        237,
+        178
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1H"
+  },
+  {
+   "cell": 6,
+   "label": "Tall ward window",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 100,
+   "silW": 51,
+   "scores": {
+    "row": 100,
+    "2x2": 89,
+    "2x2b": 89
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1116,
+        784,
+        1149,
+        984
+       ],
+       "px": [
+        33,
+        200
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1164,
+        784,
+        1198,
+        984
+       ],
+       "px": [
+        33,
+        200
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1213,
+        784,
+        1346,
+        984
+       ],
+       "px": [
+        133,
+        200
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1362,
+        784,
+        1494,
+        984
+       ],
+       "px": [
+        133,
+        200
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2H"
+  }
+ ]
+}

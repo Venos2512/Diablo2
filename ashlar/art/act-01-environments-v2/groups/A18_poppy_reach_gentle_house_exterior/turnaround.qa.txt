@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround.png - A18_turnaround - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cell 2: the LEFT view faces the wrong way (head at image-left in both side views)
+- cell 5: LEFT and RIGHT drawn twice (six views)
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

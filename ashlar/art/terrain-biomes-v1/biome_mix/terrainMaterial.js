@@ -10,6 +10,13 @@ const DEBUG_COLORS = ['vec3(0.95,0.15,0.15)', 'vec3(0.15,0.85,0.2)', 'vec3(0.2,0
 
 // Uniforms shared by every sample material (anti-tiling A/B toggle, variation scale in areas per metre, macro brightness).
 export const GLOBALS = { uAT: { value: 1 }, uVarScale: { value: 0.15 }, uMacro: { value: 0.1 } };
+// Smoothness-driven globals (main.js applySmooth): uLin = share of the soft top-down composite in the final weights
+// (0 = pure height blend), uDetail fades the high fBm octaves of the masks, uContrast = mask contrast, uWarpFreq = warp
+// noise frequency factor, uEdgeAmp/uEdgeFreq = path edge noise (m, 1/m), uHSoft = how far a stone leads the soft ramp.
+Object.assign(GLOBALS, {
+  uLin: { value: 0 }, uDetail: { value: 1 }, uContrast: { value: 2.1 }, uWarpFreq: { value: 0.7 },
+  uEdgeAmp: { value: 1.3 }, uEdgeFreq: { value: 0.75 }, uHSoft: { value: 0.45 },
+});
 
 const NOISE = /* glsl */`
 float bmHash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
@@ -17,12 +24,14 @@ float bmNoise(vec2 p) {
   vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
   return mix(mix(bmHash(i), bmHash(i + vec2(1.0, 0.0)), f.x), mix(bmHash(i + vec2(0.0, 1.0)), bmHash(i + vec2(1.0, 1.0)), f.x), f.y);
 }
-float bmFbm(vec2 p) {
-  float a = 0.5, s = 0.0;
-  for (int k = 0; k < 4; k++) { s += a * bmNoise(p); p = p * 2.03 + vec2(17.1, 9.2); a *= 0.5; }
-  return s / 0.9375;
+float bmFbm(vec2 p) { // octaves 3-4 fade with uDetail (smooth masks = fewer, lighter high octaves)
+  float s = 0.5 * bmNoise(p); p = p * 2.03 + vec2(17.1, 9.2);
+  s += 0.25 * bmNoise(p); p = p * 2.03 + vec2(17.1, 9.2);
+  s += 0.125 * uDetail * bmNoise(p); p = p * 2.03 + vec2(17.1, 9.2);
+  s += 0.0625 * uDetail * bmNoise(p);
+  return s / (0.75 + 0.1875 * uDetail);
 }
-float bmContrast(float n) { return clamp((n - 0.5) * 2.1 + 0.5, 0.0, 1.0); }
+float bmContrast(float n) { return clamp((n - 0.5) * uContrast + 0.5, 0.0, 1.0); }
 vec2 bmRot(vec2 p, float a) { float c = cos(a), s = sin(a); return vec2(c * p.x - s * p.y, s * p.x + c * p.y); }
 
 // role: 0 base, 1 patch, 2 path, 3 low, 4 cell. P = (coverage, width m, soft, seed). lp = patch-centred xz in metres,
@@ -32,19 +41,19 @@ float bmLayerW(int role, int idx, vec4 P, vec2 lp, vec2 lpw, float noiseF) {
   if (role == 0) return 1.0;
   if (role == 1) {
     float n = bmContrast(bmFbm(lpw * noiseF + seed));
-    float t = 0.5 + (0.5 - P.x) * 0.55;
+    float t = 0.5 + (0.5 - P.x) * 0.262 * uContrast;
     return smoothstep(t - P.z, t + P.z, n);
   }
   if (role == 2) {
     float ang = (bmHash(vec2(seed, 1.3)) - 0.5) * 1.2;
     vec2 r = bmRot(lp, ang);
     float c = 1.56 * sin(r.x * 0.433 + seed) + 0.6 * sin(r.x * 0.94 + seed * 2.1);
-    float d = abs(r.y - c) + (bmFbm(lp * 0.75 + seed) - 0.5) * 1.3;
-    return 1.0 - smoothstep(P.y * 0.5 - P.z, P.y * 0.5 + P.z, d);
+    float d = abs(r.y - c) + (bmFbm(lp * uEdgeFreq + seed) - 0.5) * uEdgeAmp;
+    return 1.0 - smoothstep(P.y * 0.5 - 0.5 * P.z, P.y * 0.5 + P.z, d);
   }
   if (role == 3) {
     float n = bmContrast(bmFbm(lpw * noiseF * 0.65 + seed));
-    float t = 0.5 - (0.5 - P.x) * 0.55;
+    float t = 0.5 - (0.5 - P.x) * 0.262 * uContrast;
     return 1.0 - smoothstep(t - P.z, t + P.z, n);
   }
   vec2 pts[4];
@@ -71,7 +80,8 @@ void bmLayerTex(sampler2D AH, sampler2D NM, vec2 uv, float k, float vr, float rt
   }
   float l = k * 8.0, ia = floor(l), f = l - ia;
   vec2 offA = sin(vec2(3.0, 7.0) * ia) * vr, offB = sin(vec2(3.0, 7.0) * (ia + 1.0)) * vr;
-  float qA = mod(ia * 3.0, 4.0) * rt, qB = mod((ia + 1.0) * 3.0, 4.0) * rt;
+  float qA = rt > 1.5 ? mod(ia * 3.0, 2.0) * 2.0 : mod(ia * 3.0, 4.0) * rt; // rt = 2: half turns only (keeps diagonal streaks)
+  float qB = rt > 1.5 ? mod((ia + 1.0) * 3.0, 2.0) * 2.0 : mod((ia + 1.0) * 3.0, 4.0) * rt;
   vec2 uvA = bmTurn(uv, qA) + offA, uvB = bmTurn(uv, qB) + offB;
   vec2 dxA = bmTurn(dx, qA), dyA = bmTurn(dy, qA), dxB = bmTurn(dx, qB), dyB = bmTurn(dy, qB);
   vec4 aA = textureGrad(AH, uvA, dxA, dyA), aB = textureGrad(AH, uvB, dxB, dyB);
@@ -92,7 +102,7 @@ export function createTerrainMaterial(sample, ph) {
     uVis: { value: pad(sample.layers.map((l) => (l.visible ? 1 : 0)), 0) },
     uHB: { value: pad(sample.layers.map((l) => l.hBias), 0) },
     uVar: { value: pad(sample.layers.map((l) => l.variation), 0) },
-    uRot: { value: pad(sample.layers.map((l) => (l.rotate ? 1 : 0)), 0) },
+    uRot: { value: pad(sample.layers.map((l) => Number(l.rotate) || 0), 0) },
     uP: { value: pad(sample.layers.map((l, i) => new THREE.Vector4(l.coverage, l.width, l.soft, sample.seed + i * 7.31)), new THREE.Vector4(0, 0, 0.1, 0)) },
     uDepth: { value: sample.depth }, uOver: { value: sample.over }, uHI: { value: sample.hi }, uNoise: { value: sample.noise }, uWarp: { value: sample.warp },
     uNormalsOn: { value: 1 }, uDebug: { value: 0 }, uUnlit: { value: 0 },
@@ -106,7 +116,7 @@ export function createTerrainMaterial(sample, ph) {
   const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92, metalness: 0 });
   mat.normalMap = ph.n; // only enables USE_NORMALMAP_TANGENTSPACE + vNormalMapUv; the blended map is sampled in the override
   mat.userData.uniforms = u;
-  mat.customProgramCacheKey = () => `bmix2-${n}-${sample.layers.map((l) => ROLE[l.role]).join('')}`;
+  mat.customProgramCacheKey = () => `bmix3-${n}-${sample.layers.map((l) => ROLE[l.role]).join('')}`;
 
   const ids = Array.from({ length: n }, (_, i) => i);
   const samplerDecl = ids.map((i) => `uniform sampler2D uAH${i}; uniform sampler2D uN${i};`).join('\n');
@@ -133,15 +143,20 @@ export function createTerrainMaterial(sample, ph) {
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvWPos = (modelMatrix * vec4(transformed, 1.0)).xyz;\nvLP = vWPos.xz - modelMatrix[3].xz;');
     const mapFrag = `
       vec2 stW = vec2(vLP.x, -vLP.y); // texture frame = patch-centred metres (u = x, v = -z), so overview = centre crop of focus
-      vec2 lpw = vLP + (vec2(bmFbm(vLP * uNoise * 0.7 + 3.1), bmFbm(vLP * uNoise * 0.7 + 9.7)) - 0.5) * uWarp;
+      vec2 lpw = vLP + (vec2(bmFbm(vLP * uNoise * uWarpFreq + 3.1), bmFbm(vLP * uNoise * uWarpFreq + 9.7)) - 0.5) * uWarp;
       ${ids.map(layerCode).join('')}
       ${ids.map(scoreCode).join('\n')}
       float bmM = ${maxScore} - uDepth;
       ${ids.map((i) => `float bw${i} = s${i} > -5.0 ? max(s${i} - bmM, 0.0) : 0.0;`).join('\n')}
       float bwSum = ${ids.map((i) => `bw${i}`).join(' + ')};
       ${ids.map((i) => `bw${i} = bwSum > 1e-5 ? bw${i} / bwSum : 0.0;`).join('\n')}
-      float bmCover = smoothstep(0.0, 0.15, clamp(${maxW}, 0.0, 1.0)); // where no visible layer has weight: neutral ground, soft edge
-      float bmMacro = 1.0 + uMacro * (bmFbm(stW * 0.06 + 11.0) * 2.0 - 1.0);
+      // soft composite (top layer first): the mask ramps are the transition, the stone height only nudges them (lab-style breakup)
+      float cRem = 1.0;
+      ${[...ids].reverse().map((i) => `float cw${i} = ${i === 0 ? 'cRem * clamp(r0, 0.0, 1.0)' : `cRem * clamp(r${i} + (ah${i}.a + uHB[${i}] - 0.5) * uHSoft * 4.0 * r${i} * (1.0 - r${i}), 0.0, 1.0)`}; cRem -= cw${i};`).join('\n      ')}
+      float cwSum = ${ids.map((i) => `cw${i}`).join(' + ')};
+      ${ids.map((i) => `bw${i} = mix(bw${i}, cwSum > 1e-5 ? cw${i} / cwSum : 0.0, uLin);`).join('\n')}
+      float bmCover = smoothstep(0.0, 0.5, clamp(${maxW}, 0.0, 1.0)); // where no visible layer has weight: neutral ground, soft edge
+      float bmMacro = 1.0 + uMacro * (bmFbm(stW * 0.06 + 11.0 + uP[0].w * 3.7) * 2.0 - 1.0);
       vec3 bmAlbedo = mix(vec3(0.05), (${ids.map((i) => `ah${i}.rgb * bw${i}`).join(' + ')}) * bmMacro, bmCover);
       if (uDebug > 0.5) bmAlbedo = ${ids.map((i) => `${DEBUG_COLORS[i]} * bw${i}`).join(' + ')};
       diffuseColor.rgb *= bmAlbedo;`;
@@ -155,6 +170,7 @@ export function createTerrainMaterial(sample, ph) {
       .replace('#include <common>', `#include <common>\nvarying vec3 vWPos;\nvarying vec2 vLP;
         uniform float uTile[4]; uniform float uNS[4]; uniform float uVis[4]; uniform float uHB[4]; uniform float uVar[4]; uniform float uRot[4]; uniform vec4 uP[4];
         uniform float uDepth, uOver, uHI, uNoise, uWarp, uNormalsOn, uDebug, uUnlit, uAT, uVarScale, uMacro;
+        uniform float uLin, uDetail, uContrast, uWarpFreq, uEdgeAmp, uEdgeFreq, uHSoft;
         ${samplerDecl}\n${NOISE}`)
       .replace('#include <map_fragment>', mapFrag)
       .replace('#include <normal_fragment_maps>', normFrag)

@@ -1,0 +1,553 @@
+{
+ "kind": "turnaround",
+ "title": "A17 FENS AND DROWNED VILLAGE EXTRAS — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "The leaning stones",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 73,
+   "silW": 37,
+   "scores": {
+    "row": 73,
+    "2x2": 70,
+    "2x2b": 70
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        87,
+        320,
+        128,
+        507
+       ],
+       "px": [
+        41,
+        187
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        140,
+        320,
+        182,
+        507
+       ],
+       "px": [
+        41,
+        187
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        194,
+        320,
+        336,
+        507
+       ],
+       "px": [
+        142,
+        187
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        348,
+        320,
+        490,
+        507
+       ],
+       "px": [
+        142,
+        187
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.56H"
+  },
+  {
+   "cell": 2,
+   "label": "Drowned bell tower",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 42,
+   "silW": 21,
+   "scores": {
+    "row": 42,
+    "2x2": 32,
+    "2x2b": 32
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        579,
+        274,
+        672,
+        507
+       ],
+       "px": [
+        93,
+        233
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        686,
+        274,
+        779,
+        507
+       ],
+       "px": [
+        93,
+        233
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        792,
+        274,
+        885,
+        507
+       ],
+       "px": [
+        93,
+        233
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        899,
+        274,
+        992,
+        507
+       ],
+       "px": [
+        93,
+        233
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "5.56H"
+  },
+  {
+   "cell": 3,
+   "label": "Gentle House boat",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 80,
+   "silW": 41,
+   "scores": {
+    "row": 40,
+    "2x2": 51,
+    "2x2b": 80
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1102,
+        178,
+        1412,
+        294
+       ],
+       "px": [
+        311,
+        116
+       ],
+       "parts": 3
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1426,
+        178,
+        1497,
+        294
+       ],
+       "px": [
+        71,
+        116
+       ],
+       "parts": 3
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1102,
+        391,
+        1412,
+        507
+       ],
+       "px": [
+        311,
+        116
+       ],
+       "parts": 3
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1426,
+        391,
+        1497,
+        507
+       ],
+       "px": [
+        71,
+        116
+       ],
+       "parts": 3
+      }
+     ]
+    }
+   ],
+   "topLine": "1.44H"
+  },
+  {
+   "cell": 4,
+   "label": "Flooded supper table",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 126,
+   "silW": 64,
+   "scores": {
+    "row": 82,
+    "2x2": 126,
+    "2x2b": 145
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        191,
+        700,
+        296,
+        770
+       ],
+       "px": [
+        105,
+        70
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        346,
+        700,
+        452,
+        770
+       ],
+       "px": [
+        105,
+        70
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        128,
+        914,
+        296,
+        984
+       ],
+       "px": [
+        168,
+        70
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        315,
+        914,
+        483,
+        984
+       ],
+       "px": [
+        168,
+        70
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.56H"
+  },
+  {
+   "cell": 5,
+   "label": "Flooded lace window",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 124,
+   "silW": 63,
+   "scores": {
+    "row": 108,
+    "2x2": 124,
+    "2x2b": 124
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        766,
+        591,
+        800,
+        770
+       ],
+       "px": [
+        34,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        886,
+        591,
+        920,
+        770
+       ],
+       "px": [
+        34,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        648,
+        805,
+        800,
+        984
+       ],
+       "px": [
+        152,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        827,
+        805,
+        979,
+        984
+       ],
+       "px": [
+        152,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.44H"
+  },
+  {
+   "cell": 6,
+   "label": "Gentle House dock",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 85,
+   "silW": 43,
+   "scores": {
+    "row": 42,
+    "2x2": 59,
+    "2x2b": 85
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1105,
+        628,
+        1388,
+        770
+       ],
+       "px": [
+        283,
+        142
+       ],
+       "parts": 3
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1402,
+        628,
+        1496,
+        770
+       ],
+       "px": [
+        94,
+        142
+       ],
+       "parts": 3
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1105,
+        842,
+        1388,
+        984
+       ],
+       "px": [
+        283,
+        142
+       ],
+       "parts": 3
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1402,
+        842,
+        1496,
+        984
+       ],
+       "px": [
+        94,
+        142
+       ],
+       "parts": 3
+      }
+     ]
+    }
+   ],
+   "topLine": "1.67H"
+  }
+ ]
+}

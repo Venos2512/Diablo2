@@ -1,0 +1,161 @@
+{
+ "kind": "perspective",
+ "title": "A24 MERCY LINEN AND BREAD — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Kitchen work table",
+   "hpx": 202,
+   "silW": 102,
+   "base": 489,
+   "block": [
+    39,
+    372,
+    324,
+    489
+   ],
+   "blockPx": [
+    285,
+    117
+   ],
+   "blockH": [
+    1.41,
+    0.58
+   ],
+   "lines": [
+    "0.5H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Bread rack",
+   "hpx": 266,
+   "silW": 135,
+   "base": 489,
+   "block": [
+    542,
+    210,
+    778,
+    489
+   ],
+   "blockPx": [
+    236,
+    279
+   ],
+   "blockH": [
+    0.89,
+    1.05
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Linen folding table",
+   "hpx": 202,
+   "silW": 102,
+   "base": 489,
+   "block": [
+    1047,
+    338,
+    1332,
+    489
+   ],
+   "blockPx": [
+    285,
+    151
+   ],
+   "blockH": [
+    1.41,
+    0.75
+   ],
+   "lines": [
+    "0.5H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Turned-down coverlet",
+   "hpx": 233,
+   "silW": 118,
+   "base": 966,
+   "block": [
+    38,
+    932,
+    300,
+    966
+   ],
+   "blockPx": [
+    262,
+    34
+   ],
+   "blockH": [
+    1.12,
+    0.15
+   ],
+   "lines": [
+    "0.07H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Turned-down quilt",
+   "hpx": 149,
+   "silW": 76,
+   "base": 966,
+   "block": [
+    542,
+    926,
+    869,
+    966
+   ],
+   "blockPx": [
+    327,
+    40
+   ],
+   "blockH": [
+    2.19,
+    0.27
+   ],
+   "lines": [
+    "0.13H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Linen pillow",
+   "hpx": 261,
+   "silW": 132,
+   "base": 966,
+   "block": [
+    1046,
+    906,
+    1287,
+    966
+   ],
+   "blockPx": [
+    241,
+    60
+   ],
+   "blockH": [
+    0.92,
+    0.23
+   ],
+   "lines": [
+    "0.18H",
+    "1H"
+   ]
+  }
+ ]
+}

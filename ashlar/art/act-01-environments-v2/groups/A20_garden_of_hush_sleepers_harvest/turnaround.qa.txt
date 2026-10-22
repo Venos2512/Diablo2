@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround.png - A20_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cells 1-4: views drawn from a raised camera (not eye-level orthographic) and about 1.4x long; in FRONT views the poppy at the mouth reads like red lips
+- cell 5: floor block about 0.52H instead of 0.33H
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

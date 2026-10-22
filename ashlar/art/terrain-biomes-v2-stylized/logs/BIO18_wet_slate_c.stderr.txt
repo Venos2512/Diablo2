@@ -1,0 +1,6 @@
+2026-10-21T01:54:24.711308Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-21T01:56:34.523549Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: No such host is known. (os error 11001), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-21T01:56:34.977782Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: No such host is known. (os error 11001), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-21T01:56:35.810797Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: No such host is known. (os error 11001), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-21T01:56:37.309520Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: No such host is known. (os error 11001), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-21T01:56:40.650017Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: No such host is known. (os error 11001), url: wss://chatgpt.com/backend-api/codex/responses

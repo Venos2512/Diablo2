@@ -1,0 +1,25 @@
+{
+  "id": "BIO02_meadow_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15c15-a011-76e2-8da1-f8fa3e1465f6\\exec-8d664ae0-a370-408e-9f6a-3beaddd99ad6.png",
+  "source_how": "thread-dir",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15c15-a011-76e2-8da1-f8fa3e1465f6"
+  ],
+  "sha256": "8725434ea301417fba8e6c96d68210f70fdcda505b53bea4b014bc0421cd71f6",
+  "bytes": 1849502,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\style_ref.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO02_meadow_a.png",
+  "started": "2026-10-21T01:31:15Z",
+  "finished": "2026-10-21T01:33:05Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\logs\\work\\BIO02_meadow_a\\attempt-1",
+  "scratch_files": []
+}

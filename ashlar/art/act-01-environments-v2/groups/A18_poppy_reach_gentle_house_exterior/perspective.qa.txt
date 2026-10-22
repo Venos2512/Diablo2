@@ -1,0 +1,8 @@
+QA (AD 11) of perspective.png - A18_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A18_perspective_frame.png; prompt: prompts/A18_perspective.txt; session: 01a15eb9-e961-78c1-8610-b65d09a4d6ea
+defects:
+- cell 6 terrace about 2.2H high instead of 1.1H (2x too tall)
+- cell 4 walls about 1.2x tall and the gable end too shallow (minor)
+- cell 3 about 1.15x big (minor)
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

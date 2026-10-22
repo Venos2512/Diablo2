@@ -1,0 +1,278 @@
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO02_meadow_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO02_meadow_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO03_flint_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO03_flint_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO04_ossuary_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO04_ossuary_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO08_nave_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO08_nave_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO15_pyre_ash_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO15_pyre_ash_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO19_coastal_rock_a", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO19_coastal_rock_b", "event": "queued"}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO03_flint_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO02_meadow_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO02_meadow_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO03_flint_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO04_ossuary_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO04_ossuary_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO08_nave_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO15_pyre_ash_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO08_nave_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO19_coastal_rock_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO15_pyre_ash_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:31:15Z", "id": "BIO19_coastal_rock_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:33:00Z", "id": "BIO19_coastal_rock_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO19_coastal_rock_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a013-75d1-9f71-50db0bc230eb\\exec-943617fc-fbe4-4bfa-84e1-68e015e867c1.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:03Z", "id": "BIO03_flint_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO03_flint_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-7940-a4bd-75d2d535c852\\exec-1e85b37b-fa6a-4950-ae5b-b87562721309.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:03Z", "id": "BIO04_ossuary_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO04_ossuary_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a013-7360-b3aa-548a893e4fac\\exec-4cbb453a-0c7f-4a10-8513-e637d1d55c28.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:03Z", "id": "BIO08_nave_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO08_nave_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a013-7220-8391-54db793398a2\\exec-776cfb50-bfba-4253-a22c-23639b98447a.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:05Z", "id": "BIO02_meadow_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO02_meadow_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a011-76e2-8da1-f8fa3e1465f6\\exec-8d664ae0-a370-408e-9f6a-3beaddd99ad6.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:06Z", "id": "BIO15_pyre_ash_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO15_pyre_ash_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-7e72-8bfc-a55aa8f1c536\\exec-0a67b106-70c8-49be-9ef6-daf48485ae69.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:08Z", "id": "BIO04_ossuary_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO04_ossuary_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-71f0-860a-ae68b814c71b\\exec-40c6cc42-6e6e-4dd8-9f9b-be975671dd8b.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:08Z", "id": "BIO02_meadow_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO02_meadow_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a010-7421-acd2-a0c162c9b570\\exec-b798c1e9-7572-4f04-9213-d84d8de4b21b.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:13Z", "id": "BIO08_nave_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO08_nave_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-7272-ac34-a85523d4c5f4\\exec-59add6ff-85e2-418c-a24f-33519cfcecf8.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:13Z", "id": "BIO15_pyre_ash_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO15_pyre_ash_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a010-7af1-8a24-6225b4e9dd8b\\exec-84672e73-2d05-46da-ac30-b3bd226c8b12.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:14Z", "id": "BIO03_flint_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO03_flint_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-7370-9adc-6e9e7ae0e67a\\exec-866f7e02-99a4-4139-bb68-0fea4aa226bd.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:33:15Z", "id": "BIO19_coastal_rock_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO19_coastal_rock_b.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c15-a00f-7ec0-8c22-a0a6b7bbd977\\exec-580ced9c-a78e-4574-a224-cd3c928fb20a.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO01_peat_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO01_peat_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO02_meadow_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO02_meadow_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO03_flint_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO03_flint_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_ossuary_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_ossuary_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_garden_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_garden_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO05_lime_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO05_lime_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_flint_spoil_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_flint_spoil_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_salt_mine_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_salt_mine_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO07_limestone_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO07_limestone_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO08_nave_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO08_nave_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO09_ash_snow_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO09_ash_snow_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO10_salt_crust_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO10_salt_crust_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO11_white_hulk_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO11_white_hulk_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO12_dark_planks_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO12_dark_planks_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO13_salt_glass_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO13_salt_glass_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO14_blue_ice_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO14_blue_ice_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO15_pyre_ash_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO15_pyre_ash_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO16_blackwood_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO16_blackwood_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO17_varnished_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO17_varnished_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO18_wet_slate_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO18_wet_slate_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO19_coastal_rock_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO19_coastal_rock_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO20_wet_sand_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO20_wet_sand_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO21_sunken_floor_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO21_sunken_floor_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO22_abbey_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO22_abbey_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO23_course_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO23_course_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO24_keystone_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO24_keystone_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO26_dream_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO26_dream_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_cradle_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_cradle_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_vault_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_vault_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_salt_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_salt_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_deep_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO27_deep_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_dust_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_dust_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_damp_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_damp_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_rubble_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "crypt_rubble_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_floor_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_floor_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_clay_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_clay_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_rubble_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_rubble_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_flowstone_a", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "cave_flowstone_c", "event": "queued"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO02_meadow_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO01_peat_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO01_peat_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO03_flint_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO03_flint_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO02_meadow_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_ossuary_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_ossuary_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_garden_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO04_garden_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_flint_spoil_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO05_lime_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO05_lime_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_flint_spoil_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:51:06Z", "id": "BIO06_salt_mine_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:45Z", "id": "BIO01_peat_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO01_peat_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cab5-7163-a2b2-b91dc14e6cea\\exec-2cca17a8-a61e-46e3-bb99-2adc59061dd3.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:45Z", "id": "BIO06_salt_mine_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:48Z", "id": "BIO06_flint_spoil_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO06_flint_spoil_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc7e-7e42-952e-63ca7f63a261\\exec-542df7da-184f-4309-b370-923bdb13db6c.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:48Z", "id": "BIO07_limestone_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:48Z", "id": "BIO05_lime_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO05_lime_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc50-7342-be56-0eb821b0a363\\exec-4101374e-8cd7-4396-865b-f479db7d9c41.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:48Z", "id": "BIO07_limestone_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:49Z", "id": "BIO02_meadow_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO02_meadow_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cab5-74a1-9ae7-4832f477759b\\exec-e3dd59e7-d9c5-49b5-ae37-46e9eca66256.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:49Z", "id": "BIO08_nave_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:49Z", "id": "BIO08_nave_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO04_garden_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO04_garden_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc4c-79c3-8f8c-de4faa7119c6\\exec-fb335012-dce0-44bf-b0f7-b9dd947852aa.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO09_ash_snow_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO03_flint_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO03_flint_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc63-7252-b1e2-1dffc0716c9f\\exec-3ec9a7ea-4621-431a-97e3-7a353125a6b4.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO09_ash_snow_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO04_garden_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO04_garden_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc50-78b1-8178-00cca6cb25d6\\exec-69f0ade2-6953-41a5-9a5b-b095e9f18128.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:50Z", "id": "BIO10_salt_crust_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:52Z", "id": "BIO06_flint_spoil_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO06_flint_spoil_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc4c-78b1-94be-6eb3d85b7cf6\\exec-30a49919-f164-413c-a50e-67abe149bf5e.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:52Z", "id": "BIO10_salt_crust_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:57Z", "id": "BIO05_lime_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO05_lime_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc4c-7931-9946-1fc49e4c5fde\\exec-823b6847-24c3-4305-a5bd-9bbc732a9049.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:57Z", "id": "BIO11_white_hulk_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:57Z", "id": "BIO04_ossuary_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO04_ossuary_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc80-77d1-aed3-202080fe7045\\exec-5fa80f32-b98c-4d07-a37d-f4274b83a3c1.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:57Z", "id": "BIO11_white_hulk_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:52:58Z", "id": "BIO06_salt_mine_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO06_salt_mine_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc56-7591-9afc-0ffd30b49361\\exec-c2e5d4a1-ae2a-4082-8139-c9de509d02e9.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:52:58Z", "id": "BIO12_dark_planks_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:29Z", "id": "BIO01_peat_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO01_peat_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c27-cc69-75f3-83c0-c0d240ca5a21\\exec-e9c2c369-6c58-459e-96e2-1e3b92d23243.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:29Z", "id": "BIO12_dark_planks_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:43Z", "id": "BIO06_salt_mine_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO06_salt_mine_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-2f1e-7d12-87d1-8f6c1cafb89a\\exec-5850fcde-030f-4653-a28a-7dea6f053f7b.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:43Z", "id": "BIO13_salt_glass_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:45Z", "id": "BIO09_ash_snow_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO09_ash_snow_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-437e-7673-816d-514391ae3bab\\exec-e2c95170-281d-4d76-a882-1a150e6c834c.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:45Z", "id": "BIO13_salt_glass_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:49Z", "id": "BIO07_limestone_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO07_limestone_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-3c39-7f21-ad89-831b189126f7\\exec-66c1c558-f6e5-46cb-9b15-d9f5f2f40814.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:49Z", "id": "BIO14_blue_ice_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:49Z", "id": "BIO10_salt_crust_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO10_salt_crust_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-4bef-78a3-8ef8-73e0ce317eb6\\exec-70f1e210-6bea-42c3-a62f-d4fd42a96c3f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:49Z", "id": "BIO14_blue_ice_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:50Z", "id": "BIO07_limestone_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO07_limestone_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-3a65-77a1-82ad-34adec4d1f64\\exec-2f021694-f7ad-4413-a2d8-32c91843825d.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:50Z", "id": "BIO15_pyre_ash_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:50Z", "id": "BIO15_pyre_ash_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:54Z", "id": "BIO10_salt_crust_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO10_salt_crust_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-446f-7341-856a-867d9a27a8ba\\exec-fc63078e-760f-449f-b2d6-b3cd1259195e.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:54Z", "id": "BIO16_blackwood_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:57Z", "id": "BIO11_white_hulk_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO11_white_hulk_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-5f5e-7443-8dde-7221aa42246f\\exec-8096ba8c-d70d-4b4b-901b-01ff242195f1.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:57Z", "id": "BIO16_blackwood_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:53:59Z", "id": "BIO08_nave_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO08_nave_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-4173-7822-a2cd-3341f69b0b4e\\exec-24d4f425-7802-4484-aa3a-40cec65da784.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:53:59Z", "id": "BIO17_varnished_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:07Z", "id": "BIO12_dark_planks_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO12_dark_planks_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-63d1-7d63-8572-3041fcded45c\\exec-52b17c33-25fa-4593-b4e0-e26100449600.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:07Z", "id": "BIO17_varnished_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:10Z", "id": "BIO09_ash_snow_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO09_ash_snow_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-43be-7820-92c8-ce92c60b85a6\\exec-145afaba-c20a-4fbf-af18-6e430e7f4b9b.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:10Z", "id": "BIO18_wet_slate_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:19Z", "id": "BIO11_white_hulk_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO11_white_hulk_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-5e2f-7501-82b1-87992db4a91e\\exec-9dc14c41-7cd9-4bfd-b8a9-df30bfe93b5f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:19Z", "id": "BIO18_wet_slate_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:50Z", "id": "BIO12_dark_planks_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO12_dark_planks_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c29-ddba-7790-bfd4-056b5ef5e784\\exec-6cfbe81b-04d7-442b-97ad-a293c0c8004d.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:50Z", "id": "BIO19_coastal_rock_a", "event": "skipped", "reason": "valid output exists", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:50Z", "id": "BIO19_coastal_rock_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:54Z", "id": "BIO13_salt_glass_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO13_salt_glass_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-1447-7b10-bf8f-781846c6e589\\exec-4727ac63-cf88-47a8-9831-f87aad668f02.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:54Z", "id": "BIO20_wet_sand_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:55Z", "id": "BIO14_blue_ice_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO14_blue_ice_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-2a76-7db0-9c06-874277f7ebdd\\exec-f420d859-aaf6-4c51-af09-8e774a6c300d.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:55Z", "id": "BIO20_wet_sand_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:54:55Z", "id": "BIO13_salt_glass_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO13_salt_glass_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-1912-7c80-899b-6d8ecfa7cd25\\exec-0091811d-ec94-4631-a8d3-d18b107a0f54.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:54:55Z", "id": "BIO21_sunken_floor_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:55:12Z", "id": "BIO16_blackwood_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO16_blackwood_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-4ab0-77e2-b84f-9b52a28aebba\\exec-bbedf927-3a0d-4e1f-b8f8-b88fc87d44f9.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:55:12Z", "id": "BIO21_sunken_floor_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:55:12Z", "id": "BIO17_varnished_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO17_varnished_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-530d-79d1-90fb-85ce50ade179\\exec-964fa177-0270-42f7-8bc4-9109c81ac941.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:55:12Z", "id": "BIO22_abbey_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:55:49Z", "id": "BIO14_blue_ice_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO14_blue_ice_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-2b61-7f22-a5e6-4f60f6e63533\\exec-0c3dbb5d-d7ba-4185-93b4-64680cad810a.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:55:49Z", "id": "BIO22_abbey_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:56:04Z", "id": "BIO16_blackwood_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO16_blackwood_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-3c41-7b43-8e5a-a2636d09e71f\\exec-4287ac0a-bf21-4058-8666-3ffb3cb372b0.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:56:04Z", "id": "BIO23_course_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:56:10Z", "id": "BIO18_wet_slate_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO18_wet_slate_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-7cb0-7bc0-afc8-58c78b7d3f25\\exec-e9867779-5812-4eb4-b871-f808fad688bb.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:56:10Z", "id": "BIO23_course_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:56:17Z", "id": "BIO23_course_a", "event": "retry", "attempt": 1, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:17Z", "id": "BIO23_course_a", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:56:18Z", "id": "BIO22_abbey_c", "event": "retry", "attempt": 1, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:18Z", "id": "BIO22_abbey_c", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:56:24Z", "id": "BIO23_course_c", "event": "retry", "attempt": 1, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:24Z", "id": "BIO23_course_c", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:56:31Z", "id": "BIO23_course_a", "event": "retry", "attempt": 2, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:31Z", "id": "BIO23_course_a", "event": "start", "attempt": 3, "of": 3}
+{"ts": "2026-10-21T01:56:31Z", "id": "BIO22_abbey_c", "event": "retry", "attempt": 2, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:31Z", "id": "BIO22_abbey_c", "event": "start", "attempt": 3, "of": 3}
+{"ts": "2026-10-21T01:56:37Z", "id": "BIO23_course_c", "event": "retry", "attempt": 2, "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:37Z", "id": "BIO23_course_c", "event": "start", "attempt": 3, "of": 3}
+{"ts": "2026-10-21T01:56:44Z", "id": "BIO23_course_a", "event": "failed", "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:44Z", "id": "BIO24_keystone_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:56:45Z", "id": "BIO22_abbey_c", "event": "failed", "error": "codex exit 1, no generated image found"}
+{"ts": "2026-10-21T01:56:45Z", "id": "BIO24_keystone_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:57:09Z", "id": "BIO21_sunken_floor_a", "event": "retry", "attempt": 1, "error": "no generated image resolved (none); threads=['01a15c2b-2afe-7ce2-a077-da827d075f4d']"}
+{"ts": "2026-10-21T01:57:09Z", "id": "BIO21_sunken_floor_a", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:57:09Z", "id": "BIO20_wet_sand_c", "event": "retry", "attempt": 1, "error": "no generated image resolved (none); threads=['01a15c2b-2a71-7230-8294-6a2a3cb2fe72']"}
+{"ts": "2026-10-21T01:57:09Z", "id": "BIO20_wet_sand_c", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:57:14Z", "id": "BIO19_coastal_rock_c", "event": "retry", "attempt": 1, "error": "no generated image resolved (none); threads=['01a15c2b-1936-7f43-8475-3608285a063e']"}
+{"ts": "2026-10-21T01:57:14Z", "id": "BIO19_coastal_rock_c", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:57:16Z", "id": "BIO20_wet_sand_a", "event": "retry", "attempt": 1, "error": "no generated image resolved (none); threads=['01a15c2b-2615-7e42-99f4-0351d611c381']"}
+{"ts": "2026-10-21T01:57:16Z", "id": "BIO20_wet_sand_a", "event": "start", "attempt": 2, "of": 3}
+{"ts": "2026-10-21T01:57:45Z", "id": "BIO15_pyre_ash_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO15_pyre_ash_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-2ccd-7320-8a32-93ec3b7d471d\\exec-5f84c530-8130-4023-a90c-e3f4eab86ea8.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:57:45Z", "id": "BIO26_dream_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:57:59Z", "id": "BIO17_varnished_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO17_varnished_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-7174-7460-8634-5add299c515a\\exec-1c570680-2437-48de-a344-23dfdebd567d.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:57:59Z", "id": "BIO26_dream_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:15Z", "id": "BIO22_abbey_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO22_abbey_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2b-6d46-7b73-9cde-b286edd98eed\\exec-809c9b19-67df-4b32-8c4a-4963c99ad242.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:15Z", "id": "BIO27_cradle_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:20Z", "id": "BIO18_wet_slate_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO18_wet_slate_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2a-9fc3-7ac1-b15b-2f17b5ed68b7\\exec-baa8dd5a-5398-4932-bbf4-246741d3afa5.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:20Z", "id": "BIO27_cradle_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:21Z", "id": "BIO21_sunken_floor_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO21_sunken_floor_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2b-6ce1-73d0-83a4-c6b54a4a61b5\\exec-9ebd99fc-dd4a-4c82-a8c8-da4591e28925.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:21Z", "id": "BIO27_vault_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:33Z", "id": "BIO24_keystone_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO24_keystone_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2c-d7b9-7880-8ee0-db90fe890c6c\\exec-d710ee98-8419-4130-b299-0de1d1f79d58.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:33Z", "id": "BIO27_vault_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:39Z", "id": "BIO20_wet_sand_a", "event": "done", "attempt": 2, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO20_wet_sand_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-521b-7b20-a824-1261a5a63248\\exec-178aab9f-863d-448c-97d4-05225ff9bd72.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:39Z", "id": "BIO27_salt_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:40Z", "id": "BIO24_keystone_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO24_keystone_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2c-d6ea-77e0-94f6-e0b07b39bef5\\exec-956d408d-fd73-48b7-9874-f0594a6e3a01.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:40Z", "id": "BIO27_salt_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:42Z", "id": "BIO21_sunken_floor_a", "event": "done", "attempt": 2, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO21_sunken_floor_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-36b9-7f83-8828-972f27c12494\\exec-9bd08c0e-324d-4690-99a8-863fcef7f1a6.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:42Z", "id": "BIO27_deep_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:43Z", "id": "BIO20_wet_sand_c", "event": "done", "attempt": 2, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO20_wet_sand_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-380e-7b70-b046-f37f6b312f2f\\exec-6c61c807-f396-49b6-994d-4889ac438fc9.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:43Z", "id": "BIO27_deep_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:58:55Z", "id": "BIO26_dream_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO26_dream_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-c5d3-7881-b6eb-68aabbb10607\\exec-852bf51e-775c-4c1b-8d0c-6a66a5a0b708.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:58:55Z", "id": "crypt_dust_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:01Z", "id": "BIO19_coastal_rock_c", "event": "done", "attempt": 2, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO19_coastal_rock_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-4a7f-7971-ad35-ce3210cf23ee\\exec-2088265f-7dd4-4ece-b659-b35bee789861.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:01Z", "id": "crypt_dust_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:08Z", "id": "BIO26_dream_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO26_dream_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2d-f998-7110-a559-a7b06eb3ee11\\exec-4cadfe73-f88d-47cb-8484-f97eb98ae752.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:08Z", "id": "crypt_damp_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:17Z", "id": "BIO23_course_c", "event": "done", "attempt": 3, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO23_course_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2c-b864-7363-a3b8-aa990fcc9ecc\\exec-2db881b3-ad4e-4a28-97c3-aaa3626252ae.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:17Z", "id": "crypt_damp_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:20Z", "id": "BIO27_cradle_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_cradle_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-3a06-7440-83cf-0db676456a35\\exec-ef13ffe2-0842-4f9d-a6c7-7ab6a25525c3.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:20Z", "id": "crypt_rubble_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:50Z", "id": "BIO27_deep_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_deep_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-a375-7720-b0dc-5e426a997ce9\\exec-d6e7f4a3-7088-4206-b192-a342298c3849.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:50Z", "id": "crypt_rubble_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T01:59:56Z", "id": "BIO27_salt_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_salt_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-95a0-78f3-8c9e-c5e6fb52803c\\exec-8f8268f1-f163-4360-9622-f71ff2fc04f0.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T01:59:56Z", "id": "cave_floor_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:18Z", "id": "BIO27_vault_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_vault_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-520c-7021-be50-6f3ec9949a53\\exec-9a431d25-7e61-4cdd-b70b-3e7f0b68ce3f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:18Z", "id": "cave_floor_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:19Z", "id": "crypt_dust_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_dust_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-efd2-74a0-bfcb-36d149eb6520\\exec-b779425a-b1ce-4a2d-ba2a-87bb0a54b1ed.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:19Z", "id": "cave_clay_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:20Z", "id": "crypt_dust_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_dust_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-d744-76f0-8442-5ecc4c1bdc5c\\exec-6546b7c3-a5a0-4b6e-b4b6-8a1f10a36dc0.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:20Z", "id": "cave_clay_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:23Z", "id": "BIO27_vault_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_vault_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-7f29-7471-b716-b93785aa219f\\exec-51c5caf0-31e7-4a02-94a1-d0c3869f5f1c.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:23Z", "id": "cave_rubble_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:26Z", "id": "BIO27_cradle_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_cradle_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-4d12-72f2-9ee0-734559a98833\\exec-9d2e2ff9-b097-4e64-b927-cd16f346d97d.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:26Z", "id": "cave_rubble_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:29Z", "id": "BIO27_salt_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_salt_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-9b16-7af3-8021-09b304145da9\\exec-594e9bd4-c32b-4093-a967-8de381c51a73.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:29Z", "id": "cave_flowstone_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:32Z", "id": "BIO27_deep_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\BIO27_deep_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2e-a6e6-77e0-823c-fe5e0d49480f\\exec-a371a7f5-6712-4339-ac78-420095673eab.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:00:32Z", "id": "cave_flowstone_c", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-21T02:00:43Z", "id": "crypt_rubble_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_rubble_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2f-38dd-7aa1-a16c-4d855b7f20e3\\exec-06319230-df6e-4ac1-ab7f-b3d8927f896f.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:05Z", "id": "crypt_damp_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_damp_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2f-08bd-7441-996b-5f44a5321a1a\\exec-fc60b1c2-096e-464d-b89e-7968836c1382.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:10Z", "id": "crypt_damp_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_damp_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2f-2b52-7bf3-8adc-b8e9283a1297\\exec-690117a1-4ac7-43ba-b6dc-cc8d2cda0fbd.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:19Z", "id": "cave_floor_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_floor_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2f-c396-7802-b0e3-0618aa06b55f\\exec-10b6b405-6df8-48f9-91d5-9b4b10174474.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:20Z", "id": "crypt_rubble_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\crypt_rubble_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c2f-abc6-72e0-ae91-f1a5e5aa1e8e\\exec-f586e075-02d0-4000-8411-6c207ee21cf5.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:44Z", "id": "cave_rubble_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_rubble_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-3a02-7230-9adb-4738d0b62cd2\\exec-af402530-2d23-427e-898c-a6353770664b.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:44Z", "id": "cave_clay_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_clay_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-21eb-72c0-83a8-a1b003264a90\\exec-74fb8b25-9124-42ff-a67a-48b5cc333f4e.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:45Z", "id": "cave_clay_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_clay_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-1f67-7990-b1ce-e8a20a0bd05f\\exec-12a4d0e1-41a7-483c-8933-adc326f1fbf6.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:46Z", "id": "cave_rubble_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_rubble_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-2eb9-7fc0-88bf-e5ae73e91606\\exec-3c7bffb5-b432-4e6c-8655-22410dc98447.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:49Z", "id": "cave_flowstone_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_flowstone_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-504b-7ea3-94e5-e5d21ee0fa1c\\exec-717fbd10-ca33-46ac-a807-ca211f5db67a.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:01:59Z", "id": "cave_floor_c", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_floor_c.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-1a6d-7132-b18a-8246907a607b\\exec-ac20d5cb-c18a-42b5-8fed-7d7882bfe031.png", "dims": "1254x1254"}
+{"ts": "2026-10-21T02:02:00Z", "id": "cave_flowstone_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_flowstone_a.png", "source": "E:\\map01-batch\\home\\generated_images\\01a15c30-4649-7640-bec2-796ca69399b9\\exec-7dc5ec2d-12c9-4b75-b8ed-6cfad8e8ed54.png", "dims": "1254x1254"}

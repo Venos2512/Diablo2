@@ -1,0 +1,7 @@
+QA (AD 11) of perspective_v2.png - A20_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A20_perspective_frame_v2.png; prompt: prompts/A20_perspective_v2.txt; session: 01a15ec6-a263-72e1-8f6d-ee2eda5b090f
+defects:
+- cells 1-4 sleepers still about 1.4x too big against H; extra poppies scattered on the mounds and a red ribbon
+- cell 5 still a raised trough on a block about 0.74H
+- cell 6 harvest table about 1.4x
+passed: v1 is the better base (one poppy per sleeper, table consistent with its H)

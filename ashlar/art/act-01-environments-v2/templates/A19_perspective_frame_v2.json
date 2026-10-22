@@ -1,0 +1,161 @@
+{
+ "kind": "perspective",
+ "title": "A19 GENTLE HOUSE INTERIOR PROPS — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Flowers in a vase",
+   "hpx": 340,
+   "silW": 172,
+   "base": 489,
+   "block": [
+    104,
+    392,
+    151,
+    489
+   ],
+   "blockPx": [
+    47,
+    97
+   ],
+   "blockH": [
+    0.14,
+    0.29
+   ],
+   "lines": [
+    "0.28H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Poppy tea tray",
+   "hpx": 340,
+   "silW": 172,
+   "base": 489,
+   "block": [
+    574,
+    444,
+    689,
+    489
+   ],
+   "blockPx": [
+    115,
+    45
+   ],
+   "blockH": [
+    0.34,
+    0.13
+   ],
+   "lines": [
+    "0.11H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Window chair",
+   "hpx": 301,
+   "silW": 153,
+   "base": 489,
+   "block": [
+    1046,
+    266,
+    1254,
+    489
+   ],
+   "blockPx": [
+    208,
+    223
+   ],
+   "blockH": [
+    0.69,
+    0.74
+   ],
+   "lines": [
+    "0.67H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Linen press",
+   "hpx": 298,
+   "silW": 151,
+   "base": 966,
+   "block": [
+    39,
+    628,
+    249,
+    966
+   ],
+   "blockPx": [
+    210,
+    338
+   ],
+   "blockH": [
+    0.71,
+    1.13
+   ],
+   "lines": [
+    "1.06H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Linen screen",
+   "hpx": 222,
+   "silW": 113,
+   "base": 966,
+   "block": [
+    542,
+    728,
+    813,
+    966
+   ],
+   "blockPx": [
+    271,
+    238
+   ],
+   "blockH": [
+    1.22,
+    1.07
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Tall ward window",
+   "hpx": 176,
+   "silW": 89,
+   "base": 966,
+   "block": [
+    1087,
+    590,
+    1313,
+    966
+   ],
+   "blockPx": [
+    226,
+    376
+   ],
+   "blockH": [
+    1.28,
+    2.13
+   ],
+   "lines": [
+    "1H",
+    "1.81H",
+    "2H"
+   ]
+  }
+ ]
+}

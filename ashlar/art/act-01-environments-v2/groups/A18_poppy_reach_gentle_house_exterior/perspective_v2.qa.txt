@@ -1,0 +1,6 @@
+QA (AD 11) of perspective_v2.png - A18_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A18_perspective_frame_v2.png; prompt: prompts/A18_perspective_v2.txt; session: 01a15ec6-a263-7100-844d-13ae35f97917
+defects:
+- cell 4 H drawn about 60 px instead of 25, so the hospice reads at about half size
+- cell 6 terrace still about 2H; the model moved the 1.11H guide up to the terrace top
+passed: cells 1, 2, 5 on scale (wall niche exactly 1.78H), mine mouth about 1.2x; v1 is the better base for cell 4

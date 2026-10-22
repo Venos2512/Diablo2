@@ -1,0 +1,7 @@
+QA (AD 11) of turnaround.png - A17_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cell 1: stones about 1.4x tall; BACK shows a single stone instead of the arch from behind
+- cell 5: a repeated FRONT view (five views); BACK has no window opening
+- cell 6: deck about 0.53H instead of 0.33H
+- title missing the space after the dash
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

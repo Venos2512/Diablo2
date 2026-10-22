@@ -1,0 +1,8 @@
+QA (AD 11) of perspective.png - A20_perspective - verdict: FAIL (lead QA, 2026-10-21)
+frame: templates/A20_perspective_frame.png; prompt: prompts/A20_perspective.txt; session: 01a15eb9-ea0a-7830-88cb-7e562ffb6b5f
+defects:
+- cells 1-4 sleepers about 1.4x too big against H (heads about 50 px against the H head of about 33 px)
+- cell 5 raised trough on a block about 0.66H thick instead of a channel cut into a 0.33H floor block
+- cell 6 H drawn 249 px instead of 197 px
+passed: title, cell numbers and labels, H labels, studio backdrop, Act I palette (no sunlight), content 3.8 (no crosses, no bodies, no gore)
+action: rerun as _v2 with a new frame (_v2) and REVISION NOTES; this image is kept unchanged

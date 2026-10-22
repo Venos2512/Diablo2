@@ -1,0 +1,162 @@
+{
+ "kind": "perspective",
+ "title": "A15 LYCHGATE VILLAGE EXTRAS — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Flint parish church",
+   "hpx": 46,
+   "silW": 23,
+   "base": 489,
+   "block": [
+    42,
+    157,
+    444,
+    489
+   ],
+   "blockPx": [
+    402,
+    332
+   ],
+   "blockH": [
+    8.74,
+    7.21
+   ],
+   "lines": [
+    "2.5H",
+    "5H",
+    "6.11H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Brannoc's forge",
+   "hpx": 90,
+   "silW": 46,
+   "base": 489,
+   "block": [
+    542,
+    206,
+    917,
+    489
+   ],
+   "blockPx": [
+    375,
+    283
+   ],
+   "blockH": [
+    4.16,
+    3.14
+   ],
+   "lines": [
+    "1.39H",
+    "2.22H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Sleeper name board",
+   "hpx": 206,
+   "silW": 104,
+   "base": 489,
+   "block": [
+    1046,
+    185,
+    1329,
+    489
+   ],
+   "blockPx": [
+    283,
+    304
+   ],
+   "blockH": [
+    1.37,
+    1.48
+   ],
+   "lines": [
+    "1H",
+    "1.33H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Mourning bell frame",
+   "hpx": 183,
+   "silW": 93,
+   "base": 966,
+   "block": [
+    62,
+    591,
+    315,
+    966
+   ],
+   "blockPx": [
+    253,
+    375
+   ],
+   "blockH": [
+    1.38,
+    2.05
+   ],
+   "lines": [
+    "1H",
+    "1.89H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Grave-goods stall",
+   "hpx": 163,
+   "silW": 83,
+   "base": 966,
+   "block": [
+    542,
+    663,
+    858,
+    966
+   ],
+   "blockPx": [
+    316,
+    303
+   ],
+   "blockH": [
+    1.94,
+    1.86
+   ],
+   "lines": [
+    "1H",
+    "1.44H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Osric's watch post",
+   "hpx": 136,
+   "silW": 69,
+   "base": 966,
+   "block": [
+    1058,
+    591,
+    1374,
+    966
+   ],
+   "blockPx": [
+    316,
+    375
+   ],
+   "blockH": [
+    2.32,
+    2.75
+   ],
+   "lines": [
+    "1.11H",
+    "2.33H"
+   ]
+  }
+ ]
+}

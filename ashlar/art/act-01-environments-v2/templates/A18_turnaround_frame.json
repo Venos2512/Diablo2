@@ -1,0 +1,569 @@
+{
+ "kind": "turnaround",
+ "title": "A18 POPPY REACH AND GENTLE HOUSE EXTERIOR — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Abandoned ox cart",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 109,
+   "silW": 55,
+   "scores": {
+    "row": 58,
+    "2x2": 85,
+    "2x2b": 109
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        116,
+        197,
+        358,
+        294
+       ],
+       "px": [
+        242,
+        97
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        376,
+        197,
+        484,
+        294
+       ],
+       "px": [
+        109,
+        97
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        116,
+        410,
+        358,
+        507
+       ],
+       "px": [
+        242,
+        97
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        376,
+        410,
+        484,
+        507
+       ],
+       "px": [
+        109,
+        97
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.89H"
+  },
+  {
+   "cell": 2,
+   "label": "Bed with clean pillow",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 142,
+   "silW": 72,
+   "scores": {
+    "row": 95,
+    "2x2": 142,
+    "2x2b": 165
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        646,
+        207,
+        804,
+        294
+       ],
+       "px": [
+        158,
+        87
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        826,
+        207,
+        984,
+        294
+       ],
+       "px": [
+        158,
+        87
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        709,
+        420,
+        804,
+        507
+       ],
+       "px": [
+        95,
+        87
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        858,
+        420,
+        952,
+        507
+       ],
+       "px": [
+        95,
+        87
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.61H"
+  },
+  {
+   "cell": 3,
+   "label": "Flint Delvings mouth",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 85,
+   "silW": 43,
+   "scores": {
+    "row": 52,
+    "2x2": 85,
+    "2x2b": 89
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1176,
+        124,
+        1294,
+        294
+       ],
+       "px": [
+        118,
+        170
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1343,
+        124,
+        1461,
+        294
+       ],
+       "px": [
+        118,
+        170
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1104,
+        337,
+        1294,
+        507
+       ],
+       "px": [
+        189,
+        170
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1307,
+        337,
+        1496,
+        507
+       ],
+       "px": [
+        189,
+        170
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2H"
+  },
+  {
+   "cell": 4,
+   "label": "Hospice ward range",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 19,
+   "silW": 10,
+   "scores": {
+    "row": 9,
+    "2x2": 12,
+    "2x2b": 19
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        63,
+        654,
+        158,
+        770
+       ],
+       "px": [
+        95,
+        116
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        172,
+        654,
+        488,
+        770
+       ],
+       "px": [
+        317,
+        116
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        63,
+        868,
+        158,
+        984
+       ],
+       "px": [
+        95,
+        116
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        172,
+        868,
+        488,
+        984
+       ],
+       "px": [
+        317,
+        116
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "6.11H"
+  },
+  {
+   "cell": 5,
+   "label": "Hospice wall niche",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 98,
+   "silW": 50,
+   "scores": {
+    "row": 50,
+    "2x2": 59,
+    "2x2b": 98
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        610,
+        596,
+        648,
+        770
+       ],
+       "px": [
+        38,
+        174
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        664,
+        596,
+        991,
+        770
+       ],
+       "px": [
+        327,
+        174
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        610,
+        810,
+        648,
+        984
+       ],
+       "px": [
+        38,
+        174
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        664,
+        810,
+        991,
+        984
+       ],
+       "px": [
+        327,
+        174
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.78H"
+  },
+  {
+   "cell": 6,
+   "label": "Hilltop steps",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 70,
+   "silW": 35,
+   "scores": {
+    "row": 38,
+    "2x2": 70,
+    "2x2b": 77
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1096,
+        673,
+        1290,
+        770
+       ],
+       "px": [
+        194,
+        97
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1303,
+        673,
+        1497,
+        770
+       ],
+       "px": [
+        194,
+        97
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1134,
+        887,
+        1290,
+        984
+       ],
+       "px": [
+        156,
+        97
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1322,
+        887,
+        1478,
+        984
+       ],
+       "px": [
+        156,
+        97
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.39H"
+  }
+ ]
+}

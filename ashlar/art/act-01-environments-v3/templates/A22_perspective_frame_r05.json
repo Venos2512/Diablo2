@@ -1,0 +1,161 @@
+{
+ "kind": "perspective",
+ "title": "A22 THINGS LEFT BEHIND — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Worn shoes",
+   "hpx": 340,
+   "silW": 172,
+   "base": 489,
+   "block": [
+    68,
+    451,
+    186,
+    489
+   ],
+   "blockPx": [
+    118,
+    38
+   ],
+   "blockH": [
+    0.35,
+    0.11
+   ],
+   "lines": [
+    "0.09H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Toll post with coin dish",
+   "hpx": 340,
+   "silW": 172,
+   "base": 489,
+   "block": [
+    566,
+    235,
+    698,
+    489
+   ],
+   "blockPx": [
+    132,
+    254
+   ],
+   "blockH": [
+    0.39,
+    0.75
+   ],
+   "lines": [
+    "0.72H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Empty wicker cradle",
+   "hpx": 311,
+   "silW": 158,
+   "base": 489,
+   "block": [
+    1046,
+    356,
+    1247,
+    489
+   ],
+   "blockPx": [
+    201,
+    133
+   ],
+   "blockH": [
+    0.65,
+    0.43
+   ],
+   "lines": [
+    "0.42H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Harvester's cairn",
+   "hpx": 260,
+   "silW": 132,
+   "base": 966,
+   "block": [
+    38,
+    791,
+    279,
+    966
+   ],
+   "blockPx": [
+    241,
+    175
+   ],
+   "blockH": [
+    0.93,
+    0.67
+   ],
+   "lines": [
+    "0.61H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Crook and folded coat",
+   "hpx": 328,
+   "silW": 166,
+   "base": 966,
+   "block": [
+    542,
+    664,
+    729,
+    966
+   ],
+   "blockPx": [
+    187,
+    302
+   ],
+   "blockH": [
+    0.57,
+    0.92
+   ],
+   "lines": [
+    "0.89H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Straw doll",
+   "hpx": 340,
+   "silW": 172,
+   "base": 966,
+   "block": [
+    1102,
+    896,
+    1170,
+    966
+   ],
+   "blockPx": [
+    68,
+    70
+   ],
+   "blockH": [
+    0.2,
+    0.21
+   ],
+   "lines": [
+    "0.19H",
+    "1H"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+  "tiles": {
+    "crypt_dust": "textures/crypt_dust_a.png",
+    "crypt_damp": "textures/crypt_damp_a.png",
+    "crypt_rubble": "textures/crypt_rubble_a.png",
+    "cave_floor": "textures/cave_floor_a.png",
+    "cave_clay": "textures/cave_clay_a.png",
+    "cave_rubble": "textures/cave_rubble_a.png",
+    "cave_flowstone": "textures/cave_flowstone_a.png"
+  },
+  "decals": {
+    "decals_crypt": "textures/decals_crypt_a.png",
+    "decals_cave": "textures/decals_cave_a.png"
+  },
+  "notes": {
+    "decals_cave": "cell 11 (ring drip stain) and cell 15 (charcoal smudge) have magenta show-through; drop or despill hard",
+    "crypt_dust": "a: softer than b; faint slab edges still visible",
+    "cave_flowstone": "a: teal stains tie to the BIO-06 brine teal"
+  },
+  "props": {
+    "sarcophagus": "a",
+    "bone_pile": "a",
+    "broken_column": "a",
+    "candle_cluster": "b",
+    "fallen_bell": "a",
+    "crypt_wall": "a",
+    "stalagmites": "a",
+    "mine_timber": "b",
+    "flint_boulders": "a"
+  }
+}

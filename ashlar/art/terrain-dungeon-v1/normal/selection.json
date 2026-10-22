@@ -1,0 +1,52 @@
+{
+  "_note": "2026-10-21 main agent: picked per tile from prepare_normals metrics of both candidates (normal/metadata_n1.json, metadata_n2.json)",
+  "crypt_dust_a": {
+    "raw": "textures/crypt_dust_a_n2.png",
+    "provenance": "logs/crypt_dust_a_n2.provenance.json",
+    "prompt": "prompts/crypt_dust_a_n2.txt",
+    "why": "n2: NCC 0.50->0.60, tilt 1.7 deg (n1 0.40->0.53)",
+    "version": "n2"
+  },
+  "crypt_damp_a": {
+    "raw": "textures/crypt_damp_a_n2.png",
+    "provenance": "logs/crypt_damp_a_n2.provenance.json",
+    "prompt": "prompts/crypt_damp_a_n2.txt",
+    "why": "n2: NCC 0.55->0.60 (n1 0.56->0.59)",
+    "version": "n2"
+  },
+  "crypt_rubble_a": {
+    "raw": "textures/crypt_rubble_a_n1.png",
+    "provenance": "logs/crypt_rubble_a_n1.provenance.json",
+    "prompt": "prompts/crypt_rubble_a_n1.txt",
+    "why": "n1: NCC 0.44->0.55 (n2 0.40->0.47)",
+    "version": "n1"
+  },
+  "cave_floor_a": {
+    "raw": "textures/cave_floor_a_n2.png",
+    "provenance": "logs/cave_floor_a_n2.provenance.json",
+    "prompt": "prompts/cave_floor_a_n2.txt",
+    "why": "n2: registered (n1 was DirectX-flipped and its shift rejected); residual up to 2.9 px in some blocks",
+    "version": "n2"
+  },
+  "cave_clay_a": {
+    "raw": "textures/cave_clay_a_n2.png",
+    "provenance": "logs/cave_clay_a_n2.provenance.json",
+    "prompt": "prompts/cave_clay_a_n2.txt",
+    "why": "n2: NCC 0.53->0.65 (n1 0.53->0.59)",
+    "version": "n2"
+  },
+  "cave_rubble_a": {
+    "raw": "textures/cave_rubble_a_n2.png",
+    "provenance": "logs/cave_rubble_a_n2.provenance.json",
+    "prompt": "prompts/cave_rubble_a_n2.txt",
+    "why": "n2: NCC 0.39->0.45 (n1 0.28->0.40)",
+    "version": "n2"
+  },
+  "cave_flowstone_a": {
+    "raw": "textures/cave_flowstone_a_n2.png",
+    "provenance": "logs/cave_flowstone_a_n2.provenance.json",
+    "prompt": "prompts/cave_flowstone_a_n2.txt",
+    "why": "n2: registered NCC 0.27->0.41 (n1 shift rejected as uncertain)",
+    "version": "n2"
+  }
+}

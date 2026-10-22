@@ -1,0 +1,162 @@
+{
+ "kind": "perspective",
+ "title": "A23 POPPY REACH TO THE GENTLE HOUSE GARTH — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Abandoned reaping",
+   "hpx": 177,
+   "silW": 90,
+   "base": 489,
+   "block": [
+    38,
+    362,
+    344,
+    489
+   ],
+   "blockPx": [
+    306,
+    127
+   ],
+   "blockH": [
+    1.73,
+    0.72
+   ],
+   "lines": [
+    "0.61H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Ribbon thorn",
+   "hpx": 108,
+   "silW": 55,
+   "base": 489,
+   "block": [
+    542,
+    140,
+    902,
+    489
+   ],
+   "blockPx": [
+    360,
+    349
+   ],
+   "blockH": [
+    3.33,
+    3.23
+   ],
+   "lines": [
+    "1H",
+    "3.06H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Garth flower bed",
+   "hpx": 136,
+   "silW": 69,
+   "base": 489,
+   "block": [
+    1047,
+    426,
+    1384,
+    489
+   ],
+   "blockPx": [
+    337,
+    63
+   ],
+   "blockH": [
+    2.48,
+    0.47
+   ],
+   "lines": [
+    "0.31H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Potted flowers",
+   "hpx": 340,
+   "silW": 172,
+   "base": 966,
+   "block": [
+    71,
+    817,
+    184,
+    966
+   ],
+   "blockPx": [
+    113,
+    149
+   ],
+   "blockH": [
+    0.33,
+    0.44
+   ],
+   "lines": [
+    "0.42H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Walled flower bed",
+   "hpx": 146,
+   "silW": 74,
+   "base": 966,
+   "block": [
+    542,
+    907,
+    873,
+    966
+   ],
+   "blockPx": [
+    331,
+    59
+   ],
+   "blockH": [
+    2.27,
+    0.4
+   ],
+   "lines": [
+    "0.28H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Linen drying line",
+   "hpx": 123,
+   "silW": 62,
+   "base": 966,
+   "block": [
+    1047,
+    799,
+    1395,
+    966
+   ],
+   "blockPx": [
+    348,
+    167
+   ],
+   "blockH": [
+    2.83,
+    1.35
+   ],
+   "lines": [
+    "1H",
+    "1.22H"
+   ]
+  }
+ ]
+}

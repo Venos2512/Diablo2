@@ -1,0 +1,4 @@
+QA (AD 11) of turnaround_v1e.png - A19_turnaround - verdict: FAIL (lead QA, 2026-10-21)
+defects:
+- cell 5 screen still two panels in FRONT and BACK
+passed: cell 2 tray now on scale (teapot about 0.11H)

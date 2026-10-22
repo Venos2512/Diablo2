@@ -1,0 +1,553 @@
+{
+ "kind": "turnaround",
+ "title": "A25 GARDEN OF HUSH ROOTS AND TENDING — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Root rib arch",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 65,
+   "silW": 33,
+   "scores": {
+    "row": 48,
+    "2x2": 55,
+    "2x2b": 65
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        154,
+        117,
+        172,
+        294
+       ],
+       "px": [
+        18,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        220,
+        117,
+        454,
+        294
+       ],
+       "px": [
+        235,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        154,
+        330,
+        172,
+        507
+       ],
+       "px": [
+        18,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        220,
+        330,
+        454,
+        507
+       ],
+       "px": [
+        235,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.72H"
+  },
+  {
+   "cell": 2,
+   "label": "Plank crossing",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 129,
+   "silW": 65,
+   "scores": {
+    "row": 84,
+    "2x2": 129,
+    "2x2b": 147
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        636,
+        287,
+        800,
+        294
+       ],
+       "px": [
+        165,
+        7
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        821,
+        287,
+        986,
+        294
+       ],
+       "px": [
+        165,
+        7
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        694,
+        500,
+        800,
+        507
+       ],
+       "px": [
+        107,
+        7
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        850,
+        500,
+        957,
+        507
+       ],
+       "px": [
+        107,
+        7
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.06H"
+  },
+  {
+   "cell": 3,
+   "label": "Root fall",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 65,
+   "silW": 33,
+   "scores": {
+    "row": 34,
+    "2x2": 65,
+    "2x2b": 70
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1094,
+        200,
+        1288,
+        294
+       ],
+       "px": [
+        195,
+        94
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1302,
+        200,
+        1497,
+        294
+       ],
+       "px": [
+        195,
+        94
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1122,
+        413,
+        1288,
+        507
+       ],
+       "px": [
+        166,
+        94
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1316,
+        413,
+        1482,
+        507
+       ],
+       "px": [
+        166,
+        94
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.44H"
+  },
+  {
+   "cell": 4,
+   "label": "Harvest basket",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 184,
+   "silW": 93,
+   "scores": {
+    "row": 184,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        175,
+        938,
+        226,
+        984
+       ],
+       "px": [
+        51,
+        46
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        254,
+        938,
+        304,
+        984
+       ],
+       "px": [
+        51,
+        46
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        332,
+        938,
+        389,
+        984
+       ],
+       "px": [
+        57,
+        46
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        417,
+        938,
+        474,
+        984
+       ],
+       "px": [
+        57,
+        46
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.25H"
+  },
+  {
+   "cell": 5,
+   "label": "Tending kit",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 179,
+   "silW": 91,
+   "scores": {
+    "row": 157,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        768,
+        720,
+        814,
+        770
+       ],
+       "px": [
+        45,
+        50
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        887,
+        720,
+        932,
+        770
+       ],
+       "px": [
+        45,
+        50
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        714,
+        934,
+        814,
+        984
+       ],
+       "px": [
+        99,
+        50
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        860,
+        934,
+        959,
+        984
+       ],
+       "px": [
+        99,
+        50
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.28H"
+  },
+  {
+   "cell": 6,
+   "label": "Tamsin's lantern",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 197,
+   "silW": 100,
+   "scores": {
+    "row": 197,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1193,
+        875,
+        1259,
+        984
+       ],
+       "px": [
+        66,
+        109
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1289,
+        875,
+        1355,
+        984
+       ],
+       "px": [
+        66,
+        109
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1385,
+        875,
+        1418,
+        984
+       ],
+       "px": [
+        33,
+        109
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1447,
+        875,
+        1480,
+        984
+       ],
+       "px": [
+        33,
+        109
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.56H"
+  }
+ ]
+}

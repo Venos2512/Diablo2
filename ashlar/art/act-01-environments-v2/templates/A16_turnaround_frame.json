@@ -1,0 +1,553 @@
+{
+ "kind": "turnaround",
+ "title": "A16 CHURCHYARD EXTRAS — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Churchyard yew",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 35,
+   "silW": 18,
+   "scores": {
+    "row": 22,
+    "2x2": 35,
+    "2x2b": 35
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        117,
+        119,
+        273,
+        294
+       ],
+       "px": [
+        156,
+        175
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        310,
+        119,
+        466,
+        294
+       ],
+       "px": [
+        156,
+        175
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        117,
+        332,
+        273,
+        507
+       ],
+       "px": [
+        156,
+        175
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        310,
+        332,
+        466,
+        507
+       ],
+       "px": [
+        156,
+        175
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "5H"
+  },
+  {
+   "cell": 2,
+   "label": "Empty tarred gibbet",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 105,
+   "silW": 53,
+   "scores": {
+    "row": 105,
+    "2x2": 70,
+    "2x2b": 70
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        615,
+        239,
+        662,
+        507
+       ],
+       "px": [
+        47,
+        268
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        678,
+        239,
+        725,
+        507
+       ],
+       "px": [
+        47,
+        268
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        740,
+        239,
+        857,
+        507
+       ],
+       "px": [
+        117,
+        268
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        873,
+        239,
+        990,
+        507
+       ],
+       "px": [
+        117,
+        268
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.56H"
+  },
+  {
+   "cell": 3,
+   "label": "Grave with jar candles",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 168,
+   "silW": 85,
+   "scores": {
+    "row": 98,
+    "2x2": 134,
+    "2x2b": 168
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1170,
+        219,
+        1375,
+        294
+       ],
+       "px": [
+        205,
+        75
+       ],
+       "parts": 2
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1400,
+        219,
+        1484,
+        294
+       ],
+       "px": [
+        84,
+        75
+       ],
+       "parts": 2
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1170,
+        432,
+        1375,
+        507
+       ],
+       "px": [
+        205,
+        75
+       ],
+       "parts": 2
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1400,
+        432,
+        1484,
+        507
+       ],
+       "px": [
+        84,
+        75
+       ],
+       "parts": 2
+      }
+     ]
+    }
+   ],
+   "topLine": "0.44H"
+  },
+  {
+   "cell": 4,
+   "label": "Fresh grave",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 158,
+   "silW": 80,
+   "scores": {
+    "row": 91,
+    "2x2": 126,
+    "2x2b": 158
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        154,
+        665,
+        366,
+        770
+       ],
+       "px": [
+        211,
+        105
+       ],
+       "parts": 3
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        390,
+        665,
+        478,
+        770
+       ],
+       "px": [
+        88,
+        105
+       ],
+       "parts": 3
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        154,
+        879,
+        366,
+        984
+       ],
+       "px": [
+        211,
+        105
+       ],
+       "parts": 3
+      },
+      {
+       "view": "BACK",
+       "box": [
+        390,
+        879,
+        478,
+        984
+       ],
+       "px": [
+        88,
+        105
+       ],
+       "parts": 3
+      }
+     ]
+    }
+   ],
+   "topLine": "0.67H"
+  },
+  {
+   "cell": 5,
+   "label": "Unquiet grave",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 147,
+   "silW": 75,
+   "scores": {
+    "row": 84,
+    "2x2": 119,
+    "2x2b": 147
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        650,
+        664,
+        862,
+        770
+       ],
+       "px": [
+        212,
+        106
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        885,
+        664,
+        983,
+        770
+       ],
+       "px": [
+        98,
+        106
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        650,
+        878,
+        862,
+        984
+       ],
+       "px": [
+        212,
+        106
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        885,
+        878,
+        983,
+        984
+       ],
+       "px": [
+        98,
+        106
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.72H"
+  },
+  {
+   "cell": 6,
+   "label": "Sexton's lamp post",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 166,
+   "silW": 84,
+   "scores": {
+    "row": 166,
+    "2x2": 124,
+    "2x2b": 124
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1169,
+        744,
+        1206,
+        984
+       ],
+       "px": [
+        37,
+        240
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1231,
+        744,
+        1268,
+        984
+       ],
+       "px": [
+        37,
+        240
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1293,
+        744,
+        1376,
+        984
+       ],
+       "px": [
+        83,
+        240
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1402,
+        744,
+        1485,
+        984
+       ],
+       "px": [
+        83,
+        240
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.44H"
+  }
+ ]
+}

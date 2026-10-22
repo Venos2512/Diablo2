@@ -1,0 +1,25 @@
+{
+  "id": "cave_rubble_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15c30-2eb9-7fc0-88bf-e5ae73e91606\\exec-3c7bffb5-b432-4e6c-8655-22410dc98447.png",
+  "source_how": "thread-dir",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15c30-2eb9-7fc0-88bf-e5ae73e91606"
+  ],
+  "sha256": "e74c9b3ba7f2ef323c7c89e62be5c0fd5da1a24b948a7901bc6f3ff8e8c08e0f",
+  "bytes": 2063786,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\style_ref.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_rubble_a.png",
+  "started": "2026-10-21T02:00:23Z",
+  "finished": "2026-10-21T02:01:46Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\logs\\work\\cave_rubble_a\\attempt-1",
+  "scratch_files": []
+}

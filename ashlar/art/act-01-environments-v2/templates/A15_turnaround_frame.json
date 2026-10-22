@@ -1,0 +1,561 @@
+{
+ "kind": "turnaround",
+ "title": "A15 LYCHGATE VILLAGE EXTRAS — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Flint parish church",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 29,
+   "silW": 15,
+   "scores": {
+    "row": 14,
+    "2x2": 23,
+    "2x2b": 29
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        78,
+        117,
+        336,
+        294
+       ],
+       "px": [
+        258,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        354,
+        117,
+        484,
+        294
+       ],
+       "px": [
+        129,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        78,
+        330,
+        336,
+        507
+       ],
+       "px": [
+        258,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        354,
+        330,
+        484,
+        507
+       ],
+       "px": [
+        129,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "6.11H"
+  },
+  {
+   "cell": 2,
+   "label": "Brannoc's forge",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 59,
+   "silW": 30,
+   "scores": {
+    "row": 33,
+    "2x2": 59,
+    "2x2b": 67
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        635,
+        163,
+        783,
+        294
+       ],
+       "px": [
+        148,
+        131
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        820,
+        163,
+        968,
+        294
+       ],
+       "px": [
+        148,
+        131
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        586,
+        376,
+        783,
+        507
+       ],
+       "px": [
+        197,
+        131
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        796,
+        376,
+        993,
+        507
+       ],
+       "px": [
+        197,
+        131
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.22H"
+  },
+  {
+   "cell": 3,
+   "label": "Sleeper name board",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 119,
+   "silW": 60,
+   "scores": {
+    "row": 95,
+    "2x2": 119,
+    "2x2b": 134
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1262,
+        135,
+        1302,
+        294
+       ],
+       "px": [
+        40,
+        159
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1386,
+        135,
+        1426,
+        294
+       ],
+       "px": [
+        40,
+        159
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1130,
+        348,
+        1302,
+        507
+       ],
+       "px": [
+        172,
+        159
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1320,
+        348,
+        1492,
+        507
+       ],
+       "px": [
+        172,
+        159
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.33H"
+  },
+  {
+   "cell": 4,
+   "label": "Mourning bell frame",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 91,
+   "silW": 46,
+   "scores": {
+    "row": 91,
+    "2x2": 95,
+    "2x2b": 95
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        101,
+        812,
+        162,
+        984
+       ],
+       "px": [
+        61,
+        172
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        176,
+        812,
+        237,
+        984
+       ],
+       "px": [
+        61,
+        172
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        251,
+        812,
+        362,
+        984
+       ],
+       "px": [
+        111,
+        172
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        377,
+        812,
+        488,
+        984
+       ],
+       "px": [
+        111,
+        172
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.89H"
+  },
+  {
+   "cell": 5,
+   "label": "Grave-goods stall",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 107,
+   "silW": 54,
+   "scores": {
+    "row": 69,
+    "2x2": 107,
+    "2x2b": 124
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        688,
+        615,
+        795,
+        770
+       ],
+       "px": [
+        107,
+        155
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        847,
+        615,
+        954,
+        770
+       ],
+       "px": [
+        107,
+        155
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        617,
+        829,
+        795,
+        984
+       ],
+       "px": [
+        178,
+        155
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        812,
+        829,
+        990,
+        984
+       ],
+       "px": [
+        178,
+        155
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.44H"
+  },
+  {
+   "cell": 6,
+   "label": "Osric's watch post",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 76,
+   "silW": 39,
+   "scores": {
+    "row": 56,
+    "2x2": 76,
+    "2x2b": 76
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1164,
+        593,
+        1292,
+        770
+       ],
+       "px": [
+        127,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1337,
+        593,
+        1464,
+        770
+       ],
+       "px": [
+        127,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1164,
+        807,
+        1292,
+        984
+       ],
+       "px": [
+        127,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1337,
+        807,
+        1464,
+        984
+       ],
+       "px": [
+        127,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.33H"
+  }
+ ]
+}

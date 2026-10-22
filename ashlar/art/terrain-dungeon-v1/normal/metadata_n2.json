@@ -1,0 +1,1478 @@
+{
+  "generated": "2026-10-21T00:53:12Z",
+  "tool": "tools/prepare_normals.py",
+  "manifest": {
+    "path": "normal/manifest_ids.json",
+    "sha256": "ff0871c903d7b43104ddb3613638582123bac168b678dc235702dd11ef469723",
+    "jobs": 7
+  },
+  "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+  "size": 1024,
+  "register": true,
+  "parameters": {
+    "light": [
+      -1.0,
+      1.0,
+      1.1
+    ],
+    "nz_slope_floor": 0.15,
+    "nz_min": 0.05,
+    "max_shift_px": 8,
+    "min_ncc_gain": 0.01,
+    "block_agree_px": 1.0,
+    "block_min_usable": 6,
+    "block_min_fraction": 0.6,
+    "block_peak_usable": 8.0,
+    "convention_rule": "r = curl_DX/curl_GL (sigma 2), d = relief_GL - relief_DX: r <= 0.75 -> DirectX (conflict if d > 0.3); r >= 1.33 -> OpenGL (conflict if d < -0.3); else d <= -0.4 DirectX, d >= 0.4 OpenGL, otherwise OpenGL + ambiguous",
+    "convention_thresholds": {
+      "r_directx_max": 0.75,
+      "r_opengl_min": 1.33,
+      "d_conflict": 0.3,
+      "d_decide": 0.4
+    },
+    "seam_band": {
+      "k": 8,
+      "warn_ratio": 1.8
+    },
+    "trusted_shift_warn_px": 0.5,
+    "block_warn_px": 1.5
+  },
+  "counts": {
+    "manifest_jobs": 7,
+    "raw_present": 7,
+    "delivered": 7,
+    "missing": 0,
+    "raw_only": 0,
+    "errors": 0,
+    "with_warnings": 2
+  },
+  "notes": [
+    "Normal map chuẩn OpenGL (+Y lên) cho three.js; phẳng = #8080FF.",
+    "Tạo bằng Codex gpt-6-astra từ albedo1024 (ảnh albedo là ảnh đích để sửa); ảnh gốc Codex giữ nguyên.",
+    "Hậu kỳ chỉ gồm: resize (trên vector float), kiểm tra quy ước kênh G, căn lệch với albedo, sửa seam (periodic+smooth trên độ dốc), chuẩn hoá vector — không vẽ thêm gì.",
+    "Ảnh 'lit' là xem trước với ánh sáng từ góc trên-trái (-1, 1, 1.1) — chỉ để kiểm tra, không phải kết quả cuối.",
+    "Dùng trong three.js: texture.colorSpace = THREE.NoColorSpace (dữ liệu tuyến tính, không phải màu); material.normalScale chỉnh độ mạnh theo từng biome (xem độ nghiêng TB/p95 trên mỗi thẻ).",
+    "Đã bỏ độ nghiêng đều (mean slope) của mỗi ảnh gốc; thẻ có nhãn v2 dùng bản chạy lại được chọn trong normal/selection.json.",
+    "Các chỉ số là gợi ý; hãy nhìn normal_qa/ (bảng so sánh và lặp 3×3) để đánh giá bằng mắt. Chưa tích hợp engine."
+  ],
+  "outputs": {
+    "normal_dir": "normal1024",
+    "qa": {
+      "compare": [
+        {
+          "file": "normal_qa/compare_sheet_01.png",
+          "ids": [
+            "crypt_dust_a",
+            "crypt_damp_a",
+            "crypt_rubble_a",
+            "cave_floor_a",
+            "cave_clay_a",
+            "cave_rubble_a",
+            "cave_flowstone_a"
+          ]
+        }
+      ],
+      "normals_repeat3x3": [
+        {
+          "file": "normal_qa/normals_repeat3x3_sheet_01.png",
+          "ids": [
+            "crypt_dust_a",
+            "crypt_damp_a",
+            "crypt_rubble_a",
+            "cave_floor_a",
+            "cave_clay_a",
+            "cave_rubble_a",
+            "cave_flowstone_a"
+          ]
+        }
+      ],
+      "lit_repeat3x3": [
+        {
+          "file": "normal_qa/lit_repeat3x3_sheet_01.png",
+          "ids": [
+            "crypt_dust_a",
+            "crypt_damp_a",
+            "crypt_rubble_a",
+            "cave_floor_a",
+            "cave_clay_a",
+            "cave_rubble_a",
+            "cave_flowstone_a"
+          ]
+        }
+      ],
+      "tile_corners": [
+        {
+          "file": "normal_qa/tile_corners_01.png",
+          "ids": [
+            "crypt_dust_a",
+            "crypt_damp_a",
+            "crypt_rubble_a",
+            "cave_floor_a",
+            "cave_clay_a",
+            "cave_rubble_a",
+            "cave_flowstone_a"
+          ]
+        }
+      ],
+      "thumbnails": "normal_qa/thumbnails_all.png"
+    },
+    "gallery": "gallery.normals.html"
+  },
+  "extra_cards": [
+    {
+      "biome_id": "BIO-25",
+      "texture": null,
+      "explanation": [
+        "Seamless (BIO-25) là mặt trắng thuần cố ý, không có texture albedo.",
+        "Vì không có texture nên cũng không có normal map."
+      ]
+    }
+  ],
+  "sources_unchanged": true,
+  "sources_changed": [],
+  "raw_sources_unchanged": true,
+  "albedo_sources_unchanged": true,
+  "entries": [
+    {
+      "id": "crypt_dust_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/crypt_dust_a_n2.png",
+        "sha256": "06b2c8ce68d50d5627283eda947044ee8b0bbf849f66efc33822461e5289b0ee",
+        "bytes": 1886387,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/crypt_dust_a.png",
+        "sha256": "96ef7f05cfc44232cd344e6d50ac3c851c5afd86bf1030b1ece96546f78f4524"
+      },
+      "selection": {
+        "raw": "textures/crypt_dust_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/crypt_dust_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bed-3c30-7181-b30e-990a6b16b8c7\\exec-c5c207b8-7daa-4b1e-993c-4a4e27879194.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bed-3c30-7181-b30e-990a6b16b8c7"
+        ],
+        "sha256": "06b2c8ce68d50d5627283eda947044ee8b0bbf849f66efc33822461e5289b0ee",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:47:16Z",
+        "finished": "2026-10-21T00:48:13Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\crypt_dust_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/crypt_dust_a_n2.txt",
+        "sha256": "786967a60be46309f073fd8b9a033e094f02d15e8637f2b09668af375610c7b8"
+      },
+      "delivered": {
+        "path": "normal1024/crypt_dust_a.png",
+        "sha256": "a88e98a5c9a470629ed7dcd697f70c55d6aa338e083facc0f9c7e51eb232589d",
+        "bytes": 1264555,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "06b2c8ce68d50d5627283eda947044ee8b0bbf849f66efc33822461e5289b0ee",
+        "albedo_sha256": "96ef7f05cfc44232cd344e6d50ac3c851c5afd86bf1030b1ece96546f78f4524",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p -0.0276, q +0.0092 (1.66 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-1.52 sx=-0.157",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:52:32Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9878,
+          "p5": 0.9704,
+          "min": 0.7308,
+          "max": 1.431
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": -0.0276,
+          "mean_q": 0.0092,
+          "tilt_deg": 1.66
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.522,
+            "s2": 0.436
+          },
+          "ratio_dx": {
+            "s0": 1.097,
+            "s2": 1.012
+          },
+          "r_s0": 2.103,
+          "r_s2": 2.322,
+          "relief_gl": 0.746,
+          "relief_dx": 0.033,
+          "d": 0.713,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -1.52,
+          "shift_sx": -0.157,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -1.881,
+          "ncc_shift_sx": -0.145,
+          "ncc_before": 0.5,
+          "ncc_best_integer": 0.5999,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 16,
+            "agree_fraction": 1.0,
+            "within_px": 1.0,
+            "median_sy": -1.52,
+            "median_sx": -0.157,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.5975,
+          "ncc_after": 0.5975,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 51.1,
+            "median_sy": -0.01,
+            "median_sx": -0.06,
+            "max_abs": 0.6,
+            "median_abs": 0.2
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 4.796,
+            "edge_tb": 5.271,
+            "adjacent_x": 1.64,
+            "adjacent_y": 1.837,
+            "ratio_lr": 2.92,
+            "ratio_tb": 2.87
+          },
+          "after": {
+            "edge_lr": 0.84,
+            "edge_tb": 1.915,
+            "adjacent_x": 1.745,
+            "adjacent_y": 1.963,
+            "ratio_lr": 0.48,
+            "ratio_tb": 0.98
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 2.89,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.12,
+            "cols": 3.0,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.1,
+            "max": 3.0
+          },
+          "band_after": {
+            "rows": 1.1,
+            "rows_pair": -8,
+            "rows_interior_ref": 1.16,
+            "cols": 0.93,
+            "cols_pair": -4,
+            "cols_interior_ref": 1.12,
+            "max": 1.1
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.7714,
+        "tilt": {
+          "mean_deg": 5.09,
+          "p95_deg": 13.2,
+          "near_flat_fraction": 0.1863,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0006,
+          "p5": 0.9967,
+          "min": 0.9941,
+          "max": 1.0058
+        },
+        "mean_slope_final": {
+          "mean_p": 0.0,
+          "mean_q": 0.0,
+          "tilt_deg": 0.0
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "crypt_damp_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/crypt_damp_a_n2.png",
+        "sha256": "0fdc66c34e73fa98605f3e7ae85b699db7c88907bec1057e958491f1dbca21b8",
+        "bytes": 2195125,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/crypt_damp_a.png",
+        "sha256": "6ed43de15882278401e10c8d3556322c7a7bb76e737969ae8ffc806a34908699"
+      },
+      "selection": {
+        "raw": "textures/crypt_damp_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/crypt_damp_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bed-3c20-7fa2-bc59-2df7b0d2f8c3\\exec-9612334d-140c-4ac9-ab37-c7544cc8e962.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bed-3c20-7fa2-bc59-2df7b0d2f8c3"
+        ],
+        "sha256": "0fdc66c34e73fa98605f3e7ae85b699db7c88907bec1057e958491f1dbca21b8",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:47:16Z",
+        "finished": "2026-10-21T00:48:19Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\crypt_damp_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/crypt_damp_a_n2.txt",
+        "sha256": "c5f97b671d967bf543f5a8dfeac524b2e0f3a733230f04e0c5eb73dd13efd237"
+      },
+      "delivered": {
+        "path": "normal1024/crypt_damp_a.png",
+        "sha256": "62fb2929b78ca2ac65b5e7fe9ffa129ba6c23241e6711ef0a3d9691f85f95c4e",
+        "bytes": 1460803,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "0fdc66c34e73fa98605f3e7ae85b699db7c88907bec1057e958491f1dbca21b8",
+        "albedo_sha256": "6ed43de15882278401e10c8d3556322c7a7bb76e737969ae8ffc806a34908699",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p +0.0816, q -0.0342 (5.06 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-1.146 sx=-0.78",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:52:37Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9977,
+          "p5": 0.9651,
+          "min": 0.3801,
+          "max": 1.5235
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": 0.0816,
+          "mean_q": -0.0342,
+          "tilt_deg": 5.06
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.516,
+            "s2": 0.382
+          },
+          "ratio_dx": {
+            "s0": 1.148,
+            "s2": 1.009
+          },
+          "r_s0": 2.226,
+          "r_s2": 2.642,
+          "relief_gl": 0.56,
+          "relief_dx": -0.206,
+          "d": 0.766,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -1.146,
+          "shift_sx": -0.78,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -1.509,
+          "ncc_shift_sx": -0.75,
+          "ncc_before": 0.5476,
+          "ncc_best_integer": 0.5979,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 15,
+            "agree_fraction": 0.938,
+            "within_px": 1.0,
+            "median_sy": -1.146,
+            "median_sx": -0.78,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.6028,
+          "ncc_after": 0.6028,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 35.2,
+            "median_sy": 0.09,
+            "median_sx": -0.01,
+            "max_abs": 1.05,
+            "median_abs": 0.31
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 5.822,
+            "edge_tb": 6.954,
+            "adjacent_x": 2.749,
+            "adjacent_y": 3.558,
+            "ratio_lr": 2.12,
+            "ratio_tb": 1.95
+          },
+          "after": {
+            "edge_lr": 2.035,
+            "edge_tb": 3.076,
+            "adjacent_x": 2.894,
+            "adjacent_y": 3.794,
+            "ratio_lr": 0.7,
+            "ratio_tb": 0.81
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 1.98,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.2,
+            "cols": 2.13,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.13,
+            "max": 2.13
+          },
+          "band_after": {
+            "rows": 1.2,
+            "rows_pair": 7,
+            "rows_interior_ref": 1.21,
+            "cols": 1.1,
+            "cols_pair": -4,
+            "cols_interior_ref": 1.13,
+            "max": 1.2
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.5774,
+        "tilt": {
+          "mean_deg": 8.6,
+          "p95_deg": 35.41,
+          "near_flat_fraction": 0.2125,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0006,
+          "p5": 0.9968,
+          "min": 0.9935,
+          "max": 1.0065
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0001,
+          "mean_q": 0.0001,
+          "tilt_deg": 0.01
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "crypt_rubble_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/crypt_rubble_a_n2.png",
+        "sha256": "0f0ff37ced6d642a3e1c18783c0a6ab64e9d8000949e63bd2046a8ad266f22fd",
+        "bytes": 2197564,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/crypt_rubble_a.png",
+        "sha256": "8839f901562ff07db0a208a105abd5c07df34a4065efcace53fa5b415dfd4b1b"
+      },
+      "selection": {
+        "raw": "textures/crypt_rubble_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/crypt_rubble_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bed-3c21-7380-8283-bfef5a687ccf\\exec-15a26664-f601-49be-ba86-1be6458aefe1.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bed-3c21-7380-8283-bfef5a687ccf"
+        ],
+        "sha256": "0f0ff37ced6d642a3e1c18783c0a6ab64e9d8000949e63bd2046a8ad266f22fd",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:47:16Z",
+        "finished": "2026-10-21T00:48:13Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\crypt_rubble_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/crypt_rubble_a_n2.txt",
+        "sha256": "c4571ba76727374bf80d0c7ee84dd59665796a0f663ba9d23d64d592696cd882"
+      },
+      "delivered": {
+        "path": "normal1024/crypt_rubble_a.png",
+        "sha256": "8e08a8f44ebd2ff3413db75524a65c9a39ced5396aea365f9d61e7c4495a6068",
+        "bytes": 1482232,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "0f0ff37ced6d642a3e1c18783c0a6ab64e9d8000949e63bd2046a8ad266f22fd",
+        "albedo_sha256": "8839f901562ff07db0a208a105abd5c07df34a4065efcace53fa5b415dfd4b1b",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p +0.0442, q -0.0097 (2.59 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-1.484 sx=-0.314",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:52:43Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9837,
+          "p5": 0.9406,
+          "min": 0.2752,
+          "max": 1.409
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": 0.0442,
+          "mean_q": -0.0097,
+          "tilt_deg": 2.59
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.568,
+            "s2": 0.443
+          },
+          "ratio_dx": {
+            "s0": 1.009,
+            "s2": 0.937
+          },
+          "r_s0": 1.775,
+          "r_s2": 2.118,
+          "relief_gl": 0.564,
+          "relief_dx": -0.117,
+          "d": 0.681,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -1.484,
+          "shift_sx": -0.314,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -2.226,
+          "ncc_shift_sx": -0.017,
+          "ncc_before": 0.3993,
+          "ncc_best_integer": 0.4731,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 12,
+            "agree_fraction": 0.75,
+            "within_px": 1.0,
+            "median_sy": -1.484,
+            "median_sx": -0.314,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.4654,
+          "ncc_after": 0.4654,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 24.7,
+            "median_sy": -0.04,
+            "median_sx": 0.09,
+            "max_abs": 1.23,
+            "median_abs": 0.82
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 8.522,
+            "edge_tb": 9.065,
+            "adjacent_x": 2.763,
+            "adjacent_y": 3.324,
+            "ratio_lr": 3.08,
+            "ratio_tb": 2.73
+          },
+          "after": {
+            "edge_lr": 1.635,
+            "edge_tb": 3.258,
+            "adjacent_x": 3.057,
+            "adjacent_y": 3.749,
+            "ratio_lr": 0.53,
+            "ratio_tb": 0.87
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 2.75,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.14,
+            "cols": 3.08,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.14,
+            "max": 3.08
+          },
+          "band_after": {
+            "rows": 1.0,
+            "rows_pair": 7,
+            "rows_interior_ref": 1.15,
+            "cols": 0.84,
+            "cols_pair": -5,
+            "cols_interior_ref": 1.16,
+            "max": 1.0
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.6031,
+        "tilt": {
+          "mean_deg": 11.12,
+          "p95_deg": 39.99,
+          "near_flat_fraction": 0.1665,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0005,
+          "p5": 0.9967,
+          "min": 0.9937,
+          "max": 1.0064
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0001,
+          "mean_q": 0.0001,
+          "tilt_deg": 0.01
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "cave_floor_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/cave_floor_a_n2.png",
+        "sha256": "df10edcde2a251e87347018d576e2e67ef2cf772ffb307e492cfeb4f422c2e11",
+        "bytes": 2011170,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/cave_floor_a.png",
+        "sha256": "f232568ca79b6b4a1040e95a75dd59a9ee1bc617df687b4a2ac5b433ed70ffec"
+      },
+      "selection": {
+        "raw": "textures/cave_floor_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/cave_floor_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bee-0ac7-7732-b7b2-9acf5350ec38\\exec-f7d47aea-973f-42ea-a591-380f023a1051.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bee-0ac7-7732-b7b2-9acf5350ec38"
+        ],
+        "sha256": "df10edcde2a251e87347018d576e2e67ef2cf772ffb307e492cfeb4f422c2e11",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:48:09Z",
+        "finished": "2026-10-21T00:49:02Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\cave_floor_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/cave_floor_a_n2.txt",
+        "sha256": "110a8cdddd0ec48603608ee87d5e89e5d8e09d6390bbcf8654097a0e943595b0"
+      },
+      "delivered": {
+        "path": "normal1024/cave_floor_a.png",
+        "sha256": "1b1401f164eb2931d2db4a38db42ea0e1a36acb2e46852f6901ee475a6eb4236",
+        "bytes": 1373007,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "df10edcde2a251e87347018d576e2e67ef2cf772ffb307e492cfeb4f422c2e11",
+        "albedo_sha256": "f232568ca79b6b4a1040e95a75dd59a9ee1bc617df687b4a2ac5b433ed70ffec",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p -0.0652, q +0.0751 (5.68 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-1.968 sx=-1.618",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:52:49Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 1.0038,
+          "p5": 0.9626,
+          "min": 0.4981,
+          "max": 1.473
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": -0.0652,
+          "mean_q": 0.0751,
+          "tilt_deg": 5.68
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.551,
+            "s2": 0.504
+          },
+          "ratio_dx": {
+            "s0": 1.071,
+            "s2": 0.984
+          },
+          "r_s0": 1.944,
+          "r_s2": 1.954,
+          "relief_gl": 0.297,
+          "relief_dx": 0.226,
+          "d": 0.071,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -1.968,
+          "shift_sx": -1.618,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -2.371,
+          "ncc_shift_sx": -1.15,
+          "ncc_before": 0.3957,
+          "ncc_best_integer": 0.4355,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 11,
+            "agree_fraction": 0.688,
+            "within_px": 1.0,
+            "median_sy": -1.968,
+            "median_sx": -1.618,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.4341,
+          "ncc_after": 0.4341,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 22.0,
+            "median_sy": -0.12,
+            "median_sx": 0.04,
+            "max_abs": 2.92,
+            "median_abs": 0.53
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 8.212,
+            "edge_tb": 11.142,
+            "adjacent_x": 1.971,
+            "adjacent_y": 2.718,
+            "ratio_lr": 4.17,
+            "ratio_tb": 4.1
+          },
+          "after": {
+            "edge_lr": 1.894,
+            "edge_tb": 2.437,
+            "adjacent_x": 2.161,
+            "adjacent_y": 3.046,
+            "ratio_lr": 0.88,
+            "ratio_tb": 0.8
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 4.22,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.18,
+            "cols": 4.14,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.11,
+            "max": 4.22
+          },
+          "band_after": {
+            "rows": 0.89,
+            "rows_pair": 7,
+            "rows_interior_ref": 1.19,
+            "cols": 1.1,
+            "cols_pair": -8,
+            "cols_interior_ref": 1.12,
+            "max": 1.1
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.3257,
+        "tilt": {
+          "mean_deg": 13.25,
+          "p95_deg": 35.2,
+          "near_flat_fraction": 0.0445,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0002,
+          "p5": 0.9965,
+          "min": 0.9939,
+          "max": 1.0062
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0,
+          "mean_q": 0.0,
+          "tilt_deg": 0.0
+        }
+      },
+      "warnings": [
+        "block residual shift up to 2.92 px after registration (non-uniform misalignment)"
+      ]
+    },
+    {
+      "id": "cave_clay_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/cave_clay_a_n2.png",
+        "sha256": "ad37d0da4266fc451863b75ecc7479c3dca8c34a75eeac7216528d7960f7b38b",
+        "bytes": 2135388,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/cave_clay_a.png",
+        "sha256": "d98d02af87a081ed589e7fff71a81d200356b95b25bc0bc472d1e1560906d544"
+      },
+      "selection": {
+        "raw": "textures/cave_clay_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/cave_clay_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bee-193b-7452-a003-6ab22145c17e\\exec-69249350-b7b9-420c-91bc-7eee14621181.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bee-193b-7452-a003-6ab22145c17e"
+        ],
+        "sha256": "ad37d0da4266fc451863b75ecc7479c3dca8c34a75eeac7216528d7960f7b38b",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:48:13Z",
+        "finished": "2026-10-21T00:49:03Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\cave_clay_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/cave_clay_a_n2.txt",
+        "sha256": "d9cf9adb6c2dcc1c0243355d027e804c7a2e321c2f92d7cebe418382e5ea3b8e"
+      },
+      "delivered": {
+        "path": "normal1024/cave_clay_a.png",
+        "sha256": "6a8cdcad39591e24de6c7fff7d50487ed8d6651a5d2d605e7ea100b6289f35f5",
+        "bytes": 1469043,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "ad37d0da4266fc451863b75ecc7479c3dca8c34a75eeac7216528d7960f7b38b",
+        "albedo_sha256": "d98d02af87a081ed589e7fff71a81d200356b95b25bc0bc472d1e1560906d544",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p +0.0212, q +0.0713 (4.25 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-2.069 sx=-0.299",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:52:55Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9911,
+          "p5": 0.9614,
+          "min": 0.5775,
+          "max": 1.4009
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": 0.0212,
+          "mean_q": 0.0713,
+          "tilt_deg": 4.25
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.562,
+            "s2": 0.514
+          },
+          "ratio_dx": {
+            "s0": 1.029,
+            "s2": 0.941
+          },
+          "r_s0": 1.833,
+          "r_s2": 1.832,
+          "relief_gl": 0.743,
+          "relief_dx": 0.153,
+          "d": 0.589,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -2.069,
+          "shift_sx": -0.299,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -2.076,
+          "ncc_shift_sx": -0.291,
+          "ncc_before": 0.5256,
+          "ncc_best_integer": 0.6495,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 16,
+            "agree_fraction": 1.0,
+            "within_px": 1.0,
+            "median_sy": -2.069,
+            "median_sx": -0.299,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.6516,
+          "ncc_after": 0.6516,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 48.9,
+            "median_sy": -0.01,
+            "median_sx": -0.04,
+            "max_abs": 0.4,
+            "median_abs": 0.13
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 7.194,
+            "edge_tb": 8.873,
+            "adjacent_x": 2.45,
+            "adjacent_y": 3.31,
+            "ratio_lr": 2.94,
+            "ratio_tb": 2.68
+          },
+          "after": {
+            "edge_lr": 1.685,
+            "edge_tb": 3.041,
+            "adjacent_x": 2.759,
+            "adjacent_y": 3.792,
+            "ratio_lr": 0.61,
+            "ratio_tb": 0.8
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 2.72,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.17,
+            "cols": 2.93,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.09,
+            "max": 2.93
+          },
+          "band_after": {
+            "rows": 1.02,
+            "rows_pair": 4,
+            "rows_interior_ref": 1.16,
+            "cols": 0.96,
+            "cols_pair": 1,
+            "cols_interior_ref": 1.11,
+            "max": 1.02
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.7904,
+        "tilt": {
+          "mean_deg": 8.67,
+          "p95_deg": 25.1,
+          "near_flat_fraction": 0.1232,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0004,
+          "p5": 0.9966,
+          "min": 0.9937,
+          "max": 1.0066
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0,
+          "mean_q": 0.0,
+          "tilt_deg": 0.0
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "cave_rubble_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/cave_rubble_a_n2.png",
+        "sha256": "4182a4a33f3af019cb0f46955ad79e8fbec94ebafc54ec8b877d2f7b60e6a013",
+        "bytes": 2244721,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/cave_rubble_a.png",
+        "sha256": "67c9e7e6676fcda44747b47b078a85e15f8f170c999ff649cc393c57d892cc55"
+      },
+      "selection": {
+        "raw": "textures/cave_rubble_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/cave_rubble_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bee-21bb-76e2-b4a5-118ee7d184e2\\exec-0012de3f-c314-4bfc-8dce-c6e73a6f73c5.png",
+        "source_how": "thread-dir",
+        "thread_ids": [
+          "01a15bee-21bb-76e2-b4a5-118ee7d184e2"
+        ],
+        "sha256": "4182a4a33f3af019cb0f46955ad79e8fbec94ebafc54ec8b877d2f7b60e6a013",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:48:15Z",
+        "finished": "2026-10-21T00:49:13Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\cave_rubble_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/cave_rubble_a_n2.txt",
+        "sha256": "c43d5780756b199b9703e8129e945bd07d0ddaaabc8bd55c036d287bd287ddbc"
+      },
+      "delivered": {
+        "path": "normal1024/cave_rubble_a.png",
+        "sha256": "7706ffe433ac1f8971d3b7b0daa99acebb4dbe1121617394910a9dab45eb6498",
+        "bytes": 1545664,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "4182a4a33f3af019cb0f46955ad79e8fbec94ebafc54ec8b877d2f7b60e6a013",
+        "albedo_sha256": "67c9e7e6676fcda44747b47b078a85e15f8f170c999ff649cc393c57d892cc55",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p +0.0066, q +0.1152 (6.58 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-0.79 sx=0.011",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:53:01Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9802,
+          "p5": 0.9128,
+          "min": 0.4599,
+          "max": 1.3473
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": 0.0066,
+          "mean_q": 0.1152,
+          "tilt_deg": 6.58
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.422,
+            "s2": 0.352
+          },
+          "ratio_dx": {
+            "s0": 1.263,
+            "s2": 1.082
+          },
+          "r_s0": 2.994,
+          "r_s2": 3.075,
+          "relief_gl": 0.219,
+          "relief_dx": -0.059,
+          "d": 0.278,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -0.79,
+          "shift_sx": 0.011,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -1.605,
+          "ncc_shift_sx": -0.164,
+          "ncc_before": 0.3946,
+          "ncc_best_integer": 0.4482,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 16,
+            "agree_fraction": 1.0,
+            "within_px": 1.0,
+            "median_sy": -0.79,
+            "median_sx": 0.011,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.4372,
+          "ncc_after": 0.4372,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 33.5,
+            "median_sy": 0.01,
+            "median_sx": -0.01,
+            "max_abs": 0.7,
+            "median_abs": 0.34
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 8.619,
+            "edge_tb": 12.297,
+            "adjacent_x": 2.894,
+            "adjacent_y": 3.358,
+            "ratio_lr": 2.98,
+            "ratio_tb": 3.66
+          },
+          "after": {
+            "edge_lr": 1.685,
+            "edge_tb": 3.329,
+            "adjacent_x": 3.318,
+            "adjacent_y": 3.916,
+            "ratio_lr": 0.51,
+            "ratio_tb": 0.85
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 3.7,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.14,
+            "cols": 2.99,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.11,
+            "max": 3.7
+          },
+          "band_after": {
+            "rows": 1.13,
+            "rows_pair": 4,
+            "rows_interior_ref": 1.18,
+            "cols": 1.02,
+            "cols_pair": 7,
+            "cols_interior_ref": 1.14,
+            "max": 1.13
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.2285,
+        "tilt": {
+          "mean_deg": 15.1,
+          "p95_deg": 44.44,
+          "near_flat_fraction": 0.0264,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0001,
+          "p5": 0.9964,
+          "min": 0.9937,
+          "max": 1.0064
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0,
+          "mean_q": 0.0001,
+          "tilt_deg": 0.0
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "cave_flowstone_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/cave_flowstone_a_n2.png",
+        "sha256": "a8ad671a267d6ee51216b19cbc9261f5e6a92d7828e4a9702eb33d8b94b73f0a",
+        "bytes": 1688751,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/cave_flowstone_a.png",
+        "sha256": "b66e8ce883a4bbd86fb0f22408fa8b5f74a36c630ec8db03083a0e159018cc2c"
+      },
+      "selection": {
+        "raw": "textures/cave_flowstone_a_n2.png",
+        "version": "n2",
+        "why": "candidate n2"
+      },
+      "provenance": {
+        "file": "normal/logs/cave_flowstone_a_n2.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15bee-3408-7c73-b602-de64ec9e18f6\\exec-371477e5-e3c2-41df-9eed-b712edca59f6.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15bee-3408-7c73-b602-de64ec9e18f6"
+        ],
+        "sha256": "a8ad671a267d6ee51216b19cbc9261f5e6a92d7828e4a9702eb33d8b94b73f0a",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:48:19Z",
+        "finished": "2026-10-21T00:49:14Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\albedo1024\\cave_flowstone_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/cave_flowstone_a_n2.txt",
+        "sha256": "a1df3be380c67d045b6359e710ac17ded905298cb8240f2bd6e6725308377643"
+      },
+      "delivered": {
+        "path": "normal1024/cave_flowstone_a.png",
+        "sha256": "30e2e9fb7abeb17269879234962be8eac37351282567e0418f28233bca3bb248",
+        "bytes": 1063631,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "a8ad671a267d6ee51216b19cbc9261f5e6a92d7828e4a9702eb33d8b94b73f0a",
+        "albedo_sha256": "b66e8ce883a4bbd86fb0f22408fa8b5f74a36c630ec8db03083a0e159018cc2c",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p -0.0019, q -0.0241 (1.38 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-2.865 sx=-0.706",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-21T00:53:08Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 0.9879,
+          "p5": 0.9597,
+          "min": 0.4734,
+          "max": 1.3821
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": -0.0019,
+          "mean_q": -0.0241,
+          "tilt_deg": 1.38
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.601,
+            "s2": 0.516
+          },
+          "ratio_dx": {
+            "s0": 0.979,
+            "s2": 0.898
+          },
+          "r_s0": 1.629,
+          "r_s2": 1.74,
+          "relief_gl": 0.493,
+          "relief_dx": -0.051,
+          "d": 0.544,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -2.865,
+          "shift_sx": -0.706,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -4.048,
+          "ncc_shift_sx": -0.472,
+          "ncc_before": 0.2657,
+          "ncc_best_integer": 0.4142,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 13,
+            "agree_fraction": 0.812,
+            "within_px": 1.0,
+            "median_sy": -2.865,
+            "median_sx": -0.706,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.3986,
+          "ncc_after": 0.3986,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 19.8,
+            "median_sy": 0.07,
+            "median_sx": 0.09,
+            "max_abs": 1.88,
+            "median_abs": 0.49
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 4.835,
+            "edge_tb": 5.414,
+            "adjacent_x": 1.11,
+            "adjacent_y": 1.545,
+            "ratio_lr": 4.36,
+            "ratio_tb": 3.5
+          },
+          "after": {
+            "edge_lr": 1.139,
+            "edge_tb": 1.053,
+            "adjacent_x": 1.164,
+            "adjacent_y": 1.684,
+            "ratio_lr": 0.98,
+            "ratio_tb": 0.63
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 3.61,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.26,
+            "cols": 4.37,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.12,
+            "max": 4.37
+          },
+          "band_after": {
+            "rows": 0.74,
+            "rows_pair": -5,
+            "rows_interior_ref": 1.33,
+            "cols": 1.19,
+            "cols_pair": 0,
+            "cols_interior_ref": 1.15,
+            "max": 1.19
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.5567,
+        "tilt": {
+          "mean_deg": 10.51,
+          "p95_deg": 34.61,
+          "near_flat_fraction": 0.0749,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0004,
+          "p5": 0.9965,
+          "min": 0.9939,
+          "max": 1.0065
+        },
+        "mean_slope_final": {
+          "mean_p": 0.0,
+          "mean_q": 0.0,
+          "tilt_deg": 0.0
+        }
+      },
+      "warnings": [
+        "block residual shift up to 1.88 px after registration (non-uniform misalignment)"
+      ]
+    }
+  ]
+}

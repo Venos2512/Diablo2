@@ -1,0 +1,36 @@
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_dense_a", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_dense_b", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_sparse_a", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_sparse_b", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "soil_damp_a", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "soil_damp_b", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "water_surface_a", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "water_surface_b", "event": "queued"}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_dense_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_dense_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_sparse_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "grass_sparse_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "soil_damp_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "soil_damp_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "water_surface_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:04Z", "id": "water_surface_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T16:50:53Z", "id": "grass_dense_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\grass_dense_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b7e-7b20-ba50-1962ac21d1ac\\call_c9cdbb9c27094fffb0628e3a00b60fcc.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:50:54Z", "id": "water_surface_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\water_surface_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b75-7433-b7e2-54b8a2be6a8f\\call_de69e85bb3e642029946d07eef862b02.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:50:56Z", "id": "water_surface_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\water_surface_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b7b-7602-97e4-ed57000ad575\\call_88fd2189c06944a6a7a70a81b4de453c.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:50:56Z", "id": "soil_damp_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\soil_damp_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b75-7820-9148-cca0fe0b2b86\\call_96189c3f1def4c2ea0f16ac14374d5b0.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:50:58Z", "id": "grass_sparse_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\grass_sparse_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b80-72e0-9562-1d0ae19127a8\\call_cc9d46bdb1934fc6b3ae32f073778344.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:50:59Z", "id": "grass_sparse_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\grass_sparse_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b75-76a0-8e8a-85bd66f83839\\call_32aee0e6de4d4fba96abb5141a39cce4.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:51:01Z", "id": "grass_dense_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\grass_dense_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b76-71a3-8224-99be0c9d62f2\\call_286b92cb1f34409198aa011f823d2bdd.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T16:51:01Z", "id": "soil_damp_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\soil_damp_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a38-5b7e-73b1-823b-70a7dc042e3b\\call_5702c97a5088420e893dab7011de81c6.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T17:16:46Z", "id": "decals_ground_a", "event": "queued"}
+{"ts": "2026-10-20T17:16:46Z", "id": "decals_ground_b", "event": "queued"}
+{"ts": "2026-10-20T17:16:46Z", "id": "shore_plants_a", "event": "queued"}
+{"ts": "2026-10-20T17:16:46Z", "id": "shore_plants_b", "event": "queued"}
+{"ts": "2026-10-20T17:16:46Z", "id": "decals_ground_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T17:16:46Z", "id": "decals_ground_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T17:16:46Z", "id": "shore_plants_b", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T17:16:46Z", "id": "shore_plants_a", "event": "start", "attempt": 1, "of": 3}
+{"ts": "2026-10-20T17:17:31Z", "id": "shore_plants_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\shore_plants_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a50-c96d-7ec2-a410-6ae648a8f089\\call_6688c3004d5b435c9d7b32b1ab2357ab.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T17:17:32Z", "id": "shore_plants_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\shore_plants_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a50-c96e-7023-b142-2b7829e5838a\\call_0aa1c3ae7f454a8989a961f206336b01.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T17:17:45Z", "id": "decals_ground_a", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\decals_ground_a.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a50-c954-77b0-8bab-0f8cdba138bc\\call_c2ffc099bba84b1292bfa73fdb6b4262.png", "dims": "1254x1254"}
+{"ts": "2026-10-20T17:17:58Z", "id": "decals_ground_b", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\terrain-dark-wood\\stylized2_green_ext\\textures\\decals_ground_b.png", "source": "C:\\Users\\HLC_2021\\.codex\\generated_images\\01a15a50-c971-7871-a5d8-41873085aa91\\call_3a17e45ab4be496f8189e9be51dc5e3f.png", "dims": "1254x1254"}

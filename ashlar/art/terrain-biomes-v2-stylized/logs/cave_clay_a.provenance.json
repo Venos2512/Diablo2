@@ -1,0 +1,25 @@
+{
+  "id": "cave_clay_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15c30-1f67-7990-b1ce-e8a20a0bd05f\\exec-12a4d0e1-41a7-483c-8933-adc326f1fbf6.png",
+  "source_how": "thread-dir",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15c30-1f67-7990-b1ce-e8a20a0bd05f"
+  ],
+  "sha256": "226ead402ef2ea4d92e198e8a483846a5bc4929bf62cd0cab6d286cb0731281b",
+  "bytes": 1760021,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\style_ref.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\textures\\cave_clay_a.png",
+  "started": "2026-10-21T02:00:19Z",
+  "finished": "2026-10-21T02:01:45Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-biomes-v2-stylized\\logs\\work\\cave_clay_a\\attempt-1",
+  "scratch_files": []
+}

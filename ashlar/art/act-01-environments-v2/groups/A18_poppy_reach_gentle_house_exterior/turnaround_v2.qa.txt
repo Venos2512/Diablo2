@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround_v2.png - A18_turnaround - verdict: PASS WITH NOTES (lead QA, 2026-10-21)
+defects:
+- thin vertical separator lines between some views
+- hospice about 1.2x tall, steps about 1.3x
+passed: exactly four orthographic views per cell; bed LEFT/RIGHT correct; wall LEFT/RIGHT end-on; tiny H kept for the hospice

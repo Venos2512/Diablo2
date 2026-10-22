@@ -1,0 +1,161 @@
+{
+ "kind": "perspective",
+ "title": "A16 CHURCHYARD EXTRAS — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Churchyard yew",
+   "hpx": 73,
+   "silW": 37,
+   "base": 489,
+   "block": [
+    70,
+    114,
+    394,
+    489
+   ],
+   "blockPx": [
+    324,
+    375
+   ],
+   "blockH": [
+    4.44,
+    5.14
+   ],
+   "lines": [
+    "5H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Empty tarred gibbet",
+   "hpx": 145,
+   "silW": 73,
+   "base": 489,
+   "block": [
+    624,
+    113,
+    793,
+    489
+   ],
+   "blockPx": [
+    169,
+    376
+   ],
+   "blockH": [
+    1.17,
+    2.59
+   ],
+   "lines": [
+    "1H",
+    "2.56H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Grave with jar candles",
+   "hpx": 235,
+   "silW": 119,
+   "base": 489,
+   "block": [
+    1046,
+    347,
+    1307,
+    489
+   ],
+   "blockPx": [
+    261,
+    142
+   ],
+   "blockH": [
+    1.11,
+    0.6
+   ],
+   "lines": [
+    "0.44H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Fresh grave",
+   "hpx": 222,
+   "silW": 113,
+   "base": 966,
+   "block": [
+    38,
+    779,
+    309,
+    966
+   ],
+   "blockPx": [
+    271,
+    187
+   ],
+   "blockH": [
+    1.22,
+    0.84
+   ],
+   "lines": [
+    "0.67H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Unquiet grave",
+   "hpx": 206,
+   "silW": 104,
+   "base": 966,
+   "block": [
+    542,
+    792,
+    825,
+    966
+   ],
+   "blockPx": [
+    283,
+    174
+   ],
+   "blockH": [
+    1.37,
+    0.84
+   ],
+   "lines": [
+    "0.67H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Sexton's lamp post",
+   "hpx": 255,
+   "silW": 129,
+   "base": 966,
+   "block": [
+    1100,
+    590,
+    1237,
+    966
+   ],
+   "blockPx": [
+    137,
+    376
+   ],
+   "blockH": [
+    0.54,
+    1.47
+   ],
+   "lines": [
+    "1H",
+    "1.44H"
+   ]
+  }
+ ]
+}

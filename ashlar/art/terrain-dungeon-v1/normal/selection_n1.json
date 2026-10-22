@@ -1,0 +1,51 @@
+{
+  "crypt_dust_a": {
+    "raw": "textures/crypt_dust_a_n1.png",
+    "provenance": "logs/crypt_dust_a_n1.provenance.json",
+    "prompt": "prompts/crypt_dust_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "crypt_damp_a": {
+    "raw": "textures/crypt_damp_a_n1.png",
+    "provenance": "logs/crypt_damp_a_n1.provenance.json",
+    "prompt": "prompts/crypt_damp_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "crypt_rubble_a": {
+    "raw": "textures/crypt_rubble_a_n1.png",
+    "provenance": "logs/crypt_rubble_a_n1.provenance.json",
+    "prompt": "prompts/crypt_rubble_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "cave_floor_a": {
+    "raw": "textures/cave_floor_a_n1.png",
+    "provenance": "logs/cave_floor_a_n1.provenance.json",
+    "prompt": "prompts/cave_floor_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "cave_clay_a": {
+    "raw": "textures/cave_clay_a_n1.png",
+    "provenance": "logs/cave_clay_a_n1.provenance.json",
+    "prompt": "prompts/cave_clay_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "cave_rubble_a": {
+    "raw": "textures/cave_rubble_a_n1.png",
+    "provenance": "logs/cave_rubble_a_n1.provenance.json",
+    "prompt": "prompts/cave_rubble_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  },
+  "cave_flowstone_a": {
+    "raw": "textures/cave_flowstone_a_n1.png",
+    "provenance": "logs/cave_flowstone_a_n1.provenance.json",
+    "prompt": "prompts/cave_flowstone_a_n1.txt",
+    "why": "candidate n1",
+    "version": "n1"
+  }
+}

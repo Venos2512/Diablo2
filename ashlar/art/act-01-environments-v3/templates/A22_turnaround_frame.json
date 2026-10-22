@@ -1,0 +1,545 @@
+{
+ "kind": "turnaround",
+ "title": "A22 THINGS LEFT BEHIND — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Worn shoes",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 197,
+   "silW": 100,
+   "scores": {
+    "row": 197,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        186,
+        489,
+        235,
+        507
+       ],
+       "px": [
+        49,
+        18
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        265,
+        489,
+        314,
+        507
+       ],
+       "px": [
+        49,
+        18
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        344,
+        489,
+        393,
+        507
+       ],
+       "px": [
+        49,
+        18
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        423,
+        489,
+        472,
+        507
+       ],
+       "px": [
+        49,
+        18
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.09H"
+  },
+  {
+   "cell": 2,
+   "label": "Toll post with coin dish",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 189,
+   "silW": 96,
+   "scores": {
+    "row": 189,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        683,
+        371,
+        735,
+        507
+       ],
+       "px": [
+        52,
+        136
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        764,
+        371,
+        816,
+        507
+       ],
+       "px": [
+        52,
+        136
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        845,
+        371,
+        897,
+        507
+       ],
+       "px": [
+        52,
+        136
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        925,
+        371,
+        977,
+        507
+       ],
+       "px": [
+        52,
+        136
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.72H"
+  },
+  {
+   "cell": 3,
+   "label": "Empty wicker cradle",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 179,
+   "silW": 91,
+   "scores": {
+    "row": 149,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1258,
+        219,
+        1318,
+        294
+       ],
+       "px": [
+        60,
+        75
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1384,
+        219,
+        1444,
+        294
+       ],
+       "px": [
+        60,
+        75
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1218,
+        432,
+        1318,
+        507
+       ],
+       "px": [
+        99,
+        75
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1364,
+        432,
+        1463,
+        507
+       ],
+       "px": [
+        99,
+        75
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.42H"
+  },
+  {
+   "cell": 4,
+   "label": "Harvester's cairn",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 179,
+   "silW": 91,
+   "scores": {
+    "row": 116,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        190,
+        661,
+        310,
+        770
+       ],
+       "px": [
+        119,
+        109
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        346,
+        661,
+        465,
+        770
+       ],
+       "px": [
+        119,
+        109
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        190,
+        875,
+        310,
+        984
+       ],
+       "px": [
+        119,
+        109
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        346,
+        875,
+        465,
+        984
+       ],
+       "px": [
+        119,
+        109
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.61H"
+  },
+  {
+   "cell": 5,
+   "label": "Crook and folded coat",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 179,
+   "silW": 91,
+   "scores": {
+    "row": 160,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        764,
+        611,
+        814,
+        770
+       ],
+       "px": [
+        50,
+        159
+       ],
+       "parts": 2
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        885,
+        611,
+        935,
+        770
+       ],
+       "px": [
+        50,
+        159
+       ],
+       "parts": 2
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        724,
+        825,
+        814,
+        984
+       ],
+       "px": [
+        90,
+        159
+       ],
+       "parts": 2
+      },
+      {
+       "view": "BACK",
+       "box": [
+        865,
+        825,
+        955,
+        984
+       ],
+       "px": [
+        90,
+        159
+       ],
+       "parts": 2
+      }
+     ]
+    }
+   ],
+   "topLine": "0.89H"
+  },
+  {
+   "cell": 6,
+   "label": "Straw doll",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 242,
+   "silW": 123,
+   "scores": {
+    "row": 242,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1230,
+        937,
+        1257,
+        984
+       ],
+       "px": [
+        27,
+        47
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1294,
+        937,
+        1320,
+        984
+       ],
+       "px": [
+        27,
+        47
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1357,
+        937,
+        1397,
+        984
+       ],
+       "px": [
+        40,
+        47
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1434,
+        937,
+        1474,
+        984
+       ],
+       "px": [
+        40,
+        47
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.19H"
+  }
+ ]
+}

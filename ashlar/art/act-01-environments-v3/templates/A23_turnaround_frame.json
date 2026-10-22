@@ -1,0 +1,561 @@
+{
+ "kind": "turnaround",
+ "title": "A23 POPPY REACH TO THE GENTLE HOUSE GARTH — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Abandoned reaping",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 126,
+   "silW": 64,
+   "scores": {
+    "row": 74,
+    "2x2": 126,
+    "2x2b": 134
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        156,
+        217,
+        296,
+        294
+       ],
+       "px": [
+        140,
+        77
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        329,
+        217,
+        469,
+        294
+       ],
+       "px": [
+        140,
+        77
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        128,
+        430,
+        296,
+        507
+       ],
+       "px": [
+        168,
+        77
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        315,
+        430,
+        483,
+        507
+       ],
+       "px": [
+        168,
+        77
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.61H"
+  },
+  {
+   "cell": 2,
+   "label": "Ribbon thorn",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 58,
+   "silW": 29,
+   "scores": {
+    "row": 29,
+    "2x2": 58,
+    "2x2b": 58
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        590,
+        117,
+        782,
+        294
+       ],
+       "px": [
+        193,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        798,
+        117,
+        991,
+        294
+       ],
+       "px": [
+        193,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        590,
+        330,
+        782,
+        507
+       ],
+       "px": [
+        193,
+        177
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        798,
+        330,
+        991,
+        507
+       ],
+       "px": [
+        193,
+        177
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "3.06H"
+  },
+  {
+   "cell": 3,
+   "label": "Garth flower bed",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 102,
+   "silW": 52,
+   "scores": {
+    "row": 53,
+    "2x2": 102,
+    "2x2b": 102
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1117,
+        263,
+        1298,
+        294
+       ],
+       "px": [
+        181,
+        31
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1314,
+        263,
+        1494,
+        294
+       ],
+       "px": [
+        181,
+        31
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1117,
+        476,
+        1298,
+        507
+       ],
+       "px": [
+        181,
+        31
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1314,
+        476,
+        1494,
+        507
+       ],
+       "px": [
+        181,
+        31
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.31H"
+  },
+  {
+   "cell": 4,
+   "label": "Potted flowers",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 173,
+   "silW": 88,
+   "scores": {
+    "row": 173,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        166,
+        912,
+        224,
+        984
+       ],
+       "px": [
+        58,
+        72
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        250,
+        912,
+        308,
+        984
+       ],
+       "px": [
+        58,
+        72
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        334,
+        912,
+        392,
+        984
+       ],
+       "px": [
+        58,
+        72
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        418,
+        912,
+        476,
+        984
+       ],
+       "px": [
+        58,
+        72
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.42H"
+  },
+  {
+   "cell": 5,
+   "label": "Walled flower bed",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 115,
+   "silW": 58,
+   "scores": {
+    "row": 62,
+    "2x2": 85,
+    "2x2b": 115
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        624,
+        738,
+        714,
+        770
+       ],
+       "px": [
+        89,
+        32
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        732,
+        738,
+        988,
+        770
+       ],
+       "px": [
+        256,
+        32
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        624,
+        952,
+        714,
+        984
+       ],
+       "px": [
+        89,
+        32
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        732,
+        952,
+        988,
+        984
+       ],
+       "px": [
+        256,
+        32
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.28H"
+  },
+  {
+   "cell": 6,
+   "label": "Linen drying line",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 103,
+   "silW": 52,
+   "scores": {
+    "row": 53,
+    "2x2": 59,
+    "2x2b": 103
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1118,
+        644,
+        1135,
+        770
+       ],
+       "px": [
+        17,
+        126
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1151,
+        644,
+        1494,
+        770
+       ],
+       "px": [
+        343,
+        126
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1118,
+        858,
+        1135,
+        984
+       ],
+       "px": [
+        17,
+        126
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1151,
+        858,
+        1494,
+        984
+       ],
+       "px": [
+        343,
+        126
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.22H"
+  }
+ ]
+}

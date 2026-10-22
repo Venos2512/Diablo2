@@ -1,0 +1,4 @@
+QA (AD 11) of turnaround_v2.png - A19_turnaround - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cell 5 screen has two panels in FRONT and BACK (perspective: three)
+passed: tray on scale; H within about 10 percent of the frame; all other cells clean

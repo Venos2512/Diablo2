@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Height maps for the ASHLAR terrain-biomes-v1 textures, derived from the OpenGL normal maps.
 
-Run:   python -I make_heights.py [--only ID[,ID]] [--sigma 48] [--force]
+Run:   python -I make_heights.py [--only ID[,ID]] [--sigma 48] [--force] [--biome DIR]
+       --biome DIR  another texture folder with the same layout (normal1024/ in, height1024/ out), e.g. ashlar/art/terrain-dungeon-v1; default: the folder above tools/
 
 Inputs (never modified):  normal1024/{id}.png   seamless OpenGL tangent-space normal map (flat = #8080FF)
 Outputs:                  height1024/{id}.png   8-bit grayscale, raised = bright, seamless (periodic maths only)
@@ -56,14 +57,16 @@ def main() -> int:
     ap.add_argument("--only", default="")
     ap.add_argument("--sigma", type=float, default=SIGMA)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--biome", default="", help="texture folder to work in (default: the folder that contains tools/)")
     a = ap.parse_args()
     only = {s for s in a.only.split(",") if s}
-    srcs = sorted((BIOME_DIR / "normal1024").glob("*.png"))
+    biome = Path(a.biome).resolve() if a.biome else BIOME_DIR
+    srcs = sorted((biome / "normal1024").glob("*.png"))
     n = 0
     for src in srcs:
         if only and src.stem not in only:
             continue
-        dst = BIOME_DIR / "height1024" / src.name
+        dst = biome / "height1024" / src.name
         if dst.exists() and not a.force:
             print(f"skip {src.stem} (exists)")
             continue

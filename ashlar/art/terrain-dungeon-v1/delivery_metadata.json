@@ -1,0 +1,677 @@
+{
+  "generated": "2026-10-21T00:46:12Z",
+  "tool": "tools/prepare_delivery.py",
+  "manifest": {
+    "path": "manifest_selected.json",
+    "sha256": "88313dbfbcc17179140be428e748d6dd55c5e6f5cd643750e7395df7381708f9",
+    "jobs": 7
+  },
+  "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+  "size": 1024,
+  "counts": {
+    "manifest_jobs": 7,
+    "raw_present": 7,
+    "delivered": 7,
+    "missing": 0,
+    "raw_only": 0,
+    "errors": 0,
+    "biomes_in_manifest": 1,
+    "biomes_with_texture": 1
+  },
+  "notes": [
+    "Bảng màu trong prompt chỉ là đề xuất lookdev khởi điểm, chưa được duyệt.",
+    "Phân loại 27 biome chưa được duyệt.",
+    "Map 1 chỉ là mood Diablo II Act I, không phải toàn bộ game.",
+    "Trắng thuần của Seamless (BIO-25) khác muối mờ matte của Act III.",
+    "Ảnh gallery là albedo đã sửa seam (periodic+smooth) từ ảnh gốc Codex; ảnh gốc giữ nguyên. Chưa tích hợp engine."
+  ],
+  "outputs": {
+    "albedo_dir": "albedo1024",
+    "repeat3x3_sheets": [
+      {
+        "file": "delivery_qa/repeat3x3_sheet_01.png",
+        "ids": [
+          "crypt_dust_a",
+          "crypt_damp_a",
+          "crypt_rubble_a",
+          "cave_floor_a",
+          "cave_clay_a",
+          "cave_rubble_a",
+          "cave_flowstone_a"
+        ]
+      }
+    ],
+    "thumbnails_sheet": "delivery_qa/thumbnails_all.png",
+    "gallery": "gallery.html",
+    "gallery_compact": "gallery.compact.html"
+  },
+  "extra_cards": [
+    {
+      "biome_id": "BIO-25",
+      "name_vi": "Seamless — trắng thuần",
+      "material": "Trắng thuần, cố ý không có texture",
+      "texture": null,
+      "explanation": [
+        "Cố ý là mặt trắng phẳng, không có file ảnh.",
+        "Phát sáng/bloom do shader xử lý lúc chạy; không noise, không seam.",
+        "Khác muối mờ matte của Act III."
+      ]
+    }
+  ],
+  "sources_unchanged": true,
+  "sources_changed": [],
+  "entries": [
+    {
+      "id": "crypt_dust_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: pale cathedral floor slabs, umber bone-and-mortar ossuary floor, dark sooty ossuary stone). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: GRAVE DUST (bụi hầm mộ): packed fine grave dust and pale bone grit lying over an old stone floor, broad soft drifts of warm pale grey-beige dust (mean about #A99F8B, lights #D8CCB0, darks #6E665A), in a few places the flush edges of buried floor slabs faintly show through, a handful of tiny flush bone chips; very soft and low contrast, no skulls, no whole bones, no footprints. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_crypt.png",
+      "prompt_file": {
+        "path": "prompts/crypt_dust_a.txt",
+        "sha256": "77d4578a956b233b678b3fc986754631b3478f3e021fea99d2f5f33e8b3bd549"
+      },
+      "palette_hex": [
+        "#A99F8B",
+        "#D8CCB0",
+        "#6E665A"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/crypt_dust_a.png",
+        "sha256": "46a90e6a2fafff8a516917c7cbc9caa408531f82d29e77b4d34ded9660cd9288",
+        "bytes": 2600601,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/crypt_dust_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7201-bd65-650b0b454362\\exec-e3cbfcf9-d2ea-4f0b-a0dd-a726acaeeda4.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be5-f018-7201-bd65-650b0b454362"
+        ],
+        "sha256": "46a90e6a2fafff8a516917c7cbc9caa408531f82d29e77b4d34ded9660cd9288",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:39:12Z",
+        "finished": "2026-10-21T00:40:39Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/crypt_dust_a.png",
+        "sha256": "96ef7f05cfc44232cd344e6d50ac3c851c5afd86bf1030b1ece96546f78f4524",
+        "bytes": 1713254,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "46a90e6a2fafff8a516917c7cbc9caa408531f82d29e77b4d34ded9660cd9288",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:04Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 7.9,
+          "edge_tb": 6.91,
+          "adjacent_x": 4.097,
+          "adjacent_y": 4.459,
+          "ratio_lr": 1.93,
+          "ratio_tb": 1.55
+        },
+        "after": {
+          "edge_lr": 1.949,
+          "edge_tb": 1.789,
+          "adjacent_x": 4.096,
+          "adjacent_y": 4.459,
+          "ratio_lr": 0.48,
+          "ratio_tb": 0.4
+        },
+        "mean_rgb_before": [
+          144.15,
+          124.57,
+          99.98
+        ],
+        "mean_rgb_after": [
+          144.14,
+          124.56,
+          99.99
+        ],
+        "max_mean_shift": 0.01
+      }
+    },
+    {
+      "id": "crypt_damp_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: pale cathedral floor slabs, umber bone-and-mortar ossuary floor, dark sooty ossuary stone). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: DAMP CRYPT STONE (đá hầm ẩm): dark wet old floor slabs of soot-dark stone (mean about #33302D, darks #1E1C1B, lights #4A4540) with narrow dark joints, broad soft darker seepage stains, a few muted green-black mould blooms #2B3326 creeping out of the joints, faint chalky white mineral rims on two or three stains #8E887C; no puddles, no standing water, no reflections, no highlights. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_crypt.png",
+      "prompt_file": {
+        "path": "prompts/crypt_damp_a.txt",
+        "sha256": "2e1e8e5141232afe4c39b81b743df6ef94a6ab0f24da905d31d631ea67961099"
+      },
+      "palette_hex": [
+        "#33302D",
+        "#1E1C1B",
+        "#4A4540",
+        "#2B3326",
+        "#8E887C"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/crypt_damp_a.png",
+        "sha256": "a95b31053cfcf8320e4c6aeefc69ed253d2dd716ae99b4e6a8989e4713afe746",
+        "bytes": 2170473,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/crypt_damp_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be5-f018-7241-b1a0-b1b751ecbbc8\\exec-f46dc52c-b7ff-4874-8091-4b7a568dafe2.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be5-f018-7241-b1a0-b1b751ecbbc8"
+        ],
+        "sha256": "a95b31053cfcf8320e4c6aeefc69ed253d2dd716ae99b4e6a8989e4713afe746",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:39:12Z",
+        "finished": "2026-10-21T00:40:30Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/crypt_damp_a.png",
+        "sha256": "6ed43de15882278401e10c8d3556322c7a7bb76e737969ae8ffc806a34908699",
+        "bytes": 1444660,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "a95b31053cfcf8320e4c6aeefc69ed253d2dd716ae99b4e6a8989e4713afe746",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:05Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 3.696,
+          "edge_tb": 3.772,
+          "adjacent_x": 2.507,
+          "adjacent_y": 2.684,
+          "ratio_lr": 1.47,
+          "ratio_tb": 1.41
+        },
+        "after": {
+          "edge_lr": 0.914,
+          "edge_tb": 0.999,
+          "adjacent_x": 2.507,
+          "adjacent_y": 2.684,
+          "ratio_lr": 0.36,
+          "ratio_tb": 0.37
+        },
+        "mean_rgb_before": [
+          57.46,
+          49.31,
+          42.11
+        ],
+        "mean_rgb_after": [
+          57.45,
+          49.28,
+          42.07
+        ],
+        "max_mean_shift": 0.04
+      }
+    },
+    {
+      "id": "crypt_rubble_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: pale cathedral floor slabs, umber bone-and-mortar ossuary floor, dark sooty ossuary stone). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: COLLAPSED RUBBLE (đá vụn sập): fallen masonry rubble lying on a dusty crypt floor, about a dozen chunky broken pieces of pale bone-grey limestone slab (#CFC4AE faces, soot-grey #4A4540 broken edges) and smaller angular stone chips of clearly mixed sizes, grey-beige dust #8E8574 between them; chunky simple shapes, flat albedo without cast shadows, no dense small gravel. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_crypt.png",
+      "prompt_file": {
+        "path": "prompts/crypt_rubble_a.txt",
+        "sha256": "15583237ca1610cb4146f7d083bdec97d06ef3f110c631e1becea74b2d5293c2"
+      },
+      "palette_hex": [
+        "#CFC4AE",
+        "#4A4540",
+        "#8E8574"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/crypt_rubble_a.png",
+        "sha256": "3d6ff51fa41ba8b785549cb7138d8fe54767d67dd0dbf9c7440b3d77d1addc49",
+        "bytes": 2519365,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/crypt_rubble_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-09ec-7e10-b88c-604cfadcdc27\\exec-2bb2d83e-ae20-443c-a374-621082ff780f.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be7-09ec-7e10-b88c-604cfadcdc27"
+        ],
+        "sha256": "3d6ff51fa41ba8b785549cb7138d8fe54767d67dd0dbf9c7440b3d77d1addc49",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:40:30Z",
+        "finished": "2026-10-21T00:41:11Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/crypt_rubble_a.png",
+        "sha256": "8839f901562ff07db0a208a105abd5c07df34a4065efcace53fa5b415dfd4b1b",
+        "bytes": 1684521,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "3d6ff51fa41ba8b785549cb7138d8fe54767d67dd0dbf9c7440b3d77d1addc49",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:06Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 8.48,
+          "edge_tb": 8.071,
+          "adjacent_x": 4.156,
+          "adjacent_y": 4.486,
+          "ratio_lr": 2.04,
+          "ratio_tb": 1.8
+        },
+        "after": {
+          "edge_lr": 2.153,
+          "edge_tb": 1.987,
+          "adjacent_x": 4.156,
+          "adjacent_y": 4.486,
+          "ratio_lr": 0.52,
+          "ratio_tb": 0.44
+        },
+        "mean_rgb_before": [
+          123.0,
+          109.3,
+          91.58
+        ],
+        "mean_rgb_after": [
+          122.98,
+          109.3,
+          91.59
+        ],
+        "max_mean_shift": 0.02
+      }
+    },
+    {
+      "id": "cave_floor_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: chalk and flint quarry spoil, dark weathered rock, pale salt-mine floor). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: NATURAL CHALK CAVE FLOOR (nền hang phấn): smooth water-worn natural cave rock floor of pale grey-white chalk (mean about #BDBAB0, lights #DEDBD2, darks #85837D), broad soft undulating rock planes with rounded edges, a few flush black flint nodules #2B2C2E embedded in the chalk, soft grey drip-worn hollows; natural rock only, no cut blocks, no tiles, no mortar joints. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_cave.png",
+      "prompt_file": {
+        "path": "prompts/cave_floor_a.txt",
+        "sha256": "75c403e6331330289dc534257e8b19cea12e16f1bda218bafd3e9be468a9ff8d"
+      },
+      "palette_hex": [
+        "#BDBAB0",
+        "#DEDBD2",
+        "#85837D",
+        "#2B2C2E"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/cave_floor_a.png",
+        "sha256": "5007dd1d45f5544733d1b329e8dbc6442e1d5f3b1c74f6a273d22678d03b4046",
+        "bytes": 2612193,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/cave_floor_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-2bc0-7413-b101-1f220d21c52f\\exec-775574ea-faf4-4d7c-ae8b-2bf5d8d8ebcb.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be7-2bc0-7413-b101-1f220d21c52f"
+        ],
+        "sha256": "5007dd1d45f5544733d1b329e8dbc6442e1d5f3b1c74f6a273d22678d03b4046",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:40:39Z",
+        "finished": "2026-10-21T00:41:23Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/cave_floor_a.png",
+        "sha256": "f232568ca79b6b4a1040e95a75dd59a9ee1bc617df687b4a2ac5b433ed70ffec",
+        "bytes": 1707144,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "5007dd1d45f5544733d1b329e8dbc6442e1d5f3b1c74f6a273d22678d03b4046",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:07Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 7.814,
+          "edge_tb": 7.958,
+          "adjacent_x": 4.248,
+          "adjacent_y": 4.834,
+          "ratio_lr": 1.84,
+          "ratio_tb": 1.65
+        },
+        "after": {
+          "edge_lr": 2.278,
+          "edge_tb": 1.959,
+          "adjacent_x": 4.248,
+          "adjacent_y": 4.834,
+          "ratio_lr": 0.54,
+          "ratio_tb": 0.41
+        },
+        "mean_rgb_before": [
+          181.48,
+          174.77,
+          165.26
+        ],
+        "mean_rgb_after": [
+          181.49,
+          174.77,
+          165.27
+        ],
+        "max_mean_shift": 0.01
+      }
+    },
+    {
+      "id": "cave_clay_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: chalk and flint quarry spoil, dark weathered rock, pale salt-mine floor). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: WET CAVE CLAY (bùn sét hang): smooth wet grey chalk clay mud floor, mean about #6A6862 with lighter drier crust edges #96938A and darker wet hollows #4A4844, broad smooth shapes and a few soft shallow drag marks; no puddles, no standing water, no reflections, no highlights. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_cave.png",
+      "prompt_file": {
+        "path": "prompts/cave_clay_a.txt",
+        "sha256": "fb57515ab81e1472000c11b6577d87ed5be933dea4f50879af211355b500169b"
+      },
+      "palette_hex": [
+        "#6A6862",
+        "#96938A",
+        "#4A4844"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/cave_clay_a.png",
+        "sha256": "78614847c764ef6c66ba232ebbfea239cb83c5ab303c689d846068c1f293221a",
+        "bytes": 2304086,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/cave_clay_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-ac46-73a0-9ad3-9db180a080b5\\exec-c240bd62-05ae-4ce5-bd67-c7f7bc2056bd.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be7-ac46-73a0-9ad3-9db180a080b5"
+        ],
+        "sha256": "78614847c764ef6c66ba232ebbfea239cb83c5ab303c689d846068c1f293221a",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:41:11Z",
+        "finished": "2026-10-21T00:41:55Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/cave_clay_a.png",
+        "sha256": "d98d02af87a081ed589e7fff71a81d200356b95b25bc0bc472d1e1560906d544",
+        "bytes": 1532031,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "78614847c764ef6c66ba232ebbfea239cb83c5ab303c689d846068c1f293221a",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:08Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 5.361,
+          "edge_tb": 5.104,
+          "adjacent_x": 2.925,
+          "adjacent_y": 3.563,
+          "ratio_lr": 1.83,
+          "ratio_tb": 1.43
+        },
+        "after": {
+          "edge_lr": 1.484,
+          "edge_tb": 1.323,
+          "adjacent_x": 2.926,
+          "adjacent_y": 3.563,
+          "ratio_lr": 0.51,
+          "ratio_tb": 0.37
+        },
+        "mean_rgb_before": [
+          110.91,
+          102.94,
+          93.48
+        ],
+        "mean_rgb_after": [
+          110.88,
+          102.9,
+          93.47
+        ],
+        "max_mean_shift": 0.04
+      }
+    },
+    {
+      "id": "cave_rubble_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: chalk and flint quarry spoil, dark weathered rock, pale salt-mine floor). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: CHALK AND FLINT RUBBLE (đá vụn hang): fallen pale chalk lumps and sharp black flint shards scattered over grey cave dust, chunky angular chalk pieces #D2CEC2 of clearly mixed sizes, matte black flint chips #242528, grey dust #8C8981 between them; chunky simple shapes, flat albedo without cast shadows, no dense fine gravel. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_cave.png",
+      "prompt_file": {
+        "path": "prompts/cave_rubble_a.txt",
+        "sha256": "cbf17af927344ca8b94ba579c797557e9b5bac574ca68f3a253fa10f61f5e9d9"
+      },
+      "palette_hex": [
+        "#D2CEC2",
+        "#242528",
+        "#8C8981"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/cave_rubble_a.png",
+        "sha256": "7efd1ab680436b0037fd92aee543bb622986cc0b04fa335c08bd7d154be1ee86",
+        "bytes": 2816197,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/cave_rubble_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be7-d7f8-7fd3-8a53-8770902a199b\\exec-e1638ef9-c3a3-4776-8a62-d76a0484395f.png",
+        "source_how": "thread-dir",
+        "thread_ids": [
+          "01a15be7-d7f8-7fd3-8a53-8770902a199b"
+        ],
+        "sha256": "7efd1ab680436b0037fd92aee543bb622986cc0b04fa335c08bd7d154be1ee86",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:41:23Z",
+        "finished": "2026-10-21T00:42:19Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/cave_rubble_a.png",
+        "sha256": "67c9e7e6676fcda44747b47b078a85e15f8f170c999ff649cc393c57d892cc55",
+        "bytes": 1873545,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "7efd1ab680436b0037fd92aee543bb622986cc0b04fa335c08bd7d154be1ee86",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:09Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 8.804,
+          "edge_tb": 9.565,
+          "adjacent_x": 5.816,
+          "adjacent_y": 6.177,
+          "ratio_lr": 1.51,
+          "ratio_tb": 1.55
+        },
+        "after": {
+          "edge_lr": 2.522,
+          "edge_tb": 2.437,
+          "adjacent_x": 5.816,
+          "adjacent_y": 6.177,
+          "ratio_lr": 0.43,
+          "ratio_tb": 0.39
+        },
+        "mean_rgb_before": [
+          136.74,
+          131.42,
+          121.27
+        ],
+        "mean_rgb_after": [
+          136.74,
+          131.44,
+          121.26
+        ],
+        "max_mean_shift": 0.02
+      }
+    },
+    {
+      "id": "cave_flowstone_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "prompt": "The attached image is a STYLE REFERENCE: three approved ground tiles of our game (left to right: chalk and flint quarry spoil, dark weathered rock, pale salt-mine floor). Match their hand-painted brush style, their LOW detail level and their value range exactly, so the new tile sits next to them in one dungeon floor without looking different. Do not copy their layout. Create ONE new square 1:1 seamless ground tile: WET FLOWSTONE (đá chảy calcite): creamy calcite flowstone floor next to underground water, smooth rounded terraced rims of small dry rimstone pools drawn as broad flat painted shapes, cream #D3CAB3 and pale ochre-grey #ADA38D, faint teal-grey mineral stains #6F8784 in the hollows; no standing water, no reflections. Strictly orthographic top-down view straight down at the floor, seamless tileable texture (continuous on all four edges), hand-painted stylized game texture, LOW DETAIL: few large simple painted shapes, broad flat brush strokes, big calm areas of nearly flat colour, strong simple value grouping, no fine texture, no noise, no photographic detail. Flat neutral albedo: even lighting, no baked light or cast shadows, no light gradient, no vignette, no glints, no reflections, no perspective, no text, no symbols, nothing large or special touching the edges, even average brightness over the whole tile, irregular non-grid placement, about 3.5 metres of floor in the frame. Quiet floor behind combat, subdued palette; mood lighting (candles, torches) is added in the engine.",
+      "reference": "E:/Diablo2/ashlar/art/terrain-dungeon-v1/style_ref_cave.png",
+      "prompt_file": {
+        "path": "prompts/cave_flowstone_a.txt",
+        "sha256": "88843b14f194586904ebdcdcc5f373e679eeeb45da700657ec2df72397b09b9e"
+      },
+      "palette_hex": [
+        "#D3CAB3",
+        "#ADA38D",
+        "#6F8784"
+      ],
+      "status": "ready",
+      "raw": {
+        "path": "textures/cave_flowstone_a.png",
+        "sha256": "514cd6b2c4b1e794510a65e14f4e2f925bd14f600fde489fbd8ad509c3755c2b",
+        "bytes": 2641806,
+        "width": 1254,
+        "height": 1254
+      },
+      "provenance": {
+        "file": "logs/cave_flowstone_a.provenance.json",
+        "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be8-57b3-76e1-b5bb-0e25b1adad5e\\exec-a118da78-3f0e-4289-82f5-e553fababff5.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a15be8-57b3-76e1-b5bb-0e25b1adad5e"
+        ],
+        "sha256": "514cd6b2c4b1e794510a65e14f4e2f925bd14f600fde489fbd8ad509c3755c2b",
+        "model": "gpt-6-astra",
+        "started": "2026-10-21T00:41:55Z",
+        "finished": "2026-10-21T00:42:46Z",
+        "sandbox": "workspace-write",
+        "scratch_files": []
+      },
+      "delivered": {
+        "path": "albedo1024/cave_flowstone_a.png",
+        "sha256": "b66e8ce883a4bbd86fb0f22408fa8b5f74a36c630ec8db03083a0e159018cc2c",
+        "bytes": 1732969,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "periodic-smooth-decomposition-v1 (Moisan 2011), no flatten, no crossfade",
+        "source_sha256": "514cd6b2c4b1e794510a65e14f4e2f925bd14f600fde489fbd8ad509c3755c2b",
+        "size": 1024,
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "flatten": "none",
+        "processed": "2026-10-21T00:46:10Z"
+      },
+      "metrics": {
+        "before": {
+          "edge_lr": 6.949,
+          "edge_tb": 6.808,
+          "adjacent_x": 4.181,
+          "adjacent_y": 5.12,
+          "ratio_lr": 1.66,
+          "ratio_tb": 1.33
+        },
+        "after": {
+          "edge_lr": 1.855,
+          "edge_tb": 1.594,
+          "adjacent_x": 4.181,
+          "adjacent_y": 5.12,
+          "ratio_lr": 0.44,
+          "ratio_tb": 0.31
+        },
+        "mean_rgb_before": [
+          200.56,
+          184.02,
+          158.42
+        ],
+        "mean_rgb_after": [
+          200.54,
+          184.01,
+          158.44
+        ],
+        "max_mean_shift": 0.02
+      }
+    }
+  ]
+}

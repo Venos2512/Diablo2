@@ -1,0 +1,561 @@
+{
+ "kind": "turnaround",
+ "title": "A21 BARROW TERRACE AND FEN STONES — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Barrow vault door",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 115,
+   "silW": 58,
+   "scores": {
+    "row": 95,
+    "2x2": 115,
+    "2x2b": 115
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        242,
+        115,
+        293,
+        294
+       ],
+       "px": [
+        51,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        372,
+        115,
+        423,
+        294
+       ],
+       "px": [
+        51,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        140,
+        328,
+        293,
+        507
+       ],
+       "px": [
+        153,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        321,
+        328,
+        474,
+        507
+       ],
+       "px": [
+        153,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.56H"
+  },
+  {
+   "cell": 2,
+   "label": "Flint retaining wall",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 85,
+   "silW": 43,
+   "scores": {
+    "row": 67,
+    "2x2": 85,
+    "2x2b": 100
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        748,
+        143,
+        790,
+        294
+       ],
+       "px": [
+        42,
+        151
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        877,
+        143,
+        919,
+        294
+       ],
+       "px": [
+        42,
+        151
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        600,
+        356,
+        790,
+        507
+       ],
+       "px": [
+        189,
+        151
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        803,
+        356,
+        992,
+        507
+       ],
+       "px": [
+        189,
+        151
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.78H"
+  },
+  {
+   "cell": 3,
+   "label": "Peat stack",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 165,
+   "silW": 84,
+   "scores": {
+    "row": 110,
+    "2x2": 165,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1222,
+        193,
+        1314,
+        294
+       ],
+       "px": [
+        92,
+        101
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1366,
+        193,
+        1458,
+        294
+       ],
+       "px": [
+        92,
+        101
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1167,
+        406,
+        1314,
+        507
+       ],
+       "px": [
+        147,
+        101
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1338,
+        406,
+        1486,
+        507
+       ],
+       "px": [
+        147,
+        101
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.61H"
+  },
+  {
+   "cell": 4,
+   "label": "Vigil chair",
+   "arrangement": "row",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 173,
+   "silW": 88,
+   "scores": {
+    "row": 173,
+    "2x2": 179,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        166,
+        893,
+        224,
+        984
+       ],
+       "px": [
+        58,
+        91
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        250,
+        893,
+        308,
+        984
+       ],
+       "px": [
+        58,
+        91
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        334,
+        893,
+        392,
+        984
+       ],
+       "px": [
+        58,
+        91
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        418,
+        893,
+        476,
+        984
+       ],
+       "px": [
+        58,
+        91
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.53H"
+  },
+  {
+   "cell": 5,
+   "label": "The leaning stones",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 70,
+   "silW": 35,
+   "scores": {
+    "row": 56,
+    "2x2": 70,
+    "2x2b": 70
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        732,
+        591,
+        786,
+        770
+       ],
+       "px": [
+        54,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        869,
+        591,
+        923,
+        770
+       ],
+       "px": [
+        54,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        606,
+        805,
+        786,
+        984
+       ],
+       "px": [
+        179,
+        179
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        806,
+        805,
+        985,
+        984
+       ],
+       "px": [
+        179,
+        179
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "2.56H"
+  },
+  {
+   "cell": 6,
+   "label": "Bog grave",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 150,
+   "silW": 76,
+   "scores": {
+    "row": 86,
+    "2x2": 126,
+    "2x2b": 150
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1156,
+        637,
+        1356,
+        770
+       ],
+       "px": [
+        200,
+        133
+       ],
+       "parts": 2
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1379,
+        637,
+        1487,
+        770
+       ],
+       "px": [
+        108,
+        133
+       ],
+       "parts": 2
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1156,
+        851,
+        1356,
+        984
+       ],
+       "px": [
+        200,
+        133
+       ],
+       "parts": 2
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1379,
+        851,
+        1487,
+        984
+       ],
+       "px": [
+        108,
+        133
+       ],
+       "parts": 2
+      }
+     ]
+    }
+   ],
+   "topLine": "0.89H"
+  }
+ ]
+}

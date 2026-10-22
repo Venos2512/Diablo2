@@ -1,0 +1,569 @@
+{
+ "kind": "turnaround",
+ "title": "A24 MERCY LINEN AND BREAD — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Kitchen work table",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 158,
+   "silW": 80,
+   "scores": {
+    "row": 91,
+    "2x2": 126,
+    "2x2b": 158
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        154,
+        215,
+        242,
+        294
+       ],
+       "px": [
+        88,
+        79
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        267,
+        215,
+        478,
+        294
+       ],
+       "px": [
+        211,
+        79
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        154,
+        428,
+        242,
+        507
+       ],
+       "px": [
+        88,
+        79
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        267,
+        428,
+        478,
+        507
+       ],
+       "px": [
+        211,
+        79
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.5H"
+  },
+  {
+   "cell": 2,
+   "label": "Bread rack",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 165,
+   "silW": 84,
+   "scores": {
+    "row": 127,
+    "2x2": 165,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        764,
+        129,
+        810,
+        294
+       ],
+       "px": [
+        46,
+        165
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        885,
+        129,
+        931,
+        294
+       ],
+       "px": [
+        46,
+        165
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        663,
+        342,
+        810,
+        507
+       ],
+       "px": [
+        147,
+        165
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        834,
+        342,
+        982,
+        507
+       ],
+       "px": [
+        147,
+        165
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1H"
+  },
+  {
+   "cell": 3,
+   "label": "Linen folding table",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 158,
+   "silW": 80,
+   "scores": {
+    "row": 91,
+    "2x2": 126,
+    "2x2b": 158
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1162,
+        215,
+        1250,
+        294
+       ],
+       "px": [
+        88,
+        79
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1275,
+        215,
+        1486,
+        294
+       ],
+       "px": [
+        211,
+        79
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1162,
+        428,
+        1250,
+        507
+       ],
+       "px": [
+        88,
+        79
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1275,
+        428,
+        1486,
+        507
+       ],
+       "px": [
+        211,
+        79
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.5H"
+  },
+  {
+   "cell": 4,
+   "label": "Turned-down coverlet",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 147,
+   "silW": 75,
+   "scores": {
+    "row": 99,
+    "2x2": 147,
+    "2x2b": 170
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        146,
+        760,
+        302,
+        770
+       ],
+       "px": [
+        155,
+        10
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        324,
+        760,
+        479,
+        770
+       ],
+       "px": [
+        155,
+        10
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        208,
+        974,
+        302,
+        984
+       ],
+       "px": [
+        93,
+        10
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        355,
+        974,
+        448,
+        984
+       ],
+       "px": [
+        93,
+        10
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.07H"
+  },
+  {
+   "cell": 5,
+   "label": "Turned-down quilt",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 107,
+   "silW": 54,
+   "scores": {
+    "row": 60,
+    "2x2": 107,
+    "2x2b": 112
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        640,
+        756,
+        795,
+        770
+       ],
+       "px": [
+        155,
+        14
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        823,
+        756,
+        978,
+        770
+       ],
+       "px": [
+        155,
+        14
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        617,
+        970,
+        795,
+        984
+       ],
+       "px": [
+        178,
+        14
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        812,
+        970,
+        990,
+        984
+       ],
+       "px": [
+        178,
+        14
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.13H"
+  },
+  {
+   "cell": 6,
+   "label": "Linen pillow",
+   "arrangement": "2x2",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "RIGHT"
+    ],
+    [
+     "H",
+     "FRONT",
+     "BACK"
+    ]
+   ],
+   "hpx": 171,
+   "silW": 87,
+   "scores": {
+    "row": 121,
+    "2x2": 171,
+    "2x2b": 179
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1244,
+        740,
+        1316,
+        770
+       ],
+       "px": [
+        71,
+        30
+       ],
+       "parts": 1
+      },
+      {
+       "view": "RIGHT",
+       "box": [
+        1377,
+        740,
+        1448,
+        770
+       ],
+       "px": [
+        71,
+        30
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "FRONT",
+       "box": [
+        1174,
+        954,
+        1316,
+        984
+       ],
+       "px": [
+        142,
+        30
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1342,
+        954,
+        1484,
+        984
+       ],
+       "px": [
+        142,
+        30
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.18H"
+  }
+ ]
+}

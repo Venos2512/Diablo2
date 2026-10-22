@@ -5,20 +5,22 @@
 // of the same field that the focus view shows as 32 m. Per layer: tile = metres per texture repeat, ns = normalScale,
 // coverage 0..1 (patch/low), width = band width in metres (path), soft = edge softness (metres for path/cell,
 // noise-threshold units for patch/low), hBias = height offset for the blend (-0.3..0.3), variation = anti-tiling UV
-// offset amount (0..1), rotate = anti-tiling quarter turns. Blend defaults per sample: depth (sharpness of the height
+// offset amount (0..1), rotate = anti-tiling turns (0 none, 1 quarter turns, 2 half turns only). Blend defaults per sample: depth (sharpness of the height
 // blend, smaller = harder), over (how much a layer is suppressed under the layers above it), hi = height influence,
 // noise = noise frequency (1/m, feature size ~ 1/noise), warp = domain warp (m).
 
 const HIGH_TILT = { BIO09_ash_snow: 0.7, BIO14_blue_ice: 0.7, BIO21_sunken_floor: 0.7, BIO23_course: 0.7, BIO26_dream: 0.7 };
 // Anti-tiling by texture character: organic/irregular -> offset + quarter turns; directional organic -> offset only;
-// planks and regular blocks with a clear direction -> none.
-const OFFSET_ONLY = new Set(['BIO20_wet_sand', 'BIO14_blue_ice']);
+// planks and regular blocks with a clear direction -> none; blue ice -> offset + half turns.
+// Smoothness: `soft` (and depth/hi/warp) below are the CRISP values (smoothness 0); main.js applySmooth() blends toward soft targets.
+const OFFSET_ONLY = new Set(['BIO20_wet_sand']);
+const HALF_TURN = new Set(['BIO14_blue_ice']); // offset + half turns only: keeps the diagonal streak direction
 const NO_BREAKUP = new Set(['BIO12_dark_planks', 'BIO16_blackwood', 'BIO17_varnished', 'BIO07_limestone', 'BIO08_nave', 'BIO24_keystone', 'BIO22_abbey']);
 
 const L = (id, role, o = {}) => ({
   id, role, tile: 5, ns: HIGH_TILT[id] ?? 1.0, coverage: 0.5, width: 2.6, soft: role === 'path' ? 0.42 : role === 'cell' ? 0.6 : 0.07,
   hBias: 0, visible: true,
-  variation: NO_BREAKUP.has(id) ? 0 : 1, rotate: !NO_BREAKUP.has(id) && !OFFSET_ONLY.has(id), ...o,
+  variation: NO_BREAKUP.has(id) ? 0 : 1, rotate: NO_BREAKUP.has(id) || OFFSET_ONLY.has(id) ? 0 : HALF_TURN.has(id) ? 2 : 1, ...o,
 });
 
 const S = (id, name, layers, o = {}) => ({ id, name, layers, depth: 0.26, over: 0.5, hi: 0.85, noise: 0.375, warp: 2.6, seed: 0, ...o });

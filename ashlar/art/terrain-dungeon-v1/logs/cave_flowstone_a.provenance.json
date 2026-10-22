@@ -1,0 +1,25 @@
+{
+  "id": "cave_flowstone_a",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home\\generated_images\\01a15be8-57b3-76e1-b5bb-0e25b1adad5e\\exec-a118da78-3f0e-4289-82f5-e553fababff5.png",
+  "source_how": "event",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a15be8-57b3-76e1-b5bb-0e25b1adad5e"
+  ],
+  "sha256": "514cd6b2c4b1e794510a65e14f4e2f925bd14f600fde489fbd8ad509c3755c2b",
+  "bytes": 2641806,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 0,
+  "reference": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\style_ref_cave.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\textures\\cave_flowstone_a.png",
+  "started": "2026-10-21T00:41:55Z",
+  "finished": "2026-10-21T00:42:46Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\terrain-dungeon-v1\\logs\\work\\cave_flowstone_a\\attempt-1",
+  "scratch_files": []
+}

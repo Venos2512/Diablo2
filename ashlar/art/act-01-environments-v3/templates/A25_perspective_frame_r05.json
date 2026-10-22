@@ -1,0 +1,161 @@
+{
+ "kind": "perspective",
+ "title": "A25 GARDEN OF HUSH ROOTS AND TENDING — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Root rib arch",
+   "hpx": 114,
+   "silW": 58,
+   "base": 489,
+   "block": [
+    38,
+    162,
+    393,
+    489
+   ],
+   "blockPx": [
+    355,
+    327
+   ],
+   "blockH": [
+    3.12,
+    2.87
+   ],
+   "lines": [
+    "1H",
+    "2.72H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Plank crossing",
+   "hpx": 202,
+   "silW": 102,
+   "base": 489,
+   "block": [
+    542,
+    458,
+    828,
+    489
+   ],
+   "blockPx": [
+    286,
+    31
+   ],
+   "blockH": [
+    1.42,
+    0.15
+   ],
+   "lines": [
+    "0.06H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Root fall",
+   "hpx": 96,
+   "silW": 49,
+   "base": 489,
+   "block": [
+    1048,
+    324,
+    1414,
+    489
+   ],
+   "blockPx": [
+    366,
+    165
+   ],
+   "blockH": [
+    3.81,
+    1.72
+   ],
+   "lines": [
+    "1.44H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Harvest basket",
+   "hpx": 340,
+   "silW": 172,
+   "base": 966,
+   "block": [
+    74,
+    874,
+    180,
+    966
+   ],
+   "blockPx": [
+    106,
+    92
+   ],
+   "blockH": [
+    0.31,
+    0.27
+   ],
+   "lines": [
+    "0.25H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Tending kit",
+   "hpx": 321,
+   "silW": 163,
+   "base": 966,
+   "block": [
+    542,
+    866,
+    734,
+    966
+   ],
+   "blockPx": [
+    192,
+    100
+   ],
+   "blockH": [
+    0.6,
+    0.31
+   ],
+   "lines": [
+    "0.28H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Tamsin's lantern",
+   "hpx": 340,
+   "silW": 172,
+   "base": 966,
+   "block": [
+    1080,
+    766,
+    1191,
+    966
+   ],
+   "blockPx": [
+    111,
+    200
+   ],
+   "blockH": [
+    0.33,
+    0.59
+   ],
+   "lines": [
+    "0.56H",
+    "1H"
+   ]
+  }
+ ]
+}

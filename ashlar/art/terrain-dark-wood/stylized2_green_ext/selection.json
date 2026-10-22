@@ -1,0 +1,9 @@
+{
+  "_note": "Chosen candidate per extra tile (2026-10-20). Raw Codex outputs stay in textures/; pick another by changing the file. Style ref = style_ref.png (approved stylized2_green dirt | grass | wet mud). Prompts: manifest.json / build_manifest.py.",
+  "grass_dense": {"file": "textures/grass_dense_b.png", "why": "darker and closer to the approved grass palette than _a (mean #38442B vs grass_shade #3C4830); almost no soil"},
+  "grass_sparse": {"file": "textures/grass_sparse_a.png", "why": "clearly sparse (about 35 % grass over loam); _b has more coverage"},
+  "soil_damp": {"file": "textures/soil_damp_a.png", "why": "dark damp bank soil (mean #2B2F22, darker than dirt_loam #34392B) with soft wet patches; _b reads mossy rather than damp"},
+  "water_surface": {"file": "textures/water_surface_a.png", "why": "calm, low-contrast ripples; _b is busier"},
+  "decals_ground": {"file": "textures/decals_ground_a.png", "why": "4 x 4 top-down decals on magenta (2026-10-21): row 1 three dry leaf clusters + one dark wet; row 2 two twigs, roots, needle/leaf crumbs; row 3 three pebble groups + one flat stone; row 4 two moss patches, a crack, a mud splash. Lower detail than _b, closer to the stylized2 look", "prompts": "decals_manifest.json / build_decals_manifest.py"},
+  "shore_plants": {"file": "textures/shore_plants_b.png", "why": "2 x 2 side-view cards on magenta: cattail reeds, tall reeds, sedge, horsetail; darker bases and more muted than _a, closer to the grass cards", "prompts": "decals_manifest.json / build_decals_manifest.py"}
+}

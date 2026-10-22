@@ -1,0 +1,159 @@
+{
+ "kind": "perspective",
+ "title": "A20 GARDEN OF HUSH SLEEPERS AND HARVEST — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Sleeper: young woman",
+   "hpx": 245,
+   "silW": 124,
+   "base": 489,
+   "block": [
+    38,
+    372,
+    291,
+    489
+   ],
+   "blockPx": [
+    253,
+    117
+   ],
+   "blockH": [
+    1.03,
+    0.48
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Sleeper: old man",
+   "hpx": 245,
+   "silW": 124,
+   "base": 489,
+   "block": [
+    542,
+    372,
+    795,
+    489
+   ],
+   "blockPx": [
+    253,
+    117
+   ],
+   "blockH": [
+    1.03,
+    0.48
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Sleeper: fisherman",
+   "hpx": 245,
+   "silW": 124,
+   "base": 489,
+   "block": [
+    1046,
+    372,
+    1299,
+    489
+   ],
+   "blockPx": [
+    253,
+    117
+   ],
+   "blockH": [
+    1.03,
+    0.48
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Sleeper: farm woman",
+   "hpx": 245,
+   "silW": 124,
+   "base": 966,
+   "block": [
+    38,
+    849,
+    291,
+    966
+   ],
+   "blockPx": [
+    253,
+    117
+   ],
+   "blockH": [
+    1.03,
+    0.48
+   ],
+   "lines": [
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "Irrigation channel",
+   "hpx": 187,
+   "silW": 95,
+   "base": 966,
+   "block": [
+    542,
+    816,
+    840,
+    966
+   ],
+   "blockPx": [
+    298,
+    150
+   ],
+   "blockH": [
+    1.59,
+    0.8
+   ],
+   "lines": [
+    "0.33H",
+    "0.67H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Harvest table",
+   "hpx": 197,
+   "silW": 100,
+   "base": 966,
+   "block": [
+    1046,
+    694,
+    1336,
+    966
+   ],
+   "blockPx": [
+    290,
+    272
+   ],
+   "blockH": [
+    1.47,
+    1.38
+   ],
+   "lines": [
+    "0.5H",
+    "1H",
+    "1.22H"
+   ]
+  }
+ ]
+}

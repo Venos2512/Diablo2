@@ -1,0 +1,569 @@
+{
+ "kind": "turnaround",
+ "title": "A20 GARDEN OF HUSH SLEEPERS AND HARVEST — TURNAROUND",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "eye-level orthographic",
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Sleeper: young woman",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 175,
+   "silW": 89,
+   "scores": {
+    "row": 102,
+    "2x2": 138,
+    "2x2b": 175
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        168,
+        260,
+        372,
+        294
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        398,
+        260,
+        476,
+        294
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        168,
+        473,
+        372,
+        507
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        398,
+        473,
+        476,
+        507
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.19H"
+  },
+  {
+   "cell": 2,
+   "label": "Sleeper: old man",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 175,
+   "silW": 89,
+   "scores": {
+    "row": 102,
+    "2x2": 138,
+    "2x2b": 175
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        672,
+        260,
+        876,
+        294
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        902,
+        260,
+        980,
+        294
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        672,
+        473,
+        876,
+        507
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        902,
+        473,
+        980,
+        507
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.19H"
+  },
+  {
+   "cell": 3,
+   "label": "Sleeper: fisherman",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 175,
+   "silW": 89,
+   "scores": {
+    "row": 102,
+    "2x2": 138,
+    "2x2b": 175
+   },
+   "layout": [
+    {
+     "base": 294,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1176,
+        260,
+        1380,
+        294
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1406,
+        260,
+        1484,
+        294
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 507,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1176,
+        473,
+        1380,
+        507
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1406,
+        473,
+        1484,
+        507
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.19H"
+  },
+  {
+   "cell": 4,
+   "label": "Sleeper: farm woman",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 175,
+   "silW": 89,
+   "scores": {
+    "row": 102,
+    "2x2": 138,
+    "2x2b": 175
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        168,
+        736,
+        372,
+        770
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        398,
+        736,
+        476,
+        770
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        168,
+        950,
+        372,
+        984
+       ],
+       "px": [
+        204,
+        34
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        398,
+        950,
+        476,
+        984
+       ],
+       "px": [
+        78,
+        34
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "0.19H"
+  },
+  {
+   "cell": 5,
+   "label": "Irrigation channel",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 134,
+   "silW": 68,
+   "scores": {
+    "row": 74,
+    "2x2": 107,
+    "2x2b": 134
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        638,
+        681,
+        862,
+        770
+       ],
+       "px": [
+        223,
+        89
+       ],
+       "parts": 2
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        882,
+        681,
+        986,
+        770
+       ],
+       "px": [
+        104,
+        89
+       ],
+       "parts": 2
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        638,
+        895,
+        862,
+        984
+       ],
+       "px": [
+        223,
+        89
+       ],
+       "parts": 2
+      },
+      {
+       "view": "BACK",
+       "box": [
+        882,
+        895,
+        986,
+        984
+       ],
+       "px": [
+        104,
+        89
+       ],
+       "parts": 2
+      }
+     ]
+    }
+   ],
+   "topLine": "0.67H"
+  },
+  {
+   "cell": 6,
+   "label": "Harvest table",
+   "arrangement": "2x2b",
+   "rows": [
+    [
+     "H",
+     "LEFT",
+     "FRONT"
+    ],
+    [
+     "H",
+     "RIGHT",
+     "BACK"
+    ]
+   ],
+   "hpx": 146,
+   "silW": 74,
+   "scores": {
+    "row": 89,
+    "2x2": 119,
+    "2x2b": 146
+   },
+   "layout": [
+    {
+     "base": 770,
+     "views": [
+      {
+       "view": "LEFT",
+       "box": [
+        1167,
+        592,
+        1240,
+        770
+       ],
+       "px": [
+        73,
+        178
+       ],
+       "parts": 1
+      },
+      {
+       "view": "FRONT",
+       "box": [
+        1270,
+        592,
+        1480,
+        770
+       ],
+       "px": [
+        211,
+        178
+       ],
+       "parts": 1
+      }
+     ]
+    },
+    {
+     "base": 984,
+     "views": [
+      {
+       "view": "RIGHT",
+       "box": [
+        1167,
+        806,
+        1240,
+        984
+       ],
+       "px": [
+        73,
+        178
+       ],
+       "parts": 1
+      },
+      {
+       "view": "BACK",
+       "box": [
+        1270,
+        806,
+        1480,
+        984
+       ],
+       "px": [
+        211,
+        178
+       ],
+       "parts": 1
+      }
+     ]
+    }
+   ],
+   "topLine": "1.22H"
+  }
+ ]
+}

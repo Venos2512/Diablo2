@@ -1,0 +1,163 @@
+{
+ "kind": "perspective",
+ "title": "A21 BARROW TERRACE AND FEN STONES — PERSPECTIVE",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "camera": "3/4, yaw 35 deg, 15 deg down",
+ "riseShare": 0.5,
+ "cells": [
+  {
+   "cell": 1,
+   "label": "Barrow vault door",
+   "hpx": 208,
+   "silW": 105,
+   "base": 489,
+   "block": [
+    40,
+    147,
+    320,
+    489
+   ],
+   "blockPx": [
+    280,
+    342
+   ],
+   "blockH": [
+    1.35,
+    1.64
+   ],
+   "lines": [
+    "1H",
+    "1.56H"
+   ]
+  },
+  {
+   "cell": 2,
+   "label": "Flint retaining wall",
+   "hpx": 154,
+   "silW": 78,
+   "base": 489,
+   "block": [
+    542,
+    182,
+    866,
+    489
+   ],
+   "blockPx": [
+    324,
+    307
+   ],
+   "blockH": [
+    2.11,
+    2.0
+   ],
+   "lines": [
+    "1H",
+    "1.78H"
+   ]
+  },
+  {
+   "cell": 3,
+   "label": "Peat stack",
+   "hpx": 243,
+   "silW": 123,
+   "base": 489,
+   "block": [
+    1046,
+    325,
+    1300,
+    489
+   ],
+   "blockPx": [
+    254,
+    164
+   ],
+   "blockH": [
+    1.05,
+    0.67
+   ],
+   "lines": [
+    "0.61H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 4,
+   "label": "Vigil chair",
+   "hpx": 340,
+   "silW": 172,
+   "base": 966,
+   "block": [
+    48,
+    768,
+    206,
+    966
+   ],
+   "blockPx": [
+    158,
+    198
+   ],
+   "blockH": [
+    0.46,
+    0.58
+   ],
+   "lines": [
+    "0.53H",
+    "1H"
+   ]
+  },
+  {
+   "cell": 5,
+   "label": "The leaning stones",
+   "hpx": 134,
+   "silW": 68,
+   "base": 966,
+   "block": [
+    542,
+    605,
+    882,
+    966
+   ],
+   "blockPx": [
+    340,
+    361
+   ],
+   "blockH": [
+    2.54,
+    2.69
+   ],
+   "lines": [
+    "1H",
+    "1.22H",
+    "2.56H"
+   ]
+  },
+  {
+   "cell": 6,
+   "label": "Bog grave",
+   "hpx": 208,
+   "silW": 105,
+   "base": 966,
+   "block": [
+    1046,
+    744,
+    1328,
+    966
+   ],
+   "blockPx": [
+    282,
+    222
+   ],
+   "blockH": [
+    1.36,
+    1.07
+   ],
+   "lines": [
+    "0.28H",
+    "0.89H"
+   ]
+  }
+ ]
+}

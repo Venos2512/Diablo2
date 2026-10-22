@@ -1,0 +1,5 @@
+QA (AD 11) of turnaround.png - A19_turnaround - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+defects:
+- cell 5: the screen has two panels in FRONT and BACK (perspective: three)
+- cell 2: tray views about 1.8-2x their blocks
+passed: title and cell labels, view labels, LEFT/RIGHT/BACK sides consistent with the perspective except where listed, identity of the six assets, palette and content except where listed

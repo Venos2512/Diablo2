@@ -1,0 +1,7 @@
+QA (AD 11) of perspective_v2.png - A19_perspective - verdict: FAIL (EDIT BASE) (lead QA, 2026-10-21)
+frame: templates/A19_perspective_frame_v2.png; prompt: prompts/A19_perspective_v2.txt; session: 01a15ec6-a263-7b42-8c12-d9aa171e261b
+defects:
+- cell 5 screen has only two panels (brief: three) and is 1.23x tall
+- cell 1 bouquet reaches 0.41H instead of 0.28H
+- cell 2 tray about 1.3-1.45x (better than v1)
+passed: chair, linen press and ward window on scale; candle still and round
