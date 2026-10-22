@@ -1,0 +1,74 @@
+W07 Shroud-Spinner, variant A: creature (family A, many legs) neutral-rest views for Tripo multi-view, 2026-10-22. PILOT of the family A pose blocks.
+Concept: ashlar/art/map-01-concepts/monsters/W07_shroud_spinner/vA/concept_r2.png (copied to concept.png). Canon: checklist row W07, concept_r2.prompt.txt.
+Flow: CREATURE flow of the generate-tpose-for-tripo skill. design.txt: HUMANOID no, FAMILY A, VIEWS table written before the first generation.
+Prompts: scripts/fill_prompt.py only (STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 verbatim from artdirection.md; pose sections "A front_back" / "A sides" of
+  templates/creature_pose.blocks.md, new). Edit passes: templates/edit_creature.prompt.md.
+Placement templates (scripts/make_view_template.py, 2172x724, 600 px per H): _tasks/template_fb.png blocks 1.50x0.78 H, _tasks/template_sides.png blocks 1.12x0.78 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py --jobfile <job> --parallel 1 (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp), one session per job;
+  job files, prompts, outputs and generation logs in _tasks/, status lines in _tasks/runs.jsonl.
+
+CONCEPT MEASUREMENTS (H silhouette = 347-353 px)
+  FRONT 543 x 276 px = 1.56 x 0.80 H; BACK 1.54 x 0.80 H; LEFT/RIGHT 1.12 x 0.78 / 0.75 H. The concept's own "leg span 1.15H" bracket is drawn 1.3 H long, and its
+  FRONT leg tips span 1.55 H: the drawing was kept (wide low splay = variant A signature); in-game scale is set at import.
+  The concept is inconsistent between its own views: eyes at 53 % in FRONT, 38 % in the side views; it paints the far legs pale and semi-transparent.
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 2 + head edit + belly edit (tpose_front_back.png = _tasks/fb_attempt2_headedit_bellyedit.png)
+  attempt 1, session 01a15f92-e1a8-7d12-a539-f165993144b0, 92 s: REJECTED (_rejected/fb_attempt1_ghost_far_legs.png). The far legs were painted as pale,
+    semi-transparent ghost legs in both views (copied from the concept's drawing convention); the far leg tips ended higher than the near ones.
+  attempt 2 (both faults named first), session 01a15f96-6b2c-72d0-b2c2-c1f30a942751, 109 s: ghost legs gone (all legs solid, mirror pairs within 16 px);
+    the far tips still end 31 px (6 % of the figure height) above the nearest tips (rows 566 / 585 / 596): a slightly high camera.
+  edit pass "leg tips", session 01a15f9b-2738-7202-9181-733af75dac0b, 50 s: NO EFFECT (same tip rows; 1.7 % of the pixels changed); not used (_tasks/fb_attempt2_tipedit.png).
+  edit pass "head up" on attempt 2, session 01a15fa3-148f-7272-9417-34f73112ee8b, 47 s: FRONT head plate moved from eye 56 % to 40 % to match the side views;
+    the leg roots now meet the raised head; BACK unchanged (1 % of the pixels).
+  edit pass "belly" on the head edit, session 01a15fa6-5a78-7741-a2e2-9d269e8ce5e4, 63 s: FRONT pointed lower tip of the ball (80 %) and BACK spinneret cap (to 85 %)
+    replaced by a round lower outline at about 76 % and a small blunt cap (67-78 %). Total change of the accepted sheet against attempt 2: 7.1 % of the pixels.
+  Measured: 516 / 515 px tall (71 % of the image), 1011 / 1009 px wide; creature tool: symmetry 0.58 / 0.65 (WARN; the dog-tuned silhouette IoU does not suit
+    eight thin legs: tip positions mirror within 16 px), 4 tip groups on the floor, heights within 0.2 %.
+
+SHEET 2 (LEFT + RIGHT) - ACCEPTED: attempt 1 + far-leg edit (tpose_sides.png = _tasks/sides_attempt1_farlegedit.png)
+  attempt 1, session 01a15f9c-d162-7332-87cd-03c896018b84, 72 s: four correct near legs, but two far legs visible in each view (one behind the front leg, one under
+    the abdomen) and the head higher than in sheet 1 (eye 37 % vs 56 %). Kept as the base (_rejected/sides_attempt1_far_legs_visible.png is a copy).
+  attempt 2 (both faults named first, head heights from sheet 1), session 01a15f9f-0fed-70c1-bdaa-61093e18e487, 95 s: REJECTED
+    (_rejected/sides_attempt2_three_legs.png): no far legs, but only THREE near legs per view (the rear leg behind the abdomen missing); eye still at 40 %.
+  Decision: both side generations and the concept's own side views put the eye at 37-40 %, so the side views are the 3D truth (skill step 4b); design.txt VIEWS
+    was set back to the side-view heights and sheet 1's FRONT head was edited up instead (above).
+  edit pass "remove far legs" on attempt 1, session 01a15fa2-ad98-7070-8120-53aee6800ab5, 56 s: both far legs removed in both views; exactly four near legs;
+    3.4 % of the pixels changed. Measured: 542 / 543 px tall (75 % of the image), 979 / 978 px wide; creature tool OK; near leg tips at 98-100 %.
+  design.txt history: v1 (concept side views) -> v2 (measured on sheet 1 before sheet 2) -> v3 = current (side-view truth). Copies: E:\tmp_tripo_all\W07\design_v*.txt.
+
+SPLIT: tpose_tools.py split --vcenter: sides sheet scaled by 0.950 to the front/back height; all views by 0.871 to fit 1024 with the 7 % margin; soles row 736/737,
+  figure top row 288, figure height 448 px in all four views. views/front.png back.png left.png right.png, _contact.png, _guides.png (guides --creature),
+  _strip_0-60.png, _strip_40-100.png.
+
+CROSS-VIEW TABLE (step 4b; final views, % of the figure height, 0 % = top of the abdomen, 100 % = ground; read on views/*.png with a 5 % tick overlay)
+  feature                  LEFT       RIGHT      FRONT          BACK              verdict
+  highest point (abdomen)  0          0          0              0                 ok
+  head plate top           ~29        ~29        ~28            hidden            ok
+  eyes                     37.6       37.6       40.1 / 40.4    hidden            ok (FRONT 2.6 % lower)
+  pedipalp / fang tips     ~60        ~60        ~63            hidden            ok
+  abdomen ball lowest      ~73        ~73        ~76            ~76               ok (3 %)
+  spinneret cap            no bump    no bump    hidden         67-78             minor: BACK cap tip 5 % below the side outline
+  silk bands               vertical + diagonal band over the top, horizontal band 15-25 %, lower rear band ~60-72 % |
+                           FRONT/BACK: X crossing at 0-3 %, arc band top ~20 %, BACK lower ring band 58-66 %; ivory share of the abdomen box 24 / 24 / 22 / 24 %
+                                                                                  ok (same coverage; the band paths are only roughly the same 3D wrap)
+  legs visible             4          4          8 (4 + 4)      8 (4 + 4)         ok (no ghost or far legs)
+  leg tips                 98-100     97-100     94-100         94-100            FRONT/BACK far tips 6 % high (camera), logged
+  knees                    ~30-50     ~30-50     23-40          23-40             rough read only; the middle legs' knees sit lower in the side views
+  figure height px         448        448        448            448               ok (one scale, one floor row)
+  width / height           1.81       1.80       1.96           1.96              see deviations
+
+QA (CREATURE QA list): 1 ok (no rectangles, flat grey, no text); 2 ok except the far leg tips in sheet 1 (6 %); 3 ok in the side views, sheet 1 slightly high
+  camera (tips); 4 ok; 5 ok (exactly 90 degrees after the edit, RIGHT = mirror of LEFT, which is right for this symmetric design); 6 ok (same plated ball, ivory
+  bands, faceted three-segment legs with ring joints, two yellow eyes, fangs and pedipalps; no hair, no added anatomy; form shading kept); 7 ok within 3 %
+  except the cap (5 %) and the tips (6 %).
+
+Remaining deviations:
+  - FRONT/BACK: the far leg tips end about 6 % of the height above the nearest tips (slightly high camera); one retry and one edit pass did not move them.
+  - Side views are longer than the concept: tip-to-tip length 1.81 x the height (1.41 H) against the concept's 1.44 (1.12 H); Astra ignored the 1.12 H block.
+    FRONT/BACK width 1.96 x the height (1.53 H) matches the concept (1.55 H).
+  - The silk wrap is 3-4 broad bands, not the strict two-ring X of design.txt v1; coverage matches in all views, the exact band paths do not (texture may
+    blend where bands meet between views).
+  - BACK: the spinneret cap ends 5 % below the ball outline of the side views, which show no cap bump; the edits left a soft light patch on the centre plate of
+    the BACK abdomen and softened its plate lines.
+  - The creature tool's symmetry WARN (0.58 / 0.65) is a false alarm for eight thin legs (tip positions mirror within 16 px).
+Not done: no Tripo run, no credits spent.

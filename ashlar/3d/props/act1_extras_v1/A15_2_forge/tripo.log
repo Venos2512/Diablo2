@@ -1,0 +1,25 @@
+[23:56:53] A15_2_forge: input = textures/A15_2_forge_a.png; credits before 6330 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[23:58:44] A15_2_forge: mesh done, credits 6330 -> 6230; variants: 2d93d444-61d6-4e5a-911d-4b5cf5ba4665|smithy forge 3d model;d7ed5c6f-f715-4b77-bc4a-a2c6a854675b|medieval forge 3d model;07cb98d8-250b-45ea-bb4a-b58b03214fd8|medieval forge 3d model;efb5ba12-2199-4bf8-9448-e29789a2f2c7|medieval blacksmith forge 3d model
+[23:58:51] A15_2_forge: variants in _shots/variants.txt / variants.png
+[00:01:40] A15_2_forge: input = textures/A15_2_forge_a.png; credits before 6125 (tab 4FE4F1ADB590D88E13D4D24377C6BE87)
+[00:03:25] A15_2_forge: mesh done, credits 6125 -> ; variants: d236537c-3b7b-4c68-9f4d-5f7b37d0e076|medieval blacksmith forge 3d model;8bd7b554-06a6-4209-bef9-caae4106e8a7|medieval forge 3d model;21282326-16e3-4470-a7eb-29803dd68712|medieval forge 3d model;1fca79ce-9829-413a-b805-f13834bb143d|medieval forge 3d model
+[00:05:42] A15_2_forge: input = textures/A15_2_forge_a.png; credits before 5925 (tab F991A04B8B89A16AB66DCC8156511202)
+[00:08:27] A15_2_forge: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/ faces 5514
+[00:11:23] A15_2_forge: smart uv saved
+[00:14:23] A15_2_forge: texture 4K done (credits 5805 -> 5745, other tabs may spend at the same time)
+[00:16:23] act1_extras_v1_forge: pbr done (credits 5745 -> 5635)
+[00:16:37] act1_extras_v1_forge: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A15_2_forge/act1_extras_v1_forge.glb (17892 KB)
+[00:16:37] A15_2_forge: finish credits 6125 -> 5575 (shared balance)
+GLB check: 18.3 MB, meshes 1, tris 8480, maps ['base', 'mr', 'normal'], images 3
+[00:17:45] A15_2_forge: views failed
+[00:19:00] A15_2_forge: ERROR (lead): two extra Generate runs at 00:01:40 and 00:05:42 (200 credits) from variant re-shoots that read a truncated variants.txt; the 00:08 finish ran on a name-board variant (moved to A15_3_name_board/_alt). Redo finish on variant 3 1fca79ce.
+[00:19:12] A15_2_forge: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/1fca79ce-9829-413a-b805-f13834bb143d faces 5457
+[00:19:42] A15_2_forge: smart uv saved
+[00:21:17] A15_2_forge: texture 4K done (credits 5425 -> 5405, other tabs may spend at the same time)
+[00:21:52] act1_extras_v1_forge: pbr done (credits 5405 -> 5400)
+[00:22:03] act1_extras_v1_forge: exported /e/Diablo2/ashlar/3d/props/act1_extras_v1/A15_2_forge/act1_extras_v1_forge.glb (14240 KB)
+[00:22:04] A15_2_forge: finish credits 5545 -> 5300 (shared balance)
+GLB check: 14.6 MB, meshes 1, tris 9782, maps ['base', 'mr', 'normal'], images 3
+[01:44:33] A15_2_forge: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/1fca79ce-9829-413a-b805-f13834bb143d faces 
+[01:44:51] A15_2_forge: smart uv saved
+[01:44:56] A15_2_forge: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/1fca79ce-9829-413a-b805-f13834bb143d faces undefined

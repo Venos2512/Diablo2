@@ -1,0 +1,23 @@
+﻿{{STYLE_CORE}}
+
+{{TPOSE_RULES}}
+
+{{CONTENT}}
+
+Use case: character turnaround for image-to-3D (Tripo multi-view input).
+REFERENCE IMAGES (attached): (1) the concept image of the creature (it may be a lineup with an H silhouette and several views): identity reference for the DESIGN only (colours, materials, face, hat/armour, parts worn on the body, proportions). Keep the same design. Do not copy the lineup layout, the H silhouette, any text, or the concept's pose. {{IF_RETRY: (2) an earlier attempt: design only; its pose is wrong, ignore its pose.}}
+{{DESIGN}}
+Canvas: one landscape 3:2 image (1536x1024 or larger) with TWO full-body views of the same creature side by side: left FRONT view, right BACK view (the true back, not a mirrored front).
+POSE = STRICT T-POSE (the most important requirement): the creature stands on both feet, torso nearly upright (only a very slight forward lean, NOT hunched, NOT crouched), knees almost straight, feet flat on the floor shoulder-width apart pointing forward. BOTH ARMS are stretched fully STRAIGHT OUT TO THE SIDES, perfectly HORIZONTAL at shoulder height, forming one straight horizontal line with the shoulders (a capital letter T), elbows straight, wrists straight, palms facing down, fingers open and slightly spread. The arms are clearly separated from the torso and from anything worn on the back, and do not hang down or bend. Head level, looking straight ahead, not hidden by anything worn on the back. If the arms are long the arm span is wider than the body is tall: keep the whole span inside the frame with at least 5 percent margin; the figure may be about 45 to 50 percent of the image height.
+{{HUMANOID}}
+Camera: eye level, orthographic look, no perspective, no tilt, no 3/4 angle.
+Both views at the same scale on the same floor line, whole body visible with margin, no overlap.
+Fidelity: keep the concept's body build exactly (a thin lean creature stays thin and lean: NO added muscle definition, NO abs or six-pack, NO claws, NO teeth, NO extra anatomy or ornaments the concept does not show), the same face and ears, the same smooth painted surface. Only the pose changes.
+Low detail: broad clean material masses, few small patterns, no fine wear, grain or noise. Keep cloth a simple plain clean shape (no ragged fringe, no loose strips). Low detail does NOT mean flat: keep the big folds and their big light and shadow shapes.
+Light and shading (keep the concept's volume): hand-painted form shading with the same value contrast as the concept. Every big fold and every cloth layer reads as a solid volume with a lit plane and a large dark shadow plane: deep shadow in the fold recesses, under the cape, hood, collar, belt and sash, inside splits and openings, on the inner and lower faces of panels; lit tops on the ridges of the folds; roughly a third of each cloth surface sits in shadow, as in the concept, never one evenly lit flat colour with only thin fold lines. Leather, metal, skin and body get the same form shading. The light comes from above and slightly from the camera side and is the SAME in every view, so the left and right halves of the body are lit alike (no side light that leaves one half dark). Neutral white light: no rim light, no coloured light, no glow or bloom, no shadow cast on the background; only a faint contact shadow under the feet.
+Background: perfectly flat neutral mid-grey.
+{{REMOVE}} Hands empty and open. No other loose props.
+Asymmetric details stay on the same body side in every view: {{ASYMMETRY}}
+No text, labels, numbers, logo, watermark or scenery. No human silhouette.
+
+Cross-view landmarks (mandatory): {{VIEWS}}

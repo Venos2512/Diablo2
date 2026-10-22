@@ -1,0 +1,28 @@
+W04 Mire-Sucker, variant B: creature (family W, winged six-legged fly; A leg rules applied) neutral display views for Tripo multi-view, 2026-10-22.
+Concept: ashlar/art/map-01-concepts/monsters/W04_mire_sucker/vB/concept_r2.png (copied to concept.png). Canon: checklist row W04, concept_r2.prompt.txt.
+Flow: CREATURE flow; design.txt HUMANOID no, FAMILY W, VIEWS written before the first generation. Pose sections "W front_back" / "W sides" as run on W02,
+  wing V angle 45 degrees from PROPORTIONS (the concept's angle).
+Placement templates (make_view_template.py, 2172x724, 580 px per H): _tasks/template_fb.png blocks 0.66x0.87 H, _tasks/template_sides.png blocks 0.69x0.87 H.
+
+CONCEPT MEASUREMENTS (H silhouette = 497 px, floor row 617)
+  Wing tips 0.87 H (highest point), thorax crest 0.69 H, eyes 0.55 H, legs leave the thorax at 0.52 H, joints 0.40-0.46 H, abdomen lobes 0.50 -> 0.21 H.
+  Side views: proboscis tip to abdomen tip 0.69 H; proboscis tip at 0.35 H. FRONT: wing tips 0.65 H apart, outer leg tips 0.56 H apart, lobes 0.24 H wide,
+  wing V about 43-45 degrees. The concept's FRONT puts the proboscis tip at 0.24 H against 0.35 H in its side views: the side views are kept. Bracket
+  "body 0.38H" and canon "size of a cat" disagree with the drawing: the drawing is kept for the proportions; in-game size at import.
+
+SHEET 1 - NOT GENERATED
+  prompt _tasks/prompt_fb_a1.txt and job _tasks/jobs_fb1.json (id W04_FB1; refs concept.png, template_fb.png) are ready.
+  2026-10-22 01:45: the job failed in 4 s, "You've hit your usage limit ... try again at Oct 27th, 2026 3:40 PM" (account of E:\map01-batch\home).
+  Next: run W04_FB1; QA (opaque wings in one plane, V 45 degrees, six solid legs three per side, proboscis foreshortened in FRONT to about 60 %, two lobes);
+  then sheet 2 with "W sides" (wing column 0-33 % on the thorax, three near legs, proboscis the frontmost point), split --vcenter, strips, table of step 4b.
+Not done: no Tripo run, no credits spent.
+
+TRIPO 2026-10-22 08:23 (main agent): Codex still at its usage limit, no Astra sheet. The concept's own model views (LEFT,
+  RIGHT, FRONT, BACK of concept.png) are a clean neutral stand on one ground line, so views/{front,back,left,right}.png were cut
+  straight from it (scratch E:\tmp_tripo_all\ops\views_fb.py concept . 130 616 left:660:1050 right:1068:1437 front:1418:1762
+  back:1762:2128): same rows for every view (one scale, one ground line), dashed guide line and ground shadow flattened, upscaled
+  1.81 to the usual 86 % canvas fill. Differences from design.txt (kept as the concept draws them): wings swept back and
+  translucent-grey (not one upright opaque plane), proboscis tip at 0.24 H in FRONT vs 0.35 H in the sides, far legs drawn.
+  Tripo multi-view 4 slots, Generate 100. Variant 2 (6598 faces): two separate blood lobes with the cleft, six stilt legs,
+  thorn crests, wings as solid thin blades (variant 3 had a ground plate). Texture 4K with the four views. GLB 22.1 MB,
+  10647 tris, 3 maps 4096². Verdict: PASS. The prepared Astra job W04_FB1 is not needed any more.

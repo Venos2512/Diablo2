@@ -1,0 +1,12 @@
+Đã thực hiện bước 1–5, giữ nguyên `design.txt` có sẵn theo skill và xuất bốn ảnh 1024×1024:
+
+- [front.png](E:/Diablo2/ashlar/3d/monsters/W03_hush_wolf/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/monsters/W03_hush_wolf/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/monsters/W03_hush_wolf/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/monsters/W03_hush_wolf/views/right.png)
+
+Chiều cao sheet 1: **738/736 px**; sheet 2: **916/918 px**. Hệ số thu nhỏ góc bên: **0,804×**.
+
+Mỗi sheet retry một lần để sửa tay rũ và sai tỷ lệ. **QA chưa đạt hoàn toàn:** ngón tay còn cong, khoảng chân góc lưng hơi rộng, áo còn tua nhỏ và đầu áo lệch khoảng 5% giữa góc lưng/bên.
+
+Đã lưu [báo cáo QA và nguồn ảnh đầy đủ](E:/Diablo2/ashlar/3d/monsters/W03_hush_wolf/tpose.log). Session tạo ảnh: `01a15f82-57a4-7891-9756-c9e019b96361`.

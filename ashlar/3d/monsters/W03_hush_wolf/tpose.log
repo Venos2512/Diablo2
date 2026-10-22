@@ -1,0 +1,72 @@
+﻿W03 Hush-wolf T-pose report — 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; NOT a full QA pass.
+Workflow: generate-tpose-for-tripo steps 1-5, built-in image_gen only, one call per sheet attempt, 2 attempts per sheet. No Tripo run.
+Step 1: Read concept.png visually, existing design.txt and brief.md. Preserved existing canon design.txt unchanged as required by skill and brief. HUMANOID yes, symmetric digitigrade biped, closed eyes, no tail. VIEWS table existed before generation.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Filled official templates plus humanoid blocks; prepended verbatim artdirection 3.1 / 3.6 / 3.8; appended VIEWS. Template copies in _tasks.
+
+Image source session: 01a15f82-57a4-7891-9756-c9e019b96361
+Source directory: E:\map01-batch\home\generated_images\01a15f82-57a4-7891-9756-c9e019b96361
+Front/back attempt 1: exec-7b9edc89-ddbd-4550-a51c-24ff462d5268.png
+  Preserved as _rejected/tpose_front_back_attempt1.png.
+  800 / 798 px (78.1 / 77.9 percent); arm slopes 4.8, 4.7, 5.0, 4.4 degrees. Retry for sagging wrists/fingers, bulky thighs; also requested more margins (measure itself had no edge warning).
+Front/back attempt 2 SELECTED: exec-2dd5400f-3660-4916-8fbe-f94f2b41fcbc.png
+  Copied to tpose_front_back.png. 1536x1024.
+  FRONT bbox (35,145,768,883): height 738 px / 72.1 percent, width 733.
+  BACK bbox (783,144,1500,880): height 736 px / 71.9 percent, width 717.
+  Arms: FRONT 2.1 / 2.1 degrees; BACK 3.4 / 1.8 degrees.
+  Span/height .99 / .97. Feet gap .21 / .22 H.
+  humanoid WARN: BACK feet centre gap slightly over .22 H threshold (rounded output .22).
+  Selected as improved best attempt; fingers still curved and arms not mathematically horizontal.
+Sides attempt 1: exec-be4ad28a-c27e-47c8-bd02-0469d7ec6035.png
+  Preserved as _rejected/tpose_sides_attempt1.png.
+  LEFT 870 px / 85.0 percent; RIGHT 871 px / 85.1 percent. humanoid OK.
+  Retry: about 18 percent larger than front/back, curled fingers; requested 738 px and flatter hands plus landmark agreement.
+Sides attempt 2 SELECTED: exec-445ae23d-ef46-417d-b898-773e92e609d2.png
+  Copied to tpose_sides.png. 1536x1024.
+  LEFT bbox (355,38,695,954): 916 px / 89.5 percent, width 340.
+  RIGHT bbox (848,37,1185,955): 918 px / 89.6 percent, width 337.
+  humanoid OK; sole spans .21 / .22 H, overlapping legs without stride.
+  Selected for more extended fingers and lean silhouette, despite failed size correction. Size about 24.4 percent above front/back remains outside +/-12 percent before split; logged per skill. No partial-body rescale.
+
+Split: official tpose_tools.py split, then guides and strips 0-60 and 40-100.
+Mean sheet heights: front/back 737 px, sides 917 px.
+Sides whole-figure rescale: 737 / 917 = 0.8037077 (tool prints 0.804).
+Outputs: views/front.png, back.png, left.png, right.png; all 1024x1024.
+Tool reports soles on row 952 (exclusive bbox boundary); guides detect occupied sole row 951. Top row about 214. Small 1-2 px per-figure height variation retained.
+Viewed all generated attempts, views/_contact.png, views/_guides.png and BOTH strip images after final split. Correct order FRONT BACK LEFT RIGHT; no cropping; soles aligned; LEFT faces screen-left, RIGHT faces screen-right.
+
+Cross-view landmark measurements: visual readings from normalized strip ticks, approximate +/-2 percentage points, 0=ear tip, 100=soles. Occluded anatomy not claimed measurable.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Ears/head | ears 0-10, muzzle 16-18 | same | ears 0-10, nose 19-20 | ears 0-10, rear head to 18 | broadly consistent; closed eyes visible front/sides, no face on back
+Mane | 7-21, rear neck behind red band | same | 8-24 beside face | 8-20 above cloth | coherent depth order, somewhat shorter band than design 8-25
+Red embroidery | 17-24 arc over near shoulder | same | 17-28 two vertical side edges | 17-22 across top cloth | wraps coherently; front bands extend lower than design 15-22; exact stitch pattern varies
+Shoulder / hand | shoulder 23, fingers 25-28 | same | arms 22-24, fingertips to 26 | arms 22-24, fingertips to 26 | side fingers slightly lower; fingers curled, not strict open-flat pass
+Pale chest patch | 21-42 anterior edge | same | 20-44 centre chest | hidden by body/cloth | pass broad height and occlusion
+Cloth | shoulder 20 to rear tip about 86 | same | side hems about 66-68, centre glimpse about 69 | top 19, central tip about 81, side hems 68 | FAIL cross-view: rear tip about 5 percent lower in sides; front shows additional central cloth behind legs; narrow rag fringe not simplified enough
+Crotch | partly occluded, upper legs about 53 | same | about 55 | hidden by cloth | approximate; not a measured back crotch
+Knees | 67-70 forward bend | same | about 68 | about 68 | coherent digitigrade anatomy
+Hocks | 81-83 back bend | same | 84-85 | 83-85 | small 2-4 percent height discrepancy, retained
+Feet | 94-100, near/far overlap | same | 94-100 two feet | 94-100 two feet | ground alignment pass; back stance warning remains
+Tail / props | none | none | none | none | pass
+
+Art-direction QA 11: moderate stylization and broad painted planes retained; brown fur, pale grey-green cloth and small red accent; eyes closed, mouth closed, no added weapons, tail, ornaments or glow. True rear and opposite profile orientations; no text/watermarks or crops. Cloth retains large shaded folds but remains too fringed and has softer contrast than concept. Background has mild shading/contact shadow rather than perfectly uniform grey. No gross added abs/bodybuilder anatomy; thighs still fuller than leanest concept views. Symmetric design makes left/right profiles visually near-mirrored, no side-specific identity detail exists to verify.
+Final assessment: useful review/reference outputs, not certified strict T-pose-ready. Known pose, cloth, scale and cross-view deviations above remain after the permitted one retry per sheet; no further generation or art editing performed. User is final approval gate. No claim of full QA pass.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+No extra Codex session needed. humanoid fb: front OK (arms +2.1/+2.1, hands 24 %, span/height 0.99, feet gap 0.21 H); back 1 WARN
+  (feet centre gap 0.22 H, at the limit). Centre-line fit +2.8 to +4.2 deg (claws curl down at the tips). sides: OK, sole span 0.21/0.22 H.
+Sheet heights: FB 738/736 px; sides 916/918 px; split rescale 0.804.
+Cross-view table (% of figure height, 0 = ear tips, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Ears / head        | 0-10 / 0-22, muzzle level | same | 0-10 / 0-22 | 0-10 / 0-20 | PASS
+Mane               | 8-25        | 8-25        | 8-25         | 8-24          | PASS
+Arm row (hands)    | 24-26 near paw | 24-26   | 24           | 24            | PASS
+Red embroidery     | arc 21-24 over near shoulder | same | shoulder edges 19-30 | across cape top 19-22 | PASS
+Cloth panel        | back edge to 85 | to 82   | side edges to 63 | point 80-82 | PASS
+Chest fur          | front edge  | front edge  | 20-45        | n/a           | PASS
+Crotch / knee / hock | - / 64 / 82 | - / 64 / 82 | 53 / 64 / 82 | - / 64 / 82 | PASS (digitigrade zigzag kept in profile)
+Feet               | 92-100      | 92-100      | 92-100       | 92-100        | PASS
+Legs: identical digitigrade legs, FB vertical overall (0.21-0.22 H apart); sides overlap, no stride.
+Fidelity: lanky wolf build, closed eyes, tall ears, long muzzle, mane, pale cloth panel with the red zigzag collar, claws as in the
+  concept, colours and form shading kept; torso upright instead of the concept's hunch (intended T-pose change). No tail: the approved
+  concept shows none in any view. Remaining: cloth edges a little more tattered than "few big points"; claws curl down. Verdict: PASS.

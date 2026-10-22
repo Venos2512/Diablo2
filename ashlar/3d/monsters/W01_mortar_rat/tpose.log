@@ -1,0 +1,86 @@
+﻿W01 Mortar-Rat T-pose session report — 2026-10-22
+STATUS: Outputs complete; QA NEEDS_CHANGES. Best available sheets retained after maximum two generations per sheet. Not a clean Tripo-ready approval.
+
+Step 1: Viewed concept.png; read existing design.txt and brief.md. Preserved design.txt unchanged as explicitly required by skill and brief. HUMANOID yes, stylized short-armed rat with digitigrade-type hind legs. No rigging or Tripo operations.
+Generation: built-in image_gen only; 4 calls total. Full filled prompts saved alongside sheets; mandatory art-direction 3.1, 3.6, 3.8 blocks prepended verbatim. Existing skill tools only for measurement/cropping/QA; no art drawn with code.
+
+Sources (Codex session 01a15fb5-9615-7de3-9fec-c9225cdf2f03):
+Source directory E:\map01-batch\home\generated_images\01a15fb5-9615-7de3-9fec-c9225cdf2f03\
+Front/back attempt 1: exec-c6c8fa0d-0861-4bfd-b1c9-ea94aa34c653.png
+Front/back selected attempt 2: exec-8d76a9f5-07d1-4615-aa78-c6fe28efb677.png
+Sides attempt 1: exec-10c840ea-a0a5-43f3-b452-da8931180d66.png
+Sides selected attempt 2: exec-e98ed69a-60ea-459e-add6-e8769e0d2c8e.png
+Rejected first attempts copied to _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png. Original generation sources retained.
+
+Measurements (1536x1024 sheets):
+FB attempt 1: front 703 px / 68.7%; back 723 px / 70.6%.
+Selected FB: front bbox (116,169,716,851), 682 px / 66.6%, width 600; back bbox (819,169,1423,879), 710 px / 69.3%, width 604. Mean height 696 px / 67.97%.
+Sides attempt 1: both 765 px / 74.7%.
+Selected sides: left bbox (114,112,726,876); right (810,112,1422,876); both 764 px / 74.6%, width 612. 9.77% above FB mean, within 12% tolerance.
+Split side rescale factor 696/764 = 0.9109947644 (tool prints 0.911).
+All four PNG canvases 1024x1024; tool reports bottom row 952. This is a foreground-bbox bottom, NOT verified anatomical soles: BACK tail extends below feet by about 28 px and causes foot misalignment. Front/back heights also differ 28 px. No edge margin warnings.
+
+Retries:
+FB retry: excessive arm length/bulk, faceted skin, misplaced front tail and lower back-tail floor. Arm span improved to 0.88 front / 0.85 back. Surface softened, but residual facets and tail errors remain.
+Sides retry: extra small spines, strongly hooked tail tip, faceted skin and low hands. Tail hook improved; hand height, counts and surface remain imperfect.
+
+Numeric humanoid checks:
+FB 6 WARNs: left arm angles +47.5 front / +36.7 back; visually these are false landmark detections around shoulder spines (arms visually near horizontal). Hands at 33% front / 32% back trigger generic 13-28% warning; expected large-ear exception in design.txt. Right arm slopes +0.8 and +2.1 deg. Front foot-centre gap 0.21 H.
+Sides 2 WARNs: sole span 0.65 H both sides. Tail on floor contaminates heuristic; legs visually overlap without a stride. Rat hock bend retained. Fingers remain curled downward rather than fully straight/open/flat.
+
+Mandatory visual QA completed on both attempts of both sheets and final views/_contact.png, _guides.png, _strip_0-60.png, _strip_40-100.png.
+Order correct: FRONT, BACK, LEFT facing image-left, RIGHT facing image-right. True back; no text, no weapons, no clipping. Symmetric design makes mirrored side appearance unsurprising; no unilateral details to verify. Palette grey/pink/brown/chalk, no accent/glow. Readable shaded volumes; still more faceted than smooth-skin design. No garment tests applicable.
+
+Cross-view landmark table: approximate manual readings from final shared strip tick marks (common top row 242, bottom row 951; these differ from per-figure percentages because bbox heights differ). Values in percent, uncertainty about 1-2 percentage points. Side views govern depth/height comparisons.
+Feature | LEFT | RIGHT | FRONT | BACK | verdict
+Ear band | 2-19 | 2-19 | 4-20 | 0-17 | FAIL alignment; paired front/back ears, near ear in sides
+Eye / nose | 18 / 25 | 18 / 25 | 20 / 28 | hidden as expected | minor height mismatch
+Hand row | 38 | 38 | 35-36 | 31-33 | FAIL; sides lower, back higher
+Shoulder cones | 16-37 | 16-37 | 20-34 | 16-30 | FAIL band and count consistency; extra tips/bases, four per side not reliably satisfied
+Bare saddle | 37-52 | 37-52 | 34-54 | 30-50 | FAIL cross-view band, clear gap present
+Rump cones | 52-76 | 52-76 | 54-73 | 50-72 | FAIL heights and exact cone correspondence
+Tail root | about 70, occluded by hip | about 70, occluded by hip | wrongly visible below crotch around 74 | starts about 57 | FAIL root/occlusion; BACK root much too high
+Tail floor/tip | 95-99 / 91 | 95-99 / 91 | visible central column to 95 | extends to 100 below soles | FAIL front visibility and back floor; side tail curl reduced
+Crotch | about 74, profile obscures | about 74 | about 74 | obscured by tail | broadly matches short-leg design
+Knees / heels | 78 / 89 | 78 / 89 | 81 / 90 | 78 / 86 | FAIL exact alignment, rat hocks retained
+Soles | 100 | 100 | 100 | about 95-96 | FAIL back tail dominates bounding box
+
+Additional split QA: small grey/blue-looking patches appear in the front lower belly and back in derived views, likely foreground-mask holes where skin approaches background colour. No code retouch performed. Contact-sheet size is not evidence of artifact-free texture.
+No further generations: two-per-sheet limit reached. Best images kept and deviations explicitly reported, per skill. User approval remains pending; do not mark QA PASS.
+
+Deliverables:
+design.txt (existing canonical notes preserved)
+tpose_front_back.png, tpose_sides.png
+views/front.png, views/back.png, views/left.png, views/right.png
+views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png
+Full generation prompts and retry prompts beside sheets; filled-template sources in _tasks/.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Session 1 (run_session.sh, Astra 01a15fb5-9615-7de3-9fec-c9225cdf2f03): 2 generations per sheet, attempt 2 of each kept.
+Fail found: BACK tail began high (about 53 %) and its tip curled forward BELOW the soles (tail tip row 878 vs soles 849), so the
+  split floor-aligned the tail tip and lifted the whole BACK view about 3 % (ears and feet off the shared lines).
+Edit pass 1 (map01_batch, session 01a15fbc-102b-7c00-aadb-58a82da6e5c4, 49 s, _tasks/fb_edit_tail.png): tip only 878 -> 868; kept in
+  _rejected/tpose_front_back_attempt2_edit1_tailtip.png.
+Edit pass 2 (_tasks/fb_edit_tail2.png, numeric y targets in the prompt, applied to edit 1): tail tip 848 = soles 846; FRONT half
+  changed by 1.75 grey levels on average. ACCEPTED as tpose_front_back.png (pre-edit sheet: _rejected/tpose_front_back_attempt2_backtail.png).
+Sheet heights: FB 681/679 px; sides 764/764 px; split rescale 0.890. Re-ran split, guides, strip 0-60 and 40-100 and viewed them.
+humanoid fb: hand row 33 % (expected, very large ears, see NOTES), "arm-left +46 deg" is the shoulder spine cluster read as the arm
+  (by eye and on the guides both arms lie on the red line, centre fit within 3.4 deg on the clean side); feet gap 0.21 H; span 0.88-0.89.
+humanoid sides: soles span 0.65 H = the tail lying on the floor (expected, see NOTES); the feet themselves overlap, no stride.
+Cross-view table (% of figure height, 0 = ear tips, 100 = soles), read on _strip_0-60.png and _strip_40-100.png:
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Ears               | 0-17        | 0-17        | 0-17         | 0-17          | PASS
+Eyes / nose tip    | 17 / 22     | 17 / 22     | 16 / 25      | no face       | PASS
+Arms / hands       | near paw 36-38 | 36-38    | 32-34        | 31-33         | PASS (sides about 4 % lower, within 5 %)
+Shoulder cones     | 15-35       | 15-35       | 17-33        | 17-34         | PASS heights; 5 per side in FB (design asked 4), similar in sides
+Bare saddle        | 36-52       | 36-52       | 34-50        | 34-50         | PASS
+Rump cones         | 50-75       | 50-75       | 51-71        | 51-73         | PASS; 5-6 per side
+Tail root          | hidden behind near rump cones, emerges at 72 | same | between the legs from 74 | from 61, centre | PASS (root occluded in profile)
+Tail on floor      | 90-100, reaches about 0.45 H behind heels | same | floor part between the feet | ends on the floor at 100 | PASS
+Crotch / knee / heel | - / 80 / 89 | - / 80 / 89 | 73 / 80 / 89 | - / 80 / 89 | PASS (rat zigzag kept in profile)
+Feet               | 93-100, overlapping | same | 93-100 | 93-100        | PASS
+Fidelity: lean hairless grey rat, very large pink-lined ears, long snout, black eyes, chalk-white mortar cones in two clusters with a
+  bare saddle, dark slate-mauve paws, feet and tail; whiskers removed; no accent colour (Prologue). Upright instead of the concept's
+  hunch (intended). Remaining: cone count 5 per side per cluster instead of 4 (consistent between views); side near paws hang their
+  claws downward a little; skin slightly smoother/more rendered than the concept's painted planes.
+Verdict: PASS.

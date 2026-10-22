@@ -1,0 +1,11 @@
+[01:48:09] W01_mortar_rat: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/W01_mortar_rat/views
+[01:48:15] W01_mortar_rat: Generate 100 pressed (credits 13398 -> 13298), tab A5DBD761862A40A7264479A67B99BE83
+[01:50:11] W01_mortar_rat: mesh done; new models: 8f4b6ecf-fb20-49a5-9a1a-4fca208aa702 23ca4f5b-2135-4196-8b77-4f4f013e5d82 3777c919-8def-4967-aaf3-a72e3fcdc44a 0812bafd-9de0-4cb5-988b-27e354342488
+[01:51:00] W01_mortar_rat: variants (index uuid faces) in _shots/variants.txt:
+[01:51:26] W01_mortar_rat: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/23ca4f5b-2135-4196-8b77-4f4f013e5d82 faces 6006
+[01:51:54] W01_mortar_rat: smart uv saved
+[01:54:56] W01_mortar_rat: texture 4K done (busy0=true 146s; four views re-uploaded)
+[01:56:26] W01_mortar_rat: pbr done (credits ? -> ?)
+[01:56:42] W01_mortar_rat: exported /e/Diablo2/ashlar/3d/monsters/W01_mortar_rat/W01_mortar_rat.glb (27052 KB)
+[01:56:42] W01_mortar_rat: GLB check: {"file": "W01_mortar_rat.glb", "MB": 27.7, "meshes": 1, "tris": 10590, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.445, 0.0, -0.412], "max": [0.445, 1.0, 0.412]}
+[01:57:02] W01_mortar_rat: FINAL: 145 credits for this asset (100+20+20+5; balance now 12593, shared with parallel threads); _shots/final_views.png

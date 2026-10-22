@@ -1,0 +1,76 @@
+W06 Willow-Hulk B | 2026-10-22 | generate-tpose-for-tripo steps 1-5
+STATUS: Deliverables produced; QA NEEDS_CHANGES. Best attempts retained after the maximum two generations per sheet. Not a clean strict-T-pose approval.
+
+Step 1: Viewed concept.png, read brief.md and existing design.txt. Preserved existing canon design.txt unchanged as explicitly required by skill and brief. HUMANOID yes; right giant root arm / left short bone-hand arm. Read project Agent.md, Tripo Agent.md, imagegen skill, art direction and skill templates. Built-in image_gen used exclusively for art. Existing tpose_tools.py used with python -I for measurements, crops and QA composites. No Tripo operations.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Art direction 3.1, 3.6 and 3.8 blocks prepended verbatim. VIEWS included; canon unequal arms explicitly override generic equal-arm template rules.
+
+Source session: 01a15f82-68ee-7c43-b878-1ed4d682f263
+Source directory: E:\map01-batch\home\generated_images\01a15f82-68ee-7c43-b878-1ed4d682f263\
+FB attempt 1: exec-a22b48d5-b52b-4984-b6a9-a3bec786184c.png
+FB selected attempt 2: exec-46fdae4d-4ed4-4de6-8c3a-698dc8d257bd.png
+Sides attempt 1: exec-a25d2965-c812-48ee-8df3-fe62545ecf10.png
+Sides selected attempt 2: exec-900ff50f-9c4c-44fc-8443-6750513e6535.png
+Rejected attempts preserved in _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png. Originals retained at source paths.
+
+Step 2 / FB measurements, 1536x1024:
+Attempt 1: front bbox (11,145,745,891), height 746px; back (793,144,1525,891), height 747px; both 72.9% canvas. Edge WARNING: only 11px margins. Bone-hand angle WARN +18.4/+19.2 degrees. Span/H 0.98 conflicts with canon 1.25. Visual: drooping fingers, excessive individual fronds extending too low, additional moss.
+Retry requested smaller figures, horizontal wrists and fingers, canon arm lengths, three crown clumps and correct moss sides.
+Selected: front bbox (20,250,720,802), height 552px (53.9%), width 700px; back (817,251,1516,801), height 550px (53.7%), width 699px. Mean height 551px, 53.81%. No edge warnings, 20px outer margins.
+Humanoid: front root axis -0.6 degrees, bone hand +7.4; back bone hand +7.9, root axis -1.0. Span/H 1.27 in both views is an intentional canon exception to the generic 0.80-1.12 range. Bone hand droop is NOT waived: remains a pose defect. Root digits also fan down below the horizontal arm axis.
+Visual: correct front/back order and anatomical arm sides, true back, upright trunk, level shoulders, no props/text/crop. Root legs flat, crown/skull/rope/rib identity and brown/olive/ivory palette retained. Leaf simplification did not fully succeed; fine individual leaf silhouettes persist. Crown front falls below shoulder, roughly 40% instead of 27%. More than four visible rib arcs; count simplification not achieved. Extra right-hip/lower-leg moss remains.
+
+Step 3 / sides measurements, 1536x1024:
+Attempt 1 LEFT 828px (80.9%), RIGHT 829px (81.0%); mean 828.5, +50.36% vs selected FB. RIGHT arm drawn across screen rather than end-on; rejected. Humanoid sole span 0.47/0.46H.
+Retry requested end-on near hands, 550px height, overlapped legs, no right-hip moss.
+Selected LEFT bbox (328,190,647,855), height 665px (64.9%), width 319px; RIGHT (887,194,1193,855), height 661px (64.6%), width 306px. Mean 663px, 64.75%, +20.33% vs FB: outside +/-12% tolerance, retained after retry budget. No edge WARNING.
+Humanoid sole-span WARN LEFT 0.48H, RIGHT 0.46H. Visual interpretation: long splayed root feet rather than human boots; legs overlap and no separate stepping foot or lifted heel is apparent. Still unusually broad foot silhouette; flagged for review rather than called numeric PASS.
+Visual: face-left anatomical LEFT has bone hand near; face-right anatomical RIGHT has giant root hand near. Near hands now end-on, far arms hidden. Root fingers are rounded blunt ends and not a uniformly flat open hand; some lower digits/tendrils sag. Crown remains many leaf layers. No right-hip moss in RIGHT (correct), while FB has additional moss on that hip (inconsistent).
+
+Step 4: split, guides, strip 0-60 and strip 40-100 all ran successfully. Viewed _contact.png, _guides.png and both strips after final retry. Order FRONT BACK LEFT RIGHT correct. All four files 1024x1024. Shared sole row 952 reported by split (guides identifies foreground row 951). Whole-view sides rescale 551/663 = 0.831071, reported 0.831. No part-only scaling, no art painted in code. Minor 2-4 source-pixel height differences remain; common scale and sole alignment maintained. No art cropped in deliverable views. Guides/strips are tight QA crops, not upload images.
+
+Step 4b: cross-view landmark table, visually measured against normalized strip ticks; approximate percentages from crown top (0) to soles (100), uncertainty about 2-3 percentage points. Hidden items marked hidden; no invented exact measurement.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Crown top | 0 | 0-1 | 0 | 0 | aligned within small source-height difference
+Skull | 8-20 | 8-20 | 7-19 | hidden by crown | cross-view coherent; slightly above canon 10-22
+Crown rear end | 43-45 | 43-46 | side fringes to 40 | 42-44 | rear depth/occlusion coherent; front/side fringe violates canon shoulder cutoff 27; not three simple clumps
+Noose knot | 24-28 | 24-28 | 25-29 | hidden | coherent, near canon
+Noose loop tip | 44-45 | 44-45 | 42-43 | hidden | small 2-3% cross-view difference; all shorter than canon 50
+Ribs | 29-45 | 31-45, partly hidden by near hand | 23-40 | hidden | FAIL: front ribs higher than side ribs by about 5%; front shows extra arcs versus canon four
+Near hand / shoulder | 25-27 bone | 25-28 root core, lower digits to 34 | axis about 24, digits lower | axis about 24, digits lower | axis alignment acceptable by eye; strict flat-hand pose FAIL, numeric bone-hand sag remains
+Right upper-arm moss | far side hidden | 19-26 at near shoulder | 18-25 screen-left | 18-25 screen-right | correct anatomical side; some extra scattered moss
+Left hip moss | 50-67 | hidden | 48-61 screen-right | 50-61 screen-left | correct side but extent differs; starts higher than canon 55
+Extra right hip / lower-leg moss | hidden on far side | absent | right hip about 50-59 plus lower-leg patches 68-81 | small opposite-hip patches | FAIL: extra moss and inconsistent visibility
+Crotch | hidden by overlap | hidden by overlap | 62-66 | 62-66 | approximately canon 65; no stepping legs evident
+Root foot spread | 90-100 | 90-100 | 88-100 | 88-100 | broadly coherent, side sole-span heuristic WARN recorded above
+
+Art direction section 11 QA: brown/olive/ivory colour groups, matte painted root and bone volumes, deep recess shadows, no glow, black outlines, text, silhouettes, scenery or gore. Layout and view order pass. Moderate stylization preserved; no added muscles. Individual leaves and small root ends exceed requested simplification. Strict pose, landmark consistency and exact design fidelity do not fully pass. Max retry budget reached; no additional generation performed.
+
+Deliverables: design.txt (existing preserved), tpose_front_back.png, tpose_sides.png, four full prompts, this log, views/front.png, views/back.png, views/left.png, views/right.png, views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed: _guides, both strips before and after the edit, edited sheet)
+Edit pass (batch runner, session 01a15f91-be4e-77e3-81b9-ca2c3844b9a9, 47 s) on the FB sheet: the bone hand of the left stub
+arm drooped at the wrist and the huge right root arm ended in a fan of root fingers hanging down to ~38 %; now the bone hand
+is flat and horizontal and the root fingers run straight out along the arm line. Mean change 3.2 grey levels. Old sheet kept:
+_rejected/tpose_front_back_attempt2_droopyhands.png, old views _rejected/views_before_edit/. Accepted = _tasks/edit_fb_arms.png.
+Heights: front/back 553 / 552 px (54 %; root-arm tips 13-15 px from the sheet edge, no WARNING); sides 665 / 661 px;
+split rescale 0.833. Span/height 1.30. Re-ran split, guides, strip 0-60 and 40-100.
+Cross-view table (% of figure height, 0 = frond crown top, 100 = soles; LEFT / RIGHT / FRONT / BACK; verdict):
+  frond crown top     0 / 0 / 0 / 0                       ok
+  fronds lower edge   ~38 back / ~38 back / ~40 at the sides / ~40   ok between views (but see deviations)
+  skull               9-19 front / 9-19 front / 9-19 / hidden        ok
+  noose loop          20-43 / 20-43 / 22-42 / hidden       ok
+  ribs                27-42 / 27-42 / 25-42 / hidden       ok
+  right root arm      - / end-on bundle 20-33 (near arm) / 17-30, screen-left / 17-30, screen-right   ok
+  left stub + bone hand  end-on 25-29 (near arm) / - / 22-25, screen-right / 22-25, screen-left    ok
+  left-hip moss       50-68 / - / 47-65 screen-right / 48-65 screen-left   ok (FRONT also has a small patch on the right hip)
+  crotch              ~55 all                             ok
+  root feet           88-100 all                          ok
+Asymmetry: huge root arm = creature's RIGHT, stub arm with bone hand = LEFT, correct in all four views (LEFT view near arm =
+stub, RIGHT view near arm = root bundle).
+Pose: both arms horizontal at the same shoulder height (tool reads +6 deg on the short stub arm; visually level), legs vertical
+root columns, side legs overlap; side sole span 0.46-0.48 H comes from the root toes spreading forward and back, not a stride.
+Fidelity: columnar root hulk, ivory skull, frond crown, thick noose, rib arcs, unequal arms, moss patches, colours and matte
+painted shading match the concept.
+VERDICT: PASS with logged deviations: the frond crown still drapes over the shoulders to ~40 % in FRONT and the sides (design
+asked it to stop at the shoulder line), so leaves touch the arm roots (merge risk in Tripo / rig); extra small moss patch on
+the right hip in FRONT; root-arm tips only 13-15 px from the sheet edge.

@@ -1,0 +1,71 @@
+W02 Gibbet-Crow, variant B: creature (family W, winged) neutral display views for Tripo multi-view, 2026-10-22. PILOT of the family W pose blocks.
+Concept: ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vB/concept_r2b.png (copied to concept.png). Canon: checklist row W02, concept_r2b.prompt.txt.
+Flow: CREATURE flow of the generate-tpose-for-tripo skill. design.txt: HUMANOID no, FAMILY W, VIEWS table written before the first generation.
+Prompts: scripts/fill_prompt.py only (STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 verbatim from artdirection.md; pose sections "W front_back" / "W sides" of
+  templates/creature_pose.blocks.md, refined for this pilot: both wings in ONE UPRIGHT plane just behind the shoulders, leading edge rising 15-20 degrees,
+  FRONT = whole underside, BACK = whole upper side, side views = near wing END-ON like the near arm of a T-pose). Edit pass: templates/edit_creature.prompt.md.
+Placement templates (scripts/make_view_template.py, 2172x724, 900 px per H): _tasks/template_fb.png blocks 0.95x0.42 H, _tasks/template_sides.png blocks 0.50x0.42 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py --jobfile <job> --parallel 1 (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp), one session per job;
+  job files, prompts, outputs and generation logs in _tasks/, status lines in _tasks/runs.jsonl.
+
+CONCEPT MEASUREMENTS (H silhouette = 498 px, floor row 621)
+  Side views: head top 0.32 H, eye 0.29 H, bill tip 0.21 H, peak of the draped wing mantle 0.40 H (bracket "standing 0.36H" lies between them); drawn length
+  0.57 H incl. the mantle behind (bracket "body 0.50H"). FRONT/BACK: 0.78 H wide (bracket "wingspan 0.80H") for the half-spread DROOPING mantle; each drawn wing
+  is about 0.43 H from shoulder to tip, so fully spread it spans about 0.95 H: the drawing's wing size was kept. Chest 0.22 H wide, foot centres 0.23 H apart.
+  Concept pose not used: wings draped like a cape down to the ground over the legs; near leg striding forward in the side views; no tail visible.
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 1 + head edit (tpose_front_back.png = _tasks/fb_attempt1_headedit.png)
+  attempt 1, session 01a15fb5-ae77-7de2-9ec2-43cfba9bef23, 62 s: passed its own QA first time. Both wings spread in one upright plane, undersides face-on in
+    FRONT, upper sides in BACK, leading edge rising about 14 degrees, wing tips the highest point, inner wing tips at about 70 %, legs vertical and parallel with
+    a gap, toes flat, bill closed, tail seen from behind as a pointed fan between the thighs. Faults found later: a small pink smudge on the leading-edge bend
+    of the creature's right wing (FRONT); the head (crest top 18 %, pink dome 14 % in BACK) higher than in the side views (step 4b, below).
+  edit pass "head", session 01a15fbf-11ae-7dd1-8d54-861fe5a71c09, 58 s: FRONT head lowered and flattened (crest removed; skull top 24 %, eye 31 %, bill tip 44 %),
+    BACK pink dome replaced by black ruff feather points (the side views put the nape ruff above the low head, so it hides the head from behind), wing smudge
+    painted over. 2.7 % of the pixels changed (mean 2.6 grey levels).
+  Measured: 493 / 493 px tall (68 % of the image), 1043 / 1044 px wide (width/height 2.12, i.e. wingspan about 0.89 H for a 0.42 H figure).
+  creature tool: mirror symmetry 0.89-0.94 OK; WARN "one paw group" on both views is a false alarm (the soft contact shadow joins the two feet on the floor
+  row; the legs stand with a clear gap of background from the trousers down to the toes).
+
+SHEET 2 (LEFT + RIGHT) - ACCEPTED: attempt 2 (tpose_sides.png = _tasks/sides_attempt2.png)
+  attempt 1, session 01a15fb8-a308-7751-89eb-8c533191d480, 67 s: REJECTED (_rejected/sides_attempt1_wing_swept_back.png). The near wing was drawn as a big wing
+    surface seen from the side, rising high above the back and sweeping back and down to the ground, hiding the back and the tail: contradicts sheet 1.
+  attempt 2 (the failure named first, the end-on wing described as "the near arm of a T-pose seen from the side", heights from sheet 1), session
+    01a15fbb-10f0-76b2-b231-3395c653502f, 97 s: near wing END-ON as one narrow upright feather column behind the head (0 % to 72 %), far wing hidden, exactly ONE
+    leg under the middle of the body, toes flat, tail continuing the back line to its tip at 77 %, head top 27 %, eye 34 %, bill tip 45 %.
+  Measured: 624 / 625 px tall (86 % of the image), 695 / 690 px wide (length/height 1.11, i.e. about 0.47 H long); creature tool OK.
+  Astra again ignored the block height (86 % instead of 52 % of the image): harmless, split normalises (factor 0.789); proportions agree with sheet 1 (table).
+  design.txt history: v1 (concept, before generating) -> v2 (heights measured on sheet 1, before sheet 2) -> v3 = current (side-view truth: low flat skull,
+  head hidden in BACK, ruff, trousers, tail). Copies: E:\tmp_tripo_all\W02\design_v1.txt, design_v2.txt.
+
+SPLIT: tpose_tools.py split --vcenter: sides sheet scaled by 0.789 to the front/back height; all views by 0.844 to fit 1024 with the 7 % margin; top row 304,
+  soles row 720 in all four views. views/front.png back.png left.png right.png, _contact.png, _guides.png (guides --creature), _strip_0-60.png, _strip_40-100.png.
+
+CROSS-VIEW TABLE (step 4b; final views, % of the figure height, 0 % = wing tips, 100 % = ground; read on the strips)
+  feature                       LEFT       RIGHT      FRONT            BACK                  verdict
+  highest point                 0 (wing    0          0 (wing tips)    0 (wing tips)         ok
+                                column)
+  head top                      27         27         24               hidden behind ruff    ok (3 %)
+  eye                           34         34         31               hidden                ok (3 %)
+  bill tip                      44-45      44-45      44               hidden                ok
+  ruff top                      nape 20-22 nape 20-22 18-20 (around    14 (spiky tuft        minor: BACK tuft 4-6 % higher; it sits between the wing
+                                                      the head)        between wing roots)   roots, which the side views hide behind the wing column
+  wing lowest point             72 (column 72         ~70 (inner       ~70                   ok
+                                bottom)               wing tips)
+  feather trousers              60-84      60-84      62-83            62-85                 ok
+  legs visible                  1          1          2                2                     ok (far leg hidden in the sides)
+  toes on the ground            100        100        100              100                   ok
+  tail                          40 -> 77   40 -> 77   hidden           fan 40-77             ok
+  figure height px (views)      416        416        416              416                   ok (one scale, one floor row)
+
+QA (CREATURE QA list): 1 ok; 2 ok (feet flat on one line, legs vertical and parallel, head straight, bill closed, tail one shape); 3 ok; 4 ok (493/493 px);
+  5 ok (90 degree profiles, RIGHT = mirror of LEFT, right for this symmetric design, one leg, end-on wing); 6 ok (bald pink head, pale bone hooked bill,
+  black ruff, shaggy trousers, scaly legs with dark claws, tar-black feather groups with grey-brown edges, form shading kept; nothing added except the
+  display pose and the short tail asked by canon "tail straight back"); 7 ok within 3 % except the BACK ruff tuft (4-6 %).
+
+Remaining deviations:
+  - BACK: the ruff between the wing roots ends in a spiky tuft at 14 %, 4-6 % higher than the ruff around the head in FRONT.
+  - Wingspan drawn 0.89 H against the 0.95 H of design.txt (canon bracket 0.80 H for the drooping mantle); side length 0.47 H against 0.50 H.
+  - The side views show the wing end-on: Tripo has to take the wing thickness from a narrow column; the open question of this pilot is whether it builds the
+    wings as solid slabs from these four views (fallback in brief.md: half-spread wings lifted clear of the legs).
+  - The identity "hunched shoulders-raised mantle" of variant B exists only in the animation now (the rest pose spreads the wings); head, ruff, trousers kept.
+Not done: no Tripo run, no credits spent.

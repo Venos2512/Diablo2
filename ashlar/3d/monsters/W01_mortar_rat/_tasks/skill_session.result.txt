@@ -1,0 +1,12 @@
+Created both sheets and four views; preserved the existing `design.txt` as the skill requires.
+
+- [front.png](ashlar/3d/monsters/W01_mortar_rat/views/front.png)
+- [back.png](ashlar/3d/monsters/W01_mortar_rat/views/back.png)
+- [left.png](ashlar/3d/monsters/W01_mortar_rat/views/left.png)
+- [right.png](ashlar/3d/monsters/W01_mortar_rat/views/right.png)
+
+**QA needs changes:** hand heights, spine counts, tail occlusion, and back-foot alignment remain inconsistent. Minor masking artifacts also appear after splitting.
+
+Front/back heights: **682 / 710 px**. Side heights: **764 / 764 px**; rescale **0.911×**. Used one retry per sheet for proportions, skin, spines, and tail corrections.
+
+[Full report](ashlar/3d/monsters/W01_mortar_rat/tpose.log) records checks, deviations, and source paths. Image session: `01a15fb5-9615-7de3-9fec-c9225cdf2f03`.
