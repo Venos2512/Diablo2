@@ -1,0 +1,88 @@
+{
+ "row": "R10",
+ "row_glb": "rows/R10_weir_cottage_roof/act1_kit_v1_R10_weir_cottage_roof.glb",
+ "variant": "0",
+ "faces": 21853,
+ "objects": 8,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A07.1",
+   "slug": "drowned_cottage",
+   "name": "Half-drowned flint cottage",
+   "dir": "A07_1_drowned_cottage",
+   "glb": "A07_1_drowned_cottage/act1_kit_v1_drowned_cottage.glb",
+   "mb": 10.8,
+   "tris": 11303,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 6.7,
+   "support_gain": 299.72,
+   "front": "axes 1.55",
+   "yaw_deg": 3.3,
+   "normalised": [
+    1.0,
+    0.799,
+    0.806
+   ],
+   "real_size_m": [
+    7.0,
+    6.2,
+    5.0
+   ],
+   "m_per_unit_xyz": [
+    7.0,
+    7.76,
+    6.2
+   ],
+   "shape_spread": 1.25,
+   "texture": "own atlas 4096x3488 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A07.4",
+   "slug": "roof_platform",
+   "name": "Sunken roof-ridge platform",
+   "dir": "A07_4_roof_platform",
+   "glb": "A07_4_roof_platform/act1_kit_v1_roof_platform.glb",
+   "mb": 6.6,
+   "tris": 10550,
+   "objects": [
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.96",
+   "yaw_deg": 0.8,
+   "normalised": [
+    1.0,
+    0.52,
+    0.715
+   ],
+   "real_size_m": [
+    6.0,
+    3.2,
+    4.8
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    6.16,
+    6.71
+   ],
+   "shape_spread": 1.12,
+   "texture": "own atlas 3200x3024 (row atlas 4096x4096)"
+  }
+ ]
+}

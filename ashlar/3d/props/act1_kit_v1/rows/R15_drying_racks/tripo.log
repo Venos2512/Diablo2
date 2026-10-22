@@ -1,0 +1,11 @@
+[10-22 14:44:41] R15_drying_racks: polycount set to 10000 (account default)
+[10-22 14:44:48] R15_drying_racks: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 8848), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 14:45:16] R15_drying_racks: mesh done (credits now 8728); new models: 53506855-063a-4682-b272-9005c58c5b5b 8d1dcec9-77b4-44b2-b769-d8d4754cf9e9 2c67a04d-9a7e-4968-84ef-b383305d538a 3593e1f8-6229-4a5e-9292-6b3a8a51a5b0
+[10-22 14:46:12] R15_drying_racks: variants (index uuid faces): 0 53506855-063a-4682-b272-9005c58c5b5b 11556;1 8d1dcec9-77b4-44b2-b769-d8d4754cf9e9 10997;2 2c67a04d-9a7e-4968-84ef-b383305d538a 11824;3 3593e1f8-6229-4a5e-9292-6b3a8a51a5b0 11133;
+[10-22 14:58:07] R15_drying_racks: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/8d1dcec9-77b4-44b2-b769-d8d4754cf9e9 faces 10997; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 14:58:36] R15_drying_racks: smart uv saved (credits 8703 -> 8683)
+[10-22 15:00:38] R15_drying_racks: texture 4K done in 36s (credits 8683 -> 8563, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 15:01:20] R15_drying_racks: pbr done (credits 8563 -> 8558)
+[10-22 15:01:39] R15_drying_racks: exported act1_kit_v1_R15_drying_racks.glb (format GLB, texture 4kCurrent, 21720 KB)
+[10-22 15:01:39] R15_drying_racks: GLB check: {"file": "act1_kit_v1_R15_drying_racks.glb", "MB": 22.2, "meshes": 1, "tris": 19638, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.275], "max": [0.5, 0.385, 0.275]}
+[10-22 15:02:04] R15_drying_racks: FINISHED: balance 8558 (shared); _shots/final_views.png

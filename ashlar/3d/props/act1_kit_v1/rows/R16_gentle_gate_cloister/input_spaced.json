@@ -1,0 +1,36 @@
+{
+ "source": "input.png",
+ "output": "input_spaced.png",
+ "size": [
+  1929,
+  1033
+ ],
+ "backdrop": [
+  154,
+  154,
+  155
+ ],
+ "tol": 22,
+ "objects": [
+  {
+   "x": 90,
+   "w": 695,
+   "srcX": [
+    37,
+    732
+   ]
+  },
+  {
+   "x": 1028,
+   "w": 811,
+   "srcX": [
+    682,
+    1493
+   ]
+  }
+ ],
+ "gaps": [
+  243
+ ],
+ "note": "assets cut from the Astra image with their soft contact shadows and re-spaced; no pixel drawn"
+}

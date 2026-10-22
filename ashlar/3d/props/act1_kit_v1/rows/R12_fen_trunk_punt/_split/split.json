@@ -1,0 +1,87 @@
+{
+ "row": "R12",
+ "row_glb": "rows/R12_fen_trunk_punt/act1_kit_v1_R12_fen_trunk_punt.glb",
+ "variant": "2",
+ "faces": 20166,
+ "objects": 7,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A04.5",
+   "slug": "hollow_trunk",
+   "name": "Fallen hollow trunk",
+   "dir": "A04_5_hollow_trunk",
+   "glb": "A04_5_hollow_trunk/act1_kit_v1_hollow_trunk.glb",
+   "mb": 5.3,
+   "tris": 16800,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 11.3,
+   "support_gain": 141.73,
+   "front": "axes 3.36",
+   "yaw_deg": -95.5,
+   "normalised": [
+    1.0,
+    0.328,
+    0.467
+   ],
+   "real_size_m": [
+    5.0,
+    1.3,
+    1.6
+   ],
+   "m_per_unit_xyz": [
+    5.0,
+    3.97,
+    3.42
+   ],
+   "shape_spread": 1.46,
+   "texture": "own atlas 3456x2992 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A06.5",
+   "slug": "fen_punt",
+   "name": "Half-sunk fen punt",
+   "dir": "A06_5_fen_punt",
+   "glb": "A06_5_fen_punt/act1_kit_v1_fen_punt.glb",
+   "mb": 4.9,
+   "tris": 3366,
+   "objects": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "tilt_deg": 1.8,
+   "support_gain": 1.19,
+   "front": "axes 2.24",
+   "yaw_deg": -89.0,
+   "normalised": [
+    1.0,
+    0.139,
+    0.312
+   ],
+   "real_size_m": [
+    3.4,
+    0.7,
+    1.2
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    5.04,
+    3.85
+   ],
+   "shape_spread": 1.48,
+   "texture": "own atlas 3712x2832 (row atlas 4096x4096)"
+  }
+ ]
+}

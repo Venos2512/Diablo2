@@ -1,0 +1,11 @@
+[10-22 13:29:07] R06_dead_tree_roots: polycount set to 10000 (account default)
+[10-22 13:29:13] R06_dead_tree_roots: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 9408), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 13:29:46] R06_dead_tree_roots: mesh done (credits now 9308); new models: d910bd60-134f-4a8b-a264-003aeb9e71e0 cd433114-8e9c-490a-a82f-4441721557b1 5999dae1-ab76-44c9-89e0-eb2ad17159c9 82c8e6d0-6809-41f1-a6cf-df75f655c709
+[10-22 13:30:39] R06_dead_tree_roots: variants (index uuid faces): 0 d910bd60-134f-4a8b-a264-003aeb9e71e0 11430;1 cd433114-8e9c-490a-a82f-4441721557b1 10993;2 5999dae1-ab76-44c9-89e0-eb2ad17159c9 11617;3 82c8e6d0-6809-41f1-a6cf-df75f655c709 10870;
+[10-22 13:34:01] R06_dead_tree_roots: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/82c8e6d0-6809-41f1-a6cf-df75f655c709 faces 10870; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:34:28] R06_dead_tree_roots: smart uv saved (credits 9183 -> 9163)
+[10-22 13:35:43] R06_dead_tree_roots: texture 4K done in 26s (credits 9163 -> 9143, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 13:36:09] R06_dead_tree_roots: pbr done (credits 9143 -> 9138)
+[10-22 13:36:23] R06_dead_tree_roots: exported act1_kit_v1_R06_dead_tree_roots.glb (format GLB, texture 4kCurrent, 19280 KB)
+[10-22 13:36:23] R06_dead_tree_roots: GLB check: {"file": "act1_kit_v1_R06_dead_tree_roots.glb", "MB": 19.7, "meshes": 1, "tris": 19626, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.246], "max": [0.5, 0.543, 0.246]}
+[10-22 13:36:44] R06_dead_tree_roots: FINISHED: balance 9138 (shared); _shots/final_views.png

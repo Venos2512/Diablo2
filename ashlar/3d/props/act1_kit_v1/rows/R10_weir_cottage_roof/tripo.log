@@ -1,0 +1,14 @@
+[10-22 13:32:11] R10_weir_cottage_roof: polycount set to 10000 (account default)
+[10-22 13:32:17] R10_weir_cottage_roof: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 9283), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 13:32:48] R10_weir_cottage_roof: mesh done (credits now 9183); new models: 1752283d-9fc3-4bd9-bacc-56e931bab1a8 f82a47f5-8b06-4db1-8d49-29047a6afb49 859327d3-41e6-4750-9121-84936ac4ac92 ea8bc451-92f6-409c-b628-2250055ea889
+[10-22 13:33:41] R10_weir_cottage_roof: variants (index uuid faces): 0 1752283d-9fc3-4bd9-bacc-56e931bab1a8 13744;1 f82a47f5-8b06-4db1-8d49-29047a6afb49 9293;2 859327d3-41e6-4750-9121-84936ac4ac92 11653;3 ea8bc451-92f6-409c-b628-2250055ea889 10919;
+[10-22 13:38:46] R10_weir_cottage_roof: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/1752283d-9fc3-4bd9-bacc-56e931bab1a8 faces 13744; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:38:56] R10_weir_cottage_roof: STOP: credits ? too low (floor 2000)
+[10-22 13:48:25] R10_weir_cottage_roof: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/1752283d-9fc3-4bd9-bacc-56e931bab1a8 faces 13744; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:48:59] R10_weir_cottage_roof: smart uv saved (credits 9038 -> 9018)
+[10-22 13:50:48] R10_weir_cottage_roof: texture 4K done in 47s (credits 9018 -> 8998, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 13:51:41] R10_weir_cottage_roof: pbr done (credits 8998 -> 8993)
+[10-22 14:11:18] R10_weir_cottage_roof: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/1752283d-9fc3-4bd9-bacc-56e931bab1a8 faces 13744; texture 4K; from export; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 14:11:44] R10_weir_cottage_roof: exported act1_kit_v1_R10_weir_cottage_roof.glb (format GLB, texture 4kCurrent, 24316 KB)
+[10-22 14:11:44] R10_weir_cottage_roof: GLB check: {"file": "act1_kit_v1_R10_weir_cottage_roof.glb", "MB": 24.9, "meshes": 1, "tris": 21853, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.459], "max": [0.5, 0.5, 0.459]}
+[10-22 14:12:06] R10_weir_cottage_roof: FINISHED: balance 8948 (shared); _shots/final_views.png

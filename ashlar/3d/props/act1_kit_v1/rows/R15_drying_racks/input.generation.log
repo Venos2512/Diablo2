@@ -1,0 +1,57 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a16223-871f-7431-8d9f-932f3d1427ec
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+STYLE CORE (ASHLAR art direction, mandatory): moderately stylized hand-painted dark fantasy in the spirit of Diablo Immortal (the Diablo III / Diablo Immortal family look). NOT photoreal, NOT Diablo IV realism, NOT cartoon, chibi, anime, cel-shaded or toy-like. Proportions follow real anatomy; exaggeration goes only to the identity features (heroes: hands, feet and class props slightly oversized; monsters: their signature features pushed further). Strong readable silhouette, clear value grouping, clean colour blocking: a dominant colour, a secondary colour and a small accent, plus neutrals. Surfaces are SIMPLE: broad painted planes with soft gradients and a few crisp highlights; detail comes from big shapes (large torn edges, plates, straps, bones, cracks, patches), never from texture. No micro texture: no pores, fabric weave, leather grain, scratches, stains, speckle noise, fine grunge or photoreal PBR. Low detail never means flat: keep clear 3D form shading with a lit side, a shadow side, big soft fold shadows and darker occlusion in deep folds. No black cartoon outlines.
+
+ENVIRONMENT RULES: same moderately stylized hand-painted style; big readable masses, simplified surfaces, detail grouped at focal points (path edges, wall bases, story props). Human-made things show a few large, visible repairs (patched thatch, re-tied fences, re-pointed mortar, soot above candles); places a Perfection has taken are seamless and too clean. Every light belongs to a source in the world: humans = small warm flickering smoky light; a Perfection = steady, even, beautiful light, often many identical sources; the Discarded = red-orange kiln light pulsing from inside cracks; the Wall = cold white light through cracks; Mason stone never glows. Keep the playable floor quiet and low-contrast.
+
+TRIPO ROW INPUT (one image = one Tripo image-to-3D run that builds several separate props): ONE horizontal row of separate assets side by side, left to right in the listed order: 3-5 assets of a similar size class, or only two (or one) big assets such as buildings, towers, big trees or arches. Never a second row and never one asset behind another: every asset stands on the SAME baseline, its lowest point on one common floor line. Clear empty backdrop between neighbours, at least about a quarter of the neighbouring asset's width; nothing touches, overlaps or hides another asset. Every asset is drawn large and whole: the smallest at least about one sixth of the image height (a long low asset at least about one fifth of the image width), with a clear margin to every edge of the image. Relative sizes follow the listed real sizes as far as these rules allow. Camera: the same 3/4 view for every asset, only slightly from above (about 10 degrees down), mild perspective. A flat plain mid-grey studio backdrop (about #BDBDBD) that is also the flat floor: no ground base, slab, plinth, disc, turf, soil patch, water or scenery under or around any asset (a mound, bank or rock that IS the asset stays, nothing more); only a small soft contact shadow under each asset. One neutral white light from above and slightly in front, the same on every asset, with clear form shading; no coloured light, glow halo, bloom, light rays or particles (a flame or lamp is a small painted shape). Each asset keeps EXACTLY the design, proportions, materials, colours, repairs and one-sided details of its approved concept cell in the attached sheets; only the layout changes. No human silhouette or figure, no scale guides, no cell borders, no numbers, labels, captions, text or watermark.
+
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only; no nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+
+IMAGE: one landscape 3:2 image, 1536x1024, for the original dark-fantasy ARPG ASHLAR, Act I (Dolmoor): a Tripo image-to-3D input row of 2 separate environment assets whose concept art is already approved. It is NOT a concept sheet: no title, no cells, no labels, no numbers, no H silhouette, no guide lines.
+
+REFERENCE IMAGES (attached in this order):
+(1) E:/Diablo2/ashlar/art/map-01-concepts/environments/E03_village/perspective.png - IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet "E03 VILLAGE KIT (A01, Lychgate village)" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named.
+(2) E:/Diablo2/ashlar/art/act-01-environments/groups/A01_lychgate_village/turnaround.png - SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins.
+(3) E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/perspective.png - IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet "A08 POPPY REACH KIT" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named.
+(4) E:/Diablo2/ashlar/art/act-01-environments/groups/A08_poppy_reach/turnaround.png - SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins.
+
+ROW, left to right, 2 assets on ONE baseline, each turned exactly as in its cell of the perspective sheet (its FRONT toward the lower left):
+1. "Eel-trap fishing rack" (A01.6) = cell 6 of image 1 (its views in image 2). Real size w 3.4 x h 3 x d 1.6 m. Two A-frame trestles of poles lashed with rope carrying a crossbar, three conical wicker eel traps hanging from it, a fourth trap leaning against one trestle.
+2. "Poppy-drying rack" (A08.6) = cell 6 of image 3 (its views in image 4). Real size w 3.6 x h 2.3 x d 1.4 m. A-frame rack of poles with a crossbar, bunches of dried poppy seed-heads hanging by the stems (a few still red), a plank bench beneath. NOTE: no red stain on the bench.
+
+LAYOUT CHECK (canvas 1536x1024, approximate): one common baseline at about y 830 px; asset 1 centred near x 371 px, about 602 px wide and 580 px tall; asset 2 centred near x 1161 px, about 610 px wide and 465 px tall; at least 183 px of empty backdrop between neighbours; nothing closer than 50 px to any edge of the image.
+
+PALETTE: keep the colours of each concept cell. Act I (Dolmoor): wet grey-green #5E6B5A, fen black #1F2A24, peat #4A3526, mist #A9B1A6; poppy red #B3262A only where the concept has it; candle amber #E0A050 only on a small flame. The human Act I pieces keep their few big visible repairs (patches, re-tied lashings, re-pointed mortar).
+FORBIDDEN: sunlight and warm cast shadows; glow halos, bloom or light rays; ground, slabs, turf, water or scenery under or between the assets (unless named as part of an asset); a second row or one asset behind another; any figure, human silhouette, animal or bird; crosses, saints' symbols, prayers or any religious symbol; letters, numbers, labels, captions or a watermark.
+TEXT: none at all.
+
+codex
+Tôi sẽ tạo đúng một ảnh bằng image_gen theo toàn bộ prompt và bốn ảnh tham chiếu.
+
+codex
+image_gen đang xử lý ảnh; tôi giữ nguyên yêu cầu một lần tạo duy nhất.
+
+codex
+E:\map01-batch\home-nam\generated_images\01a16223-871f-7431-8d9f-932f3d1427ec\exec-ec77614d-b017-46dd-bc15-06b646c7a3a1.png
+tokens used
+20,753
+E:\map01-batch\home-nam\generated_images\01a16223-871f-7431-8d9f-932f3d1427ec\exec-ec77614d-b017-46dd-bc15-06b646c7a3a1.png

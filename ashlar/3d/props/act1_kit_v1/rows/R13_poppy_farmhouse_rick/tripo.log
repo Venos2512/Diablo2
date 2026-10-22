@@ -1,0 +1,11 @@
+[10-22 14:12:09] R13_poppy_farmhouse_rick: polycount set to 10000 (account default)
+[10-22 14:12:15] R13_poppy_farmhouse_rick: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 8948), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 14:12:47] R13_poppy_farmhouse_rick: mesh done (credits now 8848); new models: 9f7b8bc7-bd7c-4c2b-a482-062f12fe424d fe6794fe-26ca-458d-9fe8-731f028789af faa6de27-be1b-470a-b13e-7715b2ef58ea 6832b5d5-195e-4d33-830b-8db8922ec577
+[10-22 14:13:43] R13_poppy_farmhouse_rick: variants (index uuid faces): 0 9f7b8bc7-bd7c-4c2b-a482-062f12fe424d 10280;1 fe6794fe-26ca-458d-9fe8-731f028789af 10153;2 faa6de27-be1b-470a-b13e-7715b2ef58ea 10231;3 6832b5d5-195e-4d33-830b-8db8922ec577 11074;
+[10-22 14:43:50] R13_poppy_farmhouse_rick: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/6832b5d5-195e-4d33-830b-8db8922ec577 faces 11074; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 14:44:23] R13_poppy_farmhouse_rick: smart uv saved (credits 8848 -> 8828)
+[10-22 14:45:47] R13_poppy_farmhouse_rick: texture 4K done in 40s (credits 8828 -> 8708, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 14:46:21] R13_poppy_farmhouse_rick: pbr done (credits 8708 -> 8703)
+[10-22 14:46:38] R13_poppy_farmhouse_rick: exported act1_kit_v1_R13_poppy_farmhouse_rick.glb (format GLB, texture 4kCurrent, 24632 KB)
+[10-22 14:46:38] R13_poppy_farmhouse_rick: GLB check: {"file": "act1_kit_v1_R13_poppy_farmhouse_rick.glb", "MB": 25.2, "meshes": 1, "tris": 17358, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.33], "max": [0.5, 0.443, 0.33]}
+[10-22 14:47:00] R13_poppy_farmhouse_rick: FINISHED: balance 8703 (shared); _shots/final_views.png

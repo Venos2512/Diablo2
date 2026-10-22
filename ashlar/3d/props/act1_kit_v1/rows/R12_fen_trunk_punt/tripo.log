@@ -1,0 +1,11 @@
+[10-22 13:39:07] R12_fen_trunk_punt: polycount set to 10000 (account default)
+[10-22 13:39:13] R12_fen_trunk_punt: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 9138), window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 13:39:42] R12_fen_trunk_punt: mesh done (credits now 9038); new models: bb372e07-7ee6-47fa-a70e-762e7652d39c be378907-16d5-4a8f-9883-bb5b7e08698a ec470b3d-6f0f-460f-9099-77697195df38 1ff444c2-35ca-4be3-b0a4-f7341c64185e
+[10-22 13:40:36] R12_fen_trunk_punt: variants (index uuid faces): 0 bb372e07-7ee6-47fa-a70e-762e7652d39c 11577;1 be378907-16d5-4a8f-9883-bb5b7e08698a 10845;2 ec470b3d-6f0f-460f-9099-77697195df38 10942;3 1ff444c2-35ca-4be3-b0a4-f7341c64185e 11325;
+[10-22 13:56:49] R12_fen_trunk_punt: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/ec470b3d-6f0f-460f-9099-77697195df38 faces 10942; texture 4K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 13:57:36] R12_fen_trunk_punt: smart uv saved (credits 8993 -> 8973)
+[10-22 13:59:04] R12_fen_trunk_punt: texture 4K done in 46s (credits 8973 -> 8953, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 13:59:45] R12_fen_trunk_punt: pbr done (credits 8953 -> 8948)
+[10-22 13:59:59] R12_fen_trunk_punt: exported act1_kit_v1_R12_fen_trunk_punt.glb (format GLB, texture 4kCurrent, 13632 KB)
+[10-22 13:59:59] R12_fen_trunk_punt: GLB check: {"file": "act1_kit_v1_R12_fen_trunk_punt.glb", "MB": 14.0, "meshes": 1, "tris": 20166, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.381, 0.0, -0.5], "max": [0.381, 0.197, 0.5]}
+[10-22 14:00:20] R12_fen_trunk_punt: FINISHED: balance 8948 (shared); _shots/final_views.png
