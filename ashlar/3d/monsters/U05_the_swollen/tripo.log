@@ -1,0 +1,11 @@
+[00:52:12] U05_the_swollen: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/U05_the_swollen/views
+[00:52:18] U05_the_swollen: Generate 100 pressed (credits 3795 -> 3695), tab 233EC00A9822318BC2F82BD136B6C689
+[00:53:09] U05_the_swollen: mesh done; new models: 52168b5d-c15b-45eb-878f-85e8f65461f9 c2850c05-fb5a-4a73-b11a-6e34519a2102 971ac201-538a-45fd-bc37-356d8a9d1520 47818848-ac8a-4798-863d-1ed8840c1d50 293e07a1-47a6-4479-baad-8bf3384df1b0
+[00:54:14] U05_the_swollen: variants (index uuid faces) in _shots/variants.txt:
+[00:56:12] U05_the_swollen: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/52168b5d-c15b-45eb-878f-85e8f65461f9 faces 5247
+[00:56:50] U05_the_swollen: smart uv saved
+[00:58:16] U05_the_swollen: texture 4K done (busy0=true 51s; four views re-uploaded)
+[00:59:07] U05_the_swollen: pbr done (credits ? -> ?)
+[00:59:20] U05_the_swollen: exported /e/Diablo2/ashlar/3d/monsters/U05_the_swollen/U05_the_swollen.glb (17940 KB)
+[00:59:20] U05_the_swollen: GLB check: {"file": "U05_the_swollen.glb", "MB": 18.4, "meshes": 1, "tris": 8902, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.195], "max": [0.5, 0.771, 0.195]}
+[00:59:40] U05_the_swollen: FINAL: 145 credits for this asset (100+20+20+5; balance now 2965, shared with parallel threads); _shots/final_views.png

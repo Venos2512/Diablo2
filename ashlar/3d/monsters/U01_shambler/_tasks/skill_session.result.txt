@@ -1,0 +1,14 @@
+Created both sheets and four 1024×1024 views. Existing `design.txt` was preserved as the skill requires.
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/views/right.png)
+
+**QA remains incomplete:** one retry per sheet was used for arm sag and oversized/slightly rotated side views. Remaining issues include 4.6–6.1° arm slope, wide stance, slight profile rotation, and cloth-landmark differences.
+
+Front/back heights: **772/771 px**. Side heights: **886/886 px**, normalized by **0.8713×**.
+
+[Full report and source paths](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/tpose.log) · [Contact sheet](/E:/Diablo2/ashlar/3d/monsters/U01_shambler/views/_contact.png)
+
+Image-generation session: `01a15f7c-c8ce-7801-b9fe-b0ef704e18ff`.

@@ -1,0 +1,12 @@
+Generated both sheets and four 1024×1024 views, but **QA still fails after one retry per sheet**: short arm span, wide stance, low side-view hands, and some landmark mismatches.
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/right.png)
+
+[Contact sheet](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/_contact.png) · [Full report](/E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/tpose.log)
+
+Measured heights: front/back **746 px**; sides **879/877 px**, rescaled **0.849658×**. Retries addressed arm/stance errors and side scale/hand/prop mismatches. Existing `design.txt` was preserved as required.
+
+Image session: `01a15fb1-e0b8-7c42-b882-02290af63f1a`; exact source paths and remaining defects are recorded in `tpose.log`.

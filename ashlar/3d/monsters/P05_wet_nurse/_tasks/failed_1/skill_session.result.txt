@@ -1,0 +1,14 @@
+Completed the workflow, but **QA still fails** after the allowed one retry per sheet.
+
+- [front.png](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/right.png)
+
+[Contact sheet](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/views/_contact.png) · [Full QA report](E:/Diablo2/ashlar/3d/monsters/P05_wet_nurse/tpose.log)
+
+Front/back height: **713 px**. Sides: **874/875 px**, normalized by **0.815×**. All views are 1024×1024 with aligned soles.
+
+Remaining issues: narrower proportions than canon, sloped arms, low curled side-view hands, and bundle/patch inconsistencies. Retries targeted these faults; rejected attempts were preserved. Existing `design.txt` was retained as required.
+
+Session: `01a15fa5-8ce1-7250-9340-5161a778a2c4`. Exact image source paths and measurements are recorded in `tpose.log`.

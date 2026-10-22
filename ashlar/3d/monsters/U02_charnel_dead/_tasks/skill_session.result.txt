@@ -1,0 +1,14 @@
+Đã tạo và tách đủ bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/right.png)
+
+Giữ nguyên `design.txt` có sẵn theo skill. Đã lưu hai sheet, prompts, contact, guides và báo cáo [tpose.log](/E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/tpose.log).
+
+Chiều cao: sheet 1 **599 px**, sheet 2 **766 px**; hệ số thu góc bên **0,781984**. Mỗi sheet sửa một lần: tay quá ngắn/xệ; góc bên quá lớn.
+
+**QA chưa đạt hoàn toàn:** sải tay 1,22H thay vì 1,35H; vạt váy chưa khớp giữa các góc; tay chưa phẳng và hướng bàn chân chưa chuẩn.
+
+Session nguồn: `01a15f8a-f73b-7c41-ad2c-a5ed8caeff50`; đường dẫn từng ảnh nguồn ghi đầy đủ trong log.

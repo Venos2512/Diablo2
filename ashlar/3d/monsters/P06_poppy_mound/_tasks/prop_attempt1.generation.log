@@ -1,0 +1,36 @@
+OpenAI Codex v0.163.0
+--------
+workdir: E:\Diablo2
+model: gpt-6-astra
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 01a15fc2-b52d-7e03-9060-8ea12fff57b4
+--------
+user
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one or two lines with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+Use case: input image for a single-image 3D model generator (Tripo), a static monster prop with no rig. REFERENCE IMAGE (attached): (1) the approved concept sheet of ASHLAR monster P06 Poppy-Mound, variant A (a lineup with H silhouettes, a 3/4 view and four model views): identity reference for the DESIGN only (shape, faces, arms, cloth, flowers, colours). Keep the same design. Do NOT copy the lineup layout, the H silhouettes, the dashed lines, any text or labels: paint ONE object only.
+STYLE CORE (ASHLAR art direction, mandatory): moderately stylized hand-painted dark fantasy in the spirit of Diablo Immortal (the Diablo III / Diablo Immortal family look). NOT photoreal, NOT Diablo IV realism, NOT cartoon, chibi, anime, cel-shaded or toy-like. Proportions follow real anatomy; exaggeration goes only to the identity features (heroes: hands, feet and class props slightly oversized; monsters: their signature features pushed further). Strong readable silhouette, clear value grouping, clean colour blocking: a dominant colour, a secondary colour and a small accent, plus neutrals. Surfaces are SIMPLE: broad painted planes with soft gradients and a few crisp highlights; detail comes from big shapes (large torn edges, plates, straps, bones, cracks, patches), never from texture. No micro texture: no pores, fabric weave, leather grain, scratches, stains, speckle noise, fine grunge or photoreal PBR. Low detail never means flat: keep clear 3D form shading with a lit side, a shadow side, big soft fold shadows and darker occlusion in deep folds. No black cartoon outlines.
+ENVIRONMENT RULES: same moderately stylized hand-painted style; big readable masses, simplified surfaces, detail grouped at focal points (path edges, wall bases, story props). Human-made things show a few large, visible repairs (patched thatch, re-tied fences, re-pointed mortar, soot above candles); places a Perfection has taken are seamless and too clean. Every light belongs to a source in the world: humans = small warm flickering smoky light; a Perfection = steady, even, beautiful light, often many identical sources; the Discarded = red-orange kiln light pulsing from inside cracks; the Wall = cold white light through cracks; Mason stone never glows. Keep the playable floor quiet and low-contrast.
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only; no nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+SUBJECT: P06 Poppy-Mound, a stationary spawner: a low, wide, rounded dome made of several sleeping people grown together into one mound of flesh, wrapped in layers of pale shroud linen, with a clump of red poppies blooming on its top. About 2.5 m wide, about 1.6 m deep, the mound itself about 0.65 of a human height tall and the poppies rising to about 0.9 of a human height at the top centre (the concept's H silhouette = one adult human).
+DESIGN: one solid continuous mound with a smooth rounded outline and a flat base that sits on the ground. Its surface is built of big overlapping draped panels of stained pale shroud linen (#D8CCB0 with soft brown stains, about half of the surface) over a dusky mauve-brown fleshy mass (#7F5A4D), with a few muted olive-brown cloth patches (#9D8169) between the panels; the panel edges are big chunky torn edges with clean painted shapes (no fringe, no threads, no loose strips). The sleepers are part of the mass as RELIEF on its lower surface, never loose limbs: on the FRONT side two calm sleeping faces with closed eyes, one toward the left end and one toward the right end of the front, each turned slightly outward so it can also be seen from its own short side; each face is framed by brown hair as one chunky mass and wrapped by the linen like a blanket pulled up to the cheek; under each face the forearms are folded on the ground at the base of the mound, the hands resting flat on the ground, pressed against the mass. The back of the mound has no faces, only draped linen and flesh. On the top: a compact clump of poppies, one large open poppy flower at the top centre, six to eight smaller open poppies and a few closed buds around it, all saturated poppy red (#B3262A) with dark centres, on SHORT THICK stems rising from a low clump of chunky dark olive-green leaves (#4E5A2E) with a few small dull ochre-yellow leaves; every flower head is a chunky solid shape with thick petals, close to the top of the mound, nothing thin, nothing floating.
+VIEW AND FRAME: a slightly elevated three-quarter view from the front-left (about 25 degrees above the horizon, about 35 degrees around from the front), so the front with its two faces, the left short side and the poppy-covered top are all readable; little perspective. Image for a 3D model generator: ONE single isolated object, centred, the whole object inside the frame with a generous margin on every side (nothing cropped, flowers included), landscape 3:2 image, on a perfectly flat plain light grey #BDBDBD background: no ground plane, no base slab, no soil patch, no grass, no cast shadow, no other objects, no text, no human silhouette. Clear readable silhouette, solid chunky shapes (no thin hair-like parts, no floating bits), hand-painted stylized monster prop with soft painted shading under a top light (lit top, darker lower sides, deep shadow in the folds and under the overhanging linen), low detail, matte. Colour blocking: pale shroud linen dominant, dusky mauve-brown flesh secondary, poppy red as the small accent. Not gory: no blood, no wounds, no exposed anatomy; the sleepers are calm and covered by the linen. Nothing glows.
+
+codex
+I’ll generate one image using the supplied reference and full prompt.
+
+codex
+E:\map01-batch\home\generated_images\01a15fc2-b52d-7e03-9060-8ea12fff57b4\exec-85b549f7-8717-4dcb-86bb-055a0bad514b.png
+tokens used
+10,383
+E:\map01-batch\home\generated_images\01a15fc2-b52d-7e03-9060-8ea12fff57b4\exec-85b549f7-8717-4dcb-86bb-055a0bad514b.png

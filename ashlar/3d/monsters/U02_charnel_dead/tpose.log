@@ -1,0 +1,71 @@
+﻿U02 CHARNEL DEAD - T-POSE SESSION REPORT
+Date: 2026-10-22
+Status: DELIVERED WITH QA FAILURES; best of two generations per sheet, NOT fully approved.
+Step 1: Existing design.txt and brief.md read and preserved unchanged as explicitly required by the skill. HUMANOID yes. No rigging or Tripo generation performed.
+Generation: built-in image_gen only. Full prompts saved beside sheets. STYLE CORE, T-POSE RULES, CONTENT included verbatim. All four generated outputs visually inspected.
+
+SOURCE SESSION: 01a15f8a-f73b-7c41-ad2c-a5ed8caeff50
+Source directory: E:\map01-batch\home\generated_images\01a15f8a-f73b-7c41-ad2c-a5ed8caeff50\
+Sheet 1 attempt 1: exec-c60c31b2-c764-4e26-a14c-318929f6c5e5.png
+Rejected copy: _rejected/tpose_front_back_session_attempt1.png
+Sheet 1 selected retry: exec-098d8f6b-30ad-4099-8ffb-ba9887ab31ed.png -> tpose_front_back.png
+Sheet 2 attempt 1: exec-dbf49011-a3ca-451d-b70e-477fba47c6ee.png
+Rejected copy: _rejected/tpose_sides_session_attempt1.png
+Sheet 2 selected retry: exec-ad166851-5e65-4d1c-a975-ceb9c7402c78.png -> tpose_sides.png
+
+MEASUREMENTS (tpose_tools.py measure/humanoid)
+All sheets: 1536x1024. No edge-margin warnings.
+FB attempt 1: both height 751px, 73.3%; width 741/740px; span/H 0.99. Arm sag warnings 4.4 and 4.6 degrees. Retry requested long arms (1.35H), smaller figure and flat hands/forward feet.
+FB selected: both height 599px, 58.5%; both width 732px; span/H 1.222 vs requested 1.35 (9.5% short). Front arm angles 1.4/2.4 degrees; back 2.4/1.5 degrees. Hand row 20%. Two span warnings exceed normal-human 1.12 threshold: elongated arms are intentional, but desired 1.35 still NOT achieved. No further generation allowed.
+Sides attempt 1: both height 808px, 78.9%; 34.9% larger than FB. Humanoid OK, sole span .21H. Retry requested 599px and corrected occlusion/landmarks, strict side camera, open flat hands.
+Sides selected: both height 766px, 74.8%; 27.9% larger than FB (still outside 12% tolerance; accepted only under retry-limit rule). Width 174/166px. Humanoid OK; sole span .22/.21H.
+Split rescale factor for each side: 599/766 = 0.7819843. Whole figure scaled; no local anatomy edits.
+Four outputs 1024x1024: views/front.png, views/back.png, views/left.png, views/right.png.
+Split reports soles row 952; guides detect last occupied row 951 (exclusive/inclusive edge convention). Head row 353, shoulder/hand guide row 472.
+
+VISUAL QA
+Viewed concept, all generation outputs, views/_contact.png, views/_guides.png, views/_strip_0-60.png and views/_strip_40-100.png.
+Correct order front/back/left/right, true back, anatomical right pauldron; empty hands, no props or text, grey backdrop, full silhouettes with no cropping. Bone/wood/leather/iron palette and broad painted shading retained; no glow. Slight texture and detailed teeth remain versus requested simplified surfaces. Cloth retains substantial dark fold planes.
+Front/back arms mostly horizontal within numeric tolerance but hands/fingertips slightly sag. Feet splay outward rather than exactly parallel forward. Side feet and torso retain slight three-quarter reveal; near hands are foreshortened and not closed fists but fingers curl/downturn instead of being fully flat straight. Side knees show slight flex rather than perfectly straight alignment. Head, hand row, belt and knee heights broadly align after normalization. Skull in profile slightly larger/longer than strict FB correspondence.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages below estimated visually on the normalized strips, approx +/-2 percentage points; 0=skull top, 100=soles. Side views determine depth order. Counts obscured by projection cannot be certified.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Skull/jaw | 0-12 | 0-12 | 0-13 | 0-12 | broadly aligned; profile skull slightly larger
+Near hand row | 19-21 | 19-21 | 19-21 | 19-21 | height aligned; hand shape FAIL flatness
+Right pauldron | far/hidden | near 12-23 | image-left 11-23 | image-right 11-23 | side placement PASS; rivet counts not fully consistent/confirmable
+Coffin boards | front near 16-37; back edge 17-35 | far front edge 18-35; near back 17-37 | left chest 14-37 | whole back 14-37 | gross height/occlusion PASS; plank count/end shapes vary
+Diagonal strap | near front 16-28 | mostly hidden/edge | left shoulder to right ribs 14-29 | right shoulder to left lower ribs 14-32 | direction PASS; exact endpoint continuity uncertain
+Belt | 38-42 buckle at front | 37-41 front buckle hidden by projection | 38-41 central buckle | 38-41 no buckle | broad height/occlusion PASS; slightly above design 40-43
+Front apron | 42-69 front edge | 42-68 far/front edge | 42-70 | hidden by rear skirt | FAIL design target ends 62; not exact shared geometry
+Skirt longest rear point | about 72 | about 73 | rear point visible to 80 | about 80 | FAIL cross-view length (7-8 percentage points short in sides)
+Knee centres | 68-70 | 68-70 | 69-71 | 69-71 | broad alignment PASS
+Ankle wraps/sandals | 86-100 | 86-100 | 87-100 | 87-100 | PASS height; feet orientations not exact orthographic
+
+RETRIES: 1 per sheet (4 built-in generations total this session). Prior-run files already in _rejected/run1 were not changed. No further retries beyond skill limit.
+OVERALL: Files complete, QA not fully passed. Principal remaining issues: span 1.22H vs 1.35H, cross-view skirt length, hand flatness and foot/profile alignment. Review these before treating inputs as production-approved.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Run 1 (first session 01a15f81-54ac-75f3-a1a0-4fe1bf33ad4f) passed pose and asymmetry but the arms were too short: span/height 1.16
+  against the concept's 1.35. Whole run 1 archived in _rejected/run1/ (sheets, prompts, tpose_run1.log, views_run1) and _tasks/run1/.
+Run 2 = extra Codex session 1 of 2: fresh run_session.sh with "WRONG IN THE PREVIOUS ATTEMPT" in brief.md
+  (session 01a15f8a-f73b-7c41-ad2c-a5ed8caeff50). Accepted: span/height 1.22 (closer, still about 10 % short of 1.35; the tool WARN
+  "outside 0.80-1.12" is expected for this long-armed skeleton). Not retried further: a longer span would need a smaller figure, which
+  an edit pass cannot do, and the generator pulled toward normal arms in all four generations (run 1: 0.93 then 1.16; run 2: 0.99 then 1.22).
+humanoid fb: arms +1.4/+2.4 front, +2.4/+1.5 back (centre-line +2.6 to +3.3 deg), hands 20 %; sides OK, sole span 0.21-0.22 H.
+Sheet heights: FB 599/599 px (58.5 %); sides 766/766 px; split rescale 0.782.
+Cross-view table (% of figure height, 0 = skull top, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Skull / jaw        | 0-12        | 0-12        | 0-12         | 0-11          | PASS
+Pauldron (R)       | hidden      | 12-24 near  | img-L 12-24  | img-R 12-24   | PASS
+Planks (L chest + back) | front and back 15-37 | back only 15-37 | img-R half 14-37 | whole back 14-37 | PASS
+Strap              | front edge  | back edge   | L shoulder to R ribs | R shoulder to L waist | PASS (as the concept)
+Arm row (hands)    | 20          | 20          | 20           | 20            | PASS
+Belt / buckle      | 37-40       | 37-40       | 37-40 buckle | 37-40         | PASS
+Apron              | front edge  | front edge  | 40-62        | 40-62 (BACK also shows a central panel, as the concept) | PASS
+Skirt points       | to 68       | to 65       | 62-78        | 62-78         | PASS (longer points front/back middle)
+Knees / sandals    | 66-70 / 86-100 | same     | same         | same          | PASS
+Legs: FB straight and parallel; sides overlap, no stride; side near hands flatter than run 1 but still slightly closed.
+Fidelity: tall narrow skeleton, small round skull, coffin planks, iron pauldron, belt, olive-brown skirt, sandal wraps, colours and form
+  shading match the concept; sword and shield removed; no accent. Canon "left arm much longer" not drawn (the concept's model views draw
+  equal arms; kept equal). Verdict: PASS with deviation (arm span 1.22 vs 1.35).

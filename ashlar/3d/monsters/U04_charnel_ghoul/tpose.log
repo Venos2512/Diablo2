@@ -1,0 +1,56 @@
+U04 Charnel Ghoul, variant A: creature (family Q, variant Qh = human-type body on all fours) neutral-stand views for Tripo multi-view, 2026-10-22.
+Concept: ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept_r2.png (copied to concept.png). Canon: checklist row U04, concept_r2.prompt.txt.
+Flow: CREATURE flow of the generate-tpose-for-tripo skill. design.txt: HUMANOID no, FAMILY Q (Qh), VIEWS table written before the first generation.
+Prompts: scripts/fill_prompt.py only (STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 verbatim from artdirection.md), pose sections "Qh front_back" / "Qh sides"
+  (new, templates/creature_pose.blocks.md: the Q text says paws, tail and mouth closed, which contradicts the open jaw and the human body). Edits: edit_creature.prompt.md.
+Placement templates (make_view_template.py, 2172x724, 620 px per H): _tasks/template_fb.png blocks 0.45x0.80 H, _tasks/template_sides.png blocks 1.00x0.80 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py --jobfile <job> --parallel 1 (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp); job files,
+  prompts, outputs and generation logs in _tasks/, status lines in _tasks/runs.jsonl.
+
+CONCEPT MEASUREMENTS (H silhouette 357 px, baseline row 609)
+  FRONT 243 x 293 px (0.68 x 0.82 H, spread stance); side views 1.20 H long (stride), head top 0.80-0.82 H, smock hump 0.74 H, hips 0.56 H.
+  The "body 1.25H" bracket is drawn 1.17 H and measures the whole running stride; neutral stand length used: 1.0 H. Guide lines sit ~5 % off the H silhouette.
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 1 + nape edit 2 (tpose_front_back.png = _tasks/fb_attempt1_napeedit2.png)
+  attempt 1, session 01a15fb6-e1b1-7e71-8b56-9350ad66b437, 73 s: neutral stand, arms vertical with a gap, hands flat, open jaw as one deep red cavity, hood, tie,
+    chunky smock panels. 625 / 618 px tall, 467 / 455 px wide. Cross-view fault found after sheet 2: BACK showed a thin red tie band at the nape (12 %) above the
+    smock, although the side views put the tie at the base of the neck below the hump top (hump 14 %, tie band 18 %), so from behind it is hidden.
+  edit "nape" 1, session 01a15fbb-db05-7b41-a4d2-efa3b143015b, 50 s: NO EFFECT (band still there, 0.2 % of the pixels changed); not used (_tasks/fb_attempt1_napeedit.png).
+  edit "nape" 2 (named as a dark-red stripe, "no red pixels in the right figure"), session 01a15fbd-b847-78e0-b78c-7f90376bfc42, 52 s: band gone (169 -> 0 red px
+    in the BACK half), FRONT tie intact; 1.0 % of the pixels changed. ACCEPTED.
+  creature tool: symmetry 0.73 / 0.69 (WARN). False alarm: the silhouette centre is the same column (634 / 1530 +-3 px) from the head to the hands at every
+    height; the WARN comes from the hind legs seen between the arms and the jagged smock edges. 2 paw groups on the floor, heights within 1 %.
+
+SHEET 2 (LEFT + RIGHT) - ACCEPTED: attempt 1 (tpose_sides.png = _tasks/sides_attempt1.png)
+  attempt 1, session 01a15fb8-f068-7d50-b108-16d33f0d6db0, 69 s: true profiles, exactly two limbs per view (far arm and far leg hidden), hands and feet on one line,
+    open jaw, hood flap, tie knot at the throat. 600 / 608 px tall, 717 / 720 px wide (length/height 1.20; block 1.25). RIGHT = mirror of LEFT (symmetric design).
+
+SPLIT: tpose_tools.py split --vcenter: sides sheet scaled by 1.029 / 1.034 to the front/back height; soles row 826, top row 199.
+  views/front.png back.png left.png right.png, _contact.png, _guides.png (guides --creature), _strip_0-60.png, _strip_40-100.png.
+
+CROSS-VIEW TABLE (step 4b; % of the figure height, 0 % = hood top, 100 % = ground; read on views/_strip_*.png)
+  feature                 LEFT      RIGHT     FRONT          BACK                 verdict
+  hood top                0         0         0              0                    ok
+  upper jaw tip / mouth   7 (tip)   7         oval 5-33      hidden               ok
+  lower jaw end           34        34        33             hidden               ok
+  smock hump top          ~14       ~14       ~15 (shoulder) ~12                  ok
+  red tie at the nape     ~18, under the hump edge          -   none (after edit)    ok (was the error)
+  tie knot                31-39     31-39     34-39          hidden               ok
+  tie ends lowest         ~52       ~52       ~55            hidden               ok (FRONT 3 % longer)
+  smock lowest points     ~73       ~73       ~72            ~72                  ok
+  limbs visible           2         2         4              4                    ok (far limbs hidden in the sides)
+  hands / feet            100       100       100            100                  ok
+  figure height px        600x1.029 608x1.034 625            621                  ok (one scale, one floor row)
+
+QA (CREATURE QA + Qh): 1 ok (flat grey, no rectangles, no text); 2 ok (arms vertical, gaps, hands flat, no tail; the open mouth is intended); 3 ok;
+  4 ok (heights within 1 %); 5 ok (true profiles, two limbs, RIGHT mirror allowed: symmetric); 6 ok (hood, fangs, tie, smock, claws as in the concept, grey-olive /
+  linen / red blocking, form shading kept); 7 ok after the nape edit.
+
+Remaining deviations:
+  - Hind legs: the sheets follow the concept's leg shape (thigh back and down to a backward-pointing joint at about 72 %, lower leg vertical, foot a little
+    behind the hip), not design v1's "knees slightly forward". design.txt PROPORTIONS/VIEWS were updated to the accepted views (v1 copy:
+    E:\tmp_tripo_all\U04\design_v1.txt).
+  - Side views: the long neck rises about 30 degrees and the jaw gapes up and forward (the concept's carriage); the head is the highest point.
+  - The tie ends hang free below the throat in the side views (short, thick).
+  - Limbs are sinewy with knobbly joints as in the concept; fingers and claws spread on the ground (concept-like), not closed into one hand shape.
+Open question for Tripo: does multi-view fill the open mouth cavity? Not done: no Tripo run, no credits.

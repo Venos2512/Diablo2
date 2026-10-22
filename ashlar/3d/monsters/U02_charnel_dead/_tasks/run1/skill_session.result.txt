@@ -1,0 +1,14 @@
+Created the four 1024×1024 views:
+
+- [Front](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/front.png)
+- [Back](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/back.png)
+- [Left](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/left.png)
+- [Right](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/right.png)
+
+[Contact sheet](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views/_contact.png) · [Full QA log](E:/Diablo2/ashlar/3d/monsters/U02_charnel_dead/tpose.log)
+
+Existing canonical `design.txt` was preserved as required. Both sheets received one retry. Heights: front/back **626/628 px**, sides **778 px**; side rescale **0.8059×**.
+
+**QA deviations remain:** arms shorter than specified, curled side-view fingers, and minor plank/skirt inconsistencies. Retry limits were reached; these are review drafts, not a clean QA pass.
+
+Image session: `01a15f81-54ac-75f3-a1a0-4fe1bf33ad4f`. Exact source paths and retry reasons are recorded in `tpose.log`.

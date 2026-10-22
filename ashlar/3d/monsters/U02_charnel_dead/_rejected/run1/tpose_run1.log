@@ -1,0 +1,44 @@
+﻿U02 Charnel Dead — T-pose report — 2026-10-22
+Status: DELIVERED WITH QA DEVIATIONS; not a clean QA pass.
+Workflow: generate-tpose-for-tripo steps 1–5, built-in image_gen only, one call per sheet attempt. No Tripo run.
+Step 1: Read and visually inspected concept.png. Existing canonical design.txt and brief.md preserved unchanged as explicitly required by skill and brief. HUMANOID yes. Canon resolves contradictory concept profiles: pauldron on own RIGHT, planks on LEFT chest and whole back. Equal arm lengths follow approved front/back rather than unequal-arm lore.
+Prompts: tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Each includes verbatim STYLE CORE, T-POSE RULES, CONTENT plus filled humanoid template and VIEWS.
+
+SOURCE SESSION: 01a15f81-54ac-75f3-a1a0-4fe1bf33ad4f
+Source directory: E:\map01-batch\home\generated_images\01a15f81-54ac-75f3-a1a0-4fe1bf33ad4f\
+Front/back attempt 1: exec-93476f15-c1bd-4737-a755-40ff652c41c1.png
+Retained in _rejected/tpose_front_back_attempt1.png. Height 780/781 px; span/height 0.93. Arms sagged 7.2 and 8.2 degrees; front foot gap 0.23 H. Visually too short arms, splayed feet, overly layered skirt. Retry used.
+Front/back selected attempt 2: exec-ac201c4f-267a-4b22-a888-0a1d07508b51.png
+Copied to tpose_front_back.png. 1536x1024. FRONT bbox (29,219,758,845), height 626 px (61.1%), width 729. BACK bbox (781,216,1504,844), height 628 px (61.3%), width 723. All margins >12px.
+Humanoid check: front arm angles +1.2/+2.5 degrees, back +2.6/+1.3; hands at 19%; foot gaps 0.20 H. WARN span/height 1.16 / 1.15 versus generic 0.80–1.12. Long arms are intended, BUT actual span still falls short of canonical 1.35 (about 14% short). Remaining mild unequal shoulder-to-tip lengths visible; hands slightly droop, feet slightly turn out. Skull reads larger/longer than strict 7-head specification. No further retry allowed.
+Sides attempt 1: exec-031f88a6-76a7-41fe-81ac-1cd3ddcaeef1.png
+Retained in _rejected/tpose_sides_attempt1.png. Both figures 857px (83.7%); numeric humanoid OK but visual arm projection angled forward and scale 36.7% above FB mean. Retry used. Retry prompt approximated initial height as 854px; measured value is 857px.
+Sides selected attempt 2: exec-84787fae-3daa-451c-94d7-5cdb01f2efa4.png
+Copied to tpose_sides.png. 1536x1024. LEFT bbox (414,124,581,902), RIGHT (954,124,1121,902), each 778px (76.0%). All margins >12px. Humanoid OK; sole spans 0.21/0.20 H. End-on near hands now centered over shoulders, but fingers read curled/closed rather than open flat. Legs overlap, no stride; slight natural skeletal knee bend. Scale remains 24.1% above FB mean 627px (beyond 12% tolerance); logged per retry cap. Full figures rescaled, no partial-body edits.
+
+SPLIT / QA
+Ran python -I tpose_tools.py measure and humanoid on all four attempts; split, guides, strip 0–60 and strip 40–100 on selected sheets.
+Sides rescale factor: 627/778 = 0.8059126 (tool prints 0.806).
+Output four 1024x1024 images: views/front.png, back.png, left.png, right.png.
+Common soles placement row 952 (guide detected row 951); guide head row 324, hand reference row 445 (19%).
+Viewed source images, views/_contact.png, views/_guides.png, views/_strip_0-60.png and views/_strip_40-100.png.
+Contact: correct front/back/left/right order; full figures, no clipping; same overall height and soles. True back; side facing directions correct. Near hands side views about 2% H above front hand guide. FRONT/BACK arms near horizontal, foot stance narrow and symmetric; side feet overlap.
+
+CROSS-VIEW LANDMARK TABLE
+Values below are approximate visual measurements against 10% strip ticks, uncertainty about 1–2 percentage points; not automatic part segmentation. Percent from skull top, 100=soles. Order LEFT | RIGHT | FRONT | BACK | verdict.
+Skull/jaw: 0–12 | 0–12 | 0–12 | 0–12 (jaw hidden) | broadly aligned, head profile volume a little larger in sides.
+Neck: 12–16 | 12–16 | 12–16 | 10–16 | broadly aligned.
+Shoulder/near hand: 16–18 | 16–18 | 17–19 | 17–19 | small ~2% vertical drift; side fingers curled, FAIL open-hand rule.
+Right pauldron: occluded far side | 10–21 near | 11–22 image-left | 11–22 image-right | correct side and broad height; large rivets/rim consistent visually, exact rivet counts not certifiable because foreshortened/occluded.
+Coffin boards: front 15–36, rear 15–33 | rear 15–33, far front edge 18–36 | left chest 14–37 | whole back 14–37 | correct broad occlusion, FAIL back lower edge about 4% lower than side rear edge. Four/five board motif retained, exact count obscured in profiles.
+Diagonal strap: visible near ribs/side 18–34 | mostly hidden | left shoulder to right ribs 15–31 | right shoulder to left waist 14–35 | intended front/back direction retained; LEFT side strap coverage not fully reconstructible from this set, flag.
+Belt/buckle: 37–41 front edge | 37–41 front edge | 37–41 front center | 37–40 buckle hidden | cross-view height/occlusion broadly pass; slightly above canonical 40–43.
+Front apron: 41–64 front edge | 41–64 front edge | 41–67 | not front apron; back has brown central cloth | about 3% length drift, brown back panel more prominent than concept, flag.
+Skirt tips: sides ~66–71, rear ~77 | sides ~66–71, rear ~77 | sides ~67, rear visible to ~79 | rear to ~79 | cross-view ~2% tail-hem drift; shorter than canonical back 82. Still more narrow points than requested few broad panels.
+Knees: 65–70 | 65–70 | 66–71 | 66–71 | aligned within visual tolerance.
+Bare shins: 70–88 | 70–88 | 71–87 | 71–87 | aligned.
+Ankle wraps/sandals: 88–100 | 88–100 | 87–100 | 87–100 | consistent materials, heights and depth order.
+
+ART DIRECTION section 11
+Style/palette/form shading: moderate stylization, ivory bone/dark brown wood and leather/olive cloth/dull iron, no saturated accent; large shadow masses retained. No glow, gore, symbols, text, silhouettes, weapons or loose props. No microtexture; skull facets slightly more pronounced than concept. Background broadly neutral grey with faint tonal variation/contact shadows (not mathematically flat on source sheets). Composition passes count/order/no cropping. Design fidelity, strict open hands and cross-view details are NOT clean passes as above.
+Final disposition: Keep best second attempts per mandatory two-generation cap; no additional generation or manual art editing. Outputs are reviewable with known deviations, not certified ready for unqualified Tripo use.

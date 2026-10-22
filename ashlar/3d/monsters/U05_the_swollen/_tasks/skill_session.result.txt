@@ -1,0 +1,14 @@
+Delivered all four 1024×1024 views:
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/U05_the_swollen/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/U05_the_swollen/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/U05_the_swollen/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/U05_the_swollen/views/right.png)
+
+Both sheets generated and visually checked; existing `design.txt` preserved as required. Diagnostics, prompts, rejected attempts, and [tpose.log](/E:/Diablo2/ashlar/3d/monsters/U05_the_swollen/tpose.log) saved.
+
+**QA has remaining deviations:** curled fingers, raised chin, shorter-than-specified arm span, and minor landmark differences. One retry per sheet was used for pose/proportion errors and oversized side figures.
+
+Heights: front/back **577 px**; sides **783/786 px**, normalized by **0.7355×**.
+
+Source session: `01a15f82-0acb-7103-a442-994ae2c4bee6`; exact image source paths are recorded in the log.

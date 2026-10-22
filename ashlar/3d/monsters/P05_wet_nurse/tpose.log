@@ -1,0 +1,92 @@
+﻿P05 Wet-Nurse B — T-pose session report — 2026-10-22
+STATUS: DELIVERABLES GENERATED; QA FAIL / BEST AVAILABLE AT RETRY LIMIT. Not approved for Tripo.
+
+STEP 1
+Read concept.png visually, existing design.txt and brief.md. Preserved design.txt unchanged as explicitly required by skill step 1 and brief. HUMANOID yes. Existing VIEWS landmark table used before generation. Read project Agent.md, Tripo workflow, imagegen skill and artdirection requirements. No code implementation, Tripo generation, credits, rig or animation performed.
+
+GENERATION
+Built-in image_gen only. Two calls per sheet: initial + one retry; no further generations.
+Full prompts saved as tpose_front_back.prompt.txt, tpose_front_back_retry.prompt.txt, tpose_sides.prompt.txt, tpose_sides_retry.prompt.txt. Art direction blocks 3.1, 3.6, 3.8 copied verbatim. Filled humanoid templates via supplied fill_prompt.py. Existing design proportions override generic normal-human span guidance.
+Source session: 01a15fb1-e0b8-7c42-b882-02290af63f1a
+Source directory: E:\map01-batch\home\generated_images\01a15fb1-e0b8-7c42-b882-02290af63f1a\
+FB initial: exec-75e78211-c0aa-4aae-b631-6e2ba9d54de5.png
+FB retained retry: exec-e3f1b969-ada1-4d05-b642-8d0b7e8eee8f.png -> tpose_front_back.png
+Sides initial: exec-ca902ac0-d04c-42ad-b17a-23362f751e16.png
+Sides retained retry: exec-4dadfe7f-9154-4508-8ab6-8edcea07ac53.png -> tpose_sides.png
+Rejected initial images preserved at _rejected/tpose_front_back_session2_attempt1.png and _rejected/tpose_sides_session2_attempt1.png. Older session files untouched. Retained sheets are best available, not QA-approved.
+
+MEASUREMENTS (all sheets 1536x1024)
+FB initial: both 721px / 70.4%; widths 775/692px, span/H 1.07/0.96. Arm heuristic slopes front +7.8/+8.7deg, back +13.7/+9.5deg; feet gap 0.28H both. Retry for downward arms/fingers, different spans, wrong concept proportions and wide stance; asked smaller figures and flat background.
+FB retry: front bbox (35,152,758,898), 723x746; back (774,152,1500,898), 726x746. Both heights 746px / 72.85%. No edge warnings. Span/H 0.97 both, fails design 1.4H even though generic humanoid span threshold passes. Heuristic slopes front +6.4/+8.7deg, back +8.6/+7.0deg; feet gaps 0.26/0.27H, limit 0.22H. Six WARN lines. Visually hands flatter and spans consistent, still not a strict neutral T-pose. Kept retry for better front/back consistency and flatter fingers; it does not restore long arms.
+Sides initial: both 874px / 85.35%, 17.16% taller than FB; widths 412/413px. Humanoid sole spans 0.21H, numeric OK. Visual fail: hands ~24% from top vs FB ~17-18%, head forward, dangling ribbons, extra lower bone ends, patch height mismatch. Retry named all these plus scale mismatch and VIEWS landmarks, with initial sides and FB attached.
+Sides retry: left bbox (227,61,613,940), 386x879; right (915,63,1303,940), 388x877. Heights 85.84% / 85.64%. Mean 878px, 17.69% taller than FB, still beyond 12% tolerance; logged at retry cap. Numeric sides OK, sole spans 0.21H / 0.19H. No edge warnings. Better ribbon ends, no extra bottom bone ends, improved head/hand alignment but not fully corrected.
+Split scale for both side views: 746/878 = 0.849658 (~0.850). Whole figures uniformly scaled; no partial anatomy edits.
+Four views 1024x1024; split reports soles row 952 (exclusive boundary), visible sole guide row 951. Common top approximately 205-206, side difference 2 source pixels produces about 1-2 output pixels. Nothing cropped; correct order FRONT BACK LEFT RIGHT. Split also normalizes background.
+
+VISUAL QA / ART DIRECTION 11
+Viewed both initial sheets and both retries, then contact/guides/upper+lower strips before and after side retry.
+Pass: two complete figures per sheet, true front/back, opposite side profiles facing correct directions, no held prop/text/silhouette; wrapped face, olive layers, pale apron/sling and two upper-back bundles preserved. Right patch on FRONT image-left and RIGHT profile, hidden LEFT/BACK. Broad cloth light/shadow masses present, no black outline/glow; fully clothed adult and abstract linen/bone bundles.
+Fail/limitations: front/back span remains only ~0.97H vs design 1.4H. Front/back stance too wide and arm heuristic still warns; shoulders under shawl make the heuristic imperfect but do not justify declaring PASS. Sides near hands remain ~21-22% vs front/back ~17-18%, with rounded/downward fingers. Side head still slightly pitched forward, not a level upright mannequin. Torso depth/bundle volumes are narrower than concept. Cloth has excessive small speckled stain/wear detail and fine torn edges vs broad clean low-detail requirement. Source backgrounds slightly graded; split backgrounds uniform.
+Legs hidden by robe: cannot verify concealed knee/crotch anatomy. Visible feet overlap in sides, no obvious stepping.
+
+MANDATORY CROSS-VIEW LANDMARK TABLE
+Percentages below are approximate visual readings against 10% strip ticks (typically +/-2-3 percentage points), not automated semantic detections. Zero = highest bone tips; 100 = soles. Columns LEFT | RIGHT | FRONT | BACK | VERDICT.
+Bone tips: 0 | 0 | 0 | 0 | aligned after uniform scale. Two top bundles represented but paired crossed bone stubs are not clearly preserved in side foreshortening; unresolved count/shape ambiguity.
+Red knots: 3-6 | 3-6 | 4-6 | 4-6 | approximate height/color match; short ends improved in retry.
+Bundles visible mass: 4-18 near; far top partly visible | 4-18 near; far top partly visible | 4-12 tops only | 4-20 above sling | correct major occlusion (body hides front, sling covers lower mass); projected bundle depth still uncertain, much shorter vertical exposure than design's 0-40 target.
+Hood top: ~2-3 | ~2-3 | ~2 | ~1-2 | approximate match; side face pitch still differs.
+Wrapped face: ~9-17 | ~9-17 | ~9-20 | hidden | expected occlusion; slight profile head pitch remains.
+Hands/shoulder line: ~21-22 | ~21-22 | ~17-18 | ~17-18 | FAIL side hand row too low by ~4%H; neither matches design's complete intended long-arm pose.
+Sling bottom: ~30 | ~30 | back sling hidden; chest crossing ends ~30 | ~33 | marginal height mismatch 3%H; major occlusion order correct (sling over bundles from rear, crossed ends on front).
+Waist/scarf crossing: ~30-34 | ~30-34 | ~29-33 | hidden | approximate cross-view consistency, but above original 38% design target.
+Shawl lower points: ~47 | ~47 | ~48-49 | ~50 | broadly consistent but ~5-8% lower than design target. Sleeve tips ~30-34 in all views.
+Apron: ~32-87 | ~32-87 | ~32-86 | hidden | height/occlusion approximately match; shorter than original 95% hem target.
+Right apron patch: hidden | ~53-69 | ~49-66 | hidden | correct side and occlusion; FAIL 3-4% vertical shift and shape variation, original target 60-80 also not met.
+Dress bottom: ~94-95 | ~94-95 | ~94 | ~94 | approximately aligned; same broad olive tiering, exact tears/fold landmarks vary.
+Shoes: ~94-100 | ~94-100 | ~94-100 | ~94-100 | common floor; front/back stance too wide, side feet overlap.
+
+OUTPUTS
+views/front.png
+views/back.png
+views/left.png
+views/right.png
+views/_contact.png
+views/_guides.png
+views/_strip_0-60.png
+views/_strip_40-100.png
+tpose_front_back.png, tpose_sides.png, four prompt files, preserved design.txt, this tpose.log.
+Step 4b repeated after retry. Retry budget exhausted for both sheets. Remaining pose/proportion/landmark failures explicitly reported; no claim of full QA pass.
+
+MAIN QA 2026-10-22 (Opus T-pose lead; own checks, Astra's report not relied on)
+History: session 1 (01a15fa5-8ce1-7250-9340-5161a778a2c4) FAILED: arms sloped down 9-12 deg in FRONT/BACK, side near hands ~5 % low and
+  curled, body narrow, arm span 1.0 x height. Sheets in _rejected/*_s1_*, views in _rejected/views_s1/, logs in _tasks/failed_1/.
+  Session 2 (this report above, 01a15fb1-e0b8-7c42-b882-02290af63f1a) had those failures named in brief.md.
+Checks re-run by the lead: strip 0-60 and 40-100, humanoid fb/sides, measure, viewed _contact, _guides and both strips.
+Numeric (session 2): humanoid fb WARN arms +6.4/+8.7 deg (front), +8.6/+7.0 deg (back) = hands sag below the shoulders (limit 4);
+  WARN feet centres 0.26 / 0.27 H apart (limit 0.22) = wide stance; span/height 0.97. humanoid sides OK (sole span 0.21 / 0.19 H).
+  measure: FB 746/746 px, sides 879/877 px; split scaled the sides 0.850.
+
+CROSS-VIEW TABLE (final views/*.png, % of the figure height, 0 = bone-stub tips, 100 = soles)
+  feature                 LEFT        RIGHT       FRONT                BACK            verdict
+  bone tips / knots       0 / 2-10    0 / 2-10    0 / 3-10             0 / 3-12        ok
+  hood top                ~4          ~4          ~2                   ~2              ok
+  bundles + sling bottom  ~28-30      ~28-30      tops only (0-15)     ~33             ok (3-5 %)
+  shoulder row / hands    hands 21-22.5  same     shoulder 14.6, hands 17   hands 17   FAIL: side hands ~5 % lower than FRONT; FRONT/BACK arms sag 6-9 deg
+  shawl hem               44-48       44-48       ~46                  44-48           ok
+  apron                   30-88 (front edge)  30-88   30-87            hidden          ok
+  patch (creature right)  none        52-68       50-67 (image-left)   none            ok
+  dress hem / soles       92 / 100    92 / 100    92 / 100             92 / 100        ok
+  feet                    overlap     overlap     0.26 H apart         0.27 H apart    FAIL: stance wider than 0.22 H
+  figure height px        746         746         746                  746             ok
+Design fidelity: bundles side by side in a V with red knots and bone stubs (no baby features), sling, olive hooded shawl, wrapped face,
+  stained apron with one patch on the right hip, ragged olive tiers, wrapped shoes, empty hands (hand-held bundle removed), painted fold
+  shadows: ok. Body narrower and arms shorter than the concept (span 0.97 against ~1.4).
+VERDICT: ISSUES. Best set kept = session 2 (arms sag less than session 1). Codex usage limit reached 01:44 (resets 2026-10-27 15:40),
+  so no more image passes now.
+PREPARED FIX (not run): two edit passes, jobs in E:\tmp_tripo_all\P05_wet_nurse\jobs_fix_prepared.json:
+  P05_fb_arms_feet_edit  (prompt edit_fb_arms_feet.prompt.txt: arms horizontal at ~15 %, feet ~0.2 H apart)
+  P05_sides_hands_edit   (prompt edit_sides_hands.prompt.txt: near hand straight at the camera at ~15-17 %)
+  run: CODEX_HOME=E:/map01-batch/home TEMP=E:/tmp_tripo_all/tmp TMP=E:/tmp_tripo_all/tmp python -I E:\map01-batch\map01_batch.py
+       --jobfile E:\tmp_tripo_all\P05_wet_nurse\jobs_fix_prepared.json --jobs P05_fb_arms_feet_edit P05_sides_hands_edit --parallel 1
+  then copy the outputs over tpose_front_back.png / tpose_sides.png (old ones to _rejected/ with a suffix), re-run measure, split,
+  guides, strip, humanoid and this table.

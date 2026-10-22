@@ -1,0 +1,70 @@
+﻿U05 THE SWOLLEN - T-pose report
+Date: 2026-10-22 Asia/Saigon
+Status: DELIVERED WITH QA DEVIATIONS; not a clean strict-T-pose PASS.
+
+Step 1: Read concept.png visually, design.txt, brief.md, project Agent.md, requested skill, imagegen skill, and ASHLAR art direction. Existing orchestrator design.txt preserved unchanged as required by skill step 1 and brief. HUMANOID yes. No rigging or Tripo generation performed.
+Generation: built-in image_gen only; 2 calls per sheet (initial + one retry). Prompts saved next to sheets, with verbatim STYLE CORE, T-POSE RULES, CONTENT; humanoid template and VIEWS included. No art drawn with code. Existing tpose_tools.py used for measurement, crops, rescaling, diagnostic guides.
+
+SOURCE SESSION: 01a15f82-0acb-7103-a442-994ae2c4bee6
+Source directory: E:\map01-batch\home\generated_images\01a15f82-0acb-7103-a442-994ae2c4bee6\
+Front/back initial: exec-96ce2620-303c-4bfb-a9c2-81ff526da1a3.png
+Front/back retained retry: exec-e33efbf9-b501-4262-8b2d-1e4a59551ea0.png
+Sides initial: exec-86a9a2ef-5af6-4cb9-8ea4-b35e18d5b2f0.png
+Sides retained retry: exec-efa2265c-5d32-4031-b11f-c86a271bf3dc.png
+Initial images retained in _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png. Sources remain in place.
+
+MEASUREMENTS (all sheets 1536x1024)
+FB initial: front/back 669 px, 65.3%; spans 749/715 px. Retry for short arms, drooping hands, back slope 5.3 degrees, raised chin, excessive fine tatters, stitches too low.
+FB retained: front bbox (30,257,765,834), back (775,257,1512,834); both 577 px, 56.3%; spans 735/737 px, ratio 1.27/1.28 versus design target 1.5. Minimum sheet edge margin 24 px. No measure edge warnings.
+FB humanoid warnings: front right arm +4.1 degrees; back left +4.3 degrees. Other arm slopes +3.0/+3.1 degrees. Hand row 19% from top. Foot centre gap front .26 H/back .25 H. Span and foot-gap generic warnings are expected for stylized design, but span remains below this asset's 1.5 H target. Fingers visibly curl downward; cannot claim straight flat hands. Head still raised. Legs approximately parallel but not perfectly mannequin-straight, feet slightly splayed.
+Sides initial: both 808 px, 78.9%; 40% larger than FB. Retry requested scale 577 px, flat hands, level pure profile, eels hugging belly, matching landmarks.
+Sides retained: left bbox (226,117,605,900), height 783 px (76.5%); right bbox (930,115,1308,901), height 786 px (76.8%). Mean 784.5 px; 36.0% taller than FB, still outside 12% tolerance after allowed retry. Retained for slightly better size and hand presentation, with issues explicitly logged.
+Side scale applied uniformly to both complete side figures: 577/784.5 = 0.73550 (tool reports 0.736). No partial-body rescaling.
+Sides humanoid warnings: sole span .29 H each versus .26 generic limit. Visual inspection shows largely overlapping feet, no obvious stride; oversized feet/contact shadow contribute, but slight knee flex remains. Side hands remain curled, chin raised and view slightly oblique at face/shoulder.
+
+SPLIT AND VISUAL QA
+Ran measure and humanoid on each generated sheet. Ran split, guides, strip 0-60, strip 40-100 after both initial side sheet and its retry; personally viewed _contact.png, _guides.png and both strips each time.
+views/front.png, back.png, left.png, right.png: 1024x1024; order correct, left faces screen-left and right screen-right. True back, no eels/stitches on back. All extremities contained. Shared placement sole boundary row 952 (last visible sole pixel 951); normalized body heights about 576-578 px, remaining 2 px difference from original left/right height discrepancy. Top near rows 374-376. Guides' normal-human crotch/knee lines intentionally do not match this short-legged asset.
+Style QA: moderately stylized painted dark fantasy, readable green/peat/pink colour masses, red stitch accent, strong fold shadows, no text/watermarks/props/glow/gore. Surface still busier than brief (many small cloth tears, hair strands and skin colour patches); not a full low-detail fidelity pass. Background visually near-flat grey with contact shadows, not perfectly uniform in source.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages visually estimated from diagnostic strips, approximately +/-2-3 percentage points. 0=head top,100=soles. Order LEFT | RIGHT | FRONT | BACK | verdict.
+Head/mouth: head 0-14,mouth 9-15 | same | head 0-14,mouth 8-13 | head 0-13,mouth hidden | size broadly consistent; raised chin persists, FAIL level-head pose.
+Hair: 0-14 mostly behind head, lower area hidden by shoulder | same | side clumps 3-19 | 0-23 over upper garment | WARN: shorter apparent profile hair and finer strands than 4-6 broad clumps.
+Arm/hand: hand 18-23 | 18-23 | hand about19, upper arm about15 | same | WARN: side fingertips below guide, curved fingers; shoulder-to-wrist slope not fully horizontal.
+Eels: mouth to42, tips lifting off belly | mouth to42, tips lifting off belly | mouth to45, two tails over chest | hidden by body | occlusion PASS; depth attachment FAIL; endpoint difference about3%.
+Belly: 28-74, widest about53-58 | same | 27-74, widest about55-60 | sides visible about44-73, centre covered by cloth | major volume/occlusion broadly consistent; lower endpoint differs from design80%.
+Red stitch seam: visible30-72 | visible30-72 | about25-73 | hidden | WARN: upper section occluded by side eels, about8 visible X marks front vs7 on profiles; count/spacing not exact and lower endpoint exceeds design65%.
+Garment: shoulder10-15 to90 | shoulder10-15 to90 | shoulder11-16 to93 | shoulder11-16 to93 | WARN: side hems roughly3% shorter; many more small edge subdivisions than desired; major back/front coverage correct.
+Knees: about78-83 | about78-83 | about77-82 | about81-85 | WARN: slight cross-view height mismatch and side flex; desired knee86%.
+Feet/soles: 94-100 |94-100 |94-100 |94-100 | aligned PASS, overlapping profile feet broadly pass; front feet slightly splayed.
+Asymmetry: design has no defining one-sided feature; no side-specific accessories added. Cloth details vary between views; opposite-side direction correct but near-mirror similarity cannot establish exact surface correspondence.
+
+FINAL VERDICT
+Both retries exhausted as required (4 built-in image calls total). Kept the better result for each sheet, preserved rejected attempts, and delivered all requested views and diagnostics. This is a reviewable output with remaining strict-pose, proportion, detail and cross-view discrepancies, not a production-approved T-pose. No further generations beyond skill limit.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed: _guides, both strips before and after edits, both edited sheets)
+Edit passes (batch runner, 2 sessions, 69 s each):
+  FB    session 01a15f8d-dd8f-7e70-938f-4dc2c4782b1e: fingers curled down like hooks -> straightened, open and flat, claw tips
+        kept. Mean change 2.3 grey levels.
+  SIDES session 01a15f8d-dd8e-7cd0-b91b-5181bc43a574: head thrown back with the chin up in both side views (FRONT looks ahead)
+        -> head level, mouth open, eels hang closer to the chest. Mean change 2.8 grey levels.
+Old sheets kept: _rejected/tpose_front_back_attempt2_curledhands.png, _rejected/tpose_sides_attempt2_chinup.png, old views in
+_rejected/views_before_edit/. Accepted sheets = _tasks/edit_fb_hands.png, _tasks/edit_sides_head.png.
+Heights: front/back 577 / 578 px (56 %, 25-27 px side margins); sides 783 / 784 px; split rescale 0.737.
+Cross-view table (% of figure height, 0 = head top, 100 = soles; LEFT / RIGHT / FRONT / BACK; verdict):
+  head top            0 / 0 / 0 / 0                       ok (head level in every view after the edit)
+  mouth               10-14 / 10-14 / 7-12 / hidden        ok
+  hair clumps         to ~14 back / to ~14 / sides of head / to ~12   ok
+  arms / near hand    17-22 / 17-22 / 13-18 / 13-18        ok (side hand ~4 pts lower)
+  eel tips            42 / 42 / 43 / hidden                ok (side tips curl a little off the belly)
+  belly               30-80 / 30-80 / 25-80 / bulges 45-75 at the sides   ok
+  red stitches        front curve 30-70 / same / 26-70 / hidden          ok
+  rag hem             75-85 / 75-85 / 75-90 / 75-90        ok
+  feet                97-100 all                          ok
+Pose: arms straight and level (tool +2.8 to +4.0 deg, hand row 16 %), shoulders level, legs straight and vertical, feet
+centres 0.24-0.27 H (pear body; design asked ~0.3), side legs overlap, no stride (sole span 0.29 H = big bare foot).
+Fidelity: pear corpse, small head with gaping mouth, two eel tails, drum belly with red X seam, open peat/pink rag shirt,
+wet hair, thin legs and bare feet; colours and form shading match the concept.
+VERDICT: PASS with logged deviations: arm span 1.28 x height (concept ~1.55, design 1.5): arms shorter than the concept;
+rag panels still jagged and many-pointed (chunky, close to the body); side eel tips curl slightly away from the belly.

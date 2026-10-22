@@ -1,0 +1,41 @@
+﻿P05 Wet-Nurse T-pose report — 2026-10-22
+STATUS: Deliverables complete; QA FAIL / NEEDS CORRECTION. Retained best of two attempts per sheet, as skill requires. Not an approved Tripo-ready pose.
+Step 1: Read concept.png visually, brief.md and pre-existing canon design.txt. Preserved design.txt unchanged per skill. HUMANOID yes. Existing VIEWS table used before generation. No rigging, Tripo or credits.
+Generation: built-in image_gen only; 4 calls, 2 per sheet. Full prompts saved beside sheets. STYLE CORE, T-POSE RULES and CONTENT copied verbatim from artdirection.md. Existing fill_prompt.py used, no pipeline code changed.
+
+Sources (session 01a15fa5-8ce1-7250-9340-5161a778a2c4):
+Root: E:/map01-batch/home/generated_images/01a15fa5-8ce1-7250-9340-5161a778a2c4/
+FB attempt 1: exec-f36adab0-c298-4af1-9638-deb757e14ea8.png
+FB retained attempt 2: exec-8a5f2768-0b3b-4539-830c-51818a6b13d8.png
+Sides attempt 1: exec-5ee7aa1d-4504-4640-8686-58131e15beae.png
+Sides retained attempt 2: exec-41c95866-b8ed-4894-9674-099e63a653a1.png
+Rejected first attempts preserved in _rejected/tpose_front_back_attempt1.png and _rejected/tpose_sides_attempt1.png. Originals unchanged.
+
+Measurements (all sheets 1536x1024):
+FB attempt 1: 723 / 723 px, 70.6%; span/height1.02; arms 10.7/11.3 and12.4/12.5 degrees; foot centres0.25/0.27H. Retry requested broad original proportions1.4, horizontal arms, narrow feet and less texture.
+FB retained: front bbox(28,160,757,873), back(772,160,1507,873), heights713/713px=69.6%; widths729/735; span/height1.02/1.03 vs canon1.4 FAIL. All margins>=28px. humanoid four WARN: front8.8/11.5deg, back11.6/9.9deg. Feet spacing WARN cleared. Visual arms remain slightly sloped; cloak biases numeric estimates, but cannot declare strict T pass.
+Sides attempt 1:879/880px=85.8/85.9%; +23.35% larger than FB. Extra knots/bones at rear bundle, curled hands, slight 3/4. humanoid sole-span0.27/0.28H warnings. Retry named these faults, exact scale713px, flat hands and true profile.
+Sides retained: left bbox(286,60,628,934), right(908,59,1250,934); heights874/875px=85.4%; widths342/342. Mean874.5px vs713px: +22.65%, still outside12% tolerance, logged after retry cap. No edge warnings. humanoid two WARN sole-span0.28H. Visually one overlapping shoe per side, no obvious stride; heuristic likely includes robe/contact shadow. Knees and hips concealed, cannot inspect directly.
+Split scale reported0.815 for both sides (713/874.5=0.815323). Output1024x1024, shared soles paste row952, detected last foreground951. Front/back remain713px; side heights normalized as whole figures only. No local anatomy scaling or art redrawing.
+
+Viewed: concept, both generated attempts of each sheet, views/_contact.png, views/_guides.png, views/_strip_0-60.png, views/_strip_40-100.png. Order FRONT BACK LEFT RIGHT correct; true back; left faces screen-left, right screen-right. No cropping; common scale/floor pass. Side torsos slightly oblique and shoulders/hands do not share front guide height, FAIL.
+
+Cross-view landmark table, approximate percent readings from viewed strips (0=highest bone,100=soles). Values are visual estimates, not automatic segmentation:
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Bone tips/top knots | near0-7,far6-12 | near0-7,far14-18 |0-8 both|0-8 both|FAIL far knot height/occlusion inconsistent; should same paired bundle arrangement
+Hood top |4|4|2|2|Minor2% difference
+Wrapped face |10-18|10-18|9-17|hidden|Face identity/occlusion pass
+Bundle masses |6-25 partly sling-covered|6-25 partly sling-covered|tops5-14 then body hides|5-25 sling over lower mass|Broad occlusion pass; exact bundle structure FAIL, too short vs canon40%
+Sling lowest edge |35|35|hidden behind body|35|Cross-view approximate pass; canon44% missed
+Crossed chest sling/waist |24-35|24-35|16-34|hidden|Crossing exists, wrapping not fully consistent; canon crossing25-35%
+Near hands |23-26|23-26|20|20|FAIL side hands lower and fingers curl down; front/back sloped arms
+Shawl visible hem |43-47|43-47|40-44|~45 under sling|Approximate pass in broad band
+Apron patch RIGHT only |hidden|54-68|50-68 image-left|hidden|Side assignment PASS; upper edge mismatch4%, canon60-80% missed
+Apron |34-90|34-90|32-89|hidden|Approximate cross-view pass; hem short of canon95%
+Dress hem |94-96|94-96|93-95|93-95|PASS
+Shoes/soles |95-100|95-100|94-100|94-100|Common floor PASS, feet overlap in profiles; internal legs hidden
+
+Art-direction QA: recognizable hooded linen-wrapped adult nurse; olive/linen/red palette, two back bundles retained, empty hands, single right apron patch. No gore, glow, added claws/teeth or exposed anatomy. Broad cloth shadow planes and smooth painterly rendering retained. Background grey, no labels or silhouette. Some soft background shading/contact shadows and excessive small brown mottles remain vs plain low-detail requirement. Main fidelity failure is tall/narrow body vs bulky broad concept. Sleeve/hem pointed tiers retained as thick shapes; some ribbon ends still project, not wholly flush. Side far-bundle details unresolved. No clean QA pass claimed.
+
+Commands completed: measure and humanoid for both attempts; split; guides; strip0-60 and40-100. Retry budget exhausted. No further generation under this skill.
+Files: views/front.png, views/back.png, views/left.png, views/right.png, views/_contact.png, views/_guides.png, both strip images, tpose_front_back.png, tpose_sides.png, full prompts and retry prompts, preserved design.txt, this log.

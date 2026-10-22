@@ -1,0 +1,13 @@
+Completed both sheets, QA, splits, and [tpose.log](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/tpose.log). Existing canonical `design.txt` was preserved as required.
+
+- [front.png](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views/front.png)
+- [back.png](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views/back.png)
+- [left.png](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views/left.png)
+- [right.png](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views/right.png)
+- [Contact sheet](E:/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views/_contact.png)
+
+Heights: front/back **790/791 px**; sides **849/848 px**, rescaled **0.932×**. One retry per sheet corrected sagging arms/wide stance and improved side foreshortening.
+
+Numeric checks pass. Remaining visual deviations include slight side torso rotation, cloth-length differences, and unresolved nail count; these are documented rather than marked fully approved.
+
+Source session: `01a15f81-5a64-74a1-8de1-f4f72bc1ff3e`. Full source paths and saved prompts are recorded in the log.

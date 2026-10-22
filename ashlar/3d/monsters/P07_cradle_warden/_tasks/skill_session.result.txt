@@ -1,0 +1,12 @@
+Completed steps 1–5; existing `design.txt` preserved as required.
+
+- [front.png](/E:/Diablo2/ashlar/3d/monsters/P07_cradle_warden/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/monsters/P07_cradle_warden/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/monsters/P07_cradle_warden/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/monsters/P07_cradle_warden/views/right.png)
+
+All views are 1024×1024 with aligned soles. Sheet heights: front/back **462/464 px**, sides **644/643 px**; side rescale **0.720×**.
+
+Used one retry per sheet for proportions and profile/scale errors. **QA still needs changes:** arm angles, side head orientation, and cross-view skirt/patch heights remain inconsistent. Rejected attempts preserved.
+
+[Full report and source paths](/E:/Diablo2/ashlar/3d/monsters/P07_cradle_warden/tpose.log). Image session: `01a15f7e-f15a-7553-9ba9-0705ed157940`.

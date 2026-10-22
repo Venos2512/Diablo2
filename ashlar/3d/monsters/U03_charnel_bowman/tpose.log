@@ -1,0 +1,89 @@
+﻿U03 CHARNEL BOWMAN — T-POSE REPORT
+Date: 2026-10-22
+Status: Steps 1-5 completed; best attempts retained WITH VISUAL QA DEVIATIONS. Not an unconditional QA pass.
+Built-in image_gen only, four calls: one initial and one retry per sheet. No Tripo generation or credits.
+
+STEP 1
+Viewed concept.png. Existing canonical design.txt and brief.md read and preserved unchanged as required by skill. HUMANOID yes. Canon corrects mirrored concept BACK: nail heads behind anatomical RIGHT shoulder; red band on anatomical LEFT upper arm. No new design.txt written over canonical file.
+Prompts saved beside sheets; full STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 prepended verbatim; humanoid template and VIEWS included.
+
+MEASUREMENTS (bounding boxes use exclusive maximum coordinates)
+Sheet 1 initial: front 765 px (74.7%), back 762 px (74.4%), image 1536x1024. Arms +4.8 to +5.2 degrees, feet gap 0.30-0.31 H: FAIL. Preserved _rejected/tpose_front_back_attempt1.png.
+Sheet 1 selected retry: front bbox (33,93,755,883), 790 px (77.1%); back bbox (778,92,1501,883), 791 px (77.2%). Span/height 0.91. Arms +2.1 to +2.5 degrees; feet gap 0.21 H. humanoid: OK, no warnings. Margin minimum 33 px, no edge warnings.
+Sheet 2 initial: left 857 px (83.7%), right 856 px (83.6%). Numeric humanoid OK, but visual FAIL: near arms project across image and torso is three-quarter. Preserved _rejected/tpose_sides_attempt1.png.
+Sheet 2 selected retry: left bbox (395,65,636,914), 849 px (82.9%); right bbox (889,65,1130,913), 848 px (82.8%). Sole span 0.19 H. humanoid: OK, no warnings. Margin minimum 65 px, no edge warnings.
+Side height about 7.3% larger than front/back, inside +/-12% allowance. Split reports side rescale 0.932 (791/849 approximately 0.9317). Whole figures uniformly scaled, no part-only rescaling.
+Four outputs 1024x1024, common soles placement row 952 (guides detect last visible sole row 951), highest point near row 161. Contact sheet viewed: front, back, left, right; no cropping.
+
+VISUAL QA
+Viewed both attempts of each sheet, final contact, guides, upper strip and lower strip.
+Correct two figures per sheet, true back, no handheld bow or loose arrow, neutral grey, no text/watermark. Skull uncovered, skeleton remains lean, ivory bones, olive-brown cloth, dark wood/leather quiver, rust nails and red accent retained. Broad form shading and dark folds retained, no glow, no added flesh or muscle, no microtexture or black cartoon outlines. Concept is also the applicable approved monster style reference.
+Front/back retry substantially improves arm level and stance; numeric tolerances pass. There remains slight arm slope (2.1-2.5 degrees), and front feet turn outward slightly rather than perfectly parallel.
+Side retry greatly improves foreshortening; hands overlap shoulders, far arms hidden, legs and feet overlap, no stride. Torso still reads mildly three-quarter rather than mathematically exact profile, with more chest visible than ideal. Side hand row approximately 20-21% versus front/back 19%, a small downward mismatch visible in guides.
+Bone joints and skull remain stylized. Jaw has more separately indicated teeth than the canonical request for no detailed tooth rows. Visible nail-head count is about three per view; fourth/fifth required by canon is not clearly resolved. Band knot has a longer/two-point tie instead of the requested single short thick tie.
+
+CROSS-VIEW LANDMARK TABLE
+Approximate visual measurements from viewed normalized strips, accuracy about +/-2 percentage points. Percent measured from highest nail head to soles. Hidden features marked hidden rather than inferred as visible. Order: feature | LEFT | RIGHT | FRONT | BACK | verdict.
+Nail cluster | 0-10 | 0-10 | 0-11 | 0-11 | heights agree; anatomical right placement correct; count unresolved/under target.
+Skull | 2-15 | 2-15 | 1-14 | 1-10 visible rear skull | broadly consistent, side skull slightly larger.
+Cowl/hood | 10-25 | 10-25 | 10-23 | 10-25 | correct wrapping and back hood, quiver lies outside cape; broad folds retained.
+Near hand/shoulder | 20-21 | 20-21 | 19 | 19 | small residual vertical mismatch; side chest slightly rotated.
+Red band | 17-22, tie to 28 | hidden | image-right 17-20, tie to 25 | image-left 17-20, tie to 25 | correct anatomical LEFT; tie too long, side extent differs.
+Quiver box | 10-37 | 10-37 | top lip 10-13, remainder occluded | 10-38 | broadly consistent height and depth; back diagonal correct. Two binding bands consistent, small rivet counts not reliably identical.
+Ribcage/chest X | 21-34, partial strap | 21-34, partial strap | 21-32 crossed straps | hidden by cape | correct back occlusion; excess chest exposure in side views.
+Pelvis | 37-46 | 37-46 | 36-45 | partly visible 37-44 | broadly consistent; slight side/front size difference.
+Hip straps | 42-49 | 42-49 | 42-47 | 38-47 | residual: back diagonal upper edge higher; side buckle details differ.
+Front/side cloth panels | visible edge to about 72-78 | visible edge to about 72-78 | lateral panels to 67; central front layer about 65, back layer visible beyond | obscured | FAIL fidelity: front loincloth too short versus canon 80%; lateral hems not identical among views.
+Back cape lowest point | about 85-86 | about 85-86 | rear panel visible to about 84 | about 86 | lowest-point agreement within ~2%; outer silhouette/point placement differs.
+Knees | 66-69 | 66-69 | 66-70 | 66-70 | agree among views, about 3-5 percentage points higher than canon 70-74.
+Feet | 95-100 | 95-100 | 95-100 | 95-100 | common floor, no cut; front/back slight toe turnout.
+
+RETRY LIMIT
+One retry per sheet used. Selected retries are better than initial attempts. No further generation performed, consistent with skill cap. Cross-view issues above remain; user should review contact/guides before using as final Tripo inputs.
+
+OUTPUTS
+views/front.png
+views/back.png
+views/left.png
+views/right.png
+views/_contact.png
+views/_guides.png
+views/_strip_0-60.png
+views/_strip_40-100.png
+tpose_front_back.png
+tpose_sides.png
+tpose_front_back.prompt.txt
+tpose_front_back_retry.prompt.txt
+tpose_sides.prompt.txt
+tpose_sides_retry.prompt.txt
+design.txt (pre-existing canon preserved)
+
+SOURCE PROVENANCE
+Codex image session: 01a15f81-5a64-74a1-8de1-f4f72bc1ff3e
+Source directory: E:\map01-batch\home\generated_images\01a15f81-5a64-74a1-8de1-f4f72bc1ff3e\
+Front/back initial rejected: exec-f3f11bf7-19e1-46fb-a240-e34aa8472eba.png
+Front/back selected retry: exec-3851bd20-9dcb-41c8-996c-3e8a941b2555.png
+Sides initial rejected: exec-9c9b3e3a-c67f-49cd-8f0d-1f569bf98538.png
+Sides selected retry: exec-71803956-7657-4198-9916-414596defed4.png
+All source files copied, originals retained.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+No extra Codex session needed. humanoid fb: OK (arms +2.2/+2.1 front, +2.5/+2.1 back; centre-line fit +0.1 to +1.0 deg; hands 19 %;
+  span/height 0.91, concept 0.88; feet centre gap 0.21 H). sides: OK, sole span 0.19 H.
+Sheet heights: FB 790/791 px; sides 849/848 px; split rescale 0.932.
+Cross-view table (% of figure height, 0 = nail heads, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Nail heads         | 1-10 behind skull | 1-10 behind skull | 1-9 over R shoulder (img-L) | 1-10 top at img-R | PASS
+Skull              | 2-14        | 2-14        | 2-14         | 2-14          | PASS
+Quiver box         | 8-35 on back | 10-37 on back | hidden    | 10-36 diagonal, top img-R | PASS (right-shoulder top in every view)
+Cowl               | 10-22       | 10-22       | 10-22        | 10-24 hood folds | PASS
+Red band (L upper arm) | near arm 18-25 | hidden | img-R 18-25   | img-L 18-25   | PASS
+Chest X straps     | front edge  | front edge  | 20-33        | n/a           | PASS
+Hip straps         | 43-47       | 43-47       | 43-48        | 38-50 crossed | PASS
+Back cape panel    | to 81       | to 82       | side panels to 62-65 | to 81-83 | PASS
+Front loincloth    | front edge  | front edge  | 45-82        | n/a           | PASS
+Knees / feet       | 67-70 / 96-100 | same     | same         | same          | PASS
+Legs: FB straight and parallel (0.21 H apart); sides overlap, no stride.
+Fidelity: lean skeleton, wide pelvis, cowl-cape, board quiver with 4 nails, one red arm band, colours and form shading match the concept;
+  bow removed. The concept's own BACK view draws the quiver and the band mirrored; the T-pose follows design.txt (right-shoulder quiver,
+  left-arm band) consistently in all four views. Verdict: PASS.

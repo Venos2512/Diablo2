@@ -1,0 +1,76 @@
+﻿U01 SHAMBLER T-POSE REPORT — 2026-10-22
+Status: DELIVERED WITH QA FAILURES; not a strict production-pose PASS.
+Skill steps 1-5 executed. Existing canonical design.txt preserved unchanged as explicitly required by skill and brief.md. Concept viewed. No Tripo run.
+Generation: built-in image_gen only; two calls per sheet (one initial + one retry). Full prompts saved beside sheets. Rejected initial attempts retained in _rejected. Only supplied tpose_tools.py used for measurement, crop/scale and diagnostic guides.
+
+SOURCE SESSION: 01a15f7c-c8ce-7801-b9fe-b0ef704e18ff
+Source directory: E:\map01-batch\home\generated_images\01a15f7c-c8ce-7801-b9fe-b0ef704e18ff\
+Front/back initial: exec-be092af8-76bd-4a7b-80cd-a693bcfba355.png
+Front/back selected retry: exec-481c3fa3-8dc0-4ed0-9395-c6b4f15ffb18.png
+Sides initial: exec-52b42b40-ccff-499d-a8ec-add6ec3aa8bc.png
+Sides selected retry: exec-f5674c17-3148-42c9-939c-8e89597d8a44.png
+
+MEASUREMENTS (both sheets 1536x1024)
+Initial FB: 761 / 761 px, 74.3%; no edge warning. Arms 5.7/6.9 and 7.6/5.6 degrees: FAIL.
+Selected FB: front bbox (24,115,763,887), height 772 px (75.4%), width 739; back bbox (786,116,1511,887), height 771 px (75.3%), width 725. No edge warning.
+Selected FB humanoid: front arm slopes +4.6/+6.1 degrees; back +6.0/+5.0 degrees. Feet centre gap front 0.25H / back 0.24H (>0.22 limit). Six warnings. Span/height 0.96 and 0.94, close to canonical 0.93.
+Initial sides: 899 / 898 px (87.8/87.7%); ~16.5% larger than FB. Humanoid sole span 0.19H, numeric OK. Visual slight three-quarter rotation.
+Selected sides: both 886 px (86.5%); bboxes (370,58,628,944) and (911,58,1169,944); widths 258 px; sole span 0.19H, humanoid numeric OK. No edge warning. Still 14.8% taller than FB, exceeds 12% limit; retained after retry per skill.
+Split sides uniform rescale = 772/886 = 0.8713318 (tool reports 0.871). No partial-body rescaling.
+Views: front.png back.png left.png right.png, all 1024x1024. Split baseline row 952; guides visible soles row 951; front head row 180, shoulder/hand guide row 298 (15%). Back 1px height difference remains negligible.
+
+RETRIES
+FB retry: named sagging arms, excess tiny holes/strips, cape tip, scarf/rope landmarks. Improved cloth simplification and visible arm alignment, but numeric slopes still fail and stance wider. Selected for cleaner cloth and improved arm alignment; do not claim strict T-pose.
+Sides retry: named excessive figure height (899 vs 772 px), slight three-quarter angle, non-flat fingers and landmark matching. Height reduced to 886 but remains too large; overlap improved, hand and view angle not fully corrected.
+
+VISUAL QA
+Viewed generated sheets, concept, final _contact.png, _guides.png, _strip_0-60.png and _strip_40-100.png. Intermediate diagnostics also viewed before sides retry.
+Correct order front/back/left/right, true back, screen-left and screen-right profiles; entire figures inside frame, matching baseline, no text/props. Upright torso, feet planted, no stride. Side legs overlap but knee profile slightly bent and torso/foot presentation retains slight three-quarter rotation. Fingers are not fully straight/flat. Near hands about 16-18% rather than front 15%; guides show slight offset. Front/back arms visually near horizontal but droop persists, consistent with numeric warnings.
+Identity retained: bandaged human head, two dull brass eye coins (one on each side), jaw wrap, sparse dark hair, lean grey flesh, olive mantle, linen tunic, waist rope, brown leg wraps and exposed toes. No new claws, teeth, muscles or held objects.
+Art direction §11: stylized hand-painted surfaces and strong fold shadows retained, muted Prologue palette, no glow, no prohibited content or black outlines. Some small mottling and thin rag points persist; flat background has faint ground shading. Visual-only value and style check; not a quantitative shadow-area test. Not a full fidelity PASS due to simplified/shifted cloth details and cross-view differences.
+
+CROSS-VIEW LANDMARK TABLE
+Values visually measured against 10% strip ticks; approximate +/-2 percentage points, not exact segmentation. Order LEFT | RIGHT | FRONT | BACK. 0=hair top,100=soles.
+Hair: 0-4 | 0-4 | 0-4 | 0-4. PASS.
+Coins/bandage: 5-10 | 5-10 | 5-10 | coins hidden, rear wrap 4-8. PASS occlusion; slightly lower than canonical 4-9.
+Jaw band: 10-14 | 10-14 | 9-13 | hidden by rear cowl. PASS approximate.
+Cowl/scarf: cowl 4-15, chest to31 | cowl4-15,chest to31 | chest6-30 | cowl4-21. WARN: back cowl lower than design15, chest ends lower than design28; cowl stays above cape and occludes back neck correctly.
+Sleeve flaps: 14-34 | 14-34 | 13-35 | 13-34. WARN: consistent across views but longer than canonical28.
+Cape: 9-66 | 9-66 | visible lateral panels9-51 | 10-64. WARN: side tips ~2% lower than BACK; all lower than canonical62; FRONT lateral panels longer than canonical45. Cape correctly behind arms and over tunic; rear cape hides belt.
+Rope waist: 31-34 | 31-34 | 30-33 | hidden. Approximate cross-view PASS; slightly above canonical33-36. Front knot is central; two ends visible from front/profile, hidden behind.
+Rope ends: 49-52 | 49-52 | 49-52 | hidden. PASS approximate.
+Tunic hem: 64-85 | 64-85 | 64-83 | 68-86. WARN modest hem differences; tear-hole correspondence not proven. Lower side hem cuts and rear holes do not establish identical 3D tear layout.
+Bare knees: 65-73 | 65-73 | 65-74 | mostly hidden by tunic. PASS approximate occlusion; knees near intended70%.
+Leg wraps: 73-95 | 73-95 | 74-95 | 73-95. PASS approximate.
+Feet: 95-100 | 95-100 | 95-100 | 95-100. PASS baseline; front/back stance-width warning remains.
+
+FINAL LIMITATIONS
+Both sheets reached the maximum two generations. Kept the better attempts and logged unresolved failures as the skill requires. No further generation/edit pass made. Outputs are available for review, not certified strict T-pose or fully cross-view-consistent references.
+
+MAIN QA 2026-10-22 (T-pose lead, Opus; images viewed, not taken from the report above)
+Found on the delivered set: sheet 1 arms sagged (tool +4.6/+6.1 front, +6.0/+5.0 back) and the BACK olive cape ended at about 52-55 %
+  while LEFT/RIGHT carry it to 62-65 % (cross-view mismatch about 9 % of H).
+Edit pass (extra Codex session 1 of 2): batch job U01_FBE_ARMS_CAPE, prompt _tasks/prompt_fb_edit_arms_cape.txt (edit_creature template
+  via fill_prompt.py, EDIT text first: arms horizontal + BACK cape to about 62 %), reference = accepted sheet only;
+  session 01a15f8a-0a4b-7e11-9be4-b39840dd98b4, 72 s,
+  src E:/map01-batch/home/generated_images/01a15f8a-0a4b-7e11-9be4-b39840dd98b4/exec-504acf29-6300-42f2-a600-34409e1920f9.png
+  -> _tasks/fb_edit_arms_cape.png, accepted as tpose_front_back.png; previous sheet kept as
+  _rejected/tpose_front_back_attempt2_armsag_shortcape.png. Re-ran split, guides, strip.
+After the edit: humanoid fb: arms +1.5/+1.7 front, +1.6/+1.5 back; hands at 12 % from the top (tool WARN "below 13 %": this zombie's
+  shoulders are raised and the head sits low, so 12 % is the drawn shoulder line); feet centre gap 0.25/0.24 H (WARN, wide stance kept,
+  logged). sides: OK, sole span 0.19 H.
+Sheet heights: FB 778/778 px (76.0 %); sides 886/886 px; split rescale 0.878.
+Cross-view table (% of figure height, 0 = hair top, 100 = soles):
+Feature            | LEFT        | RIGHT       | FRONT        | BACK          | Verdict
+Hair / bandage+coins | 0-3 / 4-9 | 0-3 / 4-9   | 0-3 / 4-9    | 0-3, no coins | PASS
+Jaw band           | 9-13        | 9-13        | 9-13         | hidden        | PASS
+Scarf / cowl       | 8-30 front  | 8-30 front  | 8-30 crossed | cowl 3-18     | PASS
+Arm row (hands)    | 16          | 16          | 12           | 12            | MINOR: side near hands about 4 % below the FB arm row
+Sleeve flaps       | to 30       | to 30       | to 35        | to 35         | PASS
+Olive cape         | back edge to 63-65 | back edge to 62 | sides to 47 | point 65-67, edges 58 | PASS after edit (within 3-5 %)
+Rope tie / ends    | 31-34 / to 52 | 31-34 / to 52 | 31-34 / to 52 | hidden    | PASS
+Tunic hem          | 62-82       | 62-82       | 62-82        | 60-85         | PASS
+Knees / wraps / feet | 64-72 / 72-96 / 96-100 | same | same     | same          | PASS
+Legs: FB straight (stance 0.25 H, wider than 0.15 H); sides overlap, no stride; side profiles very slightly turned (Astra note), acceptable.
+Fidelity: build, bandaged head with two brass coins, jaw band, scarf, olive cape, ragged tunic, rope tie, grey knobbly limbs, mud wraps
+  match the concept; no accent colour; form shading kept. Verdict: PASS with minor deviations (stance width, side hand row 4 % low).

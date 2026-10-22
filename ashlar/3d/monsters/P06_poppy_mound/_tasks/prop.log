@@ -1,0 +1,23 @@
+P06 Poppy-Mound, variant A: PROP ROUTE input image for Tripo single-image (Smart Mesh), 2026-10-22. Static spawner, no rig.
+Concept: ashlar/art/map-01-concepts/monsters/P06_poppy_mound/vA/concept_r2.png (copied to concept.png). Pattern: ashlar/3d/props/dungeon_v1 / clutter_v1
+  (one object, 3/4 view from slightly above, flat grey #BDBDBD, no ground slab, no cast shadow, nothing cropped).
+Prompt: asset text + art direction blocks pasted verbatim by E:\tmp_tripo_all\P06\build_prompt.py: STYLE CORE 3.1, ENVIRONMENT RULES 3.7 (main block), CONTENT 3.8.
+  (3.2 SHEET RULES and 3.4 MONSTER RULES not used: they describe a lineup sheet with an H silhouette.) Reference image 1 = concept.png (identity only).
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py --jobfile <job> --parallel 1 (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp); status in runs.jsonl.
+
+CONCEPT MEASUREMENTS (H silhouette 255 px): FRONT 677 px wide = 2.65 H (canon 2.50 H), mound about 0.65 H tall, poppies to about 0.90 H; sides about 1.58 H deep.
+  Faces: two on the front (toward the left and the right end, each also seen from its own side in LEFT / RIGHT); none on the back.
+
+attempt 1, session 01a15fc2-b52d-7e03-9060-8ea12fff57b4, 59 s (prompt_prop_a1.txt): REJECTED (_rejected/prop_attempt1_near_front_view.png). Design, style and
+  colours right, but seen almost straight from the front (the left short side did not show), and a soil-like brown rim of flaps spread round the base.
+attempt 2, session 01a15fc4-ea14-79d2-838f-5d6dcdb5a5db, 84 s (prompt_prop_a2.txt; the fault named first, attempt 1 attached as image 2 for the design): ACCEPTED
+  -> prop_input.png. Clear front-left 3/4 from about 25-30 degrees above: the front with both sleeping faces runs away to the right, the left short side and the
+  poppy-covered top read; one large poppy at the top centre, about ten smaller open poppies and buds on short stems, chunky leaves; linen panels over the
+  mauve-brown flesh, forearms folded at the base as relief; flat base, no slab, no cast shadow, nothing glows, no gore.
+  1536x1024; object bbox x 45-1476, y 140-860 (margins 45 / 59 / 140 / 163 px).
+
+QA (artdirection 11): style ok (Immortal-like painterly, low detail, form shading with a lit top and dark lower sides, no outlines); one object, no text,
+  nothing cropped; colours: linen dominant, mauve-brown secondary, poppy red accent; content 3.8 ok.
+Deviations: the background is flat grey 171 (#ABABAA), not #BDBDBD (Tripo removes it); the left margin is narrow (45 px, 3 %); the lower edge is still an
+  irregular brown rim of the mound (less soil-like than attempt 1); the left short side shows draped linen, no third face (matches the 2-face reading).
+Not done: no Tripo run, no credits. Fallback if single-image fails: family O sections, multi-view.

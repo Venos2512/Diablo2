@@ -1,0 +1,11 @@
+[01:12:51] U02_charnel_dead: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/U02_charnel_dead/views
+[01:12:58] U02_charnel_dead: Generate 100 pressed (credits 16508 -> 16308), tab C57AC79519BE57BE3D5EE1A005875C10
+[01:14:51] U02_charnel_dead: mesh done; new models: ddf7d4ba-c161-4feb-8d6d-bd316ce7b166 7529b7e6-2284-461c-9780-5d90c0f8c016 c66e336f-e534-444d-94c7-0ad7d7c8cac0 ad14e142-5def-4bfe-8b80-c899cb8975c3
+[01:15:41] U02_charnel_dead: variants (index uuid faces) in _shots/variants.txt:
+[01:16:15] U02_charnel_dead: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/7529b7e6-2284-461c-9780-5d90c0f8c016 faces 6403
+[01:17:09] U02_charnel_dead: smart uv saved
+[01:18:39] U02_charnel_dead: texture 4K done (busy0=true 54s; four views re-uploaded)
+[01:19:34] U02_charnel_dead: pbr done (credits ? -> ?)
+[01:19:50] U02_charnel_dead: exported /e/Diablo2/ashlar/3d/monsters/U02_charnel_dead/U02_charnel_dead.glb (24096 KB)
+[01:19:50] U02_charnel_dead: GLB check: {"file": "U02_charnel_dead.glb", "MB": 24.7, "meshes": 1, "tris": 11125, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.089], "max": [0.5, 0.814, 0.089]}
+[01:20:10] U02_charnel_dead: FINAL: 145 credits for this asset (100+20+20+5; balance now 15583, shared with parallel threads); _shots/final_views.png

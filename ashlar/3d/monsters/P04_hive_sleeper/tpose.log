@@ -1,0 +1,59 @@
+P04 Hive-Sleeper, variant A: creature (family Q, variant Qh = human on hands and knees) neutral-stand views for Tripo multi-view, 2026-10-22.
+Concept: ashlar/art/map-01-concepts/monsters/P04_hive_sleeper/vA/concept_r2.png (copied to concept.png). Canon: checklist row P04, concept_r2.prompt.txt.
+Flow: CREATURE flow of the generate-tpose-for-tripo skill. design.txt: HUMANOID no, FAMILY Q (Qh), VIEWS table written before the first generation.
+Prompts: scripts/fill_prompt.py only (STYLE CORE 3.1, T-POSE RULES 3.6, CONTENT 3.8 verbatim), pose sections "Qh front_back" / "Qh sides" (new, written for
+  U04 and P04; the hands-and-knees contacts are stated in PROPORTIONS). Edit: edit_creature.prompt.md.
+Placement templates (make_view_template.py, 2172x724, 700 px per H): _tasks/template_fb.png blocks 0.55x0.66 H, _tasks/template_sides.png blocks 1.10x0.66 H.
+Astra: gpt-6-astra via E:\map01-batch\map01_batch.py --jobfile <job> --parallel 1 (CODEX_HOME E:\map01-batch\home, TEMP/TMP E:\tmp_tripo_all\tmp); files in _tasks/,
+  status lines in _tasks/runs.jsonl. No safety rejection on the sleeper / nightshirt wording.
+
+CONCEPT MEASUREMENTS (H silhouette 360 px, baseline row 573)
+  side views top 0.66 H, FRONT 0.70 H, BACK 0.72 H (the concept's views disagree); the "back 0.60H" guide sits at 0.67 H. Concept pose: on forearms with the
+  head lowered to the floor; the canon says 3-4 bulges, the concept draws three (kept).
+
+SHEET 1 (FRONT + BACK) - ACCEPTED: attempt 1 + feet edit (tpose_front_back.png = _tasks/fb_attempt1_feetedit.png)
+  attempt 1, session 01a15fb7-be97-7e41-b916-0548fd32de83, 95 s: arms vertical, hands flat with the fingers forward, knees down, hooded sleeping face, front dome
+    over the hood with the spine ribbon, BACK with all three domes stacked, hoop bands as arcs, knot on the rump. 602 / 613 px tall, 448 / 491 px wide.
+    Cross-view fault found after sheet 2: BACK feet stood upright with the toes tucked under (soles up to 72 %) while the side views lay them flat
+    (heel at 86 %).
+  edit "feet", session 01a15fbe-5392-7992-9d4b-e4d2f7220670, 62 s: BACK feet now flat, only the low heels show (86-100 %); FRONT unchanged (0.3 % of its pixels),
+    BACK half 2.4 % changed. Measured 601 / 597 px tall. ACCEPTED.
+  creature tool: symmetry 0.82 / 0.77 WARN and "one paw group" in BACK: the heels sit close together and share one contact shadow; there is a background gap
+    between the feet above the floor. Treated as a false alarm.
+
+SHEET 2 (LEFT + RIGHT) - ACCEPTED: attempt 1 (tpose_sides.png = _tasks/sides_attempt1.png)
+  attempt 1, session 01a15fba-0298-7683-9e53-fd0ba3a4ac6b, 96 s: true profiles, one arm and one leg per view, knee, shin and foot flat on the ground, three
+    domes in a row (front largest), hood and sleeping face in front of the shoulders. 538 / 538 px tall, 914 / 911 px wide (length/height 1.70; block 1.67).
+    RIGHT = mirror of LEFT (symmetric design).
+
+SPLIT: tpose_tools.py split --vcenter: sides sheet scaled by 1.113 to the front/back height (within the 12 % allowance); all views by 0.865 to fit 1024;
+  soles row 772. views/front.png back.png left.png right.png, _contact.png, _guides.png, _strip_0-60.png, _strip_40-100.png.
+
+CROSS-VIEW TABLE (step 4b; % of the figure height, 0 % = top of the front dome, 100 % = ground; read on views/_strip_*.png and _guides.png)
+  feature                 LEFT     RIGHT    FRONT            BACK                verdict
+  front dome top          ~1       ~1       0                0                   ok
+  middle dome top         ~12      ~12      hidden           ~9                  ok
+  rear dome top           ~23      ~23      hidden           ~21                 ok (BACK: three domes stacked)
+  hood peak               ~17      ~17      ~15              hidden              ok
+  chin                    ~47      ~47      ~48              hidden              ok
+  hair lowest             ~55      ~55      ~51              hidden              ok
+  spine ribbon            over the dome tops | down the front dome centre | down all three domes   ok
+  rump knot               44-46    44-46    hidden           ~41                 ok (4 %)
+  shoulder bands          vertical down the shoulder front to ~60 | both shoulders to ~60 | flank bands   ok
+  shirt hem lowest        80-90    80-90    80-90            80-90               ok
+  heels                   ~86      ~86      hidden           86 (after edit)     ok (was the error)
+  limbs visible           2        2        4 (+knees)       2 feet + hands      ok
+  figure height px        538x1.113 538x1.113 601            597                 ok (one scale, one floor row)
+
+QA (CREATURE QA + Qh): 1 ok; 2 ok (arms vertical, hands flat, knees and shins on the ground, no tail, eyes closed); 3 ok; 4 ok (heights within 1 %);
+  5 ok (true profiles, two limbs); 6 ok (hooded nightshirt, three opaque domes, red ribbons, olive under-layer, form shading kept); 7 ok after the feet edit.
+
+Remaining deviations:
+  - Side views: the head hangs a little, the face looking down (hood peak 17 %, chin 47 %), lower than design v1 (32 / 59 %); FRONT agrees with the side views,
+    so design.txt VIEWS was updated to the accepted views (v1 copy: E:\tmp_tripo_all\P04\design_v1.txt).
+  - Ribbon ends: thick flat ends lie down the flank between the front and middle domes and down the front of each shoulder, plus a short end under the rump knot;
+    they hug the cloth but are not the "no loose ends" of the design.
+  - Domes have small glossy highlights (asked for matte); opaque, no larvae visible.
+  - The shirt hem hangs between the arm and the thigh in the side views (ends about 10 % above the ground), so the gap under the chest is only partly open.
+  - The far heel peeks out slightly behind the near foot in the side views.
+Not done: no Tripo run, no credits. Reduced-larvae option (LD 8.4) not made.

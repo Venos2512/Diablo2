@@ -1,0 +1,11 @@
+[01:16:03] U03_charnel_bowman: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/views
+[01:16:09] U03_charnel_bowman: Generate 100 pressed (credits 16158 -> 15958), tab 894F65D3CBC7C1531DB2988CCD1F9E42
+[01:17:27] U03_charnel_bowman: mesh done; new models: e9f484f6-bb36-4cf6-bbfc-1ac199f8594f 2cf06869-bac0-4b47-bd15-cf8a69a0a87f c4acaffd-d967-4ffe-b197-6f84d2c3c2d8 1361cc13-efe8-4194-a4df-9efa4392a6e2
+[01:18:17] U03_charnel_bowman: variants (index uuid faces) in _shots/variants.txt:
+[01:18:51] U03_charnel_bowman: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/2cf06869-bac0-4b47-bd15-cf8a69a0a87f faces 6224
+[01:19:47] U03_charnel_bowman: smart uv saved
+[01:21:37] U03_charnel_bowman: texture 4K done (busy0=true 73s; four views re-uploaded)
+[01:22:12] U03_charnel_bowman: pbr done (credits ? -> ?)
+[01:22:28] U03_charnel_bowman: exported /e/Diablo2/ashlar/3d/monsters/U03_charnel_bowman/U03_charnel_bowman.glb (25160 KB)
+[01:22:28] U03_charnel_bowman: GLB check: {"file": "U03_charnel_bowman.glb", "MB": 25.8, "meshes": 1, "tris": 10489, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.448, 0.0, -0.139], "max": [0.448, 1.0, 0.139]}
+[01:22:48] U03_charnel_bowman: FINAL: 145 credits for this asset (100+20+20+5; balance now 15268, shared with parallel threads); _shots/final_views.png

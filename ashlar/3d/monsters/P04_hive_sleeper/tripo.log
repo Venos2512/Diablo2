@@ -1,0 +1,12 @@
+[01:51:20] P04_hive_sleeper: multi-view slots filled from /e/Diablo2/ashlar/3d/monsters/P04_hive_sleeper/views
+[01:51:26] P04_hive_sleeper: Generate 100 pressed (credits 13113 -> 12973), tab 198E1D6A8BEB197040CACE7071AACB0C
+[01:52:21] P04_hive_sleeper: mesh done; new models: fe852c81-5d78-4879-869f-d82de617adf5 b03b8c62-41fc-4218-b338-470c89fcf25e 20607b72-995f-4601-a891-324625b9ed2b d0b7ea61-e9c2-4166-807c-f74befb4da58
+[01:53:10] P04_hive_sleeper: variants (index uuid faces) in _shots/variants.txt:
+[01:53:34] P04_hive_sleeper: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/b03b8c62-41fc-4218-b338-470c89fcf25e faces 5235
+[01:56:23] P04_hive_sleeper: smart uv saved
+[01:58:07] P04_hive_sleeper: texture 4K done (busy0=true 66s; four views re-uploaded)
+[02:00:07] P04_hive_sleeper: pbr done (credits ? -> ?)
+[02:00:23] P04_hive_sleeper: exported /e/Diablo2/ashlar/3d/monsters/P04_hive_sleeper/P04_hive_sleeper.glb (21412 KB)
+[02:00:23] P04_hive_sleeper: GLB check: {"file": "P04_hive_sleeper.glb", "MB": 21.9, "meshes": 1, "tris": 8664, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.237, 0.0, -0.5], "max": [0.237, 0.615, 0.5]}
+[02:03:51] P04_hive_sleeper: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/b03b8c62-41fc-4218-b338-470c89fcf25e faces 5235
+[02:04:11] P04_hive_sleeper: FINAL: 145 credits for this asset (100+20+20+5; balance now 12218, shared with parallel threads); _shots/final_views.png
