@@ -1,0 +1,92 @@
+{
+  "schema": 0,
+  "asset_id": "D01_hodling",
+  "note": "D01 Hodling skin rules as data: every constant of ashlar/3d/monsters/D01_hodling/rig/tools/d01_skin.py (v4, G2-approved 2026-10-21) moved here unchanged. Blender frame, metres, H = 0.5 m, mesh scaled by 0.679495687. Colour rules read the base colour sampled at the vertex UV (mesh.npz extra 'col', welded mean). Test fixture of writer B (P3); the legacy 35-bone rig has no clavicle/twist, so joint profiles are off.",
+  "side_gate": {
+    "x0": 0.0,
+    "band_H": 0.01,
+    "planes": [{"x0": 0.0105, "bones": ["{S}_Thigh", "{S}_Calf", "{S}_Foot", "{S}_Toe"],
+                "note": "legs and feet are offset +10.5 mm in X (landmarks.json leg_mirror_x)"}]
+  },
+  "classes": [
+    {"islands": {"main": "main", "else": "brick", "rules": [
+      {"if": "size > 300 and lo_z > 0.37", "set": "helmet"},
+      {"if": "size > 300 and cz < 0.25", "set": "loin"},
+      {"if": "size < 40 and cy < -0.08", "set": "eye"},
+      {"if": "cy < -0.04 and cz > 0.40 and size < 100 and crg < 1.4", "set": "horn"}
+    ]}},
+    {"set": "sack", "where": "cls == 'main' and ((rg < 1.55 and y > 0.0 and z > 0.2) or (y > 0.07 and z > 0.2))"},
+    {"set": "strap", "where": "cls == 'main' and rg < 1.55 and y <= 0.0 and z > 0.2 and z < 0.36"},
+    {"vote": {"among": ["main", "sack"], "target": "sack", "other": "main", "iters": 3, "min_nbrs": 3,
+              "grow_frac": 0.6, "grow_where": "z > 0.2 and y > 0.0", "shrink_frac": 0.25}},
+    {"set": "ear", "where": "cls == 'main' and (seg_dist('L_ear') < 0.022 or seg_dist('R_ear') < 0.022) and z > 0.358 and z < 0.43 and y < 0.02 and abs(x) > 0.05 and ellipsoid(0.0, -0.045, 0.38, 0.050, 0.062, 0.050) > 1.3"},
+    {"set": "belt", "where": "cls == 'loin' and z >= 0.205"},
+    {"set": "flap_front", "where": "cls == 'loin' and z < 0.205 and y <= 0.02"},
+    {"set": "flap_back", "where": "cls == 'loin' and z < 0.205 and y > 0.02"}
+  ],
+  "regions": {
+    "sack_cloth": {"where": "cls == 'sack'", "allowed": ["sack", "chest", "spine_02", "spine_01"],
+                   "fold": {"head": "chest", "neck": "chest", "pelvis": "spine_01", "*": "chest"},
+                   "note": "D01 B1 fix: the sack cloth never follows head/neck/legs (SACK_BONES / SACK_FOLD)"},
+    "body_skin": {"where": "cls == 'main'",
+                  "allowed": ["pelvis", "spine_01", "spine_02", "chest", "neck", "head", "{S}_UpperArm", "{S}_ForeArm",
+                              "{S}_Hand", "{S}_Thigh", "{S}_Calf", "{S}_Foot", "{S}_Toe"]},
+    "strap": {"where": "cls == 'strap'", "allowed": ["pelvis", "spine_01", "spine_02", "chest", "neck"]},
+    "belt": {"where": "cls == 'belt'", "allowed": ["pelvis", "spine_01", "spine_02"]},
+    "loin_front": {"where": "cls == 'flap_front'", "allowed": ["pelvis", "loincloth_front"], "fold": {"*": "pelvis"},
+                   "note": "front flap: pelvis -> loincloth_front only, never the thighs (D01 B2)"}
+  },
+  "rigid": {
+    "helmet_horns": {"where": "cls in ('helmet', 'horn')", "bone": "helmet"},
+    "eyes": {"where": "cls == 'eye'", "bone": "head"},
+    "bricks": {"where": "cls == 'brick'", "bone": "sack"},
+    "loin_back": {"where": "cls == 'flap_back'", "bone": "pelvis"}
+  },
+  "enforce": {"prune": 0.02, "max_influences": 4},
+  "profiles": {"enabled": false, "note": "legacy S_legacy_D01 skeleton (no clavicle, no twist); G2 weights used no joint profiles"},
+  "candidate_a": {
+    "p": 3.0,
+    "floor_m": 0.003,
+    "radius_m": {"pelvis": 0.050, "spine_01": 0.050, "spine_02": 0.050, "chest": 0.052, "neck": 0.020, "head": 0.050,
+                 "UpperArm": 0.016, "ForeArm": 0.012, "Hand": 0.012, "Thigh": 0.022, "Calf": 0.017, "Foot": 0.020, "Toe": 0.012},
+    "gates": {
+      "pelvis": "z < 0.27",
+      "spine_01": "z > 0.17 and z < 0.31",
+      "spine_02": "z > 0.21 and z < 0.36",
+      "chest": "z > 0.26 and z < 0.40",
+      "neck": "z > 0.32 and z < 0.42",
+      "head": "z > 0.33",
+      "UpperArm": "sx > 0.02 and z > 0.26",
+      "ForeArm": "sx > 0.09 and z > 0.26",
+      "Hand": "sx > 0.20 and z > 0.26",
+      "Thigh": "sx > -0.004 and z < 0.215",
+      "Calf": "sx > -0.004 and z < 0.16 and z > 0.03",
+      "Foot": "sx > -0.004 and z < 0.08",
+      "Toe": "sx > -0.004 and z < 0.04 and y < 0.005"
+    },
+    "steps": [
+      {"op": "distance", "classes": ["main", "ear"],
+       "bones": ["pelvis", "spine_01", "spine_02", "chest", "neck", "head", "{S}_UpperArm", "{S}_ForeArm", "{S}_Hand",
+                 "{S}_Thigh", "{S}_Calf", "{S}_Foot", "{S}_Toe"]},
+      {"op": "distance", "classes": ["strap"], "bones": ["pelvis", "spine_01", "spine_02", "chest", "neck"]},
+      {"op": "distance", "classes": ["belt"], "bones": ["pelvis", "spine_01", "spine_02"]},
+      {"op": "smooth", "classes": ["main", "ear", "strap", "belt"], "iters": 16, "lambda": 0.5, "compatible": [["main", "ear"]],
+       "cut": {"where": "z < 0.2", "split_x": 0.0105}},
+      {"op": "limb_ramp", "where": "cls == 'main' and sx > 0.10 and z > 0.27 and z < 0.40 and abs(y) < 0.14",
+       "plane_bone": "{S}_UpperArm", "axis": "x", "chain": ["{S}_UpperArm", "{S}_ForeArm", "{S}_Hand"],
+       "joints": [{"bone": "{S}_ForeArm", "width_m": 0.04}, {"bone": "{S}_Hand", "width_m": 0.024}],
+       "blend_in": {"from_m": 0.10, "width_m": 0.03}},
+      {"op": "segment_ramp", "classes": ["ear"], "where": "sx > 0", "bone": "{S}_ear", "base": "head", "t0": 0.05, "width": 0.45},
+      {"op": "rigid", "classes": ["helmet", "horn"], "bone": "helmet"},
+      {"op": "rigid", "classes": ["eye"], "bone": "head"},
+      {"op": "rigid", "classes": ["brick"], "bone": "sack"},
+      {"op": "region_blend", "class": "sack", "sources": ["main", "strap", "ear", "belt"], "bone": "sack", "hops": 8,
+       "source_bones": ["pelvis", "spine_01", "spine_02", "chest", "neck", "head"], "empty_source_bone": "chest",
+       "region": "sack_cloth", "smooth": {"iters": 6, "lambda": 0.5, "nbr_classes": ["sack", "main", "strap", "belt", "ear"]}},
+      {"op": "skin_band", "around": "sack", "rings": 3, "classes": ["main", "ear", "strap"],
+       "moves": [{"to": "chest", "from": ["head", "neck", "L_ear", "R_ear"]}, {"to": "spine_01", "from": ["pelvis", "L_Thigh", "R_Thigh"]}]},
+      {"op": "axis_ramp", "classes": ["flap_front"], "coord": "z", "v0": 0.205, "v1": 0.170, "bone0": "pelvis", "bone1": "loincloth_front"},
+      {"op": "rigid", "classes": ["flap_back"], "bone": "pelvis"}
+    ]
+  }
+}

@@ -1,0 +1,632 @@
+{
+  "schema": 0,
+  "status": "proposal",
+  "source": "ashlar/3d/rig-anim/RIG_SKILL_WORKFLOW.md §4 'Ngưỡng khởi điểm' (2026-10-22). Proposal values until the P5 benchmark calibrates them; then they are copied into QA_CHECKLIST.md as the new section A3. Do not edit numbers here without changing §4 first. Light semantics refined by references/deformation-qa.md after review r1 (2026-10-23); rows that differ from §4 say so in source_note.",
+  "semantics": {
+    "value": "the measured quantity in 'unit'; when relative_to_H is true the value is divided by H (catalogue height, metres) before it is compared",
+    "green": "[lo, hi]: green when lo <= value <= hi (null = unbounded on that side)",
+    "red": "[lo, hi]: red when value < lo or value > hi (null = no red bound on that side). Between the green and the red bounds the light is yellow. When red equals green the row is pass/fail (no yellow band), which is how §4 writes single-bound rows",
+    "tolerance": "numerical zero for rows written as 0 in §4 (float32 positions): values <= tolerance count as 0",
+    "evaluated_by": "who measures the row: metrics (solvers/metrics.py), parity_cmp (solvers/parity_cmp.py), or another step (A1/A2/B); rows of other steps are carried so the table is complete"
+  },
+  "rows": [
+    {
+      "id": "joint_core_heads_inside",
+      "group": "joint",
+      "metric": "largest distance of a core bone head OUTSIDE the deformed mesh (0 = every head inside), rest and every QA pose",
+      "scope": "core deform bones; thin parts (ears, loincloth) are listed as exempt with the reason",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0.002
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 'Đầu bone lõi nằm trong mesh: 100%; phần mỏng (tai, khố) ghi miễn' — D01 [đo]; yellow within 0.2% H of the surface added by the review r1 brief"
+    },
+    {
+      "id": "joint_gt_error_core",
+      "group": "joint",
+      "metric": "joint position error against ground truth",
+      "scope": "core joints",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0.01
+      ],
+      "red": [
+        null,
+        0.01
+      ],
+      "evaluated_by": "A2 consensus / P5 benchmark",
+      "status": "proposal",
+      "source_note": "§4 'lõi ≤ 1% H' [đề xuất]; best learned methods ~0.5-1.5% of size"
+    },
+    {
+      "id": "joint_gt_error_tips_aux",
+      "group": "joint",
+      "metric": "joint position error against ground truth",
+      "scope": "limb tips and aux bones",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0.015
+      ],
+      "red": [
+        null,
+        0.015
+      ],
+      "evaluated_by": "A2 consensus / P5 benchmark",
+      "status": "proposal",
+      "source_note": "§4 'ngọn chi, bone phụ ≤ 1,5% H' [đề xuất]"
+    },
+    {
+      "id": "joint_symmetry_lr",
+      "group": "joint",
+      "metric": "left/right joint asymmetry when the mesh is symmetric",
+      "scope": "sided landmarks, mirrored",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0.005
+      ],
+      "red": [
+        null,
+        0.005
+      ],
+      "evaluated_by": "A2 consensus",
+      "status": "proposal",
+      "source_note": "§4 '≤ 0,5% H' [đề xuất]"
+    },
+    {
+      "id": "joint_prebend_elbow_knee",
+      "group": "joint",
+      "metric": "elbow and knee pre-bend at rest",
+      "scope": "elbows, knees",
+      "unit": "deg",
+      "relative_to_H": false,
+      "green": [
+        4.0,
+        10.0
+      ],
+      "red": [
+        4.0,
+        10.0
+      ],
+      "evaluated_by": "A1 skeleton checks",
+      "status": "proposal",
+      "source_note": "§4 '4–10°' [nguồn] 5–10°; D01 4° and 9° [đo]"
+    },
+    {
+      "id": "weights_a1_4_to_7",
+      "group": "weights",
+      "metric": "A1.4-A1.7: no empty vertex, sum = 1, at most 4 influences, valid joint indices",
+      "scope": "all vertices of the exported skin",
+      "unit": "see QA_CHECKLIST.md",
+      "relative_to_H": false,
+      "green": null,
+      "red": null,
+      "evaluated_by": "A1 export validation",
+      "status": "proposal",
+      "source_note": "§4 'như QA_CHECKLIST' (thresholds live in QA_CHECKLIST.md A1.4-A1.7)"
+    },
+    {
+      "id": "weights_colocated_equal",
+      "group": "weights",
+      "metric": "weight difference between co-located (seam duplicate) vertices",
+      "scope": "weld groups",
+      "unit": "weight",
+      "relative_to_H": false,
+      "green": [
+        null,
+        1e-06
+      ],
+      "red": [
+        null,
+        1e-06
+      ],
+      "evaluated_by": "B skin_common",
+      "status": "proposal",
+      "source_note": "§4 '≤ 1e-6' — principle 6"
+    },
+    {
+      "id": "weights_side_leak",
+      "group": "weights",
+      "metric": "vertices with weight > 0.01 on an opposite-side bone outside the middle band",
+      "scope": "all vertices outside the side-gate band",
+      "unit": "count",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "B skin_common",
+      "status": "proposal",
+      "source_note": "§4 '0 đỉnh > 0,01' [đề xuất]"
+    },
+    {
+      "id": "weights_region_bone_list",
+      "group": "weights",
+      "metric": "vertices with weight on a bone outside their region's bone list",
+      "scope": "regions that carry a bone list (D01 sack)",
+      "unit": "count",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "B skin_common",
+      "status": "proposal",
+      "source_note": "§4 '0 đỉnh ngoài danh sách' — D01 B1 [đo]"
+    },
+    {
+      "id": "weights_limb_leak",
+      "group": "weights",
+      "metric": "limb leak: welded rows whose nearest deform bone segment is not a limb bone (torso, neck, head, aux) and that carry >= w_min of a limb root far from it - the upper arm (+ its twist bones) farther than arm_rel x upper-arm length from the upper-arm segment, the thigh more than thigh_rel thigh lengths above the hip joint along the thigh axis; per side; the value is the number of leaking rows (union over sides and limbs)",
+      "scope": "every welded vertex of the weights (runtime-rule weights in metrics); skin selection gates the regions in gate_regions",
+      "unit": "count",
+      "relative_to_H": false,
+      "green": [
+        null,
+        3
+      ],
+      "red": [
+        null,
+        10
+      ],
+      "w_min": 0.1,
+      "arm_rel": 0.75,
+      "thigh_rel": 0.3,
+      "gate_regions": [
+        "pelvis",
+        "spine_01",
+        "spine_02",
+        "spine_03",
+        "chest",
+        "neck",
+        "{S}_Clavicle",
+        "{S}_UpperArm",
+        "{S}_Thigh"
+      ],
+      "evaluated_by": "metrics (light of the primary weights, per region for every candidate) + B skin_common.limb_leak (candidate reports) + region score gate",
+      "status": "proposal",
+      "source_note": "NOT in §4: references/deformation-qa.md 'Limb leak' (review B r3). Calibrated 2026-10-23 (I2) on welded rows: D01 G2 2 rows (arm_L, w <= 0.108; 3 original vertices), FL candidate C 1 row (arm_R 0.118) are green; review B r3 candidates B: D01 96 rows, FL 677 rows (red); D01 candidate C (UniRig) 39 rows (thigh above 0.3 L). Skin selection: a candidate whose rows in a gate region exceed the green bound (3) is dropped there before the tear step, unless every candidate exceeds it (then the region is flagged for G2). Yellow 4-10 rows = a G2 question"
+    },
+    {
+      "id": "weights_gt_l1",
+      "group": "weights",
+      "metric": "mean per-vertex L1 error against authored weights (ground-truth tier 1 only)",
+      "scope": "benchmark assets with authored weights",
+      "unit": "weight",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0.1
+      ],
+      "red": [
+        null,
+        0.1
+      ],
+      "evaluated_by": "P5 benchmark",
+      "status": "proposal",
+      "source_note": "§4 'L1 trung bình ≤ 0,1 (theo đỉnh)' [đề xuất]"
+    },
+    {
+      "id": "deform_edge_ratio",
+      "group": "deformation",
+      "metric": "posed / rest edge length over the ROM set",
+      "scope": "every welded edge outside exempt zones, every QA pose",
+      "unit": "ratio",
+      "relative_to_H": false,
+      "green": [
+        0.8,
+        1.25
+      ],
+      "red": [
+        null,
+        1.5
+      ],
+      "evaluated_by": "metrics (diagnostic: the band enters the region score; the light is deform_torn_edges_standard / _extreme)",
+      "status": "proposal",
+      "source_note": "§4 'vàng ngoài [0,8; 1,25]; đỏ > 1,5' [đề xuất]; FL tore at > 1.5x [đo]. Since references/deformation-qa.md (review r1) max and p99 are diagnostics only; the light counts torn edges",
+      "light": false
+    },
+    {
+      "id": "deform_torn_edges_standard",
+      "group": "deformation",
+      "metric": "torn edges (posed/rest edge ratio > torn_ratio AND growth > torn_growth_rel_H x H) in standard poses, per region",
+      "scope": "every welded edge outside exempt zones, poses tagged standard",
+      "unit": "count",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "torn_ratio": 1.5,
+      "torn_growth_rel_H": 0.002,
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 'đỏ > 1,5' refined by references/deformation-qa.md (review r1): any torn edge in a standard pose is red"
+    },
+    {
+      "id": "deform_torn_edges_extreme",
+      "group": "deformation",
+      "metric": "torn edges in extreme poses as a fraction of the region's edges (largest region)",
+      "scope": "every welded edge outside exempt zones, poses tagged extreme",
+      "unit": "fraction",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0.005
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 'đỏ > 1,5' refined by references/deformation-qa.md (review r1): in an extreme pose red above ~0.5% of the region's edges"
+    },
+    {
+      "id": "deform_area_change",
+      "group": "deformation",
+      "metric": "area-weighted fraction of a region's faces whose posed/rest area is beyond +-band, slivers skipped, extreme poses",
+      "scope": "welded triangles outside exempt zones with smallest rest angle >= sliver_min_angle_deg",
+      "unit": "fraction",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0.01
+      ],
+      "red": [
+        null,
+        0.05
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 '≤ ±15%' [đề xuất] refined by references/deformation-qa.md (review r1): area-weighted fraction, green <= 1%, red > 5%; a single worst face does not decide",
+      "band": 0.15,
+      "sliver_min_angle_deg": 10.0
+    },
+    {
+      "id": "deform_joint_volume",
+      "group": "deformation",
+      "metric": "joint volume by ball occupancy: fraction of a fixed point set in a ball of radius ball_factor x limb radius around the posed joint inside the mesh (winding number), posed / rest. Not measurable when the rest occupancy is below min_rest_occupancy x the share a centred limb-sized cylinder fills of the ball (1 for ball_factor <= 1, 1 - (1 - 1/f^2)^1.5 above)",
+      "scope": "shoulder, elbow, hip, knee regions from the rest weights",
+      "unit": "ratio",
+      "relative_to_H": false,
+      "green": [
+        0.85,
+        null
+      ],
+      "red": [
+        0.85,
+        null
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 '≥ 0,85 lần rest' [đề xuất]; method from references/deformation-qa.md (review r1) (capped patches were unstable); radius suggested by the orchestrator (0.8 x local limb radius)",
+      "ball_factor": 0.8,
+      "min_rest_occupancy": 0.5
+    },
+    {
+      "id": "deform_candy_wrapper",
+      "group": "deformation",
+      "metric": "smallest forearm section ratio (posed / rest) over the slices at 0.5 / 0.75 / 0.9 of the forearm and the wrist band, forearm-twist poses",
+      "scope": "forearms; poses tagged forearm_twist (§4 says a 90 deg twist; the H ROM samples +-80 deg)",
+      "unit": "ratio",
+      "relative_to_H": false,
+      "green": [
+        0.7,
+        null
+      ],
+      "red": [
+        0.7,
+        null
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 '≥ 0,7 lần rest' [đề xuất] refined by references/deformation-qa.md (review r1): minimum over the slices and the wrist band; a rig without (weighted) twist bones is never green",
+      "slices": [
+        0.5,
+        0.75,
+        0.9
+      ],
+      "wrist_band": true,
+      "no_twist_cap": "yellow"
+    },
+    {
+      "id": "deform_penetration_standard",
+      "group": "deformation",
+      "metric": "faces in new penetrating pairs between non-adjacent regions or islands, standard poses: a newly-inside vertex deeper than eps_rel_H x H (plus the rest overlap depth of the two regions when the intruding face lies within slide_radius_rel_H x H of their rest overlap: a sliding rest overlap); shallower pairs are contacts",
+      "scope": "poses tagged standard",
+      "unit": "count",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 '0 trong ROM chuẩn' [đề xuất]; eps 0.05% H and contacts from references/deformation-qa.md (review r1)",
+      "eps_rel_H": 0.0005,
+      "slide_radius_rel_H": 0.02
+    },
+    {
+      "id": "deform_penetration_extreme_depth",
+      "group": "deformation",
+      "metric": "max depth of new penetrations (deeper than eps) in extreme poses (must also be documented)",
+      "scope": "poses tagged extreme",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0.005
+      ],
+      "tolerance": 1e-06,
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 'tư thế cực ≤ 0,5% H và ghi rõ' [đề xuất] (~1 cm at 1.8 m): any penetration is at least yellow"
+    },
+    {
+      "id": "deform_seam_crack",
+      "group": "deformation",
+      "metric": "max distance between co-located duplicate vertices after deformation",
+      "scope": "weld groups, every pose",
+      "unit": "m",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "tolerance": 1e-06,
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "§4 'Nứt seam: 0'"
+    },
+    {
+      "id": "runtime_reimport_parity",
+      "group": "runtime",
+      "metric": "Blender (runtime emulation) vs clean glTF reimport, posed vertices by welded position",
+      "scope": "sampled QA poses",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        5.555555555555556e-05
+      ],
+      "red": [
+        null,
+        5.555555555555556e-05
+      ],
+      "evaluated_by": "parity_cmp",
+      "status": "proposal",
+      "source_note": "§4 '≤ 1e-4 m × H/1,8' — A1.9 (stored as 1e-4/1.8 per metre of H)"
+    },
+    {
+      "id": "runtime_threejs_parity",
+      "group": "runtime",
+      "metric": "Blender vs three.js skinned positions (optional)",
+      "scope": "sampled QA poses, WebGL and WebGPU",
+      "unit": "m",
+      "relative_to_H": true,
+      "green": [
+        null,
+        0.0005555555555555556
+      ],
+      "red": [
+        null,
+        0.0005555555555555556
+      ],
+      "evaluated_by": "lab check (optional)",
+      "status": "proposal",
+      "source_note": "§4 '≤ 1 mm × H/1,8' [đề xuất] (stored as 1e-3/1.8 per metre of H)"
+    },
+    {
+      "id": "process_user_time",
+      "group": "process",
+      "metric": "user time per benchmark round",
+      "scope": "P5 benchmark",
+      "unit": "min",
+      "relative_to_H": false,
+      "green": [
+        null,
+        2.0
+      ],
+      "red": [
+        null,
+        2.0
+      ],
+      "evaluated_by": "P5 benchmark",
+      "status": "proposal",
+      "source_note": "§4 '≤ 2 phút mỗi vòng, 0 nếu không có cờ' — P0 decision"
+    },
+    {
+      "id": "deform_ground_contact",
+      "group": "deformation",
+      "metric": "lowest sole vertex of each planted foot (deformed geometry)",
+      "scope": "feet tagged planted in a pose",
+      "unit": "m",
+      "relative_to_H": false,
+      "green": [
+        -0.003,
+        0.003
+      ],
+      "red": [
+        -0.003,
+        0.003
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: references/deformation-qa.md 'Ground contact: 0 ± 3 mm'. Absolute, as written there"
+    },
+    {
+      "id": "skin_region_score",
+      "group": "skin_selection",
+      "metric": "region score for skin selection (region_scores.json; no light): seam crack -> limb-leak gate (gate regions of weights_limb_leak) -> tear length (worst pose, then sum) -> penetration tier -> soft score -> near tie; regions whose joints never turn are not exercised",
+      "scope": "every region with edges, every weights file scored by metrics.py",
+      "unit": "see the parameters",
+      "relative_to_H": false,
+      "green": null,
+      "red": null,
+      "evaluated_by": "metrics (region_scores.json, no light)",
+      "status": "proposal",
+      "source_note": "NOT in §4: references/deformation-qa.md 'Region score for skin selection' (reviews r1, r2). not_exercised_deg: a region is not exercised when every joint at its bones turns less than this in every pose (the reference says 'a few degrees'; 3 deg from the review r2 brief). tear_tie_rel / tear_tie_abs_units: tear lengths within max(tear_tie_rel x the smaller one, tear_tie_abs_units x 1e-4 H) are equal (reference: 'about 5%'). near_tie / soft_floor: step 5, within 5% of the best soft score (at least near_tie x soft_floor). Limb-leak gate (I2, 2026-10-23, review B r3): before the tear step, in the gate regions of weights_limb_leak, a candidate with more leaking rows in the region than that row's green bound is dropped, unless every candidate has (then the region is flagged for G2)",
+      "light": false,
+      "not_exercised_deg": 3.0,
+      "tear_tie_rel": 0.05,
+      "tear_tie_abs_units": 2,
+      "near_tie": 0.05,
+      "soft_floor": 0.01
+    }
+  ],
+  "garment_rows_source": "Phase G (2026-10-23, writer G2): references/cloth-and-attachments.md §6 'Metrics' as data. Kept out of 'rows' (the copy of RIG_SKILL_WORKFLOW.md §4); solvers.metrics.load_thresholds reads both lists. Proposal values, P5 calibrates.",
+  "garment_rows": [
+    {
+      "id": "garment_limb_penetration",
+      "group": "garment",
+      "metric": "leg or arm faces in penetrating pairs with a garment piece (new pair, flood-filled newly-inside depth > eps = 0.05% H, the body penetration rule), largest count over the standard poses",
+      "scope": "garment pieces of garments.npz vs limb regions (dominant bone UpperArm/ForeArm/Hand/Thigh/Calf/Foot/Toe and twists)",
+      "unit": "faces",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): 'standard poses 0; extremes reported' (detail.extreme)"
+    },
+    {
+      "id": "garment_layer_penetration",
+      "group": "garment",
+      "metric": "faces of one garment piece / layer in penetrating pairs with another piece, largest count over the standard poses",
+      "scope": "pairs of faces of two different pieces",
+      "unit": "faces",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): '0'; extremes reported"
+    },
+    {
+      "id": "garment_hem_stretch",
+      "group": "garment",
+      "metric": "hem length posed / rest (sum of the hem edges of a piece: garments.json hem_loop, else the rows with t >= 0.95), smallest and largest over the standard poses and every piece; extreme and chain weight-test poses are reported separately (hem_stretch_extreme_*) and do not light this row (G5, 2026-10-23)",
+      "scope": "each garment piece with a hem",
+      "unit": "ratio",
+      "relative_to_H": false,
+      "green": [
+        0.95,
+        1.05
+      ],
+      "red": [
+        0.9,
+        1.1
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): '0.95-1.05 (green), 0.9-1.1 (yellow)'"
+    },
+    {
+      "id": "garment_torn_edges",
+      "group": "garment",
+      "metric": "torn edges (ratio > 1.5 and growth > 0.2% H, the body rule) touching a garment piece, largest count over the standard poses",
+      "scope": "edges with an end on a garment row",
+      "unit": "edges",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): 'standard poses 0'; extremes reported"
+    },
+    {
+      "id": "garment_bleed",
+      "group": "garment",
+      "metric": "garment rows carrying more than 1e-4 (exporter rule) of chain bones of ANOTHER piece",
+      "scope": "garment rows; bone -> piece from skeleton.json chain bones or chains.json",
+      "unit": "rows",
+      "relative_to_H": false,
+      "green": [
+        null,
+        0
+      ],
+      "red": [
+        null,
+        0
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): '0' (no weight may cross from one strip to another, §5)"
+    },
+    {
+      "id": "garment_chain_coverage",
+      "group": "garment",
+      "metric": "welded rows where a chain bone is the dominant weight, smallest over the chain bones",
+      "scope": "chain bones of the skeleton",
+      "unit": "rows",
+      "relative_to_H": false,
+      "green": [
+        8,
+        null
+      ],
+      "red": [
+        1,
+        null
+      ],
+      "evaluated_by": "metrics",
+      "status": "proposal",
+      "source_note": "NOT in §4: cloth-and-attachments.md §6 proposal [suy luận; P5 calibrates] (phase G, writer G2): 'at least 8 welded rows per bone, else merge the bone'; 0 rows = red (G2 inference)"
+    }
+  ]
+}

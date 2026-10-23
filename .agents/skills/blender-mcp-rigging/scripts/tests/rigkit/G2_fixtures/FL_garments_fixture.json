@@ -1,0 +1,226 @@
+{
+  "schema": 0,
+  "asset_id": "FL_flagellant_vA",
+  "H": 1.8,
+  "family": "H",
+  "params": {
+    "fixture": true,
+    "z_top": 1.02
+  },
+  "pieces": [
+    {
+      "id": "auto:0",
+      "class": "strip",
+      "confidence": 0.9,
+      "n_welded": 77,
+      "layer": 0,
+      "side": null,
+      "panel": 0,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            0.04495578110840648,
+            -0.21812788239087597,
+            1.02
+          ]
+        ]
+      },
+      "length": 0.8573229056596756,
+      "width": null,
+      "hem_loop": [
+        68,
+        69,
+        73,
+        1116,
+        1117,
+        1121,
+        1122,
+        1123,
+        2138,
+        2187,
+        3760
+      ],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: main island below z 1.02 m, azimuth sector around 0 deg"
+      ]
+    },
+    {
+      "id": "auto:1",
+      "class": "strip",
+      "confidence": 0.85,
+      "n_welded": 91,
+      "layer": 0,
+      "side": "L",
+      "panel": 1,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            0.21920007393540597,
+            -0.052576568981676126,
+            1.02
+          ]
+        ]
+      },
+      "length": 0.8177528125047684,
+      "width": null,
+      "hem_loop": [
+        1125,
+        1126,
+        1127,
+        1216,
+        3959,
+        3960
+      ],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: main island below z 1.02 m, azimuth sector around 90 deg"
+      ]
+    },
+    {
+      "id": "auto:2",
+      "class": "strip",
+      "confidence": 0.8,
+      "n_welded": 106,
+      "layer": 0,
+      "side": null,
+      "panel": 2,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            0.04691125200762529,
+            0.07428665932354242,
+            1.02
+          ]
+        ]
+      },
+      "length": 0.8274254989624024,
+      "width": null,
+      "hem_loop": [
+        3407,
+        3408,
+        3414,
+        3415,
+        5398,
+        5400,
+        5401,
+        5402
+      ],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: main island below z 1.02 m, azimuth sector around 180 deg"
+      ]
+    },
+    {
+      "id": "auto:3",
+      "class": "strip",
+      "confidence": 0.75,
+      "n_welded": 132,
+      "layer": 0,
+      "side": "R",
+      "panel": 3,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            -0.14354586831701133,
+            -0.06052193653991743,
+            1.02
+          ]
+        ]
+      },
+      "length": 0.8573229056596756,
+      "width": null,
+      "hem_loop": [
+        21,
+        22,
+        2134,
+        2135,
+        3401,
+        3402
+      ],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: main island below z 1.02 m, azimuth sector around -90 deg"
+      ]
+    },
+    {
+      "id": "auto:4",
+      "class": "cluster",
+      "confidence": 0.75,
+      "n_welded": 530,
+      "layer": 0,
+      "side": "R",
+      "panel": null,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            -0.053375644236803056,
+            -0.20558862015604973,
+            1.1251099169254304
+          ]
+        ]
+      },
+      "length": 0.8371275067329407,
+      "width": null,
+      "hem_loop": [],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: 10 bead islands"
+      ]
+    },
+    {
+      "id": "auto:5",
+      "class": "rigid_hanging",
+      "confidence": 0.55,
+      "n_welded": 228,
+      "layer": 0,
+      "side": "L",
+      "panel": null,
+      "parent": "pelvis",
+      "attach": {
+        "bone": "pelvis",
+        "points": [
+          [
+            0.22859642863796467,
+            -0.1625265985596598,
+            1.1809477806091309
+          ]
+        ]
+      },
+      "length": 0.23214465379714966,
+      "width": null,
+      "hem_loop": [],
+      "slits": [],
+      "merged_into": null,
+      "reasons": [
+        "FIXTURE: 228-vertex island on the left hip; confidence below 0.6 on purpose (flag list)"
+      ]
+    }
+  ],
+  "flags": [
+    {
+      "piece": "auto:5",
+      "why": "confidence 0.55 < 0.6 (fixture)"
+    }
+  ],
+  "budget": {
+    "aux_budget": 32,
+    "used": 26,
+    "trims": []
+  }
+}

@@ -1,0 +1,6 @@
+# The pipeline fingerprints script and template bytes (pipeline_steps/inputs.py). Keep LF on every checkout, so core.autocrlf
+# cannot turn every rig folder stale (final review r2, n1).
+*.py   text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf

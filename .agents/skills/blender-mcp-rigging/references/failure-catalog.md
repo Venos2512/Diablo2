@@ -1,0 +1,33 @@
+# Failure catalog
+
+Append after every asset: symptom, cause, fix, and where it was seen. Read this before S3 and before S6.
+
+| # | Symptom | Cause | Fix | Seen |
+| --- | --- | --- | --- | --- |
+| 1 | Sack/backpack cloth swings with the head (77–95 mm on head turns) | Smoothing after the region fold pulled `head`/`neck` weights back from neighbouring skin; the cap was read from an env var that defaulted to off | Region bone list as a code constant; fold before **and after** every smoothing pass; assert after top-4/normalize; 3-ring transition band on the skin side | D01 v3 → v4 (`qa_report.md` §0 B1) |
+| 2 | Seam between a rigid part and skin stretches 30–55 mm after the fix in #1 | Hard cut between the rigid region and the skin | Transition band on the skin side (smoothstep 0.16/0.5/0.84 over 3 rings) | D01 v4 |
+| 3 | `R_ear` misplaced | Mirrored from the left ear on an asymmetric mesh | Measure both sides; mirror only where asymmetry ≤ 0.5% H. The joint-inside-mesh test caught it | D01 v1 |
+| 4 | Legs 10.5 mm off the arm/head centre line | Real mesh asymmetry | Separate mirror plane for the legs (`leg_mirror_x`) | D01 |
+| 5 | Loincloth front pierces the thigh at hip flex 70° (4 vertices, 0.76 mm; 17.5 mm in a death clip) | Flap weighted to the pelvis only, no collision | Animator control `ctl_loincloth_front` (−30° clears it); measure with planted-overlap-validated penetration tests; show close-ups at G2/G3 | D01 G2, R7 review |
+| 6 | Long skirt tears in a deep crouch (114 edges > 1.5×) | Static single-layer skin on a garment bridging the legs | Skirt bone chains driven by both thighs (0.5 each), or baked cloth; decide at G2 | FL |
+| 7 | Blender automatic weights unusable | Template (D2R) bone axes did not run along the limbs | Own distance-based skin; or rebuild the bones along the measured limb axes | FL |
+| 8 | Hand moves as one block | Fingers fused in the Tripo mesh | Mitten hand (no finger bones) or a new T-pose with separated fingers | FL |
+| 9 | Forearm twist bones have no weights | Bones kept from the template but never weighted | Linear twist ramp (skinning.md) | FL |
+| 10 | Some bones end up with no weights after automatic weights | Bone heat stops at the first failing bone and only warns | Proxy (closed, cleaned, scaled ×10), count empty vertices and per-bone coverage | research/01 Q4 |
+| 11 | Every MCP call times out; Blender "Not Responding" | One `execute_code` ran past 180 s; no cancel | Kill the PID, reopen the snapshot; keep calls under 20 s; heavy work in `rigkit-env` or `blender -b` | probe 2026-10-22 |
+| 12 | Numerics inside Blender take minutes | Bundled numpy has no fast BLAS (1000² matmul 2.2 s) | Run solvers in `E:\tools\rigkit-env` | probe 2026-10-22 |
+| 13 | UniRig limbs perfectly straight; skirt skinned to the legs | Model bias, no cloth bones | Use UniRig as one vote and one weight candidate; pre-bend and skirt chains come from the skill | UniRig smoke test 2026-10-22 |
+| 14 | Extra joint in the exported skin | A vertex left with no matching bone group → the exporter adds a neutral bone | Check for orphan groups and empty vertices before export | research/01 Q1.2 |
+| 15 | Socket bones missing from the GLB | `export_def_bones=True` removes non-deform bones without non-bone children | Export-only runtime armature, `export_def_bones=False` | research/01 Q1.5 |
+| 16 | Exported material differs from the Tripo source | The exporter drops `KHR_materials_volume` and the default `specularFactor` | Record it; textures stay byte-identical; decide at release | D01 R4 |
+| 17 | GLB under 1 MB | Tripo export without textures | Back to the Tripo pipeline before rigging | `Agent.md` §2 |
+| 18 | Character 1 m tall regardless of catalogue | Tripo normalizes the longest side to 1 m | Scale to the catalogue height at S2 | `Agent.md` principle 4 |
+| 19 | Twist bones turn far too little when twist is combined with flexion (12.8° instead of 30°; 34° error in a three-axis pose) | Copy Rotation Y-only reads the Euler Y angle, not the twist about the bone axis | Driver: `factor × t`, with `t` = TRANSFORMS ROT_Y `SWING_TWIST_Y` in local space; test combined poses to 0.5° | P3 review r1, 2026-10-23 |
+| 20 | Validator crashes exactly when the exporter adds a neutral joint, so no `validation.json` is written | Weight table keyed only by vertex groups | Record joints without groups as errors; always write the report; keep negative tests | P3 review r1 |
+| 21 | Head bone leans 70° forward, S4 head bend test is ambiguous (cos 0.15) | The highest vertex of the wrong head island (an eye of 31 vertices) was used as head_top | Head island by vertex count + ray vote; head_top above the head-mass centre; axis gate 25°/60° | P3 I4, 2026-10-23 |
+| 22 | Torn edges grow after a candidate's leak is fixed | The selector now prefers the clean candidate A in the pelvis: fewer penetrations, more tears | Report both; tune the selector only against tier-1 ground truth (P5) | P3 I4 |
+| 23 | Robe tears along the line where it is fused to the leg (FL: 58 torn edges, all on that border, in a deep crouch) | The garment overlay blended only from the attachment line; Tripo robes are fused to the legs down their inner edges, so a leg row sat next to a full chain row | Transition band from **every** body junction; band rows keep body bones; edge-continuity gate in check_overlay | phase G review r1 B1 |
+| 24 | Robe flares like a rigid lampshade when sitting or crouching | Leg push turned only the chain root, so the whole chain swung as one rod | Drape: the bone after the root counter-rotates by 0.75 x push; clamp 80 deg front/back, 60 deg sides | phase G G3b |
+| 25 | Bead string sticks out as a rod, then (fixed naively) sinks up to 3.5 cm into the robe | Inherited push without drape; then the full drape, then a drape scaled by a z ramp, while the overlay blends in t | Drape bone at or below the panel fold; drape x the overlay's own fold share (along(t)) of the panel rows beside it (FL 0.20). Removes the clipping; the stand-off at extreme poses stays near the rod's (accepted: R8 cloth/spring bake, or a second bead joint at G2) | phase G review r2/r3/r4 |
+| 26 | Garment lights red from weight-test poses (ring flare +30 deg: 186 torn edges) | LBS cannot fold cloth, so a flared ring must stretch; the pose was tagged standard | Chain poses tagged chain + extreme, flare +15 deg | phase G G6 |
+| 27 | A garment classifier chains a tail, belly or wing membrane as cloth | Thresholds tuned on separate-island fixtures; fused/thick parts mis-read | Closed-tube and membrane rules, flag instead of chain; fused fixtures in pytest | phase G review r1 M3, G4/G5 |

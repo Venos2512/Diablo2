@@ -1,0 +1,202 @@
+{
+  "family": "S_legacy_D01",
+  "schema": 0,
+  "version": "2026-10-23",
+  "extends": null,
+  "status": "legacy regression target (A1, P3): exact replica of the G2-approved D01 Hodling runtime (d01_rig_def.build, 35 bones). Not for new assets: new S assets use S.json (clavicle + twist).",
+  "description": "D01 Hodling legacy rig: 22 core bones (no clavicle, no twist) + 5 aux (helmet, sack, loincloth_front, L_ear, R_ear) + 8 sockets. Landmark ids are those of rigcore.landmarks.from_d01_landmarks. Template order matches the D01 creation order, so sibling order and armature bone order equal the G2 file.",
+  "conventions": {
+    "units": "m",
+    "blender_up": "+Z",
+    "blender_front": "-Y",
+    "character_left": "+X",
+    "gltf_export": "+Y up, front +Z",
+    "side_prefix": [
+      "L_",
+      "R_"
+    ],
+    "control_prefix": "ctl_",
+    "legacy_note": "D01 foot and toe keep d01_rig_def's hinge +X, so positive local X is plantar flexion (toes down). H/S flip these two (toes up)."
+  },
+  "landmarks": {
+    "center": [
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "chest",
+      "neck",
+      "head",
+      "head_top",
+      "helmet_head",
+      "helmet_tail",
+      "sack_head",
+      "sack_tail",
+      "loincloth_front_head",
+      "loincloth_front_tail",
+      "fx_head",
+      "fx_chest",
+      "hit_origin"
+    ],
+    "sided": [
+      "shoulder",
+      "elbow",
+      "wrist",
+      "hand_tip",
+      "palm",
+      "hip",
+      "knee",
+      "ankle",
+      "ball",
+      "toe_tip",
+      "heel_ground",
+      "ball_ground",
+      "toe_ground",
+      "ear_head",
+      "ear_tail"
+    ],
+    "rules": {
+      "source": "ashlar/3d/monsters/D01_hodling/rig/tools/landmarks.json via rigcore.landmarks.from_d01_landmarks (arms and ears mirrored about x = 0 except the ears, legs about x = leg_mirror_x = 0.0105)",
+      "head_top": "spine.head_tail of the D01 file",
+      "ear_head": "ear base, measured per side (not mirrored)",
+      "ear_tail": "ear tip, measured per side",
+      "fx_head": "D01 sockets.fx_head",
+      "fx_chest": "D01 sockets.fx_chest",
+      "hit_origin": "D01 sockets.hit_origin"
+    }
+  },
+  "priors": {
+    "pelvis": {"z_over_H": 0.370, "tol_H": 0.04, "source": "D01 landmarks.json (measured, G2)"},
+    "hip": {"z_over_H": 0.356, "tol_H": 0.04, "source": "D01 (measured, G2)"},
+    "knee": {"z_over_H": 0.220, "tol_H": 0.04, "source": "D01 (measured, G2)"},
+    "ankle": {"z_over_H": 0.096, "tol_H": 0.03, "source": "D01 (measured, G2)"},
+    "chest": {"z_over_H": 0.610, "tol_H": 0.05, "source": "D01 (measured, G2)"},
+    "shoulder": {"z_over_H": 0.668, "tol_H": 0.05, "source": "D01 (measured, G2)"},
+    "neck": {"z_over_H": 0.700, "tol_H": 0.05, "source": "D01 (measured, G2)"},
+    "head": {"z_over_H": 0.744, "tol_H": 0.05, "source": "D01 (measured, G2)"}
+  },
+  "builder": {
+    "note": "Defaults that rigkit reads for this family (callers may override). They reproduce d01_rig_def / b1_build_rig exactly.",
+    "prebend": {
+      "mode": "legacy_d01",
+      "legacy_elbow_offset_m": [0.0, 0.0033, 0.0]
+    },
+    "control": {
+      "pole_offset_H": 0.24,
+      "pole_length_H": 0.06
+    },
+    "inside_exempt": [
+      "L_ear",
+      "R_ear",
+      "loincloth_front"
+    ],
+    "names": {
+      "mesh": "D01_hodling",
+      "runtime": "D01_runtime",
+      "control": "D01_control",
+      "collection": "D01_Rig"
+    }
+  },
+  "bones": [
+    {"name": "root", "parent": null, "kind": "core", "deform": false, "head": "origin", "tail": "off:origin|0|0|0.08", "hinge": "axis:+X"},
+    {"name": "cog", "parent": "root", "kind": "core", "deform": false, "head": "lm:pelvis", "tail": "off:lm:pelvis|0|0|0.044", "hinge": "axis:+X"},
+    {"name": "pelvis", "parent": "cog", "kind": "core", "deform": true, "head": "lm:pelvis", "tail": "lm:spine_01", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "spine_01", "parent": "pelvis", "kind": "core", "deform": true, "head": "lm:spine_01", "tail": "lm:spine_02", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "spine_02", "parent": "spine_01", "kind": "core", "deform": true, "head": "lm:spine_02", "tail": "lm:chest", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "chest", "parent": "spine_02", "kind": "core", "deform": true, "head": "lm:chest", "tail": "lm:neck", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "neck", "parent": "chest", "kind": "core", "deform": true, "head": "lm:neck", "tail": "lm:head", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "head", "parent": "neck", "kind": "core", "deform": true, "head": "lm:head", "tail": "lm:head_top", "hinge": "axis:+X", "bend_test": "top moves forward (-Y)"},
+    {"name": "{S}_UpperArm", "parent": "chest", "kind": "core", "deform": true, "head": "lm:shoulder_{S}", "tail": "lm:elbow_{S}", "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}", "bend_test": "elbow goes forward (-Y): horizontal flexion at T-pose"},
+    {"name": "{S}_ForeArm", "parent": "{S}_UpperArm", "kind": "core", "deform": true, "head": "lm:elbow_{S}", "tail": "lm:wrist_{S}", "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}", "bend_test": "elbow flexes, hand goes forward (-Y)"},
+    {"name": "{S}_Hand", "parent": "{S}_ForeArm", "kind": "core", "deform": true, "head": "lm:wrist_{S}", "tail": "lm:hand_tip_{S}", "hinge": "axis:+Y", "hinge_R": "axis:-Y", "bend_test": "hand tip goes down (-Z) at T-pose"},
+    {"name": "{S}_Thigh", "parent": "pelvis", "kind": "core", "deform": true, "head": "lm:hip_{S}", "tail": "lm:knee_{S}", "hinge": "bend:hip_{S}|knee_{S}|ankle_{S}", "bend_test": "knee goes back (+Y): hip extension; hip flexion is negative X"},
+    {"name": "{S}_Calf", "parent": "{S}_Thigh", "kind": "core", "deform": true, "head": "lm:knee_{S}", "tail": "lm:ankle_{S}", "hinge": "bend:hip_{S}|knee_{S}|ankle_{S}", "bend_test": "knee flexes, foot goes back (+Y)"},
+    {"name": "{S}_Foot", "parent": "{S}_Calf", "kind": "core", "deform": true, "head": "lm:ankle_{S}", "tail": "lm:ball_{S}", "hinge": "axis:+X", "bend_test": "toes go down (-Z): D01 legacy convention, +X = plantar flexion"},
+    {"name": "{S}_Toe", "parent": "{S}_Foot", "kind": "core", "deform": true, "head": "lm:ball_{S}", "tail": "lm:toe_tip_{S}", "hinge": "axis:+X", "bend_test": "toe tip goes down (-Z): D01 legacy convention"},
+    {"name": "helmet", "parent": "head", "kind": "aux", "deform": true, "head": "lm:helmet_head", "tail": "lm:helmet_tail", "hinge": "axis:+X", "note": "helmet + horns, rigid (weight 1.0)"},
+    {"name": "sack", "parent": "chest", "kind": "aux", "deform": true, "head": "lm:sack_head", "tail": "lm:sack_tail", "hinge": "axis:+X", "note": "bricks rigid; sack cloth limited to sack/chest/spine_02/spine_01 (failure-catalog #1)"},
+    {"name": "loincloth_front", "parent": "pelvis", "kind": "aux", "deform": true, "head": "lm:loincloth_front_head", "tail": "lm:loincloth_front_tail", "hinge": "axis:+X", "note": "front flap; ctl_loincloth_front -30 deg clears the thigh at hip flex 70 (failure-catalog #5)"},
+    {"name": "{S}_ear", "parent": "head", "kind": "aux", "deform": true, "head": "lm:ear_head_{S}", "tail": "lm:ear_tail_{S}", "hinge": "axis:+Z", "note": "measured per side (failure-catalog #3)"},
+    {"name": "{S}_weapon_attach", "parent": "{S}_Hand", "kind": "socket", "deform": false, "head": "lm:palm_{S}", "tail": "off:lm:palm_{S}|0|-0.08|0", "hinge": "axis:+Z", "note": "local Y along the grip, forward at T-pose; Z = +X (D01 A2_sockets)"},
+    {"name": "fx_head", "parent": "head", "kind": "socket", "deform": false, "head": "lm:fx_head", "tail": "off:lm:fx_head|0|0|0.04", "hinge": "axis:+X"},
+    {"name": "fx_chest", "parent": "chest", "kind": "socket", "deform": false, "head": "lm:fx_chest", "tail": "off:lm:fx_chest|0|-0.04|0", "hinge": "axis:+X"},
+    {"name": "fx_hand_{S}", "parent": "{S}_Hand", "kind": "socket", "deform": false, "head": "off:lm:palm_{S}|0|0|0.024", "tail": "off:lm:palm_{S}|0|0|0.064", "hinge": "axis:+X"},
+    {"name": "hit_origin", "parent": "spine_02", "kind": "socket", "deform": false, "head": "lm:hit_origin", "tail": "off:lm:hit_origin|0|-0.06|0", "hinge": "axis:+X"},
+    {"name": "ground", "parent": "root", "kind": "socket", "deform": false, "head": "origin", "tail": "off:origin|0|0|0.04", "hinge": "axis:+X"}
+  ],
+  "ik": [
+    {
+      "name": "arm_{S}",
+      "chain": [
+        "{S}_UpperArm",
+        "{S}_ForeArm"
+      ],
+      "target": "ctl_{S}_Hand_IK",
+      "pole": "ctl_{S}_Elbow_pole",
+      "target_parent": "ctl_chest",
+      "switch": "ik_arm_{S}"
+    },
+    {
+      "name": "leg_{S}",
+      "chain": [
+        "{S}_Thigh",
+        "{S}_Calf"
+      ],
+      "target": "ctl_{S}_Ankle_target",
+      "pole": "ctl_{S}_Knee_pole",
+      "foot_roll": [
+        "ctl_{S}_Foot_IK",
+        "ctl_{S}_Toe_roll",
+        "ctl_{S}_Heel_roll",
+        "ctl_{S}_Ball_roll"
+      ],
+      "switch": "ik_leg_{S}"
+    }
+  ],
+  "control_kit": "humanoid_v1",
+  "rom": [
+    {"joint": "shoulder_abduction", "control": "ctl_{S}_UpperArm", "axis": "Z", "positive": "elbow goes up (+Z)", "range_deg": [-90, 80]},
+    {"joint": "shoulder_horizontal_flexion", "control": "ctl_{S}_UpperArm", "axis": "X", "range_deg": [-40, 120], "note": "+X = arm swings forward (bend_test of UpperArm)"},
+    {"joint": "shoulder_twist", "control": "ctl_{S}_UpperArm", "axis": "Y", "range_deg": [-70, 70], "positive": "either; symmetric range"},
+    {"joint": "elbow_flexion", "control": "ctl_{S}_ForeArm", "axis": "X", "range_deg": [0, 150]},
+    {"joint": "forearm_pronation", "control": "ctl_{S}_Hand", "axis": "Y", "range_deg": [-80, 80], "note": "no twist bones in the legacy rig"},
+    {"joint": "wrist_flexion", "control": "ctl_{S}_Hand", "axis": "X", "range_deg": [-60, 60]},
+    {"joint": "hip_flexion", "control": "ctl_{S}_Thigh", "axis": "X", "range_deg": [-120, 20], "note": "+X = hip extension (bend_test of Thigh)"},
+    {"joint": "hip_abduction", "control": "ctl_{S}_Thigh", "axis": "Z", "positive": "knee goes outward, away from the midline", "range_deg": [-15, 45]},
+    {"joint": "knee_flexion", "control": "ctl_{S}_Calf", "axis": "X", "range_deg": [0, 140]},
+    {"joint": "ankle", "control": "ctl_{S}_Foot", "axis": "X", "range_deg": [-20, 40], "note": "legacy convention: +X = toes down (plantar flexion 40); -20 = dorsiflexion"},
+    {"joint": "spine_twist", "control": "ctl_spine_01+ctl_spine_02+ctl_chest", "axis": "Y", "range_deg": [-45, 45], "note": "split evenly over the three bones"},
+    {"joint": "spine_bend", "control": "ctl_spine_01+ctl_spine_02+ctl_chest", "axis": "X", "range_deg": [-30, 60]},
+    {"joint": "neck_rotation", "control": "ctl_neck+ctl_head", "axis": "Y", "range_deg": [-60, 60]},
+    {"joint": "neck_bend", "control": "ctl_neck+ctl_head", "axis": "X", "range_deg": [-40, 50]}
+  ],
+  "rom_compound": [
+    "squat",
+    "long_step",
+    "arms_crossed",
+    "hands_overhead",
+    "twist_p45",
+    "twist_m45",
+    "hip_flex_knee_bent"
+  ],
+  "skin": {
+    "max_influences": 4,
+    "region_bones": {
+      "sack": [
+        "sack",
+        "chest",
+        "spine_02",
+        "spine_01"
+      ]
+    },
+    "rigid": {
+      "helmet": "helmet + horns -> helmet 1.0",
+      "brick": "bricks on the sack -> sack 1.0",
+      "eye": "eyes -> head 1.0"
+    },
+    "profiles": {
+      "sack": "sack cloth: sack/chest/spine_02/spine_01 only; 3-ring transition band on the skin side (head side -> chest, hip side -> spine_01)",
+      "loincloth": "belt -> pelvis/spine; front flap pelvis -> loincloth_front (no thigh); back flap -> pelvis"
+    },
+    "note": "Reference description of D01's d01_skin.py rules (G2). The legacy regression copies the G2 weights; skin writers may use region_bones as the region list."
+  }
+}

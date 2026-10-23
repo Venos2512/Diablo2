@@ -1,0 +1,76 @@
+{
+  "family": "S",
+  "schema": 0,
+  "version": "2026-10-22",
+  "extends": "H",
+  "status": "draft: same bones as H (clavicle + twist from 2026-10-22); priors measured on D01 Hodling (G2-approved). D01 itself keeps its legacy 35-bone rig (no clavicle, no twist)",
+  "description": "Small humanoid (D01 Hodling ~0.5 m): big head, short legs. Shares H topology and clips after scaling.",
+  "priors": {
+    "pelvis": {
+      "z_over_H": 0.37,
+      "tol_H": 0.04,
+      "source": "D01 landmarks.json (measured, G2)"
+    },
+    "hip": {
+      "z_over_H": 0.356,
+      "tol_H": 0.04,
+      "source": "D01 (measured, G2)"
+    },
+    "knee": {
+      "z_over_H": 0.22,
+      "tol_H": 0.04,
+      "source": "D01 (measured, G2)"
+    },
+    "ankle": {
+      "z_over_H": 0.096,
+      "tol_H": 0.03,
+      "source": "D01 (measured, G2)"
+    },
+    "chest": {
+      "z_over_H": 0.61,
+      "tol_H": 0.05,
+      "source": "D01 (measured, G2)"
+    },
+    "shoulder": {
+      "z_over_H": 0.668,
+      "tol_H": 0.05,
+      "source": "D01 (measured, G2)"
+    },
+    "neck": {
+      "z_over_H": 0.7,
+      "tol_H": 0.05,
+      "source": "D01 (measured, G2)"
+    },
+    "head": {
+      "z_over_H": 0.744,
+      "tol_H": 0.05,
+      "source": "D01 (measured, G2)"
+    },
+    "head_top": {
+      "z_over_H": 1.0,
+      "tol_H": 0.03,
+      "source": "definition of H; D01 H = top of the helmet mesh (0.5 m), so head_top may sit below 1.0 when a helmet is worn"
+    }
+  },
+  "notes": [
+    "Short legs limit IK reach: D01 hip-to-ankle 0.13 m, long step +5/-4.5 cm (qa_report 5.2 #5). Scale the long_step ROM pose to the measured reach.",
+    "Thin ears and flaps sit partly outside the mesh (D01: 1.9-4.6 mm); list them as exempt in the joint-inside test.",
+    "Aux bones from the D01 brief, for reference: helmet (head), sack (chest, rigid content + region-limited cloth), loincloth_front (pelvis), L_ear/R_ear (head)."
+  ],
+  "legacy_profiles": {
+    "S_legacy_D01": "35 runtime bones = 22 core (no clavicle, no twist) + 5 aux + 8 sockets; ashlar/3d/monsters/D01_hodling/rig/tools/d01_rig_def.py"
+  },
+  "plausibility": {
+    "segment_ratio": {
+      "arm_upper_over_fore": [
+        0.59,
+        1.37
+      ],
+      "leg_thigh_over_shin": [
+        0.66,
+        1.54
+      ],
+      "status": "D01 G2 ratios ±40 % (arm 0.98, leg 1.10); calibrate at P5"
+    }
+  }
+}

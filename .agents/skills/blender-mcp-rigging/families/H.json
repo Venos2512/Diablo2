@@ -1,0 +1,581 @@
+{
+  "family": "H",
+  "schema": 0,
+  "version": "2026-10-22",
+  "extends": null,
+  "status": "draft: core approved by the user 2026-10-22 (clavicle + upper-arm/forearm twist); placements and ROM ranges are proposals until P5",
+  "description": "Adult humanoid (hero FL, human monsters). 28 core bones + 8 sockets; aux bones come from the rig brief.",
+  "conventions": {
+    "units": "m",
+    "blender_up": "+Z",
+    "blender_front": "-Y",
+    "character_left": "+X",
+    "gltf_export": "+Y up, front +Z",
+    "side_prefix": [
+      "L_",
+      "R_"
+    ],
+    "control_prefix": "ctl_"
+  },
+  "landmarks": {
+    "center": [
+      "pelvis",
+      "spine_01",
+      "spine_02",
+      "chest",
+      "neck",
+      "head",
+      "head_top"
+    ],
+    "sided": [
+      "clavicle",
+      "shoulder",
+      "elbow",
+      "wrist",
+      "hand_tip",
+      "palm",
+      "hip",
+      "knee",
+      "ankle",
+      "ball",
+      "toe_tip",
+      "heel_ground",
+      "ball_ground",
+      "toe_ground"
+    ],
+    "rules": {
+      "pelvis": "height of the hip joint centres, on the spine line (nearer the back)",
+      "spine_01": "1/3 of the spine curve from pelvis to chest",
+      "spine_02": "2/3 of the spine curve from pelvis to chest",
+      "chest": "armpit level, spine line nearer the back",
+      "neck": "base of the neck (top of the shoulders, C7)",
+      "head": "skull base, behind the ear line",
+      "head_top": "top of the skull (not hair, helmet or horns)",
+      "clavicle": "sternoclavicular joint: top of the sternum, just off the midline",
+      "shoulder": "centre of a sphere fitted to the humeral head region (not the acromion)",
+      "elbow": "between the epicondyles, slightly behind the arm mid-line; pre-bend 4-10 deg in the bend plane",
+      "wrist": "midline of the wrist crease",
+      "hand_tip": "end of the middle finger, or the tip of a mitten hand",
+      "palm": "grip centre of the palm (weapon socket)",
+      "hip": "hip joint centre inside the pelvis (medial to the outer hip bulge)",
+      "knee": "on the condyle hinge behind the kneecap; keep the measured leg bend or pre-bend 4-10 deg",
+      "ankle": "midpoint of the malleoli",
+      "ball": "metatarsophalangeal line, slightly above the sole",
+      "toe_tip": "front of the toes",
+      "heel_ground": "back of the heel at z = 0",
+      "ball_ground": "ball projected to z = 0",
+      "toe_ground": "toe tip projected to z = 0"
+    }
+  },
+  "priors": {
+    "ankle": {
+      "z_over_H": 0.039,
+      "tol_H": 0.05,
+      "source": "Drillis-Contini 1966 via research/03 4.8 (unverified)"
+    },
+    "knee": {
+      "z_over_H": 0.285,
+      "tol_H": 0.05,
+      "source": "Drillis-Contini 1966 (unverified)"
+    },
+    "hip": {
+      "z_over_H": 0.5,
+      "tol_H": 0.06,
+      "source": "below the greater trochanter 0.530 (Drillis-Contini, unverified)"
+    },
+    "shoulder": {
+      "z_over_H": 0.8,
+      "tol_H": 0.06,
+      "source": "just below the acromion 0.818 (Drillis-Contini, unverified)"
+    },
+    "head_top": {
+      "z_over_H": 1.0,
+      "tol_H": 0.03,
+      "source": "definition of H (top of the body without hair, helmet or horns, unless the catalogue says otherwise)"
+    }
+  },
+  "bones": [
+    {
+      "name": "root",
+      "parent": null,
+      "kind": "core",
+      "deform": false,
+      "head": "origin",
+      "tail": "off:origin|0|0|0.02",
+      "hinge": "axis:+X"
+    },
+    {
+      "name": "cog",
+      "parent": "root",
+      "kind": "core",
+      "deform": false,
+      "head": "lm:pelvis",
+      "tail": "off:lm:pelvis|0|0|0.044",
+      "hinge": "axis:+X"
+    },
+    {
+      "name": "pelvis",
+      "parent": "cog",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:pelvis",
+      "tail": "lm:spine_01",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "spine_01",
+      "parent": "pelvis",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:spine_01",
+      "tail": "lm:spine_02",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "spine_02",
+      "parent": "spine_01",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:spine_02",
+      "tail": "lm:chest",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "chest",
+      "parent": "spine_02",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:chest",
+      "tail": "lm:neck",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "neck",
+      "parent": "chest",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:neck",
+      "tail": "lm:head",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "head",
+      "parent": "neck",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:head",
+      "tail": "lm:head_top",
+      "hinge": "axis:+X",
+      "bend_test": "top moves forward (-Y)"
+    },
+    {
+      "name": "{S}_Clavicle",
+      "parent": "chest",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:clavicle_{S}",
+      "tail": "lm:shoulder_{S}",
+      "hinge": "axis:-Y",
+      "hinge_R": "axis:+Y",
+      "bend_test": "tail moves up (+Z)"
+    },
+    {
+      "name": "{S}_UpperArm",
+      "parent": "{S}_Clavicle",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:shoulder_{S}",
+      "tail": "lm:elbow_{S}",
+      "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}",
+      "bend_test": "elbow goes forward (-Y): horizontal flexion at T-pose"
+    },
+    {
+      "name": "{S}_UpperArm_twist",
+      "parent": "{S}_UpperArm",
+      "kind": "twist",
+      "deform": true,
+      "head": "lerp:lm:shoulder_{S}|lm:elbow_{S}|0.25",
+      "tail": "lerp:lm:shoulder_{S}|lm:elbow_{S}|0.5",
+      "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}",
+      "twist": {
+        "driver": "{S}_UpperArm",
+        "axis": "Y",
+        "factor": -0.5
+      }
+    },
+    {
+      "name": "{S}_ForeArm",
+      "parent": "{S}_UpperArm",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:elbow_{S}",
+      "tail": "lm:wrist_{S}",
+      "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}",
+      "bend_test": "elbow flexes, hand goes forward (-Y)"
+    },
+    {
+      "name": "{S}_ForeArm_twist",
+      "parent": "{S}_ForeArm",
+      "kind": "twist",
+      "deform": true,
+      "head": "lerp:lm:elbow_{S}|lm:wrist_{S}|0.5",
+      "tail": "lerp:lm:elbow_{S}|lm:wrist_{S}|0.75",
+      "hinge": "bend:shoulder_{S}|elbow_{S}|wrist_{S}",
+      "twist": {
+        "driver": "{S}_Hand",
+        "axis": "Y",
+        "factor": 0.5
+      }
+    },
+    {
+      "name": "{S}_Hand",
+      "parent": "{S}_ForeArm",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:wrist_{S}",
+      "tail": "lm:hand_tip_{S}",
+      "hinge": "axis:+Y",
+      "hinge_R": "axis:-Y",
+      "bend_test": "hand tip goes down (-Z) at T-pose"
+    },
+    {
+      "name": "{S}_Thigh",
+      "parent": "pelvis",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:hip_{S}",
+      "tail": "lm:knee_{S}",
+      "hinge": "bend:hip_{S}|knee_{S}|ankle_{S}",
+      "bend_test": "knee goes back (+Y): hip extension; hip flexion is negative X"
+    },
+    {
+      "name": "{S}_Calf",
+      "parent": "{S}_Thigh",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:knee_{S}",
+      "tail": "lm:ankle_{S}",
+      "hinge": "bend:hip_{S}|knee_{S}|ankle_{S}",
+      "bend_test": "knee flexes, foot goes back (+Y)"
+    },
+    {
+      "name": "{S}_Foot",
+      "parent": "{S}_Calf",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:ankle_{S}",
+      "tail": "lm:ball_{S}",
+      "hinge": "axis:-X",
+      "bend_test": "toes go up (+Z)"
+    },
+    {
+      "name": "{S}_Toe",
+      "parent": "{S}_Foot",
+      "kind": "core",
+      "deform": true,
+      "head": "lm:ball_{S}",
+      "tail": "lm:toe_tip_{S}",
+      "hinge": "axis:-X",
+      "bend_test": "toe tip goes up (+Z)"
+    },
+    {
+      "name": "{S}_weapon_attach",
+      "parent": "{S}_Hand",
+      "kind": "socket",
+      "deform": false,
+      "head": "lm:palm_{S}",
+      "tail": "off:lm:palm_{S}|0|-0.08|0",
+      "hinge": "axis:+Z",
+      "note": "local Y along the grip, forward at T-pose; Z = +X (D01 A2_sockets)"
+    },
+    {
+      "name": "fx_hand_{S}",
+      "parent": "{S}_Hand",
+      "kind": "socket",
+      "deform": false,
+      "head": "off:lm:palm_{S}|0|0|0.024",
+      "tail": "off:lm:palm_{S}|0|0|0.064",
+      "hinge": "axis:+X"
+    },
+    {
+      "name": "fx_head",
+      "parent": "head",
+      "kind": "socket",
+      "deform": false,
+      "head": "lm:head_top",
+      "tail": "off:lm:head_top|0|0|0.04",
+      "hinge": "axis:+X",
+      "note": "place by the brief (crown or forehead)"
+    },
+    {
+      "name": "fx_chest",
+      "parent": "chest",
+      "kind": "socket",
+      "deform": false,
+      "head": "lm:chest",
+      "tail": "off:lm:chest|0|-0.04|0",
+      "hinge": "axis:+X",
+      "note": "move to the front surface of the chest"
+    },
+    {
+      "name": "hit_origin",
+      "parent": "spine_02",
+      "kind": "socket",
+      "deform": false,
+      "head": "lm:spine_02",
+      "tail": "off:lm:spine_02|0|-0.06|0",
+      "hinge": "axis:+X",
+      "note": "move to the front of the torso"
+    },
+    {
+      "name": "ground",
+      "parent": "root",
+      "kind": "socket",
+      "deform": false,
+      "head": "origin",
+      "tail": "off:origin|0|0|0.04",
+      "hinge": "axis:+X"
+    }
+  ],
+  "ik": [
+    {
+      "name": "arm_{S}",
+      "chain": [
+        "{S}_UpperArm",
+        "{S}_ForeArm"
+      ],
+      "target": "ctl_{S}_Hand_IK",
+      "pole": "ctl_{S}_Elbow_pole",
+      "target_parent": "ctl_chest",
+      "switch": "ik_arm_{S}"
+    },
+    {
+      "name": "leg_{S}",
+      "chain": [
+        "{S}_Thigh",
+        "{S}_Calf"
+      ],
+      "target": "ctl_{S}_Ankle_target",
+      "pole": "ctl_{S}_Knee_pole",
+      "foot_roll": [
+        "ctl_{S}_Foot_IK",
+        "ctl_{S}_Toe_roll",
+        "ctl_{S}_Heel_roll",
+        "ctl_{S}_Ball_roll"
+      ],
+      "switch": "ik_leg_{S}"
+    }
+  ],
+  "control_kit": "humanoid_v1",
+  "rom": [
+    {
+      "joint": "clavicle_raise",
+      "control": "ctl_{S}_Clavicle",
+      "axis": "X",
+      "range_deg": [
+        -10,
+        30
+      ]
+    },
+    {
+      "joint": "shoulder_abduction",
+      "control": "ctl_{S}_UpperArm",
+      "axis": "Z",
+      "positive": "elbow goes up (+Z)",
+      "range_deg": [
+        -90,
+        80
+      ],
+      "note": "from T-pose: -90 = arm down at the side, +80 = overhead (about 170 deg with the clavicle raise)"
+    },
+    {
+      "joint": "shoulder_horizontal_flexion",
+      "control": "ctl_{S}_UpperArm",
+      "axis": "X",
+      "range_deg": [
+        -40,
+        120
+      ],
+      "note": "+X = arm swings forward (bend_test of UpperArm)"
+    },
+    {
+      "joint": "shoulder_twist",
+      "control": "ctl_{S}_UpperArm",
+      "axis": "Y",
+      "range_deg": [
+        -70,
+        70
+      ],
+      "positive": "either; symmetric range"
+    },
+    {
+      "joint": "elbow_flexion",
+      "control": "ctl_{S}_ForeArm",
+      "axis": "X",
+      "range_deg": [
+        0,
+        150
+      ]
+    },
+    {
+      "joint": "forearm_pronation",
+      "control": "ctl_{S}_Hand",
+      "axis": "Y",
+      "range_deg": [
+        -80,
+        80
+      ],
+      "note": "tests the forearm twist"
+    },
+    {
+      "joint": "wrist_flexion",
+      "control": "ctl_{S}_Hand",
+      "axis": "X",
+      "range_deg": [
+        -60,
+        60
+      ]
+    },
+    {
+      "joint": "hip_flexion",
+      "control": "ctl_{S}_Thigh",
+      "axis": "X",
+      "range_deg": [
+        -120,
+        20
+      ],
+      "note": "+X = hip extension (bend_test of Thigh); -120 = knee lifted forward 120 deg"
+    },
+    {
+      "joint": "hip_abduction",
+      "control": "ctl_{S}_Thigh",
+      "axis": "Z",
+      "positive": "knee goes outward, away from the midline",
+      "range_deg": [
+        -15,
+        45
+      ]
+    },
+    {
+      "joint": "knee_flexion",
+      "control": "ctl_{S}_Calf",
+      "axis": "X",
+      "range_deg": [
+        0,
+        140
+      ]
+    },
+    {
+      "joint": "ankle",
+      "control": "ctl_{S}_Foot",
+      "axis": "X",
+      "range_deg": [
+        -40,
+        20
+      ],
+      "note": "+X = toes up (dorsiflexion 20); -40 = plantar flexion"
+    },
+    {
+      "joint": "spine_twist",
+      "control": "ctl_spine_01+ctl_spine_02+ctl_chest",
+      "axis": "Y",
+      "range_deg": [
+        -45,
+        45
+      ],
+      "note": "split evenly over the three bones"
+    },
+    {
+      "joint": "spine_bend",
+      "control": "ctl_spine_01+ctl_spine_02+ctl_chest",
+      "axis": "X",
+      "range_deg": [
+        -30,
+        60
+      ]
+    },
+    {
+      "joint": "neck_rotation",
+      "control": "ctl_neck+ctl_head",
+      "axis": "Y",
+      "range_deg": [
+        -60,
+        60
+      ]
+    },
+    {
+      "joint": "neck_bend",
+      "control": "ctl_neck+ctl_head",
+      "axis": "X",
+      "range_deg": [
+        -40,
+        50
+      ]
+    }
+  ],
+  "rom_compound": [
+    "squat",
+    "long_step",
+    "arms_crossed",
+    "hands_overhead",
+    "twist_p45",
+    "twist_m45",
+    "hip_flex_knee_bent",
+    "deep_crouch",
+    "high_kick_L",
+    "sit",
+    "run_stride",
+    "lean_fwd",
+    "lean_back"
+  ],
+  "skin": {
+    "max_influences": 4,
+    "prune_below": 0.01,
+    "side_gate_band_H": 0.01,
+    "max_influences_by_region": {
+      "shoulder": 3,
+      "hip": 3,
+      "fingers": 2,
+      "default_non_joint": 2
+    },
+    "profiles": {
+      "shoulder": "3-way chest / {S}_Clavicle / {S}_UpperArm",
+      "upper_arm": "{S}_UpperArm + {S}_UpperArm_twist re-split: a = clamp((t - t0)/(1 - t0), 0, 1), t0 = twist head position (0.25); UpperArm = m*a, twist = m*(1 - a) (references/skinning.md)",
+      "elbow": "2-3 rings, 50/50 at the crease; inner crease biased to {S}_ForeArm",
+      "forearm": "{S}_ForeArm + {S}_ForeArm_twist re-split: twist = m*t, ForeArm = m*(1 - t), t from elbow (0) to wrist (1); no Hand weight on the forearm",
+      "hip": "pelvis / {S}_Thigh / spine_01, transition >= 10% of thigh length",
+      "knee": "2-3 rings, 50/50 at the crease",
+      "neck_head": "neck blends over its length; skull, helmet and jaw region to head only",
+      "wrist": "hard crease band at the Hand head: hand share = clip(0.5 + u/(2h), 0, 1), h = 0.5 * wrist_rings (2) * local edge length"
+    },
+    "rigid_default": [
+      "helmet",
+      "armor plates",
+      "buckles",
+      "eyes",
+      "horns",
+      "weapons fused to the mesh (prefer separate meshes)"
+    ],
+    "influence_cap_rule": "keep up to 4; cap to 2 only when influences 3+ sum < 0.05; on shoulder/hip blend rows cap to 3 only when influences 4+ sum < 0.05, else keep and report",
+    "side_planes": "from the skeleton: torso = median x of unsided core bones; L/R pair = mean x of the two heads"
+  },
+  "rom_note": "X-axis signs follow each bone bend_test (the builder flips rolls until the tests pass); Y/Z entries carry a \"positive\" text the builder resolves by a displacement test",
+  "plausibility": {
+    "segment_ratio": {
+      "arm_upper_over_fore": [
+        0.75,
+        1.8
+      ],
+      "leg_thigh_over_shin": [
+        0.7,
+        1.5
+      ],
+      "status": "proposal (review r2), calibrate at P5 on tier-1 rigs"
+    }
+  }
+}
