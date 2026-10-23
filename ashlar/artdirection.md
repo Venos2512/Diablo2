@@ -227,7 +227,7 @@ Thêm theo dạng ảnh:
 ### 3.8 CONTENT (mọi ảnh)
 
 ```text
-CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only; no nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only, except canon child and teenage NPC concepts explicitly allowed on 23/10/2026: preserve their canon age, fully clothed, age-appropriate and non-sexualised; no graphic injury or distress. No nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
 ```
 
 ---
@@ -514,6 +514,8 @@ Palette Act I ban đêm, **không accent**, không có Osric's Lantern.
 ### 6.2 Style quái
 
 Dùng §3.1 + §3.2 + §3.4.
+
+**Kiln-Bull D03 (23/10, người dùng):** đi bằng **hai chân**, hai tay lớn, vai/ngực và thân hình bulky. Giữ đầu bò, sừng, đất nung và lỗ mũi sáng của lò. **Chiều cao toàn thân chốt 1.40H**, từ mặt đất tới điểm cố định cao nhất của cơ thể, nhóm G4. Bóng người H phải cùng mặt đất và tỷ lệ; quái chỉ cao hơn người 40%. Số đo V/L của bản bốn chân đã được thay thế; bản r3b có bóng người quá nhỏ, không dùng làm chuẩn kích thước.
 
 **Ngôn ngữ zombie/ghoul kiểu Diablo:**
 - vai gù nặng, ngực lõm;
@@ -1144,6 +1146,10 @@ Hai biome lặp lại nhưng lần đầu nằm ở nhánh phụ:
 
 | Ngày | Quyết định của người dùng | Áp vào |
 |---|---|---|
+| 24/10 | Gen ảnh Codex phải tiết kiệm token như Map 1 ("làm theo hướng của bạn"): mỗi phiên một ảnh, prompt dựng sẵn, Astra không đọc tài liệu, không tự QA. Cơ sở: quái Act II tốn khoảng 248k token đầu vào mỗi ảnh so với 98k ở Map 1, vì mỗi lane đọc cả file này, đọc mọi QA cũ và làm nhiều vòng trong một phiên | §13 |
+| 23/10 | Kiln-Bull chỉ cao bằng **1,4 người (1.40H)**; concept r3b quá to so với người | §6.2; D03, thay kích thước bốn chân cũ |
+| 23/10 | Concept NPC toàn game: mỗi NPC hai phương án. Giữ tuổi canon cho Tamsin, Fen, Wystan, Mila và các NPC trẻ; cho phép ngoại lệ concept kín đáo, đúng tuổi, mặc đầy đủ trang phục, không gợi dục, không thương tích đồ họa. Yarik và Bozhena chưa có tuổi cụ thể trong nguồn; không tự ghi tuổi thành canon. | §3.8, concept NPC |
+| 23/10 | Kiln-Bull đổi sang đi bằng hai chân, tay to và thân hình bulky hơn | §6.2; D03, concept sửa dáng |
 | 19–20/10 | Chọn ASHLAR làm thế giới | Toàn bộ |
 | 19–20/10 | Mood theo từng map; Map 1 = mood Act I Diablo II; Dark Wood v1 không phải mood chung | §2 |
 | 20/10 | Terrain painterly ít chi tiết, mảng lớn. Bản `stylized` đầu (nhiều chi tiết) và `stylized3` (đá nhỏ lốm đốm) bị loại; đường đá viên lớn `stylized2` | §1, §7.1 |
@@ -1178,12 +1184,19 @@ Hai biome lặp lại nhưng lần đầu nằm ở nhánh phụ:
 - Không mở `codex` lồng nhau.
 - Code chỉ dùng để dựng khung tỷ lệ, cắt ảnh và đo.
 
+**Tiết kiệm token (bắt buộc từ 24/10):** mỗi lượt Codex gửi lại toàn bộ ngữ cảnh, nên token tăng theo số lượt nhân với độ dài ngữ cảnh.
+- **Một phiên `codex exec` mới cho một ảnh.** Không giao cả lane nhiều con hay nhiều vòng sửa cho một phiên Astra; không dùng T3 `delegate_task` cho gen ảnh.
+- **Claude dựng sẵn prompt hoàn chỉnh** bằng `art/_codex/build_prompt.py`: script dán nguyên văn các khối §3 theo loại ảnh, thêm thứ tự ảnh đầu vào, mô tả asset và danh sách sửa. Astra không đọc file này, checklist, QA cũ hay skill.
+- **QA §11 do Claude làm** trên PNG trả về. Ảnh trượt thì Claude viết danh sách sửa ngắn (chỉ lỗi còn lại) và tạo job mới với hậu tố mới.
+- Ảnh tham chiếu chỉ gồm ảnh mới nhất của biến thể và khung tỷ lệ, không gắn cả chuỗi bản cũ.
+- Runner in số token mỗi ảnh; mức chuẩn khoảng 100k token đầu vào mỗi ảnh (Map 1). Cao hơn hẳn thì xem lại prompt và số lượt.
+
 **Chạy loạt:**
-- Dùng `codex exec` song song; 10 phiên đã chạy ổn.
-- Đặt `CODEX_HOME=E:\map01-batch\home`. Copy `~/.codex/auth.json` sang thư mục này trước khi dùng lại.
+- Runner chuẩn: `art/_codex/astra_batch.py --jobfile <jobs.json>` (cách dùng ở `art/_codex/README.md`). Mặc định 4 phiên song song; 10 phiên từng chạy ổn nhưng dễ chạm rate limit.
+- `CODEX_HOME` mặc định `E:\map01-batch\home` (đổi bằng `--codex-home`). Runner in account id lúc bắt đầu: so với tài khoản muốn dùng trước khi chạy. Copy `~/.codex/auth.json` sang chỉ khi chắc đúng tài khoản.
 - Đưa prompt qua stdin (`- < task.txt`) để phiên không treo chờ input.
-- Ảnh ra nằm ở `<CODEX_HOME>\generated_images\<session>\`; copy về thư mục asset.
-- Runner có sẵn ngoài repo:
+- Ảnh ra nằm ở `<CODEX_HOME>\generated_images\<session>\`; runner tự copy về thư mục asset.
+- Runner cũ ngoài repo (giữ để tham khảo):
   - `E:\map01-batch\`: quái, terrain;
   - `E:\hero-batch\`: hero.
 

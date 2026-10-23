@@ -102,3 +102,113 @@ Thay blockout bằng model Tripo đã chuẩn bị (`lookdev-lab/assets/act1-ext
 **Hiệu năng:** model gom theo ô 32 m để camera loại bỏ phần ngoài khung hình. Draw call giảm (hall 187 → 119, overview 283 → 221); tam giác hall 0.83 → 1.17 triệu, toàn cảnh 0.94 → 2.9 triệu; GPU gần như không đổi (±0.2 ms); bộ nhớ texture 198 → 433 MB (A20.5, A20.6 dùng texture 1024 px; trước đó 497 MB). Người ngủ có collider nên tam giác model không vào lưới va chạm của Play.
 
 **Còn tồn tại:** bộ nhớ texture lớn (254 người ngủ dùng chung 4 bộ texture 2048, vẫn là 179 MB; nên dùng 1024 px); bông anh túc lơ lửng nhẹ ở cận cảnh; gò P06 chồng mép lên kênh sâu (như blockout cũ).
+
+## Vòng thay kit A01–A14 (2026-10-23)
+
+Thay blockout A13, A08.6 và A11.6 bằng model Tripo của bộ kit (`lookdev-lab/assets/act1-kit/`). Ghi chú QA của từng model đọc trong `ashlar/3d/props/act1_kit_v1/manifest.json`.
+
+- **A13.1** giường luống ×65. Model là hộp gỗ phủ vải lanh, dài 2.7 m, rộng 1.16 m (concept 1.4 m); mặt vải cao 0.46–0.50 m.
+  - Người ngủ GLB (A20.1–A20.4) nằm trên vải: đáy phẳng ở 0.42 m.
+  - Họ được thu về 0.85 lần scale của hàng, vì lớp đất của họ rộng 1.4–1.5 m. Sau khi thu, lớp đất chỉ tràn ra ngoài giường ≤ 0.1 m mỗi bên.
+  - Fen (NPC thay thế) và tấm chăn giường trống nâng theo mặt vải (+0.14 m).
+  - Collider 1.0 m giữ nguyên.
+- **A13.2** khung mái vải ×10. Bốn cột của model nghiêng, không thành hình chữ nhật, nên blocker là bốn hình chữ nhật đo đúng chân cột ở dải 0.35–1.7 m. Mái vải võng tới ≈ 2.4 m và vẫn đi dưới được.
+- **A13.3** đèn ngủ hồng ×263.
+  - Đèn và quầng sáng đặt ở tâm khối kính hồng (y 0.47 m).
+  - Quả cầu phát sáng (trường KIT `globe`) vẽ cộng sáng đè lên kính của model: khi sáng, kính phát hồng nhạt (globeGain 0.42, dưới ngưỡng bloom, như trước); vân kính và đai sắt vẫn thấy.
+  - Collider 1.0 m giữ các tam giác của 263 cái đèn ra khỏi lưới va chạm của Play.
+- **A13.5** hốc tường vòm rễ ×17. Model chỉ cao 3.5 m (concept 5.04 m). Mặt lưng là vòm bùn trơn tự nghĩ ra (ghi chú QA): mặt lưng nằm trong bức tường đất dày 0.7 m, cách mặt tường ≈ 0.3 m, nên không thấy từ camera. Collider hộp 3.0 m.
+- **A13.6** luống anh túc ×16: hoa cao tới 1.76 m. Collider 1.0 m trên chậu 1.0 m; thân hoa nghiêng ra ngoài vẫn đi xuyên được.
+- **A08.6** giá phơi anh túc ×6, scale 1.1 (3.96 × 3.22 × 1.98 m). Với scale 1.2 như bảng fit gợi ý, chân chữ A sẽ cắm vào tường hành lang hoặc rơi xuống kênh nước. Các giá lùi 0.2–0.3 m khỏi tường.
+- **A11.6** chân nến ×2 ở chiếu nghỉ: như ở Gentle House, ngọn lửa phát sáng đặt đúng ngọn lửa của model.
+- **Giữ blockout:**
+  - **A13.4** cột chuông ru: cột nhô 0.3 m trên thanh ngang nên trông như thập tự. Người dùng sẽ chọn giữa model gốc và bản `-trim` (`docs/act1-base/act1-kit-cross-check.png`).
+
+**Đi lại:** con đường chính và mọi điểm xuất phát vẫn đi được. Test mới kiểm:
+- cột mái vải chắn;
+- dưới mái vải (đầu và chân giường) có ≥ 0.3 m trống;
+- giá phơi không cắm vào tường hay kênh;
+- lưng hốc tường nằm trong tường.
+
+Kiểm bằng lưới nav thật của Play: mọi điểm của con đường chính đến được từ một điểm xuất phát; 60/60 điểm dưới mái vải trống.
+
+**Ánh sáng:** không đổi (15 đèn thật + đèn nhân vật ≤ 16), đèn ngủ vẫn tĩnh, phòng thở vẫn là chỗ duy nhất có ánh lửa người.
+
+**Ảnh** (`shots/gardenOfHush/`):
+- so sánh `before-after.png`, "trước" chụp cùng góc camera ngay trước vòng này;
+- WebGL: `kit-<view>-webgl.png` cho các view `hall`, `rows`, `bells`, `gallery`, `harvest`, `deep`, `landing`, `firstSleeper`, `cu-canopy-game-cam`, `cu-root-bay`, `cu-jar`, `cu-drying-rack`, `cu-spine-furrow`, cùng các ảnh soi texture `cu-lk-*`;
+- WebGPU: `kit-hall`, `kit-rows`, `kit-cu-lk-canopy-row`, `kit-cu-lk-jar`, `kit-cu-lk-root-bay`, `kit-cu-lk-rack`.
+
+**Hiệu năng** (1600 × 900, máy test): tam giác 0.74–2.90 triệu → 0.99–5.06 triệu (riêng đèn A13.3 là 1.2 triệu ở toàn cảnh: 263 × 4 376 tam giác, chia ô 32 m nên view gần chỉ vẽ 0.07–0.3 triệu); draw call giảm hoặc giữ (91–232). GPU WebGPU gần như không đổi (overview 1.44 → 1.57, hall 3.44 → 2.41, rows 2.10 → 2.26, harvest 2.27 → 2.26, deep 2.58 → 2.62 ms). GPU WebGL dao động hơn (hall 1.75 → 2.33, rows 1.84 → 2.83, deep 2.07 → 3.70 ms). Đo riêng đèn A13.3 (bật / tắt xen kẽ 4 lượt, cùng view): ở camera game thêm +0.01–0.09 ms GPU (WebGPU / WebGL); ở hai view toàn cảnh xa vẽ cả 263 đèn (+1.0–1.4 triệu tam giác) thêm +0.1–0.3 ms; texture 1024 px của nó chỉ ≈ 1 MB, nên chưa cần bản ít chi tiết cho hàng xa. Bộ nhớ texture 433 → 528 MB. Lưới va chạm của Play: 290 nghìn tam giác, 101 ms (đèn, hốc, giường, luống, giá có collider nên tam giác model không vào lưới).
+
+**Còn tồn tại:** cột chuông A13.4 chờ người dùng chọn; giường model hẹp hơn concept, người ngủ hơi nhỏ đi.
+
+## Vòng thay A21–A25 (2026-10-23)
+
+Tám chỗ giữ chỗ của map này nay dùng model Tripo nhóm A22 / A24 / A25 (`assets/act1-kit/`, kích thước thật). Số liệu từng model:
+`tmp/act1-base-maps/ACT1_KIT_FIT.md` mục A21–A25.
+
+- **N-GD01 → A25.1 bản `-slim`** vòm sườn rễ ×3 trong đường hầm rễ. Bản này đã ép chân rễ lại, chỉ còn sâu 1.94 m.
+  - Lối đi giữa hai chân rộng 2.3 m, nhưng tâm lối lệch +0.3 m so với gốc model. Vì vậy gốc mỗi vòm dời 0.3 m về phía nam, để lối đi nằm
+    đúng trên con đường chính (z −34).
+  - Rễ con treo xuống lối đi (thấp tới 0.74–1.02 m) được cắt bằng `cut` ở dưới 2.05 m. Phần cắt chỉ gồm 983 trên 18 973 tam giác, đều là
+    mảnh nhỏ của rễ con; hai chân giữ nguyên. Khoảng trống trên đầu ở giữa lối đi ≥ 2.0 m.
+  - Blocker là hai hình chữ nhật ở chân (x < −0.85 và x > +1.45), collider 2.5 m.
+  - Sửa cao độ: công thức cũ đặt hai vòm ở đoạn dốc thấp hơn nền 0.6 m. Nay mỗi vòm đứng trên nền tại mép thấp của nó: chân phía cao lún
+    ≤ 0.27 m, không chỗ nào lơ lửng.
+- **N-GD05 → A25.2** ván qua kênh: rộng 0.91 m (concept 1.5 m), mặt ván cao 0.14–0.17 m.
+  - Ván nằm trên dải đất 2 m giữa hai đoạn kênh phía nam và dẫn tới cửa phòng thở.
+  - Ván được hạ 0.12 m vào đất, nên mặt ván chỉ cao hơn nền ≈ 0.04 m. Nhân vật đi trên nền, xuyên qua ván; ván không chặn và Play không có
+    sàn ván.
+- **N-GD07 → A25.3** rễ sập ×2: cao 3.21 m, sâu 4.83 m (bản giữ chỗ 5.4 m). Đã kiểm với bán kính nhân vật của Play (0.3 m): đống ngắn hơn
+  chỉ mở thêm một dải 0.25 m dọc mặt nam của đống phía bắc, không có lối nào vòng qua hai đống. Vì vậy giữ scale 1 (thử scale 1.12 thì đống
+  cao 3.6 m và đổi lưới đi lại nhiều hơn). Collider 3.0 m: Play không leo lên đống.
+- **N-GD08 → A25.4** giỏ thu hoạch ×10, rải ngẫu nhiên như cũ. Giỏ thấp, cao 0.29 m (concept 0.45 m). Collider 0.9 m.
+- **N-GD09 → A25.5** bộ đồ chăm sóc: ghế ba chân và bình tưới ở +x. Collider 0.9 m.
+- **N-GD10 → A24.4** chăn lanh lật sẵn trên giường trống. Model là một lớp dày: mặt chăn cao 0.27–0.30 m, gối cao tới 0.51 m.
+  - Đặt cao hơn giường 0.25 m (`COVER_ON_BED`). Mặt chăn cao hơn vải giường ≈ 0.03 m.
+  - Gối của chăn trùm lên gối của giường, nên chỉ thấy một gối. Trước đây đặt cao +0.47 m thì chăn lơ lửng và có hai gối chồng nhau.
+- **N-GD11 → A22.1** đôi giày (dùng chung với fens), scale 0.7.
+- **N-GD15 → A25.6** đèn lồng của Tamsin. Model là giá rễ đứng trên cục đất, không phải giá treo tường như bản giữ chỗ.
+  - Đặt trên nền phòng thở, cạnh gối của Fen, giữa Tamsin và giường. Đèn đứng ở phía đông Tamsin để camera game nhìn từ phía nam vẫn thấy.
+  - Đèn người (ấm, chập chờn, đèn duy nhất đổ bóng của map) và quả cầu sáng KIT `globe` đặt đúng kính đèn ở (0.23, 0.50, 0.07), đo trên
+    mesh. Vì vậy đèn hạ từ 1.88 m xuống 0.5 m.
+
+**Đi lại:** con đường chính và mọi điểm xuất phát vẫn đi được. Test mới kiểm:
+- sau khi cắt, trong lối đi dưới 1.95 m không còn điểm nào của vòm, và mọi điểm của vòm ở dải 0.35–1.7 m nằm trong blocker chân;
+- vòm không lơ lửng trên dốc;
+- mặt ván cách nền ≤ 0.08 m, và từ hành lang kênh đi tới hai đầu ván và cửa phòng thở;
+- hai đống rễ sập vẫn chặn đúng những lối như bản 5.4 m;
+- chăn không xuyên vải giường, gối của giường nằm dưới gối của chăn;
+- đèn và quả cầu sáng nằm trong kính đèn.
+
+Kiểm bằng lưới nav thật của Play (WebGL): mọi điểm của con đường chính đến được; 45/45 điểm trong lối đi dưới vòm trống, 18/18 điểm sát mép
+trong của chân vòm bị chặn; đường hầm, hai đầu ván và cửa phòng thở đến được; rễ sập, giỏ, bộ đồ chăm sóc và đèn lồng đều chặn.
+
+**Ánh sáng:** không thêm đèn (15 đèn thật + đèn nhân vật = 16), vẫn một đèn đổ bóng (đèn lồng). Đèn ngủ vẫn tĩnh; phòng thở vẫn là chỗ duy
+nhất có ánh lửa người.
+
+**Kiểm Mercy / Perfection:** chăn lanh, khăn trên giỏ và giường trống đều trắng sạch. Đôi giày cũ là cố ý (giày của người mộng du). Ván qua
+kênh hơi gợn, có khe hở giữa các tấm ván (QA).
+
+**Ảnh** (`shots/gardenOfHush/`):
+- so sánh `before-after.png`, với "trước" là bản ngay trước vòng này và cùng góc camera;
+- WebGL: `a2x-<view>-webgl.png` cho `breath`, `gallery`, `harvest`, `deep`, `cu-root-tunnel`, `cu-root-tunnel-hero`, `cu-root-tunnel-game`,
+  `cu-plank-crossing`, `cu-lantern`, `cu-coverlet`, `cu-tending-kit`, `cu-shoes`, `cu-baskets`, `cu-root-fall-mid`, `cu-root-fall-north`, cùng các
+  ảnh soi texture `cu-lk-*`;
+- WebGPU: `a2x-breath`, `a2x-gallery`, `a2x-deep`, `a2x-cu-root-tunnel`, `a2x-cu-root-tunnel-hero`, `a2x-cu-plank-crossing`, `a2x-cu-lantern`,
+  `a2x-cu-coverlet`, `a2x-cu-root-fall-mid`.
+
+**Hiệu năng** (1600 × 900, một lần đo mỗi bản):
+- tam giác (WebGL, theo view) 0.99–5.06 triệu → 0.88–5.08 triệu (các blockout cũ nhiều mặt hơn một số model); draw call giảm 11–15 mỗi view;
+- GPU WebGL gần như không đổi: overview 2.62 → 2.49, hall 1.76 → 1.95, rows 1.94 → 1.99, harvest 1.40 → 1.49, deep 1.93 → 2.03 ms;
+- GPU WebGPU gần như không đổi: overview 1.57 → 1.61, hall 2.62 → 2.40, rows 2.28 → 2.19, harvest 2.27 → 2.26, deep 2.86 → 2.64 ms;
+- bộ nhớ texture (RGBA8 + mip, ước tính) 528 → 646 MB: vòm rễ và rễ sập dùng texture 2048 px.
+
+**Còn tồn tại:**
+- Rễ sập ngắn hơn concept 0.57 m.
+- Giỏ thấp hơn concept; vết đỏ của hoa anh túc trong giỏ chỉ là vài chấm (QA).
+- Chân xa của vòm `-slim` bị ép thành mẩu ngắn (nhìn từ trên).
+- Ánh đèn lồng ở thấp (0.5 m) nên vũng sáng nhỏ hơn và bóng đổ dài hơn bản treo tường cũ.
+
+**Sáng hơn (2026-10-23):** `hush`: `hemi` 0.95 → 1.5, `envI` 0.05 → 0.08, `exposure` 0.95 → 1.3, `floorTone` 0.62 → 0.66 — sáng hơn ≈ +33 % (phần không phải void: +30 %, vùng tối p25 +69 %), void vẫn đen, đèn ngủ hồng vẫn là chỗ sáng nhất; ảnh `shots/gardenOfHush/bright-before-after.png`, số đo `tmp/act1-base-maps/BRIGHTNESS.md`.

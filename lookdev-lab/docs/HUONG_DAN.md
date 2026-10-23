@@ -699,6 +699,77 @@ Base map = bản dựng đầu đi được của một map Act I: **địa hìn
 
 **Vòng thay model 2026-10-22 (map 1–3, ngoài trời).** Def nào có `status: 'glb'` thì đặt model thật ở đúng cỡ của nó (`fit: 'native'`, chỉ dùng `scale` của điểm đặt, không kéo giãn từng trục) và `size` = khung bao của GLB, nên va chạm, đệm nền và nhãn theo model. Ba tùy chọn mới trong plan: `anchors` của def (điểm trên model, khung GLB: nến trong hũ, đèn, cửa sổ — ánh sáng bám vào đó khi model đứng trong map, rơi về điểm neo của blockout nếu model không tải được); lối ván `hidden: true` (vẫn đi được nhưng không vẽ ván: sàn của model là mặt nhìn thấy — bến đêm Fens); `composite` cho vật ở xa (Gentle House ở xa = dãy A18.4 + 11 đoạn tường A18.5 + khối tháp A11.4, file chung `src/env/act1/gentleHouseFar.js`). Blockout vẫn là đường lui khi một GLB lỗi. Quyết định dùng lại model cũ: `tmp/act1-base-maps/REUSE_CANDIDATES.md` mục *Decisions (outdoor)*; ảnh trước/sau: `docs/act1-base/shots/<map>/before-after.png`.
 
+**Vòng thay kit A01–A14 (2026-10-22/23, map 1–3 ngoài trời).** Bộ model Act I mới (`assets/act1-kit/`, chuẩn bị bằng `scripts/prepare-act1-kit.py`,
+bảng khớp `tmp/act1-base-maps/ACT1_KIT_FIT.md`) thay blockout và kit tạm A01–A08 trong `lychgate`, `fens`, `poppyReach` (ba map trong nhà do vòng
+khác làm). Engine thêm:
+
+- `deckTop` trong def một khúc lối ván là model (A01.2: mặt sàn cao 1,22 m trên đáy): các khúc GLB nằm nối đuôi nhau dọc lối (`deckPieces`; mỗi khúc chỉ
+  giãn nhẹ theo chiều dài, mặt hở quay về camera), lối ván đặt `hidden: true` để chỉ còn là mặt đi; bè A07.5 cũng đặt mặt sàn model đúng sàn lối bè ẩn.
+- `runs` nhận `dy` (đường đắp A06.1 chìm 0,35 m để mặt bằng đỉnh đê), `scale` (tỉ lệ đều: tường đá khô ×1,25, đập ×1,5) và def `module` (khoảng cách
+  module ngắn hơn chiều dài model, để đầu đá lởm chởm của tường chồng lên nhau, không hở).
+- Bảng `CUT` trong `prepare-act1-kit.py`: bản biến thể cắt bỏ phần hình chắn lối đi (`act1-a02-1-lychgate-open`: bỏ thanh ngang thấp 0,40–0,62 m ở lối
+  sau lychgate); mọi đầu ra khác giữ nguyên từng byte.
+- Id phụ khi một số chỗ phải giữ blockout còn chỗ khác đã có model: `A07.3-door`, `A07.4-walk` (fens), `A06.1-posts` (cột kè bờ kit tạm).
+
+Giữ nguyên (lý do ghi trong note của def): A07.6 (cây chết kit tạm: model chờ dựng lại, blockout của nó cũng thành chữ thập), A08.2-stile, A08.5,
+A08.3. Ghi chú từng map: mục "Vòng thay kit A01–A14" trong `docs/act1-base/<map>.md`; ảnh `shots/<map>/before-after.png` và `kit-*.png`.
+
+**Vòng thay kit A01–A14 (2026-10-23, map 4–6 trong nhà).** Gentle House, Garden of Hush và The Cradle đã thay blockout bằng model kit: vòm
+cloister, giường bệnh, bàn ăn, lò bếp, chân nến (A11); giường luống, khung mái vải, đèn ngủ hồng, hốc tường vòm rễ, luống anh túc, giá phơi
+(A13, A08.6); và cả sáu model của Cradle (A14). Hai tùy chọn mới cho KIT trong nhà: `cut` (hộp trong khung GLB, bỏ các tam giác nằm trong hộp
+— vòm cloister đã cắt tường lưng và tường đầu để lối đi sau dãy vòm vẫn đi được; mái của model mờ đi quanh nhân vật) và `globe` (phần phát sáng
+đặt đúng lên kính đèn hoặc ngọn nến của model; đèn ngủ và nến vẫn sáng rồi tắt như trước). Còn để blockout: tháp cổng A11.4 (model không có lối
+đi xuyên, cần dựng lại) và cột chuông A13.4 (trông như thập tự, chờ chọn bản gốc hay bản `-trim`). Chi tiết: mục "Vòng thay kit A01–A14" trong
+`docs/act1-base/<map>.md`; ảnh `shots/<map>/before-after.png`.
+
+**Vòng thay A21–A25 (2026-10-23, map 1–3 ngoài trời).** Các chỗ giữ chỗ `N…` (chỉ có trong LD, chưa có concept) của ba map ngoài trời nay là model
+A21–A23 thật (`assets/act1-kit/`, bảng khớp `tmp/act1-base-maps/ACT1_KIT_FIT.md` mục "A21–A25"):
+
+- `lychgate`: cửa hầm nhà Barrow N01 (A21.1), tường chắn đất đá lửa N02 (A21.2, dựng ×1,55 cho đủ cao 3,35 m), đống than bùn N04 (A21.3) và ghế
+  canh mộ N10 (A21.4).
+- `fens`: vòm đá nghiêng A17.1 (bản `-wide` của A21.5: hai phiến đá được kéo xoè ra để lối đi rộng 2,6 m, bản gốc chỉ hở 1,6–1,75 m), mộ đầm lầy
+  N-FN03 (A21.6, thay mộ mới A16.4 đứng tạm), đôi giày N-FN02 (A22.1), cột thu tiền đò N-FN06 (A22.2) và hai nôi mây N-FN08 (A22.3).
+- `poppyReach`: ụ đá người gặt N-PR02 (A22.4, thay hòn đá kit tạm), gậy chăn cừu và áo gấp N-PR03 (A22.5), búp bê rơm N-PR05 (A22.6), cây táo gai
+  ruy băng N-PR04 (A23.2) và thêm đôi giày A22.1 dưới gốc nó. Ụ lúa bỏ dở N-PR01 vẫn là blockout (model A23.1 phải làm lại: lưỡi hái lơ lửng).
+
+Cách đặt cần nhớ: mặt tường thật của một model có thể lùi sau khung bao của nó (gờ trên, dương xỉ ở chân, bậc thềm nhô ra); nếu đặt khung bao sát mép
+một bậc địa hình thì sườn dốc trồi lên trước mặt tường và che mất phần dưới — tường N02 và cửa N01 nay đứng với mặt tường lùi vào trong sân 0,18 m.
+Model có thân lệch khỏi tâm (cột thu tiền, cây táo gai) được dời sao cho đúng phần thân đứng lên điểm đặt cũ. Đường đắp A06.1 trên đê (lychgate,
+fens) nay đặt cách nhau 3 m (def `module: 3.0`) nên các khúc nối liền nhau, không còn thành từng mảng rời có cỏ xen giữa. Test mới: mỗi def GLB mới
+trỏ đúng sample có file, lối đi dưới vòm đá vẫn đi được, mặt đất không leo lên mặt tường hầm, cây táo gai đứng đúng gốc và nghiêng theo gió. Chi tiết:
+mục "Vòng thay A21–A25" trong `docs/act1-base/<map>.md`; ảnh `shots/<map>/before-after.png` và `a2x-*.png`.
+
+**Vòng thay A21–A25 (2026-10-23, map 4–6 trong nhà; theo ghi chú của vòng trong nhà, SPEC §9).** Gentle House: luống hoa vuông giữa sân (A23.3),
+chậu hoa ×6 (A23.4), luống hoa có kè ×4 (A23.5), dây phơi vải (A23.6, cột đo trên mesh), bàn bếp (A24.1), giá bánh ×2 (A24.2, thay tủ ép A19.4 đứng
+tạm) và bàn gấp vải (A24.3) — không còn blockout. Garden of Hush: ba vòm rễ (bản `-slim` của A25.1; KIT `cut` bỏ các rễ con thòng xuống lối đi),
+cầu ván (A25.2), hai đống đổ chắn đường (A25.3), giỏ thu hoạch ×10, bộ đồ chăm luống, chăn trên giường luống (A24.4), đôi giày (A22.1 ×0,7) và chiếc
+đèn của Tamsin (A25.6) đặt dưới sàn, đèn thật nằm trong lồng kính đo trên model. The Cradle: chăn A24.5 và gối A24.6 nằm trên lớp đệm của A14.5. Hai
+điểm "Mercy" chờ quyết định: viền bẩn tối trên kè A23.3 và bông anh túc thêu trên A24.3 trông như vết nâu.
+
+**Sáng hơn (2026-10-23, cả sáu map).** Người dùng thấy các map "hơi tối", nên mọi mood chơi được nâng sáng vừa phải. Sương và số đèn giữ nguyên.
+Màu và grade cũng giữ nguyên, trừ Gentle House (xem đoạn dưới). Chỉ đổi `hemi`, `envI` và `exposure` (EV), thêm chút `sun.intensity` ở Night Fens (trăng)
+và Poppy Reach, và `floorTone` ở ba map trong nhà. Mood *Soi texture · sáng đều* giữ nguyên.
+
+Độ sáng trung bình trên màn hình của các khung mặc định tăng khoảng +27…+33 %. Riêng Gentle House tăng +24 % (phòng bệnh +27 %, bếp +23 %). Vùng tối
+(p25) tăng nhiều hơn. Phần cháy sáng gần như không đổi: trung bình ≤ +0,02 điểm %. Cửa sổ phòng Mẹ Hawise vốn đã cháy; vũng sáng dưới cửa sổ rộng
+thêm 1,0 điểm %. Night Fens và Prologue vẫn là đêm. Màu trắng Mercy / Perfection (giường, Hospice Mother, đèn bến đêm) sạch hơn mà không cháy. The
+Cradle bớt bão hòa khoảng 15 %: đó là chủ ý, màu kem chuyển thành trắng sữa sạch.
+
+**Gentle House, vòng sửa sau review.** Lần nâng đầu tăng `envI`, làm mood mặc định *trong nhà ấm* ngả màu be: ánh HDRI xám trung tính làm loãng ánh nến
+vàng. Ở phòng bệnh, R/B giảm 1,65 → 1,44 và độ bão hòa giảm 20 %. Cách sửa:
+- Mood `warm` giữ `envI` 0,1 và exposure 0,95 như cũ. Độ sáng lấy từ `hemi` ấm (0,85 → 3,3). `grade.saturation` tăng 0,96 → 1,03 để bù phần ACES
+  làm nhạt màu khi khung sáng lên.
+- Mood `rain` làm tương tự: `envI` 0,32, hemi 3,6, exposure 0,78, saturation 0,86 → 0,9.
+
+Kết quả: R/B của phòng bệnh, bếp và phòng Mẹ Hawise lệch ≤ 2,5 % so với trước, độ bão hòa trong khoảng −3…+5 %. Khung cloister nhìn xa ấm hơn trước
+(R/B +11 %). Exposure không tăng, vì nếu tăng thì vũng sáng dưới cửa sổ Hawise cháy quá giới hạn +1 điểm %.
+
+`look` của scene Act I ngoài trời lên 2, của ba scene trong nhà lên 3 (do vòng sửa Gentle House). Lần đầu vào lại, scene xóa exposure / sương / grade
+đã lưu (`scenePost` trong localStorage) để dùng giá trị mới. Nếu bật *Mood* toàn cục (tab Lighting → Mood, mặc định tắt), exposure của mood đó đè lên.
+
+Giá trị cũ → mới và số đo từng khung nằm trong `tmp/act1-base-maps/BRIGHTNESS.md` (§5 là vòng sửa Gentle House). Ảnh:
+`docs/act1-base/shots/act1-brightness-before-after.png` (mỗi map một khung) và `shots/<map>/bright-before-after.png`.
+
 ## 8. Tab Performance — đo, stress test, quay video
 
 - **Renderer**: thông tin GPU, có timer query không, có compute không; đổi renderer.

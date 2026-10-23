@@ -1,0 +1,25 @@
+{
+  "id": "W_skull_wall_a_n2",
+  "biome_id": "",
+  "name_vi": "",
+  "material": "",
+  "source_path": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3343-7360-af1f-91067cefc478\\exec-2cf344c6-b742-4153-8ea8-9ad9fae32dd7.png",
+  "source_how": "thread-dir+timeout-salvage",
+  "other_candidates": [],
+  "thread_ids": [
+    "01a167bd-3343-7360-af1f-91067cefc478"
+  ],
+  "sha256": "9979cbf674c87fa2db21d7fd3c79d6793ca6d37c8bf1dd5d0ee8a074993054ed",
+  "bytes": 1883361,
+  "width": 1254,
+  "height": 1254,
+  "model": "gpt-6-astra",
+  "codex_exit": 1,
+  "reference": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\albedo1024\\W_skull_wall_a.png",
+  "copied_to": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\textures\\W_skull_wall_a_n2.png",
+  "started": "2026-10-23T07:50:15Z",
+  "finished": "2026-10-23T08:02:15Z",
+  "sandbox": "workspace-write",
+  "scratch_dir": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\logs\\work\\W_skull_wall_a_n2\\attempt-1",
+  "scratch_files": []
+}

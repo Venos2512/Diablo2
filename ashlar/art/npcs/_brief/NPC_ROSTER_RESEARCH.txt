@@ -1,0 +1,201 @@
+ASHLAR NPC ROSTER - RESEARCH BRIEF (2026-10-23)
+Scope: research only. No images or code. Parent (Astra) creates the concepts.
+Status: DRAFT research. Canon = World Bible + Cast only. Proposals are marked PROPOSAL.
+
+=== 0. SOURCES ===
+
+Source files are T3 attachments in C:/Users/HLC_2021/.t3/userdata/attachments/. Short names used below:
+
+  [BIBLE] ...7670a661-...-908fb3ec-1ff8-4256-acea-601b319a788a-md.md
+          ASHLAR - World Bible and Story Treatment. Sections: 7.9 hub table (L464-475),
+          10 principal characters (L594-700), 3.1 Diablo lessons (L117-135), 16 systems.
+  [CAST]  ...7670a661-...-11f650a9-13c9-410c-8bb8-c5413666dee4-md.md
+          ASHLAR - Bestiary and Cast by Act. Character tables per act; 8.2 companions
+          (L787-793); 10 town roles table (L836-847); 11.2 "deliberately not reused" (L917-925).
+  [LD]    ...7670a661-...-930b780a-5575-4cac-b195-22a6199669f2-md.md
+          ASHLAR - Level Design and Atmosphere Guide. NPC rules at L438-439, L579.
+  [VOC]   ...cb37f717-...-e8989cf7-07a4-4d46-ac5f-a3ac7b4ff555-md.md
+          ASHLAR - Vocation System. Six strangers (3.3, L208-220). Not an NPC roster.
+  NOT ATTACHED: "ASHLAR - Quest System and Quest Ledger" (cited by LD/VOC as "ledger §x").
+          Quest-giver status of NPCs is therefore NOT verified beyond what [CAST]/[BIBLE] say.
+
+Repo (old Diablo II material, NOT ASHLAR canon):
+  bestiary/docs/NPCS.md (18 lines), bestiary/assets/NPC_SOURCES.json,
+  bestiary/assets/npcs/*.gif (8 files), bestiary/src/data/npc-images.json (empty).
+  Subject: Blizzard's Diablo II Act I NPCs: Akara, Charsi, Deckard Cain, Flavie, Gheed,
+  Kashya, Warriv, Rogue Scout (hireling). DO NOT carry these names or designs into ASHLAR.
+  [CAST] 11.2 says every named character of all five Diablo games is deliberately not reused.
+  The repo has no ashlar/art/npcs folder yet (this brief created the _brief folder only).
+
+=== 1. HARD RULES FROM CANON ===
+
+- Five hubs with the same town roles (BIBLE 7.9, CAST 10): Lychgate (Act I),
+  Lowcourse/Sepulcra (II), Namakhar (III), Vesnagrad (IV), Wrackhaven (V).
+  Each hub has: Spiritual leader, Military leader, Smith, Trader, Guide, Keeper of lore.
+  Names differ from Diablo; the roles are kept (BIBLE 3.1, "New culture, same town roles").
+- Hubs are "vendors and quest-givers, no combat except scripted raids" (LD 1.4 / L83).
+- Vendors are busy with something tied to the dead: "Routines, not kiosks" (LD L438).
+  Jokes belong to the vendors (BIBLE 17.8; LD L978).
+- From Act III on, every hub needs NPC REACTION STATES tied to Perfection trees (LD L579).
+- Act V: NPC/town layers change per act (LD L590; BIOME doc). Plan the after-state now.
+- Hub light is small and flickering (LD L439). A steady beautiful light = a Perfection.
+- Art direction (ashlar/artdirection.md L183) for humanoid NPC sheets: use the humanoid block.
+  The image rules in ashlar/artdirection.md (sec. 3 prompt blocks, sec. 11 QA) govern all images.
+- Hero-concept rule that also binds NPCs (ashlar/ASHLAR_HERO_CONCEPT_VI.md L859, L1013):
+  Frostwife NPCs wear veils pulled forward over brow or face, and long fur cloaks to the
+  floor, so they never look like the hero (Zorya: over seventy, white braids).
+  This is marked as a PROPOSAL in that file (§12 item 16).
+- Naming: ASHLAR names are original; Diablo names are never used (BIBLE L1639).
+
+=== 2. AUTHORITATIVE NAMED NPC ROSTER (canon, human or speaking figure) ===
+
+IDs are PROPOSED (N##) for tracking. Act tags: P = Prologue, I-V = acts.
+"Hub slot" = the BIBLE 7.9 / CAST 10 role.
+
+--- Lychgate (Act I hub) ---
+N01 Gennet Barrow      | Sexton, keeper of lore, mentor | P, I, IV(preserved), V
+     Design: 68, wiry, pipe always lit, one milky eye ("it sees the dead"), spade, ledger.
+     Also: Book of Laid Names. Dies in Act IV (preserved by Taxidermist, asks to be burned).
+     CAST L11 (hub) L62 (prologue) L601 (Act IV preserved) L761 (Act V in the Wall).
+     BIBLE 10.3. Note: she fills the Deckard Cain/Lorath slot; design must not copy Cain.
+N02 Brannoc the Mortsmith | Smith | I  — huge, soot-dark, leather apron, scarred hands, mortsafe frames. CAST L12.
+N03 Edda               | Brannoc's wife, asleep two years, smiling in a clean bed. CAST L13. Art: bed scene.
+N04 Captain Osric Dunmore | Military leader | I — one-armed veteran, patched brigandine, spear on forearm. CAST L14.
+N05 Nell Coppercoin    | Trader (comic, vendor) | I — woman in a dead man's coat, rings on every finger, barrow of grave-goods. CAST L15.
+N06 Tamsin Reed        | Guide; companion from end of Act I | I, V (in Wall) — 16, hood of oiled wool, shortbow, snares. CAST L16, L229, L756; CAST 8.2 L791.
+N07 Fen Reed           | Tamsin's brother, sleeper, dies end of Act I; in Wall in Act V | I, V — boy, 12, poppy at lips. CAST L230, L756.
+N08 Verger Odo Pell    | Spiritual leader (Church official) | P, I — plump, rain-soaked verger gown, keys, bell rope; a coward, flees. CAST L81; BIBLE 7.9 and L667.
+N09 Counting children  | Lore group | I — village children skipping by the ossuary. CAST L17 (group, not a single NPC).
+
+--- Prologue-only and Act I side ---
+N10 The Ferryman of Rook's Weir | Side quest (The Ferryman's Toll) | I — drowned man in oilskin, barge, tin of coins. Daughter in the Wall. CAST L150.
+N11 Mother Hawise (Hospice Mother) | Abbess; VESSEL of Mercy | I — plump, warm, keys, poppy sprig. CAST L207. BIBLE 10.6. See "vessel" note in §4.
+N12 The Poppy Sisters  | Hospice order (group) | I — white wimples, red poppy embroidery, silver needles. CAST L208.
+
+--- Lowcourse / Sepulcra (Act II hub) ---
+N13 Archsexton Perpetua Vane | Spiritual leader; Act II ANTAGONIST, martyr | II, V — 61, ascetic, grey habit, mortar-ash on brow, cane with silver wedge. CAST L282; BIBLE 10.4; in Wall V L759.
+N14 Exhumer Ignatia Corr | Military leader (hostile) → companion, Act II end; ally in V | II, V — 34, gaunt, close-cropped, burn-scarred hands, grey Exhumer coat, hooded lantern, long spade. CAST L269, L650, L757 (her mother).
+N15 Ansel Crane        | Smith (bellfounder) | II — burly, bald, bronze-dusted skin, deaf in one ear. CAST L280.
+N16 Pardoner Quint     | Trader | II — gaudy pardoner robe, tray of relics. CAST L281.
+N17 The Saint in the Box | Gilded talking skull in glass box (not a person); the honest voice; PART of Quint's stall. CAST L281.
+N18 Old Vellum         | Keeper of lore; one of the last Odilians | II — eighties, half blind, ink-black fingers, star charts, brass telescope through cellar grate. CAST L279; BIBLE 10.5.
+N19 Ser Hamon of the Pall | Guide (Lowcourse slot) → companion, Act II | II — 57, huge, black armour, silver nails, coffin on back, coffin-lid shield, warhammer. CAST L268, L791.
+N20 Wystan             | Hamon's drowned squire, 14 | V (in the Wall) — river-wet, grinning. CAST L758.
+
+--- Namakhar (Act III hub) ---
+N21 Nareh              | Smuggler, trader, guide; later salted for helping the hero | III, V — thirties, loud laugh, two missing fingers, forbidden tattoos, coat full of pockets. CAST L392, L760; BIBLE 10.7.
+N22 Anoush             | Nareh's partner; burn scar on cheek; arrested (quest "Lye") | III — CAST L419.
+N23 High Purifier Zabel Dahl | Ruler (Salt Synod); hostile antagonist; flees into salt gale, later found as salt pillar | III — tall, immaculate white robes, white gloves, skin powdered porcelain. CAST L415; BIBLE 10.7.
+N24 Commander Vardan of the White Watch | Military leader (hostile) | III — white lacquered armour, glass visor. CAST L416.
+N25 Old Hovik, the saltwright | Smith | III — old shipwright-turned-smith, salt-white beard, rope hands. CAST L417.
+N26 The Inkman          | Keeper of lore; tattooist with histories written on his own skin | III — CAST L418.
+N27 Arsham, the Unblemished | Living god; VESSEL of Purity; Act III boss-core | III — flawless, featureless young man in white, never blinks; saltrot returns when freed. CAST L420; BIBLE 10.6.
+
+--- Vesnagrad (Act IV hub) ---
+N28 Zorya              | Last high Frostwife; spiritual leader | IV — seventies, white braids, burn-scarred hands, staff ending in pyre-torch, furs, ash-grey veil. CAST L529; BIBLE 10.7.
+N29 The Frostwives     | Pyre-priestess group | IV — fur cloaks, ash-grey veils, torches. CAST L530. Veil rule: see §1.
+N30 Prince Radomir the Unforgetting | Ruler; VESSEL of Memory | IV — tall, courteous, mourning black, silver temples, glove on burned left hand. CAST L558; BIBLE 10.6 (Cabinet act boss merges him).
+N31 Ilka, Yarik, Mila, Bozhena | Radomir's preserved family, posed on wires | IV — Mila: nine years old for twenty years, asks "Do you remember me?". CAST L559.
+N32 Boyar Stanimir     | Military leader (marshal) | IV — scarred bear of a man in lamellar and furs. CAST L560.
+N33 Ilya the icesmith  | Smith | IV — young, pale, frost-tempered steel. CAST L561.
+N34 Mother Dragana     | Trader (furrier) | IV — swaddled in her own stock. CAST L562.
+N35 Lev the sledge-driver | Guide | IV — wiry, dog-sledge, frostbitten ears. CAST L563.
+N36 Brother Miron      | Keeper of lore; runaway Remembrancer | IV — monocle cracked, grey robes torn. CAST L564.
+
+--- Wrackhaven (Act V hub) ---
+N37 Mother Rozenn      | Spiritual leader; coast's last sexton | V — ancient, deaf, devout. CAST L647.
+N38 Goulven            | Smith (anchor-smith) | V — arms like hawsers. CAST L648.
+N39 Morvan             | Trader (wrecker turned salvage-seller) | V — gold teeth, tarred coat. CAST L649.
+N40 Maelys             | Guide; fisherwoman; lost husband Yann at sea | V — forties, salt-cracked hands, oilskins, candle stub in pocket. CAST L646; BIBLE 10.7.
+N41 The Waiting (by day) | Townsfolk at windows; harmless by day; monsters by night | V — CAST L651, L725ish (night form in 7.6), LD L2071.
+     NOTE: Wrackhaven Keeper-of-lore slot = Severin's letters (BIBLE 7.9): a device, not a person.
+     Night form (monsters) in CAST 7.6 (grep "The Waiting (by night)", around L725-735).
+
+--- Story figures outside the hub roster (need a decision, see §4) ---
+S01 Severin, the Betrothed | Main antagonist; "the Lamp-Bearer" / "the Man at the Window" | Act V final-boss arc. Tall gaunt man, looks forty, wedding ribbon, mended blue wedding coat, green-black iron lantern. CAST L733; BIBLE 10.2. Letters open every act (BIBLE 3.1, 18).
+S02 The Plumb (and Square, Trowel, Level) | Masons' speakers, statues that turn heads | II, IV, V — colossal faceless Saint statue; voice like grinding stone. CAST L352, L632. Non-human speaker.
+S03 Brother Cassian, the Kneeling Saint | VESSEL of Devotion; Act II boss | CAST L367, L780; BIBLE 10.6.
+S04 In-Wall reunion figures (Act V) | Gennet, Nareh, Perpetua, Ignatia, Wystan, Fen Reed | CAST L754-761. Same characters as N01, N21, N13, N14, N20, N07; treat as variants, not new entries.
+S05 Mnemora's herald "the Taxidermist" | Act IV mid-boss, a many-armed thing wearing the faces of its works | CAST L595. Not a human NPC.
+S06 The Lamplighter / Lamp-Witches / Beckoners | Monsters or bosses | exclude.
+
+Companions (CAST 8.2): Tamsin Reed (end of I), Ser Hamon (II), Ignatia Corr (end of II).
+
+=== 3. WHAT IS NOT NPC CANON (exclude or verify) ===
+
+- The six vocation strangers (VOC 3.3; BIBLE 13): dead people whose voices speak in the
+  hero's head. Not NPCs. No appearance canon in these files beyond "the stranger".
+- The Sexton's Dog: a risen mastiff, mini-boss in the Prologue (CAST L75). Monster.
+- The Five Perfections (Eleisa, Latreus, Kathara, Mnemora, Elpis): gods/Interred, BIBLE 6. Not NPCs.
+- The Hero (the Loosed): player character, BIBLE 10.1.
+- Saint-Statue: roaming statue (CAST L783). Object.
+- Diablo material in bestiary/docs/NPCS.md: Akara, Charsi, Cain, Flavie, Gheed, Kashya,
+  Warriv, Rogue Scout. Old Blizzard D2 design. NOT ASHLAR canon. Do not use.
+
+=== 4. UNCERTAINTIES AND DECISIONS FOR THE USER ===
+
+U1. Scope of "NPC" for "toàn bộ game". Options:
+    (a) Hub roster only (6 roles x 5 hubs + Lychgate extras) ≈ 37 named entries (N01-N41 minus group and object entries).
+    (b) Plus story figures (S01-S03: Severin, Plumb, Cassian; and vessels Hawise, Arsham, Radomir, Perpetua, Ignatia).
+    (c) Plus Act V in-wall reunion figures (Wystan, Fen, Ignatia's mother).
+    Recommendation: (a) for the first pass, (b) for Severin/Plumb. Vessels and act bosses are
+    designed as boss art in other tasks; keep them out unless the user asks.
+U2. Vessels: Hawise, Cassian, Arsham, Radomir, Severin are both story NPCs and act bosses
+    (BIBLE 10.6, CAST boss tables). Confirm whether NPC concepts should include them.
+U3. Two NPCs in the same slot in different acts: Ignatia (military, hostile → ally), Nareh
+    (trader → guide → salt). Decide whether to draw the ally or hostile form, or both.
+U4. Quest-giver status is not confirmed for any NPC (ledger not attached).
+    Quest roles above come from CAST/BIBLE prose only.
+U5. Verger Odo Pell appears in BIBLE 7.9 as Lychgate spiritual leader but not in CAST §3.1 hub table
+    (only the prologue). Both files agree he is the Lychgate spiritual leader; this is not a conflict.
+U6. Mila's age: "nine years old for twenty years" (CAST L559). Preserved; not a child in game terms
+    beyond appearance. Decide visual age for art.
+U7. Dawn Ship (CAST §7.5) and Wrackhaven side content were skimmed; no other named NPC found,
+    but this is not a full line-by-line read. Check before final.
+U8. Gennet's age/identity: 68 (CAST L96, BIBLE 10.3). Keep consistent across preserved/live forms.
+U9. Art-direction source conflict: BIBLE 3.2 and LD: "Vendors ... no combat" (safe), but
+    BIOME doc says Namakhar is "a hostile hub" (LD 13.4). NPC reactions in Namakhar may differ.
+
+=== 5. DESIGN CONSTRAINTS PER NPC TYPE (for the concept brief) ===
+
+- Every hub role must read at a glance (silhouette per role): smith = apron/forge tools;
+  trader = barrow/stock/coats; guide = travel gear; lore = books/ink/charts; spiritual
+  = vestments/veil; military = armour/lamellar/brigandine.
+- Keep the Diablo archetype idea of each role, change name, origin, material, palette
+  (BIBLE 3.1; CAST 12 table approach). Do not copy a Diablo design.
+- Light: NPCs lit by small flickering hub light, not steady white (LD L439).
+- Act III+ reaction states needed in each hub (LD L579): plan a "before Perfection" and
+  "after Perfection" look for the same NPC.
+- Act-state looks: hubs change after each act (LD L590; ASHLAR_BIOME doc "after" state).
+  NPC concepts must be drawn with "routine" props (LD L438: Gennet writes names, Brannoc
+  feeds Edda broth, Ansel casts bells, Pell rings the alarm).
+- Women: tasteful, not sexualised, for Nareh, Ignatia, Tamsin, Zorya, Dragana, Maelys, Rozenn,
+  Mila (age). Follow ASHLAR_HERO_CONCEPT v4 rule "tasteful allure" only if the parent confirms.
+- Veils (Frostwives, Zorya): veil pulled forward, long fur cloaks to floor (HERO_CONCEPT L859).
+- Children (Mila, Bozhena, counting children, Fen Reed): art-direction review; keep dignified.
+
+=== 6. HUB ROLE MATRIX ===
+
+Hub         | Spiritual        | Military           | Smith            | Trader             | Guide            | Lore
+Lychgate I  | Verger Pell      | Osric Dunmore      | Brannoc          | Nell Coppercoin    | Tamsin Reed      | Gennet Barrow
+Lowcourse II| Perpetua Vane    | Ignatia (hostile)  | Ansel Crane      | Pardoner Quint     | Ser Hamon        | Old Vellum
+Namakhar III| Arsham (vessel)  | Vardan (hostile)   | Old Hovik        | Nareh              | Nareh            | The Inkman
+Vesnagrad IV| Zorya            | Stanimir           | Ilya             | Mother Dragana     | Lev              | Brother Miron
+Wrackhaven V| Mother Rozenn    | Ignatia (ally)     | Goulven          | Morvan             | Maelys           | Severin's letters (device)
+
+Sources: BIBLE 7.9 (L464-475); CAST 10 (L836-847). These match.
+
+=== 7. PROPOSAL SPACE (not canon) ===
+
+- Variant looks per act state for the same NPC (before/after Perfection; hub after act).
+- Companion silhouettes (Tamsin, Hamon, Ignatia) for in-world follower rendering.
+- Frostwife veil variants (Zorya vs. group).
+- Mask/no-face treatment for the Saint-Statue-linked NPCs (CAST 4.2 / 2.1: faceless saints).
+- None of these are in canon; mark them PROPOSAL in any brief.
+
+=== 8. NEXT STEPS (for the parent) ===
+
+1. Confirm U1 scope and U2 vessel handling.
+2. Attach the Quest Ledger if quest-giver status matters for the concept board.
+3. Parent writes the concept briefs from §2 + §5 using artdirection.md §3 blocks and §11 QA.
+   Each NPC: 2 concepts (per user request "mỗi con 2 bản").

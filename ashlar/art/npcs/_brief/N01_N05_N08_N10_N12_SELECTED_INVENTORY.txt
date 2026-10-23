@@ -1,0 +1,43 @@
+ASHLAR selected NPC concept inventory | 2026-10-23 | Astra
+Scope: prior N01-N05 selections transcribed from existing QA; N08, N10, N11, N12 completed and visually inspected this session. All selected images are costume/design PROPOSALS pending user approval, not canon costume approvals. Built-in image_gen only; no API, nested CLI, delegation or image-editing code.
+Paths below are relative to E:/Diablo2/ashlar/art/npcs/. Every selected image has an exact same-stem .prompt.txt alongside it. Each character directory has QA.txt with actual findings.
+
+N01 Gennet Barrow (existing QA selections, no regen):
+ A N01_gennet-barrow/concept_A_r2.png
+ B N01_gennet-barrow/concept_B_r2.png
+N02 Brannoc the Mortsmith (existing QA selections, no regen):
+ A N02_brannoc-the-mortsmith/concept_A.png
+ B N02_brannoc-the-mortsmith/concept_B.png
+N03 Edda (existing QA selections, no regen):
+ A N03_edda/concept_A_r2.png
+ B N03_edda/concept_B_r2.png
+N04 Captain Osric Dunmore (existing QA selections, no regen):
+ A N04_osric-dunmore/concept_A.png
+ B N04_osric-dunmore/concept_B.png
+N05 Nell Coppercoin (existing QA selections, no regen):
+ A N05_nell-coppercoin/concept_A.png
+ B N05_nell-coppercoin/concept_B.png
+N08 Verger Odo Pell:
+ A N08_odo-pell/concept_A.png (existing image inspected and reused)
+ B N08_odo-pell/concept_B_r2.png (new selected retry)
+N10 The Ferryman of Rook's Weir:
+ A N10_ferryman/concept_A_r2.png (new selected retry)
+ B N10_ferryman/concept_B_v2.png (new; prompt revised before first B generation)
+N11 Mother Hawise:
+ A N11_mother-hawise/concept_A.png
+ B N11_mother-hawise/concept_B.png
+N12 Poppy Sister:
+ A N12_poppy-sister/concept_A.png
+ B N12_poppy-sister/concept_B.png
+
+Totals: 18 selected images for 9 entries; 8 selected images in exclusive assigned batch. Seven new selected outputs plus one reused N08 A. Nine generation calls this session: seven selected, two rejected and preserved. Every variant generated with a separate built-in call; independent calls run in pairs where possible.
+New rejected files preserved: N08_odo-pell/concept_B_r1_REJECTED.png (mottled gown and distressed shoes; exact prompt concept_B.prompt.txt); N10_ferryman/concept_A_r1_REJECTED.png (oilskin cracking/realistic texture; exact prompt concept_A.prompt.txt).
+Unused draft: N10_ferryman/concept_B.prompt.txt was refined before first B call; selected image uses concept_B_v2.prompt.txt.
+
+Remaining limitations:
+- N10 A/B poles are complete but top margins are narrow; optional later layout polish. B carries toll tin as routine variation; no barge scenery under user's studio-only instruction.
+- N05 prior QA: rings on all visible fingers, exact ten-ring count not independently verifiable because grips occlude some fingers; verify in production turnaround.
+- Value separation inspected visually; no computed grayscale artifact under the no-code scope. Multi-view consistency, numeric H scaling, terrain and Tripo tests do not apply to these single portraits.
+- Broad painterly marks retained within parent-approved S01 calibration. No material unresolved canon/anatomy defect identified in the four newly completed entries. Final user design approval remains pending.
+- N01-N05 inventory relies on their existing QA reports as requested; this session did not repeat image QA or regenerate them.
+No work performed on parent's N18/N19/S04, and shared artdirection was not modified.

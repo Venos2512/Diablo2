@@ -72,3 +72,83 @@ Mọi model là blockout (không model ASHLAR nào cho Cradle); quái là mô h�
 ## Vòng thay model (2026-10-22)
 
 Không đổi. The Cradle không có asset nào trong lô A15–A20, và các ứng viên dùng lại (đèn lồng trại, cột bùa có dải đỏ, tảng đá) đều sai phong cách Mercy (xem `tmp/act1-base-maps/REUSE_CANDIDATES.md` → *Decisions (interior)*). Engine có hai thay đổi chung (tấm kính cửa sổ mờ cùng tường, model gom theo ô) nhưng Cradle không có cửa sổ hay model nên ảnh và số đo giữ nguyên: `shots/cradle/before-after.png`, tam giác 236 nghìn, 71–73 draw call như trước.
+
+## Vòng thay kit A01–A14 (2026-10-23)
+
+Cả sáu model A14 nay là model Tripo của bộ kit (`lookdev-lab/assets/act1-kit/`).
+
+- **A14.1** nôi xương ×60. Model là hộp song kín (song cách nhau ≈ 0.4 m, sàn nôi 0.83 m), sâu 4.27 m (concept 3.6 m).
+  - Ở lối vào, các nôi chỉ còn cách nhau 0.53 m, không đủ chỗ đặt đèn giữa hai nôi. Vì vậy 8 đèn ngủ của lối vào và 4 đèn trong sương dời từ x ±4.7 ra mép lối đi (x ±3.5), trước đầu nôi 0.5 m.
+  - Vòng nôi quanh arena lấn vào mép arena 0.29 m.
+  - Collider hộp: nôi chắn trọn khối, và các tam giác của model không vào lưới va chạm.
+- **Nôi của Mercy:** cùng model nôi ở scale 0.8, sàn nôi đặt trên các thanh ngang của đế bập bênh A14.6 (scale 1.15, thanh ngang cao 1.07 m). Hai đầu cong của đế vươn ra ngoài hai đầu nôi.
+- **A14.2** màn lanh ×9. Blocker dời về hai cột của model ở (−1.84, −0.17) và (1.79, −0.17), bán kính 0.2 m. Giữa hai cột còn 2.95 m. Collider chỉ trên hai cột, nên rèm vải đi xuyên được trong Play như trước.
+- **A14.3** đèn ngủ trắng sữa ×64.
+  - Đèn, quầng sáng và quả cầu phát sáng đặt ở tâm cầu sữa của model (0, 1.77, 0), Ø 0.72 m. Quả cầu (trường KIT `globe`) vẽ cộng sáng đè lên kính của model.
+  - Khi đèn sáng, cầu bloom trắng như trước. Khi tắt (cơ chế "đèn ngủ tắt dần" của boss), chỉ còn kính trắng của model, không còn phát sáng.
+  - Collider 2.0 m.
+- **A14.4** chuông xương ×2. Chỉ chân đế chắn (collider trên blocker); chùm xương treo tới ≈ 0.9 m vẫn đi xuyên được.
+- **A14.5** bục chăn ×1: mặt nệm 0.83 m, gối tới 1.32 m, nên không bước lên được và chắn trọn khối (collider).
+- **A14.6** đế bập bênh ×3: một dưới nôi Mercy, hai nằm rời. Collider 1.0 m.
+
+**Đi lại:** con đường chính (cầu thang → lối vào → màn lanh → arena) và mọi điểm xuất phát vẫn đi được. Test mới kiểm:
+- không đèn nào đứng trong nôi;
+- sàn nôi Mercy nằm trên thanh ngang của đế (lệch < 4 cm);
+- vòng nôi lấn vào arena ≤ 0.35 m;
+- chỉ cột màn và chân chuông xương va chạm.
+
+Kiểm bằng lưới nav thật của Play: mọi điểm của con đường chính đến được; giữa hai cột màn ở cửa arena trống; arena còn 653/716 ô 1 m đi được trong bán kính 15 m.
+
+**Ánh sáng:** không đổi: mọi đèn Perfection tĩnh; mười đèn arena tắt dần theo thanh trượt; một bóng đổ; đèn thật + đèn nhân vật ≤ 16; ánh tối khép dần vẫn theo nhóm đèn ngủ.
+
+**Ảnh** (`shots/cradle/`):
+- so sánh `before-after.png`, "trước" chụp cùng góc camera ngay trước vòng này;
+- WebGL: `kit-<view>-webgl.png` cho các view `overview`, `aisle`, `fog`, `mouth`, `arena`, `boss`, `stair`, `cu-crib-row`, `cu-mercy-cradle`, `cu-platform-mobile`, `cu-night-light`, `cu-curtains`, cùng các ảnh soi texture `cu-lk-*`;
+- WebGPU: `kit-arena`, `kit-aisle`, `kit-cu-lk-mercy`, `kit-cu-lk-platform`, `kit-cu-night-light`, `kit-cu-lk-crib-row`.
+
+**Hiệu năng** (1600 × 900, máy test): tam giác 0.23–0.24 triệu → 0.98–1.42 triệu (nôi A14.1 chiếm 0.54–0.87 triệu); draw call 61–73 → 73–97. GPU WebGL không tăng (overview 1.91 → 1.77, aisle 2.25 → 1.78, arena 1.90 → 1.73 ms). GPU WebGPU +0.15–0.2 ms (1.57–1.82 → 1.77–1.96 ms). Bộ nhớ texture 64 → 201 MB (sáu model 2048 + 1024 px). Lưới va chạm của Play: 21 nghìn tam giác, 21 ms (nôi và bục có collider hộp; không có collider thì 87 nghìn tam giác).
+
+**Còn tồn tại:**
+- Nôi của model sâu hơn concept nên lối vào chật hơn.
+- Một chân nôi Mercy không chạm đế (khuất dưới nôi).
+- Hospice Mother và quái vẫn là blockout hoặc mô hình thay thế.
+
+## Vòng thay A21–A25 (2026-10-23)
+
+Chăn và gối trên bục chăn của arena nay dùng model Tripo nhóm A24 (`assets/act1-kit/`, kích thước thật). Số liệu từng model:
+`tmp/act1-base-maps/ACT1_KIT_FIT.md` mục A21–A25.
+
+- **N-CR02 → A24.5** chăn lật sẵn: 3.00 × 2.69 m, dày tới 0.60 m tính cả nếp gấp (concept 0.24 m). Nếp gấp có các đường đỏ, quay về phía gối.
+- **N-CR03 → A24.6** gối lanh: vuông 1.5 × 1.3 m (concept 1.5 × 0.75 m), dày 0.54 m, ba đường đỏ mảnh gần một đầu (QA: brief chỉ có một
+  dải). Giữ scale 1: gối cách nếp chăn 0.3 m, bục không chật.
+- **Cao độ:** bảng fit gợi ý đặt ở mặt đệm 0.83 m. Nhưng mặt trên của bục A14.5 là chín cái đệm chần cao 1.24–1.39 m, nên ở 0.83 m chăn và
+  gối sẽ chìm trong đệm (bản giữ chỗ cũ ở 0.72 m cũng đang chìm hẳn). Vì vậy cả hai nằm trên mặt đệm (`ON_CUSHIONS`):
+  - chăn ở 1.24 m, gối ở 1.15 m: đây là độ cao thấp nhất mà không chỗ nào của đệm xuyên qua mặt chăn / gối (cộng 0.02 m), đo trên mesh;
+  - đáy phẳng của chúng lún vào đỉnh đệm mềm tối đa 0.13 m (chăn) / 0.17 m (gối); phần lớn đáy nằm sát mặt đệm (lệch ≤ 0.1 m), chỉ mép cong
+    hở cao hơn (tới 0.42 / 0.27 m).
+- Chăn và gối không chặn (đi xuyên). Bục vẫn chặn cả khối bằng collider 1.5 m như trước.
+
+**Đi lại:** không đổi. Lưới nav thật của Play cho kết quả giống hệt trước vòng này: 10/10 điểm của con đường chính đến được, 653/716 ô
+arena đi được, khe giữa hai cột màn ở cửa arena trống.
+
+**Ánh sáng:** không đổi (15 đèn thật + đèn nhân vật = 16), một đèn đổ bóng; nhóm đèn arena và thanh trượt không đổi.
+
+**Kiểm Mercy / Perfection:** chăn và gối trắng sữa, sạch; các đường đỏ là dải đỏ của bộ Cradle. Gối có ba đường đỏ thay vì một (QA).
+
+**Ảnh** (`shots/cradle/`):
+- so sánh `before-after.png`, với "trước" là bản ngay trước vòng này và cùng góc camera;
+- WebGL: `a2x-<view>-webgl.png` cho `arena`, `boss`, `mouth`, `cu-platform-mobile`, `cu-bed`, `cu-bed-side`, `cu-lk-platform`, `cu-lk-bed`,
+  `cu-lk-bed-side` (ảnh `cu-bed*` có hình người 1.8 m đứng cạnh bục để so tỉ lệ);
+- WebGPU: `a2x-arena`, `a2x-boss`, `a2x-cu-bed`, `a2x-cu-bed-side`, `a2x-cu-lk-bed`.
+
+**Hiệu năng** (1600 × 900, một lần đo mỗi bản):
+- tam giác (WebGL, theo view) 0.98–1.42 triệu → 1.00–1.46 triệu; draw call không đổi (73–97);
+- GPU WebGL: overview 1.98 → 1.85, aisle 1.92 → 1.81, arena 1.81 → 1.63 ms; GPU WebGPU không đổi (1.77 → 1.77, 1.92 → 1.92, 1.94 → 1.96 ms);
+- bộ nhớ texture (RGBA8 + mip, ước tính) 200 → 214 MB.
+
+**Còn tồn tại:**
+- Chăn dày hơn concept (0.6 m so với 0.24 m), nên giường cao tới ≈ 1.85 m.
+- Mép chăn hở nhẹ trên khe giữa các đệm.
+- Khi camera nhìn xuyên qua giường về phía nhân vật, lớp mờ tường (wall fade) làm phần trước của bục, chăn và gối lấm tấm như trước.
+
+**Sáng hơn (2026-10-23):** `cradle`: `hemi` 0.55 → 1.1, `envI` 0.04 → 0.06, `exposure` 0.85 → 1.3, `floorTone` 0.55 → 0.65 — sáng hơn ≈ +30 %, giường, chăn và Hospice Mother từ trắng xám thành trắng sữa sạch, không cháy (cháy sáng +0.02 điểm %), void vẫn đen; ảnh `shots/cradle/bright-before-after.png`, số đo `tmp/act1-base-maps/BRIGHTNESS.md`.

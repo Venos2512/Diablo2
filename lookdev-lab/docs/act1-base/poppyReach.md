@@ -66,8 +66,99 @@ Chạm trán (quái thay thế mang tên mã ASHLAR): E1 W03 ×4 · E2 P04 ×2 +
 
 - **Model thật (GLB):** xe bò A18.1, giường A18.2 (ba chiếc trong nhà trại ở ×0,85 để vừa nửa phòng phía đông, một chiếc ngoài ruộng ×1), miệng mỏ Flint Delvings A18.3 (×1,34), dãy ward A18.4, tường hốc nến A18.5 (cả hàng), bậc lên đồi A18.6 (×1,3). Kit tạm: giá phơi anh túc A08.6 → giá phơi thảo dược, ụ đá N-PR02 → đá thấp, cọc bến N-PR11 → cặp cọc gãy ×1,2. Giữ blockout: đống lúa bỏ dở N-PR01.
 - **Miệng mỏ:** cửa của model là hốc vẽ, không phải đường hầm, nên cả gò chặn; khung gỗ `dungeon-prop-mine-timber` cũ bỏ đi (model có khung riêng); lối ra Flint Delvings là điểm kích ở mặt gò; lộ trình đoạn `mine` dừng ở mặt gò. Mặt sau trơn quay vào gò phấn.
-- **Bậc lên đồi:** dốc địa hình dưới bậc được cắt lại theo đường bậc của model rồi phẳng ở chiếu nghỉ 1,82 m (sân hospice cao hơn 0,18 m phía sau); hai má bậc chặn, giữa đi được (test mới đi từ chân bậc lên sân).
-- **Ánh sáng:** ánh cửa sổ ấm đứng yên nằm trên chính ô cửa sáng của dãy A18.4 (hàng trên); đốm nến hốc tường đứng ngay trước mặt tường, nhìn từ camera rơi vào lòng hốc.
+- **Bậc lên đồi (sửa sau review r2):** model có bảy bậc sâu ≈ 0,52 m, cao 0,2–0,3 m, rồi chiếu nghỉ cao 1,8 m (sân hospice cao hơn 0,2 m phía sau). Trước đây dốc địa hình là một đường thẳng đi qua mép các bậc, nên nằm cao hơn mặt mỗi bậc ở khoảng giữa hai mép: cỏ trùm lên bậc, chỉ còn thấy vệt mép bậc, chiếu nghỉ thành cỏ. Nay:
+  - **Địa hình** hạ xuống dưới model: thấp hơn mặt mọi bậc ≥ 0,12 m (kể cả hai bên bậc, vốn lùi vào và thấp hơn giữa bậc), thấp hơn chiếu nghỉ ≥ 0,25 m, ≥ 6 cm ở hai góc sau chiếu nghỉ, nơi đất lên lại mặt sân. Trước bậc đầu, đất vẫn phẳng như cũ.
+  - **Dốc ẩn để đi:** người chơi đi trên hai lối ẩn (`hidden: true`, giống lối ván dưới sàn bến ở fens): `steps` là một dốc chạy qua mép các bậc, `stepsLanding` là sàn phẳng trên chiếu nghỉ. Dốc bắt đầu từ mặt đất 0,35 m trước bậc đầu, thấp hơn mép bậc tối đa 0,1 m, cao hơn mặt bậc tối đa một bậc (0,27 m ở cuối bậc). Hai lối có đầu vuông (`caps: false`, tùy chọn mới của engine): lối ván thường có hai đầu tròn, và đầu tròn ở chân dốc sẽ khoét một lỗ trên sàn đi của Play ngay trước bậc đầu. Mỗi lối chỉ rộng bằng phần lối còn trống: 2,96 m giữa hai má bậc, 2,4 m giữa hai chân trụ. Lý do: Play chỉ nhận ra khối chặn qua các mặt tường của nó, nên nếu có sàn chạy vào trong khối chặn thì ô ở đó bị coi là đi được. Sàn dốc ẩn được cắt thành từng khúc ≤ 0,4 m, để mặt bên của nó không thành tường vô hình dọc mép dốc. Bước chân trên dốc kêu tiếng đá, không phải tiếng gỗ.
+  - **Chặn thêm** chân trụ và chậu hoa hai bên chiếu nghỉ (cao 0,4–1,3 m trên chiếu nghỉ, trước đây đi xuyên được). Lối giữa trên chiếu nghỉ còn rộng ≈ 2,4 m; hai má bậc vẫn chặn.
+  - **Test mới:** bắn tia vào GLB ở ≈ 1900 điểm trên mặt bậc và chiếu nghỉ. Địa hình luôn thấp hơn mặt bậc. Ở mọi điểm không bị chặn, mặt đi nằm trong khoảng −0,15…+0,32 m so với mặt bậc. Không ô 1 m nào có sàn ẩn nằm trong khối chặn. Test cũ đi từ chân bậc lên sân vẫn đạt.
+  - **Kiểm trong trình duyệt** (WebGL, va chạm thật của Play, loang ô như `buildNav`): đi được từ chân bậc lên sân; độ cao mặt đi trên bậc khớp lưới test trong 1 cm; 110/110 ô quanh bậc giống hệt lưới test.
+- **Ánh sáng:** ánh cửa sổ ấm đứng yên nằm trên chính ô cửa sáng của dãy A18.4 (hàng trên). Đốm nến hốc tường đứng ngay trước mặt tường, nhìn từ camera rơi vào lòng hốc. Sau review r2, đốm nến nằm đúng độ cao cây nến của từng đoạn tường: đáy đoạn + 1,5 m × hệ số kéo cao của đoạn (`yOn`). Bốn đoạn cạnh bậc đứng trên đất thấp nhất của chúng và được kéo cao ×1,17 để tường vẫn che sân. Trước đây độ cao đốm đo từ mặt đất trước tường, nên hai hốc sát bậc thấp 0,45 m, nằm dưới bậu hốc. Đèn thật `nicheReal` cũng lên đúng độ cao nến.
 - **Hiệu năng (1600 × 900, khung tổng thể; trung vị 2–5 lần tải trang mới; trước = các id đã thay ép về blockout, sau = bản hiện tại; "khung" = 30 khung chạy liền có chờ GPU, tức CPU hoặc GPU, bên nào chậm hơn):** WebGL: khung 2,73 → 2,52 ms, GPU 2,65 → 2,14 ms (số trước dao động 2,09–3,00); WebGPU: khung 5,96 → 6,79 ms, GPU 4,02 → 4,16 ms (khung `steps` 6,09 → 6,77 ms, GPU 4,37 → 4,61 ms: WebGPU nặng hơn chút ít, chủ yếu ở phía CPU). Draw call 72 → 72 (WebGPU 71 → 71), tam giác 2,99 → 3,24 triệu (cánh đồng anh túc vẫn là phần nặng nhất).
 - **Bộ nhớ texture (ước tính RGBA8 + mip, chưa nén, như nhau ở hai backend):** ≈ 208 MB → 528 MB (map 2048 px) → 432 MB sau `TEX_1024` (xe bò A18.1, giường A18.2, tường hốc nến A18.5 ×20; bớt 96 MB, vẫn hơn blockout 224 MB). Miệng mỏ, dãy ward, bậc lên đồi giữ 2048.
-- **Ảnh:** `shots/poppyReach/before-after.png`, cận cảnh `shots/poppyReach/swap-webgl-c-*.png`, WebGPU `shots/poppyReach/swap-webgpu-*.png`.
+- **Ảnh:** `shots/poppyReach/before-after.png`, cận cảnh `shots/poppyReach/swap-webgl-c-*.png`, WebGPU `shots/poppyReach/swap-webgpu-*.png`. Sau review r2 chụp lại (cả WebGL và WebGPU): `swap-*-c-steps.png`, `swap-webgpu-steps.png`, thêm `swap-*-c-stepsfront.png` (nhìn thẳng bậc); dựng lại `before-after.png` với khung `steps` mới (bậc → tường hốc nến → cửa sổ ấm).
+
+## Vòng thay kit A01–A14 (2026-10-22)
+
+Thay blockout và kit tạm A01–A08 bằng bộ model Act I mới (`assets/act1-kit/`, bảng `tmp/act1-base-maps/ACT1_KIT_FIT.md`); làm xong 2026-10-23.
+
+- **Model thật (GLB, đúng cỡ, chỉ dùng `scale` của điểm đặt):** tường đá khô A08.2 (299 module), đống rơm A08.4 (×6), giá phơi anh túc A08.6 (×4, ×0,9,
+  đầu anh túc đỏ; thay giá phơi thảo dược kit tạm), liễu non A04.2 (×5, chỉ gốc chặn).
+- **Tường đá khô:** model dài 3,2 m nhưng chỉ cao 0,84 m (đọc quá thấp cho hẻm tường), nên mọi đường tường đặt ×1,25 (dài 4 m, cao 1,05 m). Đầu đá
+  của model hụt 0,02–0,19 m so với khung, nên module cách nhau 3,5 m (def `module: 2,8`) cho đầu đá chồng lên nhau, không hở (ảnh đầu tiên bị hở
+  từng khúc). Chỉ lõi đá chặn (sâu 0,75 m, blockout cũ 0,7 m); chân cỏ đi xuyên. Trên dốc vẫn như cũ: module đứng trên chỗ thấp nhất và cao tới
+  đất phía trên + 0,63 m.
+- **Giữ blockout (lý do ghi trong def):**
+  - Bậc trèo A08.2-stile: model không có khe, tường chạy liền (đỉnh 0,6–0,89 m). Map cần khe 1,8 m đi qua được; model có thể dùng làm module tường thứ hai sau này.
+  - Cổng ruộng A08.5: cánh cổng của model đóng kín. Các cổng của map mở ra ruộng, 3,2 m giữa hai trụ, và lối chạy qua đó.
+  - Nhà trại A08.3: model là nhà kín, cửa đóng ở đầu hồi phía đông, mái nguyên, bên trong là vỏ rỗng không có sàn.
+    - Nhịp "giường trống nhìn từ trên xuống" cần mái sập, và lối của đoạn farm đi vào nhà tới V1.
+    - Một bản cắt mái theo độ cao vẫn không có cửa vào, và tường một mặt sẽ lộ ra từ bên trong.
+    - Nên giữ blockout cho tới khi có model nhà trại đổ nát (đề xuất: hàng Tripo mới, mái đông sập, cửa mở ở mặt dài).
+- **Đi lại:** mọi lối của các đoạn vẫn đi được (test lối Play); khe bậc trèo và các cổng mở vẫn đi qua được (test mới); bậc A18.6 không đổi.
+- **Ánh sáng:** không đổi (các model mới không có đèn).
+- **Kiểm tra:** `node --test "scripts/act1-*.test.mjs"` 101/101, `node scripts/check.mjs` đạt.
+- **Hiệu năng (1600 × 900, trung vị 2 lần tải trang mới sau một lần tải bỏ đi; trước = bản trước vòng này):**
+  - Số tam giác: 3,24 → 5,83 triệu ở khung tổng thể. Riêng 299 module tường ≈ 2,6 triệu (8 606 tam giác mỗi module 3,2 m).
+  - WebGL: GPU 2,82 → 2,62 ms ở khung tổng thể, 2,35 → 2,70 ms ở remember, 2,73 → 2,75 ms ở bậc; khung tổng thể 3,66 → 3,20 ms.
+  - WebGPU: GPU gần như cũ (tổng thể 3,94 → 3,87 ms; bậc 4,47 → 4,93 ms), nhưng thời gian khung tăng (tổng thể 6,1 → 8,5 ms; bậc 6,8 → 8,4 ms).
+    Rất có thể do bóng đổ của tường, phần không nằm trong đồng hồ GPU.
+  - Cần một bản tường giảm lưới (≈ 2 000 tam giác) trước khi làm bản game.
+- **Bộ nhớ texture (ước tính RGBA8 + mip, chưa nén):** 432 MB → 445 MB (45 → 52 texture; tường dùng chung một GLB 1024 px).
+- **Ảnh:**
+  - `shots/poppyReach/before-after.png`: trước = bản vòng thay model A15–A20, sau = vòng này, cùng camera.
+  - Lưới cận cảnh: `kit-closeups-webgl.png`, `kit-closeups-webgpu.png`.
+  - Các khung camera WebGPU: `kit-beats-webgpu.png`.
+  - Ảnh lớn: `kit-*-c-walls / c-racks / c-ricks.png`.
+- **Còn mở:** tam giác của tường (ở trên); ba blockout ở trên chờ model mới. (Màu tường quá sáng đã sửa, xem mục dưới.)
+
+### Sửa sau review kit r1 (2026-10-23)
+
+- **Tường gần như trắng (review mục 3):** mặt trên của đá tường A08.2 màu kem nhạt có địa y, dưới nắng đọc gần như trắng và là thứ sáng nhất trong
+  mọi khung hình, trái luật art direction "không có màu trắng sạch, trừ vải lanh của Mercy" (đồ người làm phải trông cũ). Màu nền của model được
+  chỉnh ngay lúc chuẩn bị: kéo 30 % về xám rồi nhân khoảng 0,7 (R 0,68, G 0,71, B 0,69: hơi ngả xám xanh), thành đá vôi xám cũ, địa y vẫn còn.
+  Làm bằng bảng TINT mới trong `scripts/prepare-act1-kit.py`, chỉ cho A08.2 và bậc trèo A08.2-stile (cùng loại đá, bản đồ chưa dùng); mọi GLB
+  khác, samples.json và giấy phép không đổi byte nào.
+- **Ảnh:** chụp lại cả bản đồ trên hai backend: `before-after.png` (cột sau: lane, upper, fold …), `kit-closeups-webgl.png`,
+  `kit-closeups-webgpu.png`, `kit-beats-webgpu.png`, ảnh lớn `kit-*-c-walls / c-racks / c-ricks.png`; so sánh trước / sau của riêng màu tường:
+  `kit-fix-walls.png`.
+
+## Vòng thay A21–A25 (2026-10-23)
+
+Bốn chỗ giữ chỗ (chỉ có trong LD) của Poppy Reach nay là model A22–A23 thật (`assets/act1-kit/`, bảng `tmp/act1-base-maps/ACT1_KIT_FIT.md` mục
+"A21–A25"); thêm đôi giày A22.1 dưới gốc cây táo gai.
+
+- **Ụ đá người gặt N-PR02 → A22.4** (thay hòn đá kit tạm): ụ đá tròn, phiến đá tên tựa ở mặt trước, que buộc ruy băng trên đỉnh (1,32 m); vẫn dưới
+  giá phơi, chặn cả khối (1,2 × 1,34 m).
+- **Gậy chăn cừu và áo gấp N-PR03 → A22.5** trong chuồng cừu bỏ trống. Sau review chỉ cây gậy chặn, áo gấp vẫn đi xuyên (mục "Sửa sau
+  review a2x" bên dưới).
+- **Búp bê rơm N-PR05 → A22.6** trên bậc của lối qua tường (vẫn +0,24 m); chân búp bê duỗi ra trước 0,17 m.
+- **Cây táo gai ruy băng N-PR04 → A23.2:** gốc cây lệch 1,4 m khỏi tâm model và cây dựng ra nghiêng về phía tây (blockout nghiêng về phía đông).
+  Cây được đặt sao cho gốc đứng đúng điểm rite 4 và xoay 200°: tán nghiêng về đông-đông nam, xuôi theo gió của khói ngủ (1, −0,15) như blockout, camera
+  game nhìn từ sau-phải nên thấy rõ thân, dáng nghiêng và ruy băng. Đã thử −135° (nghiêng đúng hướng đông) nhưng từ camera game cây chỉ còn là một chồng
+  tán. Trên dốc cây đứng cao hơn đất ở tâm 0,15 m: không đầu rễ nào lơ lửng, gốc vùi 0,10 m. Chỉ thân cây chặn (ô 0,6 m ở gốc + ô 1,0 m chỗ thân ngả
+  ra ở 0,8 m); cành và ruy băng dưới 2 m đi xuyên được.
+- **Đôi giày A22.1 (def mới, cùng model với N-FN02 của fens):** đặt 1,6 m về phía đông của gốc, dưới tán (không có phần nào của cây thấp hơn 2,2 m
+  ở đó), mũi giày quay vào gốc; camera ở góc 30–55° vẫn nhìn thấy.
+- **Giữ blockout:** ụ lúa bỏ dở N-PR01 (model A23.1 phải làm lại: lưỡi hái lơ lửng, cái bình treo trên cán, không còn hoa anh túc).
+- **Đi lại:** mọi route xanh; số ô đi được từ `landing` không đổi (39 589). **Ánh sáng:** không đổi.
+- **Kiểm tra:** `node --test "scripts/act1-*.test.mjs"` 121/121, `node scripts/check.mjs` đạt. Test mới: mọi def GLB mới trỏ đúng sample có file,
+  N-PR01 vẫn là blockout; cây táo gai: gốc đúng điểm rite (±5 cm), đỉnh tán nghiêng xuôi gió (trong 40°), đầu rễ không lơ lửng, chỉ thân chặn, giày
+  không nằm dưới rễ hay cành thấp, lối mòn tới được giày.
+- **Hiệu năng (1600 × 900, trung bình 2 lần tải trang mới sau một lần tải bỏ đi):** WebGL GPU tổng thể 2,67 → 2,49 ms, `remember` 2,27 → 2,50,
+  bậc thang 2,81 → 2,73 ms; 5,83 → 5,88 triệu tam giác. WebGPU GPU 4,33 → 4,29 / 3,19 → 3,11 / 4,87 → 4,80 ms. **Bộ nhớ texture:** 445 → 494 MB
+  (52 → 61 texture).
+- **Ảnh:** `shots/poppyReach/before-after.png`, `a2x-closeups-webgl.png`, `a2x-closeups-webgpu.png`, `a2x-beats-webgl.png`, `a2x-beats-webgpu.png`,
+  ảnh lớn `a2x-*-c-thorn / c-thornE / c-shoesE.png`.
+- **Còn mở:** tán A23.2 là các khối mượt, mặt sau ít ruy băng (QA); cây nghiêng lệch hướng gió ≈ 35° (chọn để cây đọc rõ từ camera game); ụ lúa A23.1
+  chờ model mới.
+
+### Sửa sau review a2x vòng 1 (2026-10-23)
+
+- **Gậy chăn cừu N-PR03 chặn (F-c).** Trước đây đi xuyên được (`collide: false`), nên nhân vật đi xuyên qua cây gậy cao 1,6 m. Nay def có
+  `blockers: [[0.08, -0.12, 0.3, 0.3]]`: một ô 0,3 × 0,3 m quanh thân gậy (GLB x −0,07…+0,23, z −0,27…+0,03; thân nghiêng từ (0,15; −0,09) ở
+  0,55 m lên (−0,02; −0,15) ở 1,2 m, móc gậy vươn tới x +0,31 ở 1,3–1,6 m). Áo gấp vẫn đi xuyên.
+- **Test mới** ("review a2x F-c"): đúng một khối chặn 0,3 × 0,3 m; 85 % vertex của gậy ở 0,55–1,7 m nằm trong khối, mọi vertex cách khối
+  ≤ 0,1 m; rite 3 vẫn tới được từ điểm xuất phát `east`. Mọi lối khác vẫn xanh.
+- **Kiểm tra:** `node --test "scripts/act1-*.test.mjs"` 124/124, `node scripts/check.mjs` đạt.
+
+**Sáng hơn (2026-10-23):** `day`: `hemi` 2.0 → 2.6, `sun.intensity` 0.32 → 0.36, `envI` 0.34 → 0.48, `exposure` 0.52 → 0.8 — sáng hơn ≈ +30 %, tường vôi hospice trắng sạch hơn (cháy sáng ở khung `steps` +0,08 điểm %); ảnh `shots/poppyReach/bright-before-after.png`, số đo `tmp/act1-base-maps/BRIGHTNESS.md`.

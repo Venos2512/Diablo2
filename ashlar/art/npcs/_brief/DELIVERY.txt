@@ -1,0 +1,17 @@
+ASHLAR NPC CONCEPTS — 23/10/2026
+
+User request: concepts for all game NPCs, two options each. Follow-up: retain canon child ages, allow modest age-appropriate child/teen concepts; show finished images in chat.
+
+DELIVERED: 51 character/archetype entries, 102 selected concept images, 102 matching prompts, 51 per-entry QA files. Generated with built-in image_gen by Astra. Research roster compiled by Haiku from ASHLAR World Bible and Bestiary and Cast attachments. No old Diablo II NPC designs used.
+
+OPEN index.html in this directory's parent (ashlar/art/npcs/index.html) for all A/B pairs, filters and individual original-image links. manifest.json is the authoritative selected-file list. Filenames with v2/v3/r2 may be selected: do not assume unsuffixed files are finals. All rejected/superseded attempts retained for traceability.
+
+COUNT: N01–N41, except N31 family expanded into N31a Ilka, N31b Yarik, N31c Mila, N31d Bozhena =44 entries. S01 Severin + S02a Plumb + S02b Square + S02c Trowel + S02d Level + S03 Cassian + S04 Ignatia's mother =7 entries. Total51. Groups represented by one design per option: counting children, Poppy Sisters, Frostwives, The Waiting by day. Repeated characters across acts counted once. Saint-in-the-Box is a speaking prop with its own two designs. Story NPC forms of boss/vessel characters are included; transformed monster forms, offscreen Yann, letters and the player classes are excluded.
+
+DESIGN STATUS: proposals for user selection, not approved canon costumes or finished production models. Each image is an appearance/costume concept, mostly full-body three-quarter single-view; sleeping and seated characters retain appropriate pose/props. No T-pose, rigging, animation or game integration performed.
+
+KNOWN CONCEPT LIMITATIONS: Radomir family support-wire attachments are concealed or unresolved in several views; production preserved-state turnarounds must show them explicitly. Proposed missing-hand side for Nareh and cheek-scar side for Anoush differ between alternatives (canon does not fix sides). Some props/counts obscured by pose, including Nell's rings. Other local notes appear in each QA and in the gallery. Canon unspecified ages/features are marked proposals; Tamsin16, Fen12, Wystan14, Mila visual age9 retained.
+
+ART DIRECTION: ashlar/artdirection.md section3.8 and decision log updated with user's explicit 23/10 child-NPC exception. Prompts preserve the required style/content blocks as applicable when generated. Original source artwork remains in .codex/generated_images; project deliverables are copied here.
+
+VALIDATION: build_npc_review_index.py --check verifies selected paths/counts. Gallery supports file:// and embeds metadata, uses original PNGs with lazy loading. Loading the full collection is substantial because no image thumbnails were made. Code review status is reported in chat; art QA is per image and final artistic approval remains with user.

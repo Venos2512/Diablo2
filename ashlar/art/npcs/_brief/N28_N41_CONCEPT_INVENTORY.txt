@@ -1,0 +1,81 @@
+ASHLAR NPC CONCEPT INVENTORY — assigned N28-N41 excluding N31 family
+2026-10-23. 13 entries, 26 selected final concept candidates. All costume alternatives are PROPOSALS; no user approval assumed.
+Built-in image_gen only. Each new image was a separate tool call. Existing Zorya A reused after visual QA. All generated outputs copied into repository; no source asset overwritten.
+Each selected file has an adjacent .prompt.txt; each directory has QA.txt with actual visual outcomes.
+
+E:/Diablo2/ashlar/art/npcs/N28_zorya/
+  A: concept_A.png
+  B: concept_B_v2.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N29_frostwife/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N30_radomir/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N32_stanimir/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N33_ilya/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N34_dragana/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N35_lev/
+  A: concept_A_v2.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N36_miron/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N37_rozenn/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N38_goulven/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N39_morvan/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N40_maelys/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+E:/Diablo2/ashlar/art/npcs/N41_the_waiting/
+  A: concept_A.png
+  B: concept_B.png
+  QA: QA.txt
+
+Rejected attempts retained:
+N28_zorya/concept_B.png — excessive small fur texture/weathering; selected B_v2.
+N35_lev/concept_A.png — sled clipped at right edge; selected A_v2.
+N28_zorya/concept_A_v2.prompt.txt — inherited unused draft, no generated output claimed.
+
+Remaining minor deviations:
+Maelys B has a tiny unintended flame on the pocket candle despite unlit prompt. Canon requires candle stub, retained. Consider extinguishing in future selected production design.
+Lev A_v2 uses wider landscape canvas to contain complete dog-sledge and human; still single full-body 3/4 portrait with studio background.
+Localized fur/metal/cloth brush marks and small costume changes recorded in individual QA are within accepted design-exploration tolerance, not blocked finals.
+No major unresolved canon/style/composition defects in selected set. No computed grayscale conversion, multiview, terrain or T-pose tests claimed.
+

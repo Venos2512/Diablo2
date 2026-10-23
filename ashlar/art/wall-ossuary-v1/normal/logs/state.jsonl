@@ -1,0 +1,13 @@
+{"ts": "2026-10-23T07:50:14Z", "id": "W_skull_wall_a_n1", "event": "queued"}
+{"ts": "2026-10-23T07:50:14Z", "id": "W_skull_wall_a_n2", "event": "queued"}
+{"ts": "2026-10-23T07:50:14Z", "id": "W_skull_wall_b_n1", "event": "queued"}
+{"ts": "2026-10-23T07:50:14Z", "id": "W_skull_wall_b_n2", "event": "queued"}
+{"ts": "2026-10-23T07:50:15Z", "id": "W_skull_wall_a_n1", "event": "start", "attempt": 1, "of": 1}
+{"ts": "2026-10-23T07:50:15Z", "id": "W_skull_wall_a_n2", "event": "start", "attempt": 1, "of": 1}
+{"ts": "2026-10-23T07:50:15Z", "id": "W_skull_wall_b_n1", "event": "start", "attempt": 1, "of": 1}
+{"ts": "2026-10-23T07:50:15Z", "id": "W_skull_wall_b_n2", "event": "start", "attempt": 1, "of": 1}
+{"ts": "2026-10-23T07:53:11Z", "id": "W_skull_wall_b_n2", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\textures\\W_skull_wall_b_n2.png", "source": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3361-7182-89f0-2e362e2bb93c\\exec-0048a58b-b198-400f-b771-d0864f5e342e.png", "dims": "1254x1254"}
+{"ts": "2026-10-23T07:53:29Z", "id": "W_skull_wall_b_n1", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\textures\\W_skull_wall_b_n1.png", "source": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3363-78e0-8063-f7c8089abcf7\\exec-8edcd1e1-9767-47ba-beb1-69ca93e430d9.png", "dims": "1254x1254"}
+{"ts": "2026-10-23T07:54:57Z", "id": "W_skull_wall_a_n1", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\textures\\W_skull_wall_a_n1.png", "source": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3361-7723-86f4-315627971e7e\\exec-c5b8a208-d597-460e-9111-a4ceaad3fa83.png", "dims": "1254x1254"}
+{"ts": "2026-10-23T08:02:15Z", "id": "W_skull_wall_a_n2", "event": "salvaged", "attempt": 1, "source": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3343-7360-af1f-91067cefc478\\exec-2cf344c6-b742-4153-8ea8-9ad9fae32dd7.png"}
+{"ts": "2026-10-23T08:02:15Z", "id": "W_skull_wall_a_n2", "event": "done", "attempt": 1, "texture": "E:\\Diablo2\\ashlar\\art\\wall-ossuary-v1\\normal\\textures\\W_skull_wall_a_n2.png", "source": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3343-7360-af1f-91067cefc478\\exec-2cf344c6-b742-4153-8ea8-9ad9fae32dd7.png", "dims": "1254x1254"}

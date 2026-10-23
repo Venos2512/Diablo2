@@ -1,0 +1,47 @@
+ASHLAR NPC concepts - selected inventory - 2026-10-23
+Scope: S02a Plumb, S02b Square (prior QA reuse); S02c Trowel, S02d Level, S03 Cassian (new generation).
+Selection means selected for user concept review, NOT approved costume/canon/3D production.
+Generator: built-in image_gen only. Each new A/B is a separate call; no API, CLI generator, delegation or image-editing code.
+References inspected: art/heroes/_review/v5/EX_A.png and art/npcs/S01_severin/concept_A.png.
+
+S02a_plumb - reused unchanged according to existing QA.txt; no regeneration
+A: E:/Diablo2/ashlar/art/npcs/S02a_plumb/concept_A_v2.png
+B: E:/Diablo2/ashlar/art/npcs/S02a_plumb/concept_B.png
+Exact prompts: concept_A_v2.prompt.txt; concept_B.prompt.txt in same folder.
+QA: E:/Diablo2/ashlar/art/npcs/S02a_plumb/QA.txt
+
+S02b_square - reused unchanged according to existing QA.txt; no regeneration
+A: E:/Diablo2/ashlar/art/npcs/S02b_square/concept_A.png
+B: E:/Diablo2/ashlar/art/npcs/S02b_square/concept_B.png
+Exact prompts: concept_A.prompt.txt; concept_B.prompt.txt in same folder.
+QA: E:/Diablo2/ashlar/art/npcs/S02b_square/QA.txt
+
+S02c_trowel - NEW
+A: E:/Diablo2/ashlar/art/npcs/S02c_trowel/concept_A_v3.png
+B: E:/Diablo2/ashlar/art/npcs/S02c_trowel/concept_B_v3.png
+Exact prompts: concept_A_v3.prompt.txt; concept_B_v3.prompt.txt in same folder.
+QA: E:/Diablo2/ashlar/art/npcs/S02c_trowel/QA.txt
+Earlier A/B and v2 images retained, rejected for surface density or missing face groove.
+
+S02d_level - NEW
+A: E:/Diablo2/ashlar/art/npcs/S02d_level/concept_A_v2.png
+B: E:/Diablo2/ashlar/art/npcs/S02d_level/concept_B_v2.png
+Exact prompts: concept_A_v2.prompt.txt; concept_B_v2.prompt.txt in same folder.
+QA: E:/Diablo2/ashlar/art/npcs/S02d_level/QA.txt
+v2 denotes a strengthened prompt version; original prompt files retained unused, no original PNG existed.
+
+S03_cassian - NEW
+A: E:/Diablo2/ashlar/art/npcs/S03_cassian/concept_A_v2.png
+B: E:/Diablo2/ashlar/art/npcs/S03_cassian/concept_B_v2.png
+Exact prompts: concept_A_v2.prompt.txt; concept_B_v2.prompt.txt in same folder.
+QA: E:/Diablo2/ashlar/art/npcs/S03_cassian/QA.txt
+Original A/B retained, rejected for crown tooth orientation and excessive skin/root detail.
+
+REMAINING / QUALIFICATIONS
+- All alternatives are proposals awaiting user choice. No approval assumed.
+- Residual broad painted facets remain on stone, roots and some cloth; these are accepted under the user's explicit broad-painted-plane allowance, not claimed perfectly texture-free. Optional extra smoothing is recorded in per-character QA.
+- Level A bob hangs below its beam instead of at the requested notch; tool construction needs resolution before modelling.
+- Cassian inner teeth are visible on the ring's inside edge; exact three-dimensional radial orientation and depth need resolution before modelling.
+- Mason concepts are intermediary speaking-statue presentations, not full true-form Mason designs; flying-buttress wings are not represented.
+- Prior Plumb/Square selection is taken from prior QA, not a claim of a new image review this session.
+- No work done on N18, N19, S04 or shared artdirection.
