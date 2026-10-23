@@ -1,0 +1,9 @@
+Result: PASS
+Status: pending_user_review; never approved.
+Image: concept_v2.png; built-in image_gen output copied unchanged.
+Pixel QA on 2048x683 image, visually measured bounds (approx. +/-3px): actual H y139..561 = 422px. 3/4 y162..561=399px (0.946H), LEFT 400px (0.948H), RIGHT 400px (0.948H), FRONT 400px (0.948H), BACK 400px (0.948H). All within inclusive 0.90-1.00H.
+Widths against H, approximate: 3/4 197px=0.47H; LEFT 154px=0.36H; RIGHT 143px=0.34H; FRONT 402px=0.95H; BACK 400px=0.95H. Guide widths are layout estimates, not mandated anatomy dimensions; no overlap/cropping. Front/back fingertip gap about 29px.
+LEFT faces left; RIGHT faces right. Both side arms now end-on at shoulder, no forward-reaching length. FRONT/BACK arms horizontal, empty hands, fingertips free. BACK shows rear hood/cape and rear robe rather than face/chest. Baseline consistent. No held or isolated prop applicable.
+Style: broad clean painted folds with deep shadows; no micro texture or black outlines. Warm-grey studio. Brown/ivory/small gold palette, no green. Value grouping separates figure from backdrop. No wounds, penetration, prohibited symbols, gore or nudity.
+Identity: hooded narrow column/cape retained, distinct from bare-skull tall-collar broad-sleeved B reference. Exact title and view order retained.
+Remaining faults: none identified. Measurement estimates are not automated segmentation.

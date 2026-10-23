@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H ~420px; frontal/back figure ~421px = 1.00H (source upper bound excluded); 3/4 ~405px=0.96H. Ink-black, quill panel, back and clothing shading pass. Side arms incorrect; height inconsistent across views; feather panel larger than held quill. needs_revision.
+Measurements estimated from actual H silhouette, not generated guide lines. No small/flying creature pixel requirement applies. Grayscale separation assessed by visible value groups; no grayscale conversion performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.

@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H ~420px; figure ~416px = 0.99H, near source upper limit. Title/layout/value contrast pass; actual back present. Side arms forward, wrong; mortar plate changes anatomical side in 3/4/front; material too opaque and too many rag subdivisions. needs_revision.
+Measurements estimated from actual H silhouette, not generated guide lines. No small/flying creature pixel requirement applies. Grayscale separation assessed by visible value groups; no grayscale conversion performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.

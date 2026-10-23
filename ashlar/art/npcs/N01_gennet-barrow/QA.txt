@@ -1,0 +1,7 @@
+2026-10-23 | Astra | Imagegen built-in | costume alternatives PROPOSAL, pending user approval.
+Canon checked: CAST 3.1 and BIBLE 10.3. Age 68, wiry woman, milky eye, lit pipe, spade and ledger.
+concept_A_r1_REJECTED.png: rejected previously; confirmed excessive weave, scratches, distressed leather and realism. Preserved.
+concept_A_r2.png: PASS visual QA. Broad soft planes, large fold shadows, no black outline or micro weave; a few broad metal brush planes remain. One complete adult, full spade and boots, no text/scenery. Peat/olive/fog palette; clear value separation. Canon present. Coat proposal.
+concept_B_r1_REJECTED.png: FAIL style; rust-like mottling on spade and distressed apron/hem. Preserved; original concept_B.prompt.txt is its exact prompt.
+concept_B_r2.png: PASS visual QA. Smooth spade, apron and skirt; broad folds and clean boots. Cap/apron silhouette differs materially from A coat, not recolour. Canon present, complete uncropped figure/props, no text/symbols. No unresolved material defect identified.
+Section 11: content PASS; composition PASS; palette PASS; value visually inspected PASS. Numeric H scale, multi-view consistency, terrain, T-pose and Tripo-row tests N/A to requested single portrait. No computed grayscale artifact made (user prohibits scripts/code); tonal separation evaluated visually. User remains final approval gate.

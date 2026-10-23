@@ -1,0 +1,4 @@
+status: needs_revision; pending_user_review; not approved
+PASS: different wide cape/armour silhouette from A; safe fitted headgear; slab horizontal; kneeling legs remain; arms level and side end-on; readable broad folds.
+FAIL pixel-based display ratios: H~312px, highest headgear~255px=.817H above .78H max. LEFT/RIGHT slab~212px=.679H below .90H min; PROP~280px=.897H borderline. Front armspan~360px=1.15H above ~1H target. Orange sash placement inconsistent between views. Retry needs smaller body and larger horizontal slab; preserve B cape.
+

@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H about 418px; monster about 395px = 0.95H, within [0.90,1.00). Distinct collar, bare skull and sleeve silhouette versus A. Side arms partly foreshortened but still extend in profile; 3/4 also T-pose instead of threatening ready pose; FRONT/BACK fingertips nearly touch. needs_revision.
+Measurements estimated from actual rendered H silhouette, not generated scale lines. No small/flying creature pixel requirement applies. Grayscale separation assessed visually by value groups. No code image processing performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.

@@ -1,0 +1,5 @@
+status: pending_user_review; QA PASS with minor notes; not approved
+PASS: one row H/3-4/LEFT/RIGHT/FRONT/BACK; title exact; no cropped/overlapping body; safe fitted bell helmet with no penetration/wounds; correct palette and tiny orange accent; readable shaded planes, no microtexture or outline; side arms end-on; legs neutral; true back has no eye slits and rear harness; bell/costume consistent.
+Ratio check using displayed image: H~409px, complete bell top-to-floor~451px =>1.103H, within [1.10,1.15H). Same total top across views. Broad low bell and shorter tabard distinguish A from B.
+Minor notes: actual 1.103H is lower than guide midpoint 1.125H but inside source range. Guide and H enlarged uniformly enough for ratio QA; exact original canvas pixel location not maintained. Source swatches are lighting-dependent. No material blocker identified.
+

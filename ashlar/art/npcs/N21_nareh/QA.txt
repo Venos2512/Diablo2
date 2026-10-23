@@ -1,0 +1,11 @@
+2026-10-23 | Astra | built-in image_gen | DESIGN PROPOSALS, awaiting user selection.
+Selected: concept_A.png and concept_B.png; exact prompts adjacent.
+Canon: adult thirties woman, laughing/warm smuggler, long pocket coat, both arms tattooed, two fingers missing. Living story form.
+A QA: PASS composition, full figure and prop, no labels/scenery, warm grey studio; adult proportions; three remaining digits on lowered hand, normal bottle grip opposite; both forearms tattooed. Missing hand is viewer-left (anatomical right), contrary to proposed prompt side; canon does not specify side. Do not treat side proposal as canon.
+B QA: PASS same checks; lowered anatomical left hand shows three remaining digits; cup connects to routine. Smile is restrained rather than open laugh.
+Style: compared visually to EX_A; painted large planes and fold shadows, no black outlines, no photographic weave/pores. Some angular secondary fold strokes and patch seams remain, not microtexture. Smooth simplified surfaces.
+Colour/value: bone/grey dominant, charcoal secondary, small muted teal; no red. Subject and dark lower garments separate from grey background by visible value masses (visual assessment, no computed grayscale).
+A/B differ in tailoring, silhouette, sleeves, collar, pocket placement, trousers, hairstyle and routine prop, not recolours.
+Content PASS: clothed, no gore, religious symbols or sexualised posing.
+Multi-view consistency, H scale guides, terrain tiling and T-pose checks: N/A to single concept portraits.
+Unresolved: proposed missing-hand side differs between A/B; canon only fixes count. User approval pending.

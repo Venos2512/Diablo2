@@ -1,0 +1,5 @@
+status: needs_revision; pending_user_review; not approved
+concept.png visually checked against approved F01 and artdirection section 11.
+PASS: one row, correct title/labels/order, all props present; no cropping, no disallowed content, no saturated accent; distinct back; side arms foreshortened.
+FAIL: H is approximately 427 display pixels; head/body excluding hat approximately 390 px (~0.91H), below 1.00-1.05H. Front brim approximately 120 px (~0.28H), below 0.40-0.50H. Guide/H was enlarged inconsistently. Coat has excessive small mottled marks relative to clean style requirement.
+Action: retain original; regenerate targeted scale and surface correction as concept_r2.png with same requested A design.

@@ -1,0 +1,8 @@
+Result: PASS
+Status: pending_user_review; not approved.
+Image: concept_v2_r2.png, exact returned image, unchanged.
+2048x683. Visually measured approximate pixel bounds +/-3px: actual H y150..566=416px. 3/4 393px=0.945H; LEFT/RIGHT/FRONT/BACK 394px=0.947H. All inside inclusive 0.90-1.00H. Widths: 3/4 270px=0.65H, LEFT 176px=0.42H, RIGHT 173px=0.42H, FRONT 454px=1.09H, BACK 442px=1.06H. Guide widths are layout estimates. Common baseline; no cropping/overlap.
+Fixed side arms: compact hand-end at shoulder y263, same height as frontal arms. LEFT faces left, RIGHT faces right. FRONT/BACK horizontal neutral arms, empty hands. FRONT/BACK fingers separated by about 13px: narrower than desired 30px but clearly no contact, passes brief. 3/4 lowered ready arms retained.
+True back with rear collar and robe; same costume/palette across views. A/B remain distinct: B bare skull, high collar, broad draped sleeves versus A hood/cape/narrow column. No held or isolated prop applicable.
+Clean broad cloth shading, no microtexture or black outlines; brown/ivory/small gold, no green; adequate grayscale separation; no gore, wounds, penetration or prohibited symbols. Exact title and label order.
+Remaining faults: none substantive; narrow but clear fingertip gap is a caveat. Bounds are visual estimates, not automated segmentation.

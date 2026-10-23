@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H about 370px; monster about 354px = 0.96H, within [0.95,1.05). Distinct vertical belly-mouth and upper bone rack. RIGHT still faces left (duplicate side); all neutral views missing T-pose; orange rag area too large; front/back asymmetrical hip-bone location changes. needs_revision.
+Measurements estimated from actual rendered H silhouette, not generated scale lines. No small/flying creature pixel requirement applies. Grayscale separation assessed visually by value groups. No code image processing performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.

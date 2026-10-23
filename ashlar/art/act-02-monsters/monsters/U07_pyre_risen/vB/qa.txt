@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H about 432px; body about 392px = 0.91H, within [0.90,1.00). Front/back T-pose and black skeleton identity pass; A/B cloth and chain variation present. Side views omit readable end-on hands, and thin bone arm anatomy inconsistently disappears. needs_revision.
+Measurements estimated from actual rendered H silhouette, not generated scale lines. No small/flying creature pixel requirement applies. Grayscale separation assessed visually by value groups. No code image processing performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.

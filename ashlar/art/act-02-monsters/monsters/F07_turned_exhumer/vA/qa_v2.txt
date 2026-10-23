@@ -1,0 +1,5 @@
+﻿result: FAIL
+status: pending_user_review; not approved
+Pixel QA on 2048x683 image, approximate manual silhouette bounds: H y127..558 =431px. Fixed halo tops y112..115, soles558..563 =>443..451px =1.028..1.046H, within total 1.00-1.05H. Hat brim width ~140px=.325H versus inherited .40-.50H. FRONT/BACK spans ~438/436px=1.02H. Guide H scale/layout not preserved (guide scaled H324px vs actual431px).
+Remaining faults: LEFT faces right and RIGHT faces left; FRONT/BACK fingertips touch; crossbow visible upper component does not match isolated bow consistently; extra isolated crossbow/lantern crowd weapon cell; too many small hem cuts. Skull/body is shorter than H but total fixed headgear height meets range. T-pose hands end-on in side views. Back is true back. No wounds/penetration; palette no green; broad form shading retained; slight small edge texture remains. A long coat/upright ring distinct from B broad short cape/low ring.
+

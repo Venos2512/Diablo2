@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved.
+concept.png visual QA 2026-10-23: H ~306px; aggregate h ~426px=1.39H within [1.20,1.50), FRONT overall width ~425px=1.39H exceeds [1.00,1.30). Distinct diagonal wraps/bone ribs and non-graphic figures pass. Needs width reduction; complex face layout should be simplified for view consistency; not approved.
+Measurements estimated from actual H silhouette, not generated guide lines. No small/flying creature pixel requirement applies. Grayscale separation assessed by visible value groups; no grayscale conversion performed.
+Root clarification 2026-10-23: source ranges are inclusive; prior half-open notation or upper-endpoint exclusion is superseded. Approximate 1-2px differences are not failures. Prioritize substantive pose/asymmetry/material/width issues. Pixel figures in this log are visual estimates, not exact segmentation measurements.
