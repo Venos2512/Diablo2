@@ -1,0 +1,48 @@
+{
+ "row": "R24",
+ "row_glb": "rows/R24_ribbon_thorn/act1_kit_v1_R24_ribbon_thorn.glb",
+ "variant": "2",
+ "faces": 12828,
+ "objects": 1,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A23.2",
+   "slug": "ribbon_thorn",
+   "name": "Ribbon thorn",
+   "dir": "A23_2_ribbon_thorn",
+   "glb": "A23_2_ribbon_thorn/act1_kit_v1_ribbon_thorn.glb",
+   "mb": 19.7,
+   "tris": 12828,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    1.0,
+    0.699,
+    0.507
+   ],
+   "real_size_m": [
+    6.0,
+    5.5,
+    5.0
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    7.87,
+    9.87
+   ],
+   "shape_spread": 1.64,
+   "texture": "row atlas kept whole"
+  }
+ ]
+}

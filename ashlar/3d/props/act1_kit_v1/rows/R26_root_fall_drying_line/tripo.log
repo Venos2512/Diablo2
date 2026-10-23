@@ -1,0 +1,13 @@
+[10-22 22:56:21] R26_root_fall_drying_line: polycount set to 10000 (account default)
+[10-22 22:56:27] R26_root_fall_drying_line: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 5938), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 22:56:53] R26_root_fall_drying_line: mesh done (credits now 5838); new models: c43c3a6b-e295-4f28-a08a-3bd37dd77794 c5c65a6c-e0e4-4211-9309-3bbb1644d685 5c3192b3-3791-478f-9d8c-4ea54780dc75 58f5b5d7-6f18-4215-a1a9-bf3e5419cebd
+[10-22 22:57:46] R26_root_fall_drying_line: variants (index uuid faces): 0 c43c3a6b-e295-4f28-a08a-3bd37dd77794 10514;1 c5c65a6c-e0e4-4211-9309-3bbb1644d685 10810;2 5c3192b3-3791-478f-9d8c-4ea54780dc75 10497;3 58f5b5d7-6f18-4215-a1a9-bf3e5419cebd 10711;
+[10-22 23:02:07] R26_root_fall_drying_line: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/58f5b5d7-6f18-4215-a1a9-bf3e5419cebd faces 10711; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:03:58] R26_root_fall_drying_line: ABORT: cannot read the credit balance (?)
+[10-22 23:16:57] R26_root_fall_drying_line: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/58f5b5d7-6f18-4215-a1a9-bf3e5419cebd faces 10711; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:17:21] R26_root_fall_drying_line: smart uv saved (credits 4998 -> 4978)
+[10-22 23:18:13] R26_root_fall_drying_line: texture 4K done in 26s (credits 4978 -> 4958, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 23:18:39] R26_root_fall_drying_line: pbr done (credits 4958 -> 4953)
+[10-22 23:18:57] R26_root_fall_drying_line: exported act1_kit_v1_R26_root_fall_drying_line.glb (format GLB, texture 4kCurrent, 17508 KB)
+[10-22 23:18:57] R26_root_fall_drying_line: GLB check: {"file": "act1_kit_v1_R26_root_fall_drying_line.glb", "MB": 17.9, "meshes": 1, "tris": 19091, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.262], "max": [0.5, 0.348, 0.262]}
+[10-22 23:19:19] R26_root_fall_drying_line: FINISHED: balance 4953 (shared); _shots/final_views.png

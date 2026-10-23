@@ -1,0 +1,88 @@
+{
+ "row": "R25",
+ "row_glb": "rows/R25_barrow_door_flint_wall/act1_kit_v1_R25_barrow_door_flint_wall.glb",
+ "variant": "2",
+ "faces": 15716,
+ "objects": 4,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A21.1",
+   "slug": "barrow_door",
+   "name": "Barrow vault door",
+   "dir": "A21_1_barrow_door",
+   "glb": "A21_1_barrow_door/act1_kit_v1_barrow_door.glb",
+   "mb": 7.2,
+   "tris": 8956,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 4.87",
+   "yaw_deg": -10.4,
+   "normalised": [
+    1.0,
+    0.756,
+    0.29
+   ],
+   "real_size_m": [
+    2.4,
+    2.8,
+    0.8
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    3.7,
+    2.76
+   ],
+   "shape_spread": 1.54,
+   "texture": "own atlas 3456x3504 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A21.2",
+   "slug": "flint_retaining_wall",
+   "name": "Flint retaining wall",
+   "dir": "A21_2_flint_retaining_wall",
+   "glb": "A21_2_flint_retaining_wall/act1_kit_v1_flint_retaining_wall.glb",
+   "mb": 8.1,
+   "tris": 6760,
+   "objects": [
+    2,
+    3,
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.03,
+   "front": "axes 8.66",
+   "yaw_deg": -21.9,
+   "normalised": [
+    1.0,
+    0.541,
+    0.182
+   ],
+   "real_size_m": [
+    4.0,
+    3.2,
+    0.9
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    5.92,
+    4.94
+   ],
+   "shape_spread": 1.48,
+   "texture": "own atlas 3968x2624 (row atlas 4096x4096)"
+  }
+ ]
+}

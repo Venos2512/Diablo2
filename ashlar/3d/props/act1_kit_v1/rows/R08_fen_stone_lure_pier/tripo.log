@@ -2,3 +2,10 @@
 [10-22 16:24:59] R08_fen_stone_lure_pier: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 7913), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:25:36] R08_fen_stone_lure_pier: mesh done (credits now 7813); new models: 55a260d6-e3c4-4864-96d8-78c1f7b18421 b9972e8f-ce23-451f-a87b-256d9bbea6c3 8bee7c75-5f3f-4aee-a40a-95a0cef5ed96 b49ce06a-e376-49b8-b0e8-9a8cd4fd3574
 [10-22 16:26:54] R08_fen_stone_lure_pier: variants (index uuid faces): 0 55a260d6-e3c4-4864-96d8-78c1f7b18421 16806;1 b9972e8f-ce23-451f-a87b-256d9bbea6c3 16457;2 8bee7c75-5f3f-4aee-a40a-95a0cef5ed96 15742;3 b49ce06a-e376-49b8-b0e8-9a8cd4fd3574 17207;
+[10-22 20:10:26] R08_fen_stone_lure_pier: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/b49ce06a-e376-49b8-b0e8-9a8cd4fd3574 faces 17207; texture 8K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 20:10:54] R08_fen_stone_lure_pier: smart uv saved (credits 6693 -> 6673)
+[10-22 20:13:20] R08_fen_stone_lure_pier: texture 8K done in 121s (credits 6673 -> 6643, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:13:52] R08_fen_stone_lure_pier: pbr done (credits 6643 -> 6638)
+[10-22 20:14:11] R08_fen_stone_lure_pier: exported act1_kit_v1_R08_fen_stone_lure_pier.glb (format GLB, texture 8kCurrent, 31204 KB)
+[10-22 20:14:11] R08_fen_stone_lure_pier: GLB check: {"file": "act1_kit_v1_R08_fen_stone_lure_pier.glb", "MB": 32.0, "meshes": 1, "tris": 27122, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.489], "max": [0.5, 0.47, 0.489]}
+[10-22 20:14:32] R08_fen_stone_lure_pier: FINISHED: balance 6638 (shared); _shots/final_views.png

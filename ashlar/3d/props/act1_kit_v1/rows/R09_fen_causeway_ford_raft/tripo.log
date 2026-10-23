@@ -2,3 +2,12 @@
 [10-22 16:27:37] R09_fen_causeway_ford_raft: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 7813), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:28:11] R09_fen_causeway_ford_raft: mesh done (credits now 7713); new models: e242e3a5-862b-47c0-bb4f-7ebb4362a995 7c45638d-5e1f-403b-972a-96c746f535e2 363b448c-b52a-4b5b-9b01-20e623bb0937 a17157f1-f29a-4e24-986d-614fd274563c
 [10-22 16:29:06] R09_fen_causeway_ford_raft: variants (index uuid faces): 0 e242e3a5-862b-47c0-bb4f-7ebb4362a995 16433;1 7c45638d-5e1f-403b-972a-96c746f535e2 16279;2 363b448c-b52a-4b5b-9b01-20e623bb0937 16539;3 a17157f1-f29a-4e24-986d-614fd274563c 17260;
+[10-22 20:14:33] R09_fen_causeway_ford_raft: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/e242e3a5-862b-47c0-bb4f-7ebb4362a995 faces 16433; texture 8K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 20:15:07] R09_fen_causeway_ford_raft: smart uv saved (credits 6638 -> 6618)
+[10-22 20:17:03] R09_fen_causeway_ford_raft: texture 8K done in 90s (credits 6618 -> 6618, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:17:03] R09_fen_causeway_ford_raft: ABORT: texture did not charge (reference slot empty?)
+[10-22 20:24:55] R09_fen_causeway_ford_raft: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/e242e3a5-862b-47c0-bb4f-7ebb4362a995 faces 16433; texture 8K; from pbr; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 20:25:57] R09_fen_causeway_ford_raft: pbr done (credits 6478 -> 6473)
+[10-22 20:26:14] R09_fen_causeway_ford_raft: exported act1_kit_v1_R09_fen_causeway_ford_raft.glb (format GLB, texture 8kCurrent, 32376 KB)
+[10-22 20:26:14] R09_fen_causeway_ford_raft: GLB check: {"file": "act1_kit_v1_R09_fen_causeway_ford_raft.glb", "MB": 33.1, "meshes": 1, "tris": 28223, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.5], "max": [0.5, 0.153, 0.5]}
+[10-22 20:26:35] R09_fen_causeway_ford_raft: FINISHED: balance 6433 (shared); _shots/final_views.png

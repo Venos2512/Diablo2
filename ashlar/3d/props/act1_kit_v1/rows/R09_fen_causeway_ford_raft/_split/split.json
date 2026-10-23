@@ -1,0 +1,126 @@
+{
+ "row": "R09",
+ "row_glb": "rows/R09_fen_causeway_ford_raft/act1_kit_v1_R09_fen_causeway_ford_raft.glb",
+ "variant": "0",
+ "faces": 28223,
+ "objects": 5,
+ "split_by": "image gaps",
+ "assets": [
+  {
+   "id": "A06.1",
+   "slug": "causeway",
+   "name": "Fen causeway segment",
+   "dir": "A06_1_causeway",
+   "glb": "A06_1_causeway/act1_kit_v1_causeway.glb",
+   "mb": 8.8,
+   "tris": 19154,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 3.05",
+   "yaw_deg": -92.1,
+   "normalised": [
+    1.0,
+    0.243,
+    0.428
+   ],
+   "real_size_m": [
+    4.0,
+    0.9,
+    0.4
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    3.71,
+    0.93
+   ],
+   "shape_spread": 4.28,
+   "texture": "own atlas 6912x4320 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A06.3",
+   "slug": "stepping_ford",
+   "name": "Stepping-stone ford",
+   "dir": "A06_3_stepping_ford",
+   "glb": "A06_3_stepping_ford/act1_kit_v1_stepping_ford.glb",
+   "mb": 2.6,
+   "tris": 896,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 5.0,
+   "support_gain": 3.43,
+   "front": "axes 2.45",
+   "yaw_deg": -82.6,
+   "normalised": [
+    0.476,
+    0.101,
+    1.0
+   ],
+   "real_size_m": [
+    2.4,
+    0.5,
+    7.0
+   ],
+   "m_per_unit_xyz": [
+    5.05,
+    4.94,
+    7.0
+   ],
+   "shape_spread": 1.42,
+   "texture": "own atlas 4224x2112 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A07.5",
+   "slug": "plank_raft",
+   "name": "Pontoon plank raft",
+   "dir": "A07_5_plank_raft",
+   "glb": "A07_5_plank_raft/act1_kit_v1_plank_raft.glb",
+   "mb": 9.3,
+   "tris": 8173,
+   "objects": [
+    3,
+    4,
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 4.1,
+   "support_gain": 51.16,
+   "front": "axes 2.09",
+   "yaw_deg": 1.8,
+   "normalised": [
+    1.0,
+    0.39,
+    0.501
+   ],
+   "real_size_m": [
+    3.6,
+    1.7,
+    2.4
+   ],
+   "m_per_unit_xyz": [
+    3.6,
+    4.36,
+    4.79
+   ],
+   "shape_spread": 1.33,
+   "texture": "own atlas 6144x6576 (row atlas 8192x8192)"
+  }
+ ]
+}

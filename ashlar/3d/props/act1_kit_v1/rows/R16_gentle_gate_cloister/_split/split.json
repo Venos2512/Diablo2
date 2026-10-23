@@ -1,0 +1,97 @@
+{
+ "row": "R16",
+ "row_glb": "rows/R16_gentle_gate_cloister/act1_kit_v1_R16_gentle_gate_cloister.glb",
+ "variant": "1",
+ "faces": 21048,
+ "objects": 13,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A11.4",
+   "slug": "gate_tower",
+   "name": "Gate tower",
+   "dir": "A11_4_gate_tower",
+   "glb": "A11_4_gate_tower/act1_kit_v1_gate_tower.glb",
+   "mb": 21.9,
+   "tris": 14477,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.47",
+   "yaw_deg": 7.9,
+   "normalised": [
+    0.557,
+    1.0,
+    0.876
+   ],
+   "real_size_m": [
+    4.32,
+    7.2,
+    4.32
+   ],
+   "m_per_unit_xyz": [
+    7.76,
+    7.2,
+    4.93
+   ],
+   "shape_spread": 1.57,
+   "texture": "row atlas kept whole"
+  },
+  {
+   "id": "A11.1",
+   "slug": "cloister_bay",
+   "name": "Whitewashed cloister bay",
+   "dir": "A11_1_cloister_bay",
+   "glb": "A11_1_cloister_bay/act1_kit_v1_cloister_bay.glb",
+   "mb": 7.0,
+   "tris": 6571,
+   "objects": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 2.1,
+   "support_gain": 10.3,
+   "front": "axes 2.18",
+   "yaw_deg": -20.3,
+   "normalised": [
+    1.0,
+    0.707,
+    0.522
+   ],
+   "real_size_m": [
+    5.4,
+    4.32,
+    2.16
+   ],
+   "m_per_unit_xyz": [
+    5.4,
+    6.11,
+    4.14
+   ],
+   "shape_spread": 1.48,
+   "texture": "own atlas 4096x2464 (row atlas 4096x4096)"
+  }
+ ]
+}

@@ -2,3 +2,10 @@
 [10-22 16:10:52] R21_cradle_crib_curtains: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 8458), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:11:23] R21_cradle_crib_curtains: mesh done (credits now 8358); new models: b1bdb83b-0927-4b1a-9324-3fbf946b142e 686d4d39-9a43-4be6-b865-10344da58953 0d6124ba-97bc-4afc-a835-fd8855b8c0c4 0f0775c0-c0c3-47d7-afdd-7dc43857d950
 [10-22 16:12:17] R21_cradle_crib_curtains: variants (index uuid faces): 0 b1bdb83b-0927-4b1a-9324-3fbf946b142e 9256;1 686d4d39-9a43-4be6-b865-10344da58953 12115;2 0d6124ba-97bc-4afc-a835-fd8855b8c0c4 10217;3 0f0775c0-c0c3-47d7-afdd-7dc43857d950 10054;
+[10-22 20:25:22] R21_cradle_crib_curtains: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/0d6124ba-97bc-4afc-a835-fd8855b8c0c4 faces 10217; texture 4K; from uv; window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 20:25:50] R21_cradle_crib_curtains: smart uv saved (credits 6473 -> 6453)
+[10-22 20:26:53] R21_cradle_crib_curtains: texture 4K done in 38s (credits 6453 -> 6433, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 20:27:22] R21_cradle_crib_curtains: pbr done (credits 6433 -> 6408)
+[10-22 20:27:39] R21_cradle_crib_curtains: exported act1_kit_v1_R21_cradle_crib_curtains.glb (format GLB, texture 4kCurrent, 21752 KB)
+[10-22 20:27:39] R21_cradle_crib_curtains: GLB check: {"file": "act1_kit_v1_R21_cradle_crib_curtains.glb", "MB": 22.3, "meshes": 1, "tris": 19817, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.237], "max": [0.5, 0.412, 0.237]}
+[10-22 20:28:00] R21_cradle_crib_curtains: FINISHED: balance 6388 (shared); _shots/final_views.png

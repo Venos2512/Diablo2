@@ -1,0 +1,88 @@
+{
+ "row": "R21",
+ "row_glb": "rows/R21_cradle_crib_curtains/act1_kit_v1_R21_cradle_crib_curtains.glb",
+ "variant": "2",
+ "faces": 19817,
+ "objects": 4,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A14.1",
+   "slug": "crib_frame",
+   "name": "Bone-rail crib frame",
+   "dir": "A14_1_crib_frame",
+   "glb": "A14_1_crib_frame/act1_kit_v1_crib_frame.glb",
+   "mb": 22.0,
+   "tris": 14455,
+   "objects": [
+    1,
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.61",
+   "yaw_deg": -36.0,
+   "normalised": [
+    1.0,
+    0.535,
+    0.625
+   ],
+   "real_size_m": [
+    6.3,
+    3.6,
+    3.6
+   ],
+   "m_per_unit_xyz": [
+    6.3,
+    6.72,
+    5.76
+   ],
+   "shape_spread": 1.17,
+   "texture": "row atlas kept whole"
+  },
+  {
+   "id": "A14.2",
+   "slug": "curtain_pair",
+   "name": "Linen curtain pair",
+   "dir": "A14_2_curtain_pair",
+   "glb": "A14_2_curtain_pair/act1_kit_v1_curtain_pair.glb",
+   "mb": 3.4,
+   "tris": 5362,
+   "objects": [
+    3,
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 4.9,
+   "support_gain": 1.22,
+   "front": "axes 7.02",
+   "yaw_deg": 28.0,
+   "normalised": [
+    0.848,
+    1.0,
+    0.225
+   ],
+   "real_size_m": [
+    4.32,
+    5.4,
+    0.7
+   ],
+   "m_per_unit_xyz": [
+    5.1,
+    5.4,
+    3.11
+   ],
+   "shape_spread": 1.74,
+   "texture": "own atlas 3712x1344 (row atlas 4096x4096)"
+  }
+ ]
+}

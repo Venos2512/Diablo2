@@ -1,0 +1,126 @@
+{
+ "row": "R27",
+ "row_glb": "rows/R27_peat_chair_bog_grave/act1_kit_v1_R27_peat_chair_bog_grave.glb",
+ "variant": "1",
+ "faces": 26880,
+ "objects": 5,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A21.3",
+   "slug": "peat_stack",
+   "name": "Peat stack",
+   "dir": "A21_3_peat_stack",
+   "glb": "A21_3_peat_stack/act1_kit_v1_peat_stack.glb",
+   "mb": 6.8,
+   "tris": 10856,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.49",
+   "yaw_deg": -2.4,
+   "normalised": [
+    1.0,
+    0.414,
+    0.723
+   ],
+   "real_size_m": [
+    1.6,
+    1.1,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    1.6,
+    2.66,
+    1.38
+   ],
+   "shape_spread": 1.92,
+   "texture": "own atlas 6528x4352 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A21.4",
+   "slug": "vigil_chair",
+   "name": "Vigil chair",
+   "dir": "A21_4_vigil_chair",
+   "glb": "A21_4_vigil_chair/act1_kit_v1_vigil_chair.glb",
+   "mb": 2.2,
+   "tris": 3278,
+   "objects": [
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.7,
+   "support_gain": 6.19,
+   "front": "round",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.588,
+    1.0,
+    0.72
+   ],
+   "real_size_m": [
+    0.6,
+    0.95,
+    0.6
+   ],
+   "m_per_unit_xyz": [
+    1.02,
+    0.95,
+    0.83
+   ],
+   "shape_spread": 1.23,
+   "texture": "own atlas 7296x1200 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A21.6",
+   "slug": "bog_grave",
+   "name": "Bog grave",
+   "dir": "A21_6_bog_grave",
+   "glb": "A21_6_bog_grave/act1_kit_v1_bog_grave.glb",
+   "mb": 9.8,
+   "tris": 12746,
+   "objects": [
+    4,
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.83",
+   "yaw_deg": -3.4,
+   "normalised": [
+    0.578,
+    0.584,
+    1.0
+   ],
+   "real_size_m": [
+    1.3,
+    1.6,
+    2.4
+   ],
+   "m_per_unit_xyz": [
+    2.25,
+    2.74,
+    2.4
+   ],
+   "shape_spread": 1.22,
+   "texture": "own atlas 7680x5680 (row atlas 8192x8192)"
+  }
+ ]
+}

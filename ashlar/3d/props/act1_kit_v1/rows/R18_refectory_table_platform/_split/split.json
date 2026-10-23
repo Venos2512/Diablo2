@@ -1,0 +1,98 @@
+{
+ "row": "R18",
+ "row_glb": "rows/R18_refectory_table_platform/act1_kit_v1_R18_refectory_table_platform.glb",
+ "variant": "1",
+ "faces": 17510,
+ "objects": 14,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A11.3",
+   "slug": "refectory_table",
+   "name": "Refectory table with bread",
+   "dir": "A11_3_refectory_table",
+   "glb": "A11_3_refectory_table/act1_kit_v1_refectory_table.glb",
+   "mb": 5.0,
+   "tris": 9167,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.81",
+   "yaw_deg": -39.0,
+   "normalised": [
+    1.0,
+    0.48,
+    0.596
+   ],
+   "real_size_m": [
+    4.32,
+    0.81,
+    1.44
+   ],
+   "m_per_unit_xyz": [
+    4.32,
+    1.69,
+    2.42
+   ],
+   "shape_spread": 2.56,
+   "texture": "own atlas 3840x2160 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A14.5",
+   "slug": "quilted_platform",
+   "name": "Quilted floor platform",
+   "dir": "A14_5_quilted_platform",
+   "glb": "A14_5_quilted_platform/act1_kit_v1_quilted_platform.glb",
+   "mb": 5.2,
+   "tris": 8343,
+   "objects": [
+    14
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.26",
+   "yaw_deg": -71.4,
+   "normalised": [
+    0.967,
+    0.198,
+    1.0
+   ],
+   "real_size_m": [
+    5.4,
+    0.72,
+    5.4
+   ],
+   "m_per_unit_xyz": [
+    5.58,
+    3.64,
+    5.4
+   ],
+   "shape_spread": 1.53,
+   "texture": "own atlas 3840x2768 (row atlas 4096x4096)"
+  }
+ ]
+}

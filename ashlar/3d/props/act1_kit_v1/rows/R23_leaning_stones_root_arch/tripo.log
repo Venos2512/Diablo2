@@ -1,0 +1,12 @@
+[10-22 22:50:37] R23_leaning_stones_root_arch: polycount set to 10000 (account default)
+[10-22 22:50:44] R23_leaning_stones_root_arch: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 6283), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 22:51:15] R23_leaning_stones_root_arch: mesh done (credits now 6183); new models: 7ab0ffa6-7800-4a85-8f96-8dd5e96cf970 f497c87b-51a6-4623-b44c-4f30abbdd41e c82300b0-9bec-45f8-b7a5-7404ee424faa 17095053-d7e2-4b3c-b8ac-e143fdad9ba0
+[10-22 22:52:08] R23_leaning_stones_root_arch: variants (index uuid faces): 0 7ab0ffa6-7800-4a85-8f96-8dd5e96cf970 11308;1 f497c87b-51a6-4623-b44c-4f30abbdd41e 11170;2 c82300b0-9bec-45f8-b7a5-7404ee424faa 12464;3 17095053-d7e2-4b3c-b8ac-e143fdad9ba0 11227;
+[10-22 22:53:02] R23_leaning_stones_root_arch: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/f497c87b-51a6-4623-b44c-4f30abbdd41e faces 11170; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 22:53:31] R23_leaning_stones_root_arch: smart uv saved (credits 6083 -> 6063)
+[10-22 22:54:25] R23_leaning_stones_root_arch: texture 4K done in 27s (credits 6063 -> 6043, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 22:56:04] R23_leaning_stones_root_arch: pbr done (credits 6043 -> 6038)
+[10-22 22:57:07] R23_leaning_stones_root_arch: exported act1_kit_v1_R23_leaning_stones_root_arch.glb (format GLB, texture 4kCurrent, 20444 KB)
+[10-22 22:57:07] R23_leaning_stones_root_arch: GLB check: {"file": "act1_kit_v1_R23_leaning_stones_root_arch.glb", "MB": 20.9, "meshes": 1, "tris": 19813, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.202], "max": [0.5, 0.324, 0.202]}
+[10-22 22:58:07] R23_leaning_stones_root_arch: FINISHED: balance 5838 (shared); _shots/final_views.png
+[10-22 22:59:30] R23_leaning_stones_root_arch: A21.5 passage measured on the split GLB (A21_5_leaning_stones, scaled uniformly to the 4.6 m spec width; a2x/gap.py): 1.65 m at the floor, 1.73 m at 1 m, 1.78 m at 2.2 m, 1.38 m at 2.6 m, 0.93 m at 3 m, the tips meet at about 4.0 m; built size 4.6 x 4.30 x 2.30 m (spec 4.6 x 4.6 x 1.4). Spec passage 2.6 m: the lab must widen it about x1.46 (x-only: 6.7 m wide; or uniform x1.46). Not rebuilt (user: lab can scale).

@@ -1,0 +1,166 @@
+{
+ "row": "R20",
+ "row_glb": "rows/R20_garden_bell_jar_furrows/act1_kit_v1_R20_garden_bell_jar_furrows.glb",
+ "variant": "2",
+ "faces": 33610,
+ "objects": 8,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A13.4",
+   "slug": "bell_post",
+   "name": "Hush bell post",
+   "dir": "A13_4_bell_post",
+   "glb": "A13_4_bell_post/act1_kit_v1_bell_post.glb",
+   "mb": 4.3,
+   "tris": 13991,
+   "objects": [
+    1,
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.15",
+   "yaw_deg": 30.2,
+   "normalised": [
+    0.63,
+    1.0,
+    0.594
+   ],
+   "real_size_m": [
+    1.62,
+    3.6,
+    0.7
+   ],
+   "m_per_unit_xyz": [
+    2.57,
+    3.6,
+    1.18
+   ],
+   "shape_spread": 3.06,
+   "texture": "own atlas 6144x2944 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A13.3",
+   "slug": "night_light_jar",
+   "name": "Pink night-light jar",
+   "dir": "A13_3_night_light_jar",
+   "glb": "A13_3_night_light_jar/act1_kit_v1_night_light_jar.glb",
+   "mb": 2.1,
+   "tris": 4376,
+   "objects": [
+    4,
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.859,
+    1.0,
+    0.825
+   ],
+   "real_size_m": [
+    0.63,
+    0.81,
+    0.63
+   ],
+   "m_per_unit_xyz": [
+    0.73,
+    0.81,
+    0.76
+   ],
+   "shape_spread": 1.1,
+   "texture": "own atlas 6528x1392 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A13.1",
+   "slug": "bed_furrow",
+   "name": "Sleeping bed furrow",
+   "dir": "A13_1_bed_furrow",
+   "glb": "A13_1_bed_furrow/act1_kit_v1_bed_furrow.glb",
+   "mb": 4.6,
+   "tris": 4567,
+   "objects": [
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.45",
+   "yaw_deg": 0.3,
+   "normalised": [
+    0.43,
+    0.208,
+    1.0
+   ],
+   "real_size_m": [
+    1.4,
+    0.5,
+    2.7
+   ],
+   "m_per_unit_xyz": [
+    3.26,
+    2.41,
+    2.7
+   ],
+   "shape_spread": 1.35,
+   "texture": "own atlas 4480x4896 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A13.6",
+   "slug": "poppy_furrow",
+   "name": "Poppy furrow",
+   "dir": "A13_6_poppy_furrow",
+   "glb": "A13_6_poppy_furrow/act1_kit_v1_poppy_furrow.glb",
+   "mb": 5.7,
+   "tris": 10676,
+   "objects": [
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 2.1,
+   "support_gain": 3.08,
+   "front": "axes 3.16",
+   "yaw_deg": -92.3,
+   "normalised": [
+    1.0,
+    0.407,
+    0.405
+   ],
+   "real_size_m": [
+    4.32,
+    1.26,
+    1.62
+   ],
+   "m_per_unit_xyz": [
+    4.32,
+    3.1,
+    4.0
+   ],
+   "shape_spread": 1.4,
+   "texture": "own atlas 6784x3952 (row atlas 8192x8192)"
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "row": "R26",
+ "row_glb": "rows/R26_root_fall_drying_line/act1_kit_v1_R26_root_fall_drying_line.glb",
+ "variant": "3",
+ "faces": 19091,
+ "objects": 2,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A25.3",
+   "slug": "root_fall",
+   "name": "Root fall",
+   "dir": "A25_3_root_fall",
+   "glb": "A25_3_root_fall/act1_kit_v1_root_fall.glb",
+   "mb": 17.8,
+   "tris": 18177,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.953,
+    0.664,
+    1.0
+   ],
+   "real_size_m": [
+    4.6,
+    2.6,
+    5.4
+   ],
+   "m_per_unit_xyz": [
+    4.82,
+    3.91,
+    5.4
+   ],
+   "shape_spread": 1.38,
+   "texture": "row atlas kept whole"
+  },
+  {
+   "id": "A23.6",
+   "slug": "drying_line",
+   "name": "Linen drying line",
+   "dir": "A23_6_drying_line",
+   "glb": "A23_6_drying_line/act1_kit_v1_drying_line.glb",
+   "mb": 1.4,
+   "tris": 914,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 30.37",
+   "yaw_deg": -16.0,
+   "normalised": [
+    1.0,
+    0.575,
+    0.07
+   ],
+   "real_size_m": [
+    6.0,
+    2.2,
+    0.3
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    3.83,
+    4.28
+   ],
+   "shape_spread": 1.57,
+   "texture": "own atlas 2432x1088 (row atlas 4096x4096)"
+  }
+ ]
+}

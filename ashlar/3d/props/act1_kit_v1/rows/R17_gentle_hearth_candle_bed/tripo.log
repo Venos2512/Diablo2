@@ -2,3 +2,10 @@
 [10-22 16:40:07] R17_gentle_hearth_candle_bed: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 7513), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:40:40] R17_gentle_hearth_candle_bed: mesh done (credits now 7413); new models: 699e51c8-15f7-447f-a19f-b0d24372f398 0693283a-2c6e-49da-8ec3-bad936925a84 b3d8c2c7-6cb5-4fbf-a52b-7faae7b3e448 c4d6ccf3-a4c6-487b-a870-4a1753cce22a
 [10-22 16:41:52] R17_gentle_hearth_candle_bed: variants (index uuid faces): 0 699e51c8-15f7-447f-a19f-b0d24372f398 17148;1 0693283a-2c6e-49da-8ec3-bad936925a84 16188;2 b3d8c2c7-6cb5-4fbf-a52b-7faae7b3e448 15673;3 c4d6ccf3-a4c6-487b-a870-4a1753cce22a 16687;
+[10-22 20:02:07] R17_gentle_hearth_candle_bed: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/699e51c8-15f7-447f-a19f-b0d24372f398 faces 17148; texture 8K; from uv; window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 20:02:37] R17_gentle_hearth_candle_bed: smart uv saved (credits 6863 -> 6843)
+[10-22 20:04:57] R17_gentle_hearth_candle_bed: texture 8K done in 116s (credits 6843 -> 6808, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:05:38] R17_gentle_hearth_candle_bed: pbr done (credits 6808 -> 6753)
+[10-22 20:05:54] R17_gentle_hearth_candle_bed: exported act1_kit_v1_R17_gentle_hearth_candle_bed.glb (format GLB, texture 8kCurrent, 23584 KB)
+[10-22 20:05:54] R17_gentle_hearth_candle_bed: GLB check: {"file": "act1_kit_v1_R17_gentle_hearth_candle_bed.glb", "MB": 24.1, "meshes": 1, "tris": 32644, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.383], "max": [0.5, 0.479, 0.383]}
+[10-22 20:06:15] R17_gentle_hearth_candle_bed: FINISHED: balance 6748 (shared); _shots/final_views.png

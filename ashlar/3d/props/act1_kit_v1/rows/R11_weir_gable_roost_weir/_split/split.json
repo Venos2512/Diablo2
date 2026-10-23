@@ -1,0 +1,133 @@
+{
+ "row": "R11",
+ "row_glb": "rows/R11_weir_gable_roost_weir/act1_kit_v1_R11_weir_gable_roost_weir.glb",
+ "variant": "1",
+ "faces": 27495,
+ "objects": 11,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A07.3",
+   "slug": "gable_wall",
+   "name": "Gable wall with door arch",
+   "dir": "A07_3_gable_wall",
+   "glb": "A07_3_gable_wall/act1_kit_v1_gable_wall.glb",
+   "mb": 13.0,
+   "tris": 9354,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 5.47",
+   "yaw_deg": 14.8,
+   "normalised": [
+    1.0,
+    0.762,
+    0.146
+   ],
+   "real_size_m": [
+    5.0,
+    5.3,
+    0.7
+   ],
+   "m_per_unit_xyz": [
+    5.0,
+    6.96,
+    4.8
+   ],
+   "shape_spread": 1.45,
+   "texture": "own atlas 7424x6880 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A07.6",
+   "slug": "roost_pole",
+   "name": "Rook roost pole",
+   "dir": "A07_6_roost_pole",
+   "glb": "A07_6_roost_pole/act1_kit_v1_roost_pole.glb",
+   "mb": 4.2,
+   "tris": 13160,
+   "objects": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "strays": [
+    2
+   ],
+   "stray_faces": 3554,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.74",
+   "yaw_deg": 49.4,
+   "normalised": [
+    0.679,
+    1.0,
+    0.456
+   ],
+   "real_size_m": [
+    2.8,
+    6.2,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    4.12,
+    6.2,
+    3.07
+   ],
+   "shape_spread": 2.02,
+   "texture": "own atlas 7552x1728 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A07.2",
+   "slug": "weir",
+   "name": "Timber-and-stone weir segment",
+   "dir": "A07_2_weir",
+   "glb": "A07_2_weir/act1_kit_v1_weir.glb",
+   "mb": 4.8,
+   "tris": 1427,
+   "objects": [
+    9,
+    10,
+    11
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 10.54",
+   "yaw_deg": -89.9,
+   "normalised": [
+    1.0,
+    0.235,
+    0.102
+   ],
+   "real_size_m": [
+    4.2,
+    1.9,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    4.2,
+    8.09,
+    9.84
+   ],
+   "shape_spread": 2.34,
+   "texture": "own atlas 7808x2608 (row atlas 8192x8192)"
+  }
+ ]
+}

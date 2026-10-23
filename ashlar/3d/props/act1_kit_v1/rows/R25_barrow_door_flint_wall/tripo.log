@@ -1,0 +1,13 @@
+[10-22 22:54:31] R25_barrow_door_flint_wall: polycount set to 10000 (account default)
+[10-22 22:54:37] R25_barrow_door_flint_wall: Generate 100 pressed: input input_spaced.png, polycount 10000, 4 variants (credits before 6043), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 22:55:05] R25_barrow_door_flint_wall: mesh done (credits now 5938); new models: 0c429386-fe42-4bb5-85c1-09bf0be00be6 d27cfcc7-5b0b-420c-ac3f-3e15b2ff517e 12b68e44-6b52-42b7-916a-ad57e3d3910b d6976555-3e96-4990-b8a1-71c845b91969
+[10-22 22:55:58] R25_barrow_door_flint_wall: variants (index uuid faces): 0 0c429386-fe42-4bb5-85c1-09bf0be00be6 10504;1 d27cfcc7-5b0b-420c-ac3f-3e15b2ff517e 9470;2 12b68e44-6b52-42b7-916a-ad57e3d3910b 9633;3 d6976555-3e96-4990-b8a1-71c845b91969 8512;
+[10-22 23:00:07] R25_barrow_door_flint_wall: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/12b68e44-6b52-42b7-916a-ad57e3d3910b faces 9633; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:02:07] R25_barrow_door_flint_wall: ABORT: cannot read the credit balance (?)
+[10-22 23:14:29] R25_barrow_door_flint_wall: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/12b68e44-6b52-42b7-916a-ad57e3d3910b faces 9633; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:14:55] R25_barrow_door_flint_wall: smart uv saved (credits 5043 -> 5023)
+[10-22 23:15:53] R25_barrow_door_flint_wall: texture 4K done in 26s (credits 5023 -> 5003, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 23:16:19] R25_barrow_door_flint_wall: pbr done (credits 5003 -> 4998)
+[10-22 23:16:34] R25_barrow_door_flint_wall: exported act1_kit_v1_R25_barrow_door_flint_wall.glb (format GLB, texture 4kCurrent, 20872 KB)
+[10-22 23:16:35] R25_barrow_door_flint_wall: GLB check: {"file": "act1_kit_v1_R25_barrow_door_flint_wall.glb", "MB": 21.4, "meshes": 1, "tris": 15716, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.201], "max": [0.5, 0.303, 0.201]}
+[10-22 23:16:56] R25_barrow_door_flint_wall: FINISHED: balance 4998 (shared); _shots/final_views.png

@@ -2,3 +2,10 @@
 [10-22 16:42:33] R22_cradle_runners_mobile_light: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 7413), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:43:04] R22_cradle_runners_mobile_light: mesh done (credits now 7313); new models: 270a1663-99b8-4907-940e-bd36bb8f6bc0 f0fa12b0-a9d3-4d8d-ba3c-371522e62145 355592af-15eb-46ce-8b60-104218a70fa3 73f65ec3-fc10-4d62-b70f-39d5543b580b
 [10-22 16:43:57] R22_cradle_runners_mobile_light: variants (index uuid faces): 0 270a1663-99b8-4907-940e-bd36bb8f6bc0 17022;1 f0fa12b0-a9d3-4d8d-ba3c-371522e62145 17617;2 355592af-15eb-46ce-8b60-104218a70fa3 16316;3 73f65ec3-fc10-4d62-b70f-39d5543b580b 16753;
+[10-22 20:28:00] R22_cradle_runners_mobile_light: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/270a1663-99b8-4907-940e-bd36bb8f6bc0 faces 17022; texture 8K; from uv; window A6C63304819DFA2EF49B4B0E83C6542F
+[10-22 20:28:27] R22_cradle_runners_mobile_light: smart uv saved (credits 6388 -> 6368)
+[10-22 20:30:09] R22_cradle_runners_mobile_light: texture 8K done in 78s (credits 6368 -> 6333, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:30:45] R22_cradle_runners_mobile_light: pbr done (credits 6333 -> 6328)
+[10-22 20:31:00] R22_cradle_runners_mobile_light: exported act1_kit_v1_R22_cradle_runners_mobile_light.glb (format GLB, texture 8kCurrent, 21168 KB)
+[10-22 20:31:00] R22_cradle_runners_mobile_light: GLB check: {"file": "act1_kit_v1_R22_cradle_runners_mobile_light.glb", "MB": 21.7, "meshes": 1, "tris": 31357, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.253], "max": [0.5, 0.428, 0.253]}
+[10-22 20:31:21] R22_cradle_runners_mobile_light: FINISHED: balance 6328 (shared); _shots/final_views.png

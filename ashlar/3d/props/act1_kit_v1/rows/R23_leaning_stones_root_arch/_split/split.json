@@ -1,0 +1,87 @@
+{
+ "row": "R23",
+ "row_glb": "rows/R23_leaning_stones_root_arch/act1_kit_v1_R23_leaning_stones_root_arch.glb",
+ "variant": "1",
+ "faces": 19813,
+ "objects": 3,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A21.5",
+   "slug": "leaning_stones",
+   "name": "The leaning stones (A17.1 v2)",
+   "dir": "A21_5_leaning_stones",
+   "glb": "A21_5_leaning_stones/act1_kit_v1_leaning_stones.glb",
+   "mb": 4.6,
+   "tris": 840,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.52",
+   "yaw_deg": -3.1,
+   "normalised": [
+    1.0,
+    0.936,
+    0.5
+   ],
+   "real_size_m": [
+    4.6,
+    4.6,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    4.92,
+    2.8
+   ],
+   "shape_spread": 1.76,
+   "texture": "own atlas 3200x2800 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A25.1",
+   "slug": "root_rib_arch",
+   "name": "Root rib arch",
+   "dir": "A25_1_root_rib_arch",
+   "glb": "A25_1_root_rib_arch/act1_kit_v1_root_rib_arch.glb",
+   "mb": 20.8,
+   "tris": 18973,
+   "objects": [
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.41",
+   "yaw_deg": 6.5,
+   "normalised": [
+    1.0,
+    0.622,
+    0.775
+   ],
+   "real_size_m": [
+    6.5,
+    4.9,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    6.5,
+    7.87,
+    0.64
+   ],
+   "shape_spread": 12.21,
+   "texture": "row atlas kept whole"
+  }
+ ]
+}

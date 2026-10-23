@@ -1,0 +1,147 @@
+{
+ "row": "R17",
+ "row_glb": "rows/R17_gentle_hearth_candle_bed/act1_kit_v1_R17_gentle_hearth_candle_bed.glb",
+ "variant": "0",
+ "faces": 32644,
+ "objects": 26,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A11.5",
+   "slug": "kitchen_hearth",
+   "name": "Kitchen hearth with cauldron",
+   "dir": "A11_5_kitchen_hearth",
+   "glb": "A11_5_kitchen_hearth/act1_kit_v1_kitchen_hearth.glb",
+   "mb": 11.7,
+   "tris": 26348,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.29",
+   "yaw_deg": 0.5,
+   "normalised": [
+    0.81,
+    1.0,
+    0.681
+   ],
+   "real_size_m": [
+    3.6,
+    2.88,
+    1.8
+   ],
+   "m_per_unit_xyz": [
+    4.44,
+    2.88,
+    2.64
+   ],
+   "shape_spread": 1.68,
+   "texture": "own atlas 7296x8176 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A11.6",
+   "slug": "candle_stand",
+   "name": "Steady candle stand",
+   "dir": "A11_6_candle_stand",
+   "glb": "A11_6_candle_stand/act1_kit_v1_candle_stand.glb",
+   "mb": 1.0,
+   "tris": 4102,
+   "objects": [
+    17,
+    18,
+    19,
+    20
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 10.1,
+   "support_gain": 950.28,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.299,
+    1.0,
+    0.361
+   ],
+   "real_size_m": [
+    0.9,
+    2.34,
+    0.9
+   ],
+   "m_per_unit_xyz": [
+    3.01,
+    2.34,
+    2.5
+   ],
+   "shape_spread": 1.29,
+   "texture": "own atlas 3328x1360 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A11.2",
+   "slug": "hospice_bed",
+   "name": "Hospice bed",
+   "dir": "A11_2_hospice_bed",
+   "glb": "A11_2_hospice_bed/act1_kit_v1_hospice_bed.glb",
+   "mb": 3.1,
+   "tris": 2194,
+   "objects": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 11.1,
+   "support_gain": 111.35,
+   "front": "axes 1.15",
+   "yaw_deg": -10.0,
+   "normalised": [
+    0.815,
+    0.444,
+    1.0
+   ],
+   "real_size_m": [
+    1.08,
+    0.72,
+    2.16
+   ],
+   "m_per_unit_xyz": [
+    1.33,
+    1.62,
+    2.16
+   ],
+   "shape_spread": 1.63,
+   "texture": "own atlas 7936x2000 (row atlas 8192x8192)"
+  }
+ ]
+}

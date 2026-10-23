@@ -1,0 +1,102 @@
+{
+ "row": "R15",
+ "row_glb": "rows/R15_drying_racks/act1_kit_v1_R15_drying_racks.glb",
+ "variant": "1",
+ "faces": 19638,
+ "objects": 18,
+ "split_by": "image gaps",
+ "assets": [
+  {
+   "id": "A01.6",
+   "slug": "eel_trap_rack",
+   "name": "Eel-trap fishing rack",
+   "dir": "A01_6_eel_trap_rack",
+   "glb": "A01_6_eel_trap_rack/act1_kit_v1_eel_trap_rack.glb",
+   "mb": 9.2,
+   "tris": 8778,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 1.1,
+   "support_gain": 1.63,
+   "front": "axes 4.70",
+   "yaw_deg": 0.0,
+   "normalised": [
+    1.0,
+    0.638,
+    0.422
+   ],
+   "real_size_m": [
+    3.4,
+    3.0,
+    1.6
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    4.7,
+    3.79
+   ],
+   "shape_spread": 1.38,
+   "texture": "own atlas 4096x3088 (row atlas 4096x4096)"
+  },
+  {
+   "id": "A08.6",
+   "slug": "poppy_rack",
+   "name": "Poppy-drying rack",
+   "dir": "A08_6_poppy_rack",
+   "glb": "A08_6_poppy_rack/act1_kit_v1_poppy_rack.glb",
+   "mb": 6.8,
+   "tris": 10860,
+   "objects": [
+    15,
+    16,
+    17,
+    18
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 5.5,
+   "support_gain": 54.1,
+   "front": "axes 3.67",
+   "yaw_deg": -2.5,
+   "normalised": [
+    1.0,
+    0.814,
+    0.501
+   ],
+   "real_size_m": [
+    3.6,
+    2.3,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    3.6,
+    2.83,
+    2.8
+   ],
+   "shape_spread": 1.29,
+   "texture": "own atlas 3456x2480 (row atlas 4096x4096)"
+  }
+ ]
+}

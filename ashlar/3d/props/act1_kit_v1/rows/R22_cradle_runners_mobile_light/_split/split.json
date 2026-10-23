@@ -1,0 +1,129 @@
+{
+ "row": "R22",
+ "row_glb": "rows/R22_cradle_runners_mobile_light/act1_kit_v1_R22_cradle_runners_mobile_light.glb",
+ "variant": "0",
+ "faces": 31357,
+ "objects": 8,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A14.6",
+   "slug": "rocker_runners",
+   "name": "Rocker runner pair",
+   "dir": "A14_6_rocker_runners",
+   "glb": "A14_6_rocker_runners/act1_kit_v1_rocker_runners.glb",
+   "mb": 5.4,
+   "tris": 1664,
+   "objects": [
+    1,
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "round",
+   "yaw_deg": 0.0,
+   "normalised": [
+    1.0,
+    0.325,
+    0.653
+   ],
+   "real_size_m": [
+    5.4,
+    1.44,
+    2.88
+   ],
+   "m_per_unit_xyz": [
+    5.4,
+    4.43,
+    4.41
+   ],
+   "shape_spread": 1.22,
+   "texture": "own atlas 5504x6512 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A14.4",
+   "slug": "bone_mobile",
+   "name": "Bone mobile on stand",
+   "dir": "A14_4_bone_mobile",
+   "glb": "A14_4_bone_mobile/act1_kit_v1_bone_mobile.glb",
+   "mb": 7.0,
+   "tris": 26294,
+   "objects": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 5.05",
+   "yaw_deg": -22.3,
+   "normalised": [
+    0.714,
+    1.0,
+    0.248
+   ],
+   "real_size_m": [
+    2.52,
+    3.24,
+    0.9
+   ],
+   "m_per_unit_xyz": [
+    3.53,
+    3.24,
+    3.64
+   ],
+   "shape_spread": 1.12,
+   "texture": "own atlas 7424x4240 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A14.3",
+   "slug": "milk_night_light",
+   "name": "Milk-white night-light",
+   "dir": "A14_3_milk_night_light",
+   "glb": "A14_3_milk_night_light/act1_kit_v1_milk_night_light.glb",
+   "mb": 2.6,
+   "tris": 3399,
+   "objects": [
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 4.2,
+   "support_gain": 2.24,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.337,
+    1.0,
+    0.335
+   ],
+   "real_size_m": [
+    1.08,
+    2.16,
+    1.08
+   ],
+   "m_per_unit_xyz": [
+    3.21,
+    2.16,
+    3.22
+   ],
+   "shape_spread": 1.49,
+   "texture": "own atlas 5376x2768 (row atlas 8192x8192)"
+  }
+ ]
+}

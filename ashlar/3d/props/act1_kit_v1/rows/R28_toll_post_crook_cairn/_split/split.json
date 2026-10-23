@@ -1,0 +1,126 @@
+{
+ "row": "R28",
+ "row_glb": "rows/R28_toll_post_crook_cairn/act1_kit_v1_R28_toll_post_crook_cairn.glb",
+ "variant": "2",
+ "faces": 29221,
+ "objects": 5,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A22.2",
+   "slug": "toll_post",
+   "name": "Toll post with coin dish",
+   "dir": "A22_2_toll_post",
+   "glb": "A22_2_toll_post/act1_kit_v1_toll_post.glb",
+   "mb": 4.3,
+   "tris": 5021,
+   "objects": [
+    1,
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.39",
+   "yaw_deg": -38.4,
+   "normalised": [
+    0.702,
+    1.0,
+    0.513
+   ],
+   "real_size_m": [
+    0.5,
+    1.3,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    0.71,
+    1.3,
+    0.97
+   ],
+   "shape_spread": 1.83,
+   "texture": "own atlas 6912x2960 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A22.5",
+   "slug": "crook_and_coat",
+   "name": "Crook and folded coat",
+   "dir": "A22_5_crook_and_coat",
+   "glb": "A22_5_crook_and_coat/act1_kit_v1_crook_and_coat.glb",
+   "mb": 3.8,
+   "tris": 5294,
+   "objects": [
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "round",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.531,
+    1.0,
+    0.557
+   ],
+   "real_size_m": [
+    0.9,
+    1.6,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    1.7,
+    1.6,
+    0.9
+   ],
+   "shape_spread": 1.89,
+   "texture": "own atlas 5376x3968 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A22.4",
+   "slug": "harvester_cairn",
+   "name": "Harvester's cairn",
+   "dir": "A22_4_harvester_cairn",
+   "glb": "A22_4_harvester_cairn/act1_kit_v1_harvester_cairn.glb",
+   "mb": 9.3,
+   "tris": 18906,
+   "objects": [
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 1.1,
+   "support_gain": 15.66,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.899,
+    0.986,
+    1.0
+   ],
+   "real_size_m": [
+    1.2,
+    1.1,
+    1.2
+   ],
+   "m_per_unit_xyz": [
+    1.34,
+    1.12,
+    1.2
+   ],
+   "shape_spread": 1.2,
+   "texture": "own atlas 8192x5296 (row atlas 8192x8192)"
+  }
+ ]
+}
