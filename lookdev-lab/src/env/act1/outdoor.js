@@ -33,17 +33,20 @@
 //            bounds (a dike leaving the map keeps its crest).
 //   paths: [ { id, kind: 'lane' | 'track' | 'dike' | 'walkway', points: [[x, z(, deckY)], …], width, smooth (Chaikin passes), surface: 'stone' | 'packed' | 'wood',
 //            ribbon: 'cobble' (a cobble strip mesh), dike: { crest, bank }, deck: y (walkways: absolute deck top; ramps are added at ends that touch lower ground),
-//            asset: 'A01.2' (walkway piece id: one per deck segment) } ]
+//            asset: 'A01.2' (walkway piece id: one per deck segment), hidden (walk surface only, under a model's own deck or steps), caps: false (square
+//            ends: a sloped walkway through a model's step edges; the default round ends let a plank walk turn its corners) } ]
 //   layers: [ { id: 'BIO01_peat' | 'DW_grass' | …, tile } ] (2..8, bottom → top; layer 0 is the base),
 //   paint: [ { layer: <layer id> | 'wet', kind: 'fill' | 'area' | 'path' | 'water' | 'height' | 'slope' | 'structures' | 'points', …, value, soft, op: 'max' | 'mul' | 'sub',
 //            edge: { amp, scale } (noise on the edge, m), patchy: { scale, cover } (keeps only fBm blobs) } ] — soft widths are metres at Độ mịn 0 and grow with it,
 //   assets: [ asset defs, the §6b fields + shape / model ] (see ASSET DEFS below),
 //   structures: [ { asset, x, z, yaw, y: 'ground' | 'min' | 'max' | 'deck' | number, dy, scale, name, label, tag, collide, pad: { margin, soft, y }, moods } ],
-//   runs: [ { asset, points, gaps: [[x, z, r]], y, tag, flip, parapet } ] — walls / fences module by module along a polyline (piece length = local x); on a slope a
+//   runs: [ { asset, points, gaps: [[x, z, r]], y, dy, scale (uniform: modules of scale × the def length, the model at scale), tag, flip, parapet } ] — walls /
+//            fences module by module along a polyline (piece length = local x); on a slope a
 //            module stands on its lowest ground and reaches the uphill ground + `parapet` (default 0.6 × its height): never buried, never stepped over,
 //   scatters: [ { asset, count, area, spacing, clear: { paths, water, structures, decks }, band: { water: [from, to] }, height: [y0, y1], slope, scale: [a, b],
 //            yaw: 'random' | number, seed, tag } ] — seeded rejection sampling; `count` is the design count (the report's), placement may fall short (validate()),
-//   lights: [ { id, kind: 'human' | 'perfection' | 'wall', x, z, y (above ground) | yAbs, color, intensity, range, flicker, real, glow, moods, label } ] (≤ 8 real),
+//   lights: [ { id, kind: 'human' | 'perfection' | 'wall', x, z, y (above ground) | yAbs | yOn: { asset, ly } (up the nearest placed asset: its base + ly × its
+//            height scale), color, intensity, range, flicker, real, glow, moods, label } ] (≤ 8 real),
 //   markers: [ { kind: 'encounter' | 'rite' | 'landmark' | 'sightline' | 'vignette' | 'npc' | 'exit' | 'sound' (a route followed by ear: r = heard radius, drawn with
 //            the landmarks), id, x, z, r, label, note, segment, monsters: [{ id, count, standIn }],
 //            unmarked, to, from: [x, z, dy], target: [x, z, y] | 'far:<asset id>' } ],
@@ -55,6 +58,10 @@
 // ASSET DEFS: { id, name, category: building | structure | vegetation | rock | prop | linen | story, size, status: glb | kit | procedural | blockout, source,
 //   segment, note, shape: '<blockout kind>' | { kind, … } (env/act1/blockout.js), model: '<sample id>' | 'kit:<kit>.<piece>' (glb / kit), fit: 'native' | 'size',
 //   procedural: '<builder>' (procedural), collide, blockers: [[lx, lz, w, d], …] (walk blockers in the def frame when not the whole footprint: a gate's posts),
+//   deckTop (a walkway piece model, its deck top over its base: the walkway's pieces are then models laid end to end, deckPieces), module (a run's
+//   module spacing in def metres when shorter than the model: a wall whose ragged stone ends fall short of its box overlaps its neighbours), anchors,
+//   cut: [[x0, y0, z0, x1, y1, z1], …] (glb: the triangles whose centroid lies in a box, GLB frame, are not drawn — interior.js cutTriangles; a part of a
+//   model used on its own, e.g. the A16.6 lantern head), pivot: [x, y, z] (the model point that is the def origin: that part's bottom centre),
 //   placed: false + reason (required but not placed in this slice) }.
 // Swapping a blockout for its real GLB later is one line per asset: `status: 'glb', model: '<sample id>'` — every placement keeps its id.
 
@@ -381,16 +388,57 @@ export function runModules(run, moduleLength) {
 	return out;
 }
 
-/** Walkway deck segments of a plan path (no ground needed): [{ ax, az, bx, bz, ya, yb, w }] along its corner points; ramps are added by the world. */
+/** Walkway deck segments of a plan path (no ground needed): [{ ax, az, bx, bz, ya, yb, w, cap }] along its corner points; ramps are added by the world. */
 function deckSegments(path) {
 	const out = [];
 	const pts = path.points;
 	for (let i = 1; i < pts.length; i++) {
 		const ya = pts[i - 1][2] ?? path.deck;
 		const yb = pts[i][2] ?? path.deck;
-		out.push({ ax: pts[i - 1][0], az: pts[i - 1][1], bx: pts[i][0], bz: pts[i][1], ya, yb, w: path.width, kind: 'deck', path: path.id });
+		out.push({ ax: pts[i - 1][0], az: pts[i - 1][1], bx: pts[i][0], bz: pts[i][1], ya, yb, w: path.width, kind: 'deck', path: path.id, cap: path.caps !== false });
 	}
 	return out;
+}
+/**
+ * The model pieces of a walkway whose asset def has `deckTop` (its deck top over the model base: a GLB plank walkway is the visible deck, its walkway is
+ * `hidden`): laid end to end along the whole walkway, round(length / L) pieces of the def length L, each stretched along its x to its chord (≤ L/2 over
+ * the whole walkway: a few % on a long one); a piece may span a corner (its chord stays within ≈ 0.4 m of the walk deck). Each piece turns its front
+ * (local +z, the open side) toward the game camera (+z). Plan only (no heights): [{ x, z, yawDeg, sx, y (its deck top) }].
+ */
+export function deckPieces(path, d) {
+	const pts = path.points;
+	const cum = [0];
+	for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+	const total = cum[cum.length - 1];
+	const pos = (s) => {
+		let i = 1;
+		while (i < pts.length - 1 && cum[i] < s) i++;
+		const t = clamp((s - cum[i - 1]) / (cum[i] - cum[i - 1] || 1), 0, 1);
+		return [lerp(pts[i - 1][0], pts[i][0], t), lerp(pts[i - 1][1], pts[i][1], t), lerp(pts[i - 1][2] ?? path.deck, pts[i][2] ?? path.deck, t)];
+	};
+	const n = Math.max(1, Math.round(total / d.size[0]));
+	const out = [];
+	for (let k = 0; k < n; k++) {
+		const a = pos((total * k) / n);
+		const b = pos((total * (k + 1)) / n);
+		let yawDeg = yawAlong(b[0] - a[0], b[1] - a[1]);
+		if (Math.cos(yawDeg * DEG) < -1e-6) yawDeg += 180; // local +z → world (sin yaw, cos yaw): the front faces +z
+		out.push({ x: (a[0] + b[0]) / 2, z: (a[1] + b[1]) / 2, yawDeg, sx: Math.hypot(b[0] - a[0], b[1] - a[1]) / d.size[0], y: (a[2] + b[2]) / 2 });
+	}
+	return out;
+}
+/**
+ * Signed distance (m, < 0 inside) to a deck segment's footprint: round ends (the default: a plank walk turns its corners), or square ends when its walkway
+ * has caps: false (then a sloped polyline keeps each segment's own height, and its floor hole is exactly the deck box Play walks on).
+ */
+function deckSigned(s, x, z) {
+	if (s.cap !== false) return segment(s.ax, s.az, s.bx, s.bz, x, z, _seg).d - s.w / 2;
+	const dx = s.bx - s.ax;
+	const dz = s.bz - s.az;
+	const len = Math.hypot(dx, dz) || 1;
+	const along = ((x - s.ax) * dx + (z - s.az) * dz) / len;
+	const across = Math.abs((x - s.ax) * dz - (z - s.az) * dx) / len;
+	return Math.max(across - s.w / 2, -along, along - len);
 }
 
 /**
@@ -401,8 +449,15 @@ export function assetCounts(plan) {
 	const counts = new Map();
 	const add = (id, n = 1) => counts.set(id, (counts.get(id) ?? 0) + n);
 	for (const s of plan.structures ?? []) add(s.asset);
-	for (const r of plan.runs ?? []) add(r.asset, runModules(r, assetDef(plan, r.asset).size[0]).length);
-	for (const p of plan.paths ?? []) if (p.kind === 'walkway' && p.asset) add(p.asset, deckSegments(p).length);
+	for (const r of plan.runs ?? []) {
+		const d = assetDef(plan, r.asset);
+		add(r.asset, runModules(r, (d.module ?? d.size[0]) * (r.scale ?? 1)).length);
+	}
+	for (const p of plan.paths ?? []) {
+		if (p.kind !== 'walkway' || !p.asset) continue;
+		const d = assetDef(plan, p.asset);
+		add(p.asset, d.deckTop !== undefined ? deckPieces(p, d).length : deckSegments(p).length);
+	}
 	for (const s of plan.scatters ?? []) add(s.asset, s.count);
 	for (const f of plan.far?.items ?? []) add(f.asset);
 	return counts;
@@ -543,7 +598,8 @@ export function evaluatePlan(plan) {
 	W.structures = (plan.structures ?? []).map((s) => place(s));
 	for (const [ri, r] of (plan.runs ?? []).entries()) {
 		const d = def(r.asset);
-		for (const m of runModules(r, d.size[0])) W.structures.push(place({ asset: r.asset, x: m.x, z: m.z, yaw: m.yawDeg, scale: [m.sx, r.scaleY ?? 1, 1], y: r.y ?? 'min', tag: r.tag }, { run: ri, parapet: r.parapet ?? d.size[1] * 0.6 }));
+		const f = r.scale ?? 1; // a uniform model scale (a low GLB wall at its real proportions): modules of f × the def length
+		for (const m of runModules(r, (d.module ?? d.size[0]) * f)) W.structures.push(place({ asset: r.asset, x: m.x, z: m.z, yaw: m.yawDeg, scale: [m.sx * f, (r.scaleY ?? 1) * f, f], y: r.y ?? 'min', dy: r.dy, tag: r.tag }, { run: ri, parapet: r.parapet ?? d.size[1] * f * 0.6 }));
 	}
 	// pads: flatten an oriented box (footprint + margin) to the ground at the centre (or pad.y)
 	for (const s of W.structures) {
@@ -629,14 +685,18 @@ export function evaluatePlan(plan) {
 			W.decks.push({ ax: ex, az: ez, bx: ex + dir[0] * L, bz: ez + dir[1] * L, ya: ey, yb: Math.min(ey, fy + 0.02), w: seg.w, kind: 'ramp', path: p.id });
 		}
 	}
-	/** Top of a deck / ramp at (x, z), or null. */
-	W.deckAt = (x, z) => {
+	/** Top of a deck / ramp at (x, z), or null (`hit.path` = that deck's walkway); a capless walkway's deck stops square at its end points. */
+	W.deckAt = (x, z, hit = null) => {
 		let best = null;
 		for (const s of W.decks) {
+			if (s.cap === false && deckSigned(s, x, z) > 0) continue;
 			const r = segment(s.ax, s.az, s.bx, s.bz, x, z, _seg);
 			if (r.d > s.w / 2) continue;
 			const y = lerp(s.ya, s.yb, r.t);
-			if (best === null || y > best) best = y;
+			if (best === null || y > best) {
+				best = y;
+				if (hit) hit.path = s.path;
+			}
 		}
 		return best;
 	};
@@ -669,9 +729,20 @@ export function evaluatePlan(plan) {
 		}
 		s.top = s.y + s.size[1];
 	}
-	// walkway pieces: one labelled placement per deck segment (the deck mesh itself is built from W.decks)
+	// walkway pieces: one labelled placement per deck segment (the deck mesh itself is built from W.decks); a model piece (def.deckTop) is drawn as a model,
+	// laid end to end with its deck top on the walk deck (its walkway is `hidden`: the walk surface only), out of the collision like the blockout's posts
 	for (const p of W.paths) {
 		if (p.kind !== 'walkway' || !p.asset) continue;
+		const pd = def(p.asset);
+		if (pd.deckTop !== undefined) {
+			for (const pc of deckPieces(p, pd)) {
+				const st = place({ asset: p.asset, x: pc.x, z: pc.z, yaw: pc.yawDeg, scale: [pc.sx, 1, 1] }, { deck: true, piece: true, path: p.id, collide: false });
+				st.y = pc.y - pd.deckTop;
+				st.top = st.y + st.size[1];
+				W.structures.push(st);
+			}
+			continue;
+		}
 		for (const s of W.decks.filter((d) => d.path === p.id && d.kind === 'deck')) {
 			const len = Math.hypot(s.bx - s.ax, s.bz - s.az);
 			const st = place({ asset: p.asset, x: (s.ax + s.bx) / 2, z: (s.az + s.bz) / 2, yaw: yawAlong(s.bx - s.ax, s.bz - s.az), scale: [len / def(p.asset).size[0], 1, s.w / def(p.asset).size[2]] }, { deck: true, collide: false });
@@ -757,7 +828,7 @@ export function evaluatePlan(plan) {
 	for (const s of W.decks) {
 		const m = s.w / 2 + 1;
 		H.forEach((x, z, k) => {
-			FF[k] = Math.min(FF[k], segment(s.ax, s.az, s.bx, s.bz, x, z, _seg).d - s.w / 2);
+			FF[k] = Math.min(FF[k], deckSigned(s, x, z));
 		}, [Math.min(s.ax, s.bx) - m, Math.min(s.az, s.bz) - m, Math.max(s.ax, s.bx) + m, Math.max(s.az, s.bz) + m]);
 	}
 	for (const b of W.blockers) {
@@ -807,7 +878,13 @@ export function evaluatePlan(plan) {
 
 	// -- lights, markers, segments, spawns, views, far features
 	const yAt = (x, z) => W.surfaceY(x, z);
-	W.lights = (plan.lights ?? []).map((l) => ({ ...l, yWorld: l.yAbs ?? yAt(l.x, l.z) + (l.y ?? 1.5) }));
+	// yOn: { asset, ly } = ly m up the nearest placed `asset` (its base + ly × its height scale): a candle in a wall section that stands on its own ground
+	const yOn = ({ x, z, yOn: { asset, ly } }) => {
+		let best = null;
+		for (const s of W.structures) if (s.asset === asset && (!best || Math.hypot(s.x - x, s.z - z) < Math.hypot(best.x - x, best.z - z))) best = s;
+		return best ? best.y + ly * best.scale[1] : null;
+	};
+	W.lights = (plan.lights ?? []).map((l) => ({ ...l, yWorld: l.yAbs ?? (l.yOn ? yOn(l) : null) ?? yAt(l.x, l.z) + (l.y ?? 1.5) }));
 	W.markers = (plan.markers ?? []).map((m) => ({ ...m, y: m.y ?? (m.x !== undefined ? yAt(m.x, m.z) : 0) }));
 	W.segments = (plan.segments ?? []).map((s) => ({ ...s, spawnY: yAt(s.spawn[0], s.spawn[1]) }));
 	W.spawns = W.segments.map((s) => ({ id: s.id, label: s.label, x: s.spawn[0], z: s.spawn[1], y: s.spawnY }));

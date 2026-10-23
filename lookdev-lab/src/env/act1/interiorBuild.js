@@ -2,7 +2,7 @@
 // From a compiled plan it builds: the floor (cells of `floor.mesh` m clipped to the walkable area, the N-layer terrain material, vertex colours that sink
 // the apron past the void edges into black; the apron is a second mesh the hero never walks on), the walls (extruded boxes per run piece with the room's
 // biome tile, world UVs, a top that fades to black because there are no ceilings, the camera wall fade; or GLB modules laid along the run), stair treads,
-// window panes (they fade with their wall), the blockouts and the existing GLBs (`model`: instanced per asset and 32 m cell so the camera culls them, kept out
+// window panes (they fade with their wall), the blockouts and the existing GLBs (`model`: instanced per asset and 32 m cell so the camera culls them, minus the triangles in the KIT's `cut` boxes, kept out
 // of Play's walk collision when the KIT has a `collider`, darkened in the void) of every placement, the lights with the light grammar (Perfection = still and even, human =
 // 1/f flicker, Wall = slow shimmer; groups the scene dims one by one), additive glow halos and floor pools (VFX layer), and the overlays (labels, encounter
 // rings, telegraph hand-shadows, landmarks, sightlines, vignettes, NPC spots, exits, lullaby zones; all off by default). Deterministic; owns and frees
@@ -10,7 +10,7 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import * as kit from '../kit.js';
-import { flicker1f, noise, runPieces, segmentDistance, hashSeed, lightTarget, rng, footprints } from './interior.js';
+import { flicker1f, noise, runPieces, segmentDistance, hashSeed, lightTarget, rng, footprints, cutTriangles } from './interior.js';
 import { BlockoutSet, LabelSet, labelTexture, MARKER_COLORS, voidShade } from './interiorBlockout.js';
 
 const smooth = (v, e0, e1) => THREE.MathUtils.smoothstep(v, e0, e1);
@@ -138,6 +138,22 @@ export class InteriorBuild {
 	ownTex(t) {
 		this.ownTextures.push(t);
 		return t;
+	}
+
+	/** A GLB's geometry without the triangles in its KIT `cut` boxes (asset frame; see interior.js cutTriangles), one owned copy per asset id. */
+	cutGeometry(id, src, boxes) {
+		this._cutGeo ??= new Map();
+		if (!this._cutGeo.has(id)) {
+			const g = src.clone();
+			const pos = g.attributes.position;
+			const xyz = new Float32Array(pos.count * 3);
+			for (let i = 0; i < pos.count; i++) xyz.set([pos.getX(i), pos.getY(i), pos.getZ(i)], i * 3);
+			g.setIndex(cutTriangles(xyz, g.index ? Array.from({ length: g.index.count }, (_, i) => g.index.getX(i)) : null, boxes));
+			g.computeBoundingBox();
+			g.computeBoundingSphere();
+			this._cutGeo.set(id, this.ownGeo(g));
+		}
+		return this._cutGeo.get(id);
 	}
 
 	async load() {
@@ -561,7 +577,7 @@ export class InteriorBuild {
 				const material = this.own(src.material.clone());
 				materials.set(id, k.fade === false || !this.wallFade ? material : this.wallFade.apply(material));
 			}
-			const mesh = new THREE.InstancedMesh(src.geometry, materials.get(id), list.length);
+			const mesh = new THREE.InstancedMesh(k.cut ? this.cutGeometry(id, src.geometry, k.cut) : src.geometry, materials.get(id), list.length);
 			mesh.name = `${id} ${k.name} · ${k.model}`;
 			mesh.userData.assetId = id;
 			mesh.userData.assetName = k.name;
@@ -595,6 +611,13 @@ export class InteriorBuild {
 		this.solo.build();
 		this.solo.group.name = 'Blockouts (no wall fade: monsters, NPC stand-ins, beat pieces)';
 		this.group.add(this.solo.group);
+		// the lamp globes of GLB assets (KIT `globe`: glow parts re-anchored on the model's glass or flame, in the GLB frame): laid over the model additively
+		// with the blockout globes' level and gain (lit: the glass blooms or glows its tint; out: the model's own glass shows), the night-lights' mechanic
+		const globeKit = Object.fromEntries(Object.entries(kitById).filter(([id, k]) => modelled.has(id) && k.globe?.length).map(([id, k]) => [id, { ...k, shape: k.globe }]));
+		this.modelGlobes = new BlockoutSet({ model: M, kit: globeKit, fade: null, skip: (p) => !globeKit[p.asset], glowBlend: 'add' });
+		this.modelGlobes.build();
+		this.modelGlobes.group.name = 'Lamp globes of the GLB assets (KIT globe)';
+		this.group.add(this.modelGlobes.group);
 		this.counts.blockouts = M.placements.length - this.counts.models;
 		// monster blockouts (KIT.monster) hide in Play while their stand-in camp is on: the scene toggles them through this list
 		this.monsterMeshes = this.solo.meshes.filter((m) => kitById[m.userData.assetId]?.monster);
@@ -659,7 +682,7 @@ export class InteriorBuild {
 		for (const s of pools) s.poolY = this.model.floorY(s.L.x, s.L.z) + 0.04;
 		// glow parts of the blockouts (lamp globes) follow the level of the light of their placement
 		const byPlacement = new Map(this.sources.filter((s) => s.L.placement !== undefined).map((s) => [s.L.placement, s]));
-		this.globes = [...this.blockouts.glowMeshes, ...this.solo.glowMeshes].map(({ mesh, placements }) => ({
+		this.globes = [...this.blockouts.glowMeshes, ...this.solo.glowMeshes, ...this.modelGlobes.glowMeshes].map(({ mesh, placements }) => ({
 			mesh, color: new THREE.Color(this.kit[mesh.userData.assetId]?.glowColor ?? '#f2ecdf'), sources: placements.map((i) => byPlacement.get(i) ?? null), shade: placements.map((i) => (M.placements[i].void ? voidShade(M, M.placements[i]) : 1)),
 			own: !!this.kit[mesh.userData.assetId]?.glowColor, // an explicit KIT glowColor tints the glass; otherwise the globe takes its light's colour
 			gain: this.kit[mesh.userData.assetId]?.globeGain ?? 2.67, // KIT globeGain: how hot a lit globe is (≥ ~1.4 blooms to white; keep a tinted lamp below it so its hue survives tone mapping)
@@ -1028,6 +1051,7 @@ export class InteriorBuild {
 		for (const t of this.ownTextures) t.dispose();
 		this.blockouts?.dispose();
 		this.solo?.dispose();
+		this.modelGlobes?.dispose();
 		this.labelSet?.dispose();
 		this.markerLabels?.dispose();
 	}

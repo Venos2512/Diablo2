@@ -9,8 +9,16 @@
 // Sizes (H = 1.8 m) from ashlar/art/act-01-environments/groups/A14_the_cradle/{perspective,turnaround}_scale_v2.png and their prompt (A14.1 crib 3.5H × 2H
 // × 2H, A14.2 curtains 2.4H × 3H, A14.3 night-light 1.2H, A14.4 mobile 1.8H × 1.4H, A14.5 platform 3H × 3H × 0.4H, A14.6 runners 3H × 1.6H × 0.8H); B05
 // from ashlar/art/map-01-concepts/monsters/B05_hospice_mother/vA/concept_r2.png (crown 2.75H, hands 3.00H) and ASHLAR_QUY_CHUAN_QUAI_VI.md (h 2.50–3.00H).
-// Pure data + small pure helpers (the engine: ../interior.js; format documented at its top).
+// Pure data + small pure helpers (the engine: ../interior.js; format documented at its top). Kit swap (2026-10-23, lookdev-lab/assets/act1-kit): A14.1–A14.6 on
+// their GLBs (the night-lights' glowing globes re-anchored on the models: KIT globe; colliders keep the curtains' drapes and the mobile's bones walk-through).
+// A21–A25 swap (2026-10-23, the v3 batch, tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25): the turned-down quilt (A24.5) and the linen pillow (A24.6) on their
+// GLBs, laid ON_CUSHIONS (the A14.5 GLB's nine quilted cushions, tops 1.24–1.39 m: at its 0.83 m mattress level they would be buried in them).
 import { assetList } from '../interior.js';
+
+/** The A24.5 quilt / A24.6 pillow on the A14.5 platform's cushions: the lowest heights at which no cushion pokes through their tops (+0.02 m, measured on
+ * the meshes). Their flat undersides settle ≤ 0.13 m (quilt) / 0.17 m (pillow) into the soft cushion crowns; the median 0.1 m cell rests within 0.1 m of
+ * the cushions, only the curled edges lift more (≤ 0.42 / 0.27 m). */
+const ON_CUSHIONS = { quilt: 1.24, pillow: 1.15 };
 
 const ARENA = { cx: 0, cz: -18, r: 16 };
 const BOSS = [0, -26.5];
@@ -131,41 +139,50 @@ function motherShape() {
 // ---- KIT: every model the map needs (status: glb | kit | procedural | blockout) ------------------------------------------------------------------
 export const KIT = {
 	'A14.1': {
-		name: 'Bone-rail crib frame', short: 'Cũi xương', category: 'prop', size: [3.5 * H, 2 * H, 2 * H], status: 'blockout', source: 'concept A14 cell 1 (perspective / turnaround scale v2)',
-		segment: 'aisle · arena', note: 'arena-scale empty crib (giant: 2H tall); rows into the fog are the same model', shape: cribShape(),
+		name: 'Bone-rail crib frame', short: 'Cũi xương', category: 'prop', size: [6.3, 3.697, 4.269], status: 'glb', source: 'concept A14 cell 1 (perspective / turnaround scale v2)', model: 'act1-a14-1-crib-frame',
+		segment: 'aisle · arena', note: 'arena-scale empty crib (giant: 2H tall); rows into the fog are the same model; the GLB is a closed rail box (bars ≈ 0.4 m apart, mattress floor 0.83 m) 4.27 m deep (concept 3.6 m): the aisle rows stand 0.53 m apart, the arena ring reaches 0.29 m inside the arena edge; Mercy\'s cradle is the same GLB at 0.8 on its rockers; a box collider (the crib blocks as a whole: its 14 k triangles × 22 stay out of Play\'s collision)',
+		shape: cribShape(), collider: 2.5,
 	},
 	'A14.2': {
-		name: 'Linen curtain pair', short: 'Màn lanh đôi', category: 'prop', size: [2.4 * H, 3 * H, 0.7], status: 'blockout', source: 'concept A14 cell 2', segment: 'arena',
-		note: 'wooden posts + rod (block), tied-back linen drapes (walk-through cloth)', shape: curtainShape(), openCats: ['linen', 'accent'], blockers: [{ at: [-2.1, 0], r: 0.45 }, { at: [2.1, 0], r: 0.45 }],
+		name: 'Linen curtain pair', short: 'Màn lanh đôi', category: 'prop', size: [4.32, 5.097, 1.147], status: 'glb', source: 'concept A14 cell 2', segment: 'arena', model: 'act1-a14-2-curtain-pair',
+		note: 'wooden posts + rod (block), tied-back linen drapes (walk-through cloth); the GLB posts at (−1.84, −0.17) and (1.79, −0.17): 2.95 m between them, 3.28 m clear under the drapes; a collider on the posts only (the model\'s drapes stay out of Play\'s collision)',
+		shape: curtainShape(), openCats: ['linen', 'accent'], blockers: [{ at: [-1.84, -0.17], r: 0.2 }, { at: [1.79, -0.17], r: 0.2 }], collider: 2.0,
 	},
 	'A14.3': {
-		name: 'Milk-white night-light', short: 'Đèn ngủ trắng sữa', category: 'prop', size: [0.6 * H, 1.2 * H, 0.6 * H], status: 'blockout', source: 'concept A14 cell 3', segment: 'aisle · arena',
-		note: 'still Perfection light; the arena ten go out one by one (slider)', shape: NIGHT_LIGHT, round: true, foot: [0.6, 0.6],
-		light: { kind: 'perfection', y: 1.81, color: '#f2ecdf', range: 10, intensity: 24, glow: 1.35, glowGain: 0.62, pool: 3.4, poolGain: 0.14, group: 'nightlight' },
+		name: 'Milk-white night-light', short: 'Đèn ngủ trắng sữa', category: 'prop', size: [0.727, 2.16, 0.724], status: 'glb', source: 'concept A14 cell 3', segment: 'aisle · arena', model: 'act1-a14-3-milk-night-light',
+		note: 'still Perfection light; the arena ten go out one by one (slider); the light, its halo and the glowing globe (KIT globe, additive over the GLB\'s milk glass, Ø 0.72 m round (0, 1.77, 0)) on the model; a collider prism keeps its triangles (×64) out of Play\'s collision',
+		shape: NIGHT_LIGHT, round: true, foot: [0.6, 0.6], collider: 2.0,
+		globe: [{ p: 'glow', at: [0, 1.77, 0], size: [0.74, 0.74, 0.74] }], // the milky globe (emits; follows the light's level)
+		light: { kind: 'perfection', y: 1.77, color: '#f2ecdf', range: 10, intensity: 24, glow: 1.35, glowGain: 0.62, pool: 3.4, poolGain: 0.14, group: 'nightlight' },
 	},
 	'A14.4': {
-		name: 'Bone mobile on stand', short: 'Chuông xương treo', category: 'prop', size: [1.4 * H, 1.8 * H, 0.9], status: 'blockout', source: 'concept A14 cell 4', segment: 'arena',
-		note: 'only the stand blocks; the hanging bones are walk-through', shape: mobileShape(), blockers: [{ at: [-0.85, 0], r: 0.5 }],
+		name: 'Bone mobile on stand', short: 'Chuông xương treo', category: 'prop', size: [2.313, 3.24, 0.802], status: 'glb', source: 'concept A14 cell 4', segment: 'arena', model: 'act1-a14-4-bone-mobile',
+		note: 'only the stand blocks; the hanging bones are walk-through (they hang to ≈ 0.9 m at x +0.3…+0.8: a collider on the stand only keeps the model out of Play\'s collision)',
+		shape: mobileShape(), blockers: [{ at: [-0.85, 0], r: 0.5 }], collider: 2.0,
 	},
 	'A14.5': {
-		name: 'Quilted floor platform', short: 'Bục chăn chần', category: 'linen', size: [3 * H, 0.4 * H, 3 * H], status: 'blockout', source: 'concept A14 cell 5', segment: 'arena',
-		note: 'the bed made up for the hero (0.72 m: too high to step on)', shape: platformShape(),
+		name: 'Quilted floor platform', short: 'Bục chăn chần', category: 'linen', size: [4.81, 1.386, 5.4], status: 'glb', source: 'concept A14 cell 5', segment: 'arena', model: 'act1-a14-5-quilted-platform',
+		note: 'the bed made up for the hero (too high to step on: the GLB mattress top 0.83 m, its cushions 1.32 m; concept 0.72 m); 4.8 × 5.4 m, blocks as a whole (a box collider)',
+		shape: platformShape(), collider: 1.5,
 	},
 	'A14.6': {
-		name: 'Rocker runner pair', short: 'Đế bập bênh', category: 'prop', size: [3 * H, 0.8 * H, 1.6 * H], status: 'blockout', source: 'concept A14 cell 6', segment: 'arena',
-		note: "one under Mercy's cradle behind the boss, two lying loose", shape: RUNNERS, collider: 1.0, // the runners' middle is 0.58 m: under Play's 0.6 m step
+		name: 'Rocker runner pair', short: 'Đế bập bênh', category: 'prop', size: [5.4, 1.756, 3.524], status: 'glb', source: 'concept A14 cell 6', segment: 'arena', model: 'act1-a14-6-rocker-runners',
+		note: "one under Mercy's cradle behind the boss (at 1.15: its curled ends rise past the cradle's ends, the cradle's floor on its bars, 1.07 m), two lying loose; the GLB runners are 1.76 m tall at the curled ends",
+		shape: RUNNERS, collider: 1.0, // the runners' middle is 0.65 m: a prism keeps the hero off them
 	},
 	'N-CR01': {
 		name: 'Linen floor runner', short: 'Thảm lanh lối đi', category: 'linen', size: [2.4, 0.03, 36], status: 'blockout', source: 'LD only, no concept', segment: 'aisle',
 		note: 'a clean linen strip down the aisle into the arena (Mercy leads you in)', shape: [{ p: 'plane', at: [0, 0.015, 0], size: [2.4, 0.03, 36] }], solid: false,
 	},
 	'N-CR02': {
-		name: 'Turned-down quilt', short: 'Chăn lật sẵn', category: 'linen', size: [3.0, 0.24, 2.6], status: 'blockout', source: 'LD only, no concept', segment: 'arena',
-		note: 'on the platform: the bed is made for you', shape: [{ p: 'box', at: [0, 0.09, 0.25], size: [3.0, 0.16, 2.1] }, { p: 'box', at: [0, 0.18, -0.95], size: [3.0, 0.12, 0.5] }], solid: false,
+		name: 'Turned-down quilt', short: 'Chăn lật sẵn', category: 'linen', size: [3.0, 0.602, 2.695], status: 'glb', source: 'concept A24 cell 5 (v3 batch)', segment: 'arena',
+		note: 'on the platform: the bed is made for you; a thick quilt (top 0.36–0.60 m with the red-banded fold at −z; concept 0.24 m), laid ON_CUSHIONS on the A14.5 cushions',
+		shape: [{ p: 'box', at: [0, 0.09, 0.25], size: [3.0, 0.16, 2.1] }, { p: 'box', at: [0, 0.18, -0.95], size: [3.0, 0.12, 0.5] }], solid: false, model: 'act1-a24-5-turned-down-quilt',
 	},
 	'N-CR03': {
-		name: 'Linen pillow', short: 'Gối lanh', category: 'linen', size: [1.5, 0.32, 0.75], status: 'blockout', source: 'LD only, no concept', segment: 'arena',
-		shape: [{ p: 'mound', at: [0, 0.16, 0], size: [1.5, 0.32, 0.75] }], solid: false,
+		name: 'Linen pillow', short: 'Gối lanh', category: 'linen', size: [1.5, 0.536, 1.297], status: 'glb', source: 'concept A24 cell 6 (v3 batch)', segment: 'arena',
+		note: 'square: 1.5 × 1.3 m (concept 1.5 × 0.75 m), 0.54 m thick, three thin red lines near +x (QA: the brief has one band); at the head of the platform, clear of the quilt; laid ON_CUSHIONS',
+		shape: [{ p: 'mound', at: [0, 0.16, 0], size: [1.5, 0.32, 0.75] }], solid: false, model: 'act1-a24-6-linen-pillow',
 	},
 	'N-CR04': {
 		name: 'Crypt stair + arch from the Garden of Hush', short: 'Cầu thang hầm', category: 'structure', size: [3, 1.8, 5], status: 'procedural', source: 'LD only, no concept',
@@ -232,12 +249,14 @@ export const PLAN = {
 		{ asset: 'A14.2', at: [0, -2.6], yaw: 0, name: 'the threshold: linen curtains into the arena' },
 		{ asset: 'B05', at: BOSS, yaw: 0 },
 		{ asset: 'A14.5', at: [0, -16.5], yaw: 0 },
-		{ asset: 'N-CR02', at: [0, -16.1], y: 0.72, yaw: 0 },
-		{ asset: 'N-CR03', at: [0, -18.4], y: 0.72, yaw: 0 },
+		{ asset: 'N-CR02', at: [0, -16.1], y: ON_CUSHIONS.quilt, yaw: 0 }, // the fold at −z, toward the pillow
+		{ asset: 'N-CR03', at: [0, -18.4], y: ON_CUSHIONS.pillow, yaw: 0 }, // 0.3 m clear of the quilt's fold, on the back row of cushions
 		{ asset: 'A14.4', at: [3.15, -17.4], yaw: 180 },
 		{ asset: 'A14.4', at: [-7.6, -28.2], yaw: 30 },
-		{ asset: 'A14.6', at: [0, -31.3], yaw: 0, name: "Mercy's cradle (runners)" },
-		{ asset: 'A14.1', at: [0, -31.3], y: 0.58, yaw: 0, name: "Mercy's cradle" },
+		// Mercy's cradle: the crib GLB at 0.8 with its floor (0.74 m up in its frame: 0.59 m) on the bars of the runners at 1.15 (bar top 0.93 × 1.15 = 1.07 m); the
+		// runners' curled ends rise past its ends
+		{ asset: 'A14.6', at: [0, -31.3], yaw: 0, scale: 1.15, name: "Mercy's cradle (runners)" },
+		{ asset: 'A14.1', at: [0, -31.3], y: 0.48, yaw: 0, scale: 0.8, name: "Mercy's cradle" },
 		{ asset: 'A14.6', at: [-10.6, -10.5], yaw: 50 },
 		{ asset: 'A14.6', at: [11.2, -24.8], yaw: -35 },
 		{ asset: 'N-CR01', at: [0, 13], yaw: 0 },
@@ -252,10 +271,11 @@ export const PLAN = {
 		{ asset: 'A14.1', from: [14.6, 48.5], to: [14.6, 0.5], count: 11, yaw: 0, void: true, except: [[10, 19.5, 18, 28.9]] },
 		// the aisle's night-lights (stay lit: they are not the boss's): real lights at z 29 and 9 (west) and 19 (east), glow only on the others (the light
 		// budget: 15 + the hero light); the rows go on, glow only, into the fog
-		{ asset: 'A14.3', from: [-4.7, 29], to: [-4.7, -1], count: 4, lightGroup: 'aisle', realEvery: 2 },
-		{ asset: 'A14.3', from: [4.7, 29], to: [4.7, -1], count: 4, lightGroup: 'aisle', realEvery: 4, realOffset: 1, except: [[4, 20, 6, 27]] },
-		{ asset: 'A14.3', from: [-4.7, 39], to: [-4.7, 49], count: 2, lightGroup: 'aisle', void: true, light: 'glow' },
-		{ asset: 'A14.3', from: [4.7, 39], to: [4.7, 49], count: 2, lightGroup: 'aisle', void: true, light: 'glow' },
+		// at the aisle's edge, 0.5 m in front of the crib ends (x ±4.0): the GLB cribs are 4.27 m deep, their rows leave no gap for a lamp between them
+		{ asset: 'A14.3', from: [-3.5, 29], to: [-3.5, -1], count: 4, lightGroup: 'aisle', realEvery: 2 },
+		{ asset: 'A14.3', from: [3.5, 29], to: [3.5, -1], count: 4, lightGroup: 'aisle', realEvery: 4, realOffset: 1, except: [[3, 20, 6, 27]] },
+		{ asset: 'A14.3', from: [-3.5, 39], to: [-3.5, 49], count: 2, lightGroup: 'aisle', void: true, light: 'glow' },
+		{ asset: 'A14.3', from: [3.5, 39], to: [3.5, 49], count: 2, lightGroup: 'aisle', void: true, light: 'glow' },
 	],
 	rings: [
 		{ asset: 'A14.1', center: [ARENA.cx, ARENA.cz], r: ARENA.r + 1.85, count: 10, from: 0, face: 'in', skip: [0, 5] }, // north = Mercy's cradle, south = the mouth
@@ -308,9 +328,10 @@ export const PLAN = {
 		arena: { label: 'Arena · vòng đèn ngủ', target: [0, 0, -18], dist: 50, pitch: 55 },
 		boss: { label: 'Hospice Mother · bàn tay & bóng tay', target: [0, 1.8, -23], dist: 19, pitch: 40 },
 	},
+	// Play moods brightened 10-23 (hemi, envI, exposure, floorTone); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		cradle: {
-			label: 'Cradle · ánh trắng sữa đứng yên (mặc định)', hemi: 0.55, sky: '#4c4a48', ground: '#0b0a0b', env: 'hdri-night', envI: 0.04, toneMapping: 'aces', exposure: 0.85, lights: 1, floorTone: 0.55,
+			label: 'Cradle · ánh trắng sữa đứng yên (mặc định)', hemi: 1.1, sky: '#4c4a48', ground: '#0b0a0b', env: 'hdri-night', envI: 0.06, toneMapping: 'aces', exposure: 1.3, lights: 1, floorTone: 0.65,
 			fog: { enabled: true, color: '#030304', density: 0.06, falloff: 0.22, height: 0, start: 8, inscatter: 0 },
 			grade: { vignette: 0.55, contrast: 1.1, saturation: 0.82, lift: 0, temperature: 0.02, tint: 0 },
 			lantern: { radius: 5.2, strength: 0.35, dim: 0.3, color: [0.52, 0.5, 0.47] },

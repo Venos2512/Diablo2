@@ -24,6 +24,12 @@ const onModel = (p, [lx, ly, lz], light) => {
 	const [x, z] = at(p, lx, lz);
 	return { ...light, x, z, y: ly };
 };
+/** The `cut` boxes (outdoor.js) that keep only the part of a GLB inside [x0, y0, z0, x1, y1, z1] (its frame): everything outside is cut. */
+const outside = ([x0, y0, z0, x1, y1, z1], B = 99) => [[-B, -B, -B, x0, B, B], [x1, -B, -B, B, B, B], [x0, -B, -B, x1, y0, B], [x0, y1, -B, x1, B, B], [x0, y0, -B, x1, y1, z0], [x0, y0, z1, x1, y1, B]];
+// The lychgate lamp: the lantern head of the A16.6 sexton's lamp (GLB x 0.37…0.65, y 1.73…2.27, z −0.17…0.11: the glass body and its hook link, not the
+// arm's curl), hung by the link under the A02.1 front tie beam (underside 2.31 m over the gate's base at local z +0.97) at ×0.75: 0.21 m wide, 0.41 m tall,
+// its bottom 1.91 m up (over the hero's head); the light sits in its glass (flame ≈ 0.26 m under the hook).
+const LANTERN = { keep: [0.33, 1.68, -0.22, 0.7, 2.265, 0.16], pivot: [0.51, 1.73, -0.03], h: 0.541, scale: 0.75, top: 2.32, flame: 2.07 };
 
 const FEN = 0.0; // the fen's water level (black water round the island)
 const MERE = 0.16; // the village mere (inner pond)
@@ -33,28 +39,28 @@ const DECK = 0.66; // walkway deck tops over the mere
 const A = (id, name, category, size, status, source, segment, extra = {}) => ({ id, name, category, size, status, source, segment, note: '', ...extra });
 const DEFS = [
 	// hub (A01 village kit, A15 extras)
-	A('A01.1', 'Repaired thatched stilt cottage', 'building', [4.6, 5.2, 4.0], 'blockout', 'concept A01 cell 1 (E03 village kit)', 'hub', { shape: 'stilt-cottage', note: 'body 4.6 × 4.0 m on 0.7 m stilts, ridge 5.2 m (sheet ≈ 3.4–5.3 m tall); amber window, a poppy sprig on the door' }),
-	A('A01.2', 'Raised wooden walkway segment', 'structure', [4.0, 1.2, 1.4], 'blockout', 'concept A01 cell 2 (E03 village kit)', 'hub', { shape: 'deck', note: 'built per deck segment from the walkway paths (deck mesh = walk surface); 4 m pieces, posts every corner' }),
-	A('A01.3', 'Patched low flint wall', 'structure', [3.4, 1.4, 0.7], 'blockout', 'concept A01 cell 3 (E03 village kit)', 'both', { shape: 'wall', note: 'module 3.4 m; the churchyard boundary (the lychgate is its only gap) and the village west wall' }),
-	A('A01.4', 'Willow hurdle fence', 'structure', [3.2, 1.4, 0.18], 'blockout', 'concept A01 cell 4 (E03 village kit)', 'hub', { shape: 'fence' }),
-	A('A01.5', 'Village well', 'structure', [2.2, 3.4, 2.0], 'blockout', 'concept A01 cell 5 (E03 village kit)', 'hub', { shape: 'well' }),
-	A('A01.6', 'Eel-trap fishing rack', 'structure', [3.96, 1.8, 1.38], 'kit', 'concept A01 cell 6 (E03 village kit)', 'hub', { model: 'kit:crafts.fishing_net', fit: 'native', shape: 'rack', note: 'kit tạm (camp fishing net between poles, native 3.96 × 1.8 × 1.38 m; concept rack 3.4 × 3.0 × 1.6): same class of object, lower; REUSE_CANDIDATES.md' }),
+	A('A01.1', 'Repaired thatched stilt cottage', 'building', [5.42, 5.2, 5.23], 'glb', 'concept A01 cell 1 (E03 village kit)', 'hub', { model: 'act1-a01-1-stilt-cottage', fit: 'native', shape: 'stilt-cottage', blockers: [[0.1, -0.55, 4.4, 3.3], [-0.55, 1.8, 0.8, 1.4]], anchors: [{ kind: 'window', p: [1.99, 2.17, -0.12], n: [1, 0, 0] }], note: 'GLB 5.4 × 5.2 × 5.2 m (thatch eaves to ±2.7 m, the ladder to z +2.6): body x −2.0…+2.0, z −1.9…+1.0 on stilts, floor 0.88 m, door + ladder on +z; blocks on the body and stilts (4.4 × 3.3 m) and the ladder, the eaves overhang (over 2 m) does not; no lit window in the texture: the amber window glow is an engine light on the shuttered window of its +x wall (window anchor, 2.17 m up); the door sprig sits on the door face (z +1.06)' }),
+	A('A01.2', 'Raised wooden walkway segment', 'structure', [4.0, 2.16, 1.99], 'glb', 'concept A01 cell 2 (E03 village kit)', 'hub', { model: 'act1-a01-2-walkway', fit: 'native', shape: 'deck', deckTop: 1.22, collide: false, note: 'GLB 4 × 2.16 × 2 m, deck 1.75 m wide, deck top 1.22 m over its base (median of its deck faces): laid end to end along each walkway (deckPieces) with the deck top on the walk deck (the walkways are `hidden`, 1.8 m wide: the walk surface only), posts into the mere bed; a rope rail on its −z side (0.94 m over the deck) and two short corner posts on +z: the open +z side faces the camera; the rail and posts are out of the collision, like the blockout posts' }),
+	A('A01.3', 'Patched low flint wall', 'structure', [3.4, 1.37, 0.58], 'glb', 'concept A01 cell 3 (E03 village kit)', 'both', { model: 'act1-a01-3-flint-wall', fit: 'native', shape: 'wall', note: 'GLB 3.4 × 1.37 × 0.58 m (cap 1.03–1.05 m), module 3.4 m; the churchyard boundary (the lychgate is its only gap) and the village west wall' }),
+	A('A01.4', 'Willow hurdle fence', 'structure', [3.2, 1.6, 0.32], 'glb', 'concept A01 cell 4 (E03 village kit)', 'hub', { model: 'act1-a01-4-hurdle-fence', fit: 'native', shape: 'fence', note: 'GLB 3.2 × 1.6 × 0.32 m (posts 1.6 m, woven panel 1.4 m), module 3.2 m' }),
+	A('A01.5', 'Village well', 'structure', [2.73, 3.4, 2.39], 'glb', 'concept A01 cell 5 (E03 village kit)', 'hub', { model: 'act1-a01-5-village-well', fit: 'native', shape: 'well', note: 'GLB 2.7 × 3.4 × 2.4 m with its stone apron (rim ≈ 1.1 m), windlass along x, bucket side +z' }),
+	A('A01.6', 'Eel-trap fishing rack', 'structure', [4.7, 3.0, 1.98], 'glb', 'concept A01 cell 6 (E03 village kit)', 'hub', { model: 'act1-a01-6-eel-trap-rack', fit: 'native', shape: 'rack', note: 'GLB 4.7 × 3.0 × 2.0 m (three traps on the bar, a fourth leaning at +x); placed ×0.85 (4.0 × 2.55 m, the old kit width); replaces the kit tạm fishing net' }),
 	A('A15.2', "Brannoc's forge (the Mortsmith's smithy)", 'building', [6, 4.05, 4.1], 'glb', 'concept A15 cell 2 (v2 batch)', 'hub', { model: 'act1-a15-2-forge', fit: 'native', shape: 'forge', note: 'GLB 6 × 4.05 × 4.1 m; its −x and −z sides are a plain panel (single-image guess): turned yaw −45 so both face away from the game camera, the open front to the square; hearth glow = a real human light (1/f flicker) on the model hearth' }),
 	A('A15.3', 'Sleeper name board', 'story', [2.6, 2.31, 1.24], 'glb', 'concept A15 cell 3 (v2 batch)', 'hub', { model: 'act1-a15-3-name-board', fit: 'native', shape: 'board', blockers: [[0, 0, 2.6, 0.45]], note: 'GLB 2.6 × 2.31 × 1.24 m (roof overhang, garlands); plain back: faces the square and the camera (yaw 0), the back to the lane side; blocks along the board' }),
 	A('A15.4', 'Mourning bell frame', 'structure', [3.14, 3.4, 1.98], 'glb', 'concept A15 cell 4 (v2 batch)', 'hub', { model: 'act1-a15-4-bell-frame', fit: 'native', shape: 'bellframe', note: 'GLB 3.14 × 3.4 × 1.98 m (stone plinths, braces, leaning planks: chunkier than the 2.2 m concept)' }),
 	A('A15.5', "Nell Coppercoin's grave-goods stall", 'prop', [4.01, 2.3, 1.93], 'glb', 'concept A15 cell 5 (v2 batch)', 'hub', { model: 'act1-a15-5-grave-goods-stall', fit: 'native', shape: 'stall', note: 'GLB 4.0 × 2.3 × 1.93 m with the cart shafts (awning 3 m, centred on the placement point); plain back (−z) turned away from the camera' }),
 	A('A15.6', "Osric's watch post", 'structure', [3, 3.89, 3.46], 'glb', 'concept A15 cell 6 (v2 batch)', 'hub', { model: 'act1-a15-6-watch-post', fit: 'native', shape: 'watchpost', note: 'GLB 3 × 3.89 × 3.46 m; deck at 1.65 m (not walkable in the base map), fire basket = human light on the model basket' }),
-	A('N01', 'Barrow family vault door (portal in the terrace wall)', 'story', [2.4, 2.8, 0.8], 'blockout', 'LD only, no concept', 'hub', { shape: 'vaultdoor', note: 'side quest One for the Footing; under the ossuary, faces the village' }),
-	A('N02', 'Flint retaining wall (vault terrace)', 'structure', [4, 3.2, 0.9], 'blockout', 'LD only, no concept', 'hub', { shape: 'wall', note: 'keeps the hub terrace from the summit: the lychgate stays the only way into the churchyard' }),
+	A('N01', 'Barrow family vault door (portal in the terrace wall)', 'story', [3.7, 2.8, 1.07], 'glb', 'concept A21 cell 1 (v3 batch)', 'hub', { model: 'act1-a21-1-barrow-door', fit: 'native', shape: 'vaultdoor', blockers: [[0, -0.208, 3.702, 0.656], [-0.04, -0.163, 2.32, 0.746], [-0.025, -0.078, 1.55, 0.916]], anchors: [{ kind: 'door', p: [0, 1.2, 0.54], n: [0, 0, 1] }], note: 'side quest One for the Footing; under the ossuary, faces the village. GLB 3.7 × 2.8 × 1.07 m (keyed on the 2.8 m height; on the 2.4 m width it would stand 1.82 m with a 1.37 m door): the portal and its own short flint wall section, door ≈1.5 × 2.1 m, face +z flush with the N02 wall face; the terrace wall runs stop at its two clean ends (x ±1.85); a mirrored door on its back is buried in the hill. Blocks only up to its visible faces (measured on the GLB, review a2x F-a), each back to the bbox back (−0.536): the wall section to +0.12 (its flint face +0.07…+0.09 over the foot ferns), the arch surround (x −1.2…+1.12) to +0.21 (jambs +0.17…+0.19), the 0.16 m threshold step (x −0.8…+0.75) to +0.38 (its front +0.30…+0.41); the fern clumps at its foot (to +0.53, the bbox front) are walk-through like all low plants' }),
+	A('N02', 'Flint retaining wall (vault terrace)', 'structure', [4, 2.16, 0.73], 'glb', 'concept A21 cell 2 (v3 batch)', 'hub', { model: 'act1-a21-2-flint-retaining-wall', fit: 'native', shape: 'wall', blockers: [[0, -0.122, 4.0, 0.484]], note: 'keeps the hub terrace from the summit: the lychgate stays the only way into the churchyard. GLB 4 × 2.16 × 0.73 m (outer face +z, pale quoins at both ends, coping top ≈2.08 m; the face is loose panels in front of a frame): the runs stand it ×1.55 (6.2 m modules, 3.35 m tall, coping ≈3.22 m: the def is 3.2 m) with the outer face to the terrace, and a 0.2 m parapet over the uphill ground (not the default 0.6 × height, which would stretch it ×1.6). Its flint face is ≈0.14 m in front of the run line (the bbox front is the ferns at its foot): the runs stand with the face 0.18 m inside the terrace\'s flat edge, so the edge\'s ramp up to the hill lies inside the wall (outside its face the ramp hid the lower 2 m). Blocks only up to its flint face (z −0.364…+0.12 of the GLB; the face +0.09, p99 +0.10 at walking height; review a2x F-a): the fern clumps at its foot (to +0.25 in the walk band, the bbox front +0.364) are walk-through like all low plants' }),
 	A('N03', 'Rain barrel', 'prop', [0.8, 1.0, 0.8], 'kit', 'LD only, no concept', 'hub', { model: 'kit:kitchen.water_barrel', fit: 'native', note: 'kit tạm: camp kitchen water barrel (2.1 m wide piece)' }),
-	A('N04', 'Peat stack', 'prop', [1.6, 1.1, 1.0], 'blockout', 'LD only, no concept', 'hub', { shape: 'peatstack' }),
+	A('N04', 'Peat stack', 'prop', [1.6, 0.66, 1.14], 'glb', 'concept A21 cell 3 (v3 batch)', 'hub', { model: 'act1-a21-3-peat-stack', fit: 'native', shape: 'peatstack', note: 'GLB 1.6 × 0.66 × 1.14 m: long side with the sacking flap +z, loose turves at the foot; flat (0.66 m, spec 1.1 m: QA note, not stretched)' }),
 	A('N05', 'Poppy sprig on a door (the Act I accent)', 'prop', [0.25, 0.4, 0.08], 'procedural', 'LD only, no concept', 'hub', { procedural: 'poppy', note: 'the only accent of the hub; hidden in the Prologue night (no accent)', collide: false }),
 	A('N06', 'Washing line', 'prop', [4.1, 2.1, 0.85], 'kit', 'LD only, no concept', 'hub', { model: 'kit:crafts.laundry_line', fit: 'native', collide: false, note: 'kit tạm' }),
 	A('N07', 'Drying fish net', 'prop', [4, 1.8, 1.4], 'kit', 'LD only, no concept', 'hub', { model: 'kit:crafts.fishing_net', fit: 'native', collide: false, note: 'kit tạm' }),
 	A('N08', 'Village goods (sacks, crates)', 'prop', [1.9, 1.3, 1.8], 'kit', 'LD only, no concept', 'hub', { model: 'kit:storage.sacks', fit: 'native', note: 'kit tạm' }),
 	A('N12', 'Peat barrow', 'prop', [1.2, 1.0, 2.4], 'kit', 'LD only, no concept', 'hub', { model: 'kit:animals.wheelbarrow', fit: 'native', collide: false, note: 'kit tạm (camp wheelbarrow)' }),
 	A('N09', 'Low shrubs / brambles at the edges', 'vegetation', [1.2, 0.5, 1.1], 'kit', 'LD only, no concept', 'both', { model: 'kit:shrubs.shrub_05', fit: 'native', collide: false, note: 'kit tạm (Blood-Moor shrub)' }),
-	A('A04.2', 'Young willow', 'vegetation', [4, 6, 4], 'blockout', 'concept A04 cell 2 (E02 willow kit)', 'hub', { shape: { kind: 'tree', crown: 'weeping' }, note: 'at the mere and fen edge' }),
+	A('A04.2', 'Young willow', 'vegetation', [4.94, 6.0, 5.22], 'glb', 'concept A04 cell 2 (E02 willow kit)', 'hub', { model: 'act1-a04-2-young-willow', fit: 'native', shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0.12, 0.54, 1.05, 1.6]], note: 'GLB 4.9 × 6 × 5.2 m; at the mere and fen edge; only the trunk blocks (its base, measured at walking height), the fronds are walk-through' }),
 	A('A03.1', 'Low grass clump', 'vegetation', [0.6, 0.5, 0.6], 'procedural', 'concept A03 cell 1 (E01 fen kit)', 'both', { procedural: 'grass', collide: false, note: 'Dark Wood grass cards on the grass layers' }),
 	A('A03.2', 'Tall reeds clump', 'vegetation', [0.8, 1.8, 0.8], 'procedural', 'concept A03 cell 2 (E01 fen kit)', 'both', { procedural: 'reeds', collide: false, note: 'shore-plant cards (biome-shore-plants) along the fen and the mere' }),
 	A('A03.3', 'Sedge water clump', 'vegetation', [0.7, 0.9, 0.7], 'procedural', 'concept A03 cell 3 (E01 fen kit)', 'both', { procedural: 'sedge', collide: false }),
@@ -65,12 +71,13 @@ const DEFS = [
 	A('glb:dungeon-prop-candle-cluster', 'Candle cluster', 'prop', [0.8, 0.8, 0.8], 'glb', 'ashlar/3d/props/dungeon_v1/candle_cluster', 'both', { model: 'dungeon-prop-candle-cluster', fit: 'native', collide: false }),
 	A('glb:biome-prop-mushrooms', 'Mushroom cluster', 'vegetation', [0.4, 0.3, 0.4], 'glb', 'ashlar/3d/props/clutter_v1/mushroom_cluster', 'churchyard', { model: 'biome-prop-mushrooms', fit: 'native', collide: false }),
 	// churchyard (A02 burial kit, A16 extras)
-	A('A02.1', 'Lychgate roofed gate (with lamp)', 'structure', [3.4, 3.8, 2.6], 'blockout', 'concept A02 cell 1 (E04 burial kit)', 'both', { shape: 'lychgate', blockers: [[-1.43, -0.9, 0.62, 0.62], [1.43, -0.9, 0.62, 0.62], [-1.43, 0.9, 0.62, 0.62], [1.43, 0.9, 0.62, 0.62]], note: 'THE light threshold hub ↔ churchyard; passage 2.3 m between the flint plinths; lamp under the roof = human light' }),
-	A('A02.2', 'Mortsafe grave cage', 'structure', [2.6, 1.2, 1.4], 'blockout', 'concept A02 cell 2 (E04 burial kit)', 'churchyard', { shape: 'mortsafe' }),
-	A('A02.3', 'Small mismatched headstone cluster', 'rock', [3.0, 1.6, 2.0], 'blockout', 'concept A02 cell 3 (E04 burial kit)', 'churchyard', { shape: 'headstones' }),
-	A('A02.4', 'Round ossuary tower', 'building', [4.8, 7.8, 4.8], 'blockout', 'concept A02 cell 4 (E04 burial kit)', 'churchyard', { shape: 'tower', note: 'landmark on the dry summit (sheet reads 4.6–9 m tall); door faces the church' }),
-	A('A02.5', 'Faceless saint statue supporting an arch (the Nameless Saint)', 'story', [2.4, 4.3, 1.2], 'blockout', 'concept A02 cell 5 (E04 burial kit)', 'churchyard', { shape: 'statue', blockers: [[0, 0, 1.45, 1.2]], note: 'ON the path, faces down toward the lychgate (it turns only off-screen); the path parts round its plinth, both lanes under the ends of its arch (only the plinth blocks the hero)' }),
-	A('A02.6', 'Funeral hand cart', 'prop', [2.48, 0.97, 1.25], 'kit', 'concept A02 cell 6 (E04 burial kit)', 'churchyard', { model: 'kit:animals.wheelbarrow', fit: 'native', shape: 'cart', note: 'kit tạm (camp wheelbarrow at ×1.2 = 3.0 × 1.16 × 1.5 m; concept hand cart 3.2 × 1.2 × 1.4): the nearest hand cart, worn wood' }),
+	A('A02.1', 'Lychgate roofed gate (with lamp)', 'structure', [3.51, 3.8, 3.3], 'glb', 'concept A02 cell 1 (E04 burial kit)', 'both', { model: 'act1-a02-1-lychgate-open', fit: 'native', shape: 'lychgate', blockers: [[-1.45, -0.98, 0.6, 0.66], [1.44, -0.87, 0.56, 0.7], [-1.45, 1.05, 0.6, 0.7], [1.42, 1.05, 0.56, 0.9], [-1.5, 0, 0.3, 1.2]], note: 'GLB 3.5 × 3.8 × 3.3 m, the lab variant -open (prepare-act1-kit.py CUT: the knee-high rail across its back opening, 0.40–0.62 m, cut out, else every hero would wade through it). THE light threshold hub ↔ churchyard: blocks on the four flint plinths (≈ 2.3 m apart) and the −x side rail only; the two gate leaves, swung part-open at the front, narrow the straight passage to 1.35 m, so they are walk-through; 2.17 m clear under the tie beams. No lamp modelled: the lamp is the A16.6 lantern head (A16.6-lantern) hung by its link under the front tie beam (local (0, 2.32, 0.97)), its human light in the glass' }),
+	A('A16.6-lantern', "Lychgate lamp (the lantern head of the A16.6 sexton's lamp)", 'prop', [0.28, 0.54, 0.28], 'glb', "concept A16 cell 6 (v2 batch): the lantern of the sexton's lamp", 'both', { model: 'act1-a16-6-sexton-lamp', fit: 'native', cut: outside(LANTERN.keep), pivot: LANTERN.pivot, shape: 'box', collide: false, note: 'a part of the A16.6 GLB: only its lantern (glass body + hook link, 0.28 × 0.54 m) is drawn (outdoor.js cut, pivot = its bottom centre); hung under the lychgate front tie beam at ×0.75 (0.21 × 0.41 m, bottom 1.91 m: over the hero), the lychgate lamp light flickers in its glass (it replaced a bare glow orb, QA 10-23)' }),
+	A('A02.2', 'Mortsafe grave cage', 'structure', [2.6, 0.97, 1.9], 'glb', 'concept A02 cell 2 (E04 burial kit)', 'churchyard', { model: 'act1-a02-2-mortsafe', fit: 'native', shape: 'mortsafe', note: 'GLB 2.6 × 0.97 × 1.9 m (the cage on its slab)' }),
+	A('A02.3', 'Small mismatched headstone cluster', 'rock', [3.0, 1.4, 2.09], 'glb', 'concept A02 cell 3 (E04 burial kit)', 'churchyard', { model: 'act1-a02-3-headstones', fit: 'native', shape: 'headstones', note: 'GLB 3 × 1.4 × 2.1 m: five stones on a low grass mound (no marks on the stones)' }),
+	A('A02.4', 'Round ossuary tower', 'building', [6.33, 7.8, 6.99], 'glb', 'concept A02 cell 4 (E04 burial kit)', 'churchyard', { model: 'act1-a02-4-ossuary-tower', fit: 'native', shape: 'tower', note: 'GLB 6.3 × 7.8 × 7.0 m: body Ø 4.3–4.9 m over a flared stone skirt 6.0 × 6.7 m at the ground; placed ×0.85 (6.6 m tall, skirt 5.1 × 5.7 m) so the summit path end and the door candles keep their room; landmark on the dry summit, door faces the church' }),
+	A('A02.5', 'Faceless saint statue supporting an arch (the Nameless Saint)', 'story', [2.48, 4.3, 1.82], 'glb', 'concept A02 cell 5 (E04 burial kit)', 'churchyard', { model: 'act1-a02-5-saint-statue-arch', fit: 'native', shape: 'statue', blockers: [[0.03, 0.03, 1.64, 1.47]], note: 'GLB 2.5 × 4.3 × 1.8 m: the arch ends at x ±1.24, the stepped plinth 1.64 × 1.47 m at walking height (only it blocks); arms raised, no crossbar. Yaw 0: its broad face meets the game camera (QA 10-23: seen side-on, the end blocks of its arch make a faint cross), so it faces down the slope toward the hub with the lychgate 37° to its right (it turns only off-screen); ON the path, which parts round its plinth, each lane ≈ 0.9 m from an end of its arch' }),
+	A('A02.6', 'Funeral hand cart', 'prop', [3.2, 1.4, 1.61], 'glb', 'concept A02 cell 6 (E04 burial kit)', 'churchyard', { model: 'act1-a02-6-hand-cart', fit: 'native', shape: 'cart', note: 'GLB 3.2 × 1.4 × 1.6 m (bed 0.88–0.92 m) at its real size: replaces the kit tạm wheelbarrow ×1.2' }),
 	A('A15.1', 'Flint parish church', 'building', [16, 9.87, 10.69], 'glb', 'concept A15 cell 1 (v2 batch)', 'churchyard', { model: 'act1-a15-1-flint-church', fit: 'native', shape: 'church', note: 'GLB 16 × 9.87 × 10.69 m (walls ±3.6 m, buttresses to ±5.35 m: the collision box is the full 10.7 m depth); bell-cote 9.9 m on the west gable; door west (−x), down the slope to the lychgate' }),
 	A('A16.1', 'Churchyard yew', 'vegetation', [9.44, 9.0, 8.22], 'glb', 'concept A16 cell 1 (v2 batch)', 'churchyard', { model: 'act1-a16-1-yew', fit: 'native', shape: { kind: 'tree', crown: 'yew' }, blockers: [[-0.3, -0.25, 4.4, 4.0]], note: 'GLB 9.4 × 9 × 8.2 m (crown about round); only at the edges; the trunk and its root flare block (4.4 × 4 m), the crown does not' }),
 	A('A16.2', 'Tarred gibbet (empty cage)', 'structure', [4.69, 4.6, 2.69], 'glb', 'concept A16 cell 2 (v2 batch)', 'churchyard', { model: 'act1-a16-2-gibbet', fit: 'native', shape: 'gibbet', blockers: [[-0.93, -0.07, 1.2, 1.2]], note: 'GLB 4.7 × 4.6 × 2.7 m (base of stones and grass, arm 2.4 m); no body, no noose; the post (GLB (−0.91, −0.09)) stands on the placement point; only the post and its stones block; crows' }),
@@ -78,9 +85,10 @@ const DEFS = [
 	A('A16.4', 'Fresh grave', 'story', [1.77, 0.82, 2.4], 'glb', 'concept A16 cell 4 (v2 batch)', 'churchyard', { model: 'act1-a16-4-fresh-grave', fit: 'native', shape: 'grave-fresh', note: 'GLB 1.77 × 0.82 × 2.4 m (planks and the rope coil on +x, the spade at the foot)' }),
 	A('A16.5', 'Unquiet grave (risen, mortsafe bent outward)', 'story', [2.48, 1.15, 2.6], 'glb', 'concept A16 cell 5 (v2 batch)', 'churchyard', { model: 'act1-a16-5-unquiet-grave', fit: 'native', shape: 'grave-risen', note: 'GLB 2.5 × 1.15 × 2.6 m (stone kerb and spoil)' }),
 	A('A16.6', "Sexton's lamp post (bowl of milk for the Kind Ones)", 'structure', [1.3, 2.6, 0.8], 'glb', 'concept A16 cell 6 (v2 batch)', 'churchyard', { model: 'act1-a16-6-sexton-lamp', fit: 'native', shape: 'lamppost', blockers: [[-0.29, -0.02, 0.5, 0.5]], note: 'GLB 1.3 × 2.6 × 0.8 m; the post (GLB (−0.29, −0.02)) stands on the placement point, only it blocks; the lamp glow sits on the model lantern (0.71 m out, 1.95 m up)' }),
-	A('N10', 'Vigil chair with a folded blanket', 'prop', [0.6, 0.95, 0.6], 'blockout', 'LD only, no concept', 'churchyard', { shape: 'chair', note: 'unmarked vignette: someone still keeps watch at a small grave' }),
+	A('N10', 'Vigil chair with a folded blanket', 'prop', [0.6, 1.03, 0.73], 'glb', 'concept A21 cell 4 (v3 batch)', 'churchyard', { model: 'act1-a21-4-vigil-chair', fit: 'native', shape: 'chair', note: 'unmarked vignette: someone still keeps watch at a small grave. GLB 0.6 × 1.03 × 0.73 m: seat front +z, ladder back −z, the folded blanket on the seat (≈0.66 m)' }),
 	A('N11', 'Crow (ambient; settles after the five rites)', 'story', [0.45, 0.35, 0.25], 'procedural', 'LD only, no concept', 'churchyard', { procedural: 'crow', collide: false }),
-	A('A06.1', 'Fen causeway segment (dike revetment posts)', 'structure', [2.31, 0.9, 0.51], 'kit', 'concept A06 cell 1 (Night Fens kit)', 'fenroad', { model: 'kit:fence.run_broken', fit: 'native', shape: 'posts', note: 'kit tạm (Blood-Moor broken fence run, 2.31 m modules) as the dike revetment posts; the dike road out of the village toward the Night Fens' }),
+	A('A06.1', 'Fen causeway segment', 'structure', [4.0, 0.97, 1.71], 'glb', 'concept A06 cell 1 (Night Fens kit)', 'fenroad', { model: 'act1-a06-1-causeway-open', fit: 'native', shape: 'posts', collide: false, module: 3.0, note: 'GLB 4 × 0.97 × 1.71 m (stone-and-plank top at 0.37 m), the lab variant -open (prepare-act1-kit.py CUT: its two end posts stand on its centre line, so end to end they put a pair of 0.6 m posts every 4 m down the road; cut out over the deck, stubs ≤ 0.15 m): laid along the dike road crest at a 3 m module (its deck spans x −1.75…+1.65: at 4 m the pieces read as dashed slabs with grass between, at 3 m they meet with ≈0.4 m of overlap), sunk 0.35 m so its top is flush with the terrain (Play walks the terrain); nothing blocks; the dike road out of the village toward the Night Fens' }),
+	A('A06.1-posts', 'Dike revetment posts', 'structure', [2.31, 0.9, 0.51], 'kit', 'concept A06 cell 1 (the causeway bank)', 'fenroad', { model: 'kit:fence.run_broken', fit: 'native', shape: 'posts', note: 'kit tạm (Blood-Moor broken fence run, 2.31 m modules) as the revetment posts along the dike bank (the A06.1 GLB is the crest causeway)' }),
 	A('N-GH', 'The Gentle House, far silhouette (gate tower + long ward + high warm still window)', 'story', [46, 20, 30], 'glb', 'act1 GLBs A18.4 ward range + 11 × A18.5 wall-with-niche sections (env/act1/gentleHouseFar.js); A11.4 gate tower still a box', 'far', { ...GENTLE_HOUSE_FAR, shape: 'compound', collide: false, note: 'shared far silhouette of the outdoor maps: the A18.4 range\'s own lit window carries the brightest, stillest light of the act (glow in the VFX layer: it reads through the fog); A11.4 has no model yet (box); if a GLB fails the full compound blockout stands in' }),
 ];
 
@@ -89,6 +97,16 @@ const LYCHGATE = { x: -24, z: 3 }; // the light threshold; the path runs north-s
 const CHURCH = { x: 16, z: -30 }; // nave centre; the door is at the west end
 const SUMMIT = { x: 42, z: -40 };
 const TERRACE = { x: 46, z: -22, w: 16, d: 7, y: 9.0 }; // the vault terrace (hub) under the summit
+const VAULT_HALF = 1.85; // half the N01 vault door GLB's width (3.7 m): the terrace wall runs stop at its clean ends
+const TERRACE_WALL = { scale: 1.55, parapet: 0.2 }; // the N02 runs (A21.2 GLB 4 × 2.16 m → 6.2 × 3.35 m modules; a low parapet over the uphill ground)
+// The faces of the A21.2 wall and of the A21.1 portal's wall section stand ≈0.09 / 0.10 m in front of their GLB centre line (their bbox fronts are
+// the coping, ferns and the threshold step), and the terrace's edge is a one-cell ramp (0.5 m) up to the hill. So the faces stand 0.18 m inside
+// the flat terrace (WALL_FACE) and the ramp lies inside the walls; the portal's recessed door (GLB z −0.054) stays in front of the ramp foot.
+const WALL_FACE = 0.18; // m inside the terrace's flat edge
+const WALL_Z = TERRACE.z - TERRACE.d / 2 + WALL_FACE - 0.09 * TERRACE_WALL.scale; // the back runs' centre line (flint face at local +0.09)
+const WALL_W = TERRACE.x - TERRACE.w / 2 + WALL_FACE - 0.09 * TERRACE_WALL.scale; // the west run, its face to the east
+const WALL_E = TERRACE.x + TERRACE.w / 2 - WALL_FACE + 0.09 * TERRACE_WALL.scale; // the east run, its face to the west
+const VAULT_Z = TERRACE.z - TERRACE.d / 2 + WALL_FACE - 0.1; // the N01 placement (its wall section's face at local +0.10, flush with the walls)
 const GH = { x: -360, z: -170 }; // the Gentle House on its far hill, across the fens (WNW)
 // GLB placements with a feature off the model pivot or a plain side to hide (ACT1_EXTRAS_FIT.md; the game camera looks from +z: −z faces never show)
 const FORGE = { x: -8.0, z: 33.6, yaw: -45 }; // open front to the square (SW); its plain −x / −z sides face NW / NE, away from the camera
@@ -111,6 +129,7 @@ const COTTAGES = [
 	{ id: 'c9', name: "Peat cutter's cottage", x: 44, z: 36, yaw: -160 },
 	{ id: 'c10', name: "Peat cutter's cottage", x: 68, z: 40, yaw: 170 },
 ];
+const EDDA = COTTAGES.find((c) => c.id === 'edda');
 /** Peat cuttings east of the village: rectangular pits of standing black water with peat stacks drying beside them. */
 const CUTTINGS = [
 	{ id: 'cut1', x: 52, z: 22, w: 10, d: 3.2, yaw: 12 },
@@ -181,9 +200,10 @@ export const PLAN = {
 		{ id: 'peatTrack', kind: 'track', label: 'Peat track (to the cuttings)', points: [[20, 22], [32, 26], [44, 29], [56, 30], [68, 32], [82, 30]], width: 2.0, surface: 'packed', smooth: 2 },
 		{ id: 'terraceRamp', kind: 'track', label: 'Ramp to the vault terrace (hub)', points: [[24, 15], [28, 8], [34, -2], [39, -12], [43, -18.5]], width: 2.4, surface: 'packed', smooth: 2 },
 		{ id: 'dike', kind: 'dike', label: 'Dike road to the Night Fens', points: [[-66, 27], [-75, 26], [-86, 23.5], [-97, 21.5], [-108, 20.5]], width: 3.6, dike: { crest: 0.92, bank: 2.6 }, surface: 'packed', smooth: 1 },
-		{ id: 'w1', kind: 'walkway', label: "Walkway across the mere to Edda's house", asset: 'A01.2', points: [[-37, 43.2], [-38, 49], [-40, 54.5], [-41.2, 58.6]], width: 1.4, deck: DECK, surface: 'wood' },
-		{ id: 'w2', kind: 'walkway', label: 'Walkway to the eel racks', asset: 'A01.2', points: [[-23, 46], [-21.5, 52], [-17.5, 58], [-12, 61.5]], width: 1.4, deck: DECK, surface: 'wood', ramps: 'start' },
-		{ id: 'w3', kind: 'walkway', label: 'Fishing jetty (west)', asset: 'A01.2', points: [[-63, 49], [-67, 54], [-70.5, 58]], width: 1.4, deck: 0.62, surface: 'wood', ramps: 'start' },
+		// the A01.2 GLB pieces are the visible deck (laid end to end, their deck top on `deck`): the walkways are the walk surface only (hidden), 1.8 m wide
+		{ id: 'w1', kind: 'walkway', label: "Walkway across the mere to Edda's house", asset: 'A01.2', points: [[-37, 43.2], [-38, 49], [-40, 54.5], [-41.2, 58.6]], width: 1.8, deck: DECK, surface: 'wood', hidden: true },
+		{ id: 'w2', kind: 'walkway', label: 'Walkway to the eel racks', asset: 'A01.2', points: [[-23, 46], [-21.5, 52], [-17.5, 58], [-12, 61.5]], width: 1.8, deck: DECK, surface: 'wood', ramps: 'start', hidden: true },
+		{ id: 'w3', kind: 'walkway', label: 'Fishing jetty (west)', asset: 'A01.2', points: [[-63, 49], [-67, 54], [-70.5, 58]], width: 1.8, deck: 0.62, surface: 'wood', ramps: 'start', hidden: true },
 	],
 	layers: [
 		{ id: 'BIO01_peat', tile: 4.5 }, // 0 wet peat (the base: the village sits on it, the fen edge)
@@ -235,10 +255,11 @@ export const PLAN = {
 	structures: [
 		// the threshold, church, summit, terrace
 		{ asset: 'A02.1', x: LYCHGATE.x, z: LYCHGATE.z, yaw: 0, name: 'The lychgate', label: 'A02.1 Lychgate (lamp)', pad: { margin: 1.2, soft: 1.5 } },
+		{ asset: 'A16.6-lantern', x: LYCHGATE.x, z: LYCHGATE.z + 0.97, yaw: 0, dy: LANTERN.top - LANTERN.h * LANTERN.scale, scale: LANTERN.scale, name: 'The lychgate lamp' }, // under the front tie beam
 		{ asset: 'A15.1', x: CHURCH.x, z: CHURCH.z, yaw: 0, name: 'The flint church', pad: { margin: 2.5, soft: 5 } },
-		{ asset: 'A02.4', x: SUMMIT.x, z: SUMMIT.z, yaw: -90, name: 'The ossuary tower', pad: { margin: 1.5, soft: 2 } },
-		{ asset: 'A02.5', x: SAINT.x, z: SAINT.z, yaw: -41, name: 'The Nameless Saint (on the path)' }, // on the path, turned toward the lychgate; the path parts round it
-		{ asset: 'N01', x: TERRACE.x, z: TERRACE.z - TERRACE.d / 2 - 0.45, yaw: 0, y: TERRACE.y, name: 'Barrow family vault door', collide: true },
+		{ asset: 'A02.4', x: SUMMIT.x, z: SUMMIT.z, yaw: -90, scale: 0.85, name: 'The ossuary tower', pad: { margin: 1.5, soft: 2 } },
+		{ asset: 'A02.5', x: SAINT.x, z: SAINT.z, yaw: 0, name: 'The Nameless Saint (on the path)' }, // on the path, its broad face to the game camera (QA: side-on its arch's end blocks read as a faint cross); the path parts round it
+		{ asset: 'N01', x: TERRACE.x, z: VAULT_Z, yaw: 0, y: 'min', name: 'Barrow family vault door', collide: true },
 		{ asset: 'A16.6', ...SEXTON[0], name: "Sexton's lamp post (church door)" },
 		{ asset: 'A16.6', ...SEXTON[1], name: "Sexton's lamp post (fresh grave)" },
 		{ asset: 'glb:dungeon-prop-candle-cluster', x: 7.0, z: -32.0, yaw: 20, name: 'Candles at the church door' },
@@ -260,15 +281,15 @@ export const PLAN = {
 		{ asset: 'N06', x: 1.5, z: 22.5, yaw: -20, name: 'Washing line' },
 		{ asset: 'N07', x: -27.5, z: 60.5, yaw: 15, name: 'Drying net' },
 		{ asset: 'N07', x: -66.5, z: 48.0, yaw: 60, name: 'Drying net' },
-		{ asset: 'A01.6', x: -14.0, z: 57.8, yaw: 30, name: 'Eel-trap rack' },
-		{ asset: 'A01.6', x: -8.0, z: 61.4, yaw: 15, name: 'Eel-trap rack' },
-		{ asset: 'A01.6', x: -69.0, z: 41.5, yaw: 80, name: 'Eel-trap rack' },
+		{ asset: 'A01.6', x: -14.0, z: 57.8, yaw: 30, scale: 0.85, name: 'Eel-trap rack' },
+		{ asset: 'A01.6', x: -8.0, z: 61.4, yaw: 15, scale: 0.85, name: 'Eel-trap rack' },
+		{ asset: 'A01.6', x: -69.0, z: 41.5, yaw: 80, scale: 0.85, name: 'Eel-trap rack' },
 		// cottages (stilts, door sprig, rain barrel, peat stack)
 		...COTTAGES.map((c) => ({ asset: 'A01.1', x: c.x, z: c.z, yaw: c.yaw, name: c.name ?? 'Stilt cottage', tag: c.id, pad: { margin: 0.8, soft: 1.2 } })),
 		...COTTAGES.map((c) => {
 			const yaw = c.yaw * (Math.PI / 180);
-			const off = 2.05; // door face = local +z
-			return { asset: 'N05', x: c.x + Math.sin(yaw) * off, z: c.z + Math.cos(yaw) * off, yaw: c.yaw, y: 'ground', dy: 1.5, tag: 'accent', name: 'Poppy sprig on the door' };
+			const off = 1.06; // door face = local +z (the GLB's door: z +1.0, 0.95–2.4 m up over the ladder)
+			return { asset: 'N05', x: c.x + Math.sin(yaw) * off, z: c.z + Math.cos(yaw) * off, yaw: c.yaw, y: 'ground', dy: 1.75, tag: 'accent', name: 'Poppy sprig on the door' };
 		}),
 		...COTTAGES.filter((c) => c.id !== 'edda').map((c, i) => {
 			const yaw = c.yaw * (Math.PI / 180);
@@ -281,13 +302,13 @@ export const PLAN = {
 		}),
 		...CUTTINGS.flatMap((c, i) => [0, 1].map((k) => ({ asset: 'N04', x: c.x + (k ? 3 : -3) + i * 0.5, z: c.z - 3.2 - k * 0.4, yaw: c.yaw + k * 15, name: 'Peat stack (drying)' }))),
 		{ asset: 'N12', x: 57.5, z: 18.2, yaw: 40, name: 'Peat barrow' },
-		{ asset: 'A01.6', x: 86.0, z: 34.0, yaw: 100, name: 'Eel-trap rack' },
+		{ asset: 'A01.6', x: 86.0, z: 34.0, yaw: 100, scale: 0.85, name: 'Eel-trap rack' },
 		// the churchyard: rites, graves, mortsafes, the gibbet, the cart, the vigil chair
 		{ asset: 'A16.5', x: -4.5, z: -17.5, yaw: -30, name: 'Rite 1 · the risen grave', tag: 'rite' },
 		{ asset: 'A16.4', x: -34.5, z: -24.5, yaw: 55, name: 'Rite 2 · the fresh grave', tag: 'rite' },
-		{ asset: 'A02.6', x: -37.6, z: -21.6, yaw: 120, scale: 1.2, name: 'Funeral hand cart (Rite 2)' },
+		{ asset: 'A02.6', x: -37.6, z: -21.6, yaw: 120, name: 'Funeral hand cart (Rite 2)' },
 		{ asset: 'A16.3', x: -47.0, z: -6.5, yaw: 80, scale: 0.62, name: "Rite 3 · a child's grave", tag: 'rite' },
-		{ asset: 'N10', x: -48.6, z: -4.4, yaw: -150, name: 'Vigil chair (unmarked vignette)' },
+		{ asset: 'N10', x: -48.6, z: -4.4, yaw: 143, name: 'Vigil chair (unmarked vignette)' }, // turned to face the child's grave (A16.3 at −47, −6.5): the A21.4 GLB shows which way it faces
 		{ asset: 'A16.2', ...GIBBET, name: 'The tarred gibbet' },
 		{ asset: 'A16.3', x: -44.6, z: -47.2, yaw: 20, name: 'Rite 4 · the grave under the gibbet', tag: 'rite' },
 		{ asset: 'A02.3', x: 30.0, z: -57.5, yaw: 10, name: 'Rite 5 · the Mallow family stones', tag: 'rite' },
@@ -323,11 +344,12 @@ export const PLAN = {
 		{ asset: 'A01.3', points: [[-68, 32], [-73, 44]], tag: 'village-wall' },
 		{ asset: 'A01.3', points: [[25, -60.5], [35, -60.5], [35, -51], [31, -51]], tag: 'family-plot' },
 		{ asset: 'A01.3', points: [[25, -51], [25, -60.5]], tag: 'family-plot' },
-		// the retaining wall on the uphill side, in two runs either side of the vault door portal (N01, 2.4 m wide)
-		{ asset: 'N02', points: [[TERRACE.x - TERRACE.w / 2 - 0.45, TERRACE.z - TERRACE.d / 2 - 0.45], [TERRACE.x - 1.2, TERRACE.z - TERRACE.d / 2 - 0.45]], y: 'min', tag: 'terrace', flip: true },
-		{ asset: 'N02', points: [[TERRACE.x + 1.2, TERRACE.z - TERRACE.d / 2 - 0.45], [TERRACE.x + TERRACE.w / 2 + 0.45, TERRACE.z - TERRACE.d / 2 - 0.45]], y: 'min', tag: 'terrace', flip: true },
-		{ asset: 'N02', points: [[TERRACE.x - TERRACE.w / 2 - 0.45, TERRACE.z + 2.6], [TERRACE.x - TERRACE.w / 2 - 0.45, TERRACE.z - TERRACE.d / 2]], y: 'min', tag: 'terrace' },
-		{ asset: 'N02', points: [[TERRACE.x + TERRACE.w / 2 + 0.45, TERRACE.z - TERRACE.d / 2], [TERRACE.x + TERRACE.w / 2 + 0.45, TERRACE.z + 3.5]], y: 'min', tag: 'terrace' },
+		// the retaining wall on the uphill side, in two runs either side of the vault door portal (N01, 3.7 m wide: the runs stop at its ends); the A21.2
+		// GLB ×1.55 (one 6.2 m module per 6.1–7 m run), its outer face (+z) to the terrace, a 0.2 m parapet over the uphill ground
+		{ asset: 'N02', points: [[WALL_W, WALL_Z], [TERRACE.x - VAULT_HALF, WALL_Z]], y: 'min', tag: 'terrace', ...TERRACE_WALL },
+		{ asset: 'N02', points: [[TERRACE.x + VAULT_HALF, WALL_Z], [WALL_E, WALL_Z]], y: 'min', tag: 'terrace', ...TERRACE_WALL },
+		{ asset: 'N02', points: [[WALL_W, TERRACE.z + 2.6], [WALL_W, WALL_Z]], y: 'min', tag: 'terrace', ...TERRACE_WALL },
+		{ asset: 'N02', points: [[WALL_E, WALL_Z], [WALL_E, TERRACE.z + 3.5]], y: 'min', tag: 'terrace', ...TERRACE_WALL },
 		{ asset: 'A01.4', points: [[-52, 17], [-42, 16]], tag: 'hurdles' },
 		{ asset: 'A01.4', points: [[-61, 33], [-61, 42]], tag: 'hurdles' },
 		{ asset: 'A01.4', points: [[2, 41], [12, 42.5]], tag: 'hurdles' },
@@ -335,7 +357,8 @@ export const PLAN = {
 		{ asset: 'A01.4', points: [[-26, 48], [-16, 50]], tag: 'hurdles' },
 		{ asset: 'A01.4', points: [[38, 40], [38, 31], [47, 30.5]], tag: 'hurdles' },
 		{ asset: 'A01.4', points: [[62, 45], [74, 45.5]], tag: 'hurdles' },
-		{ asset: 'A06.1', points: [[-70, 24.2], [-85, 21.6], [-96, 19.6], [-104, 18.6]], gaps: [[-90, 20.8, 2.5]], tag: 'dike' },
+		{ asset: 'A06.1', points: [[-69, 26.67], [-75, 26], [-86, 23.5], [-97, 21.5], [-104, 20.86]], y: 'ground', dy: -0.35, tag: 'dike' }, // the causeway on the crest (0.92), its top flush
+		{ asset: 'A06.1-posts', points: [[-70, 24.2], [-85, 21.6], [-96, 19.6], [-104, 18.6]], gaps: [[-90, 20.8, 2.5]], tag: 'dike' }, // revetment posts on the south bank
 	],
 	scatters: [
 		{ asset: 'A03.1', count: 900, area: { rect: [-100, -76, 100, 66] }, spacing: 1.1, clear: { paths: 0.6, water: 0.6, structures: 0.4, decks: 0.6 }, height: [0.5, 40], scale: [0.7, 1.25], seed: 31 },
@@ -345,10 +368,10 @@ export const PLAN = {
 		{ asset: 'N09', count: 14, area: { poly: [[-74, 12], [-60, 10], [-8, 10], [24, 14], [26, 52], [-8, 56], [-60, 60], [-78, 46]] }, spacing: 6, clear: { paths: 2.5, structures: 2.5, water: 1.2, decks: 1.5 }, scale: [0.8, 1.3], seed: 53 },
 	],
 	lights: [
-		{ id: 'lychgateLamp', kind: 'human', label: 'Lychgate lamp (the threshold light)', x: LYCHGATE.x, z: LYCHGATE.z + 0.2, y: 2.55, color: '#e0a050', intensity: 9, range: 10, flicker: 1, real: true, glow: 0.55, seed: 1, night: { intensity: 3.2, range: 7, glow: 0.3 } }, // Prologue: lit but small and far, the goal seen from the church steps (LD 10.2)
+		{ id: 'lychgateLamp', kind: 'human', label: 'Lychgate lamp (the threshold light, in the A16.6 lantern under the front tie beam)', x: LYCHGATE.x, z: LYCHGATE.z + 0.97, y: LANTERN.flame, color: '#e0a050', intensity: 9, range: 10, flicker: 1, real: true, glow: 0.3, seed: 1, night: { intensity: 3.2, range: 7, glow: 0.2 } }, // Prologue: lit but small and far, the goal seen from the church steps (LD 10.2)
 		onModel(FORGE, [-0.85, 0.85, -0.6], { id: 'forge', kind: 'human', label: "Brannoc's forge (the model hearth)", color: '#e8823a', intensity: 15, range: 9, flicker: 1.2, real: true, glow: 1.6, seed: 2, flag: 'forge' }),
 		{ id: 'square', kind: 'human', label: 'Windows round the square', x: -40, z: 27, y: 2.4, color: '#e0a050', intensity: 4, range: 9, flicker: 0.6, real: true, glow: 0, seed: 3, night: { intensity: 0.8 } }, // Prologue: the village sleeps, windows ≈ 20 %
-		{ id: 'edda', kind: 'human', label: "Edda's window", x: -41.6, z: 59.2, y: 2.2, color: '#e0a050', intensity: 4, range: 7, flicker: 0.6, real: true, glow: 0, seed: 4, moods: ['day', 'lookdev'] },
+		onModel(EDDA, [2.3, 2.17, -0.12], { id: 'edda', kind: 'human', label: "Edda's window (the model window, +x wall)", color: '#e0a050', intensity: 4, range: 7, flicker: 0.6, real: true, glow: 0, seed: 4, moods: ['day', 'lookdev'] }),
 		{ id: 'vault', kind: 'human', label: 'Candles at the vault door', x: TERRACE.x + 1.6, z: TERRACE.z - 1.9, y: 0.9, color: '#e8a858', intensity: 3.2, range: 6, flicker: 1, real: true, glow: 0.5, seed: 5, moods: ['day', 'lookdev'] },
 		{ id: 'churchDoor', kind: 'human', label: "Church door (Prologue: Gennet's lantern, the first warm light)", x: 6.6, z: -30.4, y: 1.7, color: '#e0a050', intensity: 5, range: 9, flicker: 1, real: true, glow: 0.7, seed: 6, night: { intensity: 14, range: 13, glow: 1.15 } },
 		onModel(OSRIC, [-1.0, 2.8, 0.87], { id: 'osric', kind: 'human', label: "Osric's fire basket (on the model)", color: '#e8903a', intensity: 6, range: 9, flicker: 1.1, real: true, glow: 1.0, seed: 7, moods: ['day', 'lookdev'] }),
@@ -430,17 +453,18 @@ export const PLAN = {
 		items: [{ asset: 'N-GH', x: GH.x, z: GH.z, yaw: 72 }],
 	},
 	defaultMood: 'day',
+	// Play moods brightened 10-23 (hemi, envI, exposure); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		day: {
-			label: 'Act I · mưa phùn ban ngày', sky: '#a9b1a6', ground: '#4a3526', hemi: 1.75, sun: { elev: 62, az: -150, intensity: 0.5, kelvin: 7000 }, env: 'hdri-overcast', envI: 0.3,
-			toneMapping: 'aces', exposure: 0.35, background: '#7d857b',
+			label: 'Act I · mưa phùn ban ngày', sky: '#a9b1a6', ground: '#4a3526', hemi: 2.3, sun: { elev: 62, az: -150, intensity: 0.5, kelvin: 7000 }, env: 'hdri-overcast', envI: 0.4,
+			toneMapping: 'aces', exposure: 0.75, background: '#7d857b',
 			fog: { enabled: true, color: '#8c958a', density: 0.016, falloff: 0.11, height: 0, start: 12, inscatter: 0 },
 			grade: { vignette: 0.32, contrast: 1.05, saturation: 0.86, lift: 0, temperature: -0.02, tint: 0 },
 			rain: 0.4, mist: 0.55, human: 0.7, perfection: 1, windows: 0.55, flags: { accent: true, graveCandles: true, gentleHouse: true, forge: true, gennetLantern: false },
 		},
 		night: {
-			label: 'Prologue · đêm mưa', sky: '#4e5f7a', ground: '#1c241f', hemi: 1.8, sun: { elev: 44, az: 160, intensity: 0.8, kelvin: 9000 }, env: 'hdri-night', envI: 0.1,
-			toneMapping: 'aces', exposure: 1.25, background: '#0e1317', rainTone: 0.4,
+			label: 'Prologue · đêm mưa', sky: '#4e5f7a', ground: '#1c241f', hemi: 2.2, sun: { elev: 44, az: 160, intensity: 0.8, kelvin: 9000 }, env: 'hdri-night', envI: 0.12,
+			toneMapping: 'aces', exposure: 1.5, background: '#0e1317', rainTone: 0.4,
 			fog: { enabled: true, color: '#1a2228', density: 0.016, falloff: 0.1, height: 0, start: 8, inscatter: 0 },
 			grade: { vignette: 0.55, contrast: 1.1, saturation: 0.78, lift: 0, temperature: -0.05, tint: 0 },
 			rain: 1, mist: 0.75, human: 1.0, perfection: 0, windows: 0.2, flags: { accent: false, graveCandles: false, gentleHouse: false, forge: false, gennetLantern: true }, // Gennet's lantern first; the Gentle House window off

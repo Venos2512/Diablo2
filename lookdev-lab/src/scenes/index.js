@@ -23,4 +23,5 @@ export const SCENES = {
 	act1Lychgate: { label: 'ASHLAR · Act I · base · Lychgate → Churchyard', create: (app) => new Act1OutdoorScene(app, 'lychgate') },
 	act1Fens: { label: 'ASHLAR · Act I · base · Night Fens → Rook\'s Weir', create: (app) => new Act1OutdoorScene(app, 'fens') },
 	act1PoppyReach: { label: 'ASHLAR · Act I · base · Poppy Reach', create: (app) => new Act1OutdoorScene(app, 'poppyReach') },
+	act1LychgateHub: { label: 'ASHLAR · Act I · hub · Lychgate có tường (seed 21)', create: (app) => new Act1OutdoorScene(app, 'lychgateHub') },
 };

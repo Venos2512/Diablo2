@@ -1,0 +1,2284 @@
+{
+ "id": "gen-hub-64-s19",
+ "seed": 19,
+ "bounds": {
+  "x0": -32,
+  "z0": -32,
+  "x1": 32,
+  "z1": 32
+ },
+ "defaultZone": "moor",
+ "autoMasses": false,
+ "zones": [
+  {
+   "id": "square",
+   "kind": "village",
+   "shape": {
+    "x": 3.71,
+    "z": 9.68,
+    "r": 5.79
+   }
+  },
+  {
+   "id": "pond-banks",
+   "kind": "bank",
+   "shape": {
+    "x": -10.51,
+    "z": -4,
+    "r": 5.94
+   }
+  }
+ ],
+ "paths": [
+  {
+   "id": "route",
+   "kind": "road",
+   "points": [
+    {
+     "x": 31,
+     "z": -0.16
+    },
+    {
+     "x": 27.9,
+     "z": -0.16
+    },
+    {
+     "x": 24.8,
+     "z": -0.16
+    },
+    {
+     "x": 21.71,
+     "z": -0.16
+    },
+    {
+     "x": 18.78,
+     "z": -0.76
+    },
+    {
+     "x": 15.54,
+     "z": -0.99
+    },
+    {
+     "x": 13.21,
+     "z": -0.16
+    },
+    {
+     "x": 11.08,
+     "z": 2.21
+    },
+    {
+     "x": 9.67,
+     "z": 4.45
+    },
+    {
+     "x": 8.24,
+     "z": 6.87
+    },
+    {
+     "x": 6.8,
+     "z": 9.15
+    },
+    {
+     "x": 4.55,
+     "z": 11.65
+    },
+    {
+     "x": 2.24,
+     "z": 12.76
+    },
+    {
+     "x": -0.94,
+     "z": 13.08
+    },
+    {
+     "x": -3.46,
+     "z": 13
+    },
+    {
+     "x": -6.18,
+     "z": 13.06
+    },
+    {
+     "x": -9.36,
+     "z": 13.08
+    },
+    {
+     "x": -12.69,
+     "z": 13
+    },
+    {
+     "x": -15.68,
+     "z": 12.91
+    },
+    {
+     "x": -18.45,
+     "z": 12.87
+    },
+    {
+     "x": -21.04,
+     "z": 12.87
+    },
+    {
+     "x": -21.4,
+     "z": 12.87
+    }
+   ],
+   "width": 3,
+   "inhabited": true
+  },
+  {
+   "inhabited": true,
+   "id": "lane-vault",
+   "kind": "trail",
+   "width": 1.6,
+   "points": [
+    {
+     "x": -1.52,
+     "z": -18.53
+    },
+    {
+     "x": 14.35,
+     "z": -0.57
+    }
+   ]
+  },
+  {
+   "id": "hill-trail",
+   "kind": "trail",
+   "width": 2.4,
+   "points": [
+    {
+     "x": -27.8,
+     "z": 12.87
+    },
+    {
+     "x": -31,
+     "z": 12.87
+    }
+   ],
+   "inhabited": true
+  },
+  {
+   "inhabited": true,
+   "id": "walkway-edda",
+   "kind": "branch",
+   "width": 1.8,
+   "points": [
+    {
+     "x": -7.38,
+     "z": -0.86
+    },
+    {
+     "x": -12.81,
+     "z": -6.27
+    }
+   ],
+   "deck": true
+  },
+  {
+   "inhabited": true,
+   "id": "lane-edda",
+   "kind": "trail",
+   "width": 1.6,
+   "points": [
+    {
+     "x": -7.38,
+     "z": -0.86
+    },
+    {
+     "x": -7.29,
+     "z": 13.07
+    }
+   ]
+  },
+  {
+   "inhabited": true,
+   "id": "jetty",
+   "kind": "trail",
+   "width": 1.8,
+   "points": [
+    {
+     "x": -10.02,
+     "z": -7.86
+    },
+    {
+     "x": -10.6,
+     "z": -3.3
+    }
+   ],
+   "deck": true,
+   "jetty": true
+  },
+  {
+   "inhabited": true,
+   "id": "lane-jetty",
+   "kind": "trail",
+   "width": 1.6,
+   "points": [
+    {
+     "x": -10.02,
+     "z": -7.86
+    },
+    {
+     "x": -7.38,
+     "z": -0.86
+    }
+   ]
+  }
+ ],
+ "water": [
+  {
+   "id": "fen",
+   "polygon": [
+    {
+     "x": -27.35,
+     "z": 15.47
+    },
+    {
+     "x": -27.35,
+     "z": 30
+    },
+    {
+     "x": 24.31,
+     "z": 30
+    },
+    {
+     "x": 24.31,
+     "z": -22.86
+    },
+    {
+     "x": -27.35,
+     "z": -22.86
+    },
+    {
+     "x": -27.35,
+     "z": 10.27
+    },
+    {
+     "x": -32,
+     "z": 10.27
+    },
+    {
+     "x": -32,
+     "z": -32
+    },
+    {
+     "x": 32,
+     "z": -32
+    },
+    {
+     "x": 32,
+     "z": 32
+    },
+    {
+     "x": -32,
+     "z": 32
+    },
+    {
+     "x": -32,
+     "z": 15.47
+    }
+   ]
+  },
+  {
+   "id": "pond",
+   "polygon": [
+    {
+     "x": -9.2,
+     "z": -1.41
+    },
+    {
+     "x": -10.04,
+     "z": -0.99
+    },
+    {
+     "x": -11,
+     "z": -0.94
+    },
+    {
+     "x": -11.93,
+     "z": -1.23
+    },
+    {
+     "x": -12.58,
+     "z": -1.93
+    },
+    {
+     "x": -13.21,
+     "z": -2.62
+    },
+    {
+     "x": -13.54,
+     "z": -3.51
+    },
+    {
+     "x": -13.4,
+     "z": -4.45
+    },
+    {
+     "x": -13.09,
+     "z": -5.3
+    },
+    {
+     "x": -12.7,
+     "z": -6.18
+    },
+    {
+     "x": -11.84,
+     "z": -6.61
+    },
+    {
+     "x": -10.95,
+     "z": -6.79
+    },
+    {
+     "x": -10.06,
+     "z": -6.86
+    },
+    {
+     "x": -9.17,
+     "z": -6.63
+    },
+    {
+     "x": -8.35,
+     "z": -6.16
+    },
+    {
+     "x": -7.7,
+     "z": -5.43
+    },
+    {
+     "x": -7.78,
+     "z": -4.44
+    },
+    {
+     "x": -7.8,
+     "z": -3.57
+    },
+    {
+     "x": -7.91,
+     "z": -2.67
+    },
+    {
+     "x": -8.58,
+     "z": -2.07
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "id": "lychgate",
+   "at": {
+    "x": -23.1,
+    "z": 12.87
+   },
+   "yaw": 1.57,
+   "kind": "gate",
+   "width": 2.4,
+   "depth": 3,
+   "mass": "lychgate-1",
+   "exit": {
+    "to": "Churchyard",
+    "label": "Lychgate → Churchyard"
+   }
+  },
+  {
+   "id": "vault-door",
+   "at": {
+    "x": -1.52,
+    "z": -19.73
+   },
+   "yaw": 0,
+   "kind": "door",
+   "width": 2.2,
+   "depth": 3,
+   "mass": "vault-door-1",
+   "exit": {
+    "to": "The Barrow vault",
+    "label": "One for the Footing"
+   }
+  },
+  {
+   "id": "main-gate",
+   "at": {
+    "x": 21.71,
+    "z": -0.16
+   },
+   "yaw": 1.57,
+   "kind": "gate",
+   "width": 3,
+   "depth": 3,
+   "mass": "gate-post-1"
+  },
+  {
+   "id": "edda-door",
+   "at": {
+    "x": -13.52,
+    "z": -6.98
+   },
+   "yaw": 0.78,
+   "kind": "door",
+   "width": 1.4,
+   "depth": 2.6,
+   "mass": "edda-house-1",
+   "exit": {
+    "to": "Edda's Dream",
+    "label": "The Broth → Edda's Dream"
+   },
+   "poppy": true
+  },
+  {
+   "id": "door-forge",
+   "at": {
+    "x": 2.14,
+    "z": 0.13
+   },
+   "yaw": 0.02,
+   "kind": "entrance",
+   "width": 3,
+   "depth": 3,
+   "mass": "forge-1"
+  },
+  {
+   "id": "door-cottage-1",
+   "at": {
+    "x": -12.71,
+    "z": 6.83
+   },
+   "yaw": 1.62,
+   "kind": "door",
+   "width": 1.4,
+   "depth": 2.6,
+   "mass": "cottage-1",
+   "poppy": true
+  },
+  {
+   "id": "door-cottage-2",
+   "at": {
+    "x": -6.91,
+    "z": -13.5
+   },
+   "yaw": 1.52,
+   "kind": "door",
+   "width": 1.4,
+   "depth": 2.6,
+   "mass": "cottage-2",
+   "poppy": true
+  },
+  {
+   "id": "door-cottage-3",
+   "at": {
+    "x": 14.62,
+    "z": -12.61
+   },
+   "yaw": 2.02,
+   "kind": "door",
+   "width": 1.4,
+   "depth": 2.6,
+   "mass": "cottage-3",
+   "poppy": true
+  }
+ ],
+ "interactions": [
+  {
+   "id": "osric",
+   "at": {
+    "x": 16.59,
+    "z": -3.12
+   },
+   "radius": 1.5,
+   "label": "Osric"
+  },
+  {
+   "id": "brannoc",
+   "at": {
+    "x": 2.17,
+    "z": 2.13
+   },
+   "radius": 1.5,
+   "label": "Brannoc"
+  },
+  {
+   "id": "bell",
+   "at": {
+    "x": 10.52,
+    "z": 18.66
+   },
+   "radius": 1.3,
+   "label": "Bell"
+  },
+  {
+   "id": "name-board",
+   "at": {
+    "x": 7.06,
+    "z": 1.93
+   },
+   "radius": 1.3,
+   "label": "Name board"
+  },
+  {
+   "id": "nell",
+   "at": {
+    "x": 16.16,
+    "z": 13.97
+   },
+   "radius": 1.5,
+   "label": "Nell"
+  }
+ ],
+ "spawns": [],
+ "arenas": [],
+ "hosts": [],
+ "events": [],
+ "masses": [
+  {
+   "id": "palisade-angle-1",
+   "kind": "building",
+   "footprint": {
+    "w": 3.2,
+    "d": 3.2
+   },
+   "height": 3.39,
+   "at": {
+    "x": -24.75,
+    "z": -20.26
+   },
+   "yaw": 1.57,
+   "label": "Palisade angle",
+   "glb": "palisade.wall_angle",
+   "tag": "wall",
+   "piece": "tower",
+   "fade": false
+  },
+  {
+   "id": "palisade-1",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": -16.8
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-2",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": -13.08
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-3",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": -9.36
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-4",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": -5.63
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-5",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": -1.91
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-6",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 1.81
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-7",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 5.53
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-8",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 9.26
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "lychgate-1",
+   "kind": "building",
+   "footprint": {
+    "w": 3.51,
+    "d": 3.3
+   },
+   "height": 3.8,
+   "at": {
+    "x": -24.75,
+    "z": 12.87
+   },
+   "yaw": 1.57,
+   "label": "Lychgate",
+   "glb": "A02.1",
+   "tag": "wall",
+   "piece": "lychgate",
+   "fade": false
+  },
+  {
+   "id": "palisade-9",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 16.49
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-10",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 20.21
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-11",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.66,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -24.75,
+    "z": 23.94
+   },
+   "yaw": 1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-angle-2",
+   "kind": "building",
+   "footprint": {
+    "w": 3.2,
+    "d": 3.2
+   },
+   "height": 3.39,
+   "at": {
+    "x": -24.75,
+    "z": 27.4
+   },
+   "yaw": 1.57,
+   "label": "Palisade angle",
+   "glb": "palisade.wall_angle",
+   "tag": "wall",
+   "piece": "tower",
+   "fade": false
+  },
+  {
+   "id": "palisade-12",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -21.35,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 7
+  },
+  {
+   "id": "palisade-13",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -17.74,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 20.25
+  },
+  {
+   "id": "palisade-14",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -14.14,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-15",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -10.53,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-16",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -6.93,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 21.5
+  },
+  {
+   "id": "palisade-17",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -3.32,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 21.5
+  },
+  {
+   "id": "palisade-18",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 0.28,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 21.5
+  },
+  {
+   "id": "palisade-19",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 3.89,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-20",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 7.49,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-21",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 11.09,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 21.5
+  },
+  {
+   "id": "palisade-22",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 14.7,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 21.5
+  },
+  {
+   "id": "palisade-23",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.54,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 18.3,
+    "z": 27.4
+   },
+   "yaw": 3.14,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 20.5
+  },
+  {
+   "id": "palisade-angle-3",
+   "kind": "building",
+   "footprint": {
+    "w": 3.2,
+    "d": 3.2
+   },
+   "height": 3.39,
+   "at": {
+    "x": 21.71,
+    "z": 27.4
+   },
+   "yaw": 1.57,
+   "label": "Palisade angle",
+   "glb": "palisade.wall_angle",
+   "tag": "wall",
+   "piece": "tower",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-24",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 23.93
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-25",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 20.21
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 17.75
+  },
+  {
+   "id": "palisade-26",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 16.48
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-27",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 12.76
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-28",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 9.03
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-29",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": 5.3
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "gate-post-1",
+   "kind": "building",
+   "footprint": {
+    "w": 1.2,
+    "d": 1.2
+   },
+   "height": 4.2,
+   "at": {
+    "x": 21.71,
+    "z": 2.84
+   },
+   "yaw": -1.57,
+   "label": "Gate post (blockout)",
+   "glb": "blockout.gate-post",
+   "tag": "wall",
+   "piece": "pier",
+   "fade": true,
+   "fadeArea": 9.75
+  },
+  {
+   "id": "gate-post-2",
+   "kind": "building",
+   "footprint": {
+    "w": 1.2,
+    "d": 1.2
+   },
+   "height": 4.2,
+   "at": {
+    "x": 21.71,
+    "z": -3.16
+   },
+   "yaw": -1.57,
+   "label": "Gate post (blockout)",
+   "glb": "blockout.gate-post",
+   "tag": "wall",
+   "piece": "pier",
+   "fade": true,
+   "fadeArea": 9.75
+  },
+  {
+   "id": "palisade-30",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": -5.62
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 19.5
+  },
+  {
+   "id": "palisade-31",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": -9.35
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-32",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": -13.07
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 18.5
+  },
+  {
+   "id": "palisade-33",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.67,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 21.71,
+    "z": -16.8
+   },
+   "yaw": -1.57,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": true,
+   "fadeArea": 5.25
+  },
+  {
+   "id": "palisade-angle-4",
+   "kind": "building",
+   "footprint": {
+    "w": 3.2,
+    "d": 3.2
+   },
+   "height": 3.39,
+   "at": {
+    "x": 21.71,
+    "z": -20.26
+   },
+   "yaw": 1.57,
+   "label": "Palisade angle",
+   "glb": "palisade.wall_angle",
+   "tag": "wall",
+   "piece": "tower",
+   "fade": false
+  },
+  {
+   "id": "palisade-34",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 18.13,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-35",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 14.19,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-36",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 10.25,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-37",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": 6.3,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "retaining-wall-1",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.91,
+    "d": 0.73
+   },
+   "height": 2.16,
+   "at": {
+    "x": 2.34,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Flint retaining wall",
+   "glb": "N02",
+   "tag": "wall",
+   "piece": "wing",
+   "fade": false
+  },
+  {
+   "id": "retaining-wall-2",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.91,
+    "d": 0.73
+   },
+   "height": 2.16,
+   "at": {
+    "x": -5.39,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Flint retaining wall",
+   "glb": "N02",
+   "tag": "wall",
+   "piece": "wing",
+   "fade": false
+  },
+  {
+   "id": "vault-door-1",
+   "kind": "building",
+   "footprint": {
+    "w": 3.7,
+    "d": 1.07
+   },
+   "height": 2.8,
+   "at": {
+    "x": -1.52,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Barrow vault door",
+   "glb": "N01",
+   "tag": "wall",
+   "piece": "vault",
+   "fade": false
+  },
+  {
+   "id": "palisade-38",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -9.34,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-39",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -13.29,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-40",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -17.23,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "palisade-41",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.88,
+    "d": 2.24
+   },
+   "height": 3.32,
+   "at": {
+    "x": -21.18,
+    "z": -20.26
+   },
+   "yaw": 0,
+   "label": "Palisade wall",
+   "glb": "palisade.wall_a",
+   "tag": "wall",
+   "piece": "module",
+   "fade": false
+  },
+  {
+   "id": "osric-post-1",
+   "kind": "building",
+   "footprint": {
+    "w": 3,
+    "d": 3.46
+   },
+   "height": 3.89,
+   "at": {
+    "x": 14.58,
+    "z": -5.9
+   },
+   "yaw": 0.62,
+   "label": "Osric's watch post",
+   "glb": "A15.6"
+  },
+  {
+   "id": "edda-house-1",
+   "kind": "building",
+   "footprint": {
+    "w": 5.42,
+    "d": 5.23
+   },
+   "height": 5.2,
+   "at": {
+    "x": -15.36,
+    "z": -8.84
+   },
+   "yaw": 0.78,
+   "label": "Edda's house",
+   "glb": "A01.1"
+  },
+  {
+   "id": "eel-rack-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 4,
+    "d": 1.68
+   },
+   "height": 2.55,
+   "at": {
+    "x": -5.72,
+    "z": -8.46
+   },
+   "yaw": -0.13,
+   "label": "Eel-trap rack",
+   "glb": "A01.6"
+  },
+  {
+   "id": "willow-1",
+   "kind": "tree",
+   "footprint": {
+    "w": 2.2,
+    "d": 2.2
+   },
+   "height": 6,
+   "at": {
+    "x": -14.31,
+    "z": 0.59
+   },
+   "yaw": -2.87,
+   "label": "Young willow",
+   "glb": "A04.2"
+  },
+  {
+   "id": "willow-2",
+   "kind": "tree",
+   "footprint": {
+    "w": 2.2,
+    "d": 2.2
+   },
+   "height": 6,
+   "at": {
+    "x": -17.79,
+    "z": -3.57
+   },
+   "yaw": 2.06,
+   "label": "Young willow",
+   "glb": "A04.2"
+  },
+  {
+   "id": "well-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 2.73,
+    "d": 2.39
+   },
+   "height": 3.4,
+   "at": {
+    "x": 1.87,
+    "z": 7.49
+   },
+   "yaw": 1.68,
+   "label": "Village well",
+   "glb": "A01.5"
+  },
+  {
+   "id": "forge-1",
+   "kind": "building",
+   "footprint": {
+    "w": 6,
+    "d": 4.1
+   },
+   "height": 4.05,
+   "at": {
+    "x": 2.1,
+    "z": -1.92
+   },
+   "yaw": 0.02,
+   "label": "Brannoc's forge",
+   "glb": "A15.2"
+  },
+  {
+   "id": "bell-frame-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 3.14,
+    "d": 1.98
+   },
+   "height": 3.4,
+   "at": {
+    "x": 8.19,
+    "z": 19.79
+   },
+   "yaw": 2.02,
+   "label": "Mourning bell frame",
+   "glb": "A15.4"
+  },
+  {
+   "id": "name-board-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 2.6,
+    "d": 1.24
+   },
+   "height": 2.31,
+   "at": {
+    "x": 7.98,
+    "z": 0.02
+   },
+   "yaw": -0.45,
+   "label": "Sleeper name board",
+   "glb": "A15.3"
+  },
+  {
+   "id": "stall-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 4.01,
+    "d": 1.93
+   },
+   "height": 2.3,
+   "at": {
+    "x": 13.58,
+    "z": 15.22
+   },
+   "yaw": 2.02,
+   "label": "Nell Coppercoin's stall",
+   "glb": "A15.5"
+  },
+  {
+   "id": "cottage-1",
+   "kind": "building",
+   "footprint": {
+    "w": 5.42,
+    "d": 5.23
+   },
+   "height": 5.2,
+   "at": {
+    "x": -15.32,
+    "z": 6.96
+   },
+   "yaw": 1.62,
+   "label": "Gennet Barrow's cottage",
+   "glb": "A01.1"
+  },
+  {
+   "id": "cottage-2",
+   "kind": "building",
+   "footprint": {
+    "w": 5.42,
+    "d": 5.23
+   },
+   "height": 5.2,
+   "at": {
+    "x": -9.52,
+    "z": -13.63
+   },
+   "yaw": 1.52,
+   "label": "Stilt cottage",
+   "glb": "A01.1"
+  },
+  {
+   "id": "cottage-3",
+   "kind": "building",
+   "footprint": {
+    "w": 5.42,
+    "d": 5.23
+   },
+   "height": 5.2,
+   "at": {
+    "x": 12.27,
+    "z": -11.47
+   },
+   "yaw": 2.02,
+   "label": "Stilt cottage",
+   "glb": "A01.1"
+  },
+  {
+   "id": "barrel-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 0.8,
+    "d": 0.8
+   },
+   "height": 1,
+   "at": {
+    "x": -16.47,
+    "z": 1.87
+   },
+   "yaw": 1.44,
+   "label": "Rain barrel",
+   "glb": "N03"
+  },
+  {
+   "id": "barrel-2",
+   "kind": "prop",
+   "footprint": {
+    "w": 0.8,
+    "d": 0.8
+   },
+   "height": 1,
+   "at": {
+    "x": -20.47,
+    "z": -6.03
+   },
+   "yaw": 0.51,
+   "label": "Rain barrel",
+   "glb": "N03"
+  },
+  {
+   "id": "peat-stack-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 1.6,
+    "d": 1.14
+   },
+   "height": 0.66,
+   "at": {
+    "x": 11.17,
+    "z": -15.6
+   },
+   "yaw": 1.97,
+   "label": "Peat stack",
+   "glb": "N04"
+  },
+  {
+   "id": "peat-stack-2",
+   "kind": "prop",
+   "footprint": {
+    "w": 1.6,
+    "d": 1.14
+   },
+   "height": 0.66,
+   "at": {
+    "x": -18.4,
+    "z": -6.07
+   },
+   "yaw": 0.67,
+   "label": "Peat stack",
+   "glb": "N04"
+  },
+  {
+   "id": "peat-stack-3",
+   "kind": "prop",
+   "footprint": {
+    "w": 1.6,
+    "d": 1.14
+   },
+   "height": 0.66,
+   "at": {
+    "x": 9.42,
+    "z": -15.31
+   },
+   "yaw": 2.07,
+   "label": "Peat stack",
+   "glb": "N04"
+  },
+  {
+   "id": "peat-barrow-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 1.2,
+    "d": 2.4
+   },
+   "height": 1,
+   "at": {
+    "x": -16.28,
+    "z": 3.26
+   },
+   "yaw": 1.59,
+   "label": "Peat barrow",
+   "glb": "N12",
+   "collision": false
+  },
+  {
+   "id": "washing-line-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 4.1,
+    "d": 0.85
+   },
+   "height": 2.1,
+   "at": {
+    "x": -20.69,
+    "z": 18.83
+   },
+   "yaw": 0.19,
+   "label": "Washing line",
+   "glb": "N06",
+   "collision": false
+  },
+  {
+   "id": "drying-net-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 4,
+    "d": 1.4
+   },
+   "height": 1.8,
+   "at": {
+    "x": -4.04,
+    "z": -2.06
+   },
+   "yaw": -0.62,
+   "label": "Drying net",
+   "glb": "N07",
+   "collision": false
+  },
+  {
+   "id": "hurdle-fence-1",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.2,
+    "d": 0.32
+   },
+   "height": 1.6,
+   "at": {
+    "x": 10.33,
+    "z": -17.22
+   },
+   "yaw": 0.47,
+   "label": "Willow hurdle fence",
+   "glb": "A01.4"
+  },
+  {
+   "id": "hurdle-fence-2",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.2,
+    "d": 0.32
+   },
+   "height": 1.6,
+   "at": {
+    "x": -20.56,
+    "z": 4.86
+   },
+   "yaw": -0.29,
+   "label": "Willow hurdle fence",
+   "glb": "A01.4"
+  },
+  {
+   "id": "hurdle-fence-3",
+   "kind": "wall",
+   "footprint": {
+    "w": 3.2,
+    "d": 0.32
+   },
+   "height": 1.6,
+   "at": {
+    "x": -21.32,
+    "z": 23.1
+   },
+   "yaw": 1.71,
+   "label": "Willow hurdle fence",
+   "glb": "A01.4"
+  },
+  {
+   "id": "bone-pile-1",
+   "kind": "prop",
+   "footprint": {
+    "w": 1.2,
+    "d": 1.2
+   },
+   "height": 0.6,
+   "at": {
+    "x": -5.05,
+    "z": -15.18
+   },
+   "yaw": 0.11,
+   "label": "Bone pile (skulls to count)",
+   "glb": "bone-pile"
+  }
+ ],
+ "start": {
+  "x": 29,
+  "z": -0.16
+ },
+ "exits": [
+  {
+   "id": "causeway",
+   "edge": "E",
+   "at": {
+    "x": 31,
+    "z": -0.16
+   },
+   "to": "Night Fens (the dike road)"
+  },
+  {
+   "id": "lychgate",
+   "edge": "W",
+   "at": {
+    "x": -31,
+    "z": 12.87
+   },
+   "to": "Churchyard"
+  }
+ ],
+ "square": {
+  "x": 3.71,
+  "z": 9.68,
+  "r": 5.79
+ },
+ "hub": {
+  "inEdge": "E",
+  "gateEdge": "W",
+  "side": "S",
+  "back": "N",
+  "backWater": false,
+  "inset": {
+   "N": 11.737077412028004,
+   "W": 7.2494225963018835,
+   "S": 4.6030346381523195,
+   "E": 10.293213636614382
+  },
+  "waterSides": [
+   "W",
+   "E",
+   "N",
+   "S"
+  ],
+  "causeway": {
+   "from": {
+    "x": 31,
+    "z": -0.16
+   },
+   "to": {
+    "x": 21.71,
+    "z": -0.16
+   },
+   "length": 9.29,
+   "segments": 3
+  },
+  "doorExits": [
+   {
+    "id": "lychgate",
+    "to": "Churchyard",
+    "label": "Lychgate → Churchyard"
+   },
+   {
+    "id": "vault-door",
+    "to": "The Barrow vault",
+    "label": "One for the Footing"
+   },
+   {
+    "id": "edda-door",
+    "to": "Edda's Dream",
+    "label": "The Broth → Edda's Dream"
+   }
+  ],
+  "pond": {
+   "c": {
+    "x": -10.51,
+    "z": -4
+   },
+   "rpa": 2.93,
+   "rpb": 2.94
+  },
+  "edda": {
+   "house": "edda-house-1",
+   "walkway": [
+    {
+     "x": -7.38,
+     "z": -0.86
+    },
+    {
+     "x": -12.81,
+     "z": -6.27
+    }
+   ],
+   "segments": 2
+  },
+  "jetty": {
+   "root": {
+    "x": -10.02,
+    "z": -7.86
+   },
+   "tip": {
+    "x": -10.6,
+    "z": -3.3
+   },
+   "rack": "eel-rack-6",
+   "at": "pond"
+  },
+  "vault": {
+   "edge": "N",
+   "v": -1.52
+  },
+  "style": "corner",
+  "wallModules": [],
+  "dressed": {
+   "barrels": 2,
+   "peat": 3,
+   "barrow": 1,
+   "washing": 1,
+   "net": 1,
+   "fences": 3,
+   "bones": 1
+  },
+  "willows": 2,
+  "unplaced": [],
+  "why": {
+   "pondr5": 3,
+   "A01.6:shadow-on:walkway": 3,
+   "A01.6:mass:cottage": 2,
+   "A04.2:mass:cottage": 12,
+   "A04.2:mass:rack": 7,
+   "A04.2:mass:willow": 4,
+   "A01.5:block:route": 7,
+   "A15.2:block:route": 60,
+   "A15.2:shadow-on:route": 22,
+   "A15.2:block:disk": 12,
+   "pondnpcfar": 10,
+   "A15.2:mass:wall": 3,
+   "A15.2:brings-door-in-shadow": 1,
+   "A15.4:block:disk": 8,
+   "A15.4:shadow-on:route": 37,
+   "A15.4:block:route": 52,
+   "A15.4:block:lane": 3,
+   "A15.3:shadow-on:door": 9,
+   "A15.3:mass:forge": 7,
+   "A15.3:block:route": 37,
+   "A15.3:block:door": 4,
+   "A15.3:shadow-on:route": 4,
+   "A15.3:block:disk": 1,
+   "A15.3:shadow-on:lane": 1,
+   "A15.5:mass:bell": 41,
+   "A15.5:block:npc": 2,
+   "A15.5:block:disk": 7,
+   "A15.5:shadow-on:route": 10,
+   "A15.5:block:route": 10,
+   "A01.1:mass:wall": 103,
+   "A01.1:mass:cottage": 189,
+   "A01.1:water": 87,
+   "A01.1:mass:willow": 42,
+   "A01.1:brings-door-in-shadow": 11,
+   "A01.1:brings-door-vs-mass:rack": 4,
+   "A01.1:mass:rack": 38,
+   "A01.1:block:door": 23,
+   "A01.1:block:lane": 44,
+   "A01.1:shadow-on:door": 31,
+   "A01.1:block:route": 31,
+   "A01.1:wall": 8,
+   "A01.1:mass:post": 19,
+   "A01.1:brings-door-vs-mass:post": 5,
+   "A01.1:shadow-on:route": 7,
+   "A01.1:block:walkway": 2,
+   "A01.1:mass:forge": 12,
+   "A01.1:mass:board": 1,
+   "A01.1:brings-door-vs-mass:wall": 1,
+   "A01.1:block:npc": 1,
+   "N03:mass:cottage": 1,
+   "N03:mass:wall": 2,
+   "N04:mass:barrel": 2,
+   "N04:mass:cottage": 6,
+   "N04:mass:peat-stack": 3,
+   "N04:block:route": 1,
+   "N04:mass:rack": 1,
+   "N04:water": 1,
+   "N04:mass:post": 1,
+   "N04:wall": 2,
+   "N04:mass:willow": 2,
+   "N04:mass:wall": 1,
+   "N12:water": 1,
+   "N12:block:route": 2,
+   "N12:mass:barrel": 1,
+   "N12:mass:rack": 2,
+   "N12:block:walkway": 1,
+   "N12:mass:cottage": 4,
+   "N12:mass:post": 6,
+   "N12:mass:wall": 2,
+   "N12:mass:peat-stack": 4,
+   "N12:mass:willow": 3,
+   "N06:mass:willow": 34,
+   "N06:mass:wall": 16,
+   "N06:mass:cottage": 21,
+   "N06:mass:peat-stack": 12,
+   "N06:mass:post": 16,
+   "N06:block:route": 16,
+   "N06:water": 3,
+   "N06:mass:rack": 7,
+   "N07:water": 2,
+   "N08:mass:stall": 20,
+   "A01.4:block:route": 17,
+   "A01.4:mass:barrel": 3,
+   "A01.4:mass:cottage": 19,
+   "A01.4:mass:post": 12,
+   "A01.4:mass:rack": 2,
+   "A01.4:mass:peat-stack": 15,
+   "A01.4:wall": 18,
+   "A01.4:mass:wall": 19,
+   "A01.4:mass:willow": 27,
+   "A01.4:water": 1,
+   "A01.4:mass:peat-barrow": 1,
+   "A01.4:block:walkway": 1,
+   "A01.4:block:npc": 1,
+   "bone-pile:mass:cottage": 3,
+   "bone-pile:block:lane": 3
+  },
+  "layout": "walled",
+  "transposed": true,
+  "ring": {
+   "poly": [
+    {
+     "x": 21.71,
+     "z": -20.26
+    },
+    {
+     "x": 21.71,
+     "z": 27.4
+    },
+    {
+     "x": -24.75,
+     "z": 27.4
+    },
+    {
+     "x": -24.75,
+     "z": -20.26
+    }
+   ],
+   "W": 46.46,
+   "H": 47.66,
+   "style": "square",
+   "corners": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "centre": {
+    "x": -1.52,
+    "z": 3.57
+   }
+  },
+  "wall": {
+   "type": "palisade",
+   "glb": "palisade.wall_a",
+   "module": 3.76,
+   "depth": 2.24,
+   "height": 3.32,
+   "frontPolicy": "fade",
+   "stretch": 0.05,
+   "pieces": {
+    "tower": 4,
+    "module": 41,
+    "lychgate": 1,
+    "pier": 2,
+    "wing": 2,
+    "vault": 1
+   },
+   "fade": 25,
+   "total": 51
+  },
+  "gates": {
+   "main": {
+    "at": {
+     "x": 21.71,
+     "z": -0.16
+    },
+    "edge": "E",
+    "opening": 4.8
+   },
+   "lychgate": {
+    "at": {
+     "x": -24.75,
+     "z": 12.87
+    },
+    "edge": "W"
+   },
+   "vault": {
+    "at": {
+     "x": -1.52,
+     "z": -20.26
+    },
+    "edge": "N"
+   }
+  },
+  "hill": {
+   "start": {
+    "x": -27.8,
+    "z": 12.87
+   },
+   "end": {
+    "x": -31,
+    "z": 12.87
+   }
+  },
+  "margins": {
+   "N": 11.74,
+   "W": 7.25,
+   "S": 4.6,
+   "E": 10.29
+  }
+ },
+ "meta": {
+  "generator": "hub-gen/2",
+  "seed": 19,
+  "attempt": 1,
+  "biome": "hub",
+  "size": 64,
+  "notes": [],
+  "tries": 1396,
+  "cottages": 4,
+  "route": {
+   "length": 49.64,
+   "walkS": 31.02,
+   "runS": 12.41,
+   "total": 58.93,
+   "causeway": 9.29,
+   "toSquare": 23.41,
+   "squareToGate": 26.23,
+   "causewayToSquare": 20.52
+  }
+ },
+ "frozen": {
+  "from": "lookdev-lab/src/env/planGenHub.js",
+  "generator": "hub-gen/2",
+  "codeSha256_16": "26b66ea84542d6d4",
+  "ok": true,
+  "attempt": 1,
+  "waived": [
+   "occlusion"
+  ],
+  "why": "the v2 sheet (shots/v2-sheet.png) as the user saw it, before review fixes"
+ }
+}

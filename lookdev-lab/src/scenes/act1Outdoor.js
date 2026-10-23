@@ -18,7 +18,7 @@ import { CATEGORY_COLORS } from '../env/act1/blockout.js';
 import { note } from '../ui/gui.js';
 
 export const ACT1_OUTDOOR_DEFAULTS = {
-	look: 1,
+	look: 2, // 2 = the 10-23 brightness lift: a new value resets the saved scene settings + scenePost once
 	mood: null, // null = the plan's defaultMood
 	spawn: null, // null = the first segment
 	smooth: 0.8,
@@ -231,14 +231,21 @@ export class Act1OutdoorScene {
 		this.splat.refresh();
 	}
 
-	/** What the hero stands on (env/surfaces.js → character/footsteps.js): a walkway deck is wood, the cobble lane stone, else the splat's layers; open water wins. */
+	/** What the hero stands on (env/surfaces.js → character/footsteps.js): a walkway deck is wood (the hidden ramp up stone steps: stone), the cobble lane stone, else the splat's layers; open water wins. */
 	surfaceAt(x, z, out) {
 		resetSample(out);
 		const W = this.world;
 		if (!this.splat || !W?.inBounds(x, z)) return out;
-		const deck = W.deckAt(x, z);
+		const hit = (this._deckHit ??= { path: null });
+		const deck = W.deckAt(x, z, hit);
 		const ground = W.height(x, z);
 		if (deck !== null && deck > ground + 0.05) {
+			if (W.paths.find((p) => p.id === hit.path)?.surface === 'stone') {
+				out.id = 'stone';
+				out.path = true;
+				out.soft = 0;
+				return out;
+			}
 			out.id = 'wood';
 			out.wet = 0.35;
 			out.path = true;

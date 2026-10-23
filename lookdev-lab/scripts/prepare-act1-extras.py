@@ -44,7 +44,8 @@ MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
 ANCHOR = 'dungeon-prop-flint-boulders'  # the other ASHLAR Tripo props; the new lines go after it
 SOURCE = 'ashlar/3d/props/act1_extras_v1'
 CREDIT = ('Generated with Tripo (image to 3D, 4K PBR, ~10k triangles) from a Codex input image (concepts ashlar/art/act-01-environments-v2); levelled, '
-          'turned to the Act I blockout frame, scaled to real size and re-encoded (2048 px JPEG; 1024 px for props up to 1.2 m) by scripts/prepare-act1-extras.py')
+          'turned to the Act I blockout frame, scaled to real size and re-encoded (2048 px JPEG for the landmarks; 1024 px for props up to 1.2 m and the '
+          'TEX_1024 set of 3-4 m pieces) by scripts/prepare-act1-extras.py')
 
 # (asset id, source folder, label, key: (axis, metres, band or None), yaw deg, level, roughness, metalness, extra)
 # key band = (lo, hi) fraction of the height: the key axis is measured on the vertices in that band only.

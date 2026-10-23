@@ -18,8 +18,13 @@
 // steady candle stand 1.3H (A11 sheet, the hospice side of the stair). Hybrid (LD): built as a fixed layout; the row halls, the channel gallery and the deep
 // rows are parametric here (ward / canopies / spine below) and could be generated later; the stairs, the old crypt, the breath room, the harvest room and
 // the exit are hand-made. Pure data + small pure helpers (the engine: ../interior.js; format documented at its top).
-// GLBs (2026-10-22, lookdev-lab/assets/act1-extras): the four A20 sleepers (on an A13.1 bed their flat base rests ON_BED up, in the bed's soil), the A20.5
-// channel pieces (CH_SINK down: their floor block flush, the engine's still water in their trench), the A20.6 harvest tables and P06 Poppy-Mound (static).
+// GLBs (2026-10-22, lookdev-lab/assets/act1-extras): the four A20 sleepers (on an A13.1 bed their flat base rests ON_BED up, in the bed's linen, at
+// SLEEPER_ON_BED of the row's scale), the A20.5 channel pieces (CH_SINK down: their floor block flush, the engine's still water in their trench), the A20.6
+// harvest tables and P06 Poppy-Mound (static). Kit swap (2026-10-23, lookdev-lab/assets/act1-kit): A13.1–A13.3, A13.5, A13.6, A08.6 (scale 1.1) and A11.6
+// on their GLBs (the jars' and the candles' glowing globes re-anchored on the models: KIT globe); A13.4 stays a blockout (cross-like post, the user picks).
+// A21–A25 swap (2026-10-23, the v3 batch, tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25): the root rib arches (the -slim variant, rootlets cut over the lane),
+// the plank crossing (laid into the earth), the root falls, the baskets, the tending kit, the coverlet (COVER_ON_BED), the shoes (×0.7) and Tamsin's lantern
+// (on the floor: LANTERN_AT, its light and globe on the glass) on their GLBs.
 import { assetList } from '../interior.js';
 
 const H = 1.8;
@@ -388,8 +393,21 @@ const SLEEPER_GLB = {
 	'A20.3': ['act1-a20-3-sleeper-fisherman', [1.508, 0.79, 2.1]],
 	'A20.4': ['act1-a20-4-sleeper-farm-woman', [1.496, 0.583, 2.1]],
 };
-/** A GLB sleeper on an A13.1 bed: its flat base 0.12 m under the bed's soil (top 0.32 m), so the mound, the face and the poppy read above the timber edging. */
-const ON_BED = 0.2;
+/** The A13.1 bed's linen top (GLB act1-a13-1-bed-furrow: 0.46–0.50 m; the blockout bed's soil top was 0.32 m). */
+const BED_TOP = 0.46;
+/** A GLB sleeper on an A13.1 bed: its flat base 0.04 m under the linen top, so the mound, the face and the poppy read above the timber sides. */
+const ON_BED = 0.42;
+/** …at this share of its row's scale: the sleepers' soil mounds are 1.4–1.5 m wide, the GLB bed 1.16 m (at 0.85 they overhang it by ≤ 0.1 m a side). */
+const SLEEPER_ON_BED = 0.85;
+/** The A24.4 coverlet GLB over an empty A13.1 bed: its top (0.27–0.30 m) lies ≈ 0.03 m over the bed's linen (98 % of the sheet; the foot posts show) and its pillow takes in the bed's own. */
+const COVER_ON_BED = 0.25;
+/** The A25.2 planks laid into the earth crossing: their deck top (0.14–0.17 m) stands ≈ 0.04 m over the floor the hero walks. */
+const PLANK_SINK = 0.12;
+/** Tamsin's lantern (A25.6) on the breath room floor at Fen's pillow, between Tamsin and his bed (the GLB 0.02 m off the bed, its clod 0.17 m off Tamsin's
+ * spot, its back 0.03 m off the north wall; east of her, so the game camera from the south sees it past her) and its glass in the GLB frame: the map's
+ * one shadowed light and the KIT globe sit there. */
+const LANTERN_AT = [-7.75, -27.2];
+const LANTERN_GLASS = [0.23, 0.5, 0.07];
 const sleeperKit = (id) => {
 	const v = SLEEPERS[id];
 	const [model, size] = SLEEPER_GLB[id];
@@ -401,31 +419,37 @@ const sleeperKit = (id) => {
 
 export const KIT = {
 	'A13.1': {
-		name: 'Sleeping bed furrow', short: 'Luống giường ngủ', category: 'structure', size: [1.4, 0.5, 2.7], status: 'blockout', source: 'concept A13 cell 1', segment: 'furrow hall · breath room',
-		note: 'turnaround reads ≈ 1.5H long; the prompt\'s 2.4H × 1H is too big for one sleeper', shape: BED, collider: 1.0,
+		name: 'Sleeping bed furrow', short: 'Luống giường ngủ', category: 'structure', size: [1.161, 0.561, 2.7], status: 'glb', source: 'concept A13 cell 1', segment: 'furrow hall · breath room',
+		note: 'turnaround reads ≈ 1.5H long; the prompt\'s 2.4H × 1H is too big for one sleeper; the GLB is keyed on the 2.7 m length: a linen-draped timber box 1.16 m wide (concept 1.4 m), linen top 0.46–0.50 m; a GLB sleeper on it lies ON_GLB_BED up at SLEEPER_ON_GLB_BED of its row scale (its 1.4–1.5 m soil mound would hang over the narrower bed)',
+		shape: BED, collider: 1.0, model: 'act1-a13-1-bed-furrow',
 	},
 	'A13.2': {
-		name: 'Cloth canopy frame', short: 'Khung mái vải', category: 'structure', size: [3.5 * H, 2.4 * H, 2.4 * H], status: 'blockout', source: 'concept A13 cell 2', segment: 'furrow hall',
-		note: 'one per three beds; the awning is walk-through, the posts block', shape: canopyShape(), blockers: [[-1, -1], [1, -1], [-1, 1], [1, 1]].map(([sx, sz]) => ({ at: [sx * 3.05, sz * 2.06], r: 0.16 })), openCats: [CANVAS],
+		name: 'Cloth canopy frame', short: 'Khung mái vải', category: 'structure', size: [6.3, 4.063, 4.368], status: 'glb', source: 'concept A13 cell 2', segment: 'furrow hall', model: 'act1-a13-2-canopy-frame',
+		note: 'one per three beds; the awning is walk-through (the GLB canvas sags to ≈ 2.4 m), the posts block; the GLB posts lean (not a rectangle): the blockers are their 0.35–1.7 m footprints', shape: canopyShape(), openCats: [CANVAS],
+		blockers: [{ rect: [-3.15, -1.88, -2.55, -1.28] }, { rect: [2.35, -2.18, 2.85, -1.58] }, { rect: [-2.95, 1.52, -2.35, 2.12] }, { rect: [2.45, 1.32, 2.95, 1.82] }],
 	},
 	'A13.3': {
-		name: 'Pink night-light jar', short: 'Đèn ngủ hồng', category: 'prop', size: [0.35 * H, 0.45 * H, 0.35 * H], status: 'blockout', source: 'concept A13 cell 3', segment: 'every row',
-		note: 'one beside every sleeper; still Perfection light (a real light every few, glow + floor pool elsewhere)', shape: JAR, round: true,
+		name: 'Pink night-light jar', short: 'Đèn ngủ hồng', category: 'prop', size: [0.696, 0.81, 0.668], status: 'glb', source: 'concept A13 cell 3', segment: 'every row', model: 'act1-a13-3-night-light-jar',
+		note: 'one beside every sleeper; still Perfection light (a real light every few, glow + floor pool elsewhere); the GLB\'s pink glass (r ≈ 0.31 m round (−0.01, 0.46, 0), in an iron-banded bowl on a stone slab) carries the light, its halo and the glowing globe (KIT globe); ×263: a collider prism keeps its 4.4 k triangles out of Play\'s collision',
+		shape: JAR, round: true, collider: 1.0,
+		globe: [{ p: 'glow', at: [-0.01, 0.47, 0], size: [0.64, 0.64, 0.64], seg: 14 }], // over the GLB glass (its bowl hides the lower half)
 		// the jar glows below the bloom threshold in a slightly deeper pink, so it stays a small pale-pink light after tone mapping (the lamp ahead is the one white light)
 		glowColor: '#cf8c97', globeGain: 0.42,
-		light: { kind: 'perfection', y: 0.6, color: PINK, range: 6.5, intensity: 8, glow: 0.3, glowGain: 0.15, pool: 2.1, poolGain: 0.24 },
+		light: { kind: 'perfection', y: 0.47, offset: [-0.01, 0], color: PINK, range: 6.5, intensity: 8, glow: 0.3, glowGain: 0.15, pool: 2.1, poolGain: 0.24 },
 	},
 	'A13.4': {
 		name: 'Hush bell post', short: 'Cột chuông ru', category: 'structure', size: [0.9 * H, 2 * H, 0.7], status: 'blockout', source: 'concept A13 cell 4', segment: 'furrow hall · deep rows',
-		note: 'the signature mechanic: noise within ~6 m rings it, it calls Poppy Nurses (overlay "Chuông ru")', shape: BELL_POST, blockers: [{ at: [0, 0], r: 0.4 }],
+		note: 'the signature mechanic: noise within ~6 m rings it, it calls Poppy Nurses (overlay "Chuông ru") · kept as a blockout (kit swap 2026-10-23): the act1-a13-4-bell-post GLB\'s post rises 0.3 m over the bar and reads as a cross; the user picks it or its -trim variant (docs/act1-base/act1-kit-cross-check.png)',
+		shape: BELL_POST, blockers: [{ at: [0, 0], r: 0.4 }],
 	},
 	'A13.5': {
-		name: 'Root-vaulted wall bay', short: 'Hốc tường vòm rễ', category: 'building', size: [3 * H, 2.8 * H, 1 * H], status: 'blockout', source: 'concept A13 cell 5', segment: 'furrow hall · gallery · deep rows',
-		note: 'against the earth walls; the Poppy Nurses come out of these bays when a bell rings', shape: BAY,
+		name: 'Root-vaulted wall bay', short: 'Hốc tường vòm rễ', category: 'building', size: [5.4, 3.52, 2.395], status: 'glb', source: 'concept A13 cell 5', segment: 'furrow hall · gallery · deep rows', model: 'act1-a13-5-root-wall-bay',
+		note: 'against the earth walls; the Poppy Nurses come out of these bays when a bell rings; the GLB is a shallow niche 3.5 m tall (concept 5.04 m) whose invented smooth mud-dome back (QA) sits ≈ 0.3 m inside the 0.7 m earth wall, out of sight; a box collider (its 15 k triangles × 17 stay out of Play\'s collision)',
+		shape: BAY, collider: 3.0,
 	},
 	'A13.6': {
-		name: 'Poppy furrow', short: 'Luống anh túc', category: 'vegetation', size: [2.4 * H, 0.7 * H, 0.9 * H], status: 'blockout', source: 'concept A13 cell 6', segment: 'furrow hall · deep rows',
-		note: 'in the spines between facing rows', shape: poppyFurrowShape(), foot: [4.32, 1.0], collider: 1.0,
+		name: 'Poppy furrow', short: 'Luống anh túc', category: 'vegetation', size: [4.32, 1.758, 1.749], status: 'glb', source: 'concept A13 cell 6', segment: 'furrow hall · deep rows', model: 'act1-a13-6-poppy-furrow',
+		note: 'in the spines between facing rows; the GLB poppies reach 1.76 m (concept 1.26 m); the collider covers the 1.0 m planter (foot), the leaning stems stay walk-through', shape: poppyFurrowShape(), foot: [4.32, 1.0], collider: 1.0,
 	},
 	'A20.1': sleeperKit('A20.1'),
 	'A20.2': sleeperKit('A20.2'),
@@ -441,17 +465,21 @@ export const KIT = {
 		note: 'table top 0.84 m; 1.43 m deep with the baskets and the cloth (the collider covers it)', shape: harvestTableShape(), collider: 1.0, model: 'act1-a20-6-harvest-table',
 	},
 	'A08.6': {
-		name: 'Poppy-drying rack', short: 'Giá phơi anh túc', category: 'structure', size: [2.4 * H, 2 * H, 1.3], status: 'blockout', source: 'concept A08 cell 6 (Poppy Reach kit, shared)', segment: 'gallery · harvest room',
+		name: 'Poppy-drying rack', short: 'Giá phơi anh túc', category: 'structure', size: [3.6, 2.929, 1.802], status: 'glb', source: 'concept A08 cell 6 (Poppy Reach kit, shared)', segment: 'gallery · harvest room', model: 'act1-a08-6-poppy-rack',
+		note: 'the GLB at scale 1.1 (3.96 × 3.22 × 1.98 m; concept 4.32 × 3.6 m: at 1.2 its splayed A-frame would stand in the gallery wall or its channel), bench ≈ 0.85 m; its crossed A-frame ends read as an X, not a cross (QA)',
 		shape: rackShape(), collider: 1.2,
 	},
 	'A11.6': {
-		name: 'Steady candle stand', short: 'Chân nến đứng yên', category: 'prop', size: [0.5 * H, 1.3 * H, 0.5 * H], status: 'blockout', source: 'concept A11 cell 6 (Gentle House kit, shared)', segment: 'landing',
-		note: 'the hospice side of the stair: a flame that never moves (Perfection)', shape: CANDLE_STAND, round: true, foot: [0.62, 0.62], glowColor: '#efe5d2',
-		light: { kind: 'perfection', y: 2.27, color: '#efe5d2', range: 9, intensity: 10, glow: 0.55, glowGain: 0.75, pool: 2.2, poolGain: 0.1 },
+		name: 'Steady candle stand', short: 'Chân nến đứng yên', category: 'prop', size: [0.611, 2.34, 0.617], status: 'glb', source: 'concept A11 cell 6 (Gentle House kit, shared)', segment: 'landing', model: 'act1-a11-6-candle-stand',
+		note: 'the hospice side of the stair: a flame that never moves (Perfection); the light, its halo and the still flame (KIT globe) on the GLB flame (0.04, 2.24, 0.06)', shape: CANDLE_STAND, round: true, foot: [0.6, 0.6], glowColor: '#efe5d2',
+		globe: [{ p: 'glow', at: [0.04, 2.245, 0.06], size: [0.075, 0.17, 0.075] }],
+		light: { kind: 'perfection', y: 2.24, offset: [0.04, 0.06], color: '#efe5d2', range: 9, intensity: 10, glow: 0.55, glowGain: 0.75, pool: 2.2, poolGain: 0.1 },
 	},
 	'N-GD01': {
-		name: 'Root rib arch', short: 'Vòm sườn rễ', category: 'vegetation', size: [6.5, 4.9, 0.5], status: 'blockout', source: 'LD only, no concept', segment: 'root tunnel',
-		note: 'one great root arching over a passage: the ribs of the root vault (no ceilings in the lab)', shape: ribArchShape(), blockers: [{ at: [-2.9, 0], r: 0.25 }, { at: [2.9, 0], r: 0.25 }],
+		name: 'Root rib arch', short: 'Vòm sườn rễ', category: 'vegetation', size: [6.5, 4.046, 1.943], status: 'glb', source: 'concept A25 cell 1 (v3 batch; lab variant -slim)', segment: 'root tunnel',
+		note: 'one great root arching over a passage: the ribs of the root vault (no ceilings in the lab); the -slim GLB (root feet squeezed to 1.94 m deep), 4.05 m tall (concept 4.9 m); the feet block (x < −0.85 and > +1.45 at walking height), the 2.3 m lane between them is centred at x +0.3, off the pivot; the thin rootlets that hung into the lane (to 0.74–1.02 m at x −0.85…−0.49 and +0.75…+1.15) are cut below 2.05 m, so the lane keeps ≥ 2 m headroom',
+		model: 'act1-a25-1-root-rib-arch-slim', shape: ribArchShape(), blockers: [{ rect: [-3.25, -0.97, -0.85, 0.97] }, { rect: [1.45, -0.97, 3.25, 0.97] }], collider: 2.5,
+		cut: [[-0.86, 0.3, -0.97, 1.4, 2.05, 0.97]],
 	},
 	'N-GD02': {
 		name: 'Fen asleep in his row (NPC stand-in)', short: 'Fen đang ngủ', category: 'story', size: [1.0, 0.82, 2.1], status: 'blockout', npc: true, source: 'LD only, no NPC model', segment: 'breath room',
@@ -467,32 +495,35 @@ export const KIT = {
 		light: { kind: 'ahead', kindLabel: 'Lamp ahead', y: 1.08, color: '#f4f6f8', range: 10, intensity: 9, glow: 2.6, glowGain: 1.1, pool: 2.4, poolGain: 0.15 },
 	},
 	'N-GD05': {
-		name: 'Plank crossing', short: 'Ván qua kênh', category: 'structure', size: [1.5, 0.1, 2.3], status: 'blockout', source: 'LD only, no concept', segment: 'gallery',
-		shape: BRIDGE, solid: false,
+		name: 'Plank crossing', short: 'Ván qua kênh', category: 'structure', size: [0.911, 0.189, 2.3], status: 'glb', source: 'concept A25 cell 2 (v3 batch)', segment: 'gallery',
+		note: '0.91 m wide (concept 1.5 m), the rope loop at −z, deck top 0.14–0.17 m: laid PLANK_SINK into the earth crossing, so the deck is ≈ 0.04 m over the floor the hero walks (walk-through: no deck in Play); QA: wavy planks with gaps',
+		shape: BRIDGE, solid: false, model: 'act1-a25-2-plank-crossing',
 	},
 	'N-GD06': {
 		name: 'Shroud web (W07 lair)', short: 'Mạng tơ liệm', category: 'prop', size: [3.0, 2.7, 0.3], status: 'blockout', source: 'LD only, no concept (W07 sheet: silk #D8CCB0)', segment: 'gallery · deep rows',
 		note: 'webs only (no wrapped bodies)', shape: WEB, solid: false,
 	},
 	'N-GD07': {
-		name: 'Root fall (collapsed vault)', short: 'Rễ sập', category: 'rock', size: [4.6, 2.6, 5.4], status: 'blockout', source: 'LD only, no concept', segment: 'deep rows',
-		note: 'closes the easy ways of the hardest stretch', shape: ROOT_FALL,
+		name: 'Root fall (collapsed vault)', short: 'Rễ sập', category: 'rock', size: [4.6, 3.206, 4.825], status: 'glb', source: 'concept A25 cell 3 (v3 batch)', segment: 'deep rows',
+		note: 'closes the easy ways of the hardest stretch; 3.21 m tall (concept 2.6 m), 4.83 m deep (concept 5.4 m): both ways stay shut (at Play\'s 0.3 m radius the shorter heap only frees a 0.25 m strip along the north fall\'s +z face, no way past either fall); blocks as a whole (a box collider: Play does not climb the heap)',
+		shape: ROOT_FALL, collider: 3.0, model: 'act1-a25-3-root-fall',
 	},
 	'N-GD08': {
-		name: 'Harvest basket of poppy heads', short: 'Giỏ đầu anh túc', category: 'prop', size: [0.56, 0.45, 0.5], status: 'blockout', source: 'LD only, no concept', segment: 'harvest room',
-		shape: BASKET, round: true, collider: 0.9,
+		name: 'Harvest basket of poppy heads', short: 'Giỏ đầu anh túc', category: 'prop', size: [0.56, 0.287, 0.388], status: 'glb', source: 'concept A25 cell 4 (v3 batch)', segment: 'harvest room',
+		note: 'keyed on the 0.56 m width: low, 0.29 m tall (concept 0.45 m); the folded white cloth over the +x end; QA: the poppies are a few red smudges', shape: BASKET, round: true, collider: 0.9, model: 'act1-a25-4-harvest-basket',
 	},
 	'N-GD09': {
-		name: "Poppy Nurse's tending kit (stool, watering can)", short: 'Ghế + bình tưới', category: 'prop', size: [1.0, 0.5, 0.45], status: 'blockout', source: 'LD only, no concept', segment: 'furrow hall',
-		shape: NURSE_KIT, collider: 0.9,
+		name: "Poppy Nurse's tending kit (stool, watering can)", short: 'Ghế + bình tưới', category: 'prop', size: [1.0, 0.528, 0.515], status: 'glb', source: 'concept A25 cell 5 (v3 batch)', segment: 'furrow hall',
+		note: 'the stool with the book and scissors, the watering can at +x', shape: NURSE_KIT, collider: 0.9, model: 'act1-a25-5-tending-kit',
 	},
 	'N-GD10': {
-		name: 'Linen coverlet turned down (empty bed)', short: 'Chăn lanh lật sẵn', category: 'linen', size: [1.14, 0.12, 1.9], status: 'blockout', source: 'LD only, no concept', segment: 'furrow hall',
-		note: 'a bed made up and lit, nobody in it yet (unmarked vignette)', shape: COVERLET, solid: false,
+		name: 'Linen coverlet turned down (empty bed)', short: 'Chăn lanh lật sẵn', category: 'linen', size: [1.14, 0.505, 2.716], status: 'glb', source: 'concept A24 cell 4 (v3 batch)', segment: 'furrow hall',
+		note: 'a bed made up and lit, nobody in it yet (unmarked vignette); the GLB is a thick layer (top 0.27–0.30 m, underside 0 → 0.21 m head to foot, pillow to 0.51 m at −z) that covers the A13.1 bed exactly: laid at COVER_ON_BED over the bed, its top lies ≈ 0.03 m over the bed\'s linen and its pillow takes in the bed\'s own pillow (no double pillow)',
+		shape: COVERLET, solid: false, model: 'act1-a24-4-turned-down-coverlet',
 	},
 	'N-GD11': {
-		name: 'Shoes placed at the foot of a furrow', short: 'Đôi giày', category: 'prop', size: [0.32, 0.1, 0.3], status: 'blockout', source: 'LD only, no concept', segment: 'furrow hall',
-		shape: SHOES, solid: false,
+		name: 'Shoes placed at the foot of a furrow', short: 'Đôi giày', category: 'prop', size: [0.45, 0.18, 0.439], status: 'glb', source: 'concept A22 cell 1 (v3 batch)', segment: 'furrow hall',
+		note: 'the fens\' pair (N-FN02) placed at scale 0.7 (0.32 × 0.13 × 0.31 m), toes to +z', shape: SHOES, solid: false, model: 'act1-a22-1-worn-shoes',
 	},
 	'N-GD12': {
 		name: 'Whitewashed stair down from the Gentle House', short: 'Cầu thang từ hospice', category: 'structure', size: [4, 3.6, 10], status: 'procedural', source: 'LD only, no concept', segment: 'landing',
@@ -507,8 +538,10 @@ export const KIT = {
 		note: 'the engine sinks the floor 0.4 m and lays an opaque still-water surface 0.1 m under the floor', unplaced: 'built by the engine (sunk rooms + water bodies)',
 	},
 	'N-GD15': {
-		name: "Tamsin's lantern on a root bracket", short: 'Đèn lồng của Tamsin', category: 'prop', size: [0.3, 1.0, 0.6], status: 'blockout', source: 'LD only, no concept', segment: 'breath room',
-		note: 'human light: warm, flickering (the one shadowed light of the map)', shape: LANTERN, glowColor: '#e0a050', solid: false,
+		name: "Tamsin's lantern on a root bracket", short: 'Đèn lồng của Tamsin', category: 'prop', size: [0.707, 1.0, 0.831], status: 'glb', source: 'concept A25 cell 6 (v3 batch)', segment: 'breath room',
+		note: 'human light: warm, flickering (the one shadowed light of the map); the GLB is a root bracket standing on a clod of earth (not the blockout\'s wall bracket): it stands on the floor, its arm reaching +x; the plan light `lantern` and the KIT globe sit on its glass (LANTERN_GLASS, measured on the mesh: the tin lantern spans x 0.13–0.33, y 0.35–0.75, z −0.03…0.17)',
+		shape: LANTERN, model: 'act1-a25-6-tamsin-lantern', glowColor: '#e0a050', globeGain: 1.1, globe: [{ p: 'glow', at: [...LANTERN_GLASS], size: [0.21, 0.28, 0.21], seg: 10 }],
+		foot: [0.65, 0.65], collider: 1.0,
 	},
 	'N-GD16': {
 		name: 'Fallen poppy heads and petals', short: 'Đầu anh túc rơi', category: 'vegetation', size: [0.35, 0.06, 0.3], status: 'blockout', source: 'LD only, no concept', segment: 'harvest room',
@@ -554,11 +587,12 @@ function ward({ x0, z, n, pitch = 2.1, head, y, mix, scale = 1, bed = 'A13.1', r
 		if (skip.includes(i)) continue;
 		const x = +(x0 + i * pitch).toFixed(3);
 		if (bed) S.push({ asset: bed, at: [x, z], yaw, y, ...v });
-		if (empty.includes(i)) S.push({ asset: 'N-GD10', at: [x, z], yaw, y: +(y + 0.32).toFixed(3), ...v });
+		if (empty.includes(i)) S.push({ asset: 'N-GD10', at: [x, z], yaw, y: +(y + (bed ? COVER_ON_BED : 0)).toFixed(3), ...v });
 		else {
 			const who = swap[i] ?? mix[i % mix.length];
-			const lift = bed ? (SLEEPER_GLB[who] ? ON_BED : 0.04) : 0; // a GLB sleeper rests its flat base in the bed's soil
-			S.push({ asset: who, at: [x, +(z + toHead * (bed ? 0.06 : 0)).toFixed(3)], yaw, y: +(y + lift).toFixed(3), scale, ...v });
+			const glb = bed && SLEEPER_GLB[who];
+			const lift = bed ? (glb ? ON_BED : BED_TOP - 0.28) : 0; // a GLB sleeper rests its flat base in the bed's linen; a stand-in keeps its old 0.28 m below the top
+			S.push({ asset: who, at: [x, +(z + toHead * (bed ? 0.06 : 0)).toFixed(3)], yaw, y: +(y + lift).toFixed(3), scale: glb ? +(scale * SLEEPER_ON_BED).toFixed(3) : scale, ...v });
 		}
 		if (!noJar.includes(i)) S.push({ asset: 'A13.3', at: [+(x + pitch / 2).toFixed(3), +(z + toHead * (half - 0.4)).toFixed(3)], yaw: 0, y, light: real.includes(i) && !dark ? undefined : 'glow', ...v });
 	}
@@ -610,11 +644,14 @@ S.push(
 	{ asset: 'glb:dungeon-prop-candle-cluster', at: [-104.9, -26.2], yaw: 90, y: LV.crypt, light: false, name: 'cold candles before the bone niches' },
 	// the first sleeper, where the garden earth spills over the crypt flags
 	{ asset: 'A13.1', at: [-85.5, -24.5], yaw: 90, y: LV.crypt, name: 'the first bed' },
-	{ asset: 'A20.4', at: [-85.44, -24.5], yaw: 90, y: LV.crypt + ON_BED },
+	{ asset: 'A20.4', at: [-85.44, -24.5], yaw: 90, y: LV.crypt + ON_BED, scale: SLEEPER_ON_BED },
 	{ asset: 'A13.3', at: [-86.45, -25.55], yaw: 0, y: LV.crypt },
 );
-// -- the root tunnel: three rib arches over the ramp down into the garden
-for (const x of [-78.2, -75.4, -72.8]) S.push({ asset: 'N-GD01', at: [x, -34], yaw: 90, y: x < -76 ? LV.crypt : +(LV.hall + ((x + 76) / -4) * 0.6).toFixed(3) });
+// -- the root tunnel: three rib arches over the ramp down into the garden. The A25.1-slim lane between the feet is centred 0.3 m off the pivot along the arch,
+// so each pivot stands 0.3 m south of the route (z −34); each arch stands on the floor at its downhill edge (the ramp falls 0.15 m per m to the east, the
+// arch is 1.94 m deep: its uphill feet sink ≤ 0.27 m, none floats)
+const tunnelFloor = (x) => +(LV.crypt + Math.min(1, Math.max(0, (x + 76) / 4)) * (LV.hall - LV.crypt)).toFixed(3);
+for (const x of [-78.2, -75.4, -72.8]) S.push({ asset: 'N-GD01', at: [x, -33.7], yaw: 90, y: tunnelFloor(x + 0.97) });
 
 // -- Furrow Hall I: two blocks of facing ward rows under linen canopies, bells and poppies in the spines, root bays on every wall
 const HX0 = -62.7;
@@ -633,7 +670,7 @@ const HALL_FURROWS = [-61.0, -55.5, -50.7, -45.3, -40.5, -35.0];
 spine({ z: -41.5, y: LV.hall, bells: [-58.2, -48.0, -37.8], furrows: HALL_FURROWS, doors: hallDoors });
 spine({ z: -26.5, y: LV.hall, bells: [-58.2, -48.0, -37.8], furrows: HALL_FURROWS, doors: hallDoors });
 S.push(
-	{ asset: 'N-GD11', at: [-56.4, -36.75], yaw: 0, y: LV.hall, name: 'shoes at the foot of a furrow' },
+	{ asset: 'N-GD11', at: [-56.4, -36.75], yaw: 0, y: LV.hall, scale: 0.7, name: 'shoes at the foot of a furrow' },
 	{ asset: 'N-GD09', at: [-42.4, -31.75], yaw: 0, y: LV.hall, name: "a Nurse's stool and watering can" },
 	{ asset: 'A20.5', at: [-64.5, -18], yaw: 0, y: LV.hall - CH_SINK },
 	{ asset: 'A20.5', at: [-31.5, -18], yaw: 180, y: LV.hall - CH_SINK },
@@ -645,13 +682,13 @@ S.push(
 	{ asset: 'A20.5', at: [4.5, -37.5], yaw: 180, y: LV.hall - CH_SINK },
 	{ asset: 'A20.5', at: [-20.5, -30.5], yaw: 0, y: LV.hall - CH_SINK },
 	{ asset: 'A20.5', at: [-7.5, -30.5], yaw: 0, y: LV.hall - CH_SINK },
-	{ asset: 'N-GD05', at: [-10, -30.5], yaw: 0, y: LV.hall },
+	{ asset: 'N-GD05', at: [-10, -30.5], yaw: 0, y: +(LV.hall - PLANK_SINK).toFixed(3) }, // the planks laid into the earth crossing
 	{ asset: 'A13.3', at: [-18.6, -36.4], yaw: 0, y: LV.hall, light: 'glow' }, // the Perfection keeps the channels lit for its Nurses
 	{ asset: 'A13.3', at: [-5.9, -31.6], yaw: 0, y: LV.hall },
 	{ asset: 'A13.3', at: [2.8, -36.4], yaw: 0, y: LV.hall, light: 'glow' },
-	{ asset: 'A08.6', at: [-17, -39.3], yaw: 0, y: LV.hall },
-	{ asset: 'A08.6', at: [-9, -39.3], yaw: 0, y: LV.hall },
-	{ asset: 'A08.6', at: [-1, -39.3], yaw: 0, y: LV.hall },
+	{ asset: 'A08.6', at: [-17, -39.1], yaw: 0, y: LV.hall, scale: 1.1 },
+	{ asset: 'A08.6', at: [-9, -39.1], yaw: 0, y: LV.hall, scale: 1.1 },
+	{ asset: 'A08.6', at: [-1, -39.1], yaw: 0, y: LV.hall, scale: 1.1 },
 	{ asset: 'N-GD06', at: [3.2, -39.6], yaw: 0, y: LV.hall },
 	{ asset: 'N-GD06', at: [7.2, -29.6], yaw: -90, y: LV.hall },
 	{ asset: 'N-GD06', at: [-4.6, -28.9], yaw: 180, y: LV.hall },
@@ -664,7 +701,7 @@ ward({ x0: -16.4, z: -26.15, n: 6, pitch: 2.4, head: 'n', y: LV.hall, mix: ['A20
 S.push(
 	{ asset: 'N-GD03', at: [-8.2, -26.4], yaw: 90, y: LV.hall, name: 'Tamsin' },
 	{ asset: 'glb:dungeon-prop-candle-cluster', at: [-8.4, -24.4], yaw: 20, y: LV.hall, name: 'the candles Tamsin lit' },
-	{ asset: 'N-GD15', at: [-7.6, -27.7], yaw: 0, y: LV.hall + 1.4, name: "Tamsin's lantern" },
+	{ asset: 'N-GD15', at: [...LANTERN_AT], yaw: 0, y: LV.hall, name: "Tamsin's lantern" }, // on the floor by Fen's head, the arm reaching toward him
 	{ asset: 'glb:dungeon-prop-broken-column', at: [-16, -18.6], yaw: 40, y: LV.hall },
 );
 
@@ -675,9 +712,9 @@ S.push(
 	{ asset: 'A20.6', at: [25.5, -38.5], yaw: 0, y: LV.hall },
 	{ asset: 'A20.6', at: [15.5, -32.5], yaw: 180, y: LV.hall },
 	{ asset: 'A20.6', at: [22.5, -32.5], yaw: 180, y: LV.hall },
-	{ asset: 'A08.6', at: [12.5, -45.3], yaw: 0, y: LV.hall },
-	{ asset: 'A08.6', at: [19, -45.3], yaw: 0, y: LV.hall },
-	{ asset: 'A08.6', at: [25.5, -45.3], yaw: 0, y: LV.hall },
+	{ asset: 'A08.6', at: [12.5, -45.0], yaw: 0, y: LV.hall, scale: 1.1 },
+	{ asset: 'A08.6', at: [19, -45.0], yaw: 0, y: LV.hall, scale: 1.1 },
+	{ asset: 'A08.6', at: [25.5, -45.0], yaw: 0, y: LV.hall, scale: 1.1 },
 	{ asset: 'A13.3', at: [9.4, -38.5], yaw: 0, y: LV.hall, light: 'glow' },
 	{ asset: 'A13.3', at: [28.6, -38.5], yaw: 0, y: LV.hall, light: 'glow' },
 	{ asset: 'A13.3', at: [19, -35.5], yaw: 0, y: LV.hall },
@@ -810,7 +847,8 @@ export const PLAN = {
 	],
 	lights: [
 		{ id: 'niches', name: 'the bone niches (the Wall shows)', kind: 'wall', at: [-103.8, 2.2, -29.5], color: '#dce6f2', range: 15, intensity: 34, glow: 0.7, glowGain: 0.35 },
-		{ id: 'lantern', name: "Tamsin's lantern (the only warm light)", kind: 'human', spot: true, at: [-7.6, LV.hall + 1.88, -27.4], target: [-7.4, LV.hall, -25.3], angle: 1.05, penumbra: 0.85, color: '#e0a050', range: 9, intensity: 30, shadow: true, glow: 0.9, glowGain: 0.85 },
+		// on the A25.6 GLB's glass (the lantern stands on the floor: the light is 0.5 m up, not the old wall bracket's 1.88 m)
+		{ id: 'lantern', name: "Tamsin's lantern (the only warm light)", kind: 'human', spot: true, at: [LANTERN_AT[0] + LANTERN_GLASS[0], LV.hall + LANTERN_GLASS[1], LANTERN_AT[1] + LANTERN_GLASS[2]], target: [-7.4, LV.hall, -25.3], angle: 1.05, penumbra: 0.85, color: '#e0a050', range: 9, intensity: 30, shadow: true, glow: 0.9, glowGain: 0.85 },
 		{ id: 'stairHead', name: "the Cradle's milk-white lamp (stair head)", kind: 'perfection', at: [57.3, LV.deep + 2.9, -30], color: '#f2ecdf', range: 8, intensity: 12, glow: 0.9, glowGain: 0.6 },
 	],
 	markers: [
@@ -873,9 +911,10 @@ export const PLAN = {
 		lamp: { label: 'Ngọn đèn phía trước (từ khe phía bắc)', target: [60.5, -2.0, -8.5], dist: 20, pitch: 42 },
 		exit: { label: 'Hầm thấp nhất · cầu thang xuống The Cradle', target: [58, -3.2, -30], dist: 22, pitch: 52, yaw: 20 },
 	},
+	// Play moods brightened 10-23 (hemi, envI, exposure, floorTone); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		hush: {
-			label: 'Garden of Hush · hầm tối (mặc định)', hemi: 0.95, sky: '#4c4548', ground: '#140f0f', env: 'hdri-night', envI: 0.05, toneMapping: 'aces', exposure: 0.95, lights: 1, floorTone: 0.62,
+			label: 'Garden of Hush · hầm tối (mặc định)', hemi: 1.5, sky: '#4c4548', ground: '#140f0f', env: 'hdri-night', envI: 0.08, toneMapping: 'aces', exposure: 1.3, lights: 1, floorTone: 0.66,
 			fog: { enabled: true, color: '#070506', density: 0.035, falloff: 0.35, height: -0.6, start: 12, inscatter: 0 },
 			grade: { vignette: 0.5, contrast: 1.08, saturation: 0.86, lift: 0, temperature: -0.01, tint: 0.02 },
 			lantern: { radius: 6.0, strength: 0.45, dim: 0.24, color: [0.5, 0.47, 0.47] },

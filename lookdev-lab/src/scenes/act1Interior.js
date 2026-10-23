@@ -36,7 +36,7 @@ function defaultsFor(plan) {
 	const first = plan.moods?.[moods[0]] ?? {};
 	const lantern = first.lantern ?? { radius: 5, strength: 0.35, dim: 0.3 };
 	return {
-		look: 1,
+		look: 3, // 2 = the 10-23 brightness lift, 3 = its round 2 (Gentle House warm/rain): a new value resets the saved scene settings + scenePost once
 		time: moods[0] ?? 'default',
 		smooth: 0.8,
 		antiTiling: true,

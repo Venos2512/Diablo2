@@ -33,6 +33,18 @@ const FARM = { x: -44, z: 10, yaw: 20 }; // the abandoned farmhouse (door to the
 const MINE = { x: 77.5, z: -34.5, yaw: -90 }; // the Flint Delvings mouth faces west, cut into the chalk knoll
 const WARD = { x: 0, z: -117.5 }; // the hospice ward range on the terrace (south face at z = −113)
 const FOLD = { x: 62, z: 6, r: 4.5 }; // the empty sheepfold (rite 3), its gap to the west
+// the ribbon thorn (rite 4, the A23.2 GLB): its trunk foot (GLB (0.27, 1.39), off the pivot) on the rite marker. As built it leans west (its crown
+// sweeps to −x and back); yaw 200 leans the crown east-south-east, downwind of the smoke (1, −0.15) like the blockout, and the game camera sees it
+// from just right of its back: trunk, sweep and ribbons in profile (−135, due east, reads as a stack of crown slabs from the south). On the slope it
+// stands at its pivot's ground + 0.15 m (no root end floats, the trunk foot 0.10 m in the ground). The sleeper's shoes (A22.1) lie 1.6 m east of the
+// foot under the crown (nothing of the model below 2.2 m there, seen from the camera at 30–55° pitch), toes to the trunk.
+const THORN = (() => {
+	const m = { x: -43, z: -80.5, yaw: 200 };
+	const c = Math.cos((m.yaw * Math.PI) / 180);
+	const s = Math.sin((m.yaw * Math.PI) / 180);
+	return { ...m, x: +(m.x - (0.27 * c + 1.39 * s)).toFixed(3), z: +(m.z - (-0.27 * s + 1.39 * c)).toFixed(3), foot: [m.x, m.z] };
+})();
+const THORN_SHOES = { x: +(THORN.foot[0] + 1.6 * Math.sin((80 * Math.PI) / 180)).toFixed(3), z: +(THORN.foot[1] + 1.6 * Math.cos((80 * Math.PI) / 180)).toFixed(3), yaw: -100 };
 /** World point of a local offset (lx, lz) of a placed piece (x, z, yaw in degrees; the piece's front = local +z). */
 const local = (o, lx, lz) => {
 	const c = Math.cos((o.yaw * Math.PI) / 180);
@@ -50,32 +62,33 @@ const A = (id, name, category, size, status, source, segment, extra = {}) => ({ 
 const DEFS = [
 	// the A08 Poppy Reach kit
 	A('A08.1', 'Poppy drift clump', 'vegetation', [1.3, 0.9, 1.3], 'procedural', 'concept A08 cell 1', 'all', { procedural: 'poppyField', collide: false, count: 36000, note: 'the field: ≈ 36 000 instanced clumps (6–8 stems, cupped red #B3262A heads, buds) in drifts with breathing room, swaying with the wind; the placed items mark the drift centres. Sheet clump ≈ 0.6 H tall, field clumps 0.42–0.82 m' }),
-	A('A08.2', 'Drystone wall (module)', 'structure', [3.2, 1.3, 0.7], 'blockout', 'concept A08 cell 2', 'all', { shape: 'drystone', note: 'field walls make the lanes; on a slope each module stands on its lowest ground (stepped walls); also the round sheepfold' }),
-	A('A08.2-stile', 'Squeeze stile in a drystone wall', 'structure', [3.2, 1.3, 0.7], 'blockout', 'concept A08 cell 2 (the stile in the wall)', 'farm', { shape: 'stile', blockers: [[-1.25, 0, 0.7, 0.7], [1.25, 0, 0.7, 0.7]], note: 'a 1.8 m gap with a worn sill and step stones (the walk grid passes, the wall stubs block)' }),
-	A('A08.3', 'Abandoned hillside farmhouse', 'building', [8, 6.4, 5.4], 'blockout', 'concept A08 cell 3', 'farm', { shape: 'farmhouse', blockers: [[0, -2.45, 8, 0.5], [-3.75, 0, 0.5, 5.4], [3.75, 0, 0.5, 5.4], [-3.05, 2.45, 1.9, 0.5], [1.65, 2.45, 4.7, 0.5]], note: 'walls 2.7 m, ridge 5.4 m, chimney 6.4 m; the east half of the roof has fallen in (bare rafters) so the three empty beds show from above; the door (1.8 m) is walkable' }),
-	A('A08.4', 'Hay rick', 'prop', [3, 3.2, 3], 'blockout', 'concept A08 cell 4', 'all', { shape: 'rick', note: 'sheet ≈ 1.35 H + pole' }),
-	A('A08.5', 'Field gate between stone posts', 'structure', [4.4, 1.6, 0.7], 'blockout', 'concept A08 cell 5', 'all', { shape: 'fieldgate', blockers: [[-1.9, 0, 0.6, 0.6], [1.9, 0, 0.6, 0.6]], note: 'gate swung open into the field; 3.2 m between the posts' }),
-	A('A08.6', 'Poppy-drying rack', 'prop', [2.82, 2.07, 1.4], 'kit', 'concept A08 cell 6', 'farm', { model: 'kit:crafts.herb_rack', fit: 'native', shape: 'dryingrack', note: 'kit tạm (camp herb rack, native 2.82 × 2.07 × 1.4 m; concept 3.6 × 2.3 × 1.4): dark bunches hung on a frame, a basket beneath (no red heads yet)' }),
+	A('A08.2', 'Drystone wall (module)', 'structure', [3.2, 0.84, 0.96], 'glb', 'concept A08 cell 2', 'all', { model: 'act1-a08-2-drystone-wall', fit: 'native', shape: 'drystone', module: 2.8, blockers: [[0, 0, 3.2, 0.6]], note: 'GLB 3.2 × 0.84 × 0.96 m (keyed on the 3.2 m module it reads low: top 0.53–0.84 m, 0.96 m deep with the grass at its foot; its stone ends fall 0.02–0.19 m short of the box): every wall run is placed ×1.25 (4 m pieces, 1.05 m tall) at a 2.8 m module (3.5 m apart: the ragged ends overlap, no gaps); blocks on its stone core (0.6 × 1.25 = 0.75 m deep, the blockout was 0.7), the grass foot is walk-through; field walls make the lanes; on a slope each module stands on its lowest ground (stepped walls); also the round sheepfold. Base colour greyed and darkened to ~0.7 in the prep (prepare-act1-kit.py TINT, kit fix 10-23: the pale cream stone read near-white, the brightest thing in every view)' }),
+	A('A08.2-stile', 'Squeeze stile in a drystone wall', 'structure', [3.2, 1.3, 0.7], 'blockout', 'concept A08 cell 2 (the stile in the wall)', 'farm', { shape: 'stile', blockers: [[-1.25, 0, 0.7, 0.7], [1.25, 0, 0.7, 0.7]], note: 'blockout kept (kit swap 10-23): the A08.2-stile GLB has no gap (its wall runs through, top 0.6–0.89 m with a dip to 0.61 m); the map needs a 1.8 m walkable gap with a worn sill and step stones (the walk grid passes, the wall stubs block)' }),
+	A('A08.3', 'Abandoned hillside farmhouse', 'building', [8, 6.4, 5.4], 'blockout', 'concept A08 cell 3', 'farm', { shape: 'farmhouse', blockers: [[0, -2.45, 8, 0.5], [-3.75, 0, 0.5, 5.4], [3.75, 0, 0.5, 5.4], [-3.05, 2.45, 1.9, 0.5], [1.65, 2.45, 4.7, 0.5]], note: 'blockout kept (kit swap 10-23): walls 2.7 m, ridge 5.4 m, chimney 6.4 m; the east half of the roof has fallen in (bare rafters) so the three empty beds show from above; the door (1.8 m) is walkable (the farm route goes in to V1). The A08.3 GLB is a closed house: its door is shut on the east gable, the roof whole, the inside a hollow shell with no floor; a roofless height cut would still leave no way in (and single-sided walls seen from inside), so the beat waits for a ruined-farmhouse model' }),
+	A('A08.4', 'Hay rick', 'prop', [2.99, 3.2, 3.64], 'glb', 'concept A08 cell 4', 'all', { model: 'act1-a08-4-hay-rick', fit: 'native', shape: 'rick', note: 'GLB 3 × 3.2 × 3.6 m (round, a straw skirt makes it 3.6 m deep)' }),
+	A('A08.5', 'Field gate between stone posts', 'structure', [4.4, 1.6, 0.7], 'blockout', 'concept A08 cell 5', 'all', { shape: 'fieldgate', blockers: [[-1.9, 0, 0.6, 0.6], [1.9, 0, 0.6, 0.6]], note: 'blockout kept (kit swap 10-23): the gates stand swung open into the field, 3.2 m between the posts (the lanes run through them); the A08.5 GLB\'s five-bar gate is shut across its posts (fine only off the lanes)' }),
+	A('A08.6', 'Poppy-drying rack', 'prop', [3.6, 2.93, 1.8], 'glb', 'concept A08 cell 6', 'farm', { model: 'act1-a08-6-poppy-rack', fit: 'native', shape: 'dryingrack', note: 'GLB 3.6 × 2.93 × 1.8 m (red poppy heads hang +z of the bar, a bench at 0.77 m), placed ×0.9 (3.2 × 2.6 m); replaces the kit tạm herb rack' }),
 	// the A18 extras (v2 batch)
 	A('A18.1', 'Abandoned ox cart with bedding', 'prop', [2.31, 1.85, 4.0], 'glb', 'concept A18 cell 1 (v2 batch)', 'landing', { model: 'act1-a18-1-ox-cart', fit: 'native', shape: 'oxcart', note: 'GLB 2.3 × 1.85 × 4 m; shafts down, quilts, a straw mattress and one clean pillow — as if someone was carried away asleep (vignette)' }),
 	A('A18.2', 'Farmhouse bed with one clean pillow', 'prop', [1.57, 0.98, 2.0], 'glb', 'concept A18 cell 2 (v2 batch)', 'farm', { model: 'act1-a18-2-bed-clean-pillow', fit: 'native', shape: 'bed', note: 'GLB 1.57 × 0.98 × 2 m (drooping blanket); three in the farmhouse at ×0.85 (1.33 m wide: three fit side by side in the 3.8 m east half under the fallen roof), empty, each one clean pillow — Mercy\'s linen; one at ×1 dragged out into the poppies (unmarked vignette)' }),
 	A('A18.3', 'Flint Delvings mine mouth (chalk-and-flint cut)', 'rock', [4.0, 2.69, 3.77], 'glb', 'concept A18 cell 3 (v2 batch)', 'mine', { model: 'act1-a18-3-delvings-mouth', fit: 'native', shape: 'minecut', blockers: [[0, 0, 3.8, 2.6], [0, 0, 2.6, 3.6]], note: 'GLB 4 × 2.69 × 3.77 m placed ×1.34 (5.4 × 3.6 × 5.0 m, lintel ≈ 2.9 m): a rock knoll with its own timber portal (the old mine-timber GLB is dropped); the portal is a painted recess, not a tunnel, so the whole knoll blocks (two crossed rects ≈ its round footprint); the plain back is turned into the chalk knoll; the side exit to the Flint Delvings (11.8) is a trigger at the face' }),
 	A('A18.4', 'Hospice ward range (exterior)', 'building', [30, 13.44, 10.54], 'glb', 'concept A18 cell 4 (v2 batch)', 'top', { model: 'act1-a18-4-hospice-range', fit: 'native', shape: 'ward', note: 'GLB 30 × 13.4 × 10.5 m (walls ±4.1 m, porches to ±5.3 m); brand-new whitewash, not one patch; one high window warm and still (Perfection light, on the model\'s own lit window, upper row): the act image, seen from the foot of the slope' }),
 	A('A18.5', 'Hospice boundary wall with niche (still candle)', 'building', [6, 2.95, 0.85], 'glb', 'concept A18 cell 5 (v2 batch)', 'top', { model: 'act1-a18-5-hospice-wall-niche', fit: 'native', shape: 'limewall', note: 'GLB 6 × 2.95 × 0.85 m (end piers let the sections run on; plain whitewash back); every section has its niche and still candle — a row of identical still lights (Perfection grammar, glows on the model candles); the terrace edge, 2 m above the approach' }),
-	A('A18.6', 'Hilltop approach steps', 'building', [4.0, 2.61, 4.06], 'glb', 'concept A18 cell 6 (v2 batch)', 'top', { model: 'act1-a18-6-hilltop-steps', fit: 'native', shape: 'steps', blockers: [[-1.68, 0, 0.64, 4.06], [1.68, 0, 0.64, 4.06]], note: 'GLB 4 × 2.61 × 4.06 m placed ×1.3 (5.2 × 3.4 × 5.3 m): clean treads up to a landing 1.82 m above the approach (the terrace is 0.18 m higher behind it); the terrain ramp under the treads is the walk surface (re-cut to the model\'s tread line); the cheeks block; potted red / cream flowers on the cheeks; the exit to the Gentle House' }),
+	A('A18.6', 'Hilltop approach steps', 'building', [4.0, 2.61, 4.06], 'glb', 'concept A18 cell 6 (v2 batch)', 'top', { model: 'act1-a18-6-hilltop-steps', fit: 'native', shape: 'steps', blockers: [[-1.68, 0, 0.64, 4.06], [1.68, 0, 0.64, 4.06], [-1.14, -1.165, 0.44, 1.65], [1.14, -1.165, 0.44, 1.65]], note: 'GLB 4 × 2.61 × 4.06 m placed ×1.3 (5.2 × 3.4 × 5.3 m): seven clean treads up to a landing 1.8 m above the approach (the terrace is 0.2 m higher behind it); Play walks the hidden ramp `steps` through the step edges (STEPS_WALK), the terrain runs under every tread and the landing (STEPS_GROUND); the cheeks block, and so do the pillar bases and flower pots flanking the landing (GLB |x| ≥ 0.92, 0.4–1.3 m above it); potted red / cream flowers on the cheeks; the exit to the Gentle House' }),
 	// LD only (N-PR…)
-	A('N-PR01', 'Abandoned reaping (sheaves, scythe, straw hat)', 'prop', [2.4, 1.1, 2.0], 'blockout', 'LD only, no concept', 'landing', { shape: 'reaping', note: 'rite 1: beside it a body-shaped hollow pressed into the poppies (field hole)' }),
-	A('N-PR02', "Harvester's cairn with ribbons and a name slate", 'story', [1.73, 0.84, 1.36], 'kit', 'LD only, no concept', 'farm', { model: 'kit:rocks.low', fit: 'native', shape: 'cairn', note: 'kit tạm (Blood-Moor low rock at its own size; the ribbons and the name slate are still missing); rite 2, under a drying rack in the farmyard' }),
-	A('N-PR03', "Shepherd's crook and folded coat", 'prop', [0.9, 1.6, 0.5], 'blockout', 'LD only, no concept', 'east', { shape: 'crook', collide: false, note: 'rite 3, inside the empty sheepfold (a ring of A08.2)' }),
-	A('N-PR04', 'Lone hawthorn with ribbons (the ribbon thorn)', 'vegetation', [6, 5.5, 6], 'blockout', 'LD only, no concept', 'top', { shape: 'thorn', blockers: [[0, 0, 0.8, 0.8]], note: 'rite 4: wind-bent, ribbons tied in it, a sleeper\'s shoes beneath; a landmark of the upper field' }),
-	A('N-PR05', 'Straw doll on a stile step', 'prop', [0.3, 0.35, 0.2], 'blockout', 'LD only, no concept', 'farm', { shape: 'doll', collide: false, note: 'unmarked vignette' }),
+	A('N-PR01', 'Abandoned reaping (sheaves, scythe, straw hat)', 'prop', [2.4, 1.1, 2.0], 'blockout', 'concept A23 cell 1 (v3 batch)', 'landing', { shape: 'reaping', note: 'rite 1: beside it a body-shaped hollow pressed into the poppies (field hole). Keeps the blockout: its GLB (act1-a23-1-abandoned-reaping) is a QA redo (the scythe juts out in mid-air with the jug hanging off it, no poppies, hollow sheaves)' }),
+	A('N-PR02', "Harvester's cairn with ribbons and a name slate", 'story', [1.2, 1.32, 1.34], 'glb', 'concept A22 cell 4 (v3 batch)', 'farm', { model: 'act1-a22-4-harvester-cairn', fit: 'native', shape: 'cairn', note: 'rite 2, under a drying rack in the farmyard. GLB 1.2 × 1.32 × 1.34 m (replaces the kit rock stand-in): the name slate leans on the front (+z), the ribbon stick on top (1.32 m); blocks as a whole' }),
+	A('N-PR03', "Shepherd's crook and folded coat", 'prop', [0.74, 1.6, 0.79], 'glb', 'concept A22 cell 5 (v3 batch)', 'east', { model: 'act1-a22-5-crook-and-coat', fit: 'native', shape: 'crook', blockers: [[0.08, -0.12, 0.3, 0.3]], note: 'rite 3, inside the empty sheepfold (a ring of A08.2). GLB 0.74 × 1.6 × 0.79 m: the 1.6 m crook, the folded coat in front of it (+z); blocks on the crook only (0.3 × 0.3 m at GLB x −0.07…+0.23, z −0.27…+0.03: its shaft leans from (0.15, −0.09) 0.55 m up to (−0.02, −0.15) at 1.2 m, the hook reaches x +0.31 at 1.3–1.6 m; review a2x F-c), the coat stays walk-through' }),
+	A('N-PR04', 'Lone hawthorn with ribbons (the ribbon thorn)', 'vegetation', [7.87, 5.5, 3.99], 'glb', 'concept A23 cell 2 (v3 batch)', 'top', { model: 'act1-a23-2-ribbon-thorn', fit: 'native', shape: 'thorn', blockers: [[0.27, 1.39, 0.6, 0.6], [0.65, 0.45, 1.0, 1.0]], note: 'rite 4: wind-bent, ribbons tied in it, a sleeper\'s shoes beneath (A22.1); a landmark of the upper field. GLB 7.87 × 5.5 × 3.99 m: the trunk foot at (+0.27, +1.39) off the pivot, the crown swept to −x and back (−z) over a twisted trunk, the ribbon-rich side +z. Placed by its trunk foot on the rite marker and turned (yaw 200) so the crown leans east-south-east, downwind of the smoke (1, −0.15) like the blockout, seen from just right of its back by the game camera; blocks on the trunk only (its foot, and where it leans back at 0.8 m); ribbons and twigs walk-through' }),
+	A('N-PR05', 'Straw doll on a stile step', 'prop', [0.3, 0.32, 0.33], 'glb', 'concept A22 cell 6 (v3 batch)', 'farm', { model: 'act1-a22-6-straw-doll', fit: 'native', shape: 'doll', collide: false, note: 'unmarked vignette. GLB 0.3 × 0.32 × 0.33 m: the doll faces +z, its legs out 0.17 m in front of the pivot' }),
+	A('A22.1', 'Worn shoes at the foot of the ribbon thorn', 'prop', [0.45, 0.18, 0.44], 'glb', 'concept A22 cell 1 (v3 batch)', 'top', { model: 'act1-a22-1-worn-shoes', fit: 'native', collide: false, note: 'rite 4: the sleeper\'s pair (the same model as the fens N-FN02), set beside the thorn\'s trunk foot, toes to the trunk' }),
 	A('N-PR06', 'Water trough (farmyard)', 'prop', [2.5, 1.0, 1.1], 'kit', 'LD only, no concept', 'farm', { model: 'kit:animals.trough', fit: 'native', note: 'kit tạm (camp trough)' }),
 	A('N-PR07', 'Seed sacks', 'prop', [1.9, 1.3, 1.8], 'kit', 'LD only, no concept', 'farm', { model: 'kit:storage.sacks', fit: 'native', note: 'kit tạm' }),
 	A('N-PR08', 'Barrow', 'prop', [2.5, 1.0, 1.25], 'kit', 'LD only, no concept', 'farm', { model: 'kit:animals.wheelbarrow', fit: 'native', collide: false, note: 'kit tạm (camp wheelbarrow)' }),
 	A('N-PR09', 'Spilled straw', 'prop', [2.4, 0.24, 2.3], 'kit', 'LD only, no concept', 'farm', { model: 'kit:clutter.straw', fit: 'native', collide: false, note: 'kit tạm' }),
 	A('N-PR10', 'Bramble / hawthorn scrub at wall ends', 'vegetation', [1.8, 1.1, 1.35], 'kit', 'LD only, no concept', 'all', { model: 'kit:shrubs.shrub_12', fit: 'native', collide: false, note: 'kit tạm (Blood-Moor shrub)' }),
 	A('N-PR11', 'Landing posts at the causeway (Rook\'s Weir boats)', 'structure', [2.16, 1.27, 0.36], 'kit', 'LD only, no concept', 'landing', { model: 'kit:fence.broken_pair', fit: 'native', shape: 'posts', collide: false, note: 'kit tạm (broken fence pair at ×1.2 = 2.6 × 1.5 m): posts in a pair at the causeway landing' }),
-	A('A04.2', 'Young willow (fen foot)', 'vegetation', [4, 6, 4], 'blockout', 'concept A04 cell 2 (E02 willow kit)', 'landing', { shape: { kind: 'tree', crown: 'weeping' }, note: 'only at the fen shore' }),
+	A('A04.2', 'Young willow (fen foot)', 'vegetation', [4.94, 6.0, 5.22], 'glb', 'concept A04 cell 2 (E02 willow kit)', 'landing', { model: 'act1-a04-2-young-willow', fit: 'native', shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0.12, 0.54, 1.05, 1.6]], note: 'GLB 4.9 × 6 × 5.2 m; only at the fen shore; only the trunk blocks' }),
 	A('A03.1', 'Low grass clump (meadow tufts)', 'vegetation', [0.6, 0.5, 0.6], 'procedural', 'concept A03 cell 1 (E01 fen kit)', 'all', { procedural: 'grass', collide: false, count: 30300, note: 'grey-green meadow tufts: ≈ 30 000 instanced Dark Wood grass cards from the field + 320 scattered clumps' }),
 	A('A03.2', 'Tall reeds clump', 'vegetation', [0.8, 1.8, 0.8], 'procedural', 'concept A03 cell 2 (E01 fen kit)', 'landing', { procedural: 'reeds', collide: false, note: 'shore-plant cards along the fen at the foot' }),
 	A('A03.3', 'Sedge water clump', 'vegetation', [0.7, 0.9, 0.7], 'procedural', 'concept A03 cell 3 (E01 fen kit)', 'landing', { procedural: 'sedge', collide: false }),
@@ -108,9 +121,17 @@ const foldRing = () => {
 // the hospice boundary wall: the terrace edge, broken only by the steps (x −2.1 … 2.1)
 const WALL_Z = -105.5;
 const FRONT = [[[-45.5, WALL_Z], [-2.1, WALL_Z]], [[2.1, WALL_Z], [45.5, WALL_Z]]];
-// the A18.5 candle sits in its niche at GLB (0, 1.5, 0.07); its glow stands 0.15 m in front of the wall face (0.32 m), where the ground is still the
-// approach's (the terrace flatten's soft edge reaches 0.5 m in front of the wall line): seen from the game camera it falls inside the niche opening
+// the A18.5 candle sits in its niche at GLB (0, 1.5, 0.07); its glow stands 0.15 m in front of the wall face (0.32 m), at the candle's height up its own
+// section (yOn: the section's base + 1.5 m × its height scale — the four sections by the steps stand on their lowest ground, stretched ×1.17 to keep the
+// parapet over the terrace): seen from the game camera it falls inside the niche opening
 const NICHES = FRONT.flatMap((pts) => runModules({ points: pts }, 6).map((m) => [r1(m.x), r1(m.z + 0.47)]));
+// the A18.6 steps (GLB ×1.3 at z −103.6 on APPROACH_Y), measured in the model: seven treads ≈ 0.52 m deep, risers 0.2–0.3 m, the step edges at z −100.97
+// (+0.23), −101.40 (+0.50), −101.89 (+0.73), −102.40 (+0.95), −102.93 (+1.18), −103.46 (+1.39), −104.00 (+1.61), the landing −104.52 … −106.19 (+1.80);
+// the tread sides lie up to 0.12 m further back and 0.07 m lower than their middles. Play walks a hidden ramp through the step edges (from the ground
+// 0.35 m before the bottom riser; at most 0.1 m under an edge, at most one riser over a tread; square ends: no floor hole before the bottom step); the terrain
+// stays ≥ 0.12 m under every tread and ≥ 0.25 m under the landing (≥ 6 cm at its back corners, where it climbs to the terrace)
+const STEPS_WALK = [[0, -100.62, APPROACH_Y], [0, -101.4, APPROACH_Y + 0.5], [0, -104.52, APPROACH_Y + 1.8], [0, -106.19, APPROACH_Y + 1.8]];
+const STEPS_GROUND = { from: [0, -101.2, APPROACH_Y], to: [0, -104.6, APPROACH_Y + 1.5] };
 
 export const PLAN = {
 	id: 'poppyReach',
@@ -135,7 +156,7 @@ export const PLAN = {
 		{ kind: 'hill', x: 86, z: -36, rx: 15, rz: 12, rot: -15, h: 5.5, power: 1.2 }, // the chalk knoll of the Flint Delvings
 		{ kind: 'flatten', area: { circle: [0, -99, 10] }, y: APPROACH_Y, soft: 6 }, // the level ground below the steps
 		{ kind: 'flatten', area: { rect: [-46, -128, 46, WALL_Z] }, y: TERRACE_Y, soft: 0.5 }, // the hospice terrace (2 m up, behind the wall)
-		{ kind: 'tilt', area: { rect: [-2.2, -106.4, 2.2, -100.4] }, from: [0, -100.6, APPROACH_Y], to: [0, -104.5, APPROACH_Y + 1.82], soft: 0.35 }, // the ramp under the A18.6 GLB (×1.3): along its tread line, then its landing (1.82 m; the terrace is 0.18 m higher behind it)
+		{ kind: 'tilt', area: { rect: [-2.2, -106.05, 2.2, -100.4] }, ...STEPS_GROUND, soft: 0.35 }, // the ground under the A18.6 GLB: under every tread and the landing (Play walks the hidden ramp `steps`), up to the terrace just behind the landing
 	],
 	water: [
 		{
@@ -155,6 +176,10 @@ export const PLAN = {
 		{ id: 'westTrack', kind: 'track', label: 'Field path to the reaping', width: 1.5, surface: 'packed', smooth: 2, points: [[-15.5, 88], [-30, 81], [-44, 73], [-49.5, 70]] },
 		{ id: 'foldTrack', kind: 'track', label: 'Field path to the sheepfold', width: 1.4, surface: 'packed', smooth: 1, points: [[45.4, 6], [52, 6], [57.2, 6]] },
 		{ id: 'thornTrack', kind: 'track', label: 'Field path to the ribbon thorn', width: 1.4, surface: 'packed', smooth: 2, points: [[5.5, -88], [-8, -87], [-24, -84.5], [-38, -81.5]] },
+		// two hidden walkways, each only as wide as the lane its blockers leave (between the cheeks, then between the pillars): Play's nav finds a blocker by
+		// its walls, so no deck may run on inside one; square ends meet without overlap
+		{ id: 'steps', kind: 'walkway', label: 'Up the A18.6 steps (hidden ramp through the step edges; the GLB treads are what you see)', points: STEPS_WALK.slice(0, 3), width: 2.96, surface: 'stone', hidden: true, caps: false, ramps: false },
+		{ id: 'stepsLanding', kind: 'walkway', label: 'The A18.6 landing (hidden deck between the pillars and flower pots)', points: STEPS_WALK.slice(2), width: 2.4, surface: 'stone', hidden: true, caps: false, ramps: false },
 	],
 	layers: [
 		{ id: 'BIO02_meadow', tile: 4.0 }, // 0 the meadow (the base; it also runs on over the apron)
@@ -205,10 +230,10 @@ export const PLAN = {
 		// the farm
 		{ asset: 'A08.3', x: FARM.x, z: FARM.z, yaw: FARM.yaw, name: 'The abandoned farmhouse', pad: { margin: 4, soft: 4 } },
 		...BEDS.map(([x, z], i) => ({ asset: 'A18.2', x, z, yaw: FARM.yaw, scale: 0.85, name: `Empty bed ${i + 1} (one clean pillow)` })),
-		{ asset: 'A08.6', x: -34, z: 22, yaw: 15, name: 'Poppy-drying rack (the harvester\'s)' },
-		{ asset: 'A08.6', x: -31, z: 3, yaw: -70, name: 'Poppy-drying rack' },
-		{ asset: 'A08.6', x: -56, z: 16, yaw: 40, name: 'Poppy-drying rack' },
-		{ asset: 'A08.6', x: 8, z: 62, yaw: 30, name: 'Poppy-drying rack (lower field)' },
+		{ asset: 'A08.6', x: -34, z: 22, yaw: 15, scale: 0.9, name: 'Poppy-drying rack (the harvester\'s)' },
+		{ asset: 'A08.6', x: -31, z: 3, yaw: -70, scale: 0.9, name: 'Poppy-drying rack' },
+		{ asset: 'A08.6', x: -56, z: 16, yaw: 40, scale: 0.9, name: 'Poppy-drying rack' },
+		{ asset: 'A08.6', x: 8, z: 62, yaw: 30, scale: 0.9, name: 'Poppy-drying rack (lower field)' },
 		{ asset: 'N-PR02', x: -33.7, z: 23.9, yaw: 15, name: 'Rite 2 · the harvester\'s cairn', tag: 'rite' },
 		{ asset: 'A08.4', x: -56, z: 2, yaw: 0, name: 'Hay rick (farm)' },
 		{ asset: 'A08.4', x: -50.5, z: -4.5, yaw: 40, name: 'Hay rick (farm)' },
@@ -224,7 +249,8 @@ export const PLAN = {
 		{ asset: 'N-PR01', x: -52, z: 68, yaw: 30, name: 'Rite 1 · the abandoned reaping', tag: 'rite' },
 		// the sheepfold (rite 3), the ribbon thorn (rite 4), the bed in the poppies (unmarked), the doll on the stile (unmarked)
 		{ asset: 'N-PR03', x: FOLD.x - 0.5, z: FOLD.z + 1.2, yaw: 30, name: 'Rite 3 · the shepherd\'s crook in the empty fold', tag: 'rite' },
-		{ asset: 'N-PR04', x: -43, z: -80.5, yaw: 0, name: 'Rite 4 · the ribbon thorn', tag: 'rite' },
+		{ asset: 'N-PR04', x: THORN.x, z: THORN.z, yaw: THORN.yaw, dy: 0.15, name: 'Rite 4 · the ribbon thorn', tag: 'rite' },
+		{ asset: 'A22.1', ...THORN_SHOES, name: 'Rite 4 · the sleeper\'s shoes at the thorn', tag: 'rite' },
 		{ asset: 'A18.2', x: 34, z: -91, yaw: 200, name: 'A bed dragged out into the poppies (unmarked)' },
 		{ asset: 'N-PR05', x: -28.1, z: -12.35, yaw: 160, y: 'ground', dy: 0.24, name: 'Straw doll on the stile step (unmarked)' },
 		{ asset: 'A08.4', x: 54, z: -86, yaw: 20, name: 'Hay rick (upper field)' },
@@ -241,20 +267,20 @@ export const PLAN = {
 		...[[-42, 66], [30, 78], [66, 22], [-52, -40], [-50, -92], [46, -94]].map(([x, z]) => ({ asset: 'A08.1', x, z, yaw: 0, y: 'ground', name: 'Poppy drift' })),
 	],
 	runs: [
-		{ asset: 'A08.2', points: W1.west, tag: 'W1' },
-		{ asset: 'A08.2', points: W1.east, tag: 'W1' },
-		{ asset: 'A08.2', points: W2.west, tag: 'W2' },
-		{ asset: 'A08.2', points: W2.east, tag: 'W2' },
-		{ asset: 'A08.2', points: W3.west, tag: 'W3' },
-		{ asset: 'A08.2', points: W3.mid, tag: 'W3' },
-		{ asset: 'A08.2', points: W3.east, tag: 'W3' },
-		{ asset: 'A08.2', points: W4.west, tag: 'W4' },
-		{ asset: 'A08.2', points: W4.east, tag: 'W4' },
-		...sideWalls(LANE_A).map((points) => ({ asset: 'A08.2', points, tag: 'laneA' })),
-		...sideWalls(LANE_B).map((points) => ({ asset: 'A08.2', points, tag: 'laneB' })),
-		{ asset: 'A08.2', points: [[-62, 88], [-64, 66], [-66, 41.6]], tag: 'field' }, // radial field walls
-		{ asset: 'A08.2', points: [[-50, -15.2], [-52, -40], [-55, -68.6]], tag: 'field' },
-		{ asset: 'A08.2', points: foldRing(), tag: 'fold' },
+		{ asset: 'A08.2', scale: 1.25, points: W1.west, tag: 'W1' },
+		{ asset: 'A08.2', scale: 1.25, points: W1.east, tag: 'W1' },
+		{ asset: 'A08.2', scale: 1.25, points: W2.west, tag: 'W2' },
+		{ asset: 'A08.2', scale: 1.25, points: W2.east, tag: 'W2' },
+		{ asset: 'A08.2', scale: 1.25, points: W3.west, tag: 'W3' },
+		{ asset: 'A08.2', scale: 1.25, points: W3.mid, tag: 'W3' },
+		{ asset: 'A08.2', scale: 1.25, points: W3.east, tag: 'W3' },
+		{ asset: 'A08.2', scale: 1.25, points: W4.west, tag: 'W4' },
+		{ asset: 'A08.2', scale: 1.25, points: W4.east, tag: 'W4' },
+		...sideWalls(LANE_A).map((points) => ({ asset: 'A08.2', scale: 1.25, points, tag: 'laneA' })),
+		...sideWalls(LANE_B).map((points) => ({ asset: 'A08.2', scale: 1.25, points, tag: 'laneB' })),
+		{ asset: 'A08.2', scale: 1.25, points: [[-62, 88], [-64, 66], [-66, 41.6]], tag: 'field' }, // radial field walls
+		{ asset: 'A08.2', scale: 1.25, points: [[-50, -15.2], [-52, -40], [-55, -68.6]], tag: 'field' },
+		{ asset: 'A08.2', scale: 1.25, points: foldRing(), tag: 'fold' },
 		// the hospice boundary wall: the front (the steps between), the sides back to the bounds
 		...FRONT.map((points) => ({ asset: 'A18.5', points, tag: 'hospice' })),
 		{ asset: 'A18.5', points: [[-45.5, WALL_Z - 3.2], [-45.5, -127.4]], tag: 'hospice', flip: true },
@@ -323,8 +349,8 @@ export const PLAN = {
 	},
 	lights: [
 		{ id: 'ghWindow', kind: 'perfection', label: 'The hospice window (warm, still: the act image)', x: WIN.x, z: WIN.z + 0.3, yAbs: WIN.y, color: '#f6b468', intensity: 9, range: 14, flicker: 0, real: true, glow: 3.2, flag: 'gentleHouse' },
-		{ id: 'nicheReal', kind: 'perfection', label: 'Niche candles by the steps (still)', x: NICHES.find(([x]) => x < 0 && x > -8)?.[0] ?? -5, z: WALL_Z + 0.8, y: 1.6, color: '#f2c27a', intensity: 2.2, range: 6, flicker: 0, real: true, glow: 0 },
-		...NICHES.map(([x, z], i) => ({ id: `niche${i + 1}`, kind: 'perfection', label: 'Niche candle (still)', x, z, y: 1.62, color: '#f2c27a', intensity: 0, range: 0, flicker: 0, real: false, glow: 0.3 })),
+		{ id: 'nicheReal', kind: 'perfection', label: 'Niche candles by the steps (still)', x: NICHES.find(([x]) => x < 0 && x > -8)?.[0] ?? -5, z: WALL_Z + 0.8, yOn: { asset: 'A18.5', ly: 1.5 }, color: '#f2c27a', intensity: 2.2, range: 6, flicker: 0, real: true, glow: 0 },
+		...NICHES.map(([x, z], i) => ({ id: `niche${i + 1}`, kind: 'perfection', label: 'Niche candle (still)', x, z, yOn: { asset: 'A18.5', ly: 1.5 }, color: '#f2c27a', intensity: 0, range: 0, flicker: 0, real: false, glow: 0.3 })),
 	],
 	markers: [
 		// encounters
@@ -425,10 +451,11 @@ export const PLAN = {
 		apron: { width: 360, blend: 70, sink: 2.0, hills: [HILL] },
 	},
 	defaultMood: 'day',
+	// Play moods brightened 10-23 (hemi, sun intensity, envI, exposure); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		day: {
-			label: 'Poppy Reach · ngày u ám', sky: '#b2b9ae', ground: '#4d4232', hemi: 2.0, sun: { elev: 66, az: -160, intensity: 0.32, kelvin: 6600 }, env: 'hdri-overcast', envI: 0.34,
-			toneMapping: 'aces', exposure: 0.52, background: '#9ba398',
+			label: 'Poppy Reach · ngày u ám', sky: '#b2b9ae', ground: '#4d4232', hemi: 2.6, sun: { elev: 66, az: -160, intensity: 0.36, kelvin: 6600 }, env: 'hdri-overcast', envI: 0.48,
+			toneMapping: 'aces', exposure: 0.8, background: '#9ba398',
 			fog: { enabled: true, color: '#a2a99f', density: 0.0072, falloff: 0.075, height: 0, start: 20, inscatter: 0 },
 			grade: { vignette: 0.28, contrast: 1.06, saturation: 0.96, lift: 0, temperature: 0.005, tint: 0 },
 			rain: 0, mist: 0.35, human: 0.7, perfection: 1, windows: 0.5, flags: { accent: true, gentleHouse: true },

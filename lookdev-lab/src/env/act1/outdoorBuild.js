@@ -13,6 +13,7 @@ import { moteTexture, withDefaultAttributes } from '../dungeonDecor.js';
 import { finalWeights, shaderMask } from '../biomeMix.js';
 import { CATEGORY_COLORS, blockoutMaterial, blockoutShape, instancedBlockout, placementMatrix, labelAtlas, personMarker } from './blockout.js';
 import { lightLevel, rng, smoothstep, fbm, clamp, WADE } from './outdoor.js';
+import { cutTriangles } from './interior.js';
 import { MeadowBuild } from './meadowBuild.js';
 
 /** Old kit key → samples.json id (the Blood-Moor / camp kits; env/mapModules.js has the full table). */
@@ -305,7 +306,10 @@ export class OutdoorBuild {
 			const mid = new THREE.Vector3((s.ax + s.bx) / 2, (s.ya + s.yb) / 2 - thick / 2, (s.az + s.bz) / 2);
 			const m = new THREE.Matrix4().makeTranslation(mid.x, mid.y, mid.z).multiply(new THREE.Matrix4().makeRotationY(yaw)).multiply(new THREE.Matrix4().makeRotationZ(pitch));
 			const hide = hidden.has(s.path); // a model's own planks are the visible deck (the GLB night dock): walk surface only, no posts
-			add(new THREE.BoxGeometry(L + (s.kind === 'deck' ? 0.1 : 0), thick, s.w), m, 0.95 + r() * 0.15, hide ? hiddenParts : parts);
+			// a sloped deck or ramp (hidden or not) in ≤ 0.4 m pieces: Play's push-out takes a wall triangle's whole height range, and one long side face
+			// would rise through the hero's band and wall in the ramp's own edges (same look, a few more vertices)
+			const pieces = Math.abs(s.yb - s.ya) > 0.01 ? Math.ceil(L / 0.4) : 1;
+			add(new THREE.BoxGeometry(L + (s.kind === 'deck' ? 0.1 : 0), thick, s.w, pieces), m, 0.95 + r() * 0.15, hide ? hiddenParts : parts);
 			if (s.kind !== 'deck' || hide) continue;
 			const nx = -dz / len;
 			const nz = dx / len;
@@ -318,14 +322,16 @@ export class OutdoorBuild {
 				add(new THREE.CylinderGeometry(0.08, 0.1, h, 6), new THREE.Matrix4().makeTranslation(px, bottom + h / 2, pz), 0.72, postParts);
 			}
 		}
-		const g = this.ownGeo(withDefaultAttributes(mergeAll(parts)));
-		const mesh = new THREE.Mesh(g, this.blockoutMaterial());
-		mesh.name = 'Walkways · A01.2 Raised wooden walkway (blockout, walkable)';
-		mesh.castShadow = mesh.receiveShadow = true;
-		mesh.userData.assetId = 'A01.2';
 		const group = this.sub('Decks');
-		group.add(mesh);
-		this.decks = mesh;
+		if (parts.length) {
+			// (a map whose walkways are all hidden, like the hilltop steps' ramp, draws no deck: an empty mesh would be a zero-vertex draw on WebGPU)
+			const mesh = new THREE.Mesh(this.ownGeo(withDefaultAttributes(mergeAll(parts))), this.blockoutMaterial());
+			mesh.name = 'Walkways · A01.2 Raised wooden walkway (blockout, walkable)';
+			mesh.castShadow = mesh.receiveShadow = true;
+			mesh.userData.assetId = 'A01.2';
+			group.add(mesh);
+			this.decks = mesh;
+		}
 		if (hiddenParts.length) {
 			// walkable but not drawn (layer 31 + labNoView like the walk floor): the model above it is what you see
 			const under = new THREE.Mesh(this.ownGeo(withDefaultAttributes(mergeAll(hiddenParts))), this.ownMat(new THREE.MeshBasicMaterial({ name: 'Walkway under a model deck (collision only)', visible: false })));
@@ -507,7 +513,7 @@ export class OutdoorBuild {
 		const W = this.world;
 		const byAsset = new Map();
 		for (const s of W.structures) {
-			if (s.deck) continue;
+			if (s.deck && !s.piece) continue; // walkway pieces are the deck mesh (buildDecks), except model pieces (a GLB plank walkway over a hidden deck)
 			if (!byAsset.has(s.asset)) byAsset.set(s.asset, []);
 			byAsset.get(s.asset).push(s);
 		}
@@ -594,6 +600,19 @@ export class OutdoorBuild {
 		return modelShown && def.anchors ? def.anchors : (this.shapeFor(def)?.anchors ?? []);
 	}
 
+	/** A copy of a GLB geometry without the triangles in the def's `cut` boxes ([x0, y0, z0, x1, y1, z1], GLB frame; interior.js cutTriangles). Only the
+	 * index shrinks: every vertex stays, so the bounding box / sphere still span the full model (like the prep script's CUT variants): never fit 'size' a cut. */
+	cutGeometry(src, boxes) {
+		const g = src.clone();
+		const pos = g.attributes.position;
+		const xyz = new Float32Array(pos.count * 3);
+		for (let i = 0; i < pos.count; i++) xyz.set([pos.getX(i), pos.getY(i), pos.getZ(i)], i * 3);
+		g.setIndex(cutTriangles(xyz, g.index ? Array.from({ length: g.index.count }, (_, i) => g.index.getX(i)) : null, boxes));
+		g.computeBoundingBox();
+		g.computeBoundingSphere();
+		return g;
+	}
+
 	/** A GLB / kit piece instanced at the placements (native size, or fitted to the def size); null when the model did not load. */
 	modelInstances(def, items) {
 		if (globalThis.__act1ForceBlockout?.has?.(def.id)) return null; // A/B (perf, before / after shots): these ids draw their blockout fallback
@@ -605,10 +624,11 @@ export class OutdoorBuild {
 			const mesh = this.glbMesh(def.model);
 			if (!mesh) return null;
 			gltf.scene.updateMatrixWorld(true);
-			geometry = mesh.geometry;
+			this.own.geometries.push(mesh.geometry);
+			geometry = def.cut ? this.cutGeometry(mesh.geometry, def.cut) : mesh.geometry;
 			material = mesh.material;
 			local = mesh.matrixWorld.clone();
-			this.own.geometries.push(geometry);
+			if (geometry !== mesh.geometry) this.own.geometries.push(geometry);
 			for (const m of [].concat(material)) {
 				this.own.materials.push(m);
 				for (const t of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap', 'emissiveMap']) if (m[t]) this.own.textures.push(m[t]);
@@ -623,6 +643,7 @@ export class OutdoorBuild {
 			geometry = mesh.geometry; // shared with the kit library (never disposed here)
 			material = mesh.material;
 		}
+		if (def.pivot) local.premultiply(new THREE.Matrix4().makeTranslation(-def.pivot[0], -def.pivot[1], -def.pivot[2])); // this model point is the def origin
 		geometry.computeBoundingBox();
 		if (def.fit === 'size') {
 			const b = geometry.boundingBox;
@@ -950,8 +971,9 @@ export class OutdoorBuild {
 			entries.push({ text: `${s.asset} · ${s.def.name}`.slice(0, 46), sub: `${s.def.status === 'kit' ? 'kit tạm' : s.def.status}${total > 2 ? ` · ×${total}` : ''} · ${s.size.map((v) => v.toFixed(1)).join(' × ')} m`, x: s.x, y: s.top + 0.5, z: s.z, color: CATEGORY_COLORS[s.def.category] });
 		}
 		for (const p of W.paths.filter((q) => q.kind === 'walkway')) {
-			const [x, z] = p.pts[Math.floor(p.pts.length / 2)];
-			entries.push({ text: `${p.asset ?? 'A01.2'} · walkway ${p.id}`, sub: `blockout · deck ${p.deck} m`, x, y: (p.deck ?? 0.6) + 1.4, z, color: CATEGORY_COLORS.structure });
+			const [x, z, y] = p.pts[Math.floor(p.pts.length / 2)];
+			const deck = y ?? p.deck ?? 0.6; // a sloped walkway carries its deck heights on its points
+			entries.push({ text: `${p.asset ?? (p.hidden ? 'walk only' : 'A01.2')} · walkway ${p.id}`, sub: `${p.hidden ? 'hidden, under the model' : 'blockout'} · deck ${deck.toFixed(2)} m`, x, y: deck + 1.4, z, color: CATEGORY_COLORS.structure });
 		}
 		for (const s of W.far?.items ?? []) entries.push({ text: `${s.asset} · far silhouette`, sub: s.def.name.slice(0, 44), x: s.x, y: s.top + 8, z: s.z, color: CATEGORY_COLORS.story, width: 60 });
 		labelsOf(O.labels, entries);

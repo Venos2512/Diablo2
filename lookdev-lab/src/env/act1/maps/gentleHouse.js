@@ -12,7 +12,9 @@
 // the camera lower and closer than the other maps (LD proposal). The exterior roofs show only while the focus is outdoors (the engine's room.outdoor).
 // Sizes (H = 1.8 m): A11 from ashlar/art/act-01-environments/groups/A11_gentle_house/perspective.prompt.txt (cloister bay 3H × 2.4H × 1.2H, bed 1.2H × 0.6H ×
 // 0.4H, table 2.4H × 0.8H × 0.45H, gate tower 4H × 2.4H × 2.4H, hearth 1.6H × 2H × 1H, candle stand 1.3H × 0.5H); A18 / A19 from the v2 batch
-// (ashlar/art/act-01-environments-v2/README_VI.md §3, tmp/act1-base-maps/MISSING_ENV_CONCEPTS.md; sheets A18 perspective_v1e, A19 perspective_v2e).
+// (ashlar/art/act-01-environments-v2/README_VI.md §3, tmp/act1-base-maps/MISSING_ENV_CONCEPTS.md; sheets A18 perspective_v1e, A19 perspective_v2e); the
+// garth / garden beds, pots and drying line (N-HS02–05 = A23.3–A23.6) and the kitchen / linen-room tables and bread rack (N-HS06–08 = A24.1–A24.3) from the
+// v3 batch (ashlar/art/act-01-environments-v3, MISSING_ENV_CONCEPTS_2.md) on their act1-kit GLBs (tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25).
 // Pure data + small pure helpers (the engine: ../interior.js; format documented at its top).
 import { assetList } from '../interior.js';
 
@@ -221,33 +223,43 @@ const SLEEPER = [
 // ---- KIT: every model the map needs (status: glb | kit | procedural | blockout) ------------------------------------------------------------------
 const A11 = 'concept A11 cell';
 const V2 = (g, c) => `concept ${g} cell ${c} (v2 batch)`;
+const V3 = (g, c) => `concept ${g} cell ${c} (v3 batch)`;
 export const KIT = {
 	'A11.1': {
-		name: 'Whitewashed cloister bay (three round arches)', short: 'Vòm cloister', category: 'building', size: [3 * H, 2.4 * H, 1.2 * H], status: 'blockout', source: `${A11} 1`,
-		segment: 'cloister', note: 'the lean-to roof over the walk is split off as N-HS12 (exterior only) so the walk stays visible; only the piers block', shape: cloisterBayShape(),
-		blockers: [-2.7, -0.9, 0.9, 2.7].map((x) => ({ at: [x, 0.83], r: 0.33 })),
+		name: 'Whitewashed cloister bay (three round arches)', short: 'Vòm cloister', category: 'building', size: [5.4, 3.815, 2.82], status: 'glb', source: `${A11} 1`,
+		segment: 'cloister', shape: cloisterBayShape(), model: 'act1-a11-1-cloister-bay',
+		note: 'the GLB is a closed little pavilion (solid back wall, both end walls, a gable roof over a 1 m walk): its back and end walls below the roof (y < 2.42 m) are cut away so the walk behind the arches stays 1.9 m wide and runs on from bay to bay; arches 1.1 / 1.0 / 0.9 m between the four piers (the blockers); the roof covers the walk (the wall fade opens it round the focus; the exterior-only N-HS12 roofs are dropped)',
+		// cut boxes in the GLB frame [x0, y0, z0, x1, y1, z1]: the back wall, the two end walls behind the end piers, a flap of the west end wall's inner face
+		// and a sliver at the back-west corner (the build drops the triangles whose centroid is inside; the walk band 0.35–1.7 m behind the piers is then empty)
+		cut: [[-2.75, -0.05, -1.45, 2.75, 2.42, -0.45], [-2.75, -0.05, -1.45, -2.05, 2.42, 0.29], [1.75, -0.05, -1.45, 2.75, 2.42, 0.42], [-2.23, 0.3, 0.285, -2.15, 1.9, 0.326], [-2.75, 2.42, -1.45, -2.05, 2.48, -0.45]],
+		blockers: [{ rect: [-2.65, 0.31, -2.1, 0.86] }, { rect: [-1.0, 0.41, -0.5, 0.95] }, { rect: [0.5, 0.45, 0.9, 1.0] }, { rect: [1.8, 0.5, 2.3, 1.0] }], // the GLB piers (0.35–1.7 m band)
 	},
 	'A11.2': {
-		name: 'Hospice bed', short: 'Giường bệnh', category: 'prop', size: [0.6 * H, 0.4 * H, 1.2 * H], status: 'blockout', source: `${A11} 2`, segment: 'ward',
-		note: 'two rows in the ward; Fen\'s bed (north row, east end) is empty: clean pillow, folded blanket', shape: BED, collider: 1.0, // mattress ≈ 0.46 m: under Play's 0.6 m step, so a collision prism keeps the hero off the beds (and their sleepers)
+		name: 'Hospice bed', short: 'Giường bệnh', category: 'prop', size: [1.198, 1.07, 2.16], status: 'glb', source: `${A11} 2`, segment: 'ward', model: 'act1-a11-2-hospice-bed',
+		note: 'two rows in the ward; Fen\'s bed (north row, east end) is empty; the GLB is keyed on the 2.16 m length; uniformly it was 1.71 m wide (concept 1.08 m) and read as a double bed with one sleeper, so the prep narrows its width alone ×0.7 to 1.2 m (prepare-act1-kit.py SQUASH, kit fix 10-23: a plain bed frame, the texture stretch is small); 1.5 m stays between beds at the 2.71 m pitch (the candle stands and windows stand there); mattress top 0.67 m (the sleepers lie at 0.70)',
+		shape: BED, collider: 1.0, // mattress 0.67 m: the prism keeps the hero off the beds (and their sleepers)
 	},
 	'A11.3': {
-		name: 'Refectory table with bread (two benches)', short: 'Bàn ăn + bánh mì', category: 'prop', size: [2.4 * H, 0.45 * H, 0.8 * H], status: 'blockout', source: `${A11} 3`,
-		segment: 'refectory', note: 'two tables + the high table; the bread is always fresh', shape: TABLE, collider: 1.0, // benches 0.45 m: under Play's 0.6 m step
+		name: 'Refectory table with bread (two benches)', short: 'Bàn ăn + bánh mì', category: 'prop', size: [4.32, 2.073, 2.575], status: 'glb', source: `${A11} 3`,
+		segment: 'refectory', model: 'act1-a11-3-refectory-table', shape: TABLE,
+		note: 'two tables + the high table; the bread is always fresh; keyed on the 4.32 m length the GLB top stands at 1.2 m: placed at scale 0.68 (2.94 × 1.41 × 1.75 m, top 0.82 m, benches 0.40–0.46 m); it brings its own jug of flowers (no A19.1 vase on it)',
+		collider: 1.5, // × the 0.68 placement scale = 1.02 m: the benches are under Play's 0.6 m step
 	},
 	'A11.4': {
 		name: 'Gate tower', short: 'Tháp cổng', category: 'building', size: [2.4 * H, 4 * H, 2.4 * H], status: 'blockout', source: `${A11} 4`, segment: 'gate',
-		note: 'the rain stops here (LD proposal); the passage is 2 m wide; the blockers are its side walls', shape: GATE_TOWER,
-		blockers: [{ rect: [-2.16, -2.16, -1.0, 2.16] }, { rect: [1.0, -2.16, 2.16, 2.16] }],
+		note: 'the rain stops here (LD proposal); the passage is 2 m wide; the blockers are its side walls · kept as a blockout (kit swap 2026-10-23): the act1-a11-4-gate-tower GLB has no through passage (its front arch opens into a hall closed by a blind back wall) and no +x wall below ≈ 4 m: it needs a rebuild',
+		shape: GATE_TOWER, blockers: [{ rect: [-2.16, -2.16, -1.0, 2.16] }, { rect: [1.0, -2.16, 2.16, 2.16] }],
 	},
 	'A11.5': {
-		name: 'Kitchen hearth with cauldron', short: 'Lò bếp + nồi', category: 'building', size: [2 * H, 1.6 * H, 1 * H], status: 'blockout', source: `${A11} 5`, segment: 'kitchen',
-		note: 'unlit and spotless (concept): a kitchen that never seems to cook', shape: HEARTH,
+		name: 'Kitchen hearth with cauldron', short: 'Lò bếp + nồi', category: 'building', size: [2.333, 2.88, 1.963], status: 'glb', source: `${A11} 5`, segment: 'kitchen', model: 'act1-a11-5-kitchen-hearth',
+		note: 'unlit and spotless (concept): a kitchen that never seems to cook; the GLB is 2.33 m wide (concept 3.6 m), its back on the kitchen\'s north wall', shape: HEARTH,
+		collider: 2.0, // a box over the footprint: the hero does not step into the fire opening (the model stays out of Play's collision)
 	},
 	'A11.6': {
-		name: 'Steady candle stand', short: 'Chân nến đứng yên', category: 'prop', size: [0.5 * H, 1.3 * H, 0.5 * H], status: 'blockout', source: `${A11} 6`, segment: 'ward · refectory · kitchen · cloister',
-		note: 'Perfection light: the candles never flicker; many identical in rows (a real light on some, a still glow on the others)', shape: CANDLE_STAND, round: true, foot: [0.5, 0.5],
-		light: { kind: 'perfection', y: 2.39, color: CANDLE, range: 6.5, intensity: 7, glow: 0.5, glowGain: 0.9, pool: 1.7, poolGain: 0.12 },
+		name: 'Steady candle stand', short: 'Chân nến đứng yên', category: 'prop', size: [0.611, 2.34, 0.617], status: 'glb', source: `${A11} 6`, segment: 'ward · refectory · kitchen · cloister', model: 'act1-a11-6-candle-stand',
+		note: 'Perfection light: the candles never flicker; many identical in rows (a real light on some, a still glow on the others); the light, its halo and the still flame (KIT globe) sit on the GLB flame (0.04, 2.24, 0.06; 2.16–2.33 m)', shape: CANDLE_STAND, round: true, foot: [0.6, 0.6],
+		globe: [{ p: 'glow', at: [0.04, 2.245, 0.06], size: [0.075, 0.17, 0.075] }], // the still teardrop flame over the GLB's painted one
+		light: { kind: 'perfection', y: 2.24, offset: [0.04, 0.06], color: CANDLE, range: 6.5, intensity: 7, glow: 0.5, glowGain: 0.9, pool: 1.7, poolGain: 0.12 },
 	},
 	'A18.4': {
 		name: 'Hospice ward range (exterior)', short: 'Dãy nhà bệnh (ngoại thất)', category: 'building', size: [30, 11, 9], status: 'blockout', source: V2('A18', 4), segment: 'ward',
@@ -289,40 +301,47 @@ export const KIT = {
 		light: { kind: 'perfection', y: 1.19, offset: [-0.47, 0.12], color: CANDLE, range: 4.5, intensity: 3, glow: 0.38, glowGain: 0.85, pool: 0.9, poolGain: 0.1, fadeWithWall: true }, // the GLB's sill candle
 	},
 	'N-HS02': {
-		name: 'Garth flower bed (pale flowers, two poppies)', short: 'Bồn hoa sân cỏ', category: 'vegetation', size: [3.2, 0.55, 3.2], status: 'blockout', source: 'LD only, no concept', segment: 'cloister',
-		round: true, shape: [
-			{ p: 'cyl', at: [0, 0.14, 0], size: [3.2, 0.28, 3.2], cat: 'building', seg: 20 },
-			{ p: 'mound', at: [0, 0.4, 0], size: [2.8, 0.3, 2.8], seg: 16 },
-			{ p: 'sphere', at: [0.5, 0.6, 0.2], size: [0.12, 0.1, 0.12], cat: 'accent' },
-			{ p: 'sphere', at: [-0.4, 0.58, -0.45], size: [0.12, 0.1, 0.12], cat: 'accent' },
+		name: 'Garth flower bed (pale flowers, two poppies)', short: 'Bồn hoa sân cỏ', category: 'vegetation', size: [3.2, 1.269, 3.23], status: 'glb', source: V3('A23', 3), segment: 'cloister',
+		note: 'a square limewashed kerb (soil top ≈ 0.49 m) with pale flower mounds to 1.27 m (concept 0.55 m overall) and the two poppies in the middle; blocks as a whole (3.2 m square, was a 3.2 m disc)',
+		model: 'act1-a23-3-garth-flower-bed', collider: 1.3, // the kerb is under Play's 0.6 m step: the prism keeps the hero off the flowers
+		shape: [
+			{ p: 'box', at: [0, 0.245, 0], size: [3.2, 0.49, 3.23], cat: 'building' },
+			{ p: 'mound', at: [0, 0.75, 0], size: [2.9, 0.52, 2.9], seg: 16 },
+			{ p: 'sphere', at: [0.25, 1.15, 0.1], size: [0.14, 0.12, 0.14], cat: 'accent' },
+			{ p: 'sphere', at: [-0.25, 1.15, -0.1], size: [0.14, 0.12, 0.14], cat: 'accent' },
 		],
 	},
 	'N-HS03': {
-		name: 'Potted flowers (clean terracotta pot)', short: 'Chậu hoa', category: 'vegetation', size: [0.6, 0.75, 0.6], status: 'blockout', source: 'LD only, no concept (A18.6 shows two at the top of the steps)',
-		segment: 'forecourt · cloister', round: true, shape: [
+		name: 'Potted flowers (clean terracotta pot)', short: 'Chậu hoa', category: 'vegetation', size: [0.592, 0.75, 0.6], status: 'glb', source: V3('A23', 4),
+		segment: 'forecourt · cloister', note: 'the six pots are identical (no placement-scale variety: Perfection keeps every plant the same); QA: no lavender spikes, many flowers grey-green instead of cream',
+		model: 'act1-a23-4-potted-flowers', collider: 0.9, round: true, shape: [
 			{ p: 'cone', at: [0, 0.21, 0], size: [0.5, 0.42, 0.5], top: 1.25, cat: 'prop', seg: 12 },
 			{ p: 'sphere', at: [0, 0.57, 0], size: [0.6, 0.36, 0.6] },
 			{ p: 'sphere', at: [0.12, 0.72, 0.08], size: [0.09, 0.08, 0.09], cat: 'accent' },
 		],
 	},
 	'N-HS04': {
-		name: 'Walled flower bed (herbs, white flowers)', short: 'Luống hoa vườn', category: 'vegetation', size: [4, 0.5, 1.4], status: 'blockout', source: 'LD only, no concept', segment: 'Mother\'s garden',
-		note: 'the walled garden under the high window (seen, not walked)', shape: [
-			{ p: 'box', at: [0, 0.14, 0], size: [4, 0.28, 1.4], cat: 'building' },
-			{ p: 'mound', at: [0, 0.3, 0], size: [3.7, 0.24, 1.1] },
-			{ p: 'sphere', at: [1.1, 0.48, 0.1], size: [0.1, 0.09, 0.1], cat: 'accent' },
+		name: 'Walled flower bed (herbs, white flowers)', short: 'Luống hoa vườn', category: 'vegetation', size: [4, 1.105, 1.242], status: 'glb', source: V3('A23', 5), segment: 'Mother\'s garden',
+		note: 'the walled garden under the high window (seen, not walked); kerb top 0.27 m, leaves to 1.11 m (concept 0.5 m); QA: the lavender and white flower spikes are missing (spiky leaves, a few flat flowers)',
+		model: 'act1-a23-5-walled-flower-bed', collider: 1.1, shape: [
+			{ p: 'box', at: [0, 0.135, 0], size: [4, 0.27, 1.24], cat: 'building' },
+			{ p: 'mound', at: [0, 0.6, 0], size: [3.7, 0.66, 1.0] },
+			{ p: 'sphere', at: [1.1, 0.95, 0.1], size: [0.1, 0.09, 0.1], cat: 'accent' },
 		],
 	},
 	'N-HS05': {
-		name: 'Linen drying line (clean sheets)', short: 'Dây phơi vải lanh', category: 'linen', size: [6, 2.2, 0.3], status: 'blockout', source: 'LD only, no concept', segment: 'Mother\'s garden',
-		note: 'clean sheets hanging dead still in the dry, windless garden', blockers: [{ at: [-2.9, 0], r: 0.1 }, { at: [2.9, 0], r: 0.1 }], shape: [
-			...[-2.9, 2.9].map((x) => ({ p: 'box', at: [x, 1.1, 0], size: [0.1, 2.2, 0.1], cat: 'prop' })),
-			{ p: 'box', at: [0, 2.08, 0], size: [5.8, 0.02, 0.02], cat: 'prop' },
-			...[-1.9, 0, 1.9].map((x) => ({ p: 'drape', at: [x, 1.32, 0], size: [1.6, 1.5, 0.12], folds: 2 })),
+		name: 'Linen drying line (clean sheets)', short: 'Dây phơi vải lanh', category: 'linen', size: [3.829, 2.2, 0.268], status: 'glb', source: V3('A23', 6), segment: 'Mother\'s garden',
+		note: 'clean sheets hanging dead still in the dry, windless garden; 3.83 m wide (concept 6 m): the GLB posts\' feet are at x −1.79 and +1.80 (measured on the mesh), the sheets hang from the line (≈ 1.9 m) to 0.25–0.55 m; only the posts block (the garden is seen, not walked: the sheets would be a cloth wall where the hero could reach it)',
+		model: 'act1-a23-6-drying-line', blockers: [{ at: [-1.79, 0], r: 0.18 }, { at: [1.8, 0], r: 0.18 }], collider: 2.2, shape: [
+			...[-1.79, 1.8].map((x) => ({ p: 'box', at: [x, 1.1, 0], size: [0.12, 2.2, 0.12], cat: 'prop' })),
+			{ p: 'box', at: [0, 1.95, 0], size: [3.6, 0.02, 0.02], cat: 'prop' },
+			...[-1.1, 0, 1.1].map((x) => ({ p: 'drape', at: [x, 1.15, 0], size: [1.05, 1.5, 0.12], folds: 2 })),
 		],
 	},
 	'N-HS06': {
-		name: 'Kitchen work table (bowls, bread)', short: 'Bàn bếp', category: 'prop', size: [2.4, 0.9, 1.0], status: 'blockout', source: 'LD only, no concept', segment: 'kitchen', shape: [
+		name: 'Kitchen work table (bowls, bread)', short: 'Bàn bếp', category: 'prop', size: [2.4, 1.111, 1.007], status: 'glb', source: V3('A24', 1), segment: 'kitchen',
+		note: 'top 0.84 m; it brings its own three nested bowls (x −1.0…−0.5, to 1.11 m), two loaves on a board with the knife (x −0.3…+0.4) and a folded white cloth (x +0.4…+1.1, top 0.90 m): the poppy tea tray stands on the cloth, no A19.1 vase on it',
+		model: 'act1-a24-1-kitchen-table', collider: 1.1, shape: [
 			{ p: 'box', at: [0, 0.86, 0], size: [2.4, 0.08, 1.0] },
 			...[[-1.1, -0.42], [1.1, -0.42], [-1.1, 0.42], [1.1, 0.42]].map(([x, z]) => ({ p: 'box', at: [x, 0.41, z], size: [0.08, 0.82, 0.08] })),
 			...[-0.8, -0.35].map((x) => ({ p: 'cyl', at: [x, 0.95, 0.15], size: [0.3, 0.1, 0.3], cat: 'linen' })),
@@ -330,19 +349,19 @@ export const KIT = {
 		],
 	},
 	'N-HS07': {
-		name: 'Bread rack (fresh loaves)', short: 'Giá bánh mì', category: 'prop', size: [1.6, 1.8, 0.5], status: 'kit', source: 'LD only, no concept', segment: 'kitchen',
-		model: 'act1-a19-4-linen-press', note: 'kit tạm: the A19.4 linen press GLB stands in (reuse: clean open shelving reads as kitchen storage); a bread rack model is still missing',
-		foot: [1.35, 0.95], collider: 1.9, // the stand-in press's footprint (the KIT size stays the bread rack's)
-		shape: [
-			...[-0.76, 0.76].map((x) => ({ p: 'box', at: [x, 0.9, 0], size: [0.06, 1.8, 0.5] })),
-			...[0.3, 0.75, 1.2, 1.65].flatMap((y) => [
-				{ p: 'box', at: [0, y, 0], size: [1.52, 0.04, 0.48] },
-				...[-0.45, 0, 0.45].map((x) => ({ p: 'mound', at: [x, y + 0.1, 0], size: [0.36, 0.16, 0.24], cat: 'story' })),
+		name: 'Bread rack (fresh loaves)', short: 'Giá bánh mì', category: 'prop', size: [1.164, 1.8, 0.508], status: 'glb', source: V3('A24', 2), segment: 'kitchen',
+		note: 'replaces the A19.4 linen press stand-in; 1.16 m wide (concept 1.6 m: keyed on the width it would be 2.42 m tall), shelves 0.15–1.34 m; the back 0.25 m behind the pivot (on the wall at x + 0.26)',
+		model: 'act1-a24-2-bread-rack', foot: [1.2, 0.55], collider: 1.8, shape: [
+			...[-0.55, 0.55].map((x) => ({ p: 'box', at: [x, 0.9, 0], size: [0.06, 1.8, 0.5] })),
+			...[0.15, 0.55, 0.95, 1.34].flatMap((y) => [
+				{ p: 'box', at: [0, y, 0], size: [1.06, 0.04, 0.48] },
+				...[-0.3, 0, 0.3].map((x) => ({ p: 'mound', at: [x, y + 0.1, 0], size: [0.26, 0.16, 0.24], cat: 'story' })),
 			]),
 		],
 	},
 	'N-HS08': {
-		name: 'Folding table with folded linen', short: 'Bàn gấp vải', category: 'prop', size: [2.4, 0.9, 1.0], status: 'blockout', source: 'LD only, no concept', segment: 'linen room', shape: [
+		name: 'Folding table with folded linen', short: 'Bàn gấp vải', category: 'prop', size: [2.4, 1.091, 1.032], status: 'glb', source: V3('A24', 3), segment: 'linen room',
+		note: 'trestle table, top 0.82 m, the folded linen stacks to 1.09 m (one tied with a poppy-red ribbon)', model: 'act1-a24-3-linen-folding-table', collider: 1.1, shape: [
 			{ p: 'box', at: [0, 0.86, 0], size: [2.4, 0.08, 1.0] },
 			...[[-1.1, -0.42], [1.1, -0.42], [-1.1, 0.42], [1.1, 0.42]].map(([x, z]) => ({ p: 'box', at: [x, 0.41, z], size: [0.08, 0.82, 0.08] })),
 			...[-0.75, 0, 0.75].map((x, i) => ({ p: 'box', at: [x, 0.98 + 0.05 * i, 0], size: [0.55, 0.16 + 0.1 * i, 0.45], cat: 'linen' })),
@@ -364,6 +383,7 @@ export const KIT = {
 	'N-HS12': {
 		name: 'Cloister lean-to roof bay (tiles, exterior only)', short: 'Mái hiên cloister', category: 'structure', size: [5.4, 1.0, 3.7], status: 'blockout', source: 'part of A11.1 (its lean-to roof)', segment: 'cloister',
 		note: 'split off A11.1 so the walk reads from the camera; shown while the focus is outdoors', shape: [{ p: 'box', at: [0, 0.5, 0], size: [5.4, 0.14, 3.7], rot: [15, 0, 0] }], roof: true, solid: false,
+		unplaced: 'not placed since the kit swap (2026-10-23): the A11.1 GLB brings its own gable roof over the walk, these exterior-only lean-to roofs would double it',
 	},
 	'N-HS13': {
 		name: 'Night stair roof (exterior only)', short: 'Mái cầu thang đêm', category: 'structure', size: [3.8, 1.4, 12.4], status: 'blockout', source: 'LD only, no concept', segment: 'stair',
@@ -554,17 +574,17 @@ export const PLAN = {
 		{ asset: 'NPC.Tamsin', at: [8.0, -19.7], yaw: -90, name: 'Tamsin, hidden from the door side' },
 		{ asset: 'NPC.Sister', at: [-6.0, -18.2], yaw: 90, name: 'sister on the ward round' },
 		// the refectory, the kitchen, the linen room
-		{ asset: 'A11.3', at: [13.6, -13.4], yaw: 90 },
-		{ asset: 'A11.3', at: [18.8, -13.4], yaw: 90 },
-		{ asset: 'A11.3', at: [16.2, -21.4], yaw: 0, name: 'the high table' },
-		...[[13.6, -12.6], [18.8, -14.2], [16.9, -21.4]].map((at) => ({ asset: 'A19.1', at, y: 0.82 })),
+		// the A11.3 GLB at scale 0.68 (top 0.82 m) brings its own bread and jug of flowers
+		{ asset: 'A11.3', at: [13.6, -13.4], yaw: 90, scale: 0.68 },
+		{ asset: 'A11.3', at: [18.8, -13.4], yaw: 90, scale: 0.68 },
+		{ asset: 'A11.3', at: [16.2, -21.4], yaw: 0, scale: 0.68, name: 'the high table' },
 		...[[13.6, -17.0], [18.8, -17.0], [13.6, -9.9], [18.8, -9.9]].map((at, i) => ({ asset: 'A11.6', at, light: i === 0 || i === 3 ? undefined : 'glow' })),
-		{ asset: 'A11.5', at: [19.5, -7.8], yaw: 0 },
+		{ asset: 'A11.5', at: [19.5, -7.72], yaw: 0 }, // the GLB's back (local z −0.98) on the north wall's face (z −8.7)
+		// the A24.1 GLB brings its own bowls, loaves and folded cloth: the poppy tea stands on the cloth (top 0.90 m), no vase
 		{ asset: 'N-HS06', at: [15.0, -3.6], yaw: 0 },
-		{ asset: 'A19.2', at: [14.5, -3.55], y: 0.9 },
-		{ asset: 'A19.1', at: [15.9, -3.4], y: 0.9 },
-		{ asset: 'N-HS07', at: [11.875, -6.8], yaw: 90 }, // the press GLB's back on the kitchen's west face (x 11.4: a shared wall)
-		{ asset: 'N-HS07', at: [11.875, -0.5], yaw: 90 },
+		{ asset: 'A19.2', at: [15.72, -3.7], y: 0.9 },
+		{ asset: 'N-HS07', at: [11.66, -6.8], yaw: 90 }, // the A24.2 back (local z −0.254) on the kitchen's west face (x 11.4: a shared wall)
+		{ asset: 'N-HS07', at: [11.66, -0.5], yaw: 90 },
 		{ asset: 'A11.6', at: [13.0, -8.0] },
 		{ asset: 'A11.6', at: [20.6, -1.9], name: 'the last still light before the night stair' },
 		{ asset: 'NPC.Sister', at: [14.0, -6.3], yaw: 200, name: 'sister in the kitchen' },
@@ -592,17 +612,13 @@ export const PLAN = {
 		// the ward: two rows of beds and their sleepers (Fen's bed empty), identical candle stands, a steady candle and flowers on every window sill
 		{ asset: 'A11.2', from: [WARD_X[0], BED_N], to: [WARD_X[7], BED_N], count: 8, yaw: 0 },
 		{ asset: 'A11.2', from: [WARD_X[0], BED_S], to: [WARD_X[7], BED_S], count: 8, yaw: 180, except: DOOR_GAP },
-		{ asset: 'NPC.Sleeper', from: [WARD_X[0], BED_N], to: [WARD_X[7], BED_N], count: 8, yaw: 0, y: 0.46, except: FEN },
-		{ asset: 'NPC.Sleeper', from: [WARD_X[0], BED_S], to: [WARD_X[7], BED_S], count: 8, yaw: 180, y: 0.46, except: DOOR_GAP },
+		{ asset: 'NPC.Sleeper', from: [WARD_X[0], BED_N], to: [WARD_X[7], BED_N], count: 8, yaw: 0, y: 0.7, except: FEN },
+		{ asset: 'NPC.Sleeper', from: [WARD_X[0], BED_S], to: [WARD_X[7], BED_S], count: 8, yaw: 180, y: 0.7, except: DOOR_GAP },
 		{ asset: 'A11.6', from: [GAPS[0], -14.85], to: [GAPS[6], -14.85], count: 7, except: [[-1, -15.5, 1, -14]], realEvery: 2 },
 		// the A19.6 sections sit in the wall (face 5 cm proud of the inner face, so the bed heads stay clear); the vase on each GLB sill (top 0.88 m)
 		{ asset: 'A19.6', from: [GAPS[0], -23.285], to: [GAPS[6], -23.285], count: 7, yaw: 0, y: 0, light: 'glow' },
 		{ asset: 'A19.1', from: [GAPS[0] + 0.25, -23.115], to: [GAPS[6] + 0.25, -23.115], count: 7, y: 0.88 },
-		// exterior roofs of the cloister walks
-		{ asset: 'N-HS12', from: [-8.1, -12.6], to: [8.1, -12.6], count: 4, yaw: 0, y: 4.0 },
-		{ asset: 'N-HS12', from: [-8.1, 6.6], to: [8.1, 6.6], count: 4, yaw: 180, y: 4.0 },
-		{ asset: 'N-HS12', from: [-9.6, -8.4], to: [-9.6, 2.4], count: 3, yaw: 90, y: 4.0 },
-		{ asset: 'N-HS12', from: [9.6, -8.4], to: [9.6, 2.4], count: 3, yaw: -90, y: 4.0 },
+		// (the cloister walks' exterior roofs N-HS12 are gone: the A11.1 GLB has its own roof)
 	],
 	scatters: [{ asset: 'A08.1', rect: [-24, 40, 12, 62], count: 9, gap: 5, keep: 1.5, scale: [0.8, 1.1], seed: 1106 }],
 	lights: [
@@ -669,19 +685,20 @@ export const PLAN = {
 		stair: { label: 'Cầu thang đêm xuống Garden of Hush', target: [26.5, -1.6, -4], dist: 15, pitch: 58, yaw: 25 },
 		window: { label: 'Cửa sổ cao ấm nhìn từ lối lên đồi', target: [-14, 3.2, -4], dist: 44, pitch: 16, yaw: 8 },
 	},
+	// Play moods brightened 10-23 (hemi, envI, exposure, warm floorTone; round 2: warm + rain grade saturation); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		warm: {
-			label: 'Gentle House · trong nhà ấm (mặc định)', hemi: 0.85, sky: '#7a6d5f', ground: '#1d1813', env: 'hdri-overcast', envI: 0.1, toneMapping: 'aces', exposure: 0.95, lights: 1, floorTone: 0.82,
+			label: 'Gentle House · trong nhà ấm (mặc định)', hemi: 3.3, sky: '#7a6d5f', ground: '#1d1813', env: 'hdri-overcast', envI: 0.1, toneMapping: 'aces', exposure: 0.95, lights: 1, floorTone: 0.86,
 			background: '#141715', rain: 1,
 			fog: { enabled: true, color: '#2a2e2b', density: 0.004, falloff: 0.1, height: 0, start: 40, inscatter: 0 },
-			grade: { vignette: 0.32, contrast: 1.04, saturation: 0.96, lift: 0.01, temperature: 0.06, tint: 0 },
+			grade: { vignette: 0.32, contrast: 1.04, saturation: 1.03, lift: 0.01, temperature: 0.06, tint: 0 },
 			lantern: { radius: 5, strength: 0.18, dim: 0.1, color: [0.56, 0.5, 0.44] },
 		},
 		rain: {
-			label: 'Ngoài cổng · mưa xám ban ngày', hemi: 1.9, sky: '#a9b1a6', ground: '#4a3526', env: 'hdri-overcast', envI: 0.32, toneMapping: 'aces', exposure: 0.55, lights: 0.6, floorTone: 0.78,
+			label: 'Ngoài cổng · mưa xám ban ngày', hemi: 3.6, sky: '#a9b1a6', ground: '#4a3526', env: 'hdri-overcast', envI: 0.32, toneMapping: 'aces', exposure: 0.78, lights: 0.6, floorTone: 0.78,
 			background: '#2a302c', rain: 1.2,
 			fog: { enabled: true, color: '#7f877e', density: 0.008, falloff: 0.1, height: 0, start: 28, inscatter: 0 },
-			grade: { vignette: 0.24, contrast: 1.02, saturation: 0.86, lift: 0, temperature: -0.02, tint: 0 },
+			grade: { vignette: 0.24, contrast: 1.02, saturation: 0.9, lift: 0, temperature: -0.02, tint: 0 },
 			lantern: { radius: 5, strength: 0.1, dim: 0.05, color: [0.5, 0.52, 0.54] },
 		},
 		lookdev: {

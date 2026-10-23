@@ -277,13 +277,15 @@ export class LabelSet {
 /**
  * The blockouts of a compiled interior: one InstancedMesh per (asset, category, bucket), bucket = solid (blocks the hero: labSolid) | open (walk-through) |
  * void (drawn in the dark past the floor, darkened with the distance). `fade` = the camera wall fade effect (applied to every material); `glow` = the
- * emitting parts' material (instance colour = the light's level, set by the build).
+ * emitting parts' material (instance colour = the light's level, set by the build); `glowBlend: 'add'` draws them additively (a globe laid over a GLB's own
+ * glass or flame: lit, it adds its light to the model's texture; out, the model's glass shows).
  */
 export class BlockoutSet {
-	constructor({ model, kit, fade = null, skip = () => false }) {
+	constructor({ model, kit, fade = null, skip = () => false, glowBlend = 'opaque' }) {
 		this.model = model;
 		this.kit = kit;
 		this.fade = fade;
+		this.glowBlend = glowBlend;
 		this.group = new THREE.Group();
 		this.group.name = 'Blockouts (missing models, real size)';
 		this.materials = new Map();
@@ -299,7 +301,9 @@ export class BlockoutSet {
 	material(cat) {
 		if (!this.materials.has(cat)) {
 			let m;
-			if (cat === 'glow') m = new THREE.MeshBasicMaterial({ name: 'Blockout · glow', color: 0xffffff, toneMapped: false });
+			if (cat === 'glow' && this.glowBlend === 'add') {
+				m = new THREE.MeshBasicMaterial({ name: 'Blockout · glow (additive, over a GLB)', color: 0xffffff, toneMapped: false, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
+			} else if (cat === 'glow') m = new THREE.MeshBasicMaterial({ name: 'Blockout · glow', color: 0xffffff, toneMapped: false });
 			else {
 				const color = new THREE.Color(CATEGORY_COLORS[cat] ?? (/^#[0-9a-f]{6}$/i.test(cat) ? cat : CATEGORY_COLORS.prop)); // a '#rrggbb' part cat: its own muted tone (clothes, roots, brick)
 				m = new THREE.MeshStandardMaterial({ name: `Blockout · ${cat}`, color, roughness: 0.92, metalness: 0 });

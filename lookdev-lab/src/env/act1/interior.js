@@ -63,7 +63,10 @@
 //  { name, short, category, size: [w, h, d], status: 'glb' | 'kit' | 'procedural' | 'blockout', source, segment, note, shape, model, light, solid, round, foot,
 //    blockers (walk blockers in the asset frame, e.g. only the posts), openCats (categories drawn walk-through: cloth), fade (false = no camera wall
 //    fade), monster (a monster blockout: listed in MONSTERS, hidden in Play while its stand-in camp is on), glowColor, globeGain (a lit globe's
-//    brightness, default 2.67 = blooms white; ≤ ~1 keeps a tinted lamp's hue), unplaced ('why it has no placement'),
+//    brightness, default 2.67 = blooms white; ≤ ~1 keeps a tinted lamp's hue), globe (with a `model`: glow parts in the GLB frame drawn over the model's
+//    glass or flame, lit like a blockout globe), cut (with a `model`: boxes [x0, y0, z0, x1, y1, z1] in the GLB frame whose triangles the build drops, see
+//    cutTriangles), collider (height of an invisible walk-collision prism over the blockers: low furniture; a GLB with one stays out of Play's collision),
+//    unplaced ('why it has no placement'),
 //    npc (an NPC stand-in figure: listed in NPCS, not in ASSETS), roof (an exterior roof: hidden while the focus is inside, see room.outdoor) }
 //  category: building | structure | vegetation | rock | prop | linen | story | npc | encounter (blockout colours: interiorBlockout.js, SPEC §6b)
 //  shape: blockout parts [{ p, at: [x, y, z], size: [w, h, d], rot: [x, y, z], cat, seg }] in the asset frame (pivot bottom centre, front +z); p = box |
@@ -565,7 +568,7 @@ export function compile(plan, kit = {}) {
 		const c = Math.cos(p.yaw);
 		const s = Math.sin(p.yaw);
 		lights.push({
-			...def, ...L, id: `${p.asset}#${p.index}`, asset: p.asset, placement: p.index, x: p.x + off[0] * c + off[1] * s, y: p.y + (L.y ?? 2) * p.scale, z: p.z - off[0] * s + off[1] * c,
+			...def, ...L, id: `${p.asset}#${p.index}`, asset: p.asset, placement: p.index, x: p.x + (off[0] * c + off[1] * s) * p.scale, y: p.y + (L.y ?? 2) * p.scale, z: p.z + (off[1] * c - off[0] * s) * p.scale,
 			group: p.lightGroup ?? L.group ?? null, followGroup: p.followGroup ?? L.followGroup ?? null, followFloor: p.followFloor ?? L.followFloor, real: p.light !== 'glow' && !p.void, void: !!p.void, source: 'asset',
 		});
 	}
@@ -767,6 +770,31 @@ export function footprints(p, k) {
 		const [x, z] = at(b.at[0], b.at[1]);
 		return { kind: 'disc', x, z, r: b.r * p.scale };
 	});
+}
+
+/**
+ * The triangles of a GLB mesh that survive its KIT `cut` boxes ([x0, y0, z0, x1, y1, z1] in the asset frame, GLB metres): a triangle whose centroid lies
+ * in a box is dropped, e.g. the back and end walls a Tripo cloister bay modelled in that would close the walk behind its arches; so is a zero-area one (it
+ * draws nothing, but Play's wall push-out would see its footprint as a wall segment). Pure (the build applies it to the instanced geometry, so the drawn
+ * model and Play's collision agree; the tests apply it to the GLB file).
+ * @param {ArrayLike<number>} positions xyz per vertex
+ * @param {ArrayLike<number> | null} index three vertex indices per triangle (null: non-indexed)
+ * @returns {number[]} the kept triangles' vertex indices
+ */
+export function cutTriangles(positions, index, boxes) {
+	const kept = [];
+	const n = index ? index.length : positions.length / 3;
+	for (let t = 0; t + 2 < n; t += 3) {
+		const tri = index ? [index[t], index[t + 1], index[t + 2]] : [t, t + 1, t + 2];
+		const [a, b, d] = tri.map((v) => [positions[v * 3], positions[v * 3 + 1], positions[v * 3 + 2]]);
+		const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]];
+		const w = [d[0] - a[0], d[1] - a[1], d[2] - a[2]];
+		if (Math.hypot(u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]) < 2e-8) continue; // zero area
+		const c = [0, 1, 2].map((i) => (a[i] + b[i] + d[i]) / 3);
+		if (boxes.some(([x0, y0, z0, x1, y1, z1]) => c[0] >= x0 && c[0] <= x1 && c[1] >= y0 && c[1] <= y1 && c[2] >= z0 && c[2] <= z1)) continue;
+		kept.push(...tri);
+	}
+	return kept;
 }
 
 /** Instance counts per asset id: { [id]: { count, inVoid } } (no floor needed). */

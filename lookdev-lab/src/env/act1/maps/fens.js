@@ -203,61 +203,66 @@ const SHAPES = {
 const A = (id, name, category, size, status, source, segment, extra = {}) => ({ id, name, category, size, status, source, segment, note: '', ...extra });
 const DEFS = [
 	// the Night Fens kit (A06)
-	A('A06.1', 'Fen causeway segment (dike revetment posts)', 'structure', [2.31, 0.9, 0.51], 'kit', 'concept A06 cell 1 (Night Fens kit)', 'fens', { model: 'kit:fence.run_broken', fit: 'native', shape: 'posts', collide: false, note: 'kit tạm (Blood-Moor broken fence run, 2.31 m modules); the causeway is the dike terrain itself; these are its revetment posts, run along the dike banks below the crest (no collision needed)' }),
-	A('A06.2', 'Lichen standing stone (upright marker stone)', 'rock', [0.9, 2.6, 0.7], 'blockout', 'concept A06 cell 2 (Night Fens kit)', 'fens', { shape: SHAPES.stone, blockers: [[0, 0, 0.82, 0.62]], note: 'sheet reads ≈ 2–3 m; a ring of five on the stone island (rite 1), singles as route markers on the dikes' }),
-	A('A06.3', 'Stepping-stone ford (one tile of river stones)', 'rock', [1.0, 0.46, 0.93], 'glb', 'concept A06 cell 3 (Night Fens kit)', 'fens', { model: 'biome-prop-riverbank-stones', fit: 'native', shape: SHAPES.ford, collide: false, blockers: [], note: 'glb tạm: the ASHLAR riverbank stones tiled seven to a 7 m ford (the concept ford is 2.4 × 0.5 × 7 m) along a causeway 6 cm under the water (the walk surface); the stones are walk-through' }),
-	A('A06.4', 'Unlit bog-lure post (empty cage)', 'structure', [1.47, 2.82, 0.84], 'kit', 'concept A06 cell 4 (Night Fens kit)', 'fens', { model: 'kit:lighting.lantern_post', fit: 'native', shape: SHAPES.lure, blockers: [[0.28, 0, 0.9, 0.84]], note: 'kit tạm (camp lantern post: an empty dark cage on an arm, no flame, no emissive, no light); never lit: the corpse-candles are the lure; on the dike banks, base at the waterline' }),
-	A('A06.5', 'Half-sunk fen punt', 'prop', [3.4, 0.7, 1.2], 'blockout', 'concept A06 cell 5 (Night Fens kit)', 'fens', { shape: SHAPES.punt, collide: false, note: 'at the water level − 0.3 m' }),
-	A('A06.6', 'Broken bridge pier', 'structure', [3.8, 5.0, 2.2], 'blockout', 'concept A06 cell 6 (Night Fens kit)', 'fens', { shape: SHAPES.pier, note: 'two piers of the fallen bridge stand in the channel; the route detours over the ford' }),
-	A('A17.1', 'The leaning stones (Act I arch)', 'story', [4.6, 4.6, 1.4], 'blockout', 'concept A17 cell 1 (v2 batch)', 'fens', { shape: SHAPES.arch, blockers: [[-1.72, 0, 1.0, 1.3], [1.72, 0, 1.0, 1.3]], note: 'THE landmark of the fens: over the dike, 4.6 m; passage 2.44 m (concept 1.6 m, widened for the 1 m Play grid). Stays a blockout: the A17.1 GLB opens only 0.9–1.1 m (2.44 m needed; ×2.2 would make it 10 m tall) and stands on a 5.9 m ground disc that would cover the dike' }),
+	A('A06.1', 'Fen causeway segment', 'structure', [4.0, 0.97, 1.71], 'glb', 'concept A06 cell 1 (Night Fens kit)', 'fens', { model: 'act1-a06-1-causeway-open', fit: 'native', shape: 'posts', collide: false, module: 3.0, note: 'GLB 4 × 0.97 × 1.71 m (stone-and-plank top at 0.37 m), the lab variant -open (prepare-act1-kit.py CUT: its two end posts stand on its centre line, so end to end they put a pair of 0.6 m posts every 4 m down each dike; cut out over the deck, stubs ≤ 0.15 m): laid along the crests of D1, D2 and D4 (2.8 m) at a 3 m module (its deck spans x −1.75…+1.65: at 4 m the pieces read as dashed slabs with grass between, at 3 m they meet with ≈0.4 m of overlap), sunk 0.35 m so its top is flush with the terrain (Play walks the terrain); nothing blocks' }),
+	A('A06.1-posts', 'Dike revetment posts', 'structure', [2.31, 0.9, 0.51], 'kit', 'concept A06 cell 1 (the causeway bank)', 'fens', { model: 'kit:fence.run_broken', fit: 'native', shape: 'posts', collide: false, note: 'kit tạm (Blood-Moor broken fence run, 2.31 m modules): the revetment posts along the dike banks below the crest (no collision needed); the A06.1 GLB is the crest causeway' }),
+	A('A06.2', 'Lichen standing stone (upright marker stone)', 'rock', [2.19, 2.6, 1.44], 'glb', 'concept A06 cell 2 (Night Fens kit)', 'fens', { model: 'act1-a06-2-marker-stone', fit: 'native', shape: SHAPES.stone, blockers: [[0.02, -0.12, 1.73, 1.0]], note: 'GLB 2.2 × 2.6 × 1.4 m (base rubble and the lean; the stone ≈ 1.15 × 0.85 m stands at GLB x +0.24: each placement is moved −0.24 m along its x so the stone keeps its point); blocks on the stone and its rubble at walking height; a ring of five on the stone island (rite 1), singles as route markers on the dikes' }),
+	A('A06.3', 'Stepping-stone ford', 'rock', [3.33, 0.71, 7.0], 'glb', 'concept A06 cell 3 (Night Fens kit)', 'fens', { model: 'act1-a06-3-stepping-ford', fit: 'native', shape: SHAPES.ford, collide: false, note: 'GLB 3.3 × 0.71 × 7 m: six stones and a plank along its z, one per ford (was seven river-stone tiles each); base 0.44 m under the ford causeway (0.5 m under the water) so the stone tops stand 0.1–0.2 m above the water; the causeway 6 cm under the water stays the walk surface (the hero wades), the stones are walk-through' }),
+	A('A06.4', 'Unlit bog-lure post (empty cage)', 'structure', [1.81, 2.9, 1.33], 'glb', 'concept A06 cell 4 (Night Fens kit)', 'fens', { model: 'act1-a06-4-bog-lure-post', fit: 'native', shape: SHAPES.lure, blockers: [[-0.31, -0.03, 0.75, 0.92]], note: 'GLB 1.8 × 2.9 × 1.3 m: no flame, no glass (never lit: the corpse-candles are the lure); the post on its stone footing stands at GLB x −0.31 (each placement moved +0.31 m along its x so the post keeps its bank point), the arm with the empty cage reaches +x like the blockout; only the post and footing block; on the dike banks, base at the waterline; replaces the kit tạm lantern post' }),
+	A('A06.5', 'Half-sunk fen punt', 'prop', [3.4, 0.47, 1.06], 'glb', 'concept A06 cell 5 (Night Fens kit)', 'fens', { model: 'act1-a06-5-fen-punt', fit: 'native', shape: SHAPES.punt, collide: false, note: 'GLB 3.4 × 0.47 × 1.06 m (the hull only 0.47 m tall): sunk 0.15 m under the water level (the blockout sat 0.3 m down; the GLB would vanish)' }),
+	A('A06.6', 'Broken bridge pier', 'structure', [5.96, 5.0, 4.04], 'glb', 'concept A06 cell 6 (Night Fens kit)', 'fens', { model: 'act1-a06-6-bridge-pier', fit: 'native', shape: SHAPES.pier, note: 'GLB 6 × 5 × 4 m (pier + arch stub springing to −x, chunkier than the concept): placed ×0.75 (4.5 × 3.75 × 3.0 m); two piers of the fallen bridge stand in the channel; the route detours over the ford' }),
+	A('A17.1', 'The leaning stones (Act I arch)', 'story', [5.6, 4.31, 2.3], 'glb', 'concept A21 cell 5 (v3 batch, the A17.1 redraw)', 'fens', { model: 'act1-a21-5-leaning-stones-wide', fit: 'native', shape: SHAPES.arch, blockers: [[-2.03, 0, 1.55, 2.3], [2.03, 0, 1.55, 2.3]], note: 'THE landmark of the fens: over the dike, the passage along local z (the path). GLB A21.5 -wide 5.6 × 4.31 × 2.3 m (the lab variant of prepare-act1-kit.py WARP: each stone splayed out 0.5 m below 2.2 m, tapering to 0 at the top; the plain A21.5 opens only 1.6–1.75 m): passage 2.60 / 2.70 / 2.70 m at 0.1 / 1 / 2.2 m (x −1.35…+1.25), headroom 3.54 m, the tops touch at 4.25 m; no ground disc. Blocks on the two stones only (1.55 × 2.3 m at x ±2.03, inner edges ±1.25: 2.5 m between them); 2.3 m deep along the path (the def was 1.4), standing on the 5.6 m wide ARCH footing of D2' }),
 	// the fen's plants, rocks and wood (A03, A04) and the existing GLBs
 	A('A03.1', 'Low grass clump', 'vegetation', [0.6, 0.5, 0.6], 'procedural', 'concept A03 cell 1 (E01 fen kit)', 'both', { procedural: 'grass', collide: false, note: 'Dark Wood grass cards on the grass layers (crests, islands)' }),
 	A('A03.2', 'Tall reeds clump', 'vegetation', [0.8, 1.8, 0.8], 'procedural', 'concept A03 cell 2 (E01 fen kit)', 'both', { procedural: 'reeds', collide: false, note: 'shore-plant cards: fringes on every bank and dense reed shoals in the open water (sheet reads up to ≈ 2.5 m)' }),
 	A('A03.3', 'Sedge water clump', 'vegetation', [0.7, 0.9, 0.7], 'procedural', 'concept A03 cell 3 (E01 fen kit)', 'both', { procedural: 'sedge', collide: false }),
-	A('A03.4', 'Large moss rock', 'rock', [3.15, 1.8, 2.01], 'kit', 'concept A03 cell 4 (E01 fen kit)', 'fens', { model: 'kit:mossy.standard_side', fit: 'native', note: 'kit tạm: Blood-Moor mossy rock, the side piece at its own size (placed ×0.64–0.88 ≈ the 2.3 × 1.6 × 2.0 m sheet; no per-axis stretch)' }),
-	A('A03.5', 'Peat bank chunk', 'rock', [2.9, 1.4, 1.2], 'blockout', 'concept A03 cell 5 (E01 fen kit)', 'fens', { shape: SHAPES.peat }),
-	A('A03.6', 'Waterlogged root stump', 'vegetation', [1.4, 1.3, 1.4], 'kit', 'concept A03 cell 6 (E01 fen kit)', 'both', { model: 'kit:deadTrees.stump', fit: 'size', note: 'kit tạm (Blood-Moor dead-tree stump)' }),
-	A('A04.1', 'Old broad weeping willow', 'vegetation', [6, 5.4, 6], 'blockout', 'concept A04 cell 1 (E02 willow kit)', 'fens', { shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0, 0, 0.9, 0.9]], note: 'sheet reads ≈ 5 m tall, 5.5 m wide; placed at ×1.0–1.25 on the islands, the trunk blocks' }),
-	A('A04.2', 'Young willow', 'vegetation', [4, 6, 4], 'blockout', 'concept A04 cell 2 (E02 willow kit)', 'fens', { shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0, 0, 0.7, 0.7]], note: 'along the side dike to the Willow Mere' }),
-	A('A04.3', 'Dead angular tree', 'vegetation', [3, 7, 3], 'kit', 'concept A04 cell 3 (E02 willow kit)', 'fens', { model: 'kit:deadTrees.tall', fit: 'size', blockers: [[0, 0, 0.9, 0.9]], note: 'kit tạm (Blood-Moor dead tree stretched to the sheet size ≈ 3.8H); many stand in the open water' }),
-	A('A04.5', 'Fallen hollow trunk', 'vegetation', [5, 1.3, 1.6], 'blockout', 'concept A04 cell 5 (E02 willow kit)', 'fens', { shape: SHAPES.trunk }),
-	A('A04.6', 'Exposed willow root cluster', 'vegetation', [4.6, 2.2, 4.0], 'blockout', 'concept A04 cell 6 (E02 willow kit)', 'fens', { shape: SHAPES.roots, note: 'on the side dike to the Willow Mere (its kit is the Mere\'s)' }),
+	A('A03.4', 'Large moss rock', 'rock', [2.63, 1.6, 3.12], 'glb', 'concept A03 cell 4 (E01 fen kit)', 'fens', { model: 'act1-a03-4-moss-rock', fit: 'native', note: 'GLB 2.6 × 1.6 × 3.1 m (long axis along z), placed ×0.75–0.99; replaces the kit tạm Blood-Moor mossy rock' }),
+	A('A03.5', 'Peat bank chunk', 'rock', [3.0, 1.4, 1.58], 'glb', 'concept A03 cell 5 (E01 fen kit)', 'fens', { model: 'act1-a03-5-peat-bank', fit: 'native', shape: SHAPES.peat, note: 'GLB 3 × 1.4 × 1.6 m (cut face +z, grass top at 1.05 m, roots behind)' }),
+	A('A03.6', 'Waterlogged root stump', 'vegetation', [2.4, 1.3, 2.5], 'glb', 'concept A03 cell 6 (E01 fen kit)', 'both', { model: 'act1-a03-6-root-stump', fit: 'native', blockers: [[-0.12, 0.04, 1.7, 1.7]], note: 'GLB 2.4 × 1.3 × 2.5 m (roots all round, the concept proportion), placed ×0.7–0.9; blocks on its stump and inner roots (1.7 m at walking height); replaces the kit tạm dead-tree stump (it was stretched to 1.4 × 1.3 × 1.4)' }),
+	A('A04.1', 'Old broad weeping willow', 'vegetation', [6.52, 5.4, 6.86], 'glb', 'concept A04 cell 1 (E02 willow kit)', 'fens', { model: 'act1-a04-1-old-willow', fit: 'native', shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0.2, -0.3, 1.2, 1.2]], note: 'GLB 6.5 × 5.4 × 6.9 m; placed at ×1.0–1.25 on the islands; the trunk (off the bbox centre, GLB (+0.2, −0.3)) blocks, the hanging fronds are walk-through' }),
+	A('A04.2', 'Young willow', 'vegetation', [4.94, 6.0, 5.22], 'glb', 'concept A04 cell 2 (E02 willow kit)', 'fens', { model: 'act1-a04-2-young-willow', fit: 'native', shape: { kind: 'tree', crown: 'weeping' }, blockers: [[0.12, 0.54, 1.05, 1.6]], note: 'GLB 4.9 × 6 × 5.2 m; along the side dike to the Willow Mere; only the trunk blocks' }),
+	A('A04.3', 'Dead angular tree', 'vegetation', [4.21, 7.0, 4.1], 'glb', 'concept A04 cell 3 (E02 willow kit)', 'fens', { model: 'act1-a04-3-dead-tree', fit: 'native', blockers: [[0.05, 0, 1.4, 1.4]], note: 'GLB 4.2 × 7 × 4.1 m (branches spread; the kit tạm Blood-Moor tree was stretched to 3 × 7 × 3); many stand in the open water (base under the water line); the trunk and its root flare block' }),
+	A('A04.5', 'Fallen hollow trunk', 'vegetation', [5.0, 1.64, 2.34], 'glb', 'concept A04 cell 5 (E02 willow kit)', 'fens', { model: 'act1-a04-5-hollow-trunk', fit: 'native', shape: SHAPES.trunk, note: 'GLB 5 × 1.64 × 2.34 m (branch stubs, root plate −x, hollow end +x; moss top ≈ 1.05 m)' }),
+	A('A04.6', 'Exposed willow root cluster', 'vegetation', [5.02, 2.2, 4.96], 'glb', 'concept A04 cell 6 (E02 willow kit)', 'fens', { model: 'act1-a04-6-willow-roots', fit: 'native', shape: SHAPES.roots, note: 'GLB 5 × 2.2 × 5 m; on the side dike to the Willow Mere (its kit is the Mere\'s)' }),
 	A('glb:biome-prop-riverbank-stones', 'Riverbank stones', 'rock', [1.0, 0.35, 1.0], 'glb', 'ashlar/3d/props/clutter_v1/riverbank_stones', 'both', { model: 'biome-prop-riverbank-stones', fit: 'native', collide: false }),
 	A('glb:biome-prop-stump', 'Mossy stump', 'vegetation', [0.8, 0.5, 0.8], 'glb', 'ashlar/3d/props/clutter_v1/mossy_stump', 'fens', { model: 'biome-prop-stump', fit: 'native', collide: false }),
 	A('glb:biome-prop-mushrooms', 'Mushroom cluster', 'vegetation', [0.4, 0.3, 0.4], 'glb', 'ashlar/3d/props/clutter_v1/mushroom_cluster', 'fens', { model: 'biome-prop-mushrooms', fit: 'native', collide: false }),
 	A('glb:dungeon-prop-candle-cluster', 'Candle cluster (unlit)', 'prop', [0.8, 0.8, 0.8], 'glb', 'ashlar/3d/props/dungeon_v1/candle_cluster', 'both', { model: 'dungeon-prop-candle-cluster', fit: 'native', collide: false, note: 'at the rite sites, all out: no human light in the night fens' }),
 	A('glb:dungeon-prop-fallen-bell', 'Fallen bell (drowned)', 'prop', [1.3, 1.25, 1.3], 'glb', 'ashlar/3d/props/dungeon_v1/fallen_bell', 'weir', { model: 'dungeon-prop-fallen-bell', fit: 'native', collide: false, note: 'half under the black water below the drowned bell tower' }),
 	// Rook's Weir (A07, A17, A01.2)
-	A('A07.1', 'Half-drowned flint cottage', 'building', [7, 6.2, 5], 'blockout', 'concept A07 cell 1 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.cottage, note: 'base 1.2 m under the water: 1.7 m of wall shows, ridge +4.2 m; no lit window (the village is empty)' }),
-	A('A07.2', 'Timber-and-stone weir segment', 'structure', [4.2, 1.9, 1.0], 'blockout', 'concept A07 cell 2 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.weir, note: 'run along the south face of the weir dike (its crest is the walk); two broken segments stand in the water west of it' }),
-	A('A07.3', 'Gable wall with door arch', 'building', [5, 5.3, 0.7], 'blockout', 'concept A07 cell 3 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.gable, blockers: [[-1.8, 0, 1.4, 0.7], [1.8, 0, 1.4, 0.7]], note: 'the plank lane passes through one; two make the supper-house ruin; one is rite 5 (door 2.2 × 2.6 m, concept ≈ 1.3 × 2.3, widened for Play)' }),
-	A('A07.4', 'Sunken roof-ridge platform', 'building', [6, 3.2, 4.8], 'blockout', 'concept A07 cell 4 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.roof, collide: false, note: 'ridge 1.0 m above the water; two carry the plank walk (walkways `ridgeW`, `ridgeE`): "walk on roofs"' }),
-	A('A07.5', 'Pontoon plank raft', 'structure', [3.6, 1.7, 2.4], 'blockout', 'concept A07 cell 5 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.raft, collide: false, note: 'deck +0.48 m; the walk surface is its raft walkway (deck 0.5 m), the junctions of the plank lanes' }),
-	A('A07.6', 'Rook roost (dead tree)', 'structure', [4.19, 3.42, 1.81], 'kit', 'concept A07 cell 6 (Rook\'s Weir kit)', 'weir', { model: 'kit:deadTrees.tall', fit: 'native', shape: SHAPES.roost, blockers: [[0.24, -0.08, 1.0, 1.0]], note: 'kit tạm: a Blood-Moor dead tree at ×1.35 standing in the water (base 0.4 m under it, top ≈ 4.2 m above it; the concept pole is 4.75 m) — rooks nest in dead trees; they circle it and settle on its branch tips' }),
-	A('A01.2', 'Raised wooden walkway segment (plank bridge)', 'structure', [4.0, 1.2, 1.4], 'blockout', 'concept A01 cell 2 (E03 village kit)', 'weir', { shape: 'deck', note: 'the plank bridges of Rook\'s Weir (deck 0.62 m, 1.8 m wide): built per deck segment from the walkway paths (the deck mesh is the walk surface)' }),
-	A('A01.5', 'Village well', 'structure', [2.2, 3.4, 2.0], 'blockout', 'concept A01 cell 5 (E03 village kit)', 'weir', { shape: 'well', note: 'the drowned village well on its stone platform (WELL): the junction of the plank lanes and the one dry spawn spot' }),
+	A('A07.1', 'Half-drowned flint cottage', 'building', [7.76, 6.2, 6.25], 'glb', 'concept A07 cell 1 (Rook\'s Weir kit)', 'weir', { model: 'act1-a07-1-drowned-cottage', fit: 'native', shape: SHAPES.cottage, note: 'GLB 7.8 × 6.2 × 6.3 m with the eaves (door and two windows +z, chimney at −x); base 1.2 m under the water as the walls continue under it; no lit window (the village is empty)' }),
+	A('A07.2', 'Timber-and-stone weir segment', 'structure', [4.2, 0.99, 0.43], 'glb', 'concept A07 cell 2 (Rook\'s Weir kit)', 'weir', { model: 'act1-a07-2-weir', fit: 'native', shape: SHAPES.weir, note: 'GLB 4.2 × 0.99 × 0.43 m (keyed on its 4.2 m length it reads low): placed ×1.5 (6.3 × 1.5 × 0.64 m, run modules 6.3 m); run along the south face of the weir dike (its crest is the walk); two broken segments stand in the water west of it' }),
+	A('A07.3', 'Gable wall with door arch', 'building', [6.96, 5.3, 1.01], 'glb', 'concept A07 cell 3 (Rook\'s Weir kit)', 'weir', { model: 'act1-a07-3-gable-wall', fit: 'native', shape: SHAPES.gable, blockers: [[-2.0, 0, 2.95, 1.0], [2.1, 0, 2.76, 1.0]], note: 'GLB 7 × 5.3 × 1 m, crow-stepped gable, door arch 1.25 × 2.33 m (x −0.53…+0.72, the concept size): the two supper-house walls (the L7 spur ends at the east one\'s doorway); blocks on the wall either side of the door. The wall the plank lane passes through and the rite-5 doorway keep the blockout (A07.3-door: Play needs its 2.2 m door; the GLB would need ×1.76 = 12 m wide)' }),
+	A('A07.3-door', 'Gable wall with door arch (the widened Play door)', 'building', [5, 5.3, 0.7], 'blockout', 'concept A07 cell 3 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.gable, blockers: [[-1.8, 0, 1.4, 0.7], [1.8, 0, 1.4, 0.7]], note: 'blockout kept (kit swap 10-23): the plank lane L2 passes through this one and the other is rite 5, both with the door widened to 2.2 × 2.6 m for Play; the A07.3 GLB door is 1.25 m wide and 2.33 m clear (the deck 0.62 m up would put the hero\'s head through its lintel)' }),
+	A('A07.4', 'Sunken roof-ridge platform', 'building', [6.0, 3.12, 4.29], 'glb', 'concept A07 cell 4 (Rook\'s Weir kit)', 'weir', { model: 'act1-a07-4-roof-platform', fit: 'native', shape: SHAPES.roof, collide: false, note: 'GLB 6 × 3.12 × 4.3 m: a thatch roof with a plank on its ridge and a brick chimney on the ridge at +x (GLB x 1.1–2.2, top 3.1 m); the ridge rises 1.4 → 2.2 m along x; the two unwalked roofs in the water. The two that carry the plank walk keep the blockout (A07.4-walk): the chimney stands in the walk' }),
+	A('A07.4-walk', 'Sunken roof-ridge platform (walked)', 'building', [6, 3.2, 4.8], 'blockout', 'concept A07 cell 4 (Rook\'s Weir kit)', 'weir', { shape: SHAPES.roof, collide: false, note: 'blockout kept (kit swap 10-23): ridge 1.0 m above the water, it carries the plank walk (walkways `ridgeW`, `ridgeE`): "walk on roofs"; the A07.4 GLB\'s chimney stands on its ridge in the walk (1 m over the planks) and its ridge rises 0.8 m along its length' }),
+	A('A07.5', 'Pontoon plank raft', 'structure', [3.6, 1.4, 1.8], 'glb', 'concept A07 cell 5 (Rook\'s Weir kit)', 'weir', { model: 'act1-a07-5-plank-raft', fit: 'native', shape: SHAPES.raft, collide: false, note: 'GLB 3.6 × 1.4 × 1.8 m: plank deck on four barrels, deck top 0.81 m over the barrel bottoms (QA: the barrel ends are open rings, minor); placed so its deck top is the raft walkway (0.5 m, hidden: the walk surface only, 1.8 m wide like the raft); a rope rail along its −z edge (0.6 m over the deck) and a 0.3 m rope post at its −x end stay out of the collision (on the deck edge / at a lane joint)' }),
+	A('A07.6', 'Rook roost (dead tree)', 'structure', [4.19, 3.42, 1.81], 'kit', 'concept A07 cell 6 (Rook\'s Weir kit)', 'weir', { model: 'kit:deadTrees.tall', fit: 'native', shape: SHAPES.roost, blockers: [[0.24, -0.08, 1.0, 1.0]], note: 'kit tạm kept (kit swap 10-23): a Blood-Moor dead tree at ×1.35 standing in the water (base 0.4 m under it, top ≈ 4.2 m above it; the concept pole is 4.75 m) — rooks nest in dead trees; they circle it and settle on its branch tips. The A07.6 GLB waits: its pole rises 0.5 m over the nest bar (a cross from the camera; the user picks it or the -trim) and the QA (10-23) found the nest bar dropped in the split (the upper nests float): a Tripo redo. Not the blockout either: its pole rises 1 m over a crossbar (the same cross)' }),
+	A('A01.2', 'Raised wooden walkway segment (plank bridge)', 'structure', [4.0, 2.16, 1.99], 'glb', 'concept A01 cell 2 (E03 village kit)', 'weir', { model: 'act1-a01-2-walkway', fit: 'native', shape: 'deck', deckTop: 1.22, collide: false, note: 'GLB 4 × 2.16 × 2 m (deck 1.75 m wide, top 1.22 m over its base): the plank bridges of Rook\'s Weir, laid end to end along the A01.2 walkways (deckPieces) with the deck top on the walk deck (0.62 m; the walkways are `hidden`: the walk surface only); a rope rail on its −z side and two short corner posts on +z, the open side to the camera; rail and posts out of the collision like the blockout posts' }),
+	A('A01.5', 'Village well', 'structure', [2.73, 3.4, 2.39], 'glb', 'concept A01 cell 5 (E03 village kit)', 'weir', { model: 'act1-a01-5-village-well', fit: 'native', shape: 'well', note: 'GLB 2.7 × 3.4 × 2.4 m with its stone apron: the drowned village well on its stone platform (WELL): the junction of the plank lanes and the one dry spawn spot' }),
 	A('A17.2', 'Drowned bell tower', 'building', [5.74, 10.0, 7.1], 'glb', 'concept A17 cell 2 (v2 batch)', 'weir', { model: 'act1-a17-2-drowned-bell-tower', fit: 'native', shape: SHAPES.tower, note: 'GLB 5.7 × 10 × 7.1 m (with the rook\'s nest on −x), cut flat at the waterline: its base stands 0.25 m under the water (≈ 9.75 m above it), not on the bed; louvres, bell, patched slate cap' }),
 	A('A17.3', 'The Gentle House boat (linen canopy, still white lamp)', 'story', [7, 3.23, 2.02], 'glb', 'concept A17 cell 3 (v2 batch)', 'weir', { model: 'act1-a17-3-gentle-boat', fit: 'native', shape: SHAPES.boat, collide: false, note: 'GLB 7 × 3.23 × 2.02 m, keel 0.25 m under the water; moored along the dock\'s deck edge; the canopy is Mercy\'s clean linen, the bow lamp burns still and even (Perfection light, on the model lamp)' }),
 	A('A17.4', 'Flooded supper table (laid for supper)', 'prop', [2.4, 1.31, 1.46], 'glb', 'concept A17 cell 4 (v2 batch)', 'weir', { model: 'act1-a17-4-flooded-supper-table', fit: 'native', shape: SHAPES.supper, collide: false, note: 'GLB 2.4 × 1.31 × 1.46 m; in the roofless supper-house ruin: the top (0.94 m) lies 0.14 m under the water; the jug and chair backs break the surface' }),
 	A('A17.5', 'Flooded window with lace curtains', 'building', [2.2, 2.21, 1.39], 'glb', 'concept A17 cell 5 (v2 batch)', 'weir', { model: 'act1-a17-5-flooded-lace-window', fit: 'native', shape: SHAPES.lace, blockers: [[0, 0.15, 2.2, 0.7]], note: 'GLB 2.2 × 2.21 × 1.39 m (the lace is a solid mass; its dark half-disc floor behind the wall lies under the black water); the north wall of the supper-house ruin, seen from its doorway, sill 0.15 m above the water' }),
-	A('A17.6', 'Gentle House night dock', 'structure', [6, 3.44, 2.96], 'glb', 'concept A17 cell 6 (v2 batch)', 'weir', { model: 'act1-a17-6-gentle-dock', fit: 'native', shape: SHAPES.dock, collide: false, note: 'GLB 6 × 3.44 × 2.96 m, deck 0.94 m above its base: placed so the deck top is the walkway `dock` (0.62 m; the posts end 0.3 m under the water), whose own planks are hidden (walk surface only); the still white lamp on its lamp post (+z side), a strip of clean linen' }),
+	A('A17.6', 'Gentle House night dock', 'structure', [6, 3.44, 2.96], 'glb', 'concept A17 cell 6 (v2 batch)', 'weir', { model: 'act1-a17-6-gentle-dock', fit: 'native', shape: SHAPES.dock, blockers: [[-2.73, -0.88, 0.53, 0.53], [-2.19, 1.16, 0.53, 0.54], [1.56, -0.91, 0.49, 0.49], [1.45, 1.11, 0.96, 0.58], [2.69, 1.13, 0.48, 0.48]], note: 'GLB 6 × 3.44 × 2.96 m, deck 0.94 m above its base: placed so the deck top is the walkway `dock` (0.62 m; the posts end 0.3 m under the water), whose own planks are hidden (walk surface only); the still white lamp hangs from the bracket of the tall lamp post (+z side, far end) over a short post wrapped in a strip of clean linen. Walk blockers on the posts only (measured in the GLB frame: four mooring posts 0.4–0.5 m proud of the deck, the +z far one with the linen and the lamp over it, and the tall lamp post); the deck lane between them stays ≥ 1.5 m wide' }),
 	// LD only (no concept): N-FN…
 	A('N-FN01', 'The Soothed in procession (P01 stand-in figures, white nightgowns)', 'linen', [0.55, 1.75, 0.45], 'blockout', 'LD only, no concept (P01 sheet: ashlar/art/map-01-concepts/monsters)', 'fens', { shape: SHAPES.soothed, collide: false, note: 'the Remember image: a line wading waist-deep along the drowned road toward the far window; the only clean white in Dolmoor' }),
-	A('N-FN02', 'Shoes left at the water\'s edge (unmarked vignette)', 'prop', [0.45, 0.16, 0.45], 'blockout', 'LD only, no concept', 'fens', { shape: SHAPES.shoes, collide: false }),
-	A('N-FN03', 'Bog grave (peat mound, willow stake, ribbons)', 'story', [1.77, 0.82, 2.4], 'glb', 'LD only, no concept', 'fens', { model: 'act1-a16-4-fresh-grave', fit: 'native', shape: SHAPES.bogGrave, collide: false, note: 'glb tạm: the churchyard fresh grave A16.4 (heaped earth, marker post, spade) in the same form; the willow stake and ribbons are still missing; rite 4' }),
+	A('N-FN02', 'Shoes left at the water\'s edge (unmarked vignette)', 'prop', [0.45, 0.18, 0.44], 'glb', 'concept A22 cell 1 (v3 batch)', 'fens', { model: 'act1-a22-1-worn-shoes', fit: 'native', shape: SHAPES.shoes, collide: false, note: 'GLB 0.45 × 0.18 × 0.44 m: the pair side by side, both toes +z' }),
+	A('N-FN03', 'Bog grave (peat mound, willow stake, ribbons)', 'story', [1.34, 1.4, 2.4], 'glb', 'concept A21 cell 6 (v3 batch)', 'fens', { model: 'act1-a21-6-bog-grave', fit: 'native', shape: SHAPES.bogGrave, blockers: [[0.45, -0.45, 0.3, 0.3]], note: 'rite 4. GLB 1.34 × 1.4 × 2.4 m (replaces the A16.4 fresh-grave stand-in): the peat mound ≈0.5 m, the ribboned willow stake (1.4 m) at the far end (−z), the foot end +z, a ring of stones; blocks on the stake only (0.3 × 0.3 m at GLB x 0.30…0.60, z −0.60…−0.30: it leans from (0.47, −0.43) 0.75 m up to (0.34, −0.52) at its 1.4 m top; review a2x F-c), the mound, the stones and the ribbons stay walk-through as before' }),
 	A('N-FN04', 'Small stone cairn', 'rock', [1.73, 0.84, 1.36], 'kit', 'LD only, no concept', 'fens', { model: 'kit:rocks.low', fit: 'native', note: 'kit tạm (Blood-Moor low rock at its own size; the old shrine cairn was squashed ×0.5): the heart of the lichen ring, rite 1' }),
 	A('N-FN05', 'Drying eel net', 'prop', [4, 1.8, 1.4], 'kit', 'LD only, no concept', 'fens', { model: 'kit:crafts.fishing_net', fit: 'native', collide: false, note: 'kit tạm: the eel-catcher\'s net at rite 2' }),
-	A('A01.6', 'Eel-trap fishing rack', 'structure', [3.96, 1.8, 1.38], 'kit', 'concept A01 cell 6 (E03 village kit)', 'fens', { model: 'kit:crafts.fishing_net', fit: 'native', shape: 'rack', note: 'kit tạm (camp fishing net between poles); rite 2: the drowned eel-catcher\'s rack by the broken bridge' }),
-	A('N-FN06', 'Toll post with a coin dish (The Ferryman\'s Toll)', 'story', [0.5, 1.3, 0.5], 'blockout', 'LD only, no concept', 'weir', { shape: SHAPES.toll, collide: false }),
+	A('A01.6', 'Eel-trap fishing rack', 'structure', [4.7, 3.0, 1.98], 'glb', 'concept A01 cell 6 (E03 village kit)', 'fens', { model: 'act1-a01-6-eel-trap-rack', fit: 'native', shape: 'rack', note: 'GLB 4.7 × 3.0 × 2.0 m placed ×0.85 (4.0 × 2.55 m); rite 2: the drowned eel-catcher\'s rack by the broken bridge; replaces the kit tạm fishing net' }),
+	A('N-FN06', 'Toll post with a coin dish (The Ferryman\'s Toll)', 'story', [0.91, 1.3, 0.67], 'glb', 'concept A22 cell 2 (v3 batch)', 'weir', { model: 'act1-a22-2-toll-post', fit: 'native', shape: SHAPES.toll, blockers: [[-0.11, 0, 0.36, 0.36]], note: 'GLB 0.91 × 1.3 × 0.67 m: the post stands at x −0.11 (the coin-dish shelf juts out at +x, the dish ≈0.84 m up; the tag and rope at the front +z); placed so the post is on the toll point, the dish turned to the dock lane; blocks on the post only (0.36 m square)' }),
 	A('N-FN07', 'Rook (ambient, circling the roost poles)', 'story', [0.45, 0.35, 0.25], 'procedural', 'LD only, no concept', 'weir', { procedural: 'crow', collide: false, note: 'they circle until the Count is done (toggle "các mộ đã yên"), then settle on the poles' }),
-	A('N-FN08', 'Empty wicker cradle', 'story', [1.0, 0.75, 0.6], 'blockout', 'LD only, no concept', 'fens', { shape: SHAPES.cradle, collide: false, note: 'in the Lullaby Man\'s arena' }),
+	A('N-FN08', 'Empty wicker cradle', 'story', [1.0, 0.62, 0.65], 'glb', 'concept A22 cell 3 (v3 batch)', 'fens', { model: 'act1-a22-3-wicker-cradle', fit: 'native', shape: SHAPES.cradle, blockers: [[0, 0, 0.9, 0.65]], note: 'in the Lullaby Man\'s arena. GLB 1.0 × 0.62 × 0.65 m: long side +z, hood at −x, upright on its rockers; blocks as one box (0.9 × 0.65 m)' }),
 	A('N-GH', 'The Gentle House, far silhouette (gate tower + long ward + high warm still window)', 'story', [46, 20, 30], 'glb', 'act1 GLBs A18.4 ward range + 11 × A18.5 wall-with-niche sections (env/act1/gentleHouseFar.js); A11.4 gate tower still a box', 'far', { ...GENTLE_HOUSE_FAR, shape: 'compound', collide: false, note: 'shared far silhouette of the outdoor maps: the A18.4 range\'s own lit window carries the brightest, stillest light of the act (glow in the VFX layer: it reads through the fog); A11.4 has no model yet (box); if a GLB fails the full compound blockout stands in' }),
 ];
 
 // ---- layout: dikes, islands, the ford, the drowned road (all `dike` paths: raised over the carved water, after it) ----------------------------------------
 const dike = (id, label, points, o = {}) => ({ id, kind: 'dike', label, points, width: o.width ?? 2.8, dike: { crest: o.crest ?? DIKE, bank: o.bank ?? 1.4 }, surface: 'packed', smooth: o.smooth ?? 2, role: o.role ?? 'dike' });
 const isle = (id, label, points, width, o = {}) => dike(id, label, points, { width, crest: o.crest ?? ISLE, bank: o.bank ?? 2.2, smooth: o.smooth ?? 1, role: 'isle' });
-const walk = (id, label, points, o = {}) => ({ id, kind: 'walkway', label, points, width: o.width ?? 1.8, deck: o.deck ?? PLANK, surface: 'wood', asset: o.asset === undefined ? 'A01.2' : o.asset ?? undefined, ramps: o.ramps ?? false, ...(o.hidden ? { hidden: true } : {}) });
+// a plank walkway (A01.2 pieces unless asset: null); any other walkway option (hidden, caps, …) passes through
+// (the A01.2 walkways are hidden: the GLB pieces laid along them are the visible deck)
+const walk = (id, label, points, { width = 1.8, deck = PLANK, asset, ramps = false, ...rest } = {}) => ({ id, kind: 'walkway', label, points, width, deck, surface: 'wood', asset: asset === undefined ? 'A01.2' : asset ?? undefined, ramps, ...(asset === undefined ? { hidden: true } : {}), ...rest });
 
 const D1 = [[128, 50], [118, 50.5], [107, 47.5], [97, 42.5], [88, 38]];
 const D2 = [[60, 25], [51, 21.85], [42, 18.7], [33, 15.55], [24, 12.4]];
@@ -312,6 +317,13 @@ const DOCK_LAMP = local(DOCK, [1.65, 2.72, 1.1]);
 const BOAT_LAMP = local(BOAT, [2.93, 2.7, 0.29]);
 const FERRYMAN = local(BOAT, [-2.3, 0.22, 0]);
 const TOLL = local(DOCK, [-0.8, 0, 0.72]); // on the dock's east edge
+// the A22.2 toll post GLB: its post stands at model x −0.11 (the dish shelf juts out at +x): the placement that puts the post on TOLL, the dish (+x)
+// toward the dock's centre line (the lane), the tag (+z) along the dock toward the boat
+const TOLL_POST = (() => {
+	const p = { x: TOLL[0], z: TOLL[2], yaw: DOCK.yaw + 90 };
+	const [x, , z] = local(p, [0.11, 0, 0]);
+	return { ...p, x, z };
+})();
 
 // The Soothed in procession on the drowned road (north part), receding toward the dock and the window
 const PROCESSION = [1.5, 4, 6.5, 9, 11.5, 14, 16.5, 19.5, 23, 27, 33, 41].map((s) => {
@@ -326,17 +338,23 @@ const onBank = (pts, s, side, off = 1.95) => {
 };
 const LURES = [[D4, 3, 1], [D4, 9, -1], [D4, 14.5, 1], [D4, 19, -1], [D1, 24, -1], [D2, 10, 1], [D3B, 6, 1], [WILLOW, 20, 1]].map(([p, s, side], i) => {
 	const [x, z, yaw] = onBank(p, s, side);
-	return { asset: 'A06.4', x, z, yaw: yaw + side * 90 + 180 + (i % 2 ? 8 : -6), name: 'Unlit bog-lure post' }; // +180: the kit cage hangs on its −x (the blockout's on +x)
+	const q = { x, z, yaw: yaw + side * 90 + (i % 2 ? 8 : -6) }; // the GLB's cage reaches +x like the blockout's
+	const [qx, , qz] = local(q, [0.31, 0, 0]); // its post (GLB x −0.31) on the bank point
+	return { asset: 'A06.4', ...q, x: qx, z: qz, name: 'Unlit bog-lure post' };
 });
 const RING = { x: 73, z: 30.5 }; // rite 1, the lichen ring on the stone island
 const RING_STONES = [10, 80, 150, 222, 292].map((a, i) => {
 	const x = RING.x + Math.cos(a * DEG) * 5.2;
 	const z = RING.z + Math.sin(a * DEG) * 5.2;
-	return { asset: 'A06.2', x, z, yaw: face(RING.x - x, RING.z - z) + (i % 2 ? 7 : -5), scale: 0.9 + ((i * 7) % 4) * 0.08, name: 'Lichen standing stone (the ring)' };
+	const p = { x, z, yaw: face(RING.x - x, RING.z - z) + (i % 2 ? 7 : -5), scale: 0.9 + ((i * 7) % 4) * 0.08 };
+	const [px, , pz] = local(p, [-0.24 * p.scale, 0, 0]); // the GLB stone (x +0.24) on the ring point
+	return { asset: 'A06.2', ...p, x: px, z: pz, name: 'Lichen standing stone (the ring)' };
 });
 const MARKER_STONES = [[D1, 9, 1], [D2, 3, -1], [D2, 30, -1], [D4, 1.5, -1], [WILLOW, 32, -1]].map(([p, s, side], i) => {
 	const [x, z, yaw] = onBank(p, s, side, 1.9);
-	return { asset: 'A06.2', x, z, yaw: yaw + 90 * side, scale: 0.95 + (i % 3) * 0.08, name: 'Lichen standing stone (route marker)' };
+	const q = { x, z, yaw: yaw + 90 * side, scale: 0.95 + (i % 3) * 0.08 };
+	const [qx, , qz] = local(q, [-0.24 * q.scale, 0, 0]); // the GLB stone (x +0.24) on the bank point
+	return { asset: 'A06.2', ...q, x: qx, z: qz, name: 'Lichen standing stone (route marker)' };
 });
 const REVET = (pts, side, from, to) => {
 	const sh = shift(pts, side * 2.15);
@@ -402,8 +420,8 @@ export const PLAN = {
 		walk('L7', 'Plank spur into the supper house', L7, { width: 1.6 }),
 		isle('WELL', 'The well-head platform (dry stone kerb, the village junction)', [[WELL.x, WELL.z + 1.1], [WELL.x, WELL.z - 1.1]], 4.2, { crest: DIKE, bank: 0.9 }),
 		walk('ridgeW', 'Plank walk along the west roof ridge', RIDGE_W, { asset: null, width: 1.4 }),
-		...RA.map((r) => walk(r.id, `Raft ${r.id.slice(4)} (A07.5)`, [[...r.a, RAFT], [...r.b, RAFT]], { asset: null, width: 2.4, deck: RAFT })),
-		walk('dock', 'The Gentle House night dock (A17.6 deck; the GLB planks are the visible deck)', DOCK_L, { asset: null, width: 2.4, hidden: true }),
+		...RA.map((r) => walk(r.id, `Raft ${r.id.slice(4)} (A07.5; the GLB planks are the visible deck)`, [[...r.a, RAFT], [...r.b, RAFT]], { asset: null, width: 1.8, deck: RAFT, hidden: true })),
+		walk('dock', 'The Gentle House night dock (A17.6 deck; the GLB planks are the visible deck)', DOCK_L, { asset: null, width: 2.4, hidden: true, caps: false }), // square ends like Play's hidden deck box
 	],
 	layers: [
 		{ id: 'BIO01_peat', tile: 4.5 }, // 0 wet peat: dike crests, island tops (the base)
@@ -435,22 +453,20 @@ export const PLAN = {
 	assets: DEFS,
 	structures: [
 		// the arch and the stone island (rite 1)
-		{ asset: 'A17.1', x: ARCH.x, z: ARCH.z, yaw: ARCH.yaw, name: 'The leaning stones (the act\'s arch)', label: 'A17.1 The leaning stones' },
+		// the A21.5 -wide stones fill the 5.6 m ARCH footing: their outer feet (x ±2.8) reach its shoulder (≤ 8 cm lower), so they stand 0.1 m in the ground
+		{ asset: 'A17.1', x: ARCH.x, z: ARCH.z, yaw: ARCH.yaw, dy: -0.1, name: 'The leaning stones (the act\'s arch)', label: 'A17.1 The leaning stones' },
 		...RING_STONES,
 		{ asset: 'N-FN04', x: RING.x, z: RING.z, yaw: 20, name: 'Cairn in the lichen ring (rite 1)' },
 		{ asset: 'glb:dungeon-prop-candle-cluster', x: RING.x + 1.1, z: RING.z + 0.9, yaw: 30, name: 'Candles on the cairn (out)' },
 		...MARKER_STONES,
 		...LURES,
 		// the broken bridge, the ford, rite 2 (the eel-catcher's punt)
-		{ asset: 'A06.6', x: -10.2, z: 25.4, yaw: along(-14, 5.3), name: 'Broken bridge pier (east)' },
-		{ asset: 'A06.6', x: -15.0, z: 27.2, yaw: along(-14, 5.3) + 180, name: 'Broken bridge pier (west)' },
-		// the two fords: seven river-stone tiles each along the ford (local z), a little jitter across it, sunk 0.12 m
-		...[[-7.5, 34.5, face(-8, 1)], [-15.5, 35.25, face(-8, 0.5)]].flatMap(([x, z, yaw], f) => [-3, -2, -1, 0, 1, 2, 3].map((k) => {
-			const [sx, , sz] = local({ x, z, yaw }, [(((k * 37 + f * 11) % 5) - 2) * 0.12, 0, k * 0.98]);
-			return { asset: 'A06.3', x: sx, z: sz, yaw: yaw + k * 53 + f * 20, dy: -0.12, name: 'Stepping-stone ford (river stones)' };
-		})),
-		{ asset: 'A06.5', x: -7.6, z: 21.3, yaw: 25, y: 'water', dy: -0.3, name: 'Half-sunk punt (rite 2, tied to the abutment)' },
-		{ asset: 'A01.6', x: -3.2, z: 19.6, yaw: face(-1, 1.6) + 90, name: 'Eel-trap rack (rite 2)' },
+		{ asset: 'A06.6', x: -10.2, z: 25.4, yaw: along(-14, 5.3), scale: 0.75, name: 'Broken bridge pier (east)' },
+		{ asset: 'A06.6', x: -15.0, z: 27.2, yaw: along(-14, 5.3) + 180, scale: 0.75, name: 'Broken bridge pier (west)' },
+		// the two fords: one A06.3 GLB each along the ford (local z), its base 0.44 m under the causeway (0.5 m under the water: stone tops 0.1–0.2 m above it)
+		...[[-7.5, 34.5, face(-8, 1)], [-15.5, 35.25, face(-8, 0.5)]].map(([x, z, yaw]) => ({ asset: 'A06.3', x, z, yaw, dy: -0.44, name: 'Stepping-stone ford' })),
+		{ asset: 'A06.5', x: -7.6, z: 21.3, yaw: 25, y: 'water', dy: -0.15, name: 'Half-sunk punt (rite 2, tied to the abutment)' },
+		{ asset: 'A01.6', x: -3.2, z: 19.6, yaw: face(-1, 1.6) + 90, scale: 0.85, name: 'Eel-trap rack (rite 2)' },
 		{ asset: 'N-FN05', x: 0.6, z: 20.8, yaw: face(-1, 1.6), name: 'Drying eel net (rite 2)' },
 		// rite 3 (the lure post) is LURES[0]; rite 4 (the bog grave) on its islet; the arena dressing
 		{ asset: 'N-FN03', x: -16.6, z: 66.4, yaw: 30, name: 'Bog grave (rite 4)' },
@@ -463,40 +479,40 @@ export const PLAN = {
 		{ asset: 'N-FN02', x: -2.6, z: -2.7, yaw: face(-0.87, -0.49), name: 'Shoes left at the water\'s edge (unmarked)' },
 		...PROCESSION,
 		// trees, trunks, rocks, punts, stumps of the fens (islands, banks, and dead trees standing in the black water)
-		...[[78, 38.5, 1.15], [66, 22.5, 1.0], [8, 13, 1.2], [20, -1.5, 1.05], [-60, 69.5, 1.25], [-40, 64.5, 1.1], [-14.5, 61, 1.0]].map(([x, z, sc], i) => ({ asset: 'A04.1', x, z, yaw: i * 50, scale: sc, name: 'Old weeping willow' })),
+		...[[78, 38.5, 1.15], [66, 22.5, 1.0], [8, 13, 1.2], [20, -1.5, 1.05], [-60, 69.5, 1.25], [-40, 64.5, 1.1], [-14.5, 61, 1.0]].map(([x, z, sc], i) => ({ asset: 'A04.1', x, z, yaw: i * 50, scale: +(sc * 0.92).toFixed(3), name: 'Old weeping willow' })), // ×0.92: the GLB crown (6.5 × 6.9 m) at the islands' 6 m
 		...[[-17.2, 76.5], [-25.5, 83.5], [-17.5, 57]].map(([x, z], i) => ({ asset: 'A04.2', x, z, yaw: i * 70, scale: 0.9 + i * 0.08, name: 'Young willow (toward the Willow Mere)' })),
 		...[[96, 36], [104, 55], [116, 43], [82, 46], [60, 33], [48, 11], [34, 24], [28, 2], [-12, 12], [6, 28], [-30, 30], [-14, 46], [-36, 36], [-62, 52], [-66, 72], [-40, 74], [-30, 60], [-52, 30], [-34, 18], [-12, 58]]
 			.map(([x, z], i) => ({ asset: 'A04.3', x, z, yaw: i * 37, scale: 0.85 + ((i * 13) % 5) * 0.07, name: 'Dead angular tree' })),
 		...[[86, 30, 15], [70, 37, -20], [16, 12, 60], [-56, 57, 30], [-35, 55, 100]].map(([x, z, yaw]) => ({ asset: 'A04.5', x, z, yaw, name: 'Fallen hollow trunk' })),
-		...[[80, 27.5], [64, 30.5], [18, 9], [6, -1], [-50, 52], [-44, 66], [-62, 61]].map(([x, z], i) => ({ asset: 'A03.4', x, z, yaw: i * 61, scale: +((0.8 + (i % 3) * 0.15) * 0.8).toFixed(3), name: 'Large moss rock' })),
+		...[[80, 27.5], [64, 30.5], [18, 9], [6, -1], [-50, 52], [-44, 66], [-62, 61]].map(([x, z], i) => ({ asset: 'A03.4', x, z, yaw: i * 61, scale: +(0.75 + (i % 3) * 0.12).toFixed(2), name: 'Large moss rock' })),
 		...[[88, 31.5], [58, 26.8], [26, 9.8], [1.5, -0.5], [-36.2, 61.5], [-62.6, 58.8], [-12.4, 67.5]].map(([x, z], i) => ({ asset: 'A03.5', x, z, yaw: i * 47 + 10, scale: 0.8 + (i % 2) * 0.2, name: 'Peat bank chunk' })),
-		...[[59.5, 19], [-38, 71], [-62, 31], [28.5, 24]].map(([x, z], i) => ({ asset: 'A06.5', x, z, yaw: i * 75 + 15, y: 'water', dy: -0.32, name: 'Half-sunk punt' })),
-		...[[90, 26.6], [70, 24], [6, 15.5], [-58, 70], [-41, 51], [-14, 71.5], [24, 4]].map(([x, z], i) => ({ asset: 'A03.6', x, z, yaw: i * 53, scale: 0.85 + (i % 3) * 0.12, name: 'Waterlogged root stump' })),
+		...[[59.5, 19], [-38, 71], [-62, 31], [28.5, 24]].map(([x, z], i) => ({ asset: 'A06.5', x, z, yaw: i * 75 + 15, y: 'water', dy: -0.15, name: 'Half-sunk punt' })),
+		...[[90, 26.6], [70, 24], [6, 15.5], [-58, 70], [-41, 51], [-14, 71.5], [24, 4]].map(([x, z], i) => ({ asset: 'A03.6', x, z, yaw: i * 53, scale: +(0.7 + (i % 3) * 0.1).toFixed(2), name: 'Waterlogged root stump' })),
 		...[[83.5, 29], [62.5, 23.8], [21.5, 15.5], [2, 6.5], [-46.5, 50.5], [-60.5, 64.5], [-17, 61.8], [-4.2, 31.2], [-22.2, 37.8]].map(([x, z], i) => ({ asset: 'glb:biome-prop-riverbank-stones', x, z, yaw: i * 83, scale: 0.9 + (i % 3) * 0.15 })),
 		...[[75.5, 35.6], [12, 1.2], [-52, 66.5], [-16, 63]].map(([x, z], i) => ({ asset: 'glb:biome-prop-stump', x, z, yaw: i * 71 })),
 		...[[76.2, 35.2], [11.4, 1.8], [-51.4, 67], [-46, 62.2], [-16.8, 68.6]].map(([x, z], i) => ({ asset: 'glb:biome-prop-mushrooms', x, z, yaw: i * 40 })),
 		// Rook's Weir: the weir's broken west end, cottages, roofs, gable walls, rafts, roost poles, the tower, the supper house, the dock and the boat
-		{ asset: 'A07.2', x: -97.5, z: 25.6, yaw: 4, y: BED, dy: 0.2, name: 'Weir segment (broken off)' },
-		{ asset: 'A07.2', x: -103.2, z: 26.4, yaw: -10, y: BED, dy: 0.2, name: 'Weir segment (broken off)' },
+		{ asset: 'A07.2', x: -97.5, z: 25.6, yaw: 4, y: BED, dy: 0.6, scale: 1.5, name: 'Weir segment (broken off)' },
+		{ asset: 'A07.2', x: -103.2, z: 26.4, yaw: -10, y: BED, dy: 0.6, scale: 1.5, name: 'Weir segment (broken off)' },
 		...[[-63.5, 13, -90], [-63, -1, -90], [-80.5, -3, 90], [-81.5, -17, 90], [-88, -40, 0], [-92.5, -50, 35], [-113, -38, -60], [-61, -40.5, 0], [-90, 14, 0]].map(([x, z, yaw], i) => ({ asset: 'A07.1', x, z, yaw, y: -1.2, name: i === 8 ? 'Half-drowned cottage (next to the supper house)' : 'Half-drowned flint cottage' })),
-		{ asset: 'A07.4', x: -91, z: -28, yaw: 0, y: RIDGE - 0.05 - 2.5, name: 'Sunken roof ridge (west, walked)' },
-		{ asset: 'A07.4', x: -66.5, z: -29, yaw: along(6, -1.6), y: RIDGE - 0.05 - 2.5, name: 'Sunken roof ridge (east, walked)' },
+		{ asset: 'A07.4-walk', x: -91, z: -28, yaw: 0, y: RIDGE - 0.05 - 2.5, name: 'Sunken roof ridge (west, walked)' },
+		{ asset: 'A07.4-walk', x: -66.5, z: -29, yaw: along(6, -1.6), y: RIDGE - 0.05 - 2.5, name: 'Sunken roof ridge (east, walked)' },
 		{ asset: 'A07.4', x: -112, z: -20, yaw: 30, y: -1.5, name: 'Sunken roof ridge' },
 		{ asset: 'A07.4', x: -57.5, z: 9, yaw: -20, y: -1.5, name: 'Sunken roof ridge' },
-		{ asset: 'A07.3', x: -72.5, z: -12, yaw: 0, y: -0.5, name: 'Gable wall with door arch (the lane passes through)', label: 'A07.3 Gable wall · the lane door' },
-		{ asset: 'A07.3', x: -60.6, z: -20.2, yaw: 90, y: -0.5, name: 'Gable wall with door arch (the drowned doorway, rite 5)' },
+		{ asset: 'A07.3-door', x: -72.5, z: -12, yaw: 0, y: -0.5, name: 'Gable wall with door arch (the lane passes through)', label: 'A07.3 Gable wall · the lane door' },
+		{ asset: 'A07.3-door', x: -60.6, z: -20.2, yaw: 90, y: -0.5, name: 'Gable wall with door arch (the drowned doorway, rite 5)' },
 		{ asset: 'A07.3', x: -79.8, z: 12.2, yaw: 90, y: -0.5, name: 'Supper house, east gable (its doorway)' },
 		{ asset: 'A07.3', x: -85, z: 12.2, yaw: 90, y: -0.5, name: 'Supper house, west gable' },
 		{ asset: 'A17.5', x: -82.4, z: 9.9, yaw: 0, y: -0.85, name: 'Flooded window with lace curtains (supper house)' },
 		{ asset: 'A17.4', x: -82.4, z: 12.5, yaw: 0, y: -1.08, name: 'Supper table laid under the water' },
 		{ asset: 'A01.5', x: WELL.x, z: WELL.z - 3.0, yaw: 0, y: DIKE - 0.1, name: 'The drowned village well (its kerb above the flood)', label: 'A01.5 Village well' },
-		...RA.map((r) => ({ asset: 'A07.5', x: r.x, z: r.z, yaw: r.yaw, y: RAFT - 0.72, name: `Pontoon raft (${r.id})` })),
+		...RA.map((r) => ({ asset: 'A07.5', x: r.x, z: r.z, yaw: r.yaw, y: RAFT - 0.81, name: `Pontoon raft (${r.id})` })), // the GLB deck top (0.81) on the raft walkway
 		...ROOSTS.map((r) => ({ asset: 'A07.6', ...r, name: 'Rook roost (dead tree)' })),
 		{ asset: 'A17.2', ...TOWER, name: 'The drowned bell tower', label: 'A17.2 Drowned bell tower' },
 		{ asset: 'glb:dungeon-prop-fallen-bell', x: -57.6, z: -36.2, yaw: 40, y: -0.55, name: 'The drowned bell' },
 		{ asset: 'A17.6', x: DOCK.x, z: DOCK.z, yaw: DOCK.yaw, y: DOCK.y, name: 'The Gentle House night dock', label: 'A17.6 Gentle House night dock' },
 		{ asset: 'A17.3', x: BOAT.x, z: BOAT.z, yaw: BOAT.yaw, y: BOAT.y, name: 'The Gentle House boat (linen canopy, still lamp)', label: 'A17.3 Gentle House boat' },
-		{ asset: 'N-FN06', x: TOLL[0], z: TOLL[2], yaw: DOCK.yaw + 90, y: 'deck', name: "The ferryman's toll post" },
+		{ asset: 'N-FN06', x: TOLL_POST.x, z: TOLL_POST.z, yaw: TOLL_POST.yaw, y: 'deck', name: "The ferryman's toll post" },
 		{ asset: 'glb:dungeon-prop-candle-cluster', x: -62.1, z: -19.7, yaw: 10, y: 'deck', name: 'Candles at the drowned doorway (out, rite 5)' },
 		// rooks on the roost poles (they circle until the Count is done)
 		...[...ROOSTS.map((r, i) => [r, i % 2]), [TOWER, -1], [ROOSTS[0], 1]].map(([r, t], i) => {
@@ -505,17 +521,21 @@ export const PLAN = {
 		}),
 	],
 	runs: [
-		{ asset: 'A06.1', points: REVET(D1, -1, 0, 5), y: 'min', parapet: 0.2, gaps: [[107, 49.6, 2]], tag: 'revetment' },
-		{ asset: 'A06.1', points: REVET(D2, -1, 0, 3), y: 'min', parapet: 0.2, tag: 'revetment' },
-		{ asset: 'A06.1', points: REVET(D2, -1, 3, 5), y: 'min', parapet: 0.2, tag: 'revetment' },
-		{ asset: 'A06.1', points: REVET(D4, 1, 1, 5), y: 'min', parapet: 0.2, tag: 'revetment' },
-		{ asset: 'A07.2', points: shift(WEIR, 1.95), y: 'min', parapet: 0.45, gaps: [[-44.2, 27.1, 3.2]], tag: 'weir' }, // open where the dike from the arena climbs onto the weir
+		// the A06.1 causeway on the crests (top flush with the terrain), the kit revetment posts on the banks below them
+		{ asset: 'A06.1', points: D1, y: 'ground', dy: -0.35, gaps: [[107, 49.6, 2]], tag: 'causeway' },
+		{ asset: 'A06.1', points: D2, y: 'ground', dy: -0.35, gaps: [[ARCH.x, ARCH.z, 4]], tag: 'causeway' }, // none under the leaning arch (its passage)
+		{ asset: 'A06.1', points: D4.slice(1), y: 'ground', dy: -0.35, tag: 'causeway' },
+		{ asset: 'A06.1-posts', points: REVET(D1, -1, 0, 5), y: 'min', parapet: 0.2, gaps: [[107, 49.6, 2]], tag: 'revetment' },
+		{ asset: 'A06.1-posts', points: REVET(D2, -1, 0, 3), y: 'min', parapet: 0.2, tag: 'revetment' },
+		{ asset: 'A06.1-posts', points: REVET(D2, -1, 3, 5), y: 'min', parapet: 0.2, tag: 'revetment' },
+		{ asset: 'A06.1-posts', points: REVET(D4, 1, 1, 5), y: 'min', parapet: 0.2, tag: 'revetment' },
+		{ asset: 'A07.2', points: shift(WEIR, 1.95), y: 'min', scale: 1.5, parapet: 0.45, gaps: [[-44.2, 27.1, 3.2]], tag: 'weir' }, // ×1.5 (6.3 m modules); open where the dike from the arena climbs onto the weir
 	],
 	scatters: [
 		{ asset: 'A03.1', count: 520, area: { rect: [-128, -96, 128, 96] }, spacing: 1.1, clear: { paths: 0.9, structures: 0.4, decks: 0.8 }, height: [0.28, 1.2], scale: [0.7, 1.25], seed: 31 },
 		{ asset: 'A03.2', count: 700, area: { rect: [-128, -96, 128, 96] }, spacing: 0.8, height: [-1.2, 0.12], clear: { decks: 0.8, structures: 0.2 }, scale: [1.0, 1.55], seed: 41, tag: 'reed fringe' },
 		{ asset: 'A03.2', count: 900, area: { rect: [-128, -96, 128, 96] }, spacing: 0.85, height: [-0.62, -0.38], clear: { decks: 1.5 }, scale: [1.05, 1.6], seed: 43, tag: 'reed shoals' },
-		{ asset: 'A03.3', count: 185, area: { rect: [-128, -96, 128, 96] }, spacing: 0.9, height: [0.05, 0.42], clear: { paths: 1.1, decks: 0.6, structures: 0.3 }, scale: [0.7, 1.2], seed: 47 },
+		{ asset: 'A03.3', count: 185, area: { rect: [-128, -96, 128, 96] }, spacing: 0.9, height: [0.05, 0.42], clear: { paths: 1.1, decks: 0.6, structures: 0.15 }, scale: [0.7, 1.2], seed: 47 }, // sedge 0.15 m off the structures (the GLB footprints are their whole crowns, roots and rubble)
 	],
 	lights: [
 		// no human light in the Night Fens (the brief: the only warm point is the far window). Corpse-candles (W05) are lures: still, even, beautiful (light grammar
@@ -614,17 +634,18 @@ export const PLAN = {
 		items: [{ asset: 'N-GH', x: GH.x, z: GH.z, yaw: face(-GH.x, -GH.z) }],
 	},
 	defaultMood: 'night',
+	// Play moods brightened 10-23 (hemi, moon (sun) intensity, envI, exposure); the old values are in tmp/act1-base-maps/BRIGHTNESS.md.
 	moods: {
 		night: {
-			label: 'Night Fens · đêm', sky: '#3a4a64', ground: '#121816', hemi: 1.35, sun: { elev: 38, az: 150, intensity: 0.55, kelvin: 9500 }, env: 'hdri-night', envI: 0.12,
-			toneMapping: 'aces', exposure: 1.7, background: '#070a0e', rainTone: 0.4,
+			label: 'Night Fens · đêm', sky: '#3a4a64', ground: '#121816', hemi: 1.9, sun: { elev: 38, az: 150, intensity: 0.63, kelvin: 9500 }, env: 'hdri-night', envI: 0.17,
+			toneMapping: 'aces', exposure: 1.85, background: '#070a0e', rainTone: 0.4,
 			fog: { enabled: true, color: '#18212a', density: 0.014, falloff: 0.13, height: 0, start: 10, inscatter: 0 },
 			grade: { vignette: 0.55, contrast: 1.08, saturation: 0.78, lift: 0, temperature: -0.06, tint: 0 },
 			rain: 0, mist: 1.0, stars: 1, human: 1, perfection: 1.15, windows: 0, flags: { gentleHouse: true, lures: true, dockLamp: true, accent: false, graveCandles: false },
 		},
 		still: {
-			label: "Rook's Weir · đêm lặng (ít sương, nước gương)", sky: '#40506a', ground: '#141a18', hemi: 1.3, sun: { elev: 44, az: 170, intensity: 0.7, kelvin: 9000 }, env: 'hdri-night', envI: 0.16,
-			toneMapping: 'aces', exposure: 1.6, background: '#080b10', rainTone: 0.4,
+			label: "Rook's Weir · đêm lặng (ít sương, nước gương)", sky: '#40506a', ground: '#141a18', hemi: 1.8, sun: { elev: 44, az: 170, intensity: 0.8, kelvin: 9000 }, env: 'hdri-night', envI: 0.22,
+			toneMapping: 'aces', exposure: 1.75, background: '#080b10', rainTone: 0.4,
 			fog: { enabled: true, color: '#1a232c', density: 0.008, falloff: 0.12, height: 0, start: 14, inscatter: 0 },
 			grade: { vignette: 0.5, contrast: 1.06, saturation: 0.8, lift: 0, temperature: -0.05, tint: 0 },
 			rain: 0, mist: 0.45, stars: 1.25, human: 1, perfection: 1.2, windows: 0, flags: { gentleHouse: true, lures: true, dockLamp: true, accent: false, graveCandles: false },
