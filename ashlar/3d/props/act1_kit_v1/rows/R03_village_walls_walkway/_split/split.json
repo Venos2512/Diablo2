@@ -1,0 +1,125 @@
+{
+ "row": "R03",
+ "row_glb": "rows/R03_village_walls_walkway/act1_kit_v1_R03_village_walls_walkway.glb",
+ "variant": "0",
+ "faces": 32685,
+ "objects": 4,
+ "split_by": "image gaps",
+ "assets": [
+  {
+   "id": "A01.3",
+   "slug": "flint_wall",
+   "name": "Patched low flint wall",
+   "dir": "A01_3_flint_wall",
+   "glb": "A01_3_flint_wall/act1_kit_v1_flint_wall.glb",
+   "mb": 7.2,
+   "tris": 15659,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 1.6,
+   "support_gain": 1.62,
+   "front": "axes 5.62",
+   "yaw_deg": -0.1,
+   "normalised": [
+    1.0,
+    0.402,
+    0.17
+   ],
+   "real_size_m": [
+    3.4,
+    1.4,
+    0.7
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    3.49,
+    4.12
+   ],
+   "shape_spread": 1.21,
+   "texture": "own atlas 7808x3552 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A01.4",
+   "slug": "hurdle_fence",
+   "name": "Willow hurdle fence",
+   "dir": "A01_4_hurdle_fence",
+   "glb": "A01_4_hurdle_fence/act1_kit_v1_hurdle_fence.glb",
+   "mb": 4.4,
+   "tris": 9172,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 16.01",
+   "yaw_deg": -0.0,
+   "normalised": [
+    1.0,
+    0.5,
+    0.101
+   ],
+   "real_size_m": [
+    3.2,
+    1.4,
+    0.18
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    2.8,
+    1.78
+   ],
+   "shape_spread": 1.8,
+   "texture": "own atlas 7040x2496 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A01.2",
+   "slug": "walkway",
+   "name": "Raised wooden walkway segment",
+   "dir": "A01_2_walkway",
+   "glb": "A01_2_walkway/act1_kit_v1_walkway.glb",
+   "mb": 6.5,
+   "tris": 7854,
+   "objects": [
+    3,
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 10.5,
+   "support_gain": 11.98,
+   "front": "axes 2.12",
+   "yaw_deg": 1.5,
+   "normalised": [
+    1.0,
+    0.54,
+    0.496
+   ],
+   "real_size_m": [
+    4.0,
+    1.2,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    2.22,
+    2.82
+   ],
+   "shape_spread": 1.8,
+   "texture": "own atlas 8064x3632 (row atlas 8192x8192)"
+  }
+ ]
+}

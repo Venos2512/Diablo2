@@ -1,0 +1,4200 @@
+{
+ "kit": "act1_kit_v1",
+ "title": "ASHLAR Act I kit v1: 86 environment props from 34 Tripo row builds",
+ "updated": "2026-10-23",
+ "source": "one Tripo Studio Smart Mesh run per row image (rows/R##_<slug>/input_spaced.png, plan tmp/act1-base-maps/TRIPO_ROWS.md §2), Smart UV + texture + PBR + GLB export, then split into one GLB per asset by _tools/split_rows.py (options in _tools/rows.json); A21-A25: rows R23-R33 (+ R31r, the bread rack rebuilt alone), plan TRIPO_ROWS.md §3",
+ "glb_convention": "one mesh, base colour + metallicRoughness + normal in its own atlas cut from the row atlas; longest side 1, pivot at the bottom centre, +y up, front +z. Scale each asset to real_size_m (w x h x d, w = width of the front face); m_per_unit_xyz shows how far the built shape is from the spec per axis (equal numbers = same proportions).",
+ "credits_total": 5115,
+ "rows": [
+  {
+   "row": "R01",
+   "folder": "rows/R01_lychgate_cottage_ossuary",
+   "input": "rows/R01_lychgate_cottage_ossuary/input_spaced.png",
+   "glb": "rows/R01_lychgate_cottage_ossuary/act1_kit_v1_R01_lychgate_cottage_ossuary.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/431491fd-5393-446b-8631-99adabcf9fa5",
+   "variant": 0,
+   "mesh_faces": 10908,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 25.6,
+   "tris": 18564,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A01.1",
+    "A02.4"
+   ]
+  },
+  {
+   "row": "R02",
+   "folder": "rows/R02_lychgate_gate_saint_well",
+   "input": "rows/R02_lychgate_gate_saint_well/input_spaced.png",
+   "glb": "rows/R02_lychgate_gate_saint_well/act1_kit_v1_R02_lychgate_gate_saint_well.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/570cfd82-d0d0-4b7e-b713-b1cb77e995ae",
+   "variant": 2,
+   "mesh_faces": 18039,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 34.1,
+   "tris": 31231,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A02.1",
+    "A02.5",
+    "A01.5"
+   ]
+  },
+  {
+   "row": "R03",
+   "folder": "rows/R03_village_walls_walkway",
+   "input": "rows/R03_village_walls_walkway/input_spaced.png",
+   "glb": "rows/R03_village_walls_walkway/act1_kit_v1_R03_village_walls_walkway.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/09a72cbe-2be2-4d56-98e5-c73f960fff00",
+   "variant": 0,
+   "mesh_faces": 20283,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 25.8,
+   "tris": 32685,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A01.3",
+    "A01.4",
+    "A01.2"
+   ]
+  },
+  {
+   "row": "R04",
+   "folder": "rows/R04_churchyard_graves_cart",
+   "input": "rows/R04_churchyard_graves_cart/input_spaced.png",
+   "glb": "rows/R04_churchyard_graves_cart/act1_kit_v1_R04_churchyard_graves_cart.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/f7d7e600-0ba6-47d3-ac2d-4365186cb405",
+   "variant": 2,
+   "mesh_faces": 15792,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 27.7,
+   "tris": 25202,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A02.2",
+    "A02.3",
+    "A02.6"
+   ]
+  },
+  {
+   "row": "R05",
+   "folder": "rows/R05_willows",
+   "input": "rows/R05_willows/input_spaced.png",
+   "glb": "rows/R05_willows/act1_kit_v1_R05_willows.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/6c0f3fe9-77a4-4c95-a8c8-1f1e2190fae9",
+   "variant": 1,
+   "mesh_faces": 9494,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 20.4,
+   "tris": 15852,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A04.1",
+    "A04.2"
+   ]
+  },
+  {
+   "row": "R06",
+   "folder": "rows/R06_dead_tree_roots",
+   "input": "rows/R06_dead_tree_roots/input_spaced.png",
+   "glb": "rows/R06_dead_tree_roots/act1_kit_v1_R06_dead_tree_roots.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/82c8e6d0-6809-41f1-a6cf-df75f655c709",
+   "variant": 3,
+   "mesh_faces": 10870,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 19.7,
+   "tris": 19626,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A04.3",
+    "A04.6"
+   ]
+  },
+  {
+   "row": "R07",
+   "folder": "rows/R07_fen_rock_peat_stump",
+   "input": "rows/R07_fen_rock_peat_stump/input_spaced.png",
+   "glb": "rows/R07_fen_rock_peat_stump/act1_kit_v1_R07_fen_rock_peat_stump.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/e8ce3341-300f-4bd9-af9b-a0ec99667b17",
+   "variant": 2,
+   "mesh_faces": 16812,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 23.4,
+   "tris": 29473,
+   "images": [
+    "JPEG 4096x4096",
+    "JPEG 8192x8192",
+    "PNG 4096x4096"
+   ],
+   "assets": [
+    "A03.4",
+    "A03.5",
+    "A03.6"
+   ]
+  },
+  {
+   "row": "R08",
+   "folder": "rows/R08_fen_stone_lure_pier",
+   "input": "rows/R08_fen_stone_lure_pier/input_spaced.png",
+   "glb": "rows/R08_fen_stone_lure_pier/act1_kit_v1_R08_fen_stone_lure_pier.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/b49ce06a-e376-49b8-b0e8-9a8cd4fd3574",
+   "variant": 3,
+   "mesh_faces": 17207,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 32.0,
+   "tris": 27122,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A06.2",
+    "A06.4",
+    "A06.6"
+   ]
+  },
+  {
+   "row": "R09",
+   "folder": "rows/R09_fen_causeway_ford_raft",
+   "input": "rows/R09_fen_causeway_ford_raft/input_spaced.png",
+   "glb": "rows/R09_fen_causeway_ford_raft/act1_kit_v1_R09_fen_causeway_ford_raft.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/e242e3a5-862b-47c0-bb4f-7ebb4362a995",
+   "variant": 0,
+   "mesh_faces": 16433,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 33.1,
+   "tris": 28223,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A06.1",
+    "A06.3",
+    "A07.5"
+   ]
+  },
+  {
+   "row": "R10",
+   "folder": "rows/R10_weir_cottage_roof",
+   "input": "rows/R10_weir_cottage_roof/input_spaced.png",
+   "glb": "rows/R10_weir_cottage_roof/act1_kit_v1_R10_weir_cottage_roof.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/1752283d-9fc3-4bd9-bacc-56e931bab1a8",
+   "variant": 0,
+   "mesh_faces": 13744,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 24.9,
+   "tris": 21853,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A07.1",
+    "A07.4"
+   ]
+  },
+  {
+   "row": "R11",
+   "folder": "rows/R11_weir_gable_roost_weir",
+   "input": "rows/R11_weir_gable_roost_weir/input_spaced.png",
+   "glb": "rows/R11_weir_gable_roost_weir/act1_kit_v1_R11_weir_gable_roost_weir.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/cb0dcaef-788b-4de5-a69c-2fb8df8be1cc",
+   "variant": 1,
+   "mesh_faces": 15105,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 33.7,
+   "tris": 27495,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A07.3",
+    "A07.6",
+    "A07.2"
+   ]
+  },
+  {
+   "row": "R12",
+   "folder": "rows/R12_fen_trunk_punt",
+   "input": "rows/R12_fen_trunk_punt/input_spaced.png",
+   "glb": "rows/R12_fen_trunk_punt/act1_kit_v1_R12_fen_trunk_punt.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/ec470b3d-6f0f-460f-9099-77697195df38",
+   "variant": 2,
+   "mesh_faces": 10942,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 14.0,
+   "tris": 20166,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A04.5",
+    "A06.5"
+   ]
+  },
+  {
+   "row": "R13",
+   "folder": "rows/R13_poppy_farmhouse_rick",
+   "input": "rows/R13_poppy_farmhouse_rick/input_spaced.png",
+   "glb": "rows/R13_poppy_farmhouse_rick/act1_kit_v1_R13_poppy_farmhouse_rick.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/6832b5d5-195e-4d33-830b-8db8922ec577",
+   "variant": 3,
+   "mesh_faces": 11074,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 25.2,
+   "tris": 17358,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A08.3",
+    "A08.4"
+   ]
+  },
+  {
+   "row": "R14",
+   "folder": "rows/R14_poppy_walls_gate",
+   "input": "rows/R14_poppy_walls_gate/input_spaced.png",
+   "glb": "rows/R14_poppy_walls_gate/act1_kit_v1_R14_poppy_walls_gate.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/454eb39e-04a8-4d7b-9115-e152c78c9405",
+   "variant": 0,
+   "mesh_faces": 17425,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 25.1,
+   "tris": 28363,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A08.2",
+    "A08.2-stile",
+    "A08.5"
+   ]
+  },
+  {
+   "row": "R15",
+   "folder": "rows/R15_drying_racks",
+   "input": "rows/R15_drying_racks/input_spaced.png",
+   "glb": "rows/R15_drying_racks/act1_kit_v1_R15_drying_racks.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/8d1dcec9-77b4-44b2-b769-d8d4754cf9e9",
+   "variant": 1,
+   "mesh_faces": 10997,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 22.2,
+   "tris": 19638,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A01.6",
+    "A08.6"
+   ]
+  },
+  {
+   "row": "R16",
+   "folder": "rows/R16_gentle_gate_cloister",
+   "input": "rows/R16_gentle_gate_cloister/input_spaced.png",
+   "glb": "rows/R16_gentle_gate_cloister/act1_kit_v1_R16_gentle_gate_cloister.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/33d539de-9796-46ba-9bf9-79f5716c931a",
+   "variant": 1,
+   "mesh_faces": 12785,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 22.2,
+   "tris": 21048,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A11.4",
+    "A11.1"
+   ]
+  },
+  {
+   "row": "R17",
+   "folder": "rows/R17_gentle_hearth_candle_bed",
+   "input": "rows/R17_gentle_hearth_candle_bed/input_spaced.png",
+   "glb": "rows/R17_gentle_hearth_candle_bed/act1_kit_v1_R17_gentle_hearth_candle_bed.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/699e51c8-15f7-447f-a19f-b0d24372f398",
+   "variant": 0,
+   "mesh_faces": 17148,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 24.1,
+   "tris": 32644,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A11.5",
+    "A11.6",
+    "A11.2"
+   ]
+  },
+  {
+   "row": "R18",
+   "folder": "rows/R18_refectory_table_platform",
+   "input": "rows/R18_refectory_table_platform/input_spaced.png",
+   "glb": "rows/R18_refectory_table_platform/act1_kit_v1_R18_refectory_table_platform.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/1b36919a-25f2-47a4-8122-5033e6026780",
+   "variant": 1,
+   "mesh_faces": 9944,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 14.4,
+   "tris": 17510,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A11.3",
+    "A14.5"
+   ]
+  },
+  {
+   "row": "R19",
+   "folder": "rows/R19_garden_root_bay_canopy",
+   "input": "rows/R19_garden_root_bay_canopy/input_spaced.png",
+   "glb": "rows/R19_garden_root_bay_canopy/act1_kit_v1_R19_garden_root_bay_canopy.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/0e6e0602-75fa-4f06-ae9c-cbed6931d465",
+   "variant": 2,
+   "mesh_faces": 11478,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 17.0,
+   "tris": 20566,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A13.5",
+    "A13.2"
+   ]
+  },
+  {
+   "row": "R20",
+   "folder": "rows/R20_garden_bell_jar_furrows",
+   "input": "rows/R20_garden_bell_jar_furrows/input_spaced.png",
+   "glb": "rows/R20_garden_bell_jar_furrows/act1_kit_v1_R20_garden_bell_jar_furrows.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/39d3e345-aa48-40c5-b4ad-68fb4f194139",
+   "variant": 2,
+   "mesh_faces": 19294,
+   "polycount": 20000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 25.5,
+   "tris": 33610,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A13.4",
+    "A13.3",
+    "A13.1",
+    "A13.6"
+   ]
+  },
+  {
+   "row": "R21",
+   "folder": "rows/R21_cradle_crib_curtains",
+   "input": "rows/R21_cradle_crib_curtains/input_spaced.png",
+   "glb": "rows/R21_cradle_crib_curtains/act1_kit_v1_R21_cradle_crib_curtains.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/0d6124ba-97bc-4afc-a835-fd8855b8c0c4",
+   "variant": 2,
+   "mesh_faces": 10217,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 22.3,
+   "tris": 19817,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A14.1",
+    "A14.2"
+   ]
+  },
+  {
+   "row": "R22",
+   "folder": "rows/R22_cradle_runners_mobile_light",
+   "input": "rows/R22_cradle_runners_mobile_light/input_spaced.png",
+   "glb": "rows/R22_cradle_runners_mobile_light/act1_kit_v1_R22_cradle_runners_mobile_light.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/270a1663-99b8-4907-940e-bd36bb8f6bc0",
+   "variant": 0,
+   "mesh_faces": 17022,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 21.7,
+   "tris": 31357,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A14.6",
+    "A14.4",
+    "A14.3"
+   ]
+  },
+  {
+   "row": "R23",
+   "folder": "rows/R23_leaning_stones_root_arch",
+   "input": "rows/R23_leaning_stones_root_arch/input_spaced.png",
+   "glb": "rows/R23_leaning_stones_root_arch/act1_kit_v1_R23_leaning_stones_root_arch.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/f497c87b-51a6-4623-b44c-4f30abbdd41e",
+   "variant": 1,
+   "mesh_faces": 11170,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 20.9,
+   "tris": 19813,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A21.5",
+    "A25.1"
+   ]
+  },
+  {
+   "row": "R24",
+   "folder": "rows/R24_ribbon_thorn",
+   "input": "rows/R24_ribbon_thorn/input_r2.png",
+   "glb": "rows/R24_ribbon_thorn/act1_kit_v1_R24_ribbon_thorn.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/01594bc2-c274-4b49-9a40-90767486502d",
+   "variant": 2,
+   "mesh_faces": 8266,
+   "polycount": 8000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 19.7,
+   "tris": 12828,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A23.2"
+   ]
+  },
+  {
+   "row": "R25",
+   "folder": "rows/R25_barrow_door_flint_wall",
+   "input": "rows/R25_barrow_door_flint_wall/input_spaced.png",
+   "glb": "rows/R25_barrow_door_flint_wall/act1_kit_v1_R25_barrow_door_flint_wall.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/12b68e44-6b52-42b7-916a-ad57e3d3910b",
+   "variant": 2,
+   "mesh_faces": 9633,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 21.4,
+   "tris": 15716,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A21.1",
+    "A21.2"
+   ]
+  },
+  {
+   "row": "R26",
+   "folder": "rows/R26_root_fall_drying_line",
+   "input": "rows/R26_root_fall_drying_line/input_spaced.png",
+   "glb": "rows/R26_root_fall_drying_line/act1_kit_v1_R26_root_fall_drying_line.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/58f5b5d7-6f18-4215-a1a9-bf3e5419cebd",
+   "variant": 3,
+   "mesh_faces": 10711,
+   "polycount": 10000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 17.9,
+   "tris": 19091,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A25.3",
+    "A23.6"
+   ]
+  },
+  {
+   "row": "R27",
+   "folder": "rows/R27_peat_chair_bog_grave",
+   "input": "rows/R27_peat_chair_bog_grave/input_spaced.png",
+   "glb": "rows/R27_peat_chair_bog_grave/act1_kit_v1_R27_peat_chair_bog_grave.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/e32490b0-39cd-424d-aff3-9c0ab8048337",
+   "variant": 1,
+   "mesh_faces": 16767,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 160,
+   "mb": 26.9,
+   "tris": 26880,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A21.3",
+    "A21.4",
+    "A21.6"
+   ]
+  },
+  {
+   "row": "R28",
+   "folder": "rows/R28_toll_post_crook_cairn",
+   "input": "rows/R28_toll_post_crook_cairn/input_spaced.png",
+   "glb": "rows/R28_toll_post_crook_cairn/act1_kit_v1_R28_toll_post_crook_cairn.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/cabd202b-053d-428c-889e-d0ca1fdb8886",
+   "variant": 2,
+   "mesh_faces": 16914,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 24.0,
+   "tris": 29221,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A22.2",
+    "A22.5",
+    "A22.4"
+   ]
+  },
+  {
+   "row": "R29",
+   "folder": "rows/R29_cradle_shoes_doll",
+   "input": "rows/R29_cradle_shoes_doll/input_spaced.png",
+   "glb": "rows/R29_cradle_shoes_doll/act1_kit_v1_R29_cradle_shoes_doll.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/beefd2b3-724e-496d-991c-4232c659da97",
+   "variant": 2,
+   "mesh_faces": 18067,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 27.3,
+   "tris": 30839,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A22.3",
+    "A22.1",
+    "A22.6"
+   ]
+  },
+  {
+   "row": "R30",
+   "folder": "rows/R30_reaping_garth_beds_pot",
+   "input": "rows/R30_reaping_garth_beds_pot/input_spaced.png",
+   "glb": "rows/R30_reaping_garth_beds_pot/act1_kit_v1_R30_reaping_garth_beds_pot.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/f1e0fe55-4d97-4b6a-a5f2-5434d7bc69d8",
+   "variant": 1,
+   "mesh_faces": 27553,
+   "polycount": 20000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 30.3,
+   "tris": 41956,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A23.1",
+    "A23.3",
+    "A23.5",
+    "A23.4"
+   ]
+  },
+  {
+   "row": "R31",
+   "folder": "rows/R31_kitchen_table_rack_linen_table",
+   "input": "rows/R31_kitchen_table_rack_linen_table/input_spaced.png",
+   "glb": "rows/R31_kitchen_table_rack_linen_table/act1_kit_v1_R31_kitchen_table_rack_linen_table.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/be61c2ef-92cc-47c7-89af-9854f397ed20",
+   "variant": 1,
+   "mesh_faces": 17204,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 26.0,
+   "tris": 28254,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A24.1",
+    "A24.3"
+   ],
+   "note": "bread rack rejected (board fused onto the top shelf in every variant): A24.2 comes from R31r"
+  },
+  {
+   "row": "R31r",
+   "folder": "rows/R31r_bread_rack",
+   "input": "rows/R31r_bread_rack/input_spaced.png",
+   "glb": "rows/R31r_bread_rack/act1_kit_v1_R31r_bread_rack.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/1cb3c71a-354c-4521-ada4-65de7d15825a",
+   "variant": 3,
+   "mesh_faces": 6547,
+   "polycount": 5000,
+   "texture": "4K",
+   "credits": 145,
+   "mb": 18.3,
+   "tris": 11010,
+   "images": [
+    "JPEG 4096x4096",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A24.2"
+   ],
+   "note": "A24.2 rebuilt alone from a code crop of the R31 row image"
+  },
+  {
+   "row": "R32",
+   "folder": "rows/R32_cradle_quilt_pillow_coverlet",
+   "input": "rows/R32_cradle_quilt_pillow_coverlet/input_spaced.png",
+   "glb": "rows/R32_cradle_quilt_pillow_coverlet/act1_kit_v1_R32_cradle_quilt_pillow_coverlet.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/7d181efb-8c9b-436b-9555-8ce27e84759f",
+   "variant": 1,
+   "mesh_faces": 17825,
+   "polycount": 15000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 26.1,
+   "tris": 34193,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A24.5",
+    "A24.6",
+    "A24.4"
+   ]
+  },
+  {
+   "row": "R33",
+   "folder": "rows/R33_garden_crossing_basket_kit_lantern",
+   "input": "rows/R33_garden_crossing_basket_kit_lantern/input_spaced.png",
+   "glb": "rows/R33_garden_crossing_basket_kit_lantern/act1_kit_v1_R33_garden_crossing_basket_kit_lantern.glb",
+   "tripo_model": "https://studio.tripo3d.ai/workspace/generate/5e741b2e-2f2f-41c4-9031-dd8c56d9f547",
+   "variant": 0,
+   "mesh_faces": 24512,
+   "polycount": 20000,
+   "texture": "8K",
+   "credits": 155,
+   "mb": 31.6,
+   "tris": 43601,
+   "images": [
+    "JPEG 8192x8192",
+    "PNG 4096x4096",
+    "JPEG 4096x4096"
+   ],
+   "assets": [
+    "A25.2",
+    "A25.4",
+    "A25.5",
+    "A25.6"
+   ]
+  }
+ ],
+ "assets": [
+  {
+   "id": "A01.1",
+   "name": "Repaired thatched stilt cottage",
+   "slug": "stilt_cottage",
+   "dir": "A01_1_stilt_cottage",
+   "glb": "A01_1_stilt_cottage/act1_kit_v1_stilt_cottage.glb",
+   "concept": "A01_1_stilt_cottage/concept.png",
+   "final_views": "A01_1_stilt_cottage/_shots/final_views.png",
+   "row": "R01",
+   "variant": 0,
+   "row_texture": "4K",
+   "texture": "own atlas 3328x3792 (row atlas 4096x4096)",
+   "mb": 9.6,
+   "tris": 11333,
+   "real_size_m": [
+    4.6,
+    5.2,
+    4.0
+   ],
+   "normalised": [
+    1.0,
+    0.96,
+    0.966
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    5.42,
+    4.14
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -20.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Thatch eaves and ladder make the footprint 5.4 x 5.2 m (body 4.6 x 4.0); no lit window in the texture.",
+   "issues_vi": "Mái tranh chìa và thang làm chân rộng 5,4 × 5,2 m (thân 4,6 × 4,0); texture không có cửa sổ sáng.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-1-stilt-cottage.glb"
+   ]
+  },
+  {
+   "id": "A01.2",
+   "name": "Raised wooden walkway segment",
+   "slug": "walkway",
+   "dir": "A01_2_walkway",
+   "glb": "A01_2_walkway/act1_kit_v1_walkway.glb",
+   "concept": "A01_2_walkway/concept.png",
+   "final_views": "A01_2_walkway/_shots/final_views.png",
+   "row": "R03",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 8064x3632 (row atlas 8192x8192)",
+   "mb": 6.5,
+   "tris": 7854,
+   "real_size_m": [
+    4.0,
+    1.2,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.54,
+    0.496
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    2.22,
+    2.82
+   ],
+   "tilt_deg": 10.5,
+   "yaw_deg": 1.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Deck top 1.22 m (fens decks 0.62 m); rope-rail corner posts taller than the 1.2 m spec; 1.05 m clear between the rails. Confirmed: rope-rail posts taller than spec.",
+   "issues_vi": "Mặt sàn cao 1,22 m (sàn ở fens 0,62 m); cột lan can dây cao hơn spec 1,2 m; giữa hai lan can chỉ còn 1,05 m. Xác nhận: cột lan can dây cao hơn spec.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-2-walkway.glb"
+   ]
+  },
+  {
+   "id": "A01.3",
+   "name": "Patched low flint wall",
+   "slug": "flint_wall",
+   "dir": "A01_3_flint_wall",
+   "glb": "A01_3_flint_wall/act1_kit_v1_flint_wall.glb",
+   "concept": "A01_3_flint_wall/concept.png",
+   "final_views": "A01_3_flint_wall/_shots/final_views.png",
+   "row": "R03",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7808x3552 (row atlas 8192x8192)",
+   "mb": 7.2,
+   "tris": 15659,
+   "real_size_m": [
+    3.4,
+    1.4,
+    0.7
+   ],
+   "normalised": [
+    1.0,
+    0.402,
+    0.17
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    3.49,
+    4.12
+   ],
+   "tilt_deg": 1.6,
+   "yaw_deg": -0.1,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-3-flint-wall.glb"
+   ]
+  },
+  {
+   "id": "A01.4",
+   "name": "Willow hurdle fence",
+   "slug": "hurdle_fence",
+   "dir": "A01_4_hurdle_fence",
+   "glb": "A01_4_hurdle_fence/act1_kit_v1_hurdle_fence.glb",
+   "concept": "A01_4_hurdle_fence/concept.png",
+   "final_views": "A01_4_hurdle_fence/_shots/final_views.png",
+   "row": "R03",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7040x2496 (row atlas 8192x8192)",
+   "mb": 4.4,
+   "tris": 9172,
+   "real_size_m": [
+    3.2,
+    1.4,
+    0.18
+   ],
+   "normalised": [
+    1.0,
+    0.5,
+    0.101
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    2.8,
+    1.78
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-4-hurdle-fence.glb"
+   ]
+  },
+  {
+   "id": "A01.5",
+   "name": "Village well",
+   "slug": "village_well",
+   "dir": "A01_5_village_well",
+   "glb": "A01_5_village_well/act1_kit_v1_village_well.glb",
+   "concept": "A01_5_village_well/concept.png",
+   "final_views": "A01_5_village_well/_shots/final_views.png",
+   "row": "R02",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 7296x4240 (row atlas 8192x8192)",
+   "mb": 8.9,
+   "tris": 19252,
+   "real_size_m": [
+    2.2,
+    3.4,
+    2.0
+   ],
+   "normalised": [
+    0.804,
+    1.0,
+    0.704
+   ],
+   "m_per_unit_xyz": [
+    2.74,
+    3.4,
+    2.84
+   ],
+   "tilt_deg": 3.5,
+   "yaw_deg": -48.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 10,
+   "issues": "A stone apron makes it 2.7 x 2.4 m (spec 2.2 x 2.0).",
+   "issues_vi": "Có nền đá quanh giếng nên rộng 2,7 × 2,4 m (spec 2,2 × 2,0).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-5-village-well.glb"
+   ]
+  },
+  {
+   "id": "A01.6",
+   "name": "Eel-trap fishing rack",
+   "slug": "eel_trap_rack",
+   "dir": "A01_6_eel_trap_rack",
+   "glb": "A01_6_eel_trap_rack/act1_kit_v1_eel_trap_rack.glb",
+   "concept": "A01_6_eel_trap_rack/concept.png",
+   "final_views": "A01_6_eel_trap_rack/_shots/final_views.png",
+   "row": "R15",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 4096x3088 (row atlas 4096x4096)",
+   "mb": 9.2,
+   "tris": 8778,
+   "real_size_m": [
+    3.4,
+    3.0,
+    1.6
+   ],
+   "normalised": [
+    1.0,
+    0.638,
+    0.422
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    4.7,
+    3.79
+   ],
+   "tilt_deg": 1.1,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "A fourth trap leans at +x: 4.7 m wide at the 3 m height (spec 3.4). A short extra stake stands beside the leaning trap's leg.",
+   "issues_vi": "Lờ thứ tư dựng nghiêng bên +x: rộng 4,7 m khi cao 3 m (spec 3,4). Có thêm một cọc ngắn cạnh chân lờ nghiêng.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a01-6-eel-trap-rack.glb"
+   ]
+  },
+  {
+   "id": "A02.1",
+   "name": "Lychgate roofed gate",
+   "slug": "lychgate",
+   "dir": "A02_1_lychgate",
+   "glb": "A02_1_lychgate/act1_kit_v1_lychgate.glb",
+   "concept": "A02_1_lychgate/concept.png",
+   "final_views": "A02_1_lychgate/_shots/final_views.png",
+   "row": "R02",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 7424x5072 (row atlas 8192x8192)",
+   "mb": 9.7,
+   "tris": 8288,
+   "real_size_m": [
+    3.4,
+    3.8,
+    2.6
+   ],
+   "normalised": [
+    0.923,
+    1.0,
+    0.869
+   ],
+   "m_per_unit_xyz": [
+    3.69,
+    3.8,
+    2.99
+   ],
+   "tilt_deg": 3.6,
+   "yaw_deg": 38.2,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The part-open gate leaves pinch the passage to 1.35 m (plinths 2.25 m apart); no lamp modelled. The concept's side bench is missing (bare rail only); a low sill beam crosses the back opening at ground level.",
+   "issues_vi": "Hai cánh cổng mở hé làm lối đi chỉ còn 1,35 m (hai bệ cách 2,25 m); không có đèn. Mất ghế dài bên hông trong concept (chỉ còn thanh ngang trơn); có thanh ngưỡng thấp chắn ngang lối ra phía sau, sát đất.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-1-lychgate.glb",
+    "lookdev-lab/assets/act1-kit/act1-a02-1-lychgate-open.glb"
+   ]
+  },
+  {
+   "id": "A02.2",
+   "name": "Mortsafe grave cage",
+   "slug": "mortsafe",
+   "dir": "A02_2_mortsafe",
+   "glb": "A02_2_mortsafe/act1_kit_v1_mortsafe.glb",
+   "concept": "A02_2_mortsafe/concept.png",
+   "final_views": "A02_2_mortsafe/_shots/final_views.png",
+   "row": "R04",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 5504x4224 (row atlas 8192x8192)",
+   "mb": 5.6,
+   "tris": 5731,
+   "real_size_m": [
+    2.6,
+    1.2,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.363,
+    0.711
+   ],
+   "m_per_unit_xyz": [
+    2.6,
+    3.3,
+    1.97
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 18.2,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Cage top 0.97 m (spec 1.2); split left a 6.5 deg skew (squared in the lab copy).",
+   "issues_vi": "Lồng chỉ cao 0,97 m (spec 1,2); GLB gốc lệch 6,5° (bản lab đã chỉnh).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-2-mortsafe.glb"
+   ]
+  },
+  {
+   "id": "A02.3",
+   "name": "Small mismatched headstone cluster",
+   "slug": "headstones",
+   "dir": "A02_3_headstones",
+   "glb": "A02_3_headstones/act1_kit_v1_headstones.glb",
+   "concept": "A02_3_headstones/concept.png",
+   "final_views": "A02_3_headstones/_shots/final_views.png",
+   "row": "R04",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 7808x3760 (row atlas 8192x8192)",
+   "mb": 8.3,
+   "tris": 13819,
+   "real_size_m": [
+    3.0,
+    1.6,
+    2.0
+   ],
+   "normalised": [
+    1.0,
+    0.468,
+    0.696
+   ],
+   "m_per_unit_xyz": [
+    3.0,
+    3.42,
+    2.87
+   ],
+   "tilt_deg": 8.6,
+   "yaw_deg": -11.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "No marks carved on the stones.",
+   "issues_vi": "Bia không có chữ khắc.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-3-headstones.glb"
+   ]
+  },
+  {
+   "id": "A02.4",
+   "name": "Round ossuary tower",
+   "slug": "ossuary_tower",
+   "dir": "A02_4_ossuary_tower",
+   "glb": "A02_4_ossuary_tower/act1_kit_v1_ossuary_tower.glb",
+   "concept": "A02_4_ossuary_tower/concept.png",
+   "final_views": "A02_4_ossuary_tower/_shots/final_views.png",
+   "row": "R01",
+   "variant": 0,
+   "row_texture": "4K",
+   "texture": "own atlas 3584x2640 (row atlas 4096x4096)",
+   "mb": 7.0,
+   "tris": 7231,
+   "real_size_m": [
+    4.8,
+    7.8,
+    4.8
+   ],
+   "normalised": [
+    0.812,
+    1.0,
+    0.896
+   ],
+   "m_per_unit_xyz": [
+    5.91,
+    7.8,
+    5.36
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Stands on a flared stone skirt 6.0 x 6.7 m at the ground (body 4.3-4.9 m across, spec 4.8). Back has no door (plausible).",
+   "issues_vi": "Chân tháp loe thành vạt đá 6,0 × 6,7 m (thân 4,3–4,9 m, spec 4,8). Mặt sau không có cửa (hợp lý).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-4-ossuary-tower.glb"
+   ]
+  },
+  {
+   "id": "A02.5",
+   "name": "Faceless saint statue supporting an arch",
+   "slug": "saint_statue_arch",
+   "dir": "A02_5_saint_statue_arch",
+   "glb": "A02_5_saint_statue_arch/act1_kit_v1_saint_statue_arch.glb",
+   "concept": "A02_5_saint_statue_arch/concept.png",
+   "final_views": "A02_5_saint_statue_arch/_shots/final_views.png",
+   "row": "R02",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6016x2560 (row atlas 8192x8192)",
+   "mb": 4.2,
+   "tris": 3681,
+   "real_size_m": [
+    2.4,
+    4.3,
+    1.2
+   ],
+   "normalised": [
+    0.577,
+    1.0,
+    0.422
+   ],
+   "m_per_unit_xyz": [
+    4.16,
+    4.3,
+    2.84
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 25.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Stepped plinth about 2.0 x 1.85 m (blockout 1.4 x 1.15); the arch over the head reads as a ring on a shaft from the front, no crossbar: watch it in map shots. Side view: the arch is edge-on and its end blocks jut out near the top, a faint cross; front is fine.",
+   "issues_vi": "Bệ bậc rộng khoảng 2,0 × 1,85 m (blockout 1,4 × 1,15); nhìn thẳng thì vòm trên đầu giống vòng trên cột nhưng không có thanh ngang: để ý khi chụp map. Nhìn ngang: vòm thành một vạch, hai khối chân vòm chìa ra gần đỉnh, hơi giống thánh giá; mặt trước ổn.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-5-saint-statue-arch.glb"
+   ]
+  },
+  {
+   "id": "A02.6",
+   "name": "Funeral hand cart",
+   "slug": "hand_cart",
+   "dir": "A02_6_hand_cart",
+   "glb": "A02_6_hand_cart/act1_kit_v1_hand_cart.glb",
+   "concept": "A02_6_hand_cart/concept.png",
+   "final_views": "A02_6_hand_cart/_shots/final_views.png",
+   "row": "R04",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6528x4624 (row atlas 8192x8192)",
+   "mb": 6.3,
+   "tris": 5652,
+   "real_size_m": [
+    3.2,
+    1.2,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.436,
+    0.505
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    2.75,
+    2.77
+   ],
+   "tilt_deg": 7.5,
+   "yaw_deg": -0.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a02-6-hand-cart.glb"
+   ]
+  },
+  {
+   "id": "A03.4",
+   "name": "Large moss rock",
+   "slug": "moss_rock",
+   "dir": "A03_4_moss_rock",
+   "glb": "A03_4_moss_rock/act1_kit_v1_moss_rock.glb",
+   "concept": "A03_4_moss_rock/concept.png",
+   "final_views": "A03_4_moss_rock/_shots/final_views.png",
+   "row": "R07",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 5632x5120 (row atlas 8192x8192)",
+   "mb": 5.5,
+   "tris": 261,
+   "real_size_m": [
+    2.3,
+    1.6,
+    2.0
+   ],
+   "normalised": [
+    0.844,
+    0.514,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    2.72,
+    3.12,
+    2.0
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a03-4-moss-rock.glb"
+   ]
+  },
+  {
+   "id": "A03.5",
+   "name": "Peat bank chunk",
+   "slug": "peat_bank",
+   "dir": "A03_5_peat_bank",
+   "glb": "A03_5_peat_bank/act1_kit_v1_peat_bank.glb",
+   "concept": "A03_5_peat_bank/concept.png",
+   "final_views": "A03_5_peat_bank/_shots/final_views.png",
+   "row": "R07",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6528x8048 (row atlas 8192x8192)",
+   "mb": 7.5,
+   "tris": 22603,
+   "real_size_m": [
+    2.9,
+    1.4,
+    1.2
+   ],
+   "normalised": [
+    1.0,
+    0.466,
+    0.525
+   ],
+   "m_per_unit_xyz": [
+    2.9,
+    3.0,
+    2.28
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -50.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a03-5-peat-bank.glb"
+   ]
+  },
+  {
+   "id": "A03.6",
+   "name": "Waterlogged root stump",
+   "slug": "root_stump",
+   "dir": "A03_6_root_stump",
+   "glb": "A03_6_root_stump/act1_kit_v1_root_stump.glb",
+   "concept": "A03_6_root_stump/concept.png",
+   "final_views": "A03_6_root_stump/_shots/final_views.png",
+   "row": "R07",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 7424x3744 (row atlas 8192x8192)",
+   "mb": 4.8,
+   "tris": 6609,
+   "real_size_m": [
+    1.4,
+    1.3,
+    1.4
+   ],
+   "normalised": [
+    0.959,
+    0.519,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    1.46,
+    2.5,
+    1.4
+   ],
+   "tilt_deg": 2.2,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Roots spread 2.4 x 2.5 m at 1.3 m tall (the concept proportion).",
+   "issues_vi": "Rễ toả 2,4 × 2,5 m khi cao 1,3 m (đúng tỉ lệ concept).",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a03-6-root-stump.glb"
+   ]
+  },
+  {
+   "id": "A04.1",
+   "name": "Old broad weeping willow",
+   "slug": "old_willow",
+   "dir": "A04_1_old_willow",
+   "glb": "A04_1_old_willow/act1_kit_v1_old_willow.glb",
+   "concept": "A04_1_old_willow/concept.png",
+   "final_views": "A04_1_old_willow/_shots/final_views.png",
+   "row": "R05",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 20.2,
+   "tris": 11817,
+   "real_size_m": [
+    6.0,
+    5.4,
+    6.0
+   ],
+   "normalised": [
+    0.95,
+    0.787,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    6.31,
+    6.86,
+    6.0
+   ],
+   "tilt_deg": 3.2,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a04-1-old-willow.glb"
+   ]
+  },
+  {
+   "id": "A04.2",
+   "name": "Young willow",
+   "slug": "young_willow",
+   "dir": "A04_2_young_willow",
+   "glb": "A04_2_young_willow/act1_kit_v1_young_willow.glb",
+   "concept": "A04_2_young_willow/concept.png",
+   "final_views": "A04_2_young_willow/_shots/final_views.png",
+   "row": "R05",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 3456x1536 (row atlas 4096x4096)",
+   "mb": 3.5,
+   "tris": 4035,
+   "real_size_m": [
+    4.0,
+    6.0,
+    4.0
+   ],
+   "normalised": [
+    0.823,
+    1.0,
+    0.871
+   ],
+   "m_per_unit_xyz": [
+    4.86,
+    6.0,
+    4.59
+   ],
+   "tilt_deg": 4.3,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a04-2-young-willow.glb"
+   ]
+  },
+  {
+   "id": "A04.3",
+   "name": "Dead angular tree",
+   "slug": "dead_tree",
+   "dir": "A04_3_dead_tree",
+   "glb": "A04_3_dead_tree/act1_kit_v1_dead_tree.glb",
+   "concept": "A04_3_dead_tree/concept.png",
+   "final_views": "A04_3_dead_tree/_shots/final_views.png",
+   "row": "R06",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "own atlas 4096x2256 (row atlas 4096x4096)",
+   "mb": 4.8,
+   "tris": 6833,
+   "real_size_m": [
+    3.0,
+    7.0,
+    3.0
+   ],
+   "normalised": [
+    0.602,
+    1.0,
+    0.585
+   ],
+   "m_per_unit_xyz": [
+    4.98,
+    7.0,
+    5.12
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a04-3-dead-tree.glb"
+   ]
+  },
+  {
+   "id": "A04.5",
+   "name": "Fallen hollow trunk",
+   "slug": "hollow_trunk",
+   "dir": "A04_5_hollow_trunk",
+   "glb": "A04_5_hollow_trunk/act1_kit_v1_hollow_trunk.glb",
+   "concept": "A04_5_hollow_trunk/concept.png",
+   "final_views": "A04_5_hollow_trunk/_shots/final_views.png",
+   "row": "R12",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 3456x2992 (row atlas 4096x4096)",
+   "mb": 5.3,
+   "tris": 16800,
+   "real_size_m": [
+    5.0,
+    1.3,
+    1.6
+   ],
+   "normalised": [
+    1.0,
+    0.328,
+    0.467
+   ],
+   "m_per_unit_xyz": [
+    5.0,
+    3.97,
+    3.42
+   ],
+   "tilt_deg": 11.3,
+   "yaw_deg": -95.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a04-5-hollow-trunk.glb"
+   ]
+  },
+  {
+   "id": "A04.6",
+   "name": "Exposed willow root cluster",
+   "slug": "willow_roots",
+   "dir": "A04_6_willow_roots",
+   "glb": "A04_6_willow_roots/act1_kit_v1_willow_roots.glb",
+   "concept": "A04_6_willow_roots/concept.png",
+   "final_views": "A04_6_willow_roots/_shots/final_views.png",
+   "row": "R06",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 19.4,
+   "tris": 12793,
+   "real_size_m": [
+    4.6,
+    2.2,
+    4.0
+   ],
+   "normalised": [
+    1.0,
+    0.438,
+    0.988
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    5.02,
+    4.05
+   ],
+   "tilt_deg": 2.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a04-6-willow-roots.glb"
+   ]
+  },
+  {
+   "id": "A06.1",
+   "name": "Fen causeway segment",
+   "slug": "causeway",
+   "dir": "A06_1_causeway",
+   "glb": "A06_1_causeway/act1_kit_v1_causeway.glb",
+   "concept": "A06_1_causeway/concept.png",
+   "final_views": "A06_1_causeway/_shots/final_views.png",
+   "row": "R09",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 6912x4320 (row atlas 8192x8192)",
+   "mb": 8.8,
+   "tris": 19154,
+   "real_size_m": [
+    4.0,
+    0.9,
+    0.4
+   ],
+   "normalised": [
+    1.0,
+    0.243,
+    0.428
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    3.71,
+    0.93
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -92.1,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "A whole causeway piece with an uneven top, tufts and end posts, not the revetment posts the maps place under this id.",
+   "issues_vi": "Là cả một đoạn đường đắp, mặt gồ ghề có cỏ và cột ở hai đầu, không phải hàng cọc kè mà map đặt dưới id này.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-1-causeway.glb"
+   ]
+  },
+  {
+   "id": "A06.2",
+   "name": "Upright marker stone",
+   "slug": "marker_stone",
+   "dir": "A06_2_marker_stone",
+   "glb": "A06_2_marker_stone/act1_kit_v1_marker_stone.glb",
+   "concept": "A06_2_marker_stone/concept.png",
+   "final_views": "A06_2_marker_stone/_shots/final_views.png",
+   "row": "R08",
+   "variant": 3,
+   "row_texture": "8K",
+   "texture": "own atlas 3840x3152 (row atlas 8192x8192)",
+   "mb": 3.4,
+   "tris": 2674,
+   "real_size_m": [
+    0.9,
+    2.6,
+    0.7
+   ],
+   "normalised": [
+    0.842,
+    1.0,
+    0.555
+   ],
+   "m_per_unit_xyz": [
+    1.07,
+    2.6,
+    1.26
+   ],
+   "tilt_deg": 2.5,
+   "yaw_deg": -87.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Base rubble and the lean make it 2.2 x 1.4 m; the stone sits 0.24 m off the pivot along x.",
+   "issues_vi": "Đá vụn ở chân và dáng nghiêng làm khối rộng 2,2 × 1,4 m; tảng đá lệch 0,24 m theo x so với tâm.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-2-marker-stone.glb"
+   ]
+  },
+  {
+   "id": "A06.3",
+   "name": "Stepping-stone ford",
+   "slug": "stepping_ford",
+   "dir": "A06_3_stepping_ford",
+   "glb": "A06_3_stepping_ford/act1_kit_v1_stepping_ford.glb",
+   "concept": "A06_3_stepping_ford/concept.png",
+   "final_views": "A06_3_stepping_ford/_shots/final_views.png",
+   "row": "R09",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 4224x2112 (row atlas 8192x8192)",
+   "mb": 2.6,
+   "tris": 896,
+   "real_size_m": [
+    2.4,
+    0.5,
+    7.0
+   ],
+   "normalised": [
+    0.476,
+    0.101,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    5.05,
+    4.94,
+    7.0
+   ],
+   "tilt_deg": 5.0,
+   "yaw_deg": -82.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Seven loose pieces (six stones and a plank) in one model, 3.3 m wide (concept 2.4). Plank rests on the stones (not floating).",
+   "issues_vi": "Bảy mảnh rời (sáu tảng đá và một tấm ván) trong một model, rộng 3,3 m (concept 2,4). Tấm ván nằm trên đá (không lơ lửng).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-3-stepping-ford.glb"
+   ]
+  },
+  {
+   "id": "A06.4",
+   "name": "Unlit bog-lure post",
+   "slug": "bog_lure_post",
+   "dir": "A06_4_bog_lure_post",
+   "glb": "A06_4_bog_lure_post/act1_kit_v1_bog_lure_post.glb",
+   "concept": "A06_4_bog_lure_post/concept.png",
+   "final_views": "A06_4_bog_lure_post/_shots/final_views.png",
+   "row": "R08",
+   "variant": 3,
+   "row_texture": "8K",
+   "texture": "own atlas 4096x3424 (row atlas 8192x8192)",
+   "mb": 4.0,
+   "tris": 14551,
+   "real_size_m": [
+    1.3,
+    2.9,
+    0.9
+   ],
+   "normalised": [
+    0.625,
+    1.0,
+    0.458
+   ],
+   "m_per_unit_xyz": [
+    2.08,
+    2.9,
+    1.97
+   ],
+   "tilt_deg": 2.1,
+   "yaw_deg": -69.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The post stands 0.31 m off the pivot along -x.",
+   "issues_vi": "Cột lệch 0,31 m về phía −x so với tâm.",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-4-bog-lure-post.glb"
+   ]
+  },
+  {
+   "id": "A06.5",
+   "name": "Half-sunk fen punt",
+   "slug": "fen_punt",
+   "dir": "A06_5_fen_punt",
+   "glb": "A06_5_fen_punt/act1_kit_v1_fen_punt.glb",
+   "concept": "A06_5_fen_punt/concept.png",
+   "final_views": "A06_5_fen_punt/_shots/final_views.png",
+   "row": "R12",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 3712x2832 (row atlas 4096x4096)",
+   "mb": 4.9,
+   "tris": 3366,
+   "real_size_m": [
+    3.4,
+    0.7,
+    1.2
+   ],
+   "normalised": [
+    1.0,
+    0.139,
+    0.312
+   ],
+   "m_per_unit_xyz": [
+    3.4,
+    5.04,
+    3.85
+   ],
+   "tilt_deg": 1.8,
+   "yaw_deg": -89.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Hull only 0.47 m tall (spec 0.7); the water inside is a flat dark plane.",
+   "issues_vi": "Thân thuyền chỉ cao 0,47 m (spec 0,7); nước trong lòng thuyền là một mặt phẳng tối.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-5-fen-punt.glb"
+   ]
+  },
+  {
+   "id": "A06.6",
+   "name": "Broken bridge pier",
+   "slug": "bridge_pier",
+   "dir": "A06_6_bridge_pier",
+   "glb": "A06_6_bridge_pier/act1_kit_v1_bridge_pier.glb",
+   "concept": "A06_6_bridge_pier/concept.png",
+   "final_views": "A06_6_bridge_pier/_shots/final_views.png",
+   "row": "R08",
+   "variant": 3,
+   "row_texture": "8K",
+   "texture": "row atlas kept whole",
+   "mb": 31.3,
+   "tris": 9897,
+   "real_size_m": [
+    3.8,
+    5.0,
+    2.2
+   ],
+   "normalised": [
+    1.0,
+    0.84,
+    0.678
+   ],
+   "m_per_unit_xyz": [
+    3.8,
+    5.96,
+    3.24
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -77.1,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Chunkier than the concept: 6.0 x 4.0 m at 5 m tall (spec 3.8 x 2.2).",
+   "issues_vi": "Đồ sộ hơn concept: 6,0 × 4,0 m khi cao 5 m (spec 3,8 × 2,2).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a06-6-bridge-pier.glb"
+   ]
+  },
+  {
+   "id": "A07.1",
+   "name": "Half-drowned flint cottage",
+   "slug": "drowned_cottage",
+   "dir": "A07_1_drowned_cottage",
+   "glb": "A07_1_drowned_cottage/act1_kit_v1_drowned_cottage.glb",
+   "concept": "A07_1_drowned_cottage/concept.png",
+   "final_views": "A07_1_drowned_cottage/_shots/final_views.png",
+   "row": "R10",
+   "variant": 0,
+   "row_texture": "4K",
+   "texture": "own atlas 4096x3488 (row atlas 4096x4096)",
+   "mb": 10.8,
+   "tris": 11303,
+   "real_size_m": [
+    7.0,
+    6.2,
+    5.0
+   ],
+   "normalised": [
+    1.0,
+    0.799,
+    0.806
+   ],
+   "m_per_unit_xyz": [
+    7.0,
+    7.76,
+    6.2
+   ],
+   "tilt_deg": 6.7,
+   "yaw_deg": 3.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Chimney at -x (blockout +x); walls continue 1.2 m below the water line.",
+   "issues_vi": "Ống khói ở −x (blockout ở +x); tường kéo dài 1,2 m dưới mặt nước.",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-1-drowned-cottage.glb"
+   ]
+  },
+  {
+   "id": "A07.2",
+   "name": "Timber-and-stone weir segment",
+   "slug": "weir",
+   "dir": "A07_2_weir",
+   "glb": "A07_2_weir/act1_kit_v1_weir.glb",
+   "concept": "A07_2_weir/concept.png",
+   "final_views": "A07_2_weir/_shots/final_views.png",
+   "row": "R11",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7808x2608 (row atlas 8192x8192)",
+   "mb": 4.8,
+   "tris": 1427,
+   "real_size_m": [
+    4.2,
+    1.9,
+    1.0
+   ],
+   "normalised": [
+    1.0,
+    0.235,
+    0.102
+   ],
+   "m_per_unit_xyz": [
+    4.2,
+    8.09,
+    9.84
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -89.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Only 0.99 m tall and 0.43 m deep at the 4.2 m length (spec 1.9 x 1.0).",
+   "issues_vi": "Dài 4,2 m thì chỉ cao 0,99 m, dày 0,43 m (spec 1,9 × 1,0).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-2-weir.glb"
+   ]
+  },
+  {
+   "id": "A07.3",
+   "name": "Gable wall with door arch",
+   "slug": "gable_wall",
+   "dir": "A07_3_gable_wall",
+   "glb": "A07_3_gable_wall/act1_kit_v1_gable_wall.glb",
+   "concept": "A07_3_gable_wall/concept.png",
+   "final_views": "A07_3_gable_wall/_shots/final_views.png",
+   "row": "R11",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7424x6880 (row atlas 8192x8192)",
+   "mb": 13.0,
+   "tris": 9354,
+   "real_size_m": [
+    5.0,
+    5.3,
+    0.7
+   ],
+   "normalised": [
+    1.0,
+    0.762,
+    0.146
+   ],
+   "m_per_unit_xyz": [
+    5.0,
+    6.96,
+    4.8
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 14.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Door 1.25 x 2.33 m (the concept size); where the map walks through it needs 2.2 x 2.6 m; 7 m wide (spec 5). Window and door arch carry through to the back.",
+   "issues_vi": "Cửa 1,25 × 2,33 m (đúng concept), chỗ map cho đi qua cần 2,2 × 2,6 m; rộng 7 m (spec 5). Cửa sổ và vòm cửa xuyên ra mặt sau đúng.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-3-gable-wall.glb"
+   ]
+  },
+  {
+   "id": "A07.4",
+   "name": "Sunken roof-ridge platform",
+   "slug": "roof_platform",
+   "dir": "A07_4_roof_platform",
+   "glb": "A07_4_roof_platform/act1_kit_v1_roof_platform.glb",
+   "concept": "A07_4_roof_platform/concept.png",
+   "final_views": "A07_4_roof_platform/_shots/final_views.png",
+   "row": "R10",
+   "variant": 0,
+   "row_texture": "4K",
+   "texture": "own atlas 3200x3024 (row atlas 4096x4096)",
+   "mb": 6.6,
+   "tris": 10550,
+   "real_size_m": [
+    6.0,
+    3.2,
+    4.8
+   ],
+   "normalised": [
+    1.0,
+    0.52,
+    0.715
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    6.16,
+    6.71
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The thatch ridge waves 1.4-1.9 m high (blockout 2.5 m) and wanders sideways.",
+   "issues_vi": "Nóc rạ lượn lên xuống 1,4–1,9 m (blockout 2,5 m) và lệch sang hai bên.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-4-roof-platform.glb"
+   ]
+  },
+  {
+   "id": "A07.5",
+   "name": "Pontoon plank raft",
+   "slug": "plank_raft",
+   "dir": "A07_5_plank_raft",
+   "glb": "A07_5_plank_raft/act1_kit_v1_plank_raft.glb",
+   "concept": "A07_5_plank_raft/concept.png",
+   "final_views": "A07_5_plank_raft/_shots/final_views.png",
+   "row": "R09",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 6144x6576 (row atlas 8192x8192)",
+   "mb": 9.3,
+   "tris": 8173,
+   "real_size_m": [
+    3.6,
+    1.7,
+    2.4
+   ],
+   "normalised": [
+    1.0,
+    0.39,
+    0.501
+   ],
+   "m_per_unit_xyz": [
+    3.6,
+    4.36,
+    4.79
+   ],
+   "tilt_deg": 4.1,
+   "yaw_deg": 1.8,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Deck 1.8 m deep (spec 2.4); corner and rope posts stand on the deck. Barrel ends are open hollow rings in the side view (concept: closed barrels).",
+   "issues_vi": "Sàn bè sâu 1,8 m (spec 2,4); có cột ở góc và cột buộc dây trên sàn. Đầu thùng hở, rỗng như vòng tròn khi nhìn ngang (concept: thùng kín).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-5-plank-raft.glb"
+   ]
+  },
+  {
+   "id": "A07.6",
+   "name": "Rook roost pole",
+   "slug": "roost_pole",
+   "dir": "A07_6_roost_pole",
+   "glb": "A07_6_roost_pole/act1_kit_v1_roost_pole.glb",
+   "concept": "A07_6_roost_pole/concept.png",
+   "final_views": "A07_6_roost_pole/_shots/final_views.png",
+   "row": "R11",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7552x1728 (row atlas 8192x8192)",
+   "mb": 4.2,
+   "tris": 13160,
+   "real_size_m": [
+    2.8,
+    6.2,
+    1.4
+   ],
+   "normalised": [
+    0.679,
+    1.0,
+    0.456
+   ],
+   "m_per_unit_xyz": [
+    4.12,
+    6.2,
+    3.07
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 49.4,
+   "strays_dropped": [
+    2
+   ],
+   "needle_faces_dropped": 0,
+   "issues": "The pole rises 0.5 m over the nests' bar and can read as a cross from the camera: -trim variant made, user decision pending. The split dropped object 2 (3,554 faces) as a stray, almost certainly the nests' top bar: the two upper nests float beside the pole (all views) and a pale semi-transparent wedge joins the right nest to the middle one. The concept's bar itself makes a cross, so a rebuild needs a new nest layout (e.g. side arms at different heights), not just the bar back.",
+   "issues_vi": "Cột nhô 0,5 m trên thanh treo tổ, nhìn từ camera có thể giống thánh giá: đã có bản -trim, chờ người dùng chọn. Bước tách đã bỏ object 2 (3.554 mặt) vì coi là mảnh vụn, gần như chắc là thanh ngang đỡ tổ: hai tổ trên lơ lửng cạnh cột (mọi góc) và có một mảng mờ bán trong suốt nối tổ phải với tổ giữa. Bản thân thanh ngang trong concept tạo hình thánh giá, nên dựng lại cần đổi cách gắn tổ (vd. tay đỡ lệch độ cao), không chỉ trả thanh ngang về.",
+   "qa_verdict": "redo",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a07-6-roost-pole.glb",
+    "lookdev-lab/assets/act1-kit/act1-a07-6-roost-pole-trim.glb"
+   ]
+  },
+  {
+   "id": "A08.2",
+   "name": "Drystone wall module",
+   "slug": "drystone_wall",
+   "dir": "A08_2_drystone_wall",
+   "glb": "A08_2_drystone_wall/act1_kit_v1_drystone_wall.glb",
+   "concept": "A08_2_drystone_wall/concept.png",
+   "final_views": "A08_2_drystone_wall/_shots/final_views.png",
+   "row": "R14",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 8064x3792 (row atlas 8192x8192)",
+   "mb": 5.7,
+   "tris": 8606,
+   "real_size_m": [
+    3.2,
+    1.3,
+    0.7
+   ],
+   "normalised": [
+    1.0,
+    0.261,
+    0.299
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    4.98,
+    2.34
+   ],
+   "tilt_deg": 4.0,
+   "yaw_deg": -9.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "0.84 m tall at the 3.2 m module (spec 1.3). Back is a proper stone wall.",
+   "issues_vi": "Module dài 3,2 m thì tường chỉ cao 0,84 m (spec 1,3). Mặt sau là tường đá đúng.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-2-drystone-wall.glb"
+   ]
+  },
+  {
+   "id": "A08.2-stile",
+   "name": "Squeeze stile in a drystone wall",
+   "slug": "squeeze_stile",
+   "dir": "A08_2_squeeze_stile",
+   "glb": "A08_2_squeeze_stile/act1_kit_v1_squeeze_stile.glb",
+   "concept": "A08_2_squeeze_stile/concept.png",
+   "final_views": "A08_2_squeeze_stile/_shots/final_views.png",
+   "row": "R14",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7040x5024 (row atlas 8192x8192)",
+   "mb": 6.4,
+   "tris": 9730,
+   "real_size_m": [
+    3.2,
+    1.3,
+    0.7
+   ],
+   "normalised": [
+    1.0,
+    0.279,
+    0.315
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    4.66,
+    2.22
+   ],
+   "tilt_deg": 1.6,
+   "yaw_deg": -21.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "No gap: the wall runs through (top 0.6-0.89 m); the map needs a 1.8 m walkable gap. Usable as a second drystone module. Only the step stones jut out at the front.",
+   "issues_vi": "Không có khe: tường liền một dải (cao 0,6–0,89 m), map cần khe đi qua 1,8 m. Dùng được làm module tường đá thứ hai. Chỉ có đá bậc nhô ra phía trước.",
+   "qa_verdict": "redo",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-2-squeeze-stile.glb"
+   ]
+  },
+  {
+   "id": "A08.3",
+   "name": "Abandoned hillside farmhouse",
+   "slug": "farmhouse",
+   "dir": "A08_3_farmhouse",
+   "glb": "A08_3_farmhouse/act1_kit_v1_farmhouse.glb",
+   "concept": "A08_3_farmhouse/concept.png",
+   "final_views": "A08_3_farmhouse/_shots/final_views.png",
+   "row": "R13",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 25.0,
+   "tris": 13584,
+   "real_size_m": [
+    8.0,
+    6.4,
+    5.4
+   ],
+   "normalised": [
+    1.0,
+    0.783,
+    0.884
+   ],
+   "m_per_unit_xyz": [
+    8.0,
+    8.17,
+    6.11
+   ],
+   "tilt_deg": 6.2,
+   "yaw_deg": -88.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "A closed house: plank door shut on the +x gable, roof whole (no fallen-in east roof, no beds seen from above); 7.2 m deep (spec 5.4). The back has a small broken window and a sagging eave (fine).",
+   "issues_vi": "Nhà kín: cửa ván đóng ở đầu hồi +x, mái còn nguyên (không sập mái đông, không thấy giường từ trên); sâu 7,2 m (spec 5,4). Mặt sau có cửa sổ vỡ nhỏ và mép mái võng (chấp nhận được).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-3-farmhouse.glb"
+   ]
+  },
+  {
+   "id": "A08.4",
+   "name": "Hay rick",
+   "slug": "hay_rick",
+   "dir": "A08_4_hay_rick",
+   "glb": "A08_4_hay_rick/act1_kit_v1_hay_rick.glb",
+   "concept": "A08_4_hay_rick/concept.png",
+   "final_views": "A08_4_hay_rick/_shots/final_views.png",
+   "row": "R13",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "own atlas 3968x976 (row atlas 4096x4096)",
+   "mb": 3.0,
+   "tris": 3774,
+   "real_size_m": [
+    3.0,
+    3.2,
+    3.0
+   ],
+   "normalised": [
+    0.822,
+    0.879,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    3.65,
+    3.64,
+    3.0
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-4-hay-rick.glb"
+   ]
+  },
+  {
+   "id": "A08.5",
+   "name": "Field gate between stone posts",
+   "slug": "field_gate",
+   "dir": "A08_5_field_gate",
+   "glb": "A08_5_field_gate/act1_kit_v1_field_gate.glb",
+   "concept": "A08_5_field_gate/concept.png",
+   "final_views": "A08_5_field_gate/_shots/final_views.png",
+   "row": "R14",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7936x3488 (row atlas 8192x8192)",
+   "mb": 6.1,
+   "tris": 10027,
+   "real_size_m": [
+    4.4,
+    1.6,
+    0.7
+   ],
+   "normalised": [
+    1.0,
+    0.458,
+    0.33
+   ],
+   "m_per_unit_xyz": [
+    4.4,
+    3.49,
+    2.12
+   ],
+   "tilt_deg": 0.7,
+   "yaw_deg": -29.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The five-bar gate is shut; the maps need it swung open.",
+   "issues_vi": "Cổng năm thanh đóng kín, map cần cổng mở.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-5-field-gate.glb"
+   ]
+  },
+  {
+   "id": "A08.6",
+   "name": "Poppy-drying rack",
+   "slug": "poppy_rack",
+   "dir": "A08_6_poppy_rack",
+   "glb": "A08_6_poppy_rack/act1_kit_v1_poppy_rack.glb",
+   "concept": "A08_6_poppy_rack/concept.png",
+   "final_views": "A08_6_poppy_rack/_shots/final_views.png",
+   "row": "R15",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 3456x2480 (row atlas 4096x4096)",
+   "mb": 6.8,
+   "tris": 10860,
+   "real_size_m": [
+    3.6,
+    2.3,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.814,
+    0.501
+   ],
+   "m_per_unit_xyz": [
+    3.6,
+    2.83,
+    2.8
+   ],
+   "tilt_deg": 5.5,
+   "yaw_deg": -2.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "About 2.9 m tall at 3.6 m wide (spec 2.3 m); the crossed A-frame ends read as an X, not a cross.",
+   "issues_vi": "Cao khoảng 2,9 m khi rộng 3,6 m (spec 2,3 m); hai đầu khung chữ A bắt chéo thành chữ X, không phải thánh giá.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a08-6-poppy-rack.glb"
+   ]
+  },
+  {
+   "id": "A11.1",
+   "name": "Whitewashed cloister bay",
+   "slug": "cloister_bay",
+   "dir": "A11_1_cloister_bay",
+   "glb": "A11_1_cloister_bay/act1_kit_v1_cloister_bay.glb",
+   "concept": "A11_1_cloister_bay/concept.png",
+   "final_views": "A11_1_cloister_bay/_shots/final_views.png",
+   "row": "R16",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 4096x2464 (row atlas 4096x4096)",
+   "mb": 7.0,
+   "tris": 6571,
+   "real_size_m": [
+    5.4,
+    4.32,
+    2.16
+   ],
+   "normalised": [
+    1.0,
+    0.707,
+    0.522
+   ],
+   "m_per_unit_xyz": [
+    5.4,
+    6.11,
+    4.14
+   ],
+   "tilt_deg": 2.1,
+   "yaw_deg": -20.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Arches 1.05-1.2 m wide; the lean-to roof is part of the model (the map splits it off). Back is a plain wall (plausible).",
+   "issues_vi": "Vòm rộng 1,05–1,2 m; mái chái dính vào model (map tách riêng mái này). Mặt sau là tường trơn (hợp lý).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-1-cloister-bay.glb"
+   ]
+  },
+  {
+   "id": "A11.2",
+   "name": "Hospice bed",
+   "slug": "hospice_bed",
+   "dir": "A11_2_hospice_bed",
+   "glb": "A11_2_hospice_bed/act1_kit_v1_hospice_bed.glb",
+   "concept": "A11_2_hospice_bed/concept.png",
+   "final_views": "A11_2_hospice_bed/_shots/final_views.png",
+   "row": "R17",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7936x2000 (row atlas 8192x8192)",
+   "mb": 3.1,
+   "tris": 2194,
+   "real_size_m": [
+    1.08,
+    0.72,
+    2.16
+   ],
+   "normalised": [
+    0.815,
+    0.444,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    1.33,
+    1.62,
+    2.16
+   ],
+   "tilt_deg": 11.1,
+   "yaw_deg": -10.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Wide bed: 1.71 m (spec 1.08), headboard 1.07 m, mattress top 0.65 m; split left a 9.7 deg skew (squared in the lab copy).",
+   "issues_vi": "Giường rộng 1,71 m (spec 1,08), đầu giường cao 1,07 m, mặt nệm 0,65 m; GLB gốc lệch 9,7° (bản lab đã chỉnh).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-2-hospice-bed.glb"
+   ]
+  },
+  {
+   "id": "A11.3",
+   "name": "Refectory table with bread",
+   "slug": "refectory_table",
+   "dir": "A11_3_refectory_table",
+   "glb": "A11_3_refectory_table/act1_kit_v1_refectory_table.glb",
+   "concept": "A11_3_refectory_table/concept.png",
+   "final_views": "A11_3_refectory_table/_shots/final_views.png",
+   "row": "R18",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 3840x2160 (row atlas 4096x4096)",
+   "mb": 5.0,
+   "tris": 9167,
+   "real_size_m": [
+    4.32,
+    0.81,
+    1.44
+   ],
+   "normalised": [
+    1.0,
+    0.48,
+    0.596
+   ],
+   "m_per_unit_xyz": [
+    4.32,
+    1.69,
+    2.42
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -39.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Top at 1.2 m at the 4.32 m length (spec 0.81); jug and flowers reach 2.07 m. Benches are separate pieces, correct.",
+   "issues_vi": "Dài 4,32 m thì mặt bàn cao 1,2 m (spec 0,81); bình và hoa cao tới 2,07 m. Ghế dài là mảnh riêng, đúng.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-3-refectory-table.glb"
+   ]
+  },
+  {
+   "id": "A11.4",
+   "name": "Gate tower",
+   "slug": "gate_tower",
+   "dir": "A11_4_gate_tower",
+   "glb": "A11_4_gate_tower/act1_kit_v1_gate_tower.glb",
+   "concept": "A11_4_gate_tower/concept.png",
+   "final_views": "A11_4_gate_tower/_shots/final_views.png",
+   "row": "R16",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 21.9,
+   "tris": 14477,
+   "real_size_m": [
+    4.32,
+    7.2,
+    4.32
+   ],
+   "normalised": [
+    0.557,
+    1.0,
+    0.876
+   ],
+   "m_per_unit_xyz": [
+    7.76,
+    7.2,
+    4.93
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 7.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "No through passage: the front arch opens into a hall with a blind back wall, and the +x side has no wall below about 4 m. Needs a rebuild. Footprint about 1.5 times deeper than wide (concept square).",
+   "issues_vi": "Không có lối xuyên: vòm trước dẫn vào sảnh bịt tường sau, mặt +x hở dưới khoảng 4 m. Cần dựng lại. Đáy sâu khoảng gấp 1,5 lần bề rộng (concept vuông).",
+   "qa_verdict": "redo",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-4-gate-tower.glb"
+   ]
+  },
+  {
+   "id": "A11.5",
+   "name": "Kitchen hearth with cauldron",
+   "slug": "kitchen_hearth",
+   "dir": "A11_5_kitchen_hearth",
+   "glb": "A11_5_kitchen_hearth/act1_kit_v1_kitchen_hearth.glb",
+   "concept": "A11_5_kitchen_hearth/concept.png",
+   "final_views": "A11_5_kitchen_hearth/_shots/final_views.png",
+   "row": "R17",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7296x8176 (row atlas 8192x8192)",
+   "mb": 11.7,
+   "tris": 26348,
+   "real_size_m": [
+    3.6,
+    2.88,
+    1.8
+   ],
+   "normalised": [
+    0.81,
+    1.0,
+    0.681
+   ],
+   "m_per_unit_xyz": [
+    4.44,
+    2.88,
+    2.64
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "2.3 m wide (spec 3.6).",
+   "issues_vi": "Rộng 2,3 m (spec 3,6).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-5-kitchen-hearth.glb"
+   ]
+  },
+  {
+   "id": "A11.6",
+   "name": "Steady candle stand",
+   "slug": "candle_stand",
+   "dir": "A11_6_candle_stand",
+   "glb": "A11_6_candle_stand/act1_kit_v1_candle_stand.glb",
+   "concept": "A11_6_candle_stand/concept.png",
+   "final_views": "A11_6_candle_stand/_shots/final_views.png",
+   "row": "R17",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 3328x1360 (row atlas 8192x8192)",
+   "mb": 1.0,
+   "tris": 4102,
+   "real_size_m": [
+    0.9,
+    2.34,
+    0.9
+   ],
+   "normalised": [
+    0.299,
+    1.0,
+    0.361
+   ],
+   "m_per_unit_xyz": [
+    3.01,
+    2.34,
+    2.5
+   ],
+   "tilt_deg": 10.1,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The column leans 11.9 deg in the GLB (straightened in the lab copy). The lean shows in the side and back views of the source GLB.",
+   "issues_vi": "Thân cột nghiêng 11,9° trong GLB gốc (bản lab đã dựng thẳng). Thấy rõ thân nghiêng ở góc bên và góc sau của GLB gốc.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a11-6-candle-stand.glb"
+   ]
+  },
+  {
+   "id": "A13.1",
+   "name": "Sleeping bed furrow",
+   "slug": "bed_furrow",
+   "dir": "A13_1_bed_furrow",
+   "glb": "A13_1_bed_furrow/act1_kit_v1_bed_furrow.glb",
+   "concept": "A13_1_bed_furrow/concept.png",
+   "final_views": "A13_1_bed_furrow/_shots/final_views.png",
+   "row": "R20",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 4480x4896 (row atlas 8192x8192)",
+   "mb": 4.6,
+   "tris": 4567,
+   "real_size_m": [
+    1.4,
+    0.5,
+    2.7
+   ],
+   "normalised": [
+    0.43,
+    0.208,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    3.26,
+    2.41,
+    2.7
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-1-bed-furrow.glb"
+   ]
+  },
+  {
+   "id": "A13.2",
+   "name": "Cloth canopy frame",
+   "slug": "canopy_frame",
+   "dir": "A13_2_canopy_frame",
+   "glb": "A13_2_canopy_frame/act1_kit_v1_canopy_frame.glb",
+   "concept": "A13_2_canopy_frame/concept.png",
+   "final_views": "A13_2_canopy_frame/_shots/final_views.png",
+   "row": "R19",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 2944x1488 (row atlas 4096x4096)",
+   "mb": 2.5,
+   "tris": 5333,
+   "real_size_m": [
+    6.3,
+    4.32,
+    4.32
+   ],
+   "normalised": [
+    1.0,
+    0.645,
+    0.693
+   ],
+   "m_per_unit_xyz": [
+    6.3,
+    6.7,
+    6.23
+   ],
+   "tilt_deg": 2.9,
+   "yaw_deg": -92.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The four posts lean and do not form a rectangle; the canvas sags to about 2.4 m.",
+   "issues_vi": "Bốn cột nghiêng, không thành hình chữ nhật; tấm vải võng xuống còn khoảng 2,4 m.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-2-canopy-frame.glb"
+   ]
+  },
+  {
+   "id": "A13.3",
+   "name": "Pink night-light jar",
+   "slug": "night_light_jar",
+   "dir": "A13_3_night_light_jar",
+   "glb": "A13_3_night_light_jar/act1_kit_v1_night_light_jar.glb",
+   "concept": "A13_3_night_light_jar/concept.png",
+   "final_views": "A13_3_night_light_jar/_shots/final_views.png",
+   "row": "R20",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6528x1392 (row atlas 8192x8192)",
+   "mb": 2.1,
+   "tris": 4376,
+   "real_size_m": [
+    0.63,
+    0.81,
+    0.63
+   ],
+   "normalised": [
+    0.859,
+    1.0,
+    0.825
+   ],
+   "m_per_unit_xyz": [
+    0.73,
+    0.81,
+    0.76
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-3-night-light-jar.glb"
+   ]
+  },
+  {
+   "id": "A13.4",
+   "name": "Hush bell post",
+   "slug": "bell_post",
+   "dir": "A13_4_bell_post",
+   "glb": "A13_4_bell_post/act1_kit_v1_bell_post.glb",
+   "concept": "A13_4_bell_post/concept.png",
+   "final_views": "A13_4_bell_post/_shots/final_views.png",
+   "row": "R20",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6144x2944 (row atlas 8192x8192)",
+   "mb": 4.3,
+   "tris": 13991,
+   "real_size_m": [
+    1.62,
+    3.6,
+    0.7
+   ],
+   "normalised": [
+    0.63,
+    1.0,
+    0.594
+   ],
+   "m_per_unit_xyz": [
+    2.57,
+    3.6,
+    1.18
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 30.2,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The post rises 0.3 m over the bar and can read as a cross: -trim variant made, user decision pending; the split laid the bar diagonally (lab yaw -62.7). Reads as a cross in the front and 45-degree views; in the back view the bells clump into one lump.",
+   "issues_vi": "Cột nhô 0,3 m trên thanh ngang, có thể giống thánh giá: đã có bản -trim, chờ người dùng chọn; GLB gốc để thanh chéo (bản lab xoay −62,7°). Trông như thánh giá ở góc trước và 45°; nhìn từ sau các chuông dồn thành một cục.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-4-bell-post.glb",
+    "lookdev-lab/assets/act1-kit/act1-a13-4-bell-post-trim.glb"
+   ]
+  },
+  {
+   "id": "A13.5",
+   "name": "Root-vaulted wall bay",
+   "slug": "root_wall_bay",
+   "dir": "A13_5_root_wall_bay",
+   "glb": "A13_5_root_wall_bay/act1_kit_v1_root_wall_bay.glb",
+   "concept": "A13_5_root_wall_bay/concept.png",
+   "final_views": "A13_5_root_wall_bay/_shots/final_views.png",
+   "row": "R19",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 16.8,
+   "tris": 15233,
+   "real_size_m": [
+    5.4,
+    5.04,
+    1.8
+   ],
+   "normalised": [
+    1.0,
+    0.652,
+    0.443
+   ],
+   "m_per_unit_xyz": [
+    5.4,
+    7.73,
+    4.06
+   ],
+   "tilt_deg": 3.5,
+   "yaw_deg": 22.1,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Only 3.5 m tall at the 5.4 m width (spec 5.04); a shallow niche, not a passage. The back is an invented smooth mud dome without bricks.",
+   "issues_vi": "Rộng 5,4 m thì chỉ cao 3,5 m (spec 5,04); hốc nông, không đi xuyên được. Mặt sau là vòm đất trơn tự bịa, không có gạch.",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-5-root-wall-bay.glb"
+   ]
+  },
+  {
+   "id": "A13.6",
+   "name": "Poppy furrow",
+   "slug": "poppy_furrow",
+   "dir": "A13_6_poppy_furrow",
+   "glb": "A13_6_poppy_furrow/act1_kit_v1_poppy_furrow.glb",
+   "concept": "A13_6_poppy_furrow/concept.png",
+   "final_views": "A13_6_poppy_furrow/_shots/final_views.png",
+   "row": "R20",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6784x3952 (row atlas 8192x8192)",
+   "mb": 5.7,
+   "tris": 10676,
+   "real_size_m": [
+    4.32,
+    1.26,
+    1.62
+   ],
+   "normalised": [
+    1.0,
+    0.407,
+    0.405
+   ],
+   "m_per_unit_xyz": [
+    4.32,
+    3.1,
+    4.0
+   ],
+   "tilt_deg": 2.1,
+   "yaw_deg": -92.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a13-6-poppy-furrow.glb"
+   ]
+  },
+  {
+   "id": "A14.1",
+   "name": "Bone-rail crib frame",
+   "slug": "crib_frame",
+   "dir": "A14_1_crib_frame",
+   "glb": "A14_1_crib_frame/act1_kit_v1_crib_frame.glb",
+   "concept": "A14_1_crib_frame/concept.png",
+   "final_views": "A14_1_crib_frame/_shots/final_views.png",
+   "row": "R21",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 22.0,
+   "tris": 14455,
+   "real_size_m": [
+    6.3,
+    3.6,
+    3.6
+   ],
+   "normalised": [
+    1.0,
+    0.535,
+    0.625
+   ],
+   "m_per_unit_xyz": [
+    6.3,
+    6.72,
+    5.76
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -36.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Split left an 11.5 deg skew (squared in the lab copy).",
+   "issues_vi": "GLB gốc lệch 11,5° (bản lab đã chỉnh).",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-1-crib-frame.glb"
+   ]
+  },
+  {
+   "id": "A14.2",
+   "name": "Linen curtain pair",
+   "slug": "curtain_pair",
+   "dir": "A14_2_curtain_pair",
+   "glb": "A14_2_curtain_pair/act1_kit_v1_curtain_pair.glb",
+   "concept": "A14_2_curtain_pair/concept.png",
+   "final_views": "A14_2_curtain_pair/_shots/final_views.png",
+   "row": "R21",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 3712x1344 (row atlas 4096x4096)",
+   "mb": 3.4,
+   "tris": 5362,
+   "real_size_m": [
+    4.32,
+    5.4,
+    0.7
+   ],
+   "normalised": [
+    0.848,
+    1.0,
+    0.225
+   ],
+   "m_per_unit_xyz": [
+    5.1,
+    5.4,
+    3.11
+   ],
+   "tilt_deg": 4.9,
+   "yaw_deg": 28.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-2-curtain-pair.glb"
+   ]
+  },
+  {
+   "id": "A14.3",
+   "name": "Milk-white night-light",
+   "slug": "milk_night_light",
+   "dir": "A14_3_milk_night_light",
+   "glb": "A14_3_milk_night_light/act1_kit_v1_milk_night_light.glb",
+   "concept": "A14_3_milk_night_light/concept.png",
+   "final_views": "A14_3_milk_night_light/_shots/final_views.png",
+   "row": "R22",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 5376x2768 (row atlas 8192x8192)",
+   "mb": 2.6,
+   "tris": 3399,
+   "real_size_m": [
+    1.08,
+    2.16,
+    1.08
+   ],
+   "normalised": [
+    0.337,
+    1.0,
+    0.335
+   ],
+   "m_per_unit_xyz": [
+    3.21,
+    2.16,
+    3.22
+   ],
+   "tilt_deg": 4.2,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-3-milk-night-light.glb"
+   ]
+  },
+  {
+   "id": "A14.4",
+   "name": "Bone mobile on stand",
+   "slug": "bone_mobile",
+   "dir": "A14_4_bone_mobile",
+   "glb": "A14_4_bone_mobile/act1_kit_v1_bone_mobile.glb",
+   "concept": "A14_4_bone_mobile/concept.png",
+   "final_views": "A14_4_bone_mobile/_shots/final_views.png",
+   "row": "R22",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 7424x4240 (row atlas 8192x8192)",
+   "mb": 7.0,
+   "tris": 26294,
+   "real_size_m": [
+    2.52,
+    3.24,
+    0.9
+   ],
+   "normalised": [
+    0.714,
+    1.0,
+    0.248
+   ],
+   "m_per_unit_xyz": [
+    3.53,
+    3.24,
+    3.64
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -22.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-4-bone-mobile.glb"
+   ]
+  },
+  {
+   "id": "A14.5",
+   "name": "Quilted floor platform",
+   "slug": "quilted_platform",
+   "dir": "A14_5_quilted_platform",
+   "glb": "A14_5_quilted_platform/act1_kit_v1_quilted_platform.glb",
+   "concept": "A14_5_quilted_platform/concept.png",
+   "final_views": "A14_5_quilted_platform/_shots/final_views.png",
+   "row": "R18",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 3840x2768 (row atlas 4096x4096)",
+   "mb": 5.2,
+   "tris": 8343,
+   "real_size_m": [
+    5.4,
+    0.72,
+    5.4
+   ],
+   "normalised": [
+    0.967,
+    0.198,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    5.58,
+    3.64,
+    5.4
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -71.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Cushions reach 1.32 m (spec 0.72); split left a 29 deg turn (squared in the lab copy).",
+   "issues_vi": "Gối nệm cao tới 1,32 m (spec 0,72); GLB gốc xoay 29° (bản lab đã chỉnh).",
+   "qa_verdict": "note",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-5-quilted-platform.glb"
+   ]
+  },
+  {
+   "id": "A14.6",
+   "name": "Rocker runner pair",
+   "slug": "rocker_runners",
+   "dir": "A14_6_rocker_runners",
+   "glb": "A14_6_rocker_runners/act1_kit_v1_rocker_runners.glb",
+   "concept": "A14_6_rocker_runners/concept.png",
+   "final_views": "A14_6_rocker_runners/_shots/final_views.png",
+   "row": "R22",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 5504x6512 (row atlas 8192x8192)",
+   "mb": 5.4,
+   "tris": 1664,
+   "real_size_m": [
+    5.4,
+    1.44,
+    2.88
+   ],
+   "normalised": [
+    1.0,
+    0.325,
+    0.653
+   ],
+   "m_per_unit_xyz": [
+    5.4,
+    4.43,
+    4.41
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": [
+    "lookdev-lab/assets/act1-kit/act1-a14-6-rocker-runners.glb"
+   ]
+  },
+  {
+   "id": "A21.1",
+   "name": "Barrow vault door",
+   "slug": "barrow_door",
+   "dir": "A21_1_barrow_door",
+   "glb": "A21_1_barrow_door/act1_kit_v1_barrow_door.glb",
+   "concept": "A21_1_barrow_door/concept.png",
+   "final_views": "A21_1_barrow_door/_shots/final_views.png",
+   "row": "R25",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 3456x3504 (row atlas 4096x4096)",
+   "mb": 7.2,
+   "tris": 8956,
+   "real_size_m": [
+    2.4,
+    2.8,
+    0.8
+   ],
+   "normalised": [
+    1.0,
+    0.756,
+    0.29
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    3.7,
+    2.76
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -10.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The back carries a mirrored copy of the door (invented); squatter than the concept: about 1.8 m tall at 2.4 m wide (spec 2.8 m).",
+   "issues_vi": "Mặt sau có bản sao cánh cửa lật ngược (tự bịa); lùn hơn concept: cao khoảng 1,8 m khi rộng 2,4 m (spec 2,8 m).",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A21.2",
+   "name": "Flint retaining wall",
+   "slug": "flint_retaining_wall",
+   "dir": "A21_2_flint_retaining_wall",
+   "glb": "A21_2_flint_retaining_wall/act1_kit_v1_flint_retaining_wall.glb",
+   "concept": "A21_2_flint_retaining_wall/concept.png",
+   "final_views": "A21_2_flint_retaining_wall/_shots/final_views.png",
+   "row": "R25",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "own atlas 3968x2624 (row atlas 4096x4096)",
+   "mb": 8.1,
+   "tris": 6760,
+   "real_size_m": [
+    4.0,
+    3.2,
+    0.9
+   ],
+   "normalised": [
+    1.0,
+    0.541,
+    0.182
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    5.92,
+    4.94
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -21.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The wall face came out as separate panels in front of the frame (kept, keep_all); variants 0/1/3 built a hollow frame. The back is a plain flint face (fine).",
+   "issues_vi": "Mặt tường là mấy tấm rời trước khung (giữ cả); 3 variant còn lại chỉ có khung rỗng. Mặt sau là đá lửa trơn (ổn).",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A21.3",
+   "name": "Peat stack",
+   "slug": "peat_stack",
+   "dir": "A21_3_peat_stack",
+   "glb": "A21_3_peat_stack/act1_kit_v1_peat_stack.glb",
+   "concept": "A21_3_peat_stack/concept.png",
+   "final_views": "A21_3_peat_stack/_shots/final_views.png",
+   "row": "R27",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 6528x4352 (row atlas 8192x8192)",
+   "mb": 6.8,
+   "tris": 10856,
+   "real_size_m": [
+    1.6,
+    1.1,
+    1.0
+   ],
+   "normalised": [
+    1.0,
+    0.414,
+    0.723
+   ],
+   "m_per_unit_xyz": [
+    1.6,
+    2.66,
+    1.38
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -2.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Flatter than the concept: about 0.66 m tall at 1.6 m wide (spec 1.1 m).",
+   "issues_vi": "Dẹt hơn concept: cao khoảng 0,66 m khi rộng 1,6 m (spec 1,1 m).",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A21.4",
+   "name": "Vigil chair",
+   "slug": "vigil_chair",
+   "dir": "A21_4_vigil_chair",
+   "glb": "A21_4_vigil_chair/act1_kit_v1_vigil_chair.glb",
+   "concept": "A21_4_vigil_chair/concept.png",
+   "final_views": "A21_4_vigil_chair/_shots/final_views.png",
+   "row": "R27",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7296x1200 (row atlas 8192x8192)",
+   "mb": 2.2,
+   "tris": 3278,
+   "real_size_m": [
+    0.6,
+    0.95,
+    0.6
+   ],
+   "normalised": [
+    0.588,
+    1.0,
+    0.72
+   ],
+   "m_per_unit_xyz": [
+    1.02,
+    0.95,
+    0.83
+   ],
+   "tilt_deg": 0.7,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Two pieces, kept whole.",
+   "issues_vi": "Hai mảnh, giữ cả.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A21.5",
+   "name": "The leaning stones (A17.1 v2)",
+   "slug": "leaning_stones",
+   "dir": "A21_5_leaning_stones",
+   "glb": "A21_5_leaning_stones/act1_kit_v1_leaning_stones.glb",
+   "concept": "A21_5_leaning_stones/concept.png",
+   "final_views": "A21_5_leaning_stones/_shots/final_views.png",
+   "row": "R23",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "own atlas 3200x2800 (row atlas 4096x4096)",
+   "mb": 4.6,
+   "tris": 840,
+   "real_size_m": [
+    4.6,
+    4.6,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.936,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    4.6,
+    4.92,
+    2.8
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -3.1,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "A17.1 v2 (base-map id A17.1). Passage measured 1.78 m at 2.2 m height (1.65 m at the floor) when scaled to the 4.6 m spec width; spec 2.6 m: widen about x1.46 in the lab. Built 4.6 x 4.30 x 2.30 m (spec 4.6 x 4.6 x 1.4). Low poly (840 tris).",
+   "issues_vi": "Bản v2 của A17.1 (id bản đồ vẫn là A17.1). Lối đi đo được 1,78 m ở độ cao 2,2 m (1,65 m sát đất) khi rộng 4,6 m; spec 2,6 m nên trong lab kéo ngang khoảng ×1,46. Khối dựng ra 4,6 × 4,30 × 2,30 m (spec 4,6 × 4,6 × 1,4). Ít đa giác (840 tam giác).",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A21.6",
+   "name": "Bog grave",
+   "slug": "bog_grave",
+   "dir": "A21_6_bog_grave",
+   "glb": "A21_6_bog_grave/act1_kit_v1_bog_grave.glb",
+   "concept": "A21_6_bog_grave/concept.png",
+   "final_views": "A21_6_bog_grave/_shots/final_views.png",
+   "row": "R27",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7680x5680 (row atlas 8192x8192)",
+   "mb": 9.8,
+   "tris": 12746,
+   "real_size_m": [
+    1.3,
+    1.6,
+    2.4
+   ],
+   "normalised": [
+    0.578,
+    0.584,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    2.25,
+    2.74,
+    2.4
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -3.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The stake with its ribbons is a separate piece standing in the mound (kept).",
+   "issues_vi": "Cọc và dải vải là mảnh rời cắm trên mộ (giữ cả).",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.1",
+   "name": "Worn shoes (pair)",
+   "slug": "worn_shoes",
+   "dir": "A22_1_worn_shoes",
+   "glb": "A22_1_worn_shoes/act1_kit_v1_worn_shoes.glb",
+   "concept": "A22_1_worn_shoes/concept.png",
+   "final_views": "A22_1_worn_shoes/_shots/final_views.png",
+   "row": "R29",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 5504x1648 (row atlas 8192x8192)",
+   "mb": 2.3,
+   "tris": 4957,
+   "real_size_m": [
+    0.45,
+    0.16,
+    0.45
+   ],
+   "normalised": [
+    1.0,
+    0.374,
+    0.982
+   ],
+   "m_per_unit_xyz": [
+    0.45,
+    0.43,
+    0.46
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -56.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The pair is one fused piece; kept upright (the level search tilted it 8 degrees). Serves both N-FN02 and N-GD11.",
+   "issues_vi": "Đôi giày dính thành một khối, giữ thẳng. Dùng cho cả N-FN02 và N-GD11.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.2",
+   "name": "Toll post with coin dish",
+   "slug": "toll_post",
+   "dir": "A22_2_toll_post",
+   "glb": "A22_2_toll_post/act1_kit_v1_toll_post.glb",
+   "concept": "A22_2_toll_post/concept.png",
+   "final_views": "A22_2_toll_post/_shots/final_views.png",
+   "row": "R28",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 6912x2960 (row atlas 8192x8192)",
+   "mb": 4.3,
+   "tris": 5021,
+   "real_size_m": [
+    0.5,
+    1.3,
+    0.5
+   ],
+   "normalised": [
+    0.702,
+    1.0,
+    0.513
+   ],
+   "m_per_unit_xyz": [
+    0.71,
+    1.3,
+    0.97
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -38.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Built as three stacked pieces (base with rope coil, post, dish), kept whole. Not a cross: the dish shelf juts out on one side only; rope tail and wooden tag present.",
+   "issues_vi": "Ba mảnh chồng nhau (chân có cuộn thừng, cột, đĩa), giữ cả. Không giống thánh giá: kệ đĩa chỉ chìa một bên; có đuôi thừng và thẻ gỗ.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.3",
+   "name": "Empty wicker cradle",
+   "slug": "wicker_cradle",
+   "dir": "A22_3_wicker_cradle",
+   "glb": "A22_3_wicker_cradle/act1_kit_v1_wicker_cradle.glb",
+   "concept": "A22_3_wicker_cradle/concept.png",
+   "final_views": "A22_3_wicker_cradle/_shots/final_views.png",
+   "row": "R29",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "row atlas kept whole",
+   "mb": 26.8,
+   "tris": 18318,
+   "real_size_m": [
+    1.0,
+    0.75,
+    0.6
+   ],
+   "normalised": [
+    1.0,
+    0.619,
+    0.65
+   ],
+   "m_per_unit_xyz": [
+    1.0,
+    1.21,
+    0.92
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -118.7,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright (rockers).",
+   "issues_vi": "Giữ thẳng (chân đu cong).",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.4",
+   "name": "Harvester's cairn",
+   "slug": "harvester_cairn",
+   "dir": "A22_4_harvester_cairn",
+   "glb": "A22_4_harvester_cairn/act1_kit_v1_harvester_cairn.glb",
+   "concept": "A22_4_harvester_cairn/concept.png",
+   "final_views": "A22_4_harvester_cairn/_shots/final_views.png",
+   "row": "R28",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 8192x5296 (row atlas 8192x8192)",
+   "mb": 9.3,
+   "tris": 18906,
+   "real_size_m": [
+    1.2,
+    1.1,
+    1.2
+   ],
+   "normalised": [
+    0.899,
+    0.986,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    1.34,
+    1.12,
+    1.2
+   ],
+   "tilt_deg": 1.1,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.5",
+   "name": "Crook and folded coat",
+   "slug": "crook_and_coat",
+   "dir": "A22_5_crook_and_coat",
+   "glb": "A22_5_crook_and_coat/act1_kit_v1_crook_and_coat.glb",
+   "concept": "A22_5_crook_and_coat/concept.png",
+   "final_views": "A22_5_crook_and_coat/_shots/final_views.png",
+   "row": "R28",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 5376x3968 (row atlas 8192x8192)",
+   "mb": 3.8,
+   "tris": 5294,
+   "real_size_m": [
+    0.9,
+    1.6,
+    0.5
+   ],
+   "normalised": [
+    0.531,
+    1.0,
+    0.557
+   ],
+   "m_per_unit_xyz": [
+    1.7,
+    1.6,
+    0.9
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A22.6",
+   "name": "Straw doll",
+   "slug": "straw_doll",
+   "dir": "A22_6_straw_doll",
+   "glb": "A22_6_straw_doll/act1_kit_v1_straw_doll.glb",
+   "concept": "A22_6_straw_doll/concept.png",
+   "final_views": "A22_6_straw_doll/_shots/final_views.png",
+   "row": "R29",
+   "variant": 2,
+   "row_texture": "8K",
+   "texture": "own atlas 5248x2128 (row atlas 8192x8192)",
+   "mb": 3.3,
+   "tris": 7564,
+   "real_size_m": [
+    0.3,
+    0.35,
+    0.2
+   ],
+   "normalised": [
+    0.907,
+    0.958,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    0.33,
+    0.37,
+    0.2
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Turned to face the camera of the row image.",
+   "issues_vi": "Quay mặt về phía camera như trong ảnh.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.1",
+   "name": "Abandoned reaping",
+   "slug": "abandoned_reaping",
+   "dir": "A23_1_abandoned_reaping",
+   "glb": "A23_1_abandoned_reaping/act1_kit_v1_abandoned_reaping.glb",
+   "concept": "A23_1_abandoned_reaping/concept.png",
+   "final_views": "A23_1_abandoned_reaping/_shots/final_views.png",
+   "row": "R30",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7808x3696 (row atlas 8192x8192)",
+   "mb": 6.8,
+   "tris": 13941,
+   "real_size_m": [
+    2.4,
+    1.1,
+    2.0
+   ],
+   "normalised": [
+    1.0,
+    0.513,
+    0.826
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    2.14,
+    2.42
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -72.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Two pieces (sheaves, loose front piece), kept whole. The scythe juts out in mid-air from the hatted sheaf with the jug hanging off its handle (concept: scythe lies on the ground, jug stands beside it); in the back view both float off the base. The red poppies are missing and the sheaves read as hollow stumps. Fix in Blender (lay the scythe and jug on the ground) or rebuild.",
+   "issues_vi": "Hai mảnh, giữ cả. Lưỡi hái chìa ra giữa không trung từ bó lúa đội mũ, bình treo lủng lẳng trên cán (concept: lưỡi hái nằm trên đất, bình đứng cạnh); nhìn từ sau cả hai lơ lửng khỏi nền. Mất hoa anh túc đỏ, bó lúa trông như gốc cây rỗng. Sửa trong Blender (đặt lưỡi hái và bình xuống đất) hoặc dựng lại.",
+   "qa_verdict": "redo",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.2",
+   "name": "Ribbon thorn",
+   "slug": "ribbon_thorn",
+   "dir": "A23_2_ribbon_thorn",
+   "glb": "A23_2_ribbon_thorn/act1_kit_v1_ribbon_thorn.glb",
+   "concept": "A23_2_ribbon_thorn/concept.png",
+   "final_views": "A23_2_ribbon_thorn/_shots/final_views.png",
+   "row": "R24",
+   "variant": 2,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 19.7,
+   "tris": 12828,
+   "real_size_m": [
+    6.0,
+    5.5,
+    5.0
+   ],
+   "normalised": [
+    1.0,
+    0.699,
+    0.507
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    7.87,
+    9.87
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright (the level search tilted it 8 degrees). Crown masses are smooth slabs with twig tips. Back view has fewer ribbons, mostly red.",
+   "issues_vi": "Giữ thẳng như Tripo dựng. Tán là mấy khối mịn có ngọn cành. Mặt sau ít dải vải hơn, gần như chỉ còn màu đỏ.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.3",
+   "name": "Garth flower bed",
+   "slug": "garth_flower_bed",
+   "dir": "A23_3_garth_flower_bed",
+   "glb": "A23_3_garth_flower_bed/act1_kit_v1_garth_flower_bed.glb",
+   "concept": "A23_3_garth_flower_bed/concept.png",
+   "final_views": "A23_3_garth_flower_bed/_shots/final_views.png",
+   "row": "R30",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7424x4352 (row atlas 8192x8192)",
+   "mb": 8.1,
+   "tris": 12071,
+   "real_size_m": [
+    3.2,
+    0.55,
+    3.2
+   ],
+   "normalised": [
+    1.0,
+    0.28,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    1.96,
+    3.2
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.3,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "",
+   "issues_vi": "",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.4",
+   "name": "Potted flowers",
+   "slug": "potted_flowers",
+   "dir": "A23_4_potted_flowers",
+   "glb": "A23_4_potted_flowers/act1_kit_v1_potted_flowers.glb",
+   "concept": "A23_4_potted_flowers/concept.png",
+   "final_views": "A23_4_potted_flowers/_shots/final_views.png",
+   "row": "R30",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 3840x2368 (row atlas 8192x8192)",
+   "mb": 2.3,
+   "tris": 7262,
+   "real_size_m": [
+    0.6,
+    0.75,
+    0.6
+   ],
+   "normalised": [
+    0.789,
+    1.0,
+    0.8
+   ],
+   "m_per_unit_xyz": [
+    0.76,
+    0.75,
+    0.75
+   ],
+   "tilt_deg": 3.8,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Lavender spikes missing; many flowers dull grey-green instead of cream; fewer flowers than the concept.",
+   "issues_vi": "Thiếu cành oải hương; nhiều hoa xám xanh xỉn thay vì màu kem; ít hoa hơn concept.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.5",
+   "name": "Walled flower bed",
+   "slug": "walled_flower_bed",
+   "dir": "A23_5_walled_flower_bed",
+   "glb": "A23_5_walled_flower_bed/act1_kit_v1_walled_flower_bed.glb",
+   "concept": "A23_5_walled_flower_bed/concept.png",
+   "final_views": "A23_5_walled_flower_bed/_shots/final_views.png",
+   "row": "R30",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 6400x7920 (row atlas 8192x8192)",
+   "mb": 5.3,
+   "tris": 8682,
+   "real_size_m": [
+    4.0,
+    0.5,
+    1.4
+   ],
+   "normalised": [
+    1.0,
+    0.274,
+    0.324
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    1.82,
+    4.32
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -46.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Lavender and white flower spikes missing; the bed is mostly spiky agave-like leaves and a few flat flowers.",
+   "issues_vi": "Thiếu cành oải hương và hoa trắng; bồn gần như chỉ có lá nhọn kiểu cây thùa và vài bông hoa dẹt.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A23.6",
+   "name": "Linen drying line",
+   "slug": "drying_line",
+   "dir": "A23_6_drying_line",
+   "glb": "A23_6_drying_line/act1_kit_v1_drying_line.glb",
+   "concept": "A23_6_drying_line/concept.png",
+   "final_views": "A23_6_drying_line/_shots/final_views.png",
+   "row": "R26",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "own atlas 2432x1088 (row atlas 4096x4096)",
+   "mb": 1.4,
+   "tris": 914,
+   "real_size_m": [
+    6.0,
+    2.2,
+    0.3
+   ],
+   "normalised": [
+    1.0,
+    0.575,
+    0.07
+   ],
+   "m_per_unit_xyz": [
+    6.0,
+    3.83,
+    4.28
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -16.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Low poly (914 tris).",
+   "issues_vi": "Ít đa giác (914 tam giác).",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.1",
+   "name": "Kitchen work table",
+   "slug": "kitchen_table",
+   "dir": "A24_1_kitchen_table",
+   "glb": "A24_1_kitchen_table/act1_kit_v1_kitchen_table.glb",
+   "concept": "A24_1_kitchen_table/concept.png",
+   "final_views": "A24_1_kitchen_table/_shots/final_views.png",
+   "row": "R31",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 3840x4032 (row atlas 8192x8192)",
+   "mb": 3.4,
+   "tris": 3540,
+   "real_size_m": [
+    2.4,
+    0.9,
+    1.0
+   ],
+   "normalised": [
+    1.0,
+    0.463,
+    0.42
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    1.94,
+    2.38
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 3.6,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Many loose pieces (legs, stretchers, top, bowl, loaves, cloth), kept whole.",
+   "issues_vi": "Nhiều mảnh rời, giữ cả.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.2",
+   "name": "Bread rack",
+   "slug": "bread_rack",
+   "dir": "A24_2_bread_rack",
+   "glb": "A24_2_bread_rack/act1_kit_v1_bread_rack.glb",
+   "concept": "A24_2_bread_rack/concept.png",
+   "final_views": "A24_2_bread_rack/_shots/final_views.png",
+   "row": "R31r",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 18.3,
+   "tris": 11010,
+   "real_size_m": [
+    1.6,
+    1.8,
+    0.5
+   ],
+   "normalised": [
+    0.66,
+    1.0,
+    0.317
+   ],
+   "m_per_unit_xyz": [
+    2.43,
+    1.8,
+    1.58
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 3.2,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Rebuilt alone (row R31r) from a code crop of the R31 row image: every R31 variant fused a large board onto the top shelf (that rejected split stays in rows/R31_*/_split/).",
+   "issues_vi": "Dựng riêng (hàng R31r) từ ảnh cắt bằng code của R31: cả 4 variant của R31 dính một tấm ván lớn lên kệ trên cùng (bản bị loại để ở rows/R31_*/_split/).",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.3",
+   "name": "Linen folding table",
+   "slug": "linen_folding_table",
+   "dir": "A24_3_linen_folding_table",
+   "glb": "A24_3_linen_folding_table/act1_kit_v1_linen_folding_table.glb",
+   "concept": "A24_3_linen_folding_table/concept.png",
+   "final_views": "A24_3_linen_folding_table/_shots/final_views.png",
+   "row": "R31",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7168x3504 (row atlas 8192x8192)",
+   "mb": 5.7,
+   "tris": 12296,
+   "real_size_m": [
+    2.4,
+    0.9,
+    1.0
+   ],
+   "normalised": [
+    1.0,
+    0.455,
+    0.43
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    1.98,
+    2.33
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -22.4,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Many loose pieces (trestles, top, linen stacks, ribbon), kept whole.",
+   "issues_vi": "Nhiều mảnh rời, giữ cả.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.4",
+   "name": "Turned-down coverlet",
+   "slug": "turned_down_coverlet",
+   "dir": "A24_4_turned_down_coverlet",
+   "glb": "A24_4_turned_down_coverlet/act1_kit_v1_turned_down_coverlet.glb",
+   "concept": "A24_4_turned_down_coverlet/concept.png",
+   "final_views": "A24_4_turned_down_coverlet/_shots/final_views.png",
+   "row": "R32",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 7040x4272 (row atlas 8192x8192)",
+   "mb": 7.3,
+   "tris": 11742,
+   "real_size_m": [
+    1.14,
+    0.12,
+    1.9
+   ],
+   "normalised": [
+    0.42,
+    0.186,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    2.72,
+    0.65,
+    1.9
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -2.9,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright (flat bedding). Lies on an A13.1 bed furrow.",
+   "issues_vi": "Giữ thẳng. Đặt trên luống A13.1.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.5",
+   "name": "Turned-down quilt",
+   "slug": "turned_down_quilt",
+   "dir": "A24_5_turned_down_quilt",
+   "glb": "A24_5_turned_down_quilt/act1_kit_v1_turned_down_quilt.glb",
+   "concept": "A24_5_turned_down_quilt/concept.png",
+   "final_views": "A24_5_turned_down_quilt/_shots/final_views.png",
+   "row": "R32",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 5760x7152 (row atlas 8192x8192)",
+   "mb": 8.6,
+   "tris": 16500,
+   "real_size_m": [
+    3.0,
+    0.24,
+    2.6
+   ],
+   "normalised": [
+    1.0,
+    0.2,
+    0.932
+   ],
+   "m_per_unit_xyz": [
+    3.0,
+    1.2,
+    2.79
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright (flat bedding). Lies on A14.5.",
+   "issues_vi": "Giữ thẳng. Đặt trên A14.5.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A24.6",
+   "name": "Linen pillow",
+   "slug": "linen_pillow",
+   "dir": "A24_6_linen_pillow",
+   "glb": "A24_6_linen_pillow/act1_kit_v1_linen_pillow.glb",
+   "concept": "A24_6_linen_pillow/concept.png",
+   "final_views": "A24_6_linen_pillow/_shots/final_views.png",
+   "row": "R32",
+   "variant": 1,
+   "row_texture": "8K",
+   "texture": "own atlas 4992x2240 (row atlas 8192x8192)",
+   "mb": 3.2,
+   "tris": 5951,
+   "real_size_m": [
+    1.5,
+    0.32,
+    0.75
+   ],
+   "normalised": [
+    1.0,
+    0.358,
+    0.865
+   ],
+   "m_per_unit_xyz": [
+    1.5,
+    0.89,
+    0.87
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 6.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright. Three thin red lines as in the concept (brief: one band).",
+   "issues_vi": "Giữ thẳng. Ba sọc đỏ mảnh như concept (brief: một dải).",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.1",
+   "name": "Root rib arch",
+   "slug": "root_rib_arch",
+   "dir": "A25_1_root_rib_arch",
+   "glb": "A25_1_root_rib_arch/act1_kit_v1_root_rib_arch.glb",
+   "concept": "A25_1_root_rib_arch/concept.png",
+   "final_views": "A25_1_root_rib_arch/_shots/final_views.png",
+   "row": "R23",
+   "variant": 1,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 20.8,
+   "tris": 18973,
+   "real_size_m": [
+    6.5,
+    4.9,
+    0.5
+   ],
+   "normalised": [
+    1.0,
+    0.622,
+    0.775
+   ],
+   "m_per_unit_xyz": [
+    6.5,
+    7.87,
+    0.64
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 6.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The root feet spread about 5 m deep at 6.5 m wide (spec 0.5 m deep). Clearly visible in the side view; arch and back fine.",
+   "issues_vi": "Chân rễ toả sâu khoảng 5 m khi rộng 6,5 m (spec dày 0,5 m). Thấy rõ ở góc bên; vòm và mặt sau ổn.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.2",
+   "name": "Plank crossing",
+   "slug": "plank_crossing",
+   "dir": "A25_2_plank_crossing",
+   "glb": "A25_2_plank_crossing/act1_kit_v1_plank_crossing.glb",
+   "concept": "A25_2_plank_crossing/concept.png",
+   "final_views": "A25_2_plank_crossing/_shots/final_views.png",
+   "row": "R33",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 5888x4672 (row atlas 8192x8192)",
+   "mb": 6.4,
+   "tris": 1444,
+   "real_size_m": [
+    1.5,
+    0.1,
+    2.3
+   ],
+   "normalised": [
+    0.41,
+    0.081,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    3.65,
+    1.23,
+    2.3
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": -114.5,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The planks came out as two pieces, kept whole. Planks wavy and low poly (1,444 tris) with see-through gaps between them; the concept planks sit tight.",
+   "issues_vi": "Hai mảnh, giữ cả. Ván cong vênh, ít đa giác (1.444 tam giác), có khe hở nhìn xuyên; concept ván khít nhau.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.3",
+   "name": "Root fall",
+   "slug": "root_fall",
+   "dir": "A25_3_root_fall",
+   "glb": "A25_3_root_fall/act1_kit_v1_root_fall.glb",
+   "concept": "A25_3_root_fall/concept.png",
+   "final_views": "A25_3_root_fall/_shots/final_views.png",
+   "row": "R26",
+   "variant": 3,
+   "row_texture": "4K",
+   "texture": "row atlas kept whole",
+   "mb": 17.8,
+   "tris": 18177,
+   "real_size_m": [
+    4.6,
+    2.6,
+    5.4
+   ],
+   "normalised": [
+    0.953,
+    0.664,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    4.82,
+    3.91,
+    5.4
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Kept upright (the level search rolled it 23 degrees onto its side).",
+   "issues_vi": "Giữ thẳng (bộ cân bằng tự động lật nó 23°).",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.4",
+   "name": "Harvest basket",
+   "slug": "harvest_basket",
+   "dir": "A25_4_harvest_basket",
+   "glb": "A25_4_harvest_basket/act1_kit_v1_harvest_basket.glb",
+   "concept": "A25_4_harvest_basket/concept.png",
+   "final_views": "A25_4_harvest_basket/_shots/final_views.png",
+   "row": "R33",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 6912x4512 (row atlas 8192x8192)",
+   "mb": 6.5,
+   "tris": 15208,
+   "real_size_m": [
+    0.56,
+    0.45,
+    0.56
+   ],
+   "normalised": [
+    0.76,
+    0.534,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    0.74,
+    0.84,
+    0.56
+   ],
+   "tilt_deg": 1.1,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "The red petals on the floor beside the basket are cut off (3 parts, 360 faces, drop_floor_red); the fallen pods stay. The red poppies among the pods are only small red smudges.",
+   "issues_vi": "Đã cắt mấy cánh hoa đỏ dưới sàn cạnh giỏ (3 mảnh, 360 mặt); quả rơi giữ lại. Hoa anh túc đỏ giữa các quả chỉ còn vệt đỏ nhỏ.",
+   "qa_verdict": "note",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.5",
+   "name": "Tending kit",
+   "slug": "tending_kit",
+   "dir": "A25_5_tending_kit",
+   "glb": "A25_5_tending_kit/act1_kit_v1_tending_kit.glb",
+   "concept": "A25_5_tending_kit/concept.png",
+   "final_views": "A25_5_tending_kit/_shots/final_views.png",
+   "row": "R33",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 6656x2480 (row atlas 8192x8192)",
+   "mb": 3.5,
+   "tris": 2444,
+   "real_size_m": [
+    1.0,
+    0.5,
+    0.45
+   ],
+   "normalised": [
+    1.0,
+    0.524,
+    0.516
+   ],
+   "m_per_unit_xyz": [
+    1.0,
+    0.95,
+    0.87
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 12.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Stool, book and watering can; the spout rose is a loose piece, kept.",
+   "issues_vi": "Ghế, sách và bình tưới; hoa sen vòi là mảnh rời, giữ lại.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  },
+  {
+   "id": "A25.6",
+   "name": "Tamsin's lantern",
+   "slug": "tamsin_lantern",
+   "dir": "A25_6_tamsin_lantern",
+   "glb": "A25_6_tamsin_lantern/act1_kit_v1_tamsin_lantern.glb",
+   "concept": "A25_6_tamsin_lantern/concept.png",
+   "final_views": "A25_6_tamsin_lantern/_shots/final_views.png",
+   "row": "R33",
+   "variant": 0,
+   "row_texture": "8K",
+   "texture": "own atlas 5760x2144 (row atlas 8192x8192)",
+   "mb": 3.5,
+   "tris": 24145,
+   "real_size_m": [
+    0.3,
+    1.0,
+    0.6
+   ],
+   "normalised": [
+    0.707,
+    1.0,
+    0.831
+   ],
+   "m_per_unit_xyz": [
+    0.42,
+    1.0,
+    0.72
+   ],
+   "tilt_deg": 0.0,
+   "yaw_deg": 0.0,
+   "strays_dropped": [],
+   "needle_faces_dropped": 0,
+   "issues": "Turned to face the camera of the row image; the lantern hangs from the branch hook.",
+   "issues_vi": "Quay về phía camera như trong ảnh; đèn treo bằng móc trên cành.",
+   "qa_verdict": "ok",
+   "lab_samples": []
+  }
+ ],
+ "qa": "2026-10-23 quick QA: each final_views.png (front, 45, side, back) against its concept.png, plus the known issues of tmp/act1-base-maps/TRIPO_PROGRESS.md and ACT1_KIT_FIT.md. qa_verdict: ok = matches; note = usable, see issues; redo = rebuild or fix before use. issues_vi = the same notes in Vietnamese (README column). lab_samples = the lab copies (real size, yaw fixes; A21-A25 not in the lab yet)."
+}

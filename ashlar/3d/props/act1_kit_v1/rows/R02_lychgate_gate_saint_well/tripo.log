@@ -2,3 +2,10 @@
 [10-22 16:13:58] R02_lychgate_gate_saint_well: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 8338), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:14:36] R02_lychgate_gate_saint_well: mesh done (credits now 8218); new models: d6a55868-f812-412a-aad2-a27bb7f14761 16c824f4-dc72-47ba-989b-b81a53f92345 570cfd82-d0d0-4b7e-b713-b1cb77e995ae 4929f5cb-2204-4299-bd8d-c44dd866146a
 [10-22 16:16:02] R02_lychgate_gate_saint_well: variants (index uuid faces): 0 d6a55868-f812-412a-aad2-a27bb7f14761 18158;1 16c824f4-dc72-47ba-989b-b81a53f92345 17894;2 570cfd82-d0d0-4b7e-b713-b1cb77e995ae 18039;3 4929f5cb-2204-4299-bd8d-c44dd866146a 20041;
+[10-22 19:56:42] R02_lychgate_gate_saint_well: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/570cfd82-d0d0-4b7e-b713-b1cb77e995ae faces 18039; texture 8K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 19:57:18] R02_lychgate_gate_saint_well: smart uv saved (credits 7123 -> 7103)
+[10-22 19:59:23] R02_lychgate_gate_saint_well: texture 8K done in 101s (credits 7103 -> 6973, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:00:01] R02_lychgate_gate_saint_well: pbr done (credits 6973 -> 6918)
+[10-22 20:00:21] R02_lychgate_gate_saint_well: exported act1_kit_v1_R02_lychgate_gate_saint_well.glb (format GLB, texture 8kCurrent, 33304 KB)
+[10-22 20:00:21] R02_lychgate_gate_saint_well: GLB check: {"file": "act1_kit_v1_R02_lychgate_gate_saint_well.glb", "MB": 34.1, "meshes": 1, "tris": 31231, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.268], "max": [0.5, 0.366, 0.268]}
+[10-22 20:00:42] R02_lychgate_gate_saint_well: FINISHED: balance 6918 (shared); _shots/final_views.png

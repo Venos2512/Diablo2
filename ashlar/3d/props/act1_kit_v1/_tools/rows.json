@@ -1,5 +1,5 @@
 {
-  "_doc": "Act I kit rows (tmp/act1-base-maps/TRIPO_ROWS.md §2): assets left to right in each row image, real size w x h x d in metres (w = width of the FRONT face). Optional per asset: front (camera = face the camera of the row image, for organic or round assets; default: footprint axes), objects (object numbers from --list), cut (ground layer to cut, fraction of size), dome, yaw (degrees about +y, overrides the automatic front), attach (gap for loose parts, fraction of size), keep_all, note.",
+  "_doc": "Act I kit rows (tmp/act1-base-maps/TRIPO_ROWS.md §2): assets left to right in each row image, real size w x h x d in metres (w = width of the FRONT face). Optional per asset: front (camera = face the camera of the row image, for organic or round assets; default: footprint axes), objects (object numbers from --list), cut (ground layer to cut, fraction of size), dome, yaw (degrees about +y, added to the automatic front), upright (true: no levelling, for curved bottoms), attach (gap for loose parts, fraction of size), keep_all, note.",
   "R01": [
     {"id": "A01.1", "slug": "stilt_cottage", "name": "Repaired thatched stilt cottage", "size": [4.6, 5.2, 4.0]},
     {"id": "A02.4", "slug": "ossuary_tower", "name": "Round ossuary tower", "size": [4.8, 7.8, 4.8]}
@@ -60,16 +60,16 @@
     {"id": "A08.4", "slug": "hay_rick", "name": "Hay rick", "size": [3.0, 3.2, 3.0], "front": "camera"}
   ],
   "R14": [
-    {"id": "A08.2", "slug": "drystone_wall", "name": "Drystone wall module", "size": [3.2, 1.3, 0.7]},
-    {"id": "A08.2-stile", "dir": "A08_2_squeeze_stile", "slug": "squeeze_stile", "name": "Squeeze stile in a drystone wall", "size": [3.2, 1.3, 0.7]},
-    {"id": "A08.5", "slug": "field_gate", "name": "Field gate between stone posts", "size": [4.4, 1.6, 0.7]}
+    {"id": "A08.2", "slug": "drystone_wall", "name": "Drystone wall module", "size": [3.2, 1.3, 0.7], "objects": [1]},
+    {"id": "A08.2-stile", "dir": "A08_2_squeeze_stile", "slug": "squeeze_stile", "name": "Squeeze stile in a drystone wall", "size": [3.2, 1.3, 0.7], "objects": [2]},
+    {"id": "A08.5", "slug": "field_gate", "name": "Field gate between stone posts", "size": [4.4, 1.6, 0.7], "objects": [3, 4]}
   ],
   "R15": [
-    {"id": "A01.6", "slug": "eel_trap_rack", "name": "Eel-trap fishing rack", "size": [3.4, 3.0, 1.6]},
+    {"id": "A01.6", "slug": "eel_trap_rack", "name": "Eel-trap fishing rack", "size": [3.4, 3.0, 1.6], "objects": [14], "note": "object 14 (the leaning trap's bottom rim) falls past the image-gap cut"},
     {"id": "A08.6", "slug": "poppy_rack", "name": "Poppy-drying rack", "size": [3.6, 2.3, 1.4]}
   ],
   "R16": [
-    {"id": "A11.4", "slug": "gate_tower", "name": "Gate tower", "size": [4.32, 7.2, 4.32]},
+    {"id": "A11.4", "slug": "gate_tower", "name": "Gate tower", "size": [4.32, 7.2, 4.32], "yaw": 90, "note": "auto front picked a blind side wall; the passage arch faces +z after +90"},
     {"id": "A11.1", "slug": "cloister_bay", "name": "Whitewashed cloister bay", "size": [5.4, 4.32, 2.16]}
   ],
   "R17": [
@@ -96,8 +96,63 @@
     {"id": "A14.2", "slug": "curtain_pair", "name": "Linen curtain pair", "size": [4.32, 5.4, 0.7]}
   ],
   "R22": [
-    {"id": "A14.6", "slug": "rocker_runners", "name": "Rocker runner pair", "size": [5.4, 1.44, 2.88]},
+    {"id": "A14.6", "slug": "rocker_runners", "name": "Rocker runner pair", "size": [5.4, 1.44, 2.88], "upright": true, "note": "curved rockers: the level search rolled them 17 degrees onto one end"},
     {"id": "A14.4", "slug": "bone_mobile", "name": "Bone mobile on stand", "size": [2.52, 3.24, 0.9]},
     {"id": "A14.3", "slug": "milk_night_light", "name": "Milk-white night-light", "size": [1.08, 2.16, 1.08], "front": "camera"}
+  ],
+  "R23": [
+    {"id": "A21.5", "slug": "leaning_stones", "name": "The leaning stones (A17.1 v2)", "size": [4.6, 4.6, 1.4], "note": "base-map id A17.1; build the passage to the 2.6 m spec"},
+    {"id": "A25.1", "slug": "root_rib_arch", "name": "Root rib arch", "size": [6.5, 4.9, 0.5]}
+  ],
+  "R24": [
+    {"id": "A23.2", "slug": "ribbon_thorn", "name": "Ribbon thorn", "size": [6.0, 5.5, 5.0], "front": "camera", "upright": true, "note": "the level search tilted the tree 8 degrees; kept as built"}
+  ],
+  "R25": [
+    {"id": "A21.1", "slug": "barrow_door", "name": "Barrow vault door", "size": [2.4, 2.8, 0.8], "objects": [1]},
+    {"id": "A21.2", "slug": "flint_retaining_wall", "name": "Flint retaining wall", "size": [4.0, 3.2, 0.9], "objects": [2, 3, 4], "keep_all": true, "note": "the wall face came out as separate panels (objects 2, 4) in front of the frame"}
+  ],
+  "R26": [
+    {"id": "A25.3", "slug": "root_fall", "name": "Root fall", "size": [4.6, 2.6, 5.4], "front": "camera", "upright": true, "note": "the level search rolled the mound 23 degrees onto its side; kept as built"},
+    {"id": "A23.6", "slug": "drying_line", "name": "Linen drying line", "size": [6.0, 2.2, 0.3]}
+  ],
+  "R27": [
+    {"id": "A21.3", "slug": "peat_stack", "name": "Peat stack", "size": [1.6, 1.1, 1.0]},
+    {"id": "A21.4", "slug": "vigil_chair", "name": "Vigil chair", "size": [0.6, 0.95, 0.6], "keep_all": true},
+    {"id": "A21.6", "slug": "bog_grave", "name": "Bog grave", "size": [1.3, 1.6, 2.4], "keep_all": true, "note": "the stake with its ribbons is a separate piece (object 5) standing in the mound"}
+  ],
+  "R28": [
+    {"id": "A22.2", "slug": "toll_post", "name": "Toll post with coin dish", "size": [0.5, 1.3, 0.5], "keep_all": true, "note": "built as three stacked pieces (base with rope coil, post, dish)"},
+    {"id": "A22.5", "slug": "crook_and_coat", "name": "Crook and folded coat", "size": [0.9, 1.6, 0.5]},
+    {"id": "A22.4", "slug": "harvester_cairn", "name": "Harvester's cairn", "size": [1.2, 1.1, 1.2], "front": "camera"}
+  ],
+  "R29": [
+    {"id": "A22.3", "slug": "wicker_cradle", "name": "Empty wicker cradle", "size": [1.0, 0.75, 0.6], "upright": true, "note": "rockers: kept as built (curved bottom)"},
+    {"id": "A22.1", "slug": "worn_shoes", "name": "Worn shoes (pair)", "size": [0.45, 0.16, 0.45], "keep_all": true, "note": "a pair: two loose shoes kept as one asset", "upright": true},
+    {"id": "A22.6", "slug": "straw_doll", "name": "Straw doll", "size": [0.3, 0.35, 0.2], "front": "camera"}
+  ],
+  "R30": [
+    {"id": "A23.1", "slug": "abandoned_reaping", "name": "Abandoned reaping", "size": [2.4, 1.1, 2.0], "keep_all": true, "note": "two pieces: the sheaves and a loose front piece (object 2)"},
+    {"id": "A23.3", "slug": "garth_flower_bed", "name": "Garth flower bed", "size": [3.2, 0.55, 3.2]},
+    {"id": "A23.5", "slug": "walled_flower_bed", "name": "Walled flower bed", "size": [4.0, 0.5, 1.4]},
+    {"id": "A23.4", "slug": "potted_flowers", "name": "Potted flowers", "size": [0.6, 0.75, 0.6], "front": "camera"}
+  ],
+  "R31": [
+    {"id": "A24.1", "slug": "kitchen_table", "name": "Kitchen work table", "size": [2.4, 0.9, 1.0], "objects": [1, 2, 3, 4, 5, 6, 7, 8], "keep_all": true, "note": "built from many loose pieces (legs, stretchers, top, bowl, loaves, cloth)"},
+    {"id": "A24.2-board", "slug": "bread_rack_with_board", "name": "Bread rack", "size": [1.6, 1.8, 0.5], "dir": "rows/R31_kitchen_table_rack_linen_table/_split/rejected_A24_2_bread_rack_with_board", "objects": [9, 10, 11, 12], "keep_all": true, "note": "REJECTED: every R31 variant fused a large board onto the top shelf; the kit rack is A24.2 from R31r (rebuilt alone)"},
+    {"id": "A24.3", "slug": "linen_folding_table", "name": "Linen folding table", "size": [2.4, 0.9, 1.0], "objects": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], "keep_all": true, "note": "built from many loose pieces (trestles, top, linen stacks, ribbon)"}
+  ],
+  "R32": [
+    {"id": "A24.5", "slug": "turned_down_quilt", "name": "Turned-down quilt", "size": [3.0, 0.24, 2.6], "upright": true},
+    {"id": "A24.6", "slug": "linen_pillow", "name": "Linen pillow", "size": [1.5, 0.32, 0.75], "upright": true},
+    {"id": "A24.4", "slug": "turned_down_coverlet", "name": "Turned-down coverlet", "size": [1.14, 0.12, 1.9], "upright": true}
+  ],
+  "R33": [
+    {"id": "A25.2", "slug": "plank_crossing", "name": "Plank crossing", "size": [1.5, 0.1, 2.3], "keep_all": true, "note": "the planks came out as two pieces (objects 1, 2)"},
+    {"id": "A25.4", "slug": "harvest_basket", "name": "Harvest basket", "size": [0.56, 0.45, 0.56], "front": "camera", "drop_floor_red": {"max_height": 0.1, "max_faces": 150, "ratio": 1.2}, "note": "the red petals on the floor beside the basket are cut (drop_floor_red); the fallen apples stay"},
+    {"id": "A25.5", "slug": "tending_kit", "name": "Tending kit", "size": [1.0, 0.5, 0.45], "keep_all": true, "note": "stool, book and can; the spout rose is a loose piece (object 5)"},
+    {"id": "A25.6", "slug": "tamsin_lantern", "name": "Tamsin's lantern", "size": [0.3, 1.0, 0.6], "front": "camera"}
+  ],
+  "R31r": [
+    {"id": "A24.2", "slug": "bread_rack", "name": "Bread rack", "size": [1.6, 1.8, 0.5], "note": "rebuilt alone from a code crop of the R31 row image: every R31 variant fused a large board onto the top shelf"}
   ]
 }

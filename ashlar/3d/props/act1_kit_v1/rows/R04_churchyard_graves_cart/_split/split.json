@@ -1,0 +1,129 @@
+{
+ "row": "R04",
+ "row_glb": "rows/R04_churchyard_graves_cart/act1_kit_v1_R04_churchyard_graves_cart.glb",
+ "variant": "2",
+ "faces": 25202,
+ "objects": 8,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A02.2",
+   "slug": "mortsafe",
+   "name": "Mortsafe grave cage",
+   "dir": "A02_2_mortsafe",
+   "glb": "A02_2_mortsafe/act1_kit_v1_mortsafe.glb",
+   "mb": 5.6,
+   "tris": 5731,
+   "objects": [
+    1,
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.04,
+   "front": "axes 1.57",
+   "yaw_deg": 18.2,
+   "normalised": [
+    1.0,
+    0.363,
+    0.711
+   ],
+   "real_size_m": [
+    2.6,
+    1.2,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    2.6,
+    3.3,
+    1.97
+   ],
+   "shape_spread": 1.68,
+   "texture": "own atlas 5504x4224 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A02.3",
+   "slug": "headstones",
+   "name": "Small mismatched headstone cluster",
+   "dir": "A02_3_headstones",
+   "glb": "A02_3_headstones/act1_kit_v1_headstones.glb",
+   "mb": 8.3,
+   "tris": 13819,
+   "objects": [
+    4,
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 8.6,
+   "support_gain": null,
+   "front": "axes 1.86",
+   "yaw_deg": -11.8,
+   "normalised": [
+    1.0,
+    0.468,
+    0.696
+   ],
+   "real_size_m": [
+    3.0,
+    1.6,
+    2.0
+   ],
+   "m_per_unit_xyz": [
+    3.0,
+    3.42,
+    2.87
+   ],
+   "shape_spread": 1.19,
+   "texture": "own atlas 7808x3760 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A02.6",
+   "slug": "hand_cart",
+   "name": "Funeral hand cart",
+   "dir": "A02_6_hand_cart",
+   "glb": "A02_6_hand_cart/act1_kit_v1_hand_cart.glb",
+   "mb": 6.3,
+   "tris": 5652,
+   "objects": [
+    6,
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 7.5,
+   "support_gain": 4.16,
+   "front": "axes 1.69",
+   "yaw_deg": -0.4,
+   "normalised": [
+    1.0,
+    0.436,
+    0.505
+   ],
+   "real_size_m": [
+    3.2,
+    1.2,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    2.75,
+    2.77
+   ],
+   "shape_spread": 1.16,
+   "texture": "own atlas 6528x4624 (row atlas 8192x8192)"
+  }
+ ]
+}

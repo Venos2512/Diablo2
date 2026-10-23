@@ -1,0 +1,124 @@
+{
+ "row": "R07",
+ "row_glb": "rows/R07_fen_rock_peat_stump/act1_kit_v1_R07_fen_rock_peat_stump.glb",
+ "variant": "2",
+ "faces": 29473,
+ "objects": 3,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A03.4",
+   "slug": "moss_rock",
+   "name": "Large moss rock",
+   "dir": "A03_4_moss_rock",
+   "glb": "A03_4_moss_rock/act1_kit_v1_moss_rock.glb",
+   "mb": 5.5,
+   "tris": 261,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.844,
+    0.514,
+    1.0
+   ],
+   "real_size_m": [
+    2.3,
+    1.6,
+    2.0
+   ],
+   "m_per_unit_xyz": [
+    2.72,
+    3.12,
+    2.0
+   ],
+   "shape_spread": 1.56,
+   "texture": "own atlas 5632x5120 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A03.5",
+   "slug": "peat_bank",
+   "name": "Peat bank chunk",
+   "dir": "A03_5_peat_bank",
+   "glb": "A03_5_peat_bank/act1_kit_v1_peat_bank.glb",
+   "mb": 7.5,
+   "tris": 22603,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.61",
+   "yaw_deg": -50.8,
+   "normalised": [
+    1.0,
+    0.466,
+    0.525
+   ],
+   "real_size_m": [
+    2.9,
+    1.4,
+    1.2
+   ],
+   "m_per_unit_xyz": [
+    2.9,
+    3.0,
+    2.28
+   ],
+   "shape_spread": 1.31,
+   "texture": "own atlas 6528x8048 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A03.6",
+   "slug": "root_stump",
+   "name": "Waterlogged root stump",
+   "dir": "A03_6_root_stump",
+   "glb": "A03_6_root_stump/act1_kit_v1_root_stump.glb",
+   "mb": 4.8,
+   "tris": 6609,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 2.2,
+   "support_gain": 182.84,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.959,
+    0.519,
+    1.0
+   ],
+   "real_size_m": [
+    1.4,
+    1.3,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    1.46,
+    2.5,
+    1.4
+   ],
+   "shape_spread": 1.79,
+   "texture": "own atlas 7424x3744 (row atlas 8192x8192)"
+  }
+ ]
+}

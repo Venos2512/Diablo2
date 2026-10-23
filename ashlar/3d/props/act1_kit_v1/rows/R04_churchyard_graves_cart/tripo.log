@@ -2,3 +2,10 @@
 [10-22 16:19:08] R04_churchyard_graves_cart: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 8113), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:19:40] R04_churchyard_graves_cart: mesh done (credits now 8013); new models: c15c1f25-27f2-4845-a66e-45b8db29a87d 3b4b1620-b835-46f4-95ee-f7f1cb5fadf8 f7d7e600-0ba6-47d3-ac2d-4365186cb405 3e8e3f49-d827-4f24-89f6-cc61b0038ab1
 [10-22 16:21:08] R04_churchyard_graves_cart: variants (index uuid faces): 0 c15c1f25-27f2-4845-a66e-45b8db29a87d 12513;1 3b4b1620-b835-46f4-95ee-f7f1cb5fadf8 11973;2 f7d7e600-0ba6-47d3-ac2d-4365186cb405 15792;3 3e8e3f49-d827-4f24-89f6-cc61b0038ab1 15691;
+[10-22 20:03:29] R04_churchyard_graves_cart: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/f7d7e600-0ba6-47d3-ac2d-4365186cb405 faces 15792; texture 8K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 20:04:03] R04_churchyard_graves_cart: smart uv saved (credits 6808 -> 6788)
+[10-22 20:05:30] R04_churchyard_graves_cart: texture 8K done in 64s (credits 6788 -> 6758, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:06:02] R04_churchyard_graves_cart: pbr done (credits 6758 -> 6748)
+[10-22 20:06:19] R04_churchyard_graves_cart: exported act1_kit_v1_R04_churchyard_graves_cart.glb (format GLB, texture 8kCurrent, 27052 KB)
+[10-22 20:06:19] R04_churchyard_graves_cart: GLB check: {"file": "act1_kit_v1_R04_churchyard_graves_cart.glb", "MB": 27.7, "meshes": 1, "tris": 25202, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.361], "max": [0.5, 0.18, 0.361]}
+[10-22 20:06:40] R04_churchyard_graves_cart: FINISHED: balance 6748 (shared); _shots/final_views.png

@@ -1,0 +1,129 @@
+{
+ "row": "R02",
+ "row_glb": "rows/R02_lychgate_gate_saint_well/act1_kit_v1_R02_lychgate_gate_saint_well.glb",
+ "variant": "2",
+ "faces": 31231,
+ "objects": 8,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A02.1",
+   "slug": "lychgate",
+   "name": "Lychgate roofed gate",
+   "dir": "A02_1_lychgate",
+   "glb": "A02_1_lychgate/act1_kit_v1_lychgate.glb",
+   "mb": 9.7,
+   "tris": 8288,
+   "objects": [
+    1,
+    2,
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 3.6,
+   "support_gain": 2.13,
+   "front": "axes 1.23",
+   "yaw_deg": 38.2,
+   "normalised": [
+    0.923,
+    1.0,
+    0.869
+   ],
+   "real_size_m": [
+    3.4,
+    3.8,
+    2.6
+   ],
+   "m_per_unit_xyz": [
+    3.69,
+    3.8,
+    2.99
+   ],
+   "shape_spread": 1.27,
+   "texture": "own atlas 7424x5072 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A02.5",
+   "slug": "saint_statue_arch",
+   "name": "Faceless saint statue supporting an arch",
+   "dir": "A02_5_saint_statue_arch",
+   "glb": "A02_5_saint_statue_arch/act1_kit_v1_saint_statue_arch.glb",
+   "mb": 4.2,
+   "tris": 3681,
+   "objects": [
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.48",
+   "yaw_deg": 25.9,
+   "normalised": [
+    0.577,
+    1.0,
+    0.422
+   ],
+   "real_size_m": [
+    2.4,
+    4.3,
+    1.2
+   ],
+   "m_per_unit_xyz": [
+    4.16,
+    4.3,
+    2.84
+   ],
+   "shape_spread": 1.51,
+   "texture": "own atlas 6016x2560 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A01.5",
+   "slug": "village_well",
+   "name": "Village well",
+   "dir": "A01_5_village_well",
+   "glb": "A01_5_village_well/act1_kit_v1_village_well.glb",
+   "mb": 8.9,
+   "tris": 19252,
+   "objects": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 10,
+   "needle_area_pct": 0.0658,
+   "tilt_deg": 3.5,
+   "support_gain": 6.39,
+   "front": "axes 1.33",
+   "yaw_deg": -48.8,
+   "normalised": [
+    0.804,
+    1.0,
+    0.704
+   ],
+   "real_size_m": [
+    2.2,
+    3.4,
+    2.0
+   ],
+   "m_per_unit_xyz": [
+    2.74,
+    3.4,
+    2.84
+   ],
+   "shape_spread": 1.24,
+   "texture": "own atlas 7296x4240 (row atlas 8192x8192)"
+  }
+ ]
+}

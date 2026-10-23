@@ -12,8 +12,10 @@ row's assets left to right with their real size. Adapted from lookdev-lab/script
   2. Assets: the widest empty gaps along the row separate the assets (else the gaps of the row image, mapped onto the
      model); rows.json `objects` can name an asset's objects by number instead. Inside an asset, objects not joined
      to its largest object by a gap under `attach` (fraction of its size) are strays and are dropped (logged).
+     Needles (a few long, near-zero-width triangles Tripo leaves sticking out as thin lines) are dropped too.
   3. Level: the up direction that gives the widest support polygon (convex hull of the points in a thin bottom
-     layer), searched over tilts of up to 30 degrees; kept upright unless it widens the support by over 15 %.
+     layer), searched over tilts of up to 30 degrees; kept upright unless it widens the support by over 15 %, or always
+     (`upright` in rows.json: rockers and other curved bottoms, which the search would roll onto one end).
   4. Optional ground cut (`cut`, `dome` in rows.json): a slab or mud layer under the asset (see cut_patch).
   5. Turned about +y so the FRONT faces +z and the front width runs along x: the footprint's main axes, the front
      being the side nearest the lower left of the image (each asset is drawn turned that way); round footprints face
@@ -32,6 +34,7 @@ import math
 import os
 import struct
 import sys
+import time
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -197,17 +200,59 @@ def write_glb(path, name, pos, nor, uv, faces, material, images, sampler, extras
     js = json.dumps(gltf, separators=(',', ':')).encode()
     js += b' ' * ((-len(js)) % 4)
     binary = b''.join(blobs)
-    with open(path, 'wb') as f:
-        f.write(struct.pack('<III', 0x46546C67, 2, 12 + 8 + len(js) + 8 + len(binary)))
-        f.write(struct.pack('<II', len(js), 0x4E4F534A) + js)
-        f.write(struct.pack('<II', len(binary), 0x004E4942) + binary)
+    write_bytes(path, struct.pack('<III', 0x46546C67, 2, 12 + 8 + len(js) + 8 + len(binary))
+                + struct.pack('<II', len(js), 0x4E4F534A) + js + struct.pack('<II', len(binary), 0x004E4942) + binary)
 
 
 # ---------------------------------------------------------------- objects and assets
 
+def write_bytes(path, data, tries=6):
+    """Write a file, retried: a viewer, indexer or scanner briefly locks a file it watches (Errno 22 on Windows)."""
+    for k in range(tries):
+        try:
+            with open(path, 'wb') as f:
+                f.write(data)
+            return
+        except OSError:
+            if k == tries - 1:
+                raise
+            time.sleep(3)
+
+
+def save_image(im, path, tries=6):
+    """im.save, retried: a viewer or indexer briefly locks a file it watches (Errno 22 on Windows)."""
+    for k in range(tries):
+        try:
+            return im.save(path)
+        except OSError:
+            if k == tries - 1:
+                raise
+            time.sleep(2)
+
+
 def face_areas(V, F):
     t = V[F]
     return np.linalg.norm(np.cross(t[:, 1] - t[:, 0], t[:, 2] - t[:, 0]), axis=1) / 2
+
+
+def needles(pos, faces, max_faces=24, long_frac=0.08, thin_frac=0.004):
+    """Faces of the needles Tripo leaves: loose pieces (vertices welded across UV seams) of at most max_faces faces,
+    longer than long_frac of the asset size and under thin_frac of it across (second principal extent). They show as
+    thin lines sticking out of the asset. Real thin details measured on the kit stay: cords and ropes are >= 0.009
+    across, and planks, poles and flat panels are wider."""
+    size = np.ptp(pos, 0).max()
+    _, wid = np.unique(np.round(pos / (size * 1e-5)).astype(np.int64), axis=0, return_inverse=True)
+    piece = face_components(wid.reshape(-1)[faces])
+    ids, count = np.unique(piece, return_counts=True)
+    drop = np.zeros(len(faces), bool)
+    for c in ids[count <= max_faces]:
+        sel = piece == c
+        p = pos[faces[sel]].reshape(-1, 3)
+        p = p - p.mean(0)
+        ext = np.ptp(p @ np.linalg.eigh(p.T @ p)[1], 0)  # extents along the principal axes, ascending
+        if ext[2] > long_frac * size and ext[1] < thin_frac * size:
+            drop |= sel
+    return drop
 
 
 def objects(V, F, cells=260, min_faces=30):
@@ -271,7 +316,7 @@ def assign(row, V, F, obj, boxes, area):
         cuts = sorted(g[1] for g in gaps)
     else:  # assets overlap along the row: the row image's gaps, mapped onto the model's extent
         how = 'image gaps'
-        lay = json.load(open(os.path.join(row_dir(row), 'input_spaced.json')))['objects']
+        lay = spaced_layout(row_dir(row))['objects']
         x0, x1 = lay[0]['x'], lay[-1]['x'] + lay[-1]['w']
         m0, m1 = s_lo[sig].min(), s_hi[sig].max()
         cuts = [m0 + ((lay[k]['x'] + lay[k]['w'] + lay[k + 1]['x']) / 2 - x0) / (x1 - x0) * (m1 - m0) for k in range(n - 1)]
@@ -650,14 +695,31 @@ def final_views(path, title, pos, nor, uv, faces, tex, size=512):
         ImageDraw.Draw(im).text((8, 6), lab, fill=(230, 230, 230), font=font)
         out.paste(im, ((k % 2) * size, 30 + (k // 2) * size))
     ImageDraw.Draw(out).text((8, 5), title, fill=(255, 220, 120), font=font)
-    out.save(path)
+    save_image(out, path)
 
 
 # ---------------------------------------------------------------- per row
 
+def spaced_layout(d):
+    """rows/<row>/input_spaced.json as {'objects': [{'x', 'w'}], 'backdrop', 'tol'}; R30's hand-set re-spacing writes 'boxes' (dst x0 y0 x1 y1) and 'bg'."""
+    lay = json.load(open(os.path.join(d, 'input_spaced.json')))
+    if 'objects' not in lay and 'boxes' in lay:
+        lay['objects'] = [{'x': b['dst'][0], 'w': b['dst'][2] - b['dst'][0]} for b in lay['boxes']]
+        lay.setdefault('backdrop', lay.get('bg'))
+    return lay
+
+
 def concept_crop(row, k, out_path):
     d = row_dir(row)
-    lay = json.load(open(os.path.join(d, 'input_spaced.json')))
+    if not os.path.exists(os.path.join(d, 'input_spaced.json')):  # one-asset row fed whole (R24: input_r2.png)
+        im = Image.open(os.path.join(d, 'input_r2.png')).convert('RGB')
+        a = np.asarray(im).astype(int)
+        diff = np.abs(a - a[5, 5]).max(2) > 28
+        ys, xs = np.flatnonzero(diff.any(1)), np.flatnonzero(diff.any(0))
+        box = (max(xs[0] - 12, 0), max(ys[0] - 12, 0), min(xs[-1] + 13, im.width), min(ys[-1] + 13, im.height)) if len(xs) else (0, 0, im.width, im.height)
+        save_image(im.crop(box), out_path)
+        return
+    lay = spaced_layout(d)
     im = Image.open(os.path.join(d, 'input_spaced.png')).convert('RGB')
     o = lay['objects'][k]
     a = np.asarray(im).astype(int)
@@ -666,7 +728,7 @@ def concept_crop(row, k, out_path):
     diff = np.abs(a[:, x0:x1] - bg).max(2) > lay.get('tol', 22) + 6
     rows_ = np.flatnonzero(diff.any(1))
     y0, y1 = (max(rows_[0] - 12, 0), min(rows_[-1] + 12, im.height)) if len(rows_) else (0, im.height)
-    im.crop((x0, y0, x1, y1)).save(out_path)
+    save_image(im.crop((x0, y0, x1, y1)), out_path)
 
 
 def list_row(row):
@@ -734,8 +796,37 @@ def split_row(row):
         pos, nor, uv = V[used].copy(), Nn[used].copy(), UVs[used].copy()
         fc = inv.reshape(-1, 3)
         fa = area[sel]
+        nd = needles(pos, fc)
+        needle_area = float(fa[nd].sum() / fa.sum())
+        if nd.any():  # drop them and the vertices only they used (a needle tip would set the bounds)
+            fc, fa = fc[~nd], fa[~nd]
+            u2, i2 = np.unique(fc, return_inverse=True)
+            pos, nor, uv = pos[u2], nor[u2], uv[u2]
+            fc = i2.reshape(-1, 3)
+        red_faces = 0
+        if cfg.get('drop_floor_red'):  # loose red bits lying on the floor (R33 petals): small welded parts, low, red in the atlas
+            o_ = cfg['drop_floor_red']
+            comp = weld_components(fc, pos)
+            _, cinv = np.unique(comp, return_inverse=True)
+            tex = np.asarray(maps_raw['base'].convert('RGB')).astype(float)
+            cuv = uv[fc].mean(1)
+            col = tex[np.clip((cuv[:, 1] % 1) * tex.shape[0], 0, tex.shape[0] - 1).astype(int), np.clip((cuv[:, 0] % 1) * tex.shape[1], 0, tex.shape[1] - 1).astype(int)]
+            n_ = np.bincount(cinv)
+            top = np.full(len(n_), -np.inf)
+            np.maximum.at(top, cinv, pos[fc][:, :, 1].max(1))
+            cm = np.zeros((len(n_), 3))
+            np.add.at(cm, cinv, col)
+            cm /= n_[:, None]
+            bad = ((top - pos[:, 1].min()) <= o_.get('max_height', 0.1) * np.ptp(pos[:, 1])) & (n_ <= o_.get('max_faces', 150))                 & (cm[:, 0] >= o_.get('ratio', 1.2) * cm[:, 1:].max(1))
+            drop = bad[cinv]
+            red_faces = int(drop.sum())
+            if red_faces:
+                fc, fa = fc[~drop], fa[~drop]
+                u2, i2 = np.unique(fc, return_inverse=True)
+                pos, nor, uv = pos[u2], nor[u2], uv[u2]
+                fc = i2.reshape(-1, 3)
         area_v = np.bincount(fc.ravel(), weights=np.repeat(fa / 3, 3), minlength=len(pos))
-        up, tilt, s0, s1 = level(pos)
+        up, tilt, s0, s1 = (UP.copy(), 0.0, 0.0, 0.0) if cfg.get('upright') else level(pos)  # upright: curved bottoms
         R = rotation_to_y(up)
         pos, nor = pos @ R.T, nor @ R.T
         cut_faces = 0
@@ -795,17 +886,20 @@ def split_row(row):
         rec = {'id': cfg['id'], 'slug': cfg['slug'], 'name': cfg['name'], 'dir': folder, 'glb': f'{folder}/{name}.glb',
                'mb': round(os.path.getsize(path) / 1e6, 1), 'tris': int(len(fc)), 'objects': keep, 'strays': strays,
                'stray_faces': int(sum((obj == k).sum() for k in strays)), 'cut_faces': cut_faces,
+               'needle_faces': int(nd.sum()), 'needle_area_pct': round(100 * needle_area, 4),
                'tilt_deg': round(tilt, 1), 'support_gain': round(s1 / s0, 2) if s0 else None, 'front': kind,
                'yaw_deg': round(math.degrees(yaw), 1), 'normalised': [round(float(v), 3) for v in dims],
                'real_size_m': [w, h, dd], 'm_per_unit_xyz': [round(float(v), 2) for v in k_m],
                'shape_spread': round(float(k_m.max() / k_m.min()), 2), 'texture': tex_note}
+        if cfg.get('drop_floor_red'):
+            rec['floor_red_faces_dropped'] = red_faces
         out['assets'].append(rec)
-        print(f'  {cfg["id"]:11s} {folder:28s} {len(fc):6d} tris {rec["mb"]:5.1f} MB  objs {keep} strays {strays}  tilt {tilt:4.1f}  '
+        print(f'  {cfg["id"]:11s} {folder:28s} {len(fc):6d} tris {rec["mb"]:5.1f} MB  objs {keep} strays {strays} needles {int(nd.sum())}  tilt {tilt:4.1f}  '
               f'{kind:10s} yaw {math.degrees(yaw):6.1f}  norm {dims[0]:.2f}x{dims[1]:.2f}x{dims[2]:.2f}  m/u {k_m.round(2)}  {tex_note}')
     sheet = Image.new('RGB', (520, 270 * len(previews)), (40, 40, 40))
     for i, p in enumerate(previews):
         sheet.paste(p, (0, 270 * i))
-    sheet.save(os.path.join(d, '_split', 'pieces.png'))
+    save_image(sheet, os.path.join(d, '_split', 'pieces.png'))
     json.dump(out, open(os.path.join(d, '_split', 'split.json'), 'w', encoding='utf-8'), indent=1)
     return out
 

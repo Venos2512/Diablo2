@@ -2,3 +2,10 @@
 [10-22 16:16:52] R03_village_walls_walkway: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 8213), window A6C63304819DFA2EF49B4B0E83C6542F
 [10-22 16:17:34] R03_village_walls_walkway: mesh done (credits now 8113); new models: 09a72cbe-2be2-4d56-98e5-c73f960fff00 0e5ed113-23db-46fc-b641-45bd28a8f413 513e860d-aeef-4283-96e3-4063a816885e 6d263bfc-d1d9-4047-aeeb-739c961877f9
 [10-22 16:18:27] R03_village_walls_walkway: variants (index uuid faces): 0 09a72cbe-2be2-4d56-98e5-c73f960fff00 20283;1 0e5ed113-23db-46fc-b641-45bd28a8f413 17186;2 513e860d-aeef-4283-96e3-4063a816885e 19575;3 6d263bfc-d1d9-4047-aeeb-739c961877f9 21279;
+[10-22 20:00:42] R03_village_walls_walkway: variant 0 chosen: https://studio.tripo3d.ai/workspace/generate/09a72cbe-2be2-4d56-98e5-c73f960fff00 faces 20283; texture 8K; from uv; window CD6B2FF8B776F140EDFBF0F35DF9E338
+[10-22 20:01:11] R03_village_walls_walkway: smart uv saved (credits 6918 -> 6893)
+[10-22 20:02:17] R03_village_walls_walkway: texture 8K done in 42s (credits 6893 -> 6863, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 20:02:52] R03_village_walls_walkway: pbr done (credits 6863 -> 6838)
+[10-22 20:03:08] R03_village_walls_walkway: exported act1_kit_v1_R03_village_walls_walkway.glb (format GLB, texture 8kCurrent, 25164 KB)
+[10-22 20:03:08] R03_village_walls_walkway: GLB check: {"file": "act1_kit_v1_R03_village_walls_walkway.glb", "MB": 25.8, "meshes": 1, "tris": 32685, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.338], "max": [0.5, 0.206, 0.338]}
+[10-22 20:03:29] R03_village_walls_walkway: FINISHED: balance 6808 (shared); _shots/final_views.png
