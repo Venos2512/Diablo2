@@ -54,8 +54,20 @@ chạm vật) để sửa trượt chân mà không phá clip.
 | --- | --- |
 | Gốc | `root`, `cog` |
 | Thân | `pelvis`, `spine_01`, `spine_02`, `chest`, `neck`, `head` |
-| Tay (mỗi bên) | `L_UpperArm`, `L_ForeArm`, `L_Hand` *(xác nhận)*, ngón tay *(tuỳ)* |
+| Tay (mỗi bên) | `L_Clavicle`, `L_UpperArm`, `L_UpperArm_twist`, `L_ForeArm`, `L_ForeArm_twist`, `L_Hand` *(xác nhận)*, ngón tay *(tuỳ)* |
 | Chân (mỗi bên) | `L_Thigh`, `L_Calf`, `L_Foot`, `L_Toe` *(xác nhận)* |
+
+**Clavicle và xương xoắn** (người dùng duyệt 2026-10-22, theo [`RIG_SKILL_WORKFLOW.md`](RIG_SKILL_WORKFLOW.md)). Áp dụng cho asset H
+và S **rig từ nay**. D01 Hodling giữ bộ 35 bone đã qua G2 (không clavicle, không xoắn); clip của D01 retarget sang skeleton mới vẫn
+được vì chỉ thiếu bone, không đổi tên.
+
+- Phân cấp tay: `chest` → `L_Clavicle` → `L_UpperArm` → `L_ForeArm` → `L_Hand`. `L_UpperArm_twist` là con của `L_UpperArm`,
+  `L_ForeArm_twist` là con của `L_ForeArm`. Cả hai đều là bone deform, chỉ có xoay quanh trục dọc của chi.
+- `L_Clavicle` đi từ khớp ức–đòn tới mỏm cùng vai. Khớp `L_UpperArm` đặt ở tâm chỏm xương cánh tay, không đặt ở mỏm cùng vai.
+- `L_ForeArm_twist` đặt ở 50% cẳng tay và nhận 50% góc xoắn dọc trục của `L_Hand`. `L_UpperArm_twist` đặt ở 1/3 trên của cánh tay
+  và khử khoảng 50% góc xoắn của `L_UpperArm` để vai không xoắn theo *(đề xuất; chốt ở benchmark P5)*.
+- Trọng số vòng xoắn tăng tuyến tính theo vị trí dọc chi. Chuyển động xoắn được bake vào clip ở R8, vì constraint không xuất được.
+- Số bone lõi H/S: từ 22 lên 28 (thêm 2 clavicle, 4 xoắn), chưa tính phụ và socket.
 | Socket | `R_weapon_attach`, `L_weapon_attach` (đã có trong bản thử), `fx_head`, `fx_chest`, `fx_hand_R`, `fx_hand_L` *(đề xuất)* |
 | Phụ (tuỳ asset) | `helmet`, `jaw`, `main_hair_*`, `*_skirt_*`, `*_charm_*`, `*_shoulder_pad` (có trong bản thử); D01 Hodling (2026-10-21, G1): `sack` (túi/ba lô cứng, con của `chest`), `loincloth_front` (mảnh khố trước, con của `pelvis`), `L_ear`, `R_ear` (con của `head`) |
 

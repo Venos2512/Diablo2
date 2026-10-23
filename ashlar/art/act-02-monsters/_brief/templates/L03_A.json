@@ -1,0 +1,101 @@
+{
+ "id": "L03",
+ "variant": "A",
+ "title": "L03 GARGOYLE MORTARER — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.6",
+ "pose": "rig",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 332,
+ "silhouette_px": [
+  118,
+  332
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 300
+    },
+    {
+     "label": "crouch top 0.90H",
+     "h": 0.9,
+     "y": 333
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h (crouched)",
+   "source_range": "0.80–1.00H (G3)",
+   "mid": 0.9,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 0.9
+  },
+  {
+   "metric": "W",
+   "source_range": "1.00–1.20H",
+   "mid": 1.1,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.1
+  }
+ ],
+ "weapon_cell": null,
+ "estimates": {
+  "notes": [
+   "LEFT/RIGHT/3/4 widths"
+  ],
+  "view_widths_H": {
+   "3/4": 1.05,
+   "LEFT": 0.85,
+   "RIGHT": 0.85,
+   "FRONT": 1.1,
+   "BACK": 1.1
+  },
+  "spans": {
+   "FRONT": {
+    "length_H": 1.1,
+    "label": "width 1.10H"
+   },
+   "BACK": {
+    "length_H": 1.1,
+    "label": "width 1.10H"
+   }
+  }
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false,
+ "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+}

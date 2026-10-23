@@ -1,0 +1,7 @@
+status: needs_revision; pending_user_review
+Built-in image_gen exact run: exec-b349ac20-8abb-4063-ba21-fdb6bf40e216.png
+QA artdirection section 11: style, clean form shading, palette, content, title/order, true back and visible silhouettes pass visual check.
+Scale measured visually in displayed 2048x683 image: H about 464 px (y118 to582), monster horn top about y164, height about418 px =0.90H; target0.995H. FAIL.
+LEFT/RIGHT facing directions correct but arms down instead of end-on shoulder-level T-pose. FAIL.
+3/4 pickaxe overlaps edge of H silhouette. FAIL separation.
+Retain original. Next generation must repair scale, side poses and gap.

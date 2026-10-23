@@ -1,0 +1,124 @@
+{
+ "row": "R32",
+ "row_glb": "rows/R32_cradle_quilt_pillow_coverlet/act1_kit_v1_R32_cradle_quilt_pillow_coverlet.glb",
+ "variant": "1",
+ "faces": 34193,
+ "objects": 3,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A24.5",
+   "slug": "turned_down_quilt",
+   "name": "Turned-down quilt",
+   "dir": "A24_5_turned_down_quilt",
+   "glb": "A24_5_turned_down_quilt/act1_kit_v1_turned_down_quilt.glb",
+   "mb": 8.6,
+   "tris": 16500,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "round",
+   "yaw_deg": 0.0,
+   "normalised": [
+    1.0,
+    0.2,
+    0.932
+   ],
+   "real_size_m": [
+    3.0,
+    0.24,
+    2.6
+   ],
+   "m_per_unit_xyz": [
+    3.0,
+    1.2,
+    2.79
+   ],
+   "shape_spread": 2.5,
+   "texture": "own atlas 5760x7152 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A24.6",
+   "slug": "linen_pillow",
+   "name": "Linen pillow",
+   "dir": "A24_6_linen_pillow",
+   "glb": "A24_6_linen_pillow/act1_kit_v1_linen_pillow.glb",
+   "mb": 3.2,
+   "tris": 5951,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "axes 1.17",
+   "yaw_deg": 6.0,
+   "normalised": [
+    1.0,
+    0.358,
+    0.865
+   ],
+   "real_size_m": [
+    1.5,
+    0.32,
+    0.75
+   ],
+   "m_per_unit_xyz": [
+    1.5,
+    0.89,
+    0.87
+   ],
+   "shape_spread": 1.73,
+   "texture": "own atlas 4992x2240 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A24.4",
+   "slug": "turned_down_coverlet",
+   "name": "Turned-down coverlet",
+   "dir": "A24_4_turned_down_coverlet",
+   "glb": "A24_4_turned_down_coverlet/act1_kit_v1_turned_down_coverlet.glb",
+   "mb": 7.3,
+   "tris": 11742,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "axes 2.45",
+   "yaw_deg": -2.9,
+   "normalised": [
+    0.42,
+    0.186,
+    1.0
+   ],
+   "real_size_m": [
+    1.14,
+    0.12,
+    1.9
+   ],
+   "m_per_unit_xyz": [
+    2.72,
+    0.65,
+    1.9
+   ],
+   "shape_spread": 4.21,
+   "texture": "own atlas 7040x4272 (row atlas 8192x8192)"
+  }
+ ]
+}

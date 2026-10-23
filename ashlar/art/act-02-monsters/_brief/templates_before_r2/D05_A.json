@@ -1,0 +1,99 @@
+{
+ "id": "D05",
+ "variant": "A",
+ "title": "D05 HORNCLAN CINDER-CLAN — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.2",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 355,
+ "silhouette_px": [
+  126,
+  355
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "WEAPON",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 277
+    },
+    {
+     "label": "crown 0.995H",
+     "h": 0.995,
+     "y": 279
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "WEAPON",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h (Raider/Slinger/Chanter)",
+   "source_range": "0.90–1.09H (G3)",
+   "mid": 0.995,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 0.995
+  },
+  {
+   "metric": "h (Breaker rank, NOT drawn)",
+   "source_range": "1.10–1.20H (G4)",
+   "mid": 1.15,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.15
+  }
+ ],
+ "weapon_cell": {
+  "kind": "WEAPON",
+  "contents": "the pickaxe and the trough, side by side"
+ },
+ "estimates": {
+  "notes": [
+   "view widths",
+   "WEAPON cell width",
+   "the Breaker 1.15H rank is recorded only; the guide is the base clan"
+  ],
+  "view_widths_H": {
+   "3/4": 0.75,
+   "WEAPON": 0.6,
+   "LEFT": 0.5,
+   "RIGHT": 0.5,
+   "FRONT": 1.1,
+   "BACK": 1.1
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}

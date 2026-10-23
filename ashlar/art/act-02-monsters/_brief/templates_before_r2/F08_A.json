@@ -1,0 +1,91 @@
+{
+ "id": "F08",
+ "variant": "A",
+ "title": "F08 HALO KNIGHT — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.4",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 300,
+ "silhouette_px": [
+  107,
+  300
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "WEAPON",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 332
+    },
+    {
+     "label": "crown 1.15H",
+     "h": 1.15,
+     "y": 287
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "WEAPON",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h (incl. inward-spike halo)",
+   "source_range": "1.10–1.20H (G4)",
+   "mid": 1.15,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.15
+  }
+ ],
+ "weapon_cell": {
+  "kind": "WEAPON",
+  "contents": "the heavy two-handed slam weapon"
+ },
+ "estimates": {
+  "notes": [
+   "view widths",
+   "WEAPON cell width",
+   "weapon type is not stated in the source (only \"cú đập lan ra lửa thánh\")"
+  ],
+  "view_widths_H": {
+   "3/4": 0.9,
+   "WEAPON": 0.55,
+   "LEFT": 0.65,
+   "RIGHT": 0.65,
+   "FRONT": 1.35,
+   "BACK": 1.35
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}

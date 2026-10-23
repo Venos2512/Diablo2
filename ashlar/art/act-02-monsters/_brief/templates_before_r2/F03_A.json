@@ -1,0 +1,107 @@
+{
+ "id": "F03",
+ "variant": "A",
+ "title": "F03 EXHUMER — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.4",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 322,
+ "silhouette_px": [
+  114,
+  322
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "WEAPON",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 310
+    },
+    {
+     "label": "crown 1.025H",
+     "h": 1.025,
+     "y": 302
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "WEAPON",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h",
+   "source_range": "1.00–1.05H (G3)",
+   "mid": 1.025,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.025
+  },
+  {
+   "metric": "W (hat brim)",
+   "source_range": "0.40–0.50H",
+   "mid": 0.45,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 0.45
+  }
+ ],
+ "weapon_cell": {
+  "kind": "WEAPON",
+  "contents": "the long-bladed spade, the hooded lantern and the crossbow, side by side"
+ },
+ "estimates": {
+  "notes": [
+   "view widths",
+   "WEAPON cell width"
+  ],
+  "view_widths_H": {
+   "3/4": 0.8,
+   "WEAPON": 0.75,
+   "LEFT": 0.55,
+   "RIGHT": 0.55,
+   "FRONT": 1.2,
+   "BACK": 1.2
+  },
+  "spans": {
+   "FRONT": {
+    "length_H": 0.45,
+    "label": "brim 0.45H"
+   },
+   "BACK": {
+    "length_H": 0.45,
+    "label": "brim 0.45H"
+   }
+  }
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}

@@ -1,0 +1,983 @@
+{
+ "manifestVersion": 1,
+ "title": "ASHLAR Act I kit v1: Tripo row images R23-R33 for the concept groups A21-A25 (AD 3.7 TRIPO ROW INPUT)",
+ "createdDate": "2026-10-22",
+ "projectRoot": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows",
+ "workdir": "E:/Diablo2",
+ "overwritePolicy": "never overwrite; reruns get a new tag (_r2 ...) with a new prompt file and output path",
+ "gate": "run a row only when the chosen perspective AND turnaround of every group in it passed QA (AD 3.7); the sheet paths come from rows_spec_a2x.SHEETS",
+ "runner": {
+  "script": "E:/act1-env-batch/rows/rows_batch.py --manifest <this file>",
+  "model": "gpt-6-astra",
+  "codexHome": "E:/map01-batch/home-nam",
+  "defaultParallel": 4,
+  "defaultAttempts": 2,
+  "defaultTimeoutSeconds": 1500
+ },
+ "counts": {
+  "groups": 11,
+  "jobs": 11,
+  "assets": 30
+ },
+ "groups": [
+  {
+   "id": "R23",
+   "slug": "leaning_stones_root_arch",
+   "assets": [
+    "A21.5",
+    "A25.1"
+   ],
+   "layout": {
+    "scale": 117.6,
+    "base": 871,
+    "gap": 198,
+    "boxes": [
+     {
+      "cx": 339,
+      "w": 538,
+      "h": 619,
+      "up": 1.0
+     },
+     {
+      "cx": 1136,
+      "w": 660,
+      "h": 661,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R24",
+   "slug": "ribbon_thorn",
+   "assets": [
+    "A23.2"
+   ],
+   "layout": {
+    "scale": 111.6,
+    "base": 920,
+    "gap": 0,
+    "boxes": [
+     {
+      "cx": 768,
+      "w": 869,
+      "h": 760,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R25",
+   "slug": "barrow_door_flint_wall",
+   "assets": [
+    "A21.1",
+    "A21.2"
+   ],
+   "layout": {
+    "scale": 189.8,
+    "base": 894,
+    "gap": 216,
+    "boxes": [
+     {
+      "cx": 300,
+      "w": 460,
+      "h": 598,
+      "up": 1.0
+     },
+     {
+      "cx": 1106,
+      "w": 720,
+      "h": 707,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R26",
+   "slug": "root_fall_drying_line",
+   "assets": [
+    "A25.3",
+    "A23.6"
+   ],
+   "layout": {
+    "scale": 99.6,
+    "base": 731,
+    "gap": 205,
+    "boxes": [
+     {
+      "cx": 412,
+      "w": 684,
+      "h": 381,
+      "up": 1.0
+     },
+     {
+      "cx": 1213,
+      "w": 507,
+      "h": 283,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R27",
+   "slug": "peat_chair_bog_grave",
+   "assets": [
+    "A21.3",
+    "A21.4",
+    "A21.6"
+   ],
+   "layout": {
+    "scale": 216.1,
+    "base": 764,
+    "gap": 122,
+    "boxes": [
+     {
+      "cx": 274,
+      "w": 407,
+      "h": 303,
+      "up": 1.0
+     },
+     {
+      "cx": 690,
+      "w": 181,
+      "h": 237,
+      "up": 1.0
+     },
+     {
+      "cx": 1202,
+      "w": 528,
+      "h": 448,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R28",
+   "slug": "toll_post_crook_cairn",
+   "assets": [
+    "A22.2",
+    "A22.5",
+    "A22.4"
+   ],
+   "layout": {
+    "scale": 332.4,
+    "base": 833,
+    "gap": 102,
+    "boxes": [
+     {
+      "cx": 186,
+      "w": 231,
+      "h": 472,
+      "up": 1.0
+     },
+     {
+      "cx": 574,
+      "w": 340,
+      "h": 585,
+      "up": 1.0
+     },
+     {
+      "cx": 1188,
+      "w": 555,
+      "h": 462,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R29",
+   "slug": "cradle_shoes_doll",
+   "assets": [
+    "A22.3",
+    "A22.1",
+    "A22.6"
+   ],
+   "layout": {
+    "scale": 519.4,
+    "base": 783,
+    "gap": 98,
+    "boxes": [
+     {
+      "cx": 372,
+      "w": 604,
+      "h": 486,
+      "up": 1.0
+     },
+     {
+      "cx": 1018,
+      "w": 326,
+      "h": 140,
+      "up": 1.0
+     },
+     {
+      "cx": 1372,
+      "w": 187,
+      "h": 212,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R30",
+   "slug": "reaping_garth_beds_pot",
+   "assets": [
+    "A23.1",
+    "A23.3",
+    "A23.5",
+    "A23.4"
+   ],
+   "layout": {
+    "scale": 77.9,
+    "base": 625,
+    "gap": 95,
+    "boxes": [
+     {
+      "cx": 223,
+      "w": 307,
+      "h": 160,
+      "up": 1.27
+     },
+     {
+      "cx": 655,
+      "w": 347,
+      "h": 103,
+      "up": 1.0
+     },
+     {
+      "cx": 1092,
+      "w": 318,
+      "h": 86,
+      "up": 1.0
+     },
+     {
+      "cx": 1406,
+      "w": 120,
+      "h": 171,
+      "up": 2.56
+     }
+    ]
+   }
+  },
+  {
+   "id": "R31",
+   "slug": "kitchen_table_rack_linen_table",
+   "assets": [
+    "A24.1",
+    "A24.2",
+    "A24.3"
+   ],
+   "layout": {
+    "scale": 170.2,
+    "base": 713,
+    "gap": 130,
+    "boxes": [
+     {
+      "cx": 286,
+      "w": 432,
+      "h": 218,
+      "up": 1.0
+     },
+     {
+      "cx": 768,
+      "w": 272,
+      "h": 346,
+      "up": 1.0
+     },
+     {
+      "cx": 1250,
+      "w": 432,
+      "h": 218,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R32",
+   "slug": "cradle_quilt_pillow_coverlet",
+   "assets": [
+    "A24.5",
+    "A24.6",
+    "A24.4"
+   ],
+   "layout": {
+    "scale": 134.4,
+    "base": 601,
+    "gap": 92,
+    "boxes": [
+     {
+      "cx": 335,
+      "w": 531,
+      "h": 122,
+      "up": 1.0
+     },
+     {
+      "cx": 913,
+      "w": 307,
+      "h": 107,
+      "up": 1.38
+     },
+     {
+      "cx": 1313,
+      "w": 307,
+      "h": 76,
+      "up": 1.13
+     }
+    ]
+   }
+  },
+  {
+   "id": "R33",
+   "slug": "garden_crossing_basket_kit_lantern",
+   "assets": [
+    "A25.2",
+    "A25.4",
+    "A25.5",
+    "A25.6"
+   ],
+   "layout": {
+    "scale": 199.5,
+    "base": 651,
+    "gap": 83,
+    "boxes": [
+     {
+      "cx": 324,
+      "w": 508,
+      "h": 115,
+      "up": 1.0
+     },
+     {
+      "cx": 818,
+      "w": 175,
+      "h": 171,
+      "up": 1.56
+     },
+     {
+      "cx": 1127,
+      "w": 277,
+      "h": 171,
+      "up": 1.29
+     },
+     {
+      "cx": 1407,
+      "w": 118,
+      "h": 222,
+      "up": 1.0
+     }
+    ]
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "R23_row",
+   "kind": "tripo-row",
+   "groupId": "R23",
+   "name": "R23 leaning_stones_root_arch",
+   "assets": [
+    {
+     "id": "A21.5",
+     "name": "The leaning stones (A17.1 v2)",
+     "group": "A21",
+     "cell": 5,
+     "sizeM": {
+      "w": 4.6,
+      "h": 4.6,
+      "d": 1.4
+     }
+    },
+    {
+     "id": "A25.1",
+     "name": "Root rib arch",
+     "group": "A25",
+     "cell": 1,
+     "sizeM": {
+      "w": 6.5,
+      "h": 4.9,
+      "d": 0.5
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R23_leaning_stones_root_arch.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R23_leaning_stones_root_arch/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R24_row",
+   "kind": "tripo-row",
+   "groupId": "R24",
+   "name": "R24 ribbon_thorn",
+   "assets": [
+    {
+     "id": "A23.2",
+     "name": "Ribbon thorn",
+     "group": "A23",
+     "cell": 2,
+     "sizeM": {
+      "w": 6,
+      "h": 5.5,
+      "d": 5
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R24_ribbon_thorn_r2.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R24_ribbon_thorn/input_r2.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A23 POPPY REACH TO THE GENTLE HOUSE GARTH\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": [
+    {
+     "output": "R24_ribbon_thorn/input.png",
+     "qa": "design ok (wind-swept crown, ribbons, no shoes) but a patch of grass, small plants and pebbles around the foot (AD 3.7: no turf or scenery around the asset)"
+    }
+   ]
+  },
+  {
+   "id": "R25_row",
+   "kind": "tripo-row",
+   "groupId": "R25",
+   "name": "R25 barrow_door_flint_wall",
+   "assets": [
+    {
+     "id": "A21.1",
+     "name": "Barrow vault door",
+     "group": "A21",
+     "cell": 1,
+     "sizeM": {
+      "w": 2.4,
+      "h": 2.8,
+      "d": 0.8
+     }
+    },
+    {
+     "id": "A21.2",
+     "name": "Flint retaining wall",
+     "group": "A21",
+     "cell": 2,
+     "sizeM": {
+      "w": 4,
+      "h": 3.2,
+      "d": 0.9
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R25_barrow_door_flint_wall.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R25_barrow_door_flint_wall/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R26_row",
+   "kind": "tripo-row",
+   "groupId": "R26",
+   "name": "R26 root_fall_drying_line",
+   "assets": [
+    {
+     "id": "A25.3",
+     "name": "Root fall",
+     "group": "A25",
+     "cell": 3,
+     "sizeM": {
+      "w": 4.6,
+      "h": 2.6,
+      "d": 5.4
+     }
+    },
+    {
+     "id": "A23.6",
+     "name": "Linen drying line",
+     "group": "A23",
+     "cell": 6,
+     "sizeM": {
+      "w": 6,
+      "h": 2.2,
+      "d": 0.3
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R26_root_fall_drying_line.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R26_root_fall_drying_line/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A23 POPPY REACH TO THE GENTLE HOUSE GARTH\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R27_row",
+   "kind": "tripo-row",
+   "groupId": "R27",
+   "name": "R27 peat_chair_bog_grave",
+   "assets": [
+    {
+     "id": "A21.3",
+     "name": "Peat stack",
+     "group": "A21",
+     "cell": 3,
+     "sizeM": {
+      "w": 1.6,
+      "h": 1.1,
+      "d": 1
+     }
+    },
+    {
+     "id": "A21.4",
+     "name": "Vigil chair",
+     "group": "A21",
+     "cell": 4,
+     "sizeM": {
+      "w": 0.6,
+      "h": 0.95,
+      "d": 0.6
+     }
+    },
+    {
+     "id": "A21.6",
+     "name": "Bog grave",
+     "group": "A21",
+     "cell": 6,
+     "sizeM": {
+      "w": 1.3,
+      "h": 1.6,
+      "d": 2.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R27_peat_chair_bog_grave.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R27_peat_chair_bog_grave/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R28_row",
+   "kind": "tripo-row",
+   "groupId": "R28",
+   "name": "R28 toll_post_crook_cairn",
+   "assets": [
+    {
+     "id": "A22.2",
+     "name": "Toll post with coin dish",
+     "group": "A22",
+     "cell": 2,
+     "sizeM": {
+      "w": 0.5,
+      "h": 1.3,
+      "d": 0.5
+     }
+    },
+    {
+     "id": "A22.5",
+     "name": "Crook and folded coat",
+     "group": "A22",
+     "cell": 5,
+     "sizeM": {
+      "w": 0.9,
+      "h": 1.6,
+      "d": 0.5
+     }
+    },
+    {
+     "id": "A22.4",
+     "name": "Harvester's cairn",
+     "group": "A22",
+     "cell": 4,
+     "sizeM": {
+      "w": 1.2,
+      "h": 1.1,
+      "d": 1.2
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R28_toll_post_crook_cairn.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R28_toll_post_crook_cairn/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A22_things_left_behind/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A22 THINGS LEFT BEHIND\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A22_things_left_behind/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R29_row",
+   "kind": "tripo-row",
+   "groupId": "R29",
+   "name": "R29 cradle_shoes_doll",
+   "assets": [
+    {
+     "id": "A22.3",
+     "name": "Empty wicker cradle",
+     "group": "A22",
+     "cell": 3,
+     "sizeM": {
+      "w": 1.0,
+      "h": 0.75,
+      "d": 0.6
+     }
+    },
+    {
+     "id": "A22.1",
+     "name": "Worn shoes (pair)",
+     "group": "A22",
+     "cell": 1,
+     "sizeM": {
+      "w": 0.45,
+      "h": 0.16,
+      "d": 0.45
+     }
+    },
+    {
+     "id": "A22.6",
+     "name": "Straw doll",
+     "group": "A22",
+     "cell": 6,
+     "sizeM": {
+      "w": 0.3,
+      "h": 0.35,
+      "d": 0.2
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R29_cradle_shoes_doll.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R29_cradle_shoes_doll/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A22_things_left_behind/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A22 THINGS LEFT BEHIND\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A22_things_left_behind/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R30_row",
+   "kind": "tripo-row",
+   "groupId": "R30",
+   "name": "R30 reaping_garth_beds_pot",
+   "assets": [
+    {
+     "id": "A23.1",
+     "name": "Abandoned reaping",
+     "group": "A23",
+     "cell": 1,
+     "sizeM": {
+      "w": 2.4,
+      "h": 1.1,
+      "d": 2
+     }
+    },
+    {
+     "id": "A23.3",
+     "name": "Garth flower bed",
+     "group": "A23",
+     "cell": 3,
+     "sizeM": {
+      "w": 3.2,
+      "h": 0.55,
+      "d": 3.2
+     }
+    },
+    {
+     "id": "A23.5",
+     "name": "Walled flower bed",
+     "group": "A23",
+     "cell": 5,
+     "sizeM": {
+      "w": 4,
+      "h": 0.5,
+      "d": 1.4
+     }
+    },
+    {
+     "id": "A23.4",
+     "name": "Potted flowers",
+     "group": "A23",
+     "cell": 4,
+     "sizeM": {
+      "w": 0.6,
+      "h": 0.75,
+      "d": 0.6
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R30_reaping_garth_beds_pot.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R30_reaping_garth_beds_pot/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A23 POPPY REACH TO THE GENTLE HOUSE GARTH\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R31_row",
+   "kind": "tripo-row",
+   "groupId": "R31",
+   "name": "R31 kitchen_table_rack_linen_table",
+   "assets": [
+    {
+     "id": "A24.1",
+     "name": "Kitchen work table",
+     "group": "A24",
+     "cell": 1,
+     "sizeM": {
+      "w": 2.4,
+      "h": 0.9,
+      "d": 1
+     }
+    },
+    {
+     "id": "A24.2",
+     "name": "Bread rack",
+     "group": "A24",
+     "cell": 2,
+     "sizeM": {
+      "w": 1.6,
+      "h": 1.8,
+      "d": 0.5
+     }
+    },
+    {
+     "id": "A24.3",
+     "name": "Linen folding table",
+     "group": "A24",
+     "cell": 3,
+     "sizeM": {
+      "w": 2.4,
+      "h": 0.9,
+      "d": 1
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R31_kitchen_table_rack_linen_table.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R31_kitchen_table_rack_linen_table/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A24 MERCY LINEN AND BREAD\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R32_row",
+   "kind": "tripo-row",
+   "groupId": "R32",
+   "name": "R32 cradle_quilt_pillow_coverlet",
+   "assets": [
+    {
+     "id": "A24.5",
+     "name": "Turned-down quilt",
+     "group": "A24",
+     "cell": 5,
+     "sizeM": {
+      "w": 3,
+      "h": 0.24,
+      "d": 2.6
+     }
+    },
+    {
+     "id": "A24.6",
+     "name": "Linen pillow",
+     "group": "A24",
+     "cell": 6,
+     "sizeM": {
+      "w": 1.5,
+      "h": 0.32,
+      "d": 0.75
+     }
+    },
+    {
+     "id": "A24.4",
+     "name": "Turned-down coverlet",
+     "group": "A24",
+     "cell": 4,
+     "sizeM": {
+      "w": 1.14,
+      "h": 0.12,
+      "d": 1.9
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R32_cradle_quilt_pillow_coverlet.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R32_cradle_quilt_pillow_coverlet/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A24 MERCY LINEN AND BREAD\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R33_row",
+   "kind": "tripo-row",
+   "groupId": "R33",
+   "name": "R33 garden_crossing_basket_kit_lantern",
+   "assets": [
+    {
+     "id": "A25.2",
+     "name": "Plank crossing",
+     "group": "A25",
+     "cell": 2,
+     "sizeM": {
+      "w": 1.5,
+      "h": 0.1,
+      "d": 2.3
+     }
+    },
+    {
+     "id": "A25.4",
+     "name": "Harvest basket",
+     "group": "A25",
+     "cell": 4,
+     "sizeM": {
+      "w": 0.56,
+      "h": 0.45,
+      "d": 0.56
+     }
+    },
+    {
+     "id": "A25.5",
+     "name": "Tending kit",
+     "group": "A25",
+     "cell": 5,
+     "sizeM": {
+      "w": 1,
+      "h": 0.5,
+      "d": 0.45
+     }
+    },
+    {
+     "id": "A25.6",
+     "name": "Tamsin's lantern",
+     "group": "A25",
+     "cell": 6,
+     "sizeM": {
+      "w": 0.3,
+      "h": 1.0,
+      "d": 0.6
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R33_garden_crossing_basket_kit_lantern.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R33_garden_crossing_basket_kit_lantern/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  }
+ ]
+}

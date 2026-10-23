@@ -1,0 +1,206 @@
+{
+ "manifestVersion": 1,
+ "title": "ASHLAR Act I kit v1: Tripo row images R23-R33 for the concept groups A21-A25 (AD 3.7 TRIPO ROW INPUT)",
+ "createdDate": "2026-10-22",
+ "projectRoot": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows",
+ "workdir": "E:/Diablo2",
+ "overwritePolicy": "never overwrite; reruns get a new tag (_r2 ...) with a new prompt file and output path",
+ "gate": "run a row only when the chosen perspective AND turnaround of every group in it passed QA (AD 3.7); the sheet paths come from rows_spec_a2x.SHEETS",
+ "runner": {
+  "script": "E:/act1-env-batch/rows/rows_batch.py --manifest <this file>",
+  "model": "gpt-6-astra",
+  "codexHome": "E:/map01-batch/home-nam",
+  "defaultParallel": 4,
+  "defaultAttempts": 2,
+  "defaultTimeoutSeconds": 1500
+ },
+ "counts": {
+  "groups": 2,
+  "jobs": 2,
+  "assets": 6
+ },
+ "groups": [
+  {
+   "id": "R31",
+   "slug": "kitchen_table_rack_linen_table",
+   "assets": [
+    "A24.1",
+    "A24.2",
+    "A24.3"
+   ],
+   "layout": {
+    "scale": 170.2,
+    "base": 713,
+    "gap": 130,
+    "boxes": [
+     {
+      "cx": 286,
+      "w": 432,
+      "h": 218,
+      "up": 1.0
+     },
+     {
+      "cx": 768,
+      "w": 272,
+      "h": 346,
+      "up": 1.0
+     },
+     {
+      "cx": 1250,
+      "w": 432,
+      "h": 218,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R32",
+   "slug": "cradle_quilt_pillow_coverlet",
+   "assets": [
+    "A24.5",
+    "A24.6",
+    "A24.4"
+   ],
+   "layout": {
+    "scale": 134.4,
+    "base": 601,
+    "gap": 92,
+    "boxes": [
+     {
+      "cx": 335,
+      "w": 531,
+      "h": 122,
+      "up": 1.0
+     },
+     {
+      "cx": 913,
+      "w": 307,
+      "h": 107,
+      "up": 1.38
+     },
+     {
+      "cx": 1313,
+      "w": 307,
+      "h": 76,
+      "up": 1.13
+     }
+    ]
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "R31_row",
+   "kind": "tripo-row",
+   "groupId": "R31",
+   "name": "R31 kitchen_table_rack_linen_table",
+   "assets": [
+    {
+     "id": "A24.1",
+     "name": "Kitchen work table",
+     "group": "A24",
+     "cell": 1,
+     "sizeM": {
+      "w": 2.4,
+      "h": 0.9,
+      "d": 1
+     }
+    },
+    {
+     "id": "A24.2",
+     "name": "Bread rack",
+     "group": "A24",
+     "cell": 2,
+     "sizeM": {
+      "w": 1.6,
+      "h": 1.8,
+      "d": 0.5
+     }
+    },
+    {
+     "id": "A24.3",
+     "name": "Linen folding table",
+     "group": "A24",
+     "cell": 3,
+     "sizeM": {
+      "w": 2.4,
+      "h": 0.9,
+      "d": 1
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R31_kitchen_table_rack_linen_table.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R31_kitchen_table_rack_linen_table/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A24 MERCY LINEN AND BREAD\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R32_row",
+   "kind": "tripo-row",
+   "groupId": "R32",
+   "name": "R32 cradle_quilt_pillow_coverlet",
+   "assets": [
+    {
+     "id": "A24.5",
+     "name": "Turned-down quilt",
+     "group": "A24",
+     "cell": 5,
+     "sizeM": {
+      "w": 3,
+      "h": 0.24,
+      "d": 2.6
+     }
+    },
+    {
+     "id": "A24.6",
+     "name": "Linen pillow",
+     "group": "A24",
+     "cell": 6,
+     "sizeM": {
+      "w": 1.5,
+      "h": 0.32,
+      "d": 0.75
+     }
+    },
+    {
+     "id": "A24.4",
+     "name": "Turned-down coverlet",
+     "group": "A24",
+     "cell": 4,
+     "sizeM": {
+      "w": 1.14,
+      "h": 0.12,
+      "d": 1.9
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R32_cradle_quilt_pillow_coverlet.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R32_cradle_quilt_pillow_coverlet/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A24 MERCY LINEN AND BREAD\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A24_mercy_linen_and_bread/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+[10-22 23:38:58] R31r_bread_rack: Generate 100 pressed: input input_spaced.png, polycount 5000, 4 variants (credits before 4673), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 23:39:21] R31r_bread_rack: mesh done (credits now 4573); new models: 50fd2e98-0a62-48a8-a6a2-cd2b00ffb49d 30071d57-3c09-43f2-a0af-4c11ef5be3d7 3d5434da-a15e-4e80-9241-1bad40d21cd3 1cb3c71a-354c-4521-ada4-65de7d15825a
+[10-22 23:40:14] R31r_bread_rack: variants (index uuid faces): 0 50fd2e98-0a62-48a8-a6a2-cd2b00ffb49d 5917;1 30071d57-3c09-43f2-a0af-4c11ef5be3d7 5982;2 3d5434da-a15e-4e80-9241-1bad40d21cd3 6450;3 1cb3c71a-354c-4521-ada4-65de7d15825a 6547;
+[10-22 23:43:28] R31r_bread_rack: variant 3 chosen: https://studio.tripo3d.ai/workspace/generate/1cb3c71a-354c-4521-ada4-65de7d15825a faces 6547; texture 4K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:43:51] R31r_bread_rack: smart uv saved (credits 4518 -> 4498)
+[10-22 23:44:47] R31r_bread_rack: texture 4K done in 32s (credits 4498 -> 4478, button '2K=off 4K=on 8K=off | Generate Texture 20')
+[10-22 23:45:13] R31r_bread_rack: pbr done (credits 4478 -> 4473)
+[10-22 23:45:30] R31r_bread_rack: exported act1_kit_v1_R31r_bread_rack.glb (format GLB, texture 4kCurrent, 17904 KB)
+[10-22 23:45:30] R31r_bread_rack: GLB check: {"file": "act1_kit_v1_R31r_bread_rack.glb", "MB": 18.3, "meshes": 1, "tris": 11010, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.323, 0.0, -0.141], "max": [0.323, 1.0, 0.141]}
+[10-22 23:45:52] R31r_bread_rack: FINISHED: balance 4473 (shared); _shots/final_views.png

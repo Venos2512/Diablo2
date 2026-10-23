@@ -21,7 +21,7 @@
 | `groups/<id>_<slug>/*.png` | ảnh Astra, không ghi đè ảnh nào; mỗi ảnh kèm `.prompt.txt`, `.task.txt`, `.generation.log`, `.result.txt` |
 | `_runs/*.jsonl` | log trạng thái của runner |
 
-Công cụ phiên nằm ngoài repo, ở `E:ct1-env-batch3\`: `spec_v3.py` (nội dung 30 ô), `make_frames_v3.py` (chạy `make_frames.py` của v2 trên spec này), `build_v3.py` (bản chép có chỉnh của `build_v2.py`), `versions_v3.json`.
+Công cụ phiên nằm ngoài repo, ở `E:\act1-env-batch\v3\`: `spec_v3.py` (nội dung 30 ô), `make_frames_v3.py` (chạy `make_frames.py` của v2 trên spec này), `build_v3.py` (bản chép có chỉnh của `build_v2.py`), `versions_v3.json`.
 
 ## 3. ID và kích thước đề xuất (A21.1–A25.6)
 
@@ -68,30 +68,58 @@ Công cụ phiên nằm ngoài repo, ở `E:ct1-env-batch3\`: `spec_v3.py` (n�
 | A25.5 | `N-GD09` | Tending kit | width 1 m = 0.56H, depth 0.45 m = 0.25H, height 0.5 m = 0.28H | the side with the watering can at image-right |
 | A25.6 | `N-GD15` | Tamsin's lantern | width 0.3 m = 0.17H, depth 0.6 m = 0.33H, height 1 m = 0.56H | the side the arm reaches toward (image-right) |
 
-## 4. Trạng thái từng sheet
+## 4. Trạng thái từng sheet (cập nhật 22/10 22:45)
 
-| Sheet | Ảnh đã chọn | QA | Ghi chú |
+Cả 5 nhóm đã có perspective và turnaround qua QA (AD §11). Đường dẫn tính từ `groups/`. Ghi chú tỷ lệ chỉ để biết, khi dựng model luôn lấy kích thước theo mục 3.
+
+| Nhóm | Perspective đã chọn | Turnaround đã chọn | Ghi chú QA |
 |---|---|---|---|
-| A21 perspective | chưa có | — |  |
-| A21 turnaround | chưa có | — |  |
-| A22 perspective | chưa có | — |  |
-| A22 turnaround | chưa có | — |  |
-| A23 perspective | chưa có | — |  |
-| A23 turnaround | chưa có | — |  |
-| A24 perspective | chưa có | — |  |
-| A24 turnaround | chưa có | — |  |
-| A25 perspective | chưa có | — |  |
-| A25 turnaround | chưa có | — |  |
+| A21 | `A21_barrow_terrace_fen_stones/perspective_v2g.png` | `A21_barrow_terrace_fen_stones/turnaround.png` | Ô 5 (đá nghiêng, A17.1 v2) cần ba lượt sửa. v2e: lối đi chỉ ~2,0 m. v2f: Codex vẽ dày lại tảng đá, ~2,07 m. v2g: dời hai tảng ra xa bằng code rồi để Codex vẽ lại, đo được 2,53–2,61 m (1,42–1,45H), mặt trong thẳng đứng đến 2,2 m, không đế cỏ. Turnaround vẽ lối đi hẹp hơn (~1,0H); perspective được ưu tiên. Dựng model: lối đi đúng 2,6 m. |
+| A22 | `A22_things_left_behind/perspective_v2e.png` | `A22_things_left_behind/turnaround.png` | Thẻ gỗ còn một nét sóng (không còn ký tự giống chữ Hán), ruy băng trên mô đá rủ yên. Tỷ lệ: mô đá ~0,9H, gậy ~1,15H (spec 0,61H / 0,89H). |
+| A23 | `A23_poppy_reach_to_the_garth/perspective_v2e.png` | `A23_poppy_reach_to_the_garth/turnaround.png` | Cây táo gai lệch gió, tán thành các khối lớn dạt một phía. Tỷ lệ: bó lúa ~0,9H, chậu ~0,68H. |
+| A24 | `A24_mercy_linen_and_bread/perspective.png` (bản 13:20) | `A24_mercy_linen_and_bread/turnaround.png` | Đạt ngay lượt đầu. Gối có 3 vạch đỏ mảnh (brief: một dải). |
+| A25 | `A25_garden_roots_and_tending/perspective_v2f.png` | `A25_garden_roots_and_tending/turnaround.png` | v2e: một rễ lớn, ghế 3 chân, bìa sách trơn. v2f: kính đèn trơn, không còn dây chéo X. Tỷ lệ: đống sập ~1,7×, giỏ ~1,7×, đèn ~1,35× so với spec. |
 
-## 5. Cách chạy lại
+Các bản không chọn vẫn giữ nguyên chỗ cũ (`perspective.png`, A21 `perspective_v2e.png` và `perspective_v2f.png`, A25 `perspective_v2e.png`). Ảnh đầu vào cho các lượt sửa, do code chuẩn bị, nằm trong `templates/*_editinput.png`.
+
+## 5. Chạy tiếp (đọc trước khi chạy)
+
+**Tài khoản Codex.** Lúc 19:29 ngày 22/10, `~/.codex/auth.json` bị chuyển về tài khoản CŨ (prolite, hết hạn mức đến 27/10 15:40). Lúc 19:49 bước copy `auth.json` vào `E:\map01-batch\home-nam` theo quy trình đã ghi đè token tài khoản Plus. Trên đĩa không còn bản nào của tài khoản Plus. Muốn chạy tiếp:
+
+1. Lúc 21:32 người dùng đã đăng nhập lại tài khoản Plus vào home-nam (id sha1 `8dd08959`). Từ đây **không copy auth vào home-nam nữa**, dùng nguyên như vậy.
+2. Trước mỗi lượt, kiểm bằng `python E:/tmp_act1_imgs/agent2/find_auth.py E:/map01-batch/home-nam/auth.json`: phải ra `id=8dd08959 ... plan=plus`. Tài khoản cũ là `38f4e766` (prolite). Nếu sai thì dừng và báo người dùng.
+
+**Lệnh** (chạy từ `E:/Diablo2/ashlar/art/act-01-environments`, tối đa 4 phiên song song):
 
 ```
-cp ~/.codex/auth.json /e/map01-batch/home-nam/auth.json        # tài khoản Codex mới (Plus), tối đa ~6 phiên song song
-cd E:/Diablo2/ashlar/art/act-01-environments
-python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --codex-home E:/map01-batch/home-nam --check
-python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --codex-home E:/map01-batch/home-nam --jobs A21_perspective
+python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --check
+python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --jobs A21_perspective A22_perspective A23_perspective A24_turnaround --parallel 4 --attempts 2 --status ../act-01-environments-v3/_runs/w4.jsonl
+python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --jobs A25_perspective --attempts 2 --status ../act-01-environments-v3/_runs/w4b.jsonl
+# sau khi QA từng bản v2e đạt:
+python act01_batch.py --manifest ../act-01-environments-v3/manifest.json --jobs A21_turnaround A22_turnaround A23_turnaround A25_turnaround --parallel 4 --attempts 2 --status ../act-01-environments-v3/_runs/w5.jsonl
 ```
 
-- **Chạy lại một sheet:** thêm vào `E:ct1-env-batch3ersions_v3.json` mục `{"<job>": {"tag": "_v2", "revision": ["…lỗi…"]}}`, chạy `python build_v3.py`, rồi chạy runner. Prompt đã gửi không sửa tại chỗ.
-- **Lỗi phiên** ("model at capacity", từ chối nhầm, treo): chạy lại ở **phiên mới**. Gặp lỗi hết hạn mức (usage limit) thì dừng và ghi lại.
-- **Ảnh hàng cho Tripo** của các asset này: xem `tmp/act1-base-maps/TRIPO_ROWS.md` §3 và AD §3.7 (`TRIPO ROW INPUT`).
+- **Manifest v3 từ 19:48 được sửa trực tiếp** bởi `E:\tmp_act1_imgs\agent2\write_v2e.py` (bản sao lưu ở `_runs/manifest_backup_*.json`). `versions_v3.json` đã ghi bốn bản `_v2e` ở trạng thái `frozen`, nên `build_v3.py` sẽ dừng ở A21 thay vì ghi đè manifest. Đừng ép nó chạy.
+- **Bản v2e trượt QA:** thêm hậu tố mới (`perspective_v2f.png`, prompt mới), sửa `outputPath`/`promptPath` của job và đường dẫn ảnh danh tính trong job turnaround. Không ghi đè ảnh cũ.
+- **Bản v2e trượt nhưng ảnh gốc dùng được** (A23, A25): trỏ job turnaround về `perspective.png`, rồi viết lại prompt turnaround với đúng đường dẫn đó (runner kiểm đường dẫn ảnh tham chiếu phải có trong prompt).
+- **Lỗi phiên** ("model at capacity", treo, từ chối nhầm): chạy lại ở phiên mới. **Hết hạn mức:** dừng, ghi giờ mở lại vào `tmp/act1-base-maps/IMAGES_PROGRESS.md`.
+
+## 6. Ảnh hàng cho Tripo (R23–R33): xong 22/10 22:40
+
+Đã gen và QA đủ 11 ảnh hàng cho 30 asset. Kế hoạch và ghi chú ở `tmp/act1-base-maps/TRIPO_ROWS.md` §3. **Ảnh đưa vào Tripo** là `input_spaced.png` trong `ashlar/3d/props/act1_kit_v1/rows/R##_<slug>/`. Bản này dàn lại bằng code, chỉ cắt và dời pixel, vì Astra vẽ các asset sát hoặc dính nhau. Riêng R24 chỉ có một asset nên dùng thẳng `input_r2.png`. Lượt đầu `input.png` của R24 bị loại vì có cỏ và sỏi dưới gốc. Ước tính khoảng 150 credit mỗi hàng, ≈ 1.650 credit cho cả 11 hàng.
+
+| Hàng | Asset (trái → phải) | Ảnh đưa vào Tripo |
+|---|---|---|
+| R23 | A21.5 đá nghiêng (A17.1 v2), A25.1 vòm rễ | `R23_leaning_stones_root_arch/input_spaced.png` |
+| R24 | A23.2 cây táo gai buộc ruy băng (không kèm đôi giày) | `R24_ribbon_thorn/input_r2.png` |
+| R25 | A21.1 cửa hầm Barrow, A21.2 tường kè đá lửa | `R25_barrow_door_flint_wall/input_spaced.png` |
+| R26 | A25.3 đống gạch rễ sập, A23.6 dây phơi lanh | `R26_root_fall_drying_line/input_spaced.png` |
+| R27 | A21.3 đống than bùn, A21.4 ghế canh mộ, A21.6 mộ đầm | `R27_peat_chair_bog_grave/input_spaced.png` |
+| R28 | A22.2 cột thu tiền đò, A22.5 gậy chăn cừu và áo gấp, A22.4 mô đá người gặt | `R28_toll_post_crook_cairn/input_spaced.png` |
+| R29 | A22.3 nôi mây trống, A22.1 đôi giày cũ, A22.6 búp bê rơm | `R29_cradle_shoes_doll/input_spaced.png` |
+| R30 | A23.1 bó lúa gặt dở, A23.3 luống hoa vuông, A23.5 luống hoa có tường, A23.4 chậu hoa | `R30_reaping_garth_beds_pot/input_spaced.png` (đường cắt đặt tay) |
+| R31 | A24.1 bàn bếp, A24.2 giá bánh mì, A24.3 bàn gấp vải | `R31_kitchen_table_rack_linen_table/input_spaced.png` |
+| R32 | A24.5 chăn bông lật mép, A24.6 gối lanh, A24.4 tấm phủ lật góc | `R32_cradle_quilt_pillow_coverlet/input_spaced.png` |
+| R33 | A25.2 cầu ván, A25.4 giỏ thu hoạch, A25.5 bộ đồ chăm vườn, A25.6 đèn của Tamsin | `R33_garden_crossing_basket_kit_lantern/input_spaced.png` |
+
+Công cụ ngoài repo: `E:\act1-env-batch\rows\rows_spec_a2x.py` → `build_rows_a2x.py` (`--only R.. --manifest-out ...` cho từng đợt, vì runner không chạy manifest còn thiếu sheet tham chiếu) → `rows_batch.py`. Log trạng thái ở `rows/_runs/a2x_w*.jsonl`.

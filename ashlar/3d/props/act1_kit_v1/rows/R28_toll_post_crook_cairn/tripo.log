@@ -1,0 +1,11 @@
+[10-22 23:00:11] R28_toll_post_crook_cairn: polycount set to 15000 (account default)
+[10-22 23:00:17] R28_toll_post_crook_cairn: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 5738), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 23:00:55] R28_toll_post_crook_cairn: mesh done (credits now 5638); new models: e8faf8ff-db20-438b-9474-91342f88f7d3 0e00e820-79c8-42f4-9cf4-2c2dc39dda6d cabd202b-053d-428c-889e-d0ca1fdb8886 42e8751d-1d76-47a9-8841-9b823bd068b9
+[10-22 23:01:49] R28_toll_post_crook_cairn: variants (index uuid faces): 0 e8faf8ff-db20-438b-9474-91342f88f7d3 15807;1 0e00e820-79c8-42f4-9cf4-2c2dc39dda6d 16569;2 cabd202b-053d-428c-889e-d0ca1fdb8886 16914;3 42e8751d-1d76-47a9-8841-9b823bd068b9 16926;
+[10-22 23:19:20] R28_toll_post_crook_cairn: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/cabd202b-053d-428c-889e-d0ca1fdb8886 faces 16914; texture 8K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:19:54] R28_toll_post_crook_cairn: smart uv saved (credits 4953 -> 4933)
+[10-22 23:22:09] R28_toll_post_crook_cairn: texture 8K done in 106s (credits 4933 -> 4903, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 23:22:54] R28_toll_post_crook_cairn: pbr done (credits 4903 -> 4898)
+[10-22 23:23:09] R28_toll_post_crook_cairn: exported act1_kit_v1_R28_toll_post_crook_cairn.glb (format GLB, texture 8kCurrent, 23456 KB)
+[10-22 23:23:10] R28_toll_post_crook_cairn: GLB check: {"file": "act1_kit_v1_R28_toll_post_crook_cairn.glb", "MB": 24.0, "meshes": 1, "tris": 29221, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.193], "max": [0.5, 0.437, 0.193]}
+[10-22 23:23:31] R28_toll_post_crook_cairn: FINISHED: balance 4898 (shared); _shots/final_views.png

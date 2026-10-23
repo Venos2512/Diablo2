@@ -1,0 +1,165 @@
+{
+ "row": "R33",
+ "row_glb": "rows/R33_garden_crossing_basket_kit_lantern/act1_kit_v1_R33_garden_crossing_basket_kit_lantern.glb",
+ "variant": "0",
+ "faces": 43601,
+ "objects": 6,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A25.2",
+   "slug": "plank_crossing",
+   "name": "Plank crossing",
+   "dir": "A25_2_plank_crossing",
+   "glb": "A25_2_plank_crossing/act1_kit_v1_plank_crossing.glb",
+   "mb": 6.4,
+   "tris": 1444,
+   "objects": [
+    1,
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 3.16",
+   "yaw_deg": -114.5,
+   "normalised": [
+    0.41,
+    0.081,
+    1.0
+   ],
+   "real_size_m": [
+    1.5,
+    0.1,
+    2.3
+   ],
+   "m_per_unit_xyz": [
+    3.65,
+    1.23,
+    2.3
+   ],
+   "shape_spread": 2.98,
+   "texture": "own atlas 5888x4672 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A25.4",
+   "slug": "harvest_basket",
+   "name": "Harvest basket",
+   "dir": "A25_4_harvest_basket",
+   "glb": "A25_4_harvest_basket/act1_kit_v1_harvest_basket.glb",
+   "mb": 6.5,
+   "tris": 15208,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 1.1,
+   "support_gain": 7.07,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.76,
+    0.534,
+    1.0
+   ],
+   "real_size_m": [
+    0.56,
+    0.45,
+    0.56
+   ],
+   "m_per_unit_xyz": [
+    0.74,
+    0.84,
+    0.56
+   ],
+   "shape_spread": 1.5,
+   "texture": "own atlas 6912x4512 (row atlas 8192x8192)",
+   "floor_red_faces_dropped": 360
+  },
+  {
+   "id": "A25.5",
+   "slug": "tending_kit",
+   "name": "Tending kit",
+   "dir": "A25_5_tending_kit",
+   "glb": "A25_5_tending_kit/act1_kit_v1_tending_kit.glb",
+   "mb": 3.5,
+   "tris": 2444,
+   "objects": [
+    4,
+    5
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.20",
+   "yaw_deg": 12.0,
+   "normalised": [
+    1.0,
+    0.524,
+    0.516
+   ],
+   "real_size_m": [
+    1.0,
+    0.5,
+    0.45
+   ],
+   "m_per_unit_xyz": [
+    1.0,
+    0.95,
+    0.87
+   ],
+   "shape_spread": 1.15,
+   "texture": "own atlas 6656x2480 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A25.6",
+   "slug": "tamsin_lantern",
+   "name": "Tamsin's lantern",
+   "dir": "A25_6_tamsin_lantern",
+   "glb": "A25_6_tamsin_lantern/act1_kit_v1_tamsin_lantern.glb",
+   "mb": 3.5,
+   "tris": 24145,
+   "objects": [
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.707,
+    1.0,
+    0.831
+   ],
+   "real_size_m": [
+    0.3,
+    1.0,
+    0.6
+   ],
+   "m_per_unit_xyz": [
+    0.42,
+    1.0,
+    0.72
+   ],
+   "shape_spread": 2.36,
+   "texture": "own atlas 5760x2144 (row atlas 8192x8192)"
+  }
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "manifestVersion": 1,
+ "title": "ASHLAR Act I kit v1: Tripo row images R23-R33 for the concept groups A21-A25 (AD 3.7 TRIPO ROW INPUT)",
+ "createdDate": "2026-10-22",
+ "projectRoot": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows",
+ "workdir": "E:/Diablo2",
+ "overwritePolicy": "never overwrite; reruns get a new tag (_r2 ...) with a new prompt file and output path",
+ "gate": "run a row only when the chosen perspective AND turnaround of every group in it passed QA (AD 3.7); the sheet paths come from rows_spec_a2x.SHEETS",
+ "runner": {
+  "script": "E:/act1-env-batch/rows/rows_batch.py --manifest <this file>",
+  "model": "gpt-6-astra",
+  "codexHome": "E:/map01-batch/home-nam",
+  "defaultParallel": 4,
+  "defaultAttempts": 2,
+  "defaultTimeoutSeconds": 1500
+ },
+ "counts": {
+  "groups": 2,
+  "jobs": 2,
+  "assets": 6
+ },
+ "groups": [
+  {
+   "id": "R26",
+   "slug": "root_fall_drying_line",
+   "assets": [
+    "A25.3",
+    "A23.6"
+   ],
+   "layout": {
+    "scale": 99.6,
+    "base": 731,
+    "gap": 205,
+    "boxes": [
+     {
+      "cx": 412,
+      "w": 684,
+      "h": 381,
+      "up": 1.0
+     },
+     {
+      "cx": 1213,
+      "w": 507,
+      "h": 283,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R33",
+   "slug": "garden_crossing_basket_kit_lantern",
+   "assets": [
+    "A25.2",
+    "A25.4",
+    "A25.5",
+    "A25.6"
+   ],
+   "layout": {
+    "scale": 199.5,
+    "base": 651,
+    "gap": 83,
+    "boxes": [
+     {
+      "cx": 324,
+      "w": 508,
+      "h": 115,
+      "up": 1.0
+     },
+     {
+      "cx": 818,
+      "w": 175,
+      "h": 171,
+      "up": 1.56
+     },
+     {
+      "cx": 1127,
+      "w": 277,
+      "h": 171,
+      "up": 1.29
+     },
+     {
+      "cx": 1407,
+      "w": 118,
+      "h": 222,
+      "up": 1.0
+     }
+    ]
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "R26_row",
+   "kind": "tripo-row",
+   "groupId": "R26",
+   "name": "R26 root_fall_drying_line",
+   "assets": [
+    {
+     "id": "A25.3",
+     "name": "Root fall",
+     "group": "A25",
+     "cell": 3,
+     "sizeM": {
+      "w": 4.6,
+      "h": 2.6,
+      "d": 5.4
+     }
+    },
+    {
+     "id": "A23.6",
+     "name": "Linen drying line",
+     "group": "A23",
+     "cell": 6,
+     "sizeM": {
+      "w": 6,
+      "h": 2.2,
+      "d": 0.3
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R26_root_fall_drying_line.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R26_root_fall_drying_line/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A23 POPPY REACH TO THE GENTLE HOUSE GARTH\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A23_poppy_reach_to_the_garth/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R33_row",
+   "kind": "tripo-row",
+   "groupId": "R33",
+   "name": "R33 garden_crossing_basket_kit_lantern",
+   "assets": [
+    {
+     "id": "A25.2",
+     "name": "Plank crossing",
+     "group": "A25",
+     "cell": 2,
+     "sizeM": {
+      "w": 1.5,
+      "h": 0.1,
+      "d": 2.3
+     }
+    },
+    {
+     "id": "A25.4",
+     "name": "Harvest basket",
+     "group": "A25",
+     "cell": 4,
+     "sizeM": {
+      "w": 0.56,
+      "h": 0.45,
+      "d": 0.56
+     }
+    },
+    {
+     "id": "A25.5",
+     "name": "Tending kit",
+     "group": "A25",
+     "cell": 5,
+     "sizeM": {
+      "w": 1,
+      "h": 0.5,
+      "d": 0.45
+     }
+    },
+    {
+     "id": "A25.6",
+     "name": "Tamsin's lantern",
+     "group": "A25",
+     "cell": 6,
+     "sizeM": {
+      "w": 0.3,
+      "h": 1.0,
+      "d": 0.6
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/_prompts/R33_garden_crossing_basket_kit_lantern.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/props/act1_kit_v1/rows/R33_garden_crossing_basket_kit_lantern/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01-environments-v3/groups/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  }
+ ]
+}

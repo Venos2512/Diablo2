@@ -1,0 +1,149 @@
+{
+ "row": "R31",
+ "row_glb": "rows/R31_kitchen_table_rack_linen_table/act1_kit_v1_R31_kitchen_table_rack_linen_table.glb",
+ "variant": "1",
+ "faces": 28254,
+ "objects": 28,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A24.1",
+   "slug": "kitchen_table",
+   "name": "Kitchen work table",
+   "dir": "A24_1_kitchen_table",
+   "glb": "A24_1_kitchen_table/act1_kit_v1_kitchen_table.glb",
+   "mb": 3.4,
+   "tris": 3540,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 3.03",
+   "yaw_deg": 3.6,
+   "normalised": [
+    1.0,
+    0.463,
+    0.42
+   ],
+   "real_size_m": [
+    2.4,
+    0.9,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    1.94,
+    2.38
+   ],
+   "shape_spread": 1.23,
+   "texture": "own atlas 3840x4032 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A24.2-board",
+   "slug": "bread_rack_with_board",
+   "name": "Bread rack",
+   "dir": "rows/R31_kitchen_table_rack_linen_table/_split/rejected_A24_2_bread_rack_with_board",
+   "glb": "rows/R31_kitchen_table_rack_linen_table/_split/rejected_A24_2_bread_rack_with_board/act1_kit_v1_bread_rack_with_board.glb",
+   "mb": 9.0,
+   "tris": 12418,
+   "objects": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.68",
+   "yaw_deg": -7.2,
+   "normalised": [
+    0.433,
+    1.0,
+    0.194
+   ],
+   "real_size_m": [
+    1.6,
+    1.8,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    3.7,
+    1.8,
+    2.58
+   ],
+   "shape_spread": 2.05,
+   "texture": "own atlas 8192x4976 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A24.3",
+   "slug": "linen_folding_table",
+   "name": "Linen folding table",
+   "dir": "A24_3_linen_folding_table",
+   "glb": "A24_3_linen_folding_table/act1_kit_v1_linen_folding_table.glb",
+   "mb": 5.7,
+   "tris": 12296,
+   "objects": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.02,
+   "front": "axes 3.05",
+   "yaw_deg": -22.4,
+   "normalised": [
+    1.0,
+    0.455,
+    0.43
+   ],
+   "real_size_m": [
+    2.4,
+    0.9,
+    1.0
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    1.98,
+    2.33
+   ],
+   "shape_spread": 1.21,
+   "texture": "own atlas 7168x3504 (row atlas 8192x8192)"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "source": "../R31_kitchen_table_rack_linen_table/input_spaced.png",
+ "output": "input_spaced.png",
+ "size": [
+  1024,
+  1024
+ ],
+ "backdrop": [
+  145,
+  146,
+  148
+ ],
+ "tol": 22,
+ "objects": [
+  {
+   "x": 310,
+   "w": 404,
+   "srcX": [
+    784,
+    1188
+   ],
+   "srcY": [
+    190,
+    740
+   ]
+  }
+ ],
+ "note": "A24.2 bread rack cut from the R31 row image and centred on the same flat backdrop for a one-asset Tripo rerun (every R31 variant fused a large board onto the top shelf); no pixel drawn"
+}

@@ -1,0 +1,95 @@
+{
+ "id": "P08",
+ "variant": "B",
+ "title": "P08 KNEELER — B",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.5",
+ "pose": "kneel",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 362,
+ "silhouette_px": [
+  129,
+  362
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 270
+    },
+    {
+     "label": "kneeling 0.675H",
+     "h": 0.675,
+     "y": 388
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h (kneeling)",
+   "source_range": "0.60–0.75H (G2, quỳ)",
+   "mid": 0.675,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 0.675
+  }
+ ],
+ "weapon_cell": null,
+ "estimates": {
+  "notes": [
+   "view widths",
+   "FRONT/BACK width 1.05H = T-pose arm span ~1H plus margin (was 0.70H)"
+  ],
+  "view_widths_H": {
+   "3/4": 0.8,
+   "LEFT": 0.8,
+   "RIGHT": 0.8,
+   "FRONT": 1.05,
+   "BACK": 1.05
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": true,
+ "span_ruler": false,
+ "kneel": "both knees on the ground/baseline, shins flat behind, hips back toward the heels, stiff upright torso; head top at 0.675H; NO standing canon drawn",
+ "view_notes": {
+  "3/4": "stiff kneel (dead worshipper risen stiffly from the pew, still kneeling; no crawl)",
+  "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose: arms level with the shoulders, arm span ~1H (estimate), kneeling legs preserved"
+ },
+ "alias": {
+  "name": "the Kneeling Dead",
+  "status": "not approved",
+  "source": "ASHLAR_MONSTER_CHECKLIST_VI.md item 1 / QUY_CHUAN 4.5",
+  "use": "metadata only: the title and every prompt use KNEELER; the ID P08 differentiates it from F04 Kneeler"
+ }
+}

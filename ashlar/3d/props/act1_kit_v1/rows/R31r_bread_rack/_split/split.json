@@ -1,0 +1,53 @@
+{
+ "row": "R31r",
+ "row_glb": "rows/R31r_bread_rack/act1_kit_v1_R31r_bread_rack.glb",
+ "variant": "3",
+ "faces": 11010,
+ "objects": 6,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A24.2",
+   "slug": "bread_rack",
+   "name": "Bread rack",
+   "dir": "A24_2_bread_rack",
+   "glb": "A24_2_bread_rack/act1_kit_v1_bread_rack.glb",
+   "mb": 18.3,
+   "tris": 11010,
+   "objects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 2.72",
+   "yaw_deg": 3.2,
+   "normalised": [
+    0.66,
+    1.0,
+    0.317
+   ],
+   "real_size_m": [
+    1.6,
+    1.8,
+    0.5
+   ],
+   "m_per_unit_xyz": [
+    2.43,
+    1.8,
+    1.58
+   ],
+   "shape_spread": 1.54,
+   "texture": "row atlas kept whole"
+  }
+ ]
+}

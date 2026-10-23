@@ -79,7 +79,7 @@ Cả dải của nhóm lẫn dải số đo ghi cho từng quái đều là nử
 | **Ld1** | [0.20, 0.50) | Mortar-Rat, Mire-Sucker, Glass Wasp, Brine Leech, Corpse-Candle (đường kính ngọn) |
 | **Ld2** | [0.50, 1.00) | Gibbet-Crow (W), Static Scarab (L), Bell-Bat (W) |
 | **Ld3** | [1.00, 2.00) | Grave-Wolf (L), Plumb-Hound (L), Pillar-Crab (L) |
-| **Ld4** | [2.00, 4.00) | Kiln-Bull (L), Glass Stag (L), Hauler (L) |
+| **Ld4** | [2.00, 4.00) | Glass Stag (L), Hauler (L) |
 | **Ld5** | [4.00, 6.00] | Chỉ giun khổng lồ (Brine-Worm mẹ, W09). Cận trên 6.00 đóng |
 
 ### 1.4 Quy ước theo loại quái
@@ -88,7 +88,7 @@ Cả dải của nhóm lẫn dải số đo ghi cho từng quái đều là nử
 - **Bốn chân:** dùng `V` theo cùng thang G, và `L` theo thang Ld.
 - **Bay:** dùng `W` theo thang Ld, và `h` khi đứng.
 - **Rắn, giun, người-lươn:** dùng `L` theo thang Ld. Không dùng h làm cỡ quái.
-- **Tổ hợp (Kiln-Bull, Pillar-Crab):** ghi cả hai, và đo phần chính. `V` luôn đo bằng thang G, `L` và `W` bằng thang Ld; không gắn nhãn G cho `W`/`L` hay nhãn Ld cho `h`/`V`.
+- **Tổ hợp (Pillar-Crab):** ghi cả hai, và đo phần chính. `V` luôn đo bằng thang G, `L` và `W` bằng thang Ld; không gắn nhãn G cho `W`/`L` hay nhãn Ld cho `h`/`V`. Kiln-Bull đã chuyển sang hai chân, dùng `h` theo quyết định 23/10/2026.
 
 ### 1.5 Boss theo camera arena (Proposal)
 
@@ -260,7 +260,7 @@ Mục này gom boss theo họ. Số đo và palette ở bảng chi tiết mục 
 |---|---|---|---|---|---|---|---|
 | D01 | Hodling (→ Ember-Hod → Slag-Hod → Kiln-Hod) | I (Flint Delvings) · III (Old Salt Mine, muối trắng) · IV (siege, sương) | h 0.25–0.30H [Đề xuất từ "knee-high" Canon] (G1). Bậc cao +5% | Đất nung `#9C4A2C`, men nứt `#5A2A1E`; khe `#E2622B` | Cao tới gối, sừng ngắn, vũ khí bay thợ hồ; **đông, lách cách** | Đi bầy, rít. Một con vỡ thì cả bầy hoảng, rồi tụ lại | Cast §3.7; LD §11.8 |
 | D02 | Kiln-Shaman | I · III · IV (đi cùng D01) | h 0.30–0.40H (G1) có nồi; nồi cõng lên thêm 0.10–0.15H | Mặt muội `#17151A`, nồi `#5A2A1E`; khe `#E2622B` | Nồi than khói trên lưng; **nhịp sáng phập phồng** | Nung lại Hodling đã vỡ; phun than hồng | Cast §3.7; LD §11.8 |
-| D03 | Kiln-Bull | I (Flint Delvings) · IV (siege, húc cổng) | V 1.10–1.20H (G4); L 2.00–2.40H (Ld4) | Đất nung `#9C4A2C`; mũi phát sáng `#E2622B` | Sừng khổng lồ, lỗ mũi sáng, **tiếng vó trước hình** | Lao ra từ bóng tối; tiếng vó nghe thấy trước | Cast §3.7, §6.5 |
+| D03 | Kiln-Bull | I (Flint Delvings) · IV (siege, húc cổng) | **h 1.40H (G4), hai chân — người dùng chốt 23/10/2026**, thay V/L cũ | Đất nung `#9C4A2C`; mũi phát sáng `#E2622B` | Hai chân, tay lớn, thân bulky; sừng, lỗ mũi sáng, **tiếng vó trước hình** | Lao ra từ bóng tối; tiếng vó nghe thấy trước | Cast §3.7, §6.5; quyết định người dùng 23/10/2026 |
 | D04 | Tithe-Thief | Mọi act, hiếm (Flint Delvings lần đầu) | h 0.35–0.44H (G1, phần cao). Có túi | Đất nung `#9C4A2C`, túi vải `#6B5F4E`; accent Act nào cũng được | Béo, lảo đảo, bao tiền; **tròn, nhỏ** | Chạy trốn vào khe Tường nếu không bắt kịp; chết thì tung loot | Cast §3.7, §8.1; LD §7.7 |
 | D05 | Hornclan Cinder-Clan (Raider → Slinger → Chanter → Breaker) | II (Pilgrim Road) | h 0.90–1.09H (G3); Breaker 1.10–1.20H (G4) | Đất đen muội `#17151A`, vết nứt đỏ than `#E2622B` | Đầu dê, chân dê, sừng móc, cuốc và máng; **cỡ người, dáng dê** | Đánh theo toán: Raider cận chiến, Slinger ném đá nóng, Chanter dùng phép lửa. Hăng hơn gần lửa. Chanting số đếm, không hô chiến | Cast §4.1, §12; [Conflict: bậc giữa chưa có tên] |
 | D06 | Hornclan Salt-Clan | III (Old Salt Mine) | h 0.95–1.05H (G3) | Men trắng xương `#EDEAE0`; sừng mòn; accent Act III `#9E1B1B` | Sừng mòn vì cuốc muối; **trắng, khô** | Raider và Slinger như D05. Chanter ném bụi muối gây mù | Cast §5.7 |

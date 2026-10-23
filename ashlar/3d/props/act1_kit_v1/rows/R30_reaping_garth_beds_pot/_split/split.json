@@ -1,0 +1,164 @@
+{
+ "row": "R30",
+ "row_glb": "rows/R30_reaping_garth_beds_pot/act1_kit_v1_R30_reaping_garth_beds_pot.glb",
+ "variant": "1",
+ "faces": 41956,
+ "objects": 6,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A23.1",
+   "slug": "abandoned_reaping",
+   "name": "Abandoned reaping",
+   "dir": "A23_1_abandoned_reaping",
+   "glb": "A23_1_abandoned_reaping/act1_kit_v1_abandoned_reaping.glb",
+   "mb": 6.8,
+   "tris": 13941,
+   "objects": [
+    1,
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.23",
+   "yaw_deg": -72.3,
+   "normalised": [
+    1.0,
+    0.513,
+    0.826
+   ],
+   "real_size_m": [
+    2.4,
+    1.1,
+    2.0
+   ],
+   "m_per_unit_xyz": [
+    2.4,
+    2.14,
+    2.42
+   ],
+   "shape_spread": 1.13,
+   "texture": "own atlas 7808x3696 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A23.3",
+   "slug": "garth_flower_bed",
+   "name": "Garth flower bed",
+   "dir": "A23_3_garth_flower_bed",
+   "glb": "A23_3_garth_flower_bed/act1_kit_v1_garth_flower_bed.glb",
+   "mb": 8.1,
+   "tris": 12071,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 1.18",
+   "yaw_deg": 0.3,
+   "normalised": [
+    1.0,
+    0.28,
+    1.0
+   ],
+   "real_size_m": [
+    3.2,
+    0.55,
+    3.2
+   ],
+   "m_per_unit_xyz": [
+    3.2,
+    1.96,
+    3.2
+   ],
+   "shape_spread": 1.63,
+   "texture": "own atlas 7424x4352 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A23.5",
+   "slug": "walled_flower_bed",
+   "name": "Walled flower bed",
+   "dir": "A23_5_walled_flower_bed",
+   "glb": "A23_5_walled_flower_bed/act1_kit_v1_walled_flower_bed.glb",
+   "mb": 5.3,
+   "tris": 8682,
+   "objects": [
+    4
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.0,
+   "front": "axes 4.01",
+   "yaw_deg": -46.0,
+   "normalised": [
+    1.0,
+    0.274,
+    0.324
+   ],
+   "real_size_m": [
+    4.0,
+    0.5,
+    1.4
+   ],
+   "m_per_unit_xyz": [
+    4.0,
+    1.82,
+    4.32
+   ],
+   "shape_spread": 2.37,
+   "texture": "own atlas 6400x7920 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A23.4",
+   "slug": "potted_flowers",
+   "name": "Potted flowers",
+   "dir": "A23_4_potted_flowers",
+   "glb": "A23_4_potted_flowers/act1_kit_v1_potted_flowers.glb",
+   "mb": 2.3,
+   "tris": 7262,
+   "objects": [
+    5,
+    6
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 3.8,
+   "support_gain": 1.43,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.789,
+    1.0,
+    0.8
+   ],
+   "real_size_m": [
+    0.6,
+    0.75,
+    0.6
+   ],
+   "m_per_unit_xyz": [
+    0.76,
+    0.75,
+    0.75
+   ],
+   "shape_spread": 1.01,
+   "texture": "own atlas 3840x2368 (row atlas 8192x8192)"
+  }
+ ]
+}

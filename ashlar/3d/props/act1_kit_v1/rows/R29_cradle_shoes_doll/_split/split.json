@@ -1,0 +1,124 @@
+{
+ "row": "R29",
+ "row_glb": "rows/R29_cradle_shoes_doll/act1_kit_v1_R29_cradle_shoes_doll.glb",
+ "variant": "2",
+ "faces": 30839,
+ "objects": 3,
+ "split_by": "model gaps",
+ "assets": [
+  {
+   "id": "A22.3",
+   "slug": "wicker_cradle",
+   "name": "Empty wicker cradle",
+   "dir": "A22_3_wicker_cradle",
+   "glb": "A22_3_wicker_cradle/act1_kit_v1_wicker_cradle.glb",
+   "mb": 26.8,
+   "tris": 18318,
+   "objects": [
+    1
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "axes 1.53",
+   "yaw_deg": -118.7,
+   "normalised": [
+    1.0,
+    0.619,
+    0.65
+   ],
+   "real_size_m": [
+    1.0,
+    0.75,
+    0.6
+   ],
+   "m_per_unit_xyz": [
+    1.0,
+    1.21,
+    0.92
+   ],
+   "shape_spread": 1.31,
+   "texture": "row atlas kept whole"
+  },
+  {
+   "id": "A22.1",
+   "slug": "worn_shoes",
+   "name": "Worn shoes (pair)",
+   "dir": "A22_1_worn_shoes",
+   "glb": "A22_1_worn_shoes/act1_kit_v1_worn_shoes.glb",
+   "mb": 2.3,
+   "tris": 4957,
+   "objects": [
+    2
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": null,
+   "front": "axes 1.13",
+   "yaw_deg": -56.6,
+   "normalised": [
+    1.0,
+    0.374,
+    0.982
+   ],
+   "real_size_m": [
+    0.45,
+    0.16,
+    0.45
+   ],
+   "m_per_unit_xyz": [
+    0.45,
+    0.43,
+    0.46
+   ],
+   "shape_spread": 1.07,
+   "texture": "own atlas 5504x1648 (row atlas 8192x8192)"
+  },
+  {
+   "id": "A22.6",
+   "slug": "straw_doll",
+   "name": "Straw doll",
+   "dir": "A22_6_straw_doll",
+   "glb": "A22_6_straw_doll/act1_kit_v1_straw_doll.glb",
+   "mb": 3.3,
+   "tris": 7564,
+   "objects": [
+    3
+   ],
+   "strays": [],
+   "stray_faces": 0,
+   "cut_faces": 0,
+   "needle_faces": 0,
+   "needle_area_pct": 0.0,
+   "tilt_deg": 0.0,
+   "support_gain": 1.05,
+   "front": "camera",
+   "yaw_deg": 0.0,
+   "normalised": [
+    0.907,
+    0.958,
+    1.0
+   ],
+   "real_size_m": [
+    0.3,
+    0.35,
+    0.2
+   ],
+   "m_per_unit_xyz": [
+    0.33,
+    0.37,
+    0.2
+   ],
+   "shape_spread": 1.83,
+   "texture": "own atlas 5248x2128 (row atlas 8192x8192)"
+  }
+ ]
+}

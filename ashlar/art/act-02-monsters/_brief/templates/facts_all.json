@@ -1,0 +1,4444 @@
+{
+ "U06_A": {
+  "id": "U06",
+  "variant": "A",
+  "title": "U06 PALL-WIGHT — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 276,
+  "silhouette_px": [
+   98,
+   276
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 356
+     },
+     {
+      "label": "top incl. armour 1.15H",
+      "h": 1.15,
+      "y": 315
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.10–1.20H (G4, do giáp cao)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   },
+   {
+    "metric": "coffin L",
+    "source_range": "0.80–1.00H",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the shield and the one-handed weapon, side by side; the coffin stays on the back"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "coffin is carried on the back: its 0.90H is a long-axis length, not a drawn line"
+   ],
+   "view_widths_H": {
+    "3/4": 1.05,
+    "WEAPON": 0.85,
+    "LEFT": 0.7,
+    "RIGHT": 0.7,
+    "FRONT": 1.3,
+    "BACK": 1.3
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U06_B": {
+  "id": "U06",
+  "variant": "B",
+  "title": "U06 PALL-WIGHT — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 276,
+  "silhouette_px": [
+   98,
+   276
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 356
+     },
+     {
+      "label": "top incl. armour 1.15H",
+      "h": 1.15,
+      "y": 315
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.10–1.20H (G4, do giáp cao)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   },
+   {
+    "metric": "coffin L",
+    "source_range": "0.80–1.00H",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the shield and the one-handed weapon, side by side; the coffin stays on the back"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "coffin is carried on the back: its 0.90H is a long-axis length, not a drawn line"
+   ],
+   "view_widths_H": {
+    "3/4": 1.05,
+    "WEAPON": 0.85,
+    "LEFT": 0.7,
+    "RIGHT": 0.7,
+    "FRONT": 1.3,
+    "BACK": 1.3
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U07_A": {
+  "id": "U07",
+  "variant": "A",
+  "title": "U07 PYRE-RISEN — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 399,
+  "silhouette_px": [
+   142,
+   399
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 233
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 253
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), lửa không tính vào h",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U07_B": {
+  "id": "U07",
+  "variant": "B",
+  "title": "U07 PYRE-RISEN — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 399,
+  "silhouette_px": [
+   142,
+   399
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 233
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 253
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), lửa không tính vào h",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U08_A": {
+  "id": "U08",
+  "variant": "A",
+  "title": "U08 CHARNEL CHANTER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 404,
+  "silhouette_px": [
+   143,
+   404
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 228
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 248
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), áo chùng mục",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U08_B": {
+  "id": "U08",
+  "variant": "B",
+  "title": "U08 CHARNEL CHANTER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 404,
+  "silhouette_px": [
+   143,
+   404
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 228
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 248
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), áo chùng mục",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U09_A": {
+  "id": "U09",
+  "variant": "A",
+  "title": "U09 OSSUARY-GLUTTON — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 352,
+  "silhouette_px": [
+   125,
+   352
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = crown",
+      "h": 1.0,
+      "y": 280
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.95–1.05H (G3), dính với đống xương",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths (include the stuck bone heap)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.95,
+    "LEFT": 0.8,
+    "RIGHT": 0.8,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U09_B": {
+  "id": "U09",
+  "variant": "B",
+  "title": "U09 OSSUARY-GLUTTON — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 352,
+  "silhouette_px": [
+   125,
+   352
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = crown",
+      "h": 1.0,
+      "y": 280
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.95–1.05H (G3), dính với đống xương",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths (include the stuck bone heap)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.95,
+    "LEFT": 0.8,
+    "RIGHT": 0.8,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U10_A": {
+  "id": "U10",
+  "variant": "A",
+  "title": "U10 WALLSHADE — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 419,
+  "silhouette_px": [
+   149,
+   419
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 213
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 234
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H, trong mờ alpha thấp",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.65,
+    "LEFT": 0.45,
+    "RIGHT": 0.45,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U10_B": {
+  "id": "U10",
+  "variant": "B",
+  "title": "U10 WALLSHADE — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 419,
+  "silhouette_px": [
+   149,
+   419
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 213
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 234
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H, trong mờ alpha thấp",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.65,
+    "LEFT": 0.45,
+    "RIGHT": 0.45,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U11_A": {
+  "id": "U11",
+  "variant": "A",
+  "title": "U11 SCRIBE-SHADE — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 382,
+  "silhouette_px": [
+   136,
+   382
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 250
+     },
+     {
+      "label": "top 0.95H",
+      "h": 0.95,
+      "y": 269
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), cúi như đang viết",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long quill pen"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "the 3/4 view may stoop below 0.95H; the line is the neutral top"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "WEAPON": 0.3,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U11_B": {
+  "id": "U11",
+  "variant": "B",
+  "title": "U11 SCRIBE-SHADE — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 382,
+  "silhouette_px": [
+   136,
+   382
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 250
+     },
+     {
+      "label": "top 0.95H",
+      "h": 0.95,
+      "y": 269
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), cúi như đang viết",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long quill pen"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "the 3/4 view may stoop below 0.95H; the line is the neutral top"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "WEAPON": 0.3,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U12_A": {
+  "id": "U12",
+  "variant": "A",
+  "title": "U12 THE PRESSED — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "static",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 303,
+  "silhouette_px": [
+   108,
+   303
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 329
+     },
+     {
+      "label": "crown 1.35H",
+      "h": 1.35,
+      "y": 223
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.20–1.50H (G4)",
+    "mid": 1.35,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.35
+   },
+   {
+    "metric": "W",
+    "source_range": "1.00–1.30H",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "LEFT/RIGHT/3/4 widths"
+   ],
+   "view_widths_H": {
+    "3/4": 1.25,
+    "LEFT": 0.95,
+    "RIGHT": 0.95,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 1.15,
+     "label": "width 1.15H"
+    },
+    "BACK": {
+     "length_H": 1.15,
+     "label": "width 1.15H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "U12_B": {
+  "id": "U12",
+  "variant": "B",
+  "title": "U12 THE PRESSED — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.1",
+  "pose": "static",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 303,
+  "silhouette_px": [
+   108,
+   303
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 329
+     },
+     {
+      "label": "crown 1.35H",
+      "h": 1.35,
+      "y": 223
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.20–1.50H (G4)",
+    "mid": 1.35,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.35
+   },
+   {
+    "metric": "W",
+    "source_range": "1.00–1.30H",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "LEFT/RIGHT/3/4 widths"
+   ],
+   "view_widths_H": {
+    "3/4": 1.25,
+    "LEFT": 0.95,
+    "RIGHT": 0.95,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 1.15,
+     "label": "width 1.15H"
+    },
+    "BACK": {
+     "length_H": 1.15,
+     "label": "width 1.15H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "D05_A": {
+  "id": "D05",
+  "variant": "A",
+  "title": "D05 HORNCLAN CINDER-CLAN — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.2",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 353,
+  "silhouette_px": [
+   125,
+   353
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 279,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "top incl. horns 0.995H",
+      "h": 0.995,
+      "y": 281
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (Raider/Slinger/Chanter)",
+    "source_range": "0.90–1.09H (G3)",
+    "mid": 0.995,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.995
+   },
+   {
+    "metric": "h (Breaker rank, NOT drawn)",
+    "source_range": "1.10–1.20H (G4)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the pickaxe and the trough, side by side"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "the Breaker 1.15H rank is recorded only; the guide is the base clan"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.6,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "D05_B": {
+  "id": "D05",
+  "variant": "B",
+  "title": "D05 HORNCLAN CINDER-CLAN — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.2",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 353,
+  "silhouette_px": [
+   125,
+   353
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 279,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "top incl. horns 0.995H",
+      "h": 0.995,
+      "y": 281
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (Raider/Slinger/Chanter)",
+    "source_range": "0.90–1.09H (G3)",
+    "mid": 0.995,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.995
+   },
+   {
+    "metric": "h (Breaker rank, NOT drawn)",
+    "source_range": "1.10–1.20H (G4)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the pickaxe and the trough, side by side"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "the Breaker 1.15H rank is recorded only; the guide is the base clan"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.6,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "W08_A": {
+  "id": "W08",
+  "variant": "A",
+  "title": "W08 BELL-BAT — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.3",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 509,
+  "silhouette_px": [
+   181,
+   509
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 123
+     },
+     {
+      "label": "top ~0.25H",
+      "h": 0.25,
+      "y": 505,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "W (wingspan)",
+    "source_range": "0.80–1.00H",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   },
+   {
+    "metric": "body L",
+    "source_range": "0.25–0.30H",
+    "mid": 0.275,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.275
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths",
+    "top height 0.25H (no source height: ~ the body length, spread wings in FRONT/BACK)",
+    "3/4 width 0.65H (estimate: the 3/4 view may show the wings half open; was 0.40H)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.65,
+    "LEFT": 0.3,
+    "RIGHT": 0.3,
+    "FRONT": 0.9,
+    "BACK": 0.9
+   },
+   "spans": {
+    "LEFT": {
+     "length_H": 0.275,
+     "label": "body 0.275H"
+    },
+    "RIGHT": {
+     "length_H": 0.275,
+     "label": "body 0.275H"
+    },
+    "FRONT": {
+     "length_H": 0.9,
+     "label": "wingspan 0.90H"
+    },
+    "BACK": {
+     "length_H": 0.9,
+     "label": "wingspan 0.90H"
+    }
+   }
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": true
+ },
+ "W08_B": {
+  "id": "W08",
+  "variant": "B",
+  "title": "W08 BELL-BAT — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.3",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 509,
+  "silhouette_px": [
+   181,
+   509
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 123
+     },
+     {
+      "label": "top ~0.25H",
+      "h": 0.25,
+      "y": 505,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "W (wingspan)",
+    "source_range": "0.80–1.00H",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   },
+   {
+    "metric": "body L",
+    "source_range": "0.25–0.30H",
+    "mid": 0.275,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.275
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths",
+    "top height 0.25H (no source height: ~ the body length, spread wings in FRONT/BACK)",
+    "3/4 width 0.65H (estimate: the 3/4 view may show the wings half open; was 0.40H)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.65,
+    "LEFT": 0.3,
+    "RIGHT": 0.3,
+    "FRONT": 0.9,
+    "BACK": 0.9
+   },
+   "spans": {
+    "LEFT": {
+     "length_H": 0.275,
+     "label": "body 0.275H"
+    },
+    "RIGHT": {
+     "length_H": 0.275,
+     "label": "body 0.275H"
+    },
+    "FRONT": {
+     "length_H": 0.9,
+     "label": "wingspan 0.90H"
+    },
+    "BACK": {
+     "length_H": 0.9,
+     "label": "wingspan 0.90H"
+    }
+   }
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": true
+ },
+ "F03_A": {
+  "id": "F03",
+  "variant": "A",
+  "title": "F03 EXHUMER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 322,
+  "silhouette_px": [
+   114,
+   322
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 310,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 302
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.00–1.05H (G3)",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   },
+   {
+    "metric": "W (hat brim)",
+    "source_range": "0.40–0.50H",
+    "mid": 0.45,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.45
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long-bladed spade, the hooded lantern and the crossbow, side by side"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "WEAPON": 0.75,
+    "LEFT": 0.55,
+    "RIGHT": 0.55,
+    "FRONT": 1.2,
+    "BACK": 1.2
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 0.45,
+     "label": "brim 0.45H"
+    },
+    "BACK": {
+     "length_H": 0.45,
+     "label": "brim 0.45H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F03_B": {
+  "id": "F03",
+  "variant": "B",
+  "title": "F03 EXHUMER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 322,
+  "silhouette_px": [
+   114,
+   322
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 310,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 302
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.00–1.05H (G3)",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   },
+   {
+    "metric": "W (hat brim)",
+    "source_range": "0.40–0.50H",
+    "mid": 0.45,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.45
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long-bladed spade, the hooded lantern and the crossbow, side by side"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "WEAPON": 0.75,
+    "LEFT": 0.55,
+    "RIGHT": 0.55,
+    "FRONT": 1.2,
+    "BACK": 1.2
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 0.45,
+     "label": "brim 0.45H"
+    },
+    "BACK": {
+     "length_H": 0.45,
+     "label": "brim 0.45H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F04_A": {
+  "id": "F04",
+  "variant": "A",
+  "title": "F04 KNEELER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "kneel",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 259,
+  "silhouette_px": [
+   92,
+   259
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 373
+     },
+     {
+      "label": "kneeling 0.715H",
+      "h": 0.715,
+      "y": 447
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (kneeling)",
+    "source_range": "0.65–0.78H (G2, người cúi, đầu gối dính phiến)",
+    "mid": 0.715,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.715
+   },
+   {
+    "metric": "slab L",
+    "source_range": "0.90–1.10H",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the stone slab the knees are fused to, shown flat on its own"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "FRONT/BACK width 1.05H = T-pose arm span ~1H plus margin (was 0.70H)",
+    "no standing height exists in the source and none is guided"
+   ],
+   "view_widths_H": {
+    "3/4": 1.15,
+    "PROP": 1.0,
+    "LEFT": 1.05,
+    "RIGHT": 1.05,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {
+    "PROP": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    },
+    "LEFT": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    },
+    "RIGHT": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    }
+   }
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": false,
+  "kneel": "both knees on the slab/baseline, shins flat along it behind, hips back toward the heels, torso upright to hunched; head top at 0.715H; NO standing canon drawn",
+  "content": "CONTENT: the iron halo is inside the 0.715H head top. Draw it as close-fitted iron headgear (a band that sits on the head): NO penetration of the scalp, NO wound and NO blood visible (artdirection 3.8; LD 8.5 self-harm care).",
+  "view_notes": {
+   "3/4": "crawling kneeler pose (fast crawl, knees on the slab)",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose: arms level with the shoulders, arm span ~1H (estimate), kneeling legs preserved (knees on the slab, shins flat behind)"
+  }
+ },
+ "F04_B": {
+  "id": "F04",
+  "variant": "B",
+  "title": "F04 KNEELER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "kneel",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 259,
+  "silhouette_px": [
+   92,
+   259
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 373
+     },
+     {
+      "label": "kneeling 0.715H",
+      "h": 0.715,
+      "y": 447
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (kneeling)",
+    "source_range": "0.65–0.78H (G2, người cúi, đầu gối dính phiến)",
+    "mid": 0.715,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.715
+   },
+   {
+    "metric": "slab L",
+    "source_range": "0.90–1.10H",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the stone slab the knees are fused to, shown flat on its own"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "FRONT/BACK width 1.05H = T-pose arm span ~1H plus margin (was 0.70H)",
+    "no standing height exists in the source and none is guided"
+   ],
+   "view_widths_H": {
+    "3/4": 1.15,
+    "PROP": 1.0,
+    "LEFT": 1.05,
+    "RIGHT": 1.05,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {
+    "PROP": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    },
+    "LEFT": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    },
+    "RIGHT": {
+     "length_H": 1.0,
+     "label": "slab 1.00H"
+    }
+   }
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": false,
+  "kneel": "both knees on the slab/baseline, shins flat along it behind, hips back toward the heels, torso upright to hunched; head top at 0.715H; NO standing canon drawn",
+  "content": "CONTENT: the iron halo is inside the 0.715H head top. Draw it as close-fitted iron headgear (a band that sits on the head): NO penetration of the scalp, NO wound and NO blood visible (artdirection 3.8; LD 8.5 self-harm care).",
+  "view_notes": {
+   "3/4": "crawling kneeler pose (fast crawl, knees on the slab)",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose: arms level with the shoulders, arm span ~1H (estimate), kneeling legs preserved (knees on the slab, shins flat behind)"
+  }
+ },
+ "F05_A": {
+  "id": "F05",
+  "variant": "A",
+  "title": "F05 BELL-HEAD — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "bell top 1.125H",
+      "h": 1.125,
+      "y": 225
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (incl. fixed bell)",
+    "source_range": "1.10–1.15H (G4)",
+    "mid": 1.125,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.125
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "LEFT": 0.6,
+    "RIGHT": 0.6,
+    "FRONT": 1.25,
+    "BACK": 1.25
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F05_B": {
+  "id": "F05",
+  "variant": "B",
+  "title": "F05 BELL-HEAD — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "bell top 1.125H",
+      "h": 1.125,
+      "y": 225
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (incl. fixed bell)",
+    "source_range": "1.10–1.15H (G4)",
+    "mid": 1.125,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.125
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "LEFT": 0.6,
+    "RIGHT": 0.6,
+    "FRONT": 1.25,
+    "BACK": 1.25
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F06_A": {
+  "id": "F06",
+  "variant": "A",
+  "title": "F06 CENSER-BEARER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 366,
+  "silhouette_px": [
+   130,
+   366
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = crown",
+      "h": 1.0,
+      "y": 266
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (censer not counted)",
+    "source_range": "0.95–1.05H (G3)",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the iron censer with its chain coiled beside it"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.35,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F06_B": {
+  "id": "F06",
+  "variant": "B",
+  "title": "F06 CENSER-BEARER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 366,
+  "silhouette_px": [
+   130,
+   366
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = crown",
+      "h": 1.0,
+      "y": 266
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (censer not counted)",
+    "source_range": "0.95–1.05H (G3)",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the iron censer with its chain coiled beside it"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.35,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F07_A": {
+  "id": "F07",
+  "variant": "A",
+  "title": "F07 TURNED EXHUMER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 344,
+  "silhouette_px": [
+   122,
+   344
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 288,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 279
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.00–1.05H (G3), halo sắt kẹp mũ",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long-bladed spade (as F03 Exhumer)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "weapon inherited from F03 (\"Như Exhumer\")"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "WEAPON": 0.4,
+    "LEFT": 0.55,
+    "RIGHT": 0.55,
+    "FRONT": 1.2,
+    "BACK": 1.2
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F07_B": {
+  "id": "F07",
+  "variant": "B",
+  "title": "F07 TURNED EXHUMER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 344,
+  "silhouette_px": [
+   122,
+   344
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 288,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 279
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.00–1.05H (G3), halo sắt kẹp mũ",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the long-bladed spade (as F03 Exhumer)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "weapon inherited from F03 (\"Như Exhumer\")"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "WEAPON": 0.4,
+    "LEFT": 0.55,
+    "RIGHT": 0.55,
+    "FRONT": 1.2,
+    "BACK": 1.2
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F08_A": {
+  "id": "F08",
+  "variant": "A",
+  "title": "F08 HALO KNIGHT — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 300,
+  "silhouette_px": [
+   107,
+   300
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 332
+     },
+     {
+      "label": "halo top 1.15H",
+      "h": 1.15,
+      "y": 287
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (incl. inward-spike halo)",
+    "source_range": "1.10–1.20H (G4)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the heavy two-handed slam weapon"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "weapon type is not stated in the source (only \"cú đập lan ra lửa thánh\")"
+   ],
+   "view_widths_H": {
+    "3/4": 0.9,
+    "WEAPON": 0.55,
+    "LEFT": 0.65,
+    "RIGHT": 0.65,
+    "FRONT": 1.35,
+    "BACK": 1.35
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F08_B": {
+  "id": "F08",
+  "variant": "B",
+  "title": "F08 HALO KNIGHT — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 300,
+  "silhouette_px": [
+   107,
+   300
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 332
+     },
+     {
+      "label": "halo top 1.15H",
+      "h": 1.15,
+      "y": 287
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (incl. inward-spike halo)",
+    "source_range": "1.10–1.20H (G4)",
+    "mid": 1.15,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.15
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the heavy two-handed slam weapon"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "weapon type is not stated in the source (only \"cú đập lan ra lửa thánh\")"
+   ],
+   "view_widths_H": {
+    "3/4": 0.9,
+    "WEAPON": 0.55,
+    "LEFT": 0.65,
+    "RIGHT": 0.65,
+    "FRONT": 1.35,
+    "BACK": 1.35
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F09_A": {
+  "id": "F09",
+  "variant": "A",
+  "title": "F09 CHANCERY GUARD — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 370,
+  "silhouette_px": [
+   131,
+   370
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 262,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 253
+     },
+     {
+      "label": "polearm ~1.30H",
+      "h": 1.3,
+      "y": 151,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (polearm not counted)",
+    "source_range": "1.00–1.05H (G3)",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the polearm (kích) standing upright; the chain ledger stays on the belt"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "polearm length 1.30H (no source length)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.3,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "F09_B": {
+  "id": "F09",
+  "variant": "B",
+  "title": "F09 CHANCERY GUARD — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.4",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 370,
+  "silhouette_px": [
+   131,
+   370
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "WEAPON",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 262,
+      "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+     },
+     {
+      "label": "crown 1.025H",
+      "h": 1.025,
+      "y": 253
+     },
+     {
+      "label": "polearm ~1.30H",
+      "h": 1.3,
+      "y": 151,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "WEAPON",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (polearm not counted)",
+    "source_range": "1.00–1.05H (G3)",
+    "mid": 1.025,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.025
+   }
+  ],
+  "weapon_cell": {
+   "kind": "WEAPON",
+   "contents": "the polearm (kích) standing upright; the chain ledger stays on the belt"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "WEAPON cell width",
+    "polearm length 1.30H (no source length)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.75,
+    "WEAPON": 0.3,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "P08_A": {
+  "id": "P08",
+  "variant": "A",
+  "title": "P08 KNEELER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.5",
+  "pose": "kneel",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "kneeling 0.675H",
+      "h": 0.675,
+      "y": 388
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (kneeling)",
+    "source_range": "0.60–0.75H (G2, quỳ)",
+    "mid": 0.675,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.675
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths",
+    "FRONT/BACK width 1.05H = T-pose arm span ~1H plus margin (was 0.70H)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "LEFT": 0.8,
+    "RIGHT": 0.8,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": false,
+  "kneel": "both knees on the ground/baseline, shins flat behind, hips back toward the heels, stiff upright torso; head top at 0.675H; NO standing canon drawn",
+  "view_notes": {
+   "3/4": "stiff kneel (dead worshipper risen stiffly from the pew, still kneeling; no crawl)",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose: arms level with the shoulders, arm span ~1H (estimate), kneeling legs preserved"
+  },
+  "alias": {
+   "name": "the Kneeling Dead",
+   "status": "not approved",
+   "source": "ASHLAR_MONSTER_CHECKLIST_VI.md item 1 / QUY_CHUAN 4.5",
+   "use": "metadata only: the title and every prompt use KNEELER; the ID P08 differentiates it from F04 Kneeler"
+  }
+ },
+ "P08_B": {
+  "id": "P08",
+  "variant": "B",
+  "title": "P08 KNEELER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.5",
+  "pose": "kneel",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "kneeling 0.675H",
+      "h": 0.675,
+      "y": 388
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (kneeling)",
+    "source_range": "0.60–0.75H (G2, quỳ)",
+    "mid": 0.675,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.675
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths",
+    "FRONT/BACK width 1.05H = T-pose arm span ~1H plus margin (was 0.70H)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.8,
+    "LEFT": 0.8,
+    "RIGHT": 0.8,
+    "FRONT": 1.05,
+    "BACK": 1.05
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": true,
+  "span_ruler": false,
+  "kneel": "both knees on the ground/baseline, shins flat behind, hips back toward the heels, stiff upright torso; head top at 0.675H; NO standing canon drawn",
+  "view_notes": {
+   "3/4": "stiff kneel (dead worshipper risen stiffly from the pew, still kneeling; no crawl)",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose: arms level with the shoulders, arm span ~1H (estimate), kneeling legs preserved"
+  },
+  "alias": {
+   "name": "the Kneeling Dead",
+   "status": "not approved",
+   "source": "ASHLAR_MONSTER_CHECKLIST_VI.md item 1 / QUY_CHUAN 4.5",
+   "use": "metadata only: the title and every prompt use KNEELER; the ID P08 differentiates it from F04 Kneeler"
+  }
+ },
+ "P09_A": {
+  "id": "P09",
+  "variant": "A",
+  "title": "P09 CHAIN-HUNG — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.5",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 366,
+  "silhouette_px": [
+   130,
+   366
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 266
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 284
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), xích không tính",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the chain and the plain hook, coiled on the ground"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP cell width",
+    "canon \"treo\" (hung) is NOT drawn; shown standing per CONTENT 3.8"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "PROP": 0.5,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "content": "CONTENT: ground-supported safe display. Feet on the baseline, standing; chains/hook only as a separate coiled PROP; NO hanged body, no hook through the body, no suspension."
+ },
+ "P09_B": {
+  "id": "P09",
+  "variant": "B",
+  "title": "P09 CHAIN-HUNG — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.5",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 366,
+  "silhouette_px": [
+   130,
+   366
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 266
+     },
+     {
+      "label": "crown 0.95H",
+      "h": 0.95,
+      "y": 284
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.90–1.00H (G3), xích không tính",
+    "mid": 0.95,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.95
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the chain and the plain hook, coiled on the ground"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP cell width",
+    "canon \"treo\" (hung) is NOT drawn; shown standing per CONTENT 3.8"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "PROP": 0.5,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "content": "CONTENT: ground-supported safe display. Feet on the baseline, standing; chains/hook only as a separate coiled PROP; NO hanged body, no hook through the body, no suspension."
+ },
+ "L01_A": {
+  "id": "L01",
+  "variant": "A",
+  "title": "L01 SAINT-STATUE — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "crown 1.125H",
+      "h": 1.125,
+      "y": 225
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.10–1.15H [LD §4.2]",
+    "mid": 1.125,
+    "unit": "H",
+    "tag": "LD",
+    "guide_value_H": 1.125
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the small stone vault arch the statue holds up (not counted in h)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP arch size 0.45H wide x 0.40H tall (estimate; no source size)",
+    "the arch is not counted in h (h 1.125H is the statue only)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "PROP": 0.45,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {
+    "PROP": {
+     "length_H": 0.45,
+     "label": "arch 0.45H wide (est.)"
+    }
+   },
+   "prop_box_H": {
+    "width": 0.45,
+    "height": 0.4
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "3/4": "holds the small arch with both hands at chest height; the arch top stays below the crown",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose, empty-handed (the arch is the separate PROP, not drawn in these views)"
+  },
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "L01_B": {
+  "id": "L01",
+  "variant": "B",
+  "title": "L01 SAINT-STATUE — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 362,
+  "silhouette_px": [
+   129,
+   362
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 270
+     },
+     {
+      "label": "crown 1.125H",
+      "h": 1.125,
+      "y": 225
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "1.10–1.15H [LD §4.2]",
+    "mid": 1.125,
+    "unit": "H",
+    "tag": "LD",
+    "guide_value_H": 1.125
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the small stone vault arch the statue holds up (not counted in h)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP arch size 0.45H wide x 0.40H tall (estimate; no source size)",
+    "the arch is not counted in h (h 1.125H is the statue only)"
+   ],
+   "view_widths_H": {
+    "3/4": 0.7,
+    "PROP": 0.45,
+    "LEFT": 0.5,
+    "RIGHT": 0.5,
+    "FRONT": 1.15,
+    "BACK": 1.15
+   },
+   "spans": {
+    "PROP": {
+     "length_H": 0.45,
+     "label": "arch 0.45H wide (est.)"
+    }
+   },
+   "prop_box_H": {
+    "width": 0.45,
+    "height": 0.4
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "3/4": "holds the small arch with both hands at chest height; the arch top stays below the crown",
+   "LEFT/RIGHT/FRONT/BACK": "turnaround T-pose, empty-handed (the arch is the separate PROP, not drawn in these views)"
+  },
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "L02_A": {
+  "id": "L02",
+  "variant": "A",
+  "title": "L02 PLUMB-HOUND — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 280,
+  "silhouette_px": [
+   99,
+   280
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 352
+     },
+     {
+      "label": "V 0.70H (turnarounds)",
+      "h": 0.7,
+      "y": 436
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "V",
+    "source_range": "0.60–0.80H",
+    "mid": 0.7,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.7
+   },
+   {
+    "metric": "L",
+    "source_range": "1.20–1.50H (Ld3)",
+    "mid": 1.35,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.35
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the plumb cord with its fixing ring / harness, coiled (no separate bob is invented)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP cell width",
+    "paws lift 0.10-0.20H above the baseline in the 3/4 view (estimate); the shoulder then sits at ~0.80-0.90H in that view (derived: lift + V)",
+    "the hanging 3/4 keeps V and L; the turnarounds on the baseline are only the V measurement"
+   ],
+   "view_widths_H": {
+    "3/4": 1.45,
+    "PROP": 0.35,
+    "LEFT": 1.45,
+    "RIGHT": 1.45,
+    "FRONT": 0.55,
+    "BACK": 0.55
+   },
+   "spans": {
+    "LEFT": {
+     "length_H": 1.35,
+     "label": "body 1.35H"
+    },
+    "RIGHT": {
+     "length_H": 1.35,
+     "label": "body 1.35H"
+    }
+   },
+   "hang_3q_paws_lift_H": [
+    0.1,
+    0.2
+   ]
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "3/4": "the stone hound hangs from the plumb cord attached at its back, the cord rising toward the top edge; swinging; paws 0.10-0.20H above the baseline; V 0.70H and L 1.35H keep their values; no glow",
+   "LEFT/RIGHT/FRONT/BACK": "turnarounds stand on the baseline, for the V 0.70H measurement only"
+  },
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "L02_B": {
+  "id": "L02",
+  "variant": "B",
+  "title": "L02 PLUMB-HOUND — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 280,
+  "silhouette_px": [
+   99,
+   280
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "PROP",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 352
+     },
+     {
+      "label": "V 0.70H (turnarounds)",
+      "h": 0.7,
+      "y": 436
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "PROP",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "V",
+    "source_range": "0.60–0.80H",
+    "mid": 0.7,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.7
+   },
+   {
+    "metric": "L",
+    "source_range": "1.20–1.50H (Ld3)",
+    "mid": 1.35,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.35
+   }
+  ],
+  "weapon_cell": {
+   "kind": "PROP",
+   "contents": "the plumb cord with its fixing ring / harness, coiled (no separate bob is invented)"
+  },
+  "estimates": {
+   "notes": [
+    "view widths",
+    "PROP cell width",
+    "paws lift 0.10-0.20H above the baseline in the 3/4 view (estimate); the shoulder then sits at ~0.80-0.90H in that view (derived: lift + V)",
+    "the hanging 3/4 keeps V and L; the turnarounds on the baseline are only the V measurement"
+   ],
+   "view_widths_H": {
+    "3/4": 1.45,
+    "PROP": 0.35,
+    "LEFT": 1.45,
+    "RIGHT": 1.45,
+    "FRONT": 0.55,
+    "BACK": 0.55
+   },
+   "spans": {
+    "LEFT": {
+     "length_H": 1.35,
+     "label": "body 1.35H"
+    },
+    "RIGHT": {
+     "length_H": 1.35,
+     "label": "body 1.35H"
+    }
+   },
+   "hang_3q_paws_lift_H": [
+    0.1,
+    0.2
+   ]
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "3/4": "the stone hound hangs from the plumb cord attached at its back, the cord rising toward the top edge; swinging; paws 0.10-0.20H above the baseline; V 0.70H and L 1.35H keep their values; no glow",
+   "LEFT/RIGHT/FRONT/BACK": "turnarounds stand on the baseline, for the V 0.70H measurement only"
+  },
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "L03_A": {
+  "id": "L03",
+  "variant": "A",
+  "title": "L03 GARGOYLE MORTARER — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 332,
+  "silhouette_px": [
+   118,
+   332
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 300
+     },
+     {
+      "label": "crouch top 0.90H",
+      "h": 0.9,
+      "y": 333
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (crouched)",
+    "source_range": "0.80–1.00H (G3)",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   },
+   {
+    "metric": "W",
+    "source_range": "1.00–1.20H",
+    "mid": 1.1,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.1
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "LEFT/RIGHT/3/4 widths"
+   ],
+   "view_widths_H": {
+    "3/4": 1.05,
+    "LEFT": 0.85,
+    "RIGHT": 0.85,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 1.1,
+     "label": "width 1.10H"
+    },
+    "BACK": {
+     "length_H": 1.1,
+     "label": "width 1.10H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "L03_B": {
+  "id": "L03",
+  "variant": "B",
+  "title": "L03 GARGOYLE MORTARER — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.6",
+  "pose": "rig",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 332,
+  "silhouette_px": [
+   118,
+   332
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 300
+     },
+     {
+      "label": "crouch top 0.90H",
+      "h": 0.9,
+      "y": 333
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h (crouched)",
+    "source_range": "0.80–1.00H (G3)",
+    "mid": 0.9,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 0.9
+   },
+   {
+    "metric": "W",
+    "source_range": "1.00–1.20H",
+    "mid": 1.1,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.1
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "LEFT/RIGHT/3/4 widths"
+   ],
+   "view_widths_H": {
+    "3/4": 1.05,
+    "LEFT": 0.85,
+    "RIGHT": 0.85,
+    "FRONT": 1.1,
+    "BACK": 1.1
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 1.1,
+     "label": "width 1.10H"
+    },
+    "BACK": {
+     "length_H": 1.1,
+     "label": "width 1.10H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "no_glow": "Lodge servant: never self-lit — no glow, no glowing eyes/edges/fire (Quy chuẩn §2.4, artdirection §6.3)"
+ },
+ "B06_A": {
+  "id": "B06",
+  "variant": "A",
+  "title": "B06 CHOIR OF NAILS — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.8",
+  "pose": "static",
+  "layout": "two-row",
+  "canvas": [
+   1536,
+   1024
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 144,
+  "silhouette_px": [
+   51,
+   144
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT"
+    ],
+    "baseline_y": 482,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 338
+     },
+     {
+      "label": "crown 2.20H",
+      "h": 2.2,
+      "y": 165
+     }
+    ]
+   },
+   {
+    "views": [
+     "H",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 932,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 788
+     },
+     {
+      "label": "crown 2.20H",
+      "h": 2.2,
+      "y": 615
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "2.00–2.40H (G5)",
+    "mid": 2.2,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 2.2
+   },
+   {
+    "metric": "W (organ)",
+    "source_range": "2.50–3.50H (Ld4)",
+    "mid": 3.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 3.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "3/4 and LEFT/RIGHT widths"
+   ],
+   "view_widths_H": {
+    "3/4": 2.6,
+    "LEFT": 1.8,
+    "RIGHT": 1.8,
+    "FRONT": 3.0,
+    "BACK": 3.0
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 3.0,
+     "label": "organ 3.00H"
+    },
+    "BACK": {
+     "length_H": 3.0,
+     "label": "organ 3.00H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "B06_B": {
+  "id": "B06",
+  "variant": "B",
+  "title": "B06 CHOIR OF NAILS — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.8",
+  "pose": "static",
+  "layout": "two-row",
+  "canvas": [
+   1536,
+   1024
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 144,
+  "silhouette_px": [
+   51,
+   144
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT"
+    ],
+    "baseline_y": 482,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 338
+     },
+     {
+      "label": "crown 2.20H",
+      "h": 2.2,
+      "y": 165
+     }
+    ]
+   },
+   {
+    "views": [
+     "H",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 932,
+    "lines": [
+     {
+      "label": "1H",
+      "h": 1.0,
+      "y": 788
+     },
+     {
+      "label": "crown 2.20H",
+      "h": 2.2,
+      "y": 615
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "2.00–2.40H (G5)",
+    "mid": 2.2,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 2.2
+   },
+   {
+    "metric": "W (organ)",
+    "source_range": "2.50–3.50H (Ld4)",
+    "mid": 3.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 3.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "3/4 and LEFT/RIGHT widths"
+   ],
+   "view_widths_H": {
+    "3/4": 2.6,
+    "LEFT": 1.8,
+    "RIGHT": 1.8,
+    "FRONT": 3.0,
+    "BACK": 3.0
+   },
+   "spans": {
+    "FRONT": {
+     "length_H": 3.0,
+     "label": "organ 3.00H"
+    },
+    "BACK": {
+     "length_H": 3.0,
+     "label": "organ 3.00H"
+    }
+   }
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false
+ },
+ "B07_A": {
+  "id": "B07",
+  "variant": "A",
+  "title": "B07 BROTHER CASSIAN — A",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.8",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 341,
+  "silhouette_px": [
+   121,
+   341
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = top incl. halo",
+      "h": 1.0,
+      "y": 291
+     },
+     {
+      "label": "skull crown ~0.93H",
+      "h": 0.93,
+      "y": 315,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.95–1.05H (G3, quy mô người)",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths (include the stone roots under the feet)",
+    "skull crown 0.93H is an estimate (the halo adds ~0.07H to the 1.00H top; no source value)",
+    "halo counted in h as a fixed part (rule 1.1); pose (standing vs kneeling) is not stated, neutral stance drawn"
+   ],
+   "view_widths_H": {
+    "3/4": 0.9,
+    "LEFT": 0.7,
+    "RIGHT": 0.7,
+    "FRONT": 1.25,
+    "BACK": 1.25
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "all views": "standing neutral; the stone roots run along the baseline under/around the feet and do not lift the body"
+  }
+ },
+ "B07_B": {
+  "id": "B07",
+  "variant": "B",
+  "title": "B07 BROTHER CASSIAN — B",
+  "status": "scale/layout guide only; not concept art; not approved",
+  "source_file": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+  "source_section": "4.8",
+  "pose": "tpose",
+  "layout": "single",
+  "canvas": [
+   2172,
+   724
+  ],
+  "backdrop_rgb": [
+   141,
+   137,
+   131
+  ],
+  "hpx_per_H": 341,
+  "silhouette_px": [
+   121,
+   341
+  ],
+  "rows": [
+   {
+    "views": [
+     "H",
+     "3/4",
+     "LEFT",
+     "RIGHT",
+     "FRONT",
+     "BACK"
+    ],
+    "baseline_y": 632,
+    "lines": [
+     {
+      "label": "1H = top incl. halo",
+      "h": 1.0,
+      "y": 291
+     },
+     {
+      "label": "skull crown ~0.93H",
+      "h": 0.93,
+      "y": 315,
+      "estimate": true
+     }
+    ]
+   }
+  ],
+  "labels": [
+   "H",
+   "3/4",
+   "LEFT",
+   "RIGHT",
+   "FRONT",
+   "BACK"
+  ],
+  "source": [
+   {
+    "metric": "h",
+    "source_range": "0.95–1.05H (G3, quy mô người)",
+    "mid": 1.0,
+    "unit": "H",
+    "tag": "Đề xuất",
+    "guide_value_H": 1.0
+   }
+  ],
+  "weapon_cell": null,
+  "estimates": {
+   "notes": [
+    "view widths (include the stone roots under the feet)",
+    "skull crown 0.93H is an estimate (the halo adds ~0.07H to the 1.00H top; no source value)",
+    "halo counted in h as a fixed part (rule 1.1); pose (standing vs kneeling) is not stated, neutral stance drawn"
+   ],
+   "view_widths_H": {
+    "3/4": 0.9,
+    "LEFT": 0.7,
+    "RIGHT": 0.7,
+    "FRONT": 1.25,
+    "BACK": 1.25
+   },
+   "spans": {}
+  },
+  "ghost_size_blocks": false,
+  "span_ruler": false,
+  "view_notes": {
+   "all views": "standing neutral; the stone roots run along the baseline under/around the feet and do not lift the body"
+  }
+ }
+}

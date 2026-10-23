@@ -1,0 +1,11 @@
+[10-22 23:06:39] R31_kitchen_table_rack_linen_table: polycount set to 15000 (account default)
+[10-22 23:06:45] R31_kitchen_table_rack_linen_table: Generate 100 pressed: input input_spaced.png, polycount 15000, 4 variants (credits before 5393), window 5B25F39882A972EBB5A1E1A0726D11AD
+[10-22 23:07:14] R31_kitchen_table_rack_linen_table: mesh done (credits now 5293); new models: 77cd36bd-101c-4177-8262-ee36666040fa be61c2ef-92cc-47c7-89af-9854f397ed20 24a2c71b-6d3e-4093-bbd8-98fd0de249c2 6c73a3c9-a5a7-4398-b8c2-f12fc7c2fc6b
+[10-22 23:08:07] R31_kitchen_table_rack_linen_table: variants (index uuid faces): 0 77cd36bd-101c-4177-8262-ee36666040fa 18678;1 be61c2ef-92cc-47c7-89af-9854f397ed20 17204;2 24a2c71b-6d3e-4093-bbd8-98fd0de249c2 17426;3 6c73a3c9-a5a7-4398-b8c2-f12fc7c2fc6b 18159;
+[10-22 23:31:06] R31_kitchen_table_rack_linen_table: variant 1 chosen: https://studio.tripo3d.ai/workspace/generate/be61c2ef-92cc-47c7-89af-9854f397ed20 faces 17204; texture 8K; from uv; window F070BD59007A599A45FF7552838FAF23
+[10-22 23:31:43] R31_kitchen_table_rack_linen_table: smart uv saved (credits 4788 -> 4768)
+[10-22 23:33:09] R31_kitchen_table_rack_linen_table: texture 8K done in 60s (credits 4768 -> 4738, button '2K=off 4K=off 8K=on | Generate Texture 30')
+[10-22 23:33:43] R31_kitchen_table_rack_linen_table: pbr done (credits 4738 -> 4733)
+[10-22 23:33:58] R31_kitchen_table_rack_linen_table: exported act1_kit_v1_R31_kitchen_table_rack_linen_table.glb (format GLB, texture 8kCurrent, 25436 KB)
+[10-22 23:33:58] R31_kitchen_table_rack_linen_table: GLB check: {"file": "act1_kit_v1_R31_kitchen_table_rack_linen_table.glb", "MB": 26.0, "meshes": 1, "tris": 28254, "materials": [["base", "mr", "normal"]], "images": ["JPEG 8192x8192", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.197], "max": [0.5, 0.429, 0.197]}
+[10-22 23:34:19] R31_kitchen_table_rack_linen_table: FINISHED: balance 4733 (shared); _shots/final_views.png
