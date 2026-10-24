@@ -1,6 +1,6 @@
 """
 Gameplay HUD sprites: picks the pieces the Play HUD uses from the sliced HUD sheets
-(art-output/ui-hud-assets/<sheet>_v2/<name>.png, transparent PNGs cut by that folder's slice.py),
+(legacy/art-output/ui-hud-assets/<sheet>_v2/<name>.png, transparent PNGs cut by that folder's slice.py),
 trims them to their alpha, resizes them to about 2x their on-screen size and writes WebP files
 to src/gameplay/hud/ (embedded into the bundle as data URLs by esbuild).
 
@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, '..', 'art-output', 'ui-hud-assets')
+SRC = os.path.join(ROOT, '..', 'legacy', 'art-output', 'ui-hud-assets')
 OUT = os.path.join(ROOT, 'src', 'gameplay', 'hud')
 
 # (sheet folder, sprite name, output width px)

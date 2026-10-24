@@ -9,7 +9,7 @@
 //
 // Conventions: emitters shoot along local +Z (quarks), so `up()` / `down()` tip them; an effect's root is
 // oriented so local +Z is `dir`; `scale` scales sizes and speeds (quarks multiplies them by the emitter's
-// world scale) — a stronger version of a skill is the same effect, bigger (art-direction/07 rule 4).
+// world scale) — a stronger version of a skill is the same effect, bigger (legacy/art-direction/07 rule 4).
 import * as THREE from 'three';
 import {
 	BatchedRenderer, ParticleSystem, QuarksLoader, QuarksUtil, RenderMode,
@@ -132,7 +132,7 @@ const rock = () => (rockGeometry ??= new THREE.DodecahedronGeometry(0.5, 0));
 const splinter = () => (splinterGeometry ??= new THREE.ConeGeometry(0.18, 1, 4).rotateX(Math.PI / 2));
 
 // ---------------------------------------------------------------------------------------------------
-// Palettes (art-direction/07 §4): fire orange → yellow with a white core and black smoke; cold pale blue → white;
+// Palettes (legacy/art-direction/07 §4): fire orange → yellow with a white core and black smoke; cold pale blue → white;
 // lightning white-blue; poison dirty yellow-green; magic violet; holy gold-white; bone ivory with a dim green.
 
 const FIRE = [[0, '#ffe6a8'], [0.2, '#ffa22e'], [0.5, '#e8480c'], [1, '#2a0601']];

@@ -12,14 +12,14 @@
 //     targets(),                   // [{ alive, position(), center(), hitTest(point, padding), hit(amount, element, { direction }) }]
 //     groundAt(x, z, y),
 //     light: { flash(point, colour, intensity, opts), hold(getPoint, colour, intensity, opts) -> { release() } },
-//     shake(strength),             // optional: big events only (art-direction/07 §2)
+//     shake(strength),             // optional: big events only (legacy/art-direction/07 §2)
 //   }
 import * as THREE from 'three';
 import { FxLibrary } from './fx.js';
 import { LightningPool } from './lightning.js';
 import { SKILLS } from './skills.js';
 
-/** Death effect per element (art-direction/07 §3: elemental deaths). */
+/** Death effect per element (legacy/art-direction/07 §3: elemental deaths). */
 const DEATH_FX = { fire: 'death.fire', cold: 'death.cold', lightning: 'death.shock', poison: 'death.poison', magic: 'bone.hit', physical: 'blood.hit' };
 const Z = new THREE.Vector3(0, 0, 1);
 
@@ -98,7 +98,7 @@ export class SkillSystem {
 	}
 
 	get scale() {
-		// Higher level: same effect, bigger (art-direction/07 rule 4) — sizes grow slower than damage.
+		// Higher level: same effect, bigger (legacy/art-direction/07 rule 4) — sizes grow slower than damage.
 		return Math.sqrt(this.level);
 	}
 

@@ -19,8 +19,8 @@ export const HUB_GEN_VERSION = 'hub-gen/4';
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules: every number with its source. "LD" = ashlar/LEVEL_DESIGN (§7.3 hubs are crossed in ~40 s, §11.2 Lychgate), "BIO-03" =
-// ashlar/ASHLAR_BIOME_VA_KHU_VUC_VI.md §2.1 + BIO-03, "assets" = the A()/DEFS table of src/env/act1/maps/lychgate.js, "controller" =
-// src/character/controller.js, "AD12" = art-direction/12, "spec" = tmp/hub-gen/SPEC.md (user brief 2026-10-23), "tuning" = no source gives a number.
+// ashlar/docs/ASHLAR_BIOME_VA_KHU_VUC_VI.md §2.1 + BIO-03, "assets" = the A()/DEFS table of src/env/act1/maps/lychgate.js, "controller" =
+// src/character/controller.js, "AD12" = legacy/art-direction/12, "spec" = tmp/hub-gen/SPEC.md (user brief 2026-10-23), "tuning" = no source gives a number.
 
 const RULE_TABLE = [
 	['size', 64, 'spec: ~64 × 64 m (the user: the hub is too big; today 216 × 160 m); LD §7.3: crossed in ~40 s'],

@@ -1,4 +1,4 @@
-"""Build the "D2R moor" terrain set from the generated tiles in art-direction/reference/terrain-moor.
+"""Build the "D2R moor" terrain set from the generated tiles in legacy/art-direction/reference/terrain-moor.
 
 Usage:  python -I scripts/prepare-terrain-moor.py [source dir]
 
@@ -23,7 +23,7 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 OUT = os.path.join(ROOT, 'assets', 'samples')
-SRC = os.path.join(ROOT, '..', 'art-direction', 'reference', 'terrain-moor')
+SRC = os.path.join(ROOT, '..', 'legacy', 'art-direction', 'reference', 'terrain-moor')
 PREFIX = 'terrain3'
 
 spec = importlib.util.spec_from_file_location('swatches', os.path.join(os.path.dirname(__file__), 'prepare-terrain-swatches.py'))

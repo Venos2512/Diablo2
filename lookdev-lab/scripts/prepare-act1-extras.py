@@ -1,4 +1,4 @@
-"""Act I extras for the lab: the 36 Tripo props of ashlar/3d/props/act1_extras_v1 (A15.1-A20.6) -> assets/act1-extras/act1-<id>-<name>.glb.
+"""Act I extras for the lab: the 36 Tripo props of ashlar/3d/act-01/_batches/extras_v1 (A15.1-A20.6) -> assets/act1-extras/act1-<id>-<name>.glb.
 
 Each source GLB (Tripo: one mesh, ~7-10k triangles, 4096 px base colour + metallicRoughness + normal; longest side normalised to 1 m, pivot at the
 bottom centre, Y up) is
@@ -8,7 +8,7 @@ bottom centre, Y up) is
      size [w, h, d] = local x, y, z, front = local +z. As in those shapes, the church's door gable faces -x (the west door), the boat's bow and the
      dock's lamp end point to +x, the irrigation channel's sluice gate is at +x. Small fine yaws square up models Tripo left a few degrees off
      (min-area rectangle of the footprint; PCA of the body for the sleepers),
-  3. scaled UNIFORMLY to its real size, keyed on the dimension the concept states first (ashlar/art/act-01-environments-v2/README_VI.md section 3),
+  3. scaled UNIFORMLY to its real size, keyed on the dimension the concept states first (ashlar/art/act-01/_batches/env_A15-A20/README_VI.md section 3),
      measured on the bbox after the yaw (or on a height band where an appendage is not part of that dimension: the stall's width is its awning,
      not the cart shafts). A19.6 is keyed on the wall section width (keying on its window would make the wall 4.8 m wide),
   4. re-pivoted to the bottom centre (bbox centre in x / z, lowest point at y = 0),
@@ -19,13 +19,14 @@ bottom centre, Y up) is
 The transform is baked into the vertices with an identity node: the interior engine instances the first mesh's geometry directly.
 Registered in src/assets/samples.json (kind "model", file "act1-extras/<id>.glb", source = the ashlar/3d folder) and credited in
 THIRD_PARTY_LICENSES.md (scripts/check.mjs looks for every sample name there). Never edits the source GLBs.
-MONSTERS adds static monsters from ashlar/3d/monsters the same way (P06 Poppy-Mound -> act1-p06-poppy-mound.glb: keyed on its width 2.5H = 4.5 m;
+MONSTERS adds static monsters from ashlar/3d/act-01/monsters the same way (P06 Poppy-Mound -> act1-p06-poppy-mound.glb: keyed on its width 2.5H = 4.5 m;
 own samples.json credit and licence paragraph), so the Garden of Hush can show the stationary spawner as a prop.
 
 Usage: python scripts/prepare-act1-extras.py [--only A15.1,A20.3,P06] [--report <path.json>] [--no-register]
   --report writes the measurements (dims after the yaw, key, triangles, sizes, light anchors, up-facing planes, footprint centre) for the fit table.
 Idempotent: re-running rewrites the same files and entries.
 """
+import glob
 import io
 import json
 import os
@@ -38,12 +39,25 @@ from PIL import Image
 sys.stdout.reconfigure(encoding='utf-8')
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
-SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'props', 'act1_extras_v1'))
+SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'act-01', '_batches', 'extras_v1'))
 OUT = os.path.join(ROOT, 'assets', 'act1-extras')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
 ANCHOR = 'dungeon-prop-flint-boulders'  # the other ASHLAR Tripo props; the new lines go after it
-SOURCE = 'ashlar/3d/props/act1_extras_v1'
-CREDIT = ('Generated with Tripo (image to 3D, 4K PBR, ~10k triangles) from a Codex input image (concepts ashlar/art/act-01-environments-v2); levelled, '
+SOURCE = 'ashlar/3d/act-01/_batches/extras_v1'  # the batch folder only (manifest, prompts, textures): the pieces live in group folders
+ASHLAR3D = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d'))
+
+
+def piece_dir(folder):
+    """A piece folder is ashlar/3d/act-01/environments/<group>/<piece> (<group> = its 2D concept group): found by glob, never hardcoded."""
+    hit = glob.glob(os.path.join(ASHLAR3D, 'act-01', 'environments', '*', folder))
+    assert len(hit) == 1, f'{folder}: expected one piece folder, found {hit}'
+    return hit[0]
+
+
+def piece_rel(folder):
+    """repo-relative source path written to samples.json"""
+    return 'ashlar/3d/' + os.path.relpath(piece_dir(folder), ASHLAR3D).replace(os.sep, '/')
+CREDIT = ('Generated with Tripo (image to 3D, 4K PBR, ~10k triangles) from a Codex input image (concepts ashlar/art/act-01/_batches/env_A15-A20); levelled, '
           'turned to the Act I blockout frame, scaled to real size and re-encoded (2048 px JPEG for the landmarks; 1024 px for props up to 1.2 m and the '
           'TEX_1024 set of 3-4 m pieces) by scripts/prepare-act1-extras.py')
 
@@ -100,14 +114,14 @@ TEX_1024 = {'A15.3', 'A15.4', 'A15.5', 'A15.6', 'A16.2', 'A16.3', 'A16.4', 'A16.
 # monster runtime takes models). (asset id, source GLB relative to ashlar/3d, sample id, label, then the ASSETS fields from key on). Own licence
 # paragraph (MONSTER_TAG); the 36 entries above, their files, samples.json lines and paragraph stay byte-identical when these are added.
 MONSTERS = [
-    ('P06', 'monsters/P06_poppy_mound/P06_poppy_mound.glb', 'act1-p06-poppy-mound', 'Poppy-Mound (4.5 m wide, static spawner)', ('x', 4.5, None), 0, None, 0.9,
+    ('P06', 'act-01/monsters/P06_poppy_mound/P06_poppy_mound.glb', 'act1-p06-poppy-mound', 'Poppy-Mound (4.5 m wide, static spawner)', ('x', 4.5, None), 0, None, 0.9,
      0.0, {}),
 ]
 MONSTER_TAG = 'act1-monsters-static-v1'
-MONSTER_CREDIT = ('Generated with Tripo (image to 3D, 4K PBR) from a Codex input image after the ASHLAR monster concept (ashlar/art/map-01-concepts/monsters); '
+MONSTER_CREDIT = ('Generated with Tripo (image to 3D, 4K PBR) from a Codex input image after the ASHLAR monster concept (ashlar/art/act-01/monsters); '
                   'scaled to real size and re-encoded (2048 px JPEG) by scripts/prepare-act1-extras.py')
 MONSTER_LICENSE = ('The ASHLAR Act I static monsters - {names} - are project models generated with Tripo (image to 3D) from Codex input images after the '
-                   'ASHLAR monster concepts (`ashlar/art/map-01-concepts/monsters`, models in `ashlar/3d/monsters`), scaled to real size and re-encoded into '
+                   'ASHLAR monster concepts (`ashlar/art/act-01/monsters`, models in `ashlar/3d/act-01/monsters`), scaled to real size and re-encoded into '
                    '`assets/act1-extras/` by `scripts/prepare-act1-extras.py` (stationary monsters placed as static props, no rig); project-internal.')
 
 
@@ -197,11 +211,11 @@ def prep(entry, report, monster=None):
     import trimesh
     aid, folder, label, (kax, kval, band), yaw, level, rough, metal, extra = entry
     if monster:
-        path = os.path.abspath(os.path.join(SRC, '..', '..', monster[0]))
+        path = os.path.abspath(os.path.join(ASHLAR3D, monster[0]))
     else:
-        src = [f for f in os.listdir(os.path.join(SRC, folder)) if f.startswith('act1_extras_v1_') and f.endswith('.glb')]
+        src = [f for f in os.listdir(piece_dir(folder)) if f.startswith('act1_extras_v1_') and f.endswith('.glb')]
         assert len(src) == 1, f'{folder}: expected one source GLB, found {src}'
-        path = os.path.join(SRC, folder, src[0])
+        path = os.path.join(piece_dir(folder), src[0])
     scene = trimesh.load(path, force='scene')
     assert len(scene.geometry) == 1, f'{folder}: expected one mesh'
     g = list(scene.geometry.values())[0]
@@ -256,7 +270,7 @@ def prep(entry, report, monster=None):
     if monster:
         return (sid, f'{aid} {label} · Tripo monster as a static prop (GLB, real size, pivot bottom centre) · Act I extras', f'act1-extras/{sid}.glb',
                 'ashlar/3d/' + os.path.dirname(monster[0]))
-    return (sid, f'{aid} {label} · Tripo prop (GLB, real size, pivot bottom centre) · Act I extras', f'act1-extras/{sid}.glb', f'{SOURCE}/{folder}')
+    return (sid, f'{aid} {label} · Tripo prop (GLB, real size, pivot bottom centre) · Act I extras', f'act1-extras/{sid}.glb', piece_rel(folder))
 
 
 def register(entries):
@@ -308,7 +322,7 @@ def license_note(entries, tag='act1-extras-v1', text=None):
     names = ', '.join(e[1] for e in entries)
     if text is None:
         para = (a + '\nThe ASHLAR Act I extras - ' + names + ' - are project props generated with Tripo (image to 3D) from Codex '
-                'input images after the Act I environment concepts (`ashlar/art/act-01-environments-v2`, models in `ashlar/3d/props/act1_extras_v1`), levelled, '
+                'input images after the Act I environment concepts (`ashlar/art/act-01/_batches/env_A15-A20`, models in `ashlar/3d/act-01/environments/A15_*` to `A20_*`, batch files in `ashlar/3d/act-01/_batches/extras_v1`), levelled, '
                 'turned, scaled to real size and re-encoded into `assets/act1-extras/` by `scripts/prepare-act1-extras.py`; project-internal.\n' + b)
     else:
         para = a + '\n' + text.format(names=names) + '\n' + b
@@ -358,7 +372,7 @@ def main():
         if only:  # keep the full list registered: rebuild the entry tuples of the untouched assets from the table
             done = {e[0] for e in entries + monster_entries}
             entries = [x for x in ([(sample_id(e[1]), f'{e[0]} {e[2]} · Tripo prop (GLB, real size, pivot bottom centre) · Act I extras',
-                                     f'act1-extras/{sample_id(e[1])}.glb', f'{SOURCE}/{e[1]}') for e in ASSETS]) if x[0] in done or os.path.exists(os.path.join(OUT, f'{x[0]}.glb'))]
+                                     f'act1-extras/{sample_id(e[1])}.glb', piece_rel(e[1])) for e in ASSETS]) if x[0] in done or os.path.exists(os.path.join(OUT, f'{x[0]}.glb'))]
             monster_entries = [x for x in ([(sid, f'{aid} {label} · Tripo monster as a static prop (GLB, real size, pivot bottom centre) · Act I extras',
                                              f'act1-extras/{sid}.glb', 'ashlar/3d/' + os.path.dirname(rel), MONSTER_CREDIT) for aid, rel, sid, label, *_ in MONSTERS])
                                if x[0] in done or os.path.exists(os.path.join(OUT, f'{x[0]}.glb'))]

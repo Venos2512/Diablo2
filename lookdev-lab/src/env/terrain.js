@@ -10,7 +10,7 @@ import { getForge } from './materials.js';
 export const TERRAIN_LAYERS = ['moorDirt', 'moorMud', 'moorGrass'];
 /**
  * Terrain texture sets. 'procedural' = forged recipes (src/shaders/forge/moor_*.glsl); 'painted' = swatches cut
- * from the moor concept sheet, 'tiles' = separate painted tiles (art-direction/reference/terrain-tiles), both made
+ * from the moor concept sheet, 'tiles' = separate painted tiles (legacy/art-direction/reference/terrain-tiles), both made
  * tileable by scripts/prepare-terrain-swatches.py (albedo + height PNG per layer, files <prefix>-<layer>[-h].png).
  * low = height band [from, to] read as the wet layer's hollows (puddles: glossy).
  * tile = metres per repeat; water / waterRough = standing-water level in the wet layer's height and its roughness; tufts = 3D grass density factor,
@@ -18,18 +18,18 @@ export const TERRAIN_LAYERS = ['moorDirt', 'moorMud', 'moorGrass'];
  * variationScale / rotate = anti-tiling: breakup areas per metre (default 0.09) and quarter-turn variants (0/1).
  */
 export const TERRAIN_SETS = {
-	// Generated tiles after the D2R Blood Moor (art-direction/reference/terrain-moor, scripts/prepare-terrain-moor.py):
+	// Generated tiles after the D2R Blood Moor (legacy/art-direction/reference/terrain-moor, scripts/prepare-terrain-moor.py):
 	// several grass patterns mixed in one 2 × 2 tile, dry dirt + sparse-grass transition, wet dirt; the road ruts
 	// and the creek water are ribbon meshes along the scene's curves (ribbons: their texture prefix).
 	moor: { label: 'D2R moor (generated: grass mix / ruts / creek)', prefix: 'terrain3', ribbons: 'terrain3', low: [0.12, 0.24], tiles: [3.5, 3.5, 7], water: 0.18, waterRough: 0.15, tufts: 0.35, tuftColor: [[0.035, 0.05], [0.07, 0.07], [0.018, 0.02]], relief: [3, 2.5, 6], cards: 'terrain3-grass-cards' },
-	// Natural lush grass after a D2R gameplay screenshot (art-output/terrain-grass-d2r, scripts/prepare-terrain-meadow.py):
+	// Natural lush grass after a D2R gameplay screenshot (legacy/art-output/terrain-grass-d2r, scripts/prepare-terrain-meadow.py):
 	// six grass patterns in four turns mixed into one 7 m tile, sparse grass + soil, damp ground; the moor's ruts,
 	// creek and grass cards.
 	meadow: { label: 'D2R lush grass (natural mix)', prefix: 'terrain4', ribbons: 'terrain3', cards: 'terrain3-grass-cards', variationScale: 0.2, rotate: 1, low: [0.12, 0.24], tiles: [7, 3.5, 7], water: 0.18, waterRough: 0.12, tufts: 0.35, tuftColor: [[0.028, 0.018], [0.041, 0.026], [0.006, 0.004]], relief: [3, 2.5, 4] },
 	tiles: { label: 'Painted tiles (mud / grass / transition)', prefix: 'terrain2', low: [0.2, 0.3], tiles: [3.5, 4, 3], water: 0.26, waterRough: 0.22, tufts: 0.15, tuftColor: [[0.06, 0.1], [0.09, 0.08], [0.025, 0.03]] },
 	painted: { label: 'Painted (concept swatches)', prefix: 'terrain', low: [0.08, 0.2], tiles: [3.2, 4, 3], water: 0.14, waterRough: 0.22, tufts: 0.15, tuftColor: [[0.07, 0.1], [0.1, 0.08], [0.025, 0.03]] },
 	// Act I biomes after the colour script (art-direction Ch.11 §10): Codex-generated tiles in the moor tiles' style
-	// (art-output/terrain-biomes, scripts/prepare-terrain-biomes.py), dirt = base ground, mud = wet ground, grass = cover.
+	// (legacy/art-output/terrain-biomes, scripts/prepare-terrain-biomes.py), dirt = base ground, mud = wet ground, grass = cover.
 	coldPlains: { label: 'Act I · Cold Plains', prefix: 'biome-cold-plains', variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [3.5, 3.5, 3.5], water: 0.16, waterRough: 0.12, tufts: 0.3, tuftColor: [[0.056, 0.036], [0.056, 0.036], [0.038, 0.024]] },
 	burialGrounds: { label: 'Act I · Burial Grounds', prefix: 'biome-burial-grounds', variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [3.5, 3.5, 3.5], water: 0.16, waterRough: 0.1, tufts: 0.25, tuftColor: [[0.017, 0.011], [0.018, 0.011], [0.019, 0.012]] },
 	stonyField: { label: 'Act I · Stony Field', prefix: 'biome-stony-field', variationScale: 0.3, rotate: 1, low: [0.1, 0.2], tiles: [3.5, 3.5, 3.5], water: 0.14, waterRough: 0.15, tufts: 0.2, tuftColor: [[0.057, 0.036], [0.037, 0.024], [0.016, 0.01]] },
@@ -44,15 +44,15 @@ export const TERRAIN_SETS = {
 	// matched per channel to the moor tiles' means (the raw scans are far lighter than the Act I palette).
 	// pbr = the set also ships normal (-n) and roughness (-r) maps (loadPaintedSets loads them only for sets with shipNormals; the removed Relief scene was the one that used the others).
 	polyhaven: { label: 'Poly Haven · đất / bùn / cỏ (ảnh quét, palette Act I)', prefix: 'ph-moor', pbr: true, variationScale: 0.3, rotate: 1, low: [0.2, 0.35], tiles: [1.6, 1.6, 2.5], water: 0.12, waterRough: 0.1, tufts: 0.3, tuftColor: [[0.035, 0.05], [0.07, 0.07], [0.018, 0.02]] },
-	// Diablo Immortal's Dark Wood after a night screenshot (art-output/terrain-darkwood, scripts/prepare-terrain-darkwood.py): blue-grey
+	// Diablo Immortal's Dark Wood after a night screenshot (legacy/art-output/terrain-darkwood, scripts/prepare-terrain-darkwood.py): blue-grey
 	// loam, wet ground, sparse wiry shade grass, a cobble path ribbon (ribbons: darkwood-ruts, no creek) and grass cards. shipNormals =
 	// loadPaintedSets uses the set's own -n / -r maps instead of deriving them from the height (only this set opts in).
 	darkWoodRef: { label: 'Act I · Dark Wood (realistic)', prefix: 'darkwood', ribbons: 'darkwood', creek: false, cards: 'darkwood-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.04, 0.026], [0.058, 0.036], [0.06, 0.038]] },
 	// roadTile = the path as a tile that repeats in u and v (scripts/prepare-road-tile.py, 300 px per metre: the paving stones are ~0.55 m), laid
 	// by DarkWoodScene.buildRibbons; the -ruts strip (ribbons) stays for the sets without one.
-	// The same set repainted in a stylized, painterly look (ashlar/art/terrain-dark-wood/stylized2, smoother heights, gentler normals).
+	// The same set repainted in a stylized, painterly look (ashlar/art/textures/terrain-dark-wood/stylized2, smoother heights, gentler normals).
 	darkWoodStylized: { label: 'Act I · Dark Wood (stylized)', prefix: 'darkwood-sty', ribbons: 'darkwood-sty', roadTile: { id: 'darkwood-sty-cobble', pxPerM: 300 }, creek: false, cards: 'darkwood-sty-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.045, 0.029], [0.063, 0.040], [0.068, 0.043]] },
-	// The stylized set recoloured greener (ashlar/art/terrain-dark-wood/recolor_green.py, same strokes): the Diablo II mood's ground.
+	// The stylized set recoloured greener (ashlar/art/textures/terrain-dark-wood/recolor_green.py, same strokes): the Diablo II mood's ground.
 	darkWoodGreen: { label: 'Act I · Dark Wood (stylized, green)', prefix: 'darkwood-sty-green', ribbons: 'darkwood-sty-green', roadTile: { id: 'darkwood-sty-green-cobble', pxPerM: 300 }, creek: false, cards: 'darkwood-sty-green-grass-cards', pbr: true, shipNormals: true, variationScale: 0.3, rotate: 1, low: [0.1, 0.22], tiles: [2.8, 2.8, 2.8], water: 0.16, waterRough: 0.1, tufts: 0, tuftColor: [[0.046, 0.029], [0.067, 0.042], [0.029, 0.017]] },
 	procedural: { label: 'Procedural (texture forge)', tiles: [3, 3.5, 2.5], water: 0.22, waterRough: 0.05, tufts: 1, tuftColor: [[0.04, 0.12], [0.05, 0.1], [0.025, 0.05]] },
 };

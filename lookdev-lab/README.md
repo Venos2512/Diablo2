@@ -58,7 +58,7 @@ the page and keeps camera, settings and the A/B snapshot).
   shaders (status overlays, hit flash, dissolve death + respawn). **Play mode**: click to walk the model, camera
   follows. Slow motion, overdraw heat view, and a **WebGPU compute particle field** (up to 1M particles).
   **Skill system on three.quarks** (`src/skills`, WebGL2 only — quarks builds GLSL `ShaderMaterial`s; *Castbar shows skills*
-  in the VFX tab, keys `1`–`9` `0` `-` `=`): 12 Act I class skills in the element language of `art-direction/07` — Fireball,
+  in the VFX tab, keys `1`–`9` `0` `-` `=`): 12 Act I class skills in the element language of `legacy/art-direction/07` — Fireball,
   Frozen Orb, Chain Lightning, Meteor (telegraphed), Blizzard, Fire Wall, Bone Spear, Bone Spirit, Poison Nova, Blessed
   Hammer, Holy Freeze (aura toggle), Teleport. Cast flow: charge effect at the hand for the cast time → release → motion
   (projectile, homing, nova, chain, ticking area, follow) → impact → elemental death (ash, shatter, shock, poison, bone).
@@ -78,7 +78,7 @@ the page and keeps camera, settings and the A/B snapshot).
   biome sets, Poly Haven scans, the Dark Wood sets, or *Procedural* forge recipes; `scripts/prepare-terrain-*.py`), anti-tiling, shadow
   fill, and kits (wooden fence, palisade (PBR), tent (PBR), shrubs, the camp, nature and tree kits) split from prop sheets by
   `scripts/prepare-prop-kit.py`, `prepare-camp-kits.py` and `prepare-nature-kits.py`;
-  biome placement rules (`art-direction/12` §4.6–4.12): habitat-masked grass colonies, clear door/interaction approaches,
+  biome placement rules (`legacy/art-direction/12` §4.6–4.12): habitat-masked grass colonies, clear door/interaction approaches,
   shoulder torches at route decisions, and bone clusters at story anchors (`src/env/biomePlacement.js`; `npm run test:placement`);
   **ground blend** (Scene options → *Ground blend*, off by default — nothing is baked, patched or captured until switched on): rocks, trees, posts, walls and
   remains meet the soil — and each other — instead of standing on it. The terrain's own material (albedo + roughness, world

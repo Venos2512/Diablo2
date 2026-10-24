@@ -1,5 +1,5 @@
 // Open-field time-of-day presets shared by the outdoor scenes (Bố trí biome). Each carries its tone mapping; the key light
-// comes from screen upper-left (west) for every preset (art-direction/04: one light direction). Night is the Diablo II light
+// comes from screen upper-left (west) for every preset (legacy/art-direction/04: one light direction). Night is the Diablo II light
 // radius look, Overcast the neutral palette check, Dusk the low sun in fog.
 export const FIELD_TIMES = {
 	overcast: {

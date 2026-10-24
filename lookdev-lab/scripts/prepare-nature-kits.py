@@ -1,4 +1,4 @@
-"""Split the Tripo models of the nature prop sheets 08–12 (art-output/tripo-models/nature/*.glb: rocks, mossy rocks,
+"""Split the Tripo models of the nature prop sheets 08–12 (legacy/tripo-models/nature/*.glb: rocks, mossy rocks,
 buried corpses, dead trees, burned trees) into the lab's nature kits.
 
 Usage: python -I scripts/prepare-nature-kits.py [kit-id ...]          write the kits (default: all of KITS)
@@ -7,7 +7,7 @@ Usage: python -I scripts/prepare-nature-kits.py [kit-id ...]          write the 
 Tripo builds a concept sheet as one model whose front view is the sheet. These sheets draw each prop from the game
 camera (50–60° down) or from above, standing on its own oval of mud, so every prop comes out on a tilted ground, and
 Tripo leaves out most of a sheet's lower rows (those were composed into one-row images and built again, see
-tripo-models/nature/_tools/compose_rows.py). So, per model:
+ashlar/pipeline/tripo/scripts/compose_rows.py). So, per model:
   1. Objects: the model is voxelised and split where empty space separates it; parts of a few faces join the
      nearest object. Objects are numbered row by row from the top, left to right (--list draws the numbers).
   2. KITS names the pieces: one or more object numbers of a model (Tripo sometimes breaks a prop apart, a spear from
@@ -19,7 +19,7 @@ tripo-models/nature/_tools/compose_rows.py). So, per model:
      so a prop meets the terrain instead of a painted disc; a thin layer for the corpses, whose bones lie low.
   5. Turned about y so the longest horizontal direction runs along +x, pivot at the bottom centre. One GLB per kit,
      a node per piece (<prefix>_<nn>_<name>), a material per source model (its texture as JPEG, TEXTURE px).
-Writes assets/samples/<kit>.glb and a preview, art-output/tripo-models/nature/<kit>_pieces.png.
+Writes assets/samples/<kit>.glb and a preview, legacy/tripo-models/nature/<kit>_pieces.png.
 """
 import io
 import json
@@ -35,7 +35,7 @@ from scipy import ndimage
 HERE = os.path.dirname(os.path.abspath(__file__))
 LAB = os.path.dirname(HERE)
 ROOT = os.path.dirname(LAB)
-NATURE = os.path.join(ROOT, 'art-output', 'tripo-models', 'nature')
+NATURE = os.path.join(ROOT, 'legacy', 'tripo-models', 'nature')
 TEXTURE = 2048  # a sheet's atlas; at 1024 props are magnified on a 1440p screen at the default iso zoom (0.6 texel/px)
 
 # Model → its scale figure: object numbers (--list), and an x range (model units) where an object holds more.

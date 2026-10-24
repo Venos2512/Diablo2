@@ -10,9 +10,9 @@
 // baskets) → a stair down to the deep rows, the hardest stretch (open-earth rows running on into the black, a bell gauntlet, root falls closing the easy
 // ways, a Poppy-Mound on the wrong way) where the lamp ahead appears for the first time: a far, still white light that shows the right way (never a person
 // holding it; not explained) → the exit landing (BIO27 vault stone, crypt-wall niches, the Cradle's milk-white lamp) → 9 treads down to the Cradle (map 6).
-// Sizes (H = 1.8 m): A13 from ashlar/art/act-01-environments/groups/A13_garden_of_hush/{perspective,turnaround}.png and their prompt (A13.1: the turnaround
+// Sizes (H = 1.8 m): A13 from ashlar/art/act-01/environments/A13_garden_of_hush/{perspective,turnaround}.png and their prompt (A13.1: the turnaround
 // reads ≈ 1.5H long, the prompt's 2.4H × 1H × 0.4H is too big for one sleeper → 2.7 × 1.4 × 0.5 m; A13.2 3.5H × 2.4H × 2.4H; A13.3 0.45H × ⌀ 0.35H; A13.4
-// 2H × 0.9H; A13.5 3H × 2.8H × 1H; A13.6 2.4H × 0.9H × 0.7H), A20 from the v2 batch (ashlar/art/act-01-environments-v2/groups/A20_garden_of_hush_sleepers
+// 2H × 0.9H; A13.5 3H × 2.8H × 1H; A13.6 2.4H × 0.9H × 0.7H), A20 from the v2 batch (ashlar/art/act-01/environments/A20_garden_of_hush_sleepers
 // _harvest/perspective_v1e.png, QA passed; tmp/act1-base-maps/MISSING_ENV_CONCEPTS.md: sleepers L ≈ 1H, face at 0.19H; the channel L 3 m × W 0.6 m, sunk
 // into the floor here where the sheet draws a raised trough; the harvest table L 2.6 m, h 0.9 m, rail 2.2 m), A08.6 drying rack 2.4H × 2H (A08 sheet), A11.6
 // steady candle stand 1.3H (A11 sheet, the hospice side of the stair). Hybrid (LD): built as a fixed layout; the row halls, the channel gallery and the deep
@@ -562,7 +562,7 @@ export const KIT = {
 	},
 	P06: {
 		name: 'Poppy-Mound (static GLB)', short: 'Poppy-Mound', category: 'encounter', size: [4.5, 1.699, 4.425], status: 'glb', monster: true, fade: false, round: true, collider: 1.3,
-		source: 'ashlar/3d/monsters/P06_poppy_mound (Tripo, concept vA r2; width 2.5H = 4.5 m)', segment: 'deep rows', model: 'act1-p06-poppy-mound',
+		source: 'ashlar/3d/act-01/monsters/P06_poppy_mound (Tripo, concept vA r2; width 2.5H = 4.5 m)', segment: 'deep rows', model: 'act1-p06-poppy-mound',
 		note: 'stationary spawner on the wrong way; releases Hush-Moths. The static model stays in Play (solid, a collider keeps the hero off its slopes); the camp\'s stand-in brute spawns at its edge',
 		shape: poppyMoundShape(),
 	},

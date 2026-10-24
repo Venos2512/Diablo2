@@ -1,4 +1,4 @@
-// Skill definitions: Act I class skills in the element language of art-direction/07 §4. Each skill is data
+// Skill definitions: Act I class skills in the element language of legacy/art-direction/07 §4. Each skill is data
 // (label, class, element, cast time, cooldown, charge effect, numbers) plus a run(ctx) that wires motions
 // and effects from the runtime (see runtime.js for ctx). Effects live in fx.js; numbers are per level 1
 // (the runtime multiplies damage by the level and scales effects by √level).

@@ -23,7 +23,7 @@ import { MODULE_RULES, checkModules, loadOrder, mapStart, splitModules } from '.
 export const PLAN_GEN_VERSION = 'plan-gen/2'; // /2: poi-count ≤ max, reach per zone, plan id with the size, budgets from the engine's defaults
 
 // ---------------------------------------------------------------------------------------------------------------
-// Rules: every number with its source. "demo" = read off DEMO_PLAN; "AD12" = art-direction/12 section; "H/Sub" = the metre
+// Rules: every number with its source. "demo" = read off DEMO_PLAN; "AD12" = legacy/art-direction/12 section; "H/Sub" = the metre
 // conversion of UNITS (H = 1.8 m, 1 Sub ≈ 0.47 m); "spec" = the stage-B brief; "tuning" = no source gives a number.
 
 const RULE_TABLE = [

@@ -1,5 +1,5 @@
 // Procedural sprite textures for the skill VFX (canvas-drawn once, shared by every effect). Shapes follow the
-// element language of art-direction/07: fire rolls (soft puffs, a flame flipbook), cold is sharp (shards),
+// element language of legacy/art-direction/07: fire rolls (soft puffs, a flame flipbook), cold is sharp (shards),
 // lightning is jagged (streaks), magic and holy are rings and runes, bone is a spike.
 import * as THREE from 'three';
 

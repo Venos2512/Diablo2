@@ -1,6 +1,6 @@
 """
 Poly Haven (CC0) ground textures for TERRAIN_SETS.polyhaven: downloads the 2k jpg maps of each chosen asset into
-art-output/polyhaven-terrain/<asset>/ (kept, so a rerun does not download again), then writes 1024 px webp files to
+legacy/art-output/polyhaven-terrain/<asset>/ (kept, so a rerun does not download again), then writes 1024 px webp files to
 assets/samples/ under the lab's names and (re)writes their entries in src/assets/samples.json:
 
   <name>.webp     albedo (Diffuse)
@@ -25,7 +25,7 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-RAW = os.path.join(ROOT, '..', 'art-output', 'polyhaven-terrain')
+RAW = os.path.join(ROOT, '..', 'legacy', 'art-output', 'polyhaven-terrain')
 OUT = os.path.join(ROOT, 'assets', 'samples')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
 SIZE = 1024

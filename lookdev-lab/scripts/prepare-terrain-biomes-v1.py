@@ -1,13 +1,13 @@
-"""Build assets/terrain-biomes/ (the lab's "ASHLAR · Biome mix" scene) from ashlar/art/terrain-biomes-v1 and the Dark Wood grass set.
+"""Build assets/terrain-biomes/ (the lab's "ASHLAR · Biome mix" scene) from ashlar/art/textures/terrain-biomes-v1 and the Dark Wood grass set.
 
 Usage:  python -I scripts/prepare-terrain-biomes-v1.py [--grass-prefix darkwood-sty-green] [--quality 90] [--only BIO01_peat,BIO02_meadow] [--source v1|v2] [--dungeon-only]
-        --source        where the BIO and dungeon floor tiles come from: v1 (default) = ashlar/art/terrain-biomes-v1 + terrain-dungeon-v1; v2 = ashlar/art/terrain-biomes-v2-stylized
+        --source        where the BIO and dungeon floor tiles come from: v1 (default) = ashlar/art/textures/terrain-biomes-v1 + terrain-dungeon-v1; v2 = ashlar/art/textures/terrain-biomes-v2-stylized
                         (the stylized low-detail regeneration: the same ids as albedo1024/ + normal1024/ [+ height1024/; a missing height is derived from the normal by
-                        ashlar/art/terrain-biomes-v1/tools/make_heights.py's function]). The output names and samples.json ids do not change: swapping the source is a data change.
+                        ashlar/art/textures/terrain-biomes-v1/tools/make_heights.py's function]). The output names and samples.json ids do not change: swapping the source is a data change.
         --grass-prefix  which Dark Wood set the grass copy comes from (assets/samples/<prefix>-grass{,-h,-n,-r}, <prefix>-grass-cards).
                         darkwood-sty-green (default) = the D2 / Map 1 green variant; darkwood-sty = the blue-grey stylized2 one.
 
-Per biome id (31 textures, ashlar/art/terrain-biomes-v1):
+Per biome id (31 textures, ashlar/art/textures/terrain-biomes-v1):
     biome-<id>.webp     albedo, sRGB, lossy WebP (q90), 1024 px, seamless
     biome-<id>-h.png    height, 8-bit, raised = bright, common median 0.5
     biome-<id>-n.webp   OpenGL (+Y) tangent-space normal, 1024 px, always lossless WebP (lossy chroma shows as seams in a normal). Full 8-bit is ~1 MB
@@ -16,20 +16,20 @@ Per biome id (31 textures, ashlar/art/terrain-biomes-v1):
                         (smooth maps: BIO11, BIO13 ...) it is saved as full 8-bit; the four new Dark Wood tiles are always 8-bit. The choice and the error in degrees are printed per map.
     biome-<id>-r.webp   roughness, 256 px (matte: 0.90, a little lower on the raised parts; it is low-frequency, the shader reads it at the albedo's uv)
 plus the Dark Wood NATURAL SET under biome-darkwood-<name>{,-h,-n,-r}.*: COPIES of the green stylized dirt / mud (wet ground, the puddle base) / grass
-(+ biome-darkwood-grass-cards.png), and four extra tiles from ashlar/art/terrain-dark-wood/stylized2_green_ext (selection.json): grass-dense, grass-sparse,
+(+ biome-darkwood-grass-cards.png), and four extra tiles from ashlar/art/textures/terrain-dark-wood/stylized2_green_ext (selection.json): grass-dense, grass-sparse,
 soil-damp, water (tint + ripple normal), processed like prepare-terrain-darkwood.py --stylized (it is imported, not edited): 1254 -> 1024 px, Moisan
 periodic seam fix, lighting flatten, soft height from the albedo, stylized relief, roughness. The darkwood-* files and
 their samples.json entries stay untouched (the Dark Wood scenes keep using them).
 Natural-sample dressing (round 3): biome-decals-ground.webp (4 x 4 flat ground decals: leaves, twigs / roots, pebbles, moss, a crack, a mud splash; keyed from
 stylized2_green_ext/textures/decals_ground_a.png, cells centred), biome-shore-plants.webp (2 x 2 side-view reed cards, bottom-aligned, from shore_plants_b.png) and
 three Tripo props as GLB at real size, pivot at the bottom centre, 2048 px JPEG base colour + normal, constant roughness 0.9 (biome-prop-riverbank-stones 1.0 m wide,
-biome-prop-mushrooms 0.3 m tall, biome-prop-stump 0.8 m wide), from ashlar/3d/props/clutter_v1. Atlases are lossless WebP with the colour bled
+biome-prop-mushrooms 0.3 m tall, biome-prop-stump 0.8 m wide), from ashlar/3d/common/clutter_v1. Atlases are lossless WebP with the colour bled
 under the transparent texels (mips get no pink / dark fringe).
 
-Dungeon set (the lab's "Dungeon" scene: crypt + cave): seven new floor tiles from ashlar/art/terrain-dungeon-v1 (dungeon-<id>{,-h,-n,-r}: seam-fixed albedo1024, OpenGL normal1024
+Dungeon set (the lab's "Dungeon" scene: crypt + cave): seven new floor tiles from ashlar/art/textures/terrain-dungeon-v1 (dungeon-<id>{,-h,-n,-r}: seam-fixed albedo1024, OpenGL normal1024
 and a height from make_heights.py --biome), two 4 x 4 decal atlases (dungeon-decals-crypt / dungeon-decals-cave, keyed like the ground decals; the cave atlas' cell 10, a ring drip stain
 with magenta through its translucent rings, is dropped and cell 14, the charcoal smudge, is despilled to grey) and nine Tripo props (dungeon-prop-*.glb) scaled to real size, pivot at the
-bottom centre, 2048 px JPEG base colour + normal, from ashlar/3d/props/dungeon_v1. `--dungeon-only` runs just this part (and leaves the rest of the folder alone).
+bottom centre, 2048 px JPEG base colour + normal, from ashlar/3d/common/dungeon_v1. `--dungeon-only` runs just this part (and leaves the rest of the folder alone).
 
 Everything lands in ONE folder, assets/terrain-biomes/, and is registered in src/assets/samples.json (kind "texture", file
 "terrain-biomes/..."): the entries are inserted after darkwood-sty-green-grass-cards (or replaced where they already are), nothing else moves.
@@ -48,18 +48,18 @@ from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
-SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-biomes-v1'))
+SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-biomes-v1'))
 SAMPLES = os.path.join(ROOT, 'assets', 'samples')
 OUT = os.path.join(ROOT, 'assets', 'terrain-biomes')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
 ANCHOR = 'darkwood-sty-green-grass-cards'
-TRIPO = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'props', 'clutter_v1'))
-EXT = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-dark-wood', 'stylized2_green_ext'))
-DG_SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-dungeon-v1'))
-V2_SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-biomes-v2-stylized'))
-TOOLS = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-biomes-v1', 'tools'))
+TRIPO = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'common', 'clutter_v1'))
+EXT = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-dark-wood', 'stylized2_green_ext'))
+DG_SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-dungeon-v1'))
+V2_SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-biomes-v2-stylized'))
+TOOLS = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-biomes-v1', 'tools'))
 HEIGHT_SRC = SRC  # the manifest / metadata folder stays v1's; set_source() points SRC and DG_SRC at the chosen tiles
-DG_TRIPO = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'props', 'dungeon_v1'))
+DG_TRIPO = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'common', 'dungeon_v1'))
 ROUGH = 0.90  # matte ground
 ROUGH_SIZE = 256
 
@@ -248,7 +248,7 @@ def prep_dressing():
     retry(decals.save, os.path.join(OUT, 'biome-decals-ground.webp'), format='WEBP', lossless=True, exact=True, method=6)
     plants = key_atlas(os.path.join(tex, 'shore_plants_b.png'), 2, 2, 512, 500, 'bottom')
     retry(plants.save, os.path.join(OUT, 'biome-shore-plants.webp'), format='WEBP', lossless=True, exact=True, method=6)
-    esrc = 'ashlar/art/terrain-dark-wood/stylized2_green_ext'
+    esrc = 'ashlar/art/textures/terrain-dark-wood/stylized2_green_ext'
     entries = [('biome-decals-ground', 'Dark Wood (D2 green, ext) · ground decals (4 x 4 RGBA atlas: leaves, twigs, pebbles, moss, crack, mud splash) · biome mix', 'biome-decals-ground.webp', esrc),
                ('biome-shore-plants', 'Dark Wood (D2 green, ext) · shore plant cards (2 x 2 RGBA atlas: cattail, reed, sedge, horsetail) · biome mix', 'biome-shore-plants.webp', esrc)]
     import trimesh
@@ -266,7 +266,7 @@ def prep_dressing():
         data = trimesh.Scene({name: out}).export(file_type='glb')
         retry(lambda: open(os.path.join(OUT, f'biome-prop-{name}.glb'), 'wb').write(data))
         print(f'  biome-prop-{name}.glb: {len(out.faces)} tris, extents {np.round(out.extents, 2).tolist()} m, {len(data) / 1e6:.2f} MB')
-        entries.append((f'biome-prop-{name}', f'{label} · Tripo prop (GLB, real size, pivot bottom centre) · biome mix', f'biome-prop-{name}.glb', 'ashlar/3d/props/clutter_v1'))
+        entries.append((f'biome-prop-{name}', f'{label} · Tripo prop (GLB, real size, pivot bottom centre) · biome mix', f'biome-prop-{name}.glb', 'ashlar/3d/common/clutter_v1'))
     return entries
 
 
@@ -292,7 +292,7 @@ DG_PROPS = [('sarcophagus', 'sarcophagus', 2.2, 0.9, 0.0, 'Sarcophagus (2.2 m lo
 def prep_dungeon(quality):
     """Dungeon tiles, decal atlases and Tripo props -> assets/terrain-biomes/dungeon-*. Returns the samples.json entries."""
     entries = []
-    src = 'ashlar/art/terrain-dungeon-v1'
+    src = 'ashlar/art/textures/terrain-dungeon-v1'
     for i, name, label, rough in DG_TILES:
         albedo = Image.open(os.path.join(DG_SRC, 'albedo1024', f'{i}.png')).convert('RGB')
         normal = Image.open(os.path.join(DG_SRC, 'normal1024', f'{i}.png')).convert('RGB')
@@ -326,7 +326,7 @@ def prep_dungeon(quality):
         data = trimesh.Scene({name: out}).export(file_type='glb')
         retry(lambda: open(os.path.join(OUT, f'dungeon-prop-{name}.glb'), 'wb').write(data))
         print(f'  dungeon-prop-{name}.glb: {len(out.faces)} tris, extents {np.round(out.extents, 2).tolist()} m, {len(data) / 1e6:.2f} MB')
-        entries.append((f'dungeon-prop-{name}', f'{label} · Tripo prop (GLB, real size, pivot bottom centre) · dungeon', f'dungeon-prop-{name}.glb', 'ashlar/3d/props/dungeon_v1'))
+        entries.append((f'dungeon-prop-{name}', f'{label} · Tripo prop (GLB, real size, pivot bottom centre) · dungeon', f'dungeon-prop-{name}.glb', 'ashlar/3d/common/dungeon_v1'))
     return entries
 
 
@@ -336,15 +336,15 @@ def run_dungeon(quality):
     entries = prep_dungeon(quality)
     register(entries)
     license_note(entries, 'dungeon-v1', 'The ASHLAR dungeon set - ' + ', '.join(n for _, n, _, _ in entries) + ' - is project art: the floor tiles and decal atlases are generated with Codex image generation '
-                 '(`ashlar/art/terrain-dungeon-v1`) and processed by `scripts/prepare-terrain-biomes-v1.py`; the nine props are generated with Tripo (image to 3D) from Codex concepts '
-                 '(`ashlar/3d/props/dungeon_v1`); all packed into `assets/terrain-biomes/`; project-internal.')
+                 '(`ashlar/art/textures/terrain-dungeon-v1`) and processed by `scripts/prepare-terrain-biomes-v1.py`; the nine props are generated with Tripo (image to 3D) from Codex concepts '
+                 '(`ashlar/3d/common/dungeon_v1`); all packed into `assets/terrain-biomes/`; project-internal.')
     total = sum(os.path.getsize(os.path.join(OUT, f)) for f in os.listdir(OUT))
     print(f'assets/terrain-biomes: {len(os.listdir(OUT))} files, {total / 1048576:.1f} MB')
 
 
 def register(entries):
     """entries = [(id, name, file, source)]. Replace the entries of these ids in place, or insert after ANCHOR; nothing else moves."""
-    credit_biome = ('Generated with Codex image generation for the ASHLAR terrain biomes (ashlar/art/terrain-biomes-v1: stylized2 albedo, normal and height maps, seamless), '
+    credit_biome = ('Generated with Codex image generation for the ASHLAR terrain biomes (ashlar/art/textures/terrain-biomes-v1: stylized2 albedo, normal and height maps, seamless), '
                     'packed by scripts/prepare-terrain-biomes-v1.py')
     credit_grass = ('Dark Wood natural ground layer (copy of the stylized2 green set, or the stylized2_green_ext tiles: dense / sparse grass, damp soil, water), generated '
                     'with Codex image generation after a Diablo Immortal Dark Wood screenshot, packed by scripts/prepare-terrain-biomes-v1.py')
@@ -352,7 +352,7 @@ def register(entries):
     credit_dress = ('Ground decals / shore plant cards generated with Codex image generation in the Dark Wood stylized2_green style (stylized2_green_ext), keyed and packed by '
                     'scripts/prepare-terrain-biomes-v1.py')
     credit_prop = ('Generated with Tripo (image to 3D, 4K PBR, ~10k triangles) from a Codex concept, scaled to real size and re-encoded (2048 px JPEG) by scripts/prepare-terrain-biomes-v1.py')
-    credit_dungeon = ('Generated with Codex image generation for the ASHLAR dungeon (ashlar/art/terrain-dungeon-v1: seam-fixed albedo, OpenGL normal, derived height; keyed decal atlases) '
+    credit_dungeon = ('Generated with Codex image generation for the ASHLAR dungeon (ashlar/art/textures/terrain-dungeon-v1: seam-fixed albedo, OpenGL normal, derived height; keyed decal atlases) '
                       'and, for the props, with Tripo (image to 3D, 4K PBR, ~10k triangles) from a Codex concept; scaled to real size and re-encoded (2048 px JPEG) by scripts/prepare-terrain-biomes-v1.py')
     for i, name, file, source in entries:
         credit = credit_dungeon if i.startswith('dungeon-') else credit_prop if i.startswith('biome-prop-') else credit_dress if i.startswith(('biome-decals-', 'biome-shore-')) else credit_grass if i.startswith('biome-darkwood-') else credit_biome
@@ -396,9 +396,9 @@ def license_note(entries, tag='terrain-biomes-v1', text=None):
     path = os.path.join(ROOT, 'THIRD_PARTY_LICENSES.md')
     a, b = f'<!-- {tag}:start -->', f'<!-- {tag}:end -->'
     para = (a + '\n' + text + '\n' + b) if text else (a + '\nThe ASHLAR biome-mix textures - ' + ', '.join(n for _, n, _, _ in entries) + ' - are project textures and props: the 31 BIO textures are generated with Codex image generation '
-            '(`ashlar/art/terrain-biomes-v1`, stylized2 look); the Dark Wood natural set is a COPY of the green Dark Wood loam ground (dirt), wet ground (mud) and shade grass layers '
-            '(`ashlar/art/terrain-dark-wood/stylized2_green`) plus four tiles generated the same way and processed like `prepare-terrain-darkwood.py --stylized` '
-            '(dense grass, sparse grass, damp soil near water, water surface: `ashlar/art/terrain-dark-wood/stylized2_green_ext`). All packed into `assets/terrain-biomes/` by '
+            '(`ashlar/art/textures/terrain-biomes-v1`, stylized2 look); the Dark Wood natural set is a COPY of the green Dark Wood loam ground (dirt), wet ground (mud) and shade grass layers '
+            '(`ashlar/art/textures/terrain-dark-wood/stylized2_green`) plus four tiles generated the same way and processed like `prepare-terrain-darkwood.py --stylized` '
+            '(dense grass, sparse grass, damp soil near water, water surface: `ashlar/art/textures/terrain-dark-wood/stylized2_green_ext`). All packed into `assets/terrain-biomes/` by '
             '`scripts/prepare-terrain-biomes-v1.py`; the ground decals and shore plant cards are generated with Codex image generation in the same style (`stylized2_green_ext`), and the three props are generated with Tripo (image to 3D); project-internal.\n' + b)
     text = open(path, encoding='utf-8', newline='').read()
     nl = '\r\n' if '\r\n' in text else '\n'
@@ -442,7 +442,7 @@ def main():
         i = e['id']
         prep_biome(e, quality)
         label = f"ASHLAR {e['biome_id']} · {e['name_vi']} · {e['material']} ({i})"
-        src = 'ashlar/art/terrain-biomes-v1'
+        src = 'ashlar/art/textures/terrain-biomes-v1'
         tilt = tilts.get(i)
         print(f'{i}  tilt {tilt if tilt is None else round(tilt, 1)} deg')
         entries += [(f'biome-{i}', f'{label} (albedo)', f'biome-{i}.webp', src), (f'biome-{i}-h', f'{label} (height)', f'biome-{i}-h.png', src),
@@ -450,9 +450,9 @@ def main():
     global DW
     DW = load_darkwood()
     prep_natural(grass_prefix, quality)
-    gsrc = 'ashlar/art/terrain-dark-wood/stylized2_green' if grass_prefix.endswith('green') else 'ashlar/art/terrain-dark-wood/stylized2'
+    gsrc = 'ashlar/art/textures/terrain-dark-wood/stylized2_green' if grass_prefix.endswith('green') else 'ashlar/art/textures/terrain-dark-wood/stylized2'
     gl = 'Dark Wood (D2 green)' if grass_prefix.endswith('green') else 'Dark Wood (blue-grey)'
-    esrc = 'ashlar/art/terrain-dark-wood/stylized2_green_ext'
+    esrc = 'ashlar/art/textures/terrain-dark-wood/stylized2_green_ext'
     kinds = (('', 'albedo', '.webp'), ('-h', 'height', '-h.png'), ('-n', 'normal', '-n.webp'), ('-r', 'roughness', '-r.webp'))
     for suffix, role in COPIES:
         for tag, kind, ext in kinds:

@@ -1,7 +1,7 @@
 // ASHLAR · Biome mix (scene src/scenes/biomeMix.js): the sample patches and the CPU side of their blends.
 // A sample = an N-layer list (bottom → top, up to 8) shown by the lab's N-layer terrain effect (createTerrainLayers: texture arrays, a 2-texture
 // splat of 7 layer weights + wetness, per-layer tile / normal strength / anti-tiling mode). The masks of the standalone viewer
-// (ashlar/art/terrain-biomes-v1/biome_mix: roles base / patch / path / low / cell, defined in METRES in a patch-centred frame) are evaluated on
+// (ashlar/art/textures/terrain-biomes-v1/biome_mix: roles base / patch / path / low / cell, defined in METRES in a patch-centred frame) are evaluated on
 // the CPU into the patch's splat; the effect's softness / height blend / edge noise do the rest. Textures: assets/terrain-biomes/
 // (scripts/prepare-terrain-biomes-v1.py). The natural sample adds a pond: shore bands, wet ground, puddles and a water surface mesh.
 const lerp = (a, b, t) => a + (b - a) * t;

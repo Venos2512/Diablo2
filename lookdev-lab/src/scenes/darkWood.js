@@ -1,4 +1,4 @@
-// Act I · Dark Wood after Diablo Immortal's zone (reference: output/immortal-artstyle/dark-wood.jpg): a high 3/4 view at night,
+// Act I · Dark Wood after Diablo Immortal's zone (reference: legacy/output/immortal-artstyle/dark-wood.jpg): a high 3/4 view at night,
 // cold blue-grey moonlight with almost no saturation, mist, dark blue-grey loam with sparse wiry grass, a worn cobble path
 // crossing the frame diagonally, huge twisted trunks and roots on the left, mossy rocks, a cool pool of light round the
 // player. It is the moor's TerrainScene (splat ground, ribbons, grass tufts / cards / shells, brush, ground blend) with its
@@ -95,7 +95,7 @@ export const DARKWOOD_TIMES = {
 };
 
 /**
- * SCALE — H = the character's 1.8 m (art-direction/12_QUY_CHUAN §4.3 / §4.7): ordinary trees 1.7–3 H, the hero trunks / roots on the
+ * SCALE — H = the character's 1.8 m (legacy/art-direction/12_QUY_CHUAN §4.3 / §4.7): ordinary trees 1.7–3 H, the hero trunks / roots on the
  * left 2.5–4 H, rocks mostly ≤ 0.5 H, bushes 0.3–0.7 H, edge grass 0.2–0.35 H.
  * The path (stylized sets): the stylized2 cobble strip cut into a tile that repeats in u and v (scripts/prepare-road-tile.py) at 300 px/m,
  * so its paving stones are ≈ 0.55 m long (median; 0.4–0.9 m, 0.30 H) — measured on the tile, printed by the script. The ribbon is

@@ -4,7 +4,7 @@ Usage:  python -I scripts/prepare-road-tile.py [--debug DIR] [--moisan]
         --debug DIR   writes 3 x 3 repeat checks (colour + normal) and the seam overlay into DIR
         --moisan      cut with the periodic + smooth decomposition (Moisan 2011) instead of the seam cut, for comparison
 
-Source: ashlar/art/terrain-dark-wood/stylized2/path_cobble.png (1024 x 1536; the stones fill x ≈ 215..790, the rest is verge) and
+Source: ashlar/art/textures/terrain-dark-wood/stylized2/path_cobble.png (1024 x 1536; the stones fill x ≈ 215..790, the rest is verge) and
 stylized2_green/path_cobble.png (same strokes, recoloured: the cut is decided on the first and applied to both, pixel for pixel).
 No texture is painted or generated here: only cut, joined and re-lit.
 
@@ -35,7 +35,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 OUT = os.path.join(ROOT, 'assets', 'samples')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
-ART = os.path.join(ROOT, '..', 'ashlar', 'art', 'terrain-dark-wood')
+ART = os.path.join(ROOT, '..', 'ashlar', 'art', 'textures', 'terrain-dark-wood')
 SETS = [('darkwood-sty', 'stylized2', 'Dark Wood (stylized)'), ('darkwood-sty-green', 'stylized2_green', 'Dark Wood (stylized, green)')]
 # Texel density of the tile on the ground. Set from the measured stones: the median stone (equivalent diameter) should be ≈ 0.5 m
 # (0.28 H), the largest ≈ 1 m. See STONE_M below; the printed table is the proof.
@@ -202,9 +202,9 @@ def register(labels):
     ids = []
     for prefix, label in labels:
         ids += [(f'{prefix}-cobble', f'{label} · cobble road tile (albedo, repeats in u and v)'), (f'{prefix}-cobble-n', f'{label} · cobble road tile (normal)')]
-    credit = 'Cut and joined from the stylized2 Dark Wood path strip (Codex-generated, ashlar/art/terrain-dark-wood), scripts/prepare-road-tile.py'
+    credit = 'Cut and joined from the stylized2 Dark Wood path strip (Codex-generated, ashlar/art/textures/terrain-dark-wood), scripts/prepare-road-tile.py'
     ext = lambda i: 'webp' if i.endswith('-n') else 'png'
-    lines = [f'    {{"id": "{i}", "name": {json.dumps(n, ensure_ascii=False)}, "kind": "texture", "file": "samples/{i}.{ext(i)}", "license": "Project-internal", "credit": "{credit}", "source": "ashlar/art/terrain-dark-wood/stylized2"}},' for i, n in ids]
+    lines = [f'    {{"id": "{i}", "name": {json.dumps(n, ensure_ascii=False)}, "kind": "texture", "file": "samples/{i}.{ext(i)}", "license": "Project-internal", "credit": "{credit}", "source": "ashlar/art/textures/terrain-dark-wood/stylized2"}},' for i, n in ids]
     text = open(MANIFEST, encoding='utf-8').read().split('\n')
     keep = {i for i, _ in ids}
     text = [l for l in text if not any(f'"id": "{i}"' in l for i in keep)]

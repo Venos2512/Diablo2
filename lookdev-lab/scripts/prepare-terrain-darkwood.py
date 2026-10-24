@@ -1,8 +1,8 @@
-"""Build the "Dark Wood (Diablo Immortal ref)" terrain set from the Codex tiles in art-output/terrain-darkwood (realistic) or ashlar/art/terrain-dark-wood/stylized2[_green] (stylized).
+"""Build the "Dark Wood (Diablo Immortal ref)" terrain set from the Codex tiles in legacy/art-output/terrain-darkwood (realistic) or ashlar/art/textures/terrain-dark-wood/stylized2[_green] (stylized).
 
 Usage:  python -I scripts/prepare-terrain-darkwood.py [source dir] [--prefix darkwood] [--stylized] [--puddle-rough 0.08] [--mud-rough 0.62] [--path file] [--label 'Dark Wood (Immortal ref)']
-        realistic: defaults (art-output/terrain-darkwood -> darkwood-*)
-        stylized:  ... ../ashlar/art/terrain-dark-wood/stylized2 --prefix darkwood-sty --stylized   (smoother heights, gentler normals)
+        realistic: defaults (legacy/art-output/terrain-darkwood -> darkwood-*)
+        stylized:  ... ../ashlar/art/textures/terrain-dark-wood/stylized2 --prefix darkwood-sty --stylized   (smoother heights, gentler normals)
 
 Sources (square tiles unless noted): dirt_loam.png, mud_wet.png, grass_shade.png, path_cobble.png (portrait strip, road in
 the middle 60 % of the width, repeats along v), grass_cards.png (2 x 2 tufts on magenta #FF00FF).
@@ -10,7 +10,7 @@ Also -n (OpenGL normal) and -r (roughness) webp per layer, darkwood-ruts-n.webp,
 Writes assets/samples/darkwood-<layer>.png + darkwood-<layer>-h.png (dirt / mud / grass, 1024 px), darkwood-ruts.png + -h
 (RGBA cobble ribbon, alpha fades the sides) and darkwood-grass-cards.png (RGBA 2 x 2 atlas), and the samples.json entries.
 
-Seams: periodic + smooth decomposition (Moisan 2011, the same as art-output/terrain-biomes/process.py) and the lighting
+Seams: periodic + smooth decomposition (Moisan 2011, the same as legacy/art-output/terrain-biomes/process.py) and the lighting
 flatten on a wrapped 3 x 3 copy - NOT the half-shift cross-fade of sw.make_seamless, which prints a square grid.
 The ground tiles stay at 1024: loadPaintedSets builds its normal / orm maps per pixel on the CPU, three layers of 2048 px
 would cost seconds of boot time and gain nothing at the 3.5 m repeat. The grass-card atlas reuses prepare-terrain-moor.py.
@@ -28,7 +28,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 OUT = os.path.join(ROOT, 'assets', 'samples')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
-SRC = os.path.join(ROOT, '..', 'art-output', 'terrain-darkwood')
+SRC = os.path.join(ROOT, '..', 'legacy', 'art-output', 'terrain-darkwood')
 PREFIX = 'darkwood'
 SIZE = 1024
 STY_RELIEF = {'dirt': 0.38, 'mud': 0.85, 'grass': 0.33, 'ruts': 0.4}  # stylized: strength multiplier, tuned so the normal's x std lands at 0.04-0.08 (printed per layer)
@@ -36,7 +36,7 @@ MUD_ROUGH = 0.62  # roughness of the wet layer's dry part (--mud-rough): a low v
 PUDDLE_ROUGH = 0.08  # roughness of the wet layer's lowest parts: low = glossy puddles; --puddle-rough raises it (a glossy patch mirrors the hero's light)
 STYLIZED = False  # painted strokes: heights smoothed, normals ~half as strong
 LABEL = 'Dark Wood (realistic)'
-SOURCE = 'art-output/terrain-darkwood'
+SOURCE = 'legacy/art-output/terrain-darkwood'
 
 
 def load_module(name, file):
@@ -63,7 +63,7 @@ def retry_save(img, path, **kw):
 
 
 def periodic(img):
-    """Periodic component of the periodic + smooth decomposition, per channel (see art-output/terrain-biomes/process.py)."""
+    """Periodic component of the periodic + smooth decomposition, per channel (see legacy/art-output/terrain-biomes/process.py)."""
     h, w = img.shape[:2]
     out = np.empty_like(img)
     q = np.cos(2 * np.pi * np.arange(h) / h)[:, None]
@@ -174,7 +174,7 @@ def save_pbr(h, layer):
 
 
 def tiling_check(layer):
-    """3 x 3 repeat of a normal map (RGB as saved) for a seam check, in art-output/terrain-darkwood/_tiling."""
+    """3 x 3 repeat of a normal map (RGB as saved) for a seam check, in legacy/art-output/terrain-darkwood/_tiling."""
     d = os.path.join(SRC, '_tiling')
     os.makedirs(d, exist_ok=True)
     img = Image.open(os.path.join(OUT, f'{PREFIX}-{layer}-n.webp')).convert('RGB')

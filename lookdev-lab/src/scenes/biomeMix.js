@@ -1,4 +1,4 @@
-// ASHLAR · Biome mix: the 31 textures of ashlar/art/terrain-biomes-v1 + the Dark Wood natural ground set (assets/terrain-biomes/, one folder,
+// ASHLAR · Biome mix: the 31 textures of ashlar/art/textures/terrain-biomes-v1 + the Dark Wood natural ground set (assets/terrain-biomes/, one folder,
 // scripts/prepare-terrain-biomes-v1.py) as sample patches: a big natural one (cỏ · đất · cỏ dày · cỏ thưa · đất ẩm gần nước · vũng nước · nước) and a grid of
 // small mixes. Every patch has its own LayerSplat (7 layer weights + wetness, filled on the CPU from the viewer's masks: env/biomeMix.js) and its own
 // material of the lab's N-layer terrain effect (createTerrainLayers: GLSL + TSL twins, texture arrays shared by all patches). The natural sample adds a basin,

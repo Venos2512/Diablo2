@@ -42,7 +42,7 @@ Toàn cảnh (camera từ phía đông: cầu thang → lối vào → arena đ�
 
 11 id: **1 glb** (`glb:dungeon-prop-crypt-wall`, mô-đun tường đầu cầu thang) · **1 procedural** (`N-CR04` cầu thang + vòm, engine dựng) · **9 blockout**: A14.1 cũi xương ×60 (39 vẽ trong void) · A14.2 màn lanh ×9 · A14.3 đèn ngủ ×32 (14 trong void, chỉ quầng) · A14.4 chuông xương treo ×2 · A14.5 bục chăn chần ×1 · A14.6 đế bập bênh ×3 · N-CR01 thảm lanh lối đi · N-CR02 chăn lật · N-CR03 gối lanh. Quái: B05, P07, P01, P05 (+ Swaddlings), P03 — **không có GLB**. Texture còn thiếu: sàn lanh chần, sàn void, trim xương + dây, vải lanh có viền đỏ, kính trắng sữa. VFX còn thiếu: bài ru (màn hình tối + hero chậm), ánh Mercy chảy vào hero, vải thở, bầy Hush-Moth, hơi "suỵt" của boss (đang dùng thay: quầng tĩnh, vũng sáng, sương đen, bóng tay, bụi GPU).
 
-## Thẻ mood (`ashlar/artdirection.md` §2.1)
+## Thẻ mood (`ashlar/art-direction/artdirection.md` §2.1)
 
 | Trường | Nội dung |
 |---|---|

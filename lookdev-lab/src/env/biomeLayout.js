@@ -5,7 +5,7 @@
 // never moves what an earlier step placed. Placement is checked at the FINAL position in the §4.12 order (play space →
 // footprints & use zones → water/slope/step/substrate/corruption → distribution), the first failing class is the drop
 // reason, effort is bounded (maxTries inside a fixed reach, never a wider radius) and nothing is forced.
-// Plan/asset/result shapes: docs in art-direction/12 §4.13; data in biomeCatalog.js.
+// Plan/asset/result shapes: docs in legacy/art-direction/12 §4.13; data in biomeCatalog.js.
 import { BIOME_RULES, PlacementGrid, grassHabitat, segmentDistance } from './biomePlacement.js';
 
 const TAU = Math.PI * 2;

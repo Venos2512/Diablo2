@@ -1,5 +1,5 @@
 """
-"D2R lush grass" terrain set from the Codex tiles in art-output/terrain-grass-d2r (made after a D2R gameplay screenshot).
+"D2R lush grass" terrain set from the Codex tiles in legacy/art-output/terrain-grass-d2r (made after a D2R gameplay screenshot).
 
   python -I scripts/prepare-terrain-meadow.py
 
@@ -22,11 +22,11 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-SRC = os.path.join(ROOT, '..', 'art-output', 'terrain-grass-d2r')
+SRC = os.path.join(ROOT, '..', 'legacy', 'art-output', 'terrain-grass-d2r')
 OUT = os.path.join(ROOT, 'assets', 'samples')
 MANIFEST = os.path.join(ROOT, 'src', 'assets', 'samples.json')
 PREFIX = 'terrain4'
-CREDIT = ('Generated with Codex image generation after a D2R gameplay screenshot (art-output/terrain-grass-d2r), made tileable '
+CREDIT = ('Generated with Codex image generation after a D2R gameplay screenshot (legacy/art-output/terrain-grass-d2r), made tileable '
           'and mixed by scripts/prepare-terrain-meadow.py')
 
 
@@ -124,7 +124,7 @@ for layer, (rgb, h) in layers.items():
         total += os.path.getsize(path)
         lines.append(f'    {{"id": "{sid}", "name": "D2R lush grass · {ROLES[layer]} ({kind})", "kind": "texture", '
                      f'"file": "samples/{sid}.webp", "license": "Project-internal", "credit": "{CREDIT}", '
-                     f'"source": "art-output/terrain-grass-d2r"}},')
+                     f'"source": "legacy/art-output/terrain-grass-d2r"}},')
         print(f'{sid:22s} {data.shape[1]} px')
     if layer == 'grass':
         lin = (np.clip(rgb, 0, 1) ** 2.2).reshape(-1, 3).mean(0)

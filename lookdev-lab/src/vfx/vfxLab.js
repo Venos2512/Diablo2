@@ -704,7 +704,7 @@ export class VfxLab {
 		}
 	}
 
-	/** Short decaying camera shake for big impacts only (art-direction/07 §2). Applied after the rig update and removed before the next one. */
+	/** Short decaying camera shake for big impacts only (legacy/art-direction/07 §2). Applied after the rig update and removed before the next one. */
 	shake(strength = 0.3) {
 		this.shakeAmount = Math.max(this.shakeAmount || 0, strength);
 	}

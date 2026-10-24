@@ -55,7 +55,7 @@ Khung camera (14): Toàn cảnh · Toàn cảnh (bắc lên trên) · Chiếu ng
 
 31 mã: **3 glb** (`glb:dungeon-prop-crypt-wall` mô-đun tường, `glb:dungeon-prop-broken-column` ×5, `glb:dungeon-prop-candle-cluster` ×2) · **3 procedural** (N-GD12 cầu thang hospice, N-GD13 cầu thang xuống Cradle, N-GD14 mương nước tĩnh) · **25 blockout**: A13.1–A13.6, A20.1–A20.6, A08.6, A11.6 và N-GD01, 04–11, 15, 16. Fen (N-GD02) và Tamsin (N-GD03) là hình NPC đứng thay (trong NPCS, không tính asset); P06 là blockout quái (trong MONSTERS). Texture còn thiếu: đất luống, tường đất có rễ, lòng mương đá ướt, nước đen tĩnh, vải lanh mộc vs lanh Mercy, kính hồng bụi. VFX còn thiếu: chuông rung + tiếng, người ngủ thở chung một nhịp, cánh anh túc rơi, bầy Hush-Moth, tơ W07 làm chậm (đang thay: quầng/vũng sáng tĩnh, lập lòe 1/f, ánh Tường lung linh, bụi GPU, mặt nước bóng).
 
-## Thẻ mood (`ashlar/artdirection.md` §2.1)
+## Thẻ mood (`ashlar/art-direction/artdirection.md` §2.1)
 
 | Trường | Nội dung |
 |---|---|
@@ -105,7 +105,7 @@ Thay blockout bằng model Tripo đã chuẩn bị (`lookdev-lab/assets/act1-ext
 
 ## Vòng thay kit A01–A14 (2026-10-23)
 
-Thay blockout A13, A08.6 và A11.6 bằng model Tripo của bộ kit (`lookdev-lab/assets/act1-kit/`). Ghi chú QA của từng model đọc trong `ashlar/3d/props/act1_kit_v1/manifest.json`.
+Thay blockout A13, A08.6 và A11.6 bằng model Tripo của bộ kit (`lookdev-lab/assets/act1-kit/`). Ghi chú QA của từng model đọc trong `ashlar/3d/act-01/_batches/kit_v1/manifest.json`.
 
 - **A13.1** giường luống ×65. Model là hộp gỗ phủ vải lanh, dài 2.7 m, rộng 1.16 m (concept 1.4 m); mặt vải cao 0.46–0.50 m.
   - Người ngủ GLB (A20.1–A20.4) nằm trên vải: đáy phẳng ở 0.42 m.

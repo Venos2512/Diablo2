@@ -11,7 +11,7 @@
 // act image, seen from the foot of the slope. Beyond the bounds the hill goes on (far.apron: the terrain's own meadow, poppies thinning out) and falls
 // into the fens.
 // Plain data + the §6b exports. Format: env/act1/outdoor.js (header) + env/act1/meadow.js (field, smoke, far.apron). Sizes: concept sheets (H = 1.8 m) —
-// A08 (ashlar/art/act-01-environments), A18 (act-01-environments-v2, perspective_v1e); `N-PR…` = LD only.
+// A08 (ashlar/art/act-01/_batches/env_A01-A14), A18 (ashlar/art/act-01/_batches/env_A15-A20, perspective_v1e); `N-PR…` = LD only.
 import { withCounts, runModules } from '../outdoor.js';
 
 const FEN = 0.0; // the fen at the foot (Rook's Weir lies beyond, south)
@@ -92,8 +92,8 @@ const DEFS = [
 	A('A03.1', 'Low grass clump (meadow tufts)', 'vegetation', [0.6, 0.5, 0.6], 'procedural', 'concept A03 cell 1 (E01 fen kit)', 'all', { procedural: 'grass', collide: false, count: 30300, note: 'grey-green meadow tufts: ≈ 30 000 instanced Dark Wood grass cards from the field + 320 scattered clumps' }),
 	A('A03.2', 'Tall reeds clump', 'vegetation', [0.8, 1.8, 0.8], 'procedural', 'concept A03 cell 2 (E01 fen kit)', 'landing', { procedural: 'reeds', collide: false, note: 'shore-plant cards along the fen at the foot' }),
 	A('A03.3', 'Sedge water clump', 'vegetation', [0.7, 0.9, 0.7], 'procedural', 'concept A03 cell 3 (E01 fen kit)', 'landing', { procedural: 'sedge', collide: false }),
-	A('glb:dungeon-prop-flint-boulders', 'Flint boulders', 'rock', [2.0, 1.18, 1.9], 'glb', 'ashlar/3d/props/dungeon_v1/flint_boulders', 'all', { model: 'dungeon-prop-flint-boulders', fit: 'native', note: 'the Delvings spoil and the field-clearance piles at wall corners (flint country)' }),
-	A('glb:biome-prop-riverbank-stones', 'Riverbank stones', 'rock', [1.0, 0.35, 1.0], 'glb', 'ashlar/3d/props/clutter_v1/riverbank_stones', 'landing', { model: 'biome-prop-riverbank-stones', fit: 'native', collide: false }),
+	A('glb:dungeon-prop-flint-boulders', 'Flint boulders', 'rock', [2.0, 1.18, 1.9], 'glb', 'ashlar/3d/common/dungeon_v1/flint_boulders', 'all', { model: 'dungeon-prop-flint-boulders', fit: 'native', note: 'the Delvings spoil and the field-clearance piles at wall corners (flint country)' }),
+	A('glb:biome-prop-riverbank-stones', 'Riverbank stones', 'rock', [1.0, 0.35, 1.0], 'glb', 'ashlar/3d/common/clutter_v1/riverbank_stones', 'landing', { model: 'biome-prop-riverbank-stones', fit: 'native', collide: false }),
 ];
 
 // ---- layout ----------------------------------------------------------------------------------------------------------------------------------------

@@ -1,10 +1,10 @@
-"""Split the Tripo models of the camp prop sheets (art-output/tripo-models/camp/asset_13..24*.glb) into the lab's
+"""Split the Tripo models of the camp prop sheets (legacy/tripo-models/camp/asset_13..24*.glb) into the lab's
 camp kits with scripts/prepare-prop-kit.py, one call per sheet with the options that sheet needs.
 
 Usage: python -I scripts/prepare-camp-kits.py [sheet-number ...]     (default: every sheet whose GLB exists)
 
 Piece names must match the kit catalogue (src/env/biomeCatalog.js). Options per sheet were found by
-looking at each preview (art-output/tripo-models/camp/<sheet>_pieces.png): Tripo lays a 2D sheet out on the ground,
+looking at each preview (legacy/tripo-models/camp/<sheet>_pieces.png): Tripo lays a 2D sheet out on the ground,
 so --layout plan (footprints seen from above); --join glues parts of one prop that do not touch (a pot under its
 tripod), --merge-small folds chips and pebbles into their neighbour, --drop removes a flattened scale figure.
 """
@@ -14,7 +14,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LAB = os.path.dirname(HERE)
-CAMP = os.path.join(LAB, '..', 'art-output', 'tripo-models', 'camp')
+CAMP = os.path.join(LAB, '..', 'legacy', 'tripo-models', 'camp')
 
 SHEETS = {
     13: ('asset_13_tent_set_b', 'kit-tents-b', 'tentb', 'hospital,bell,cart_awning,hide_shelter,burnt,quartermaster',

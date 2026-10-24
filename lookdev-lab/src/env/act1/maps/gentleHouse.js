@@ -10,11 +10,11 @@
 // no repairs anywhere, flowers in vases (A19.1). Beats: the tea by the warm window; Tamsin hiding behind a linen screen at Fen's empty bed, to be got out
 // before the sisters notice (patrol routes + sight cones as an overlay; being seen = led kindly to the gate, a marker only). No red light, no tilted camera,
 // the camera lower and closer than the other maps (LD proposal). The exterior roofs show only while the focus is outdoors (the engine's room.outdoor).
-// Sizes (H = 1.8 m): A11 from ashlar/art/act-01-environments/groups/A11_gentle_house/perspective.prompt.txt (cloister bay 3H × 2.4H × 1.2H, bed 1.2H × 0.6H ×
+// Sizes (H = 1.8 m): A11 from ashlar/art/act-01/environments/A11_gentle_house/_work/perspective.prompt.txt (cloister bay 3H × 2.4H × 1.2H, bed 1.2H × 0.6H ×
 // 0.4H, table 2.4H × 0.8H × 0.45H, gate tower 4H × 2.4H × 2.4H, hearth 1.6H × 2H × 1H, candle stand 1.3H × 0.5H); A18 / A19 from the v2 batch
-// (ashlar/art/act-01-environments-v2/README_VI.md §3, tmp/act1-base-maps/MISSING_ENV_CONCEPTS.md; sheets A18 perspective_v1e, A19 perspective_v2e); the
+// (ashlar/art/act-01/_batches/env_A15-A20/README_VI.md §3, tmp/act1-base-maps/MISSING_ENV_CONCEPTS.md; sheets A18 perspective_v1e, A19 perspective_v2e); the
 // garth / garden beds, pots and drying line (N-HS02–05 = A23.3–A23.6) and the kitchen / linen-room tables and bread rack (N-HS06–08 = A24.1–A24.3) from the
-// v3 batch (ashlar/art/act-01-environments-v3, MISSING_ENV_CONCEPTS_2.md) on their act1-kit GLBs (tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25).
+// v3 batch (ashlar/art/act-01/_batches/env_A21-A25, MISSING_ENV_CONCEPTS_2.md) on their act1-kit GLBs (tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25).
 // Pure data + small pure helpers (the engine: ../interior.js; format documented at its top).
 import { assetList } from '../interior.js';
 
@@ -398,7 +398,7 @@ export const KIT = {
 	},
 	'glb:dungeon-prop-flint-boulders': {
 		name: 'Flint boulders (2 m wide)', short: 'Đá lửa (GLB)', category: 'rock', size: [2, 1.1, 1.8], status: 'glb', model: 'dungeon-prop-flint-boulders',
-		source: 'lookdev-lab/assets/terrain-biomes/dungeon-prop-flint-boulders.glb (ashlar/3d/props/dungeon_v1)', segment: 'approach', note: 'flint country of the Poppy Reach: the hillside',
+		source: 'lookdev-lab/assets/terrain-biomes/dungeon-prop-flint-boulders.glb (ashlar/3d/common/dungeon_v1)', segment: 'approach', note: 'flint country of the Poppy Reach: the hillside',
 	},
 	// NPC stand-ins (KIT npc: reported in NPCS, not in ASSETS; walk-through)
 	'NPC.Hawise': {

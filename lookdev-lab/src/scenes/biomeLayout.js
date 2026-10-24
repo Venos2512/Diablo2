@@ -2393,9 +2393,9 @@ export class BiomeLayoutScene extends TerrainScene {
 
 		// The algorithm ---------------------------------------------------------------------------------------
 		const fb = folder.addFolder('Bố trí biome · thuật toán');
-		note(fb, 'Map này vẽ kết quả của <b>layoutBiome()</b> (art-direction/12 §4.13) trên một plan: đạo cụ kit thật, cỏ/bụi từ <b>ecology</b>, đèn từ <b>light</b>. Bật overlay để xem <b>vì sao</b> mỗi thứ nằm ở đó; báo cáo ở thư mục dưới.');
+		note(fb, 'Map này vẽ kết quả của <b>layoutBiome()</b> (legacy/art-direction/12 §4.13) trên một plan: đạo cụ kit thật, cỏ/bụi từ <b>ecology</b>, đèn từ <b>light</b>. Bật overlay để xem <b>vì sao</b> mỗi thứ nằm ở đó; báo cáo ở thư mục dưới.');
 		const fseed = fb.addFolder('Map từ một seed (đổi = tải lại map)');
-		note(fseed, 'Một con số → cả map: <b>planGen</b> (art-direction/12 §4.15) sinh đường, suối/ao, vùng (trại, nông trại, hang, nghĩa địa), công trình và địa hình; <b>layoutBiome</b> trang trí. Cùng seed → cùng map. Lần đầu thuật toán thử vài lần cho tới khi mọi kiểm tra đạt; lần sau lấy từ cache (không chạy lại engine).');
+		note(fseed, 'Một con số → cả map: <b>planGen</b> (legacy/art-direction/12 §4.15) sinh đường, suối/ao, vùng (trại, nông trại, hang, nghĩa địa), công trình và địa hình; <b>layoutBiome</b> trang trí. Cùng seed → cùng map. Lần đầu thuật toán thử vài lần cho tới khi mọi kiểm tra đạt; lần sau lấy từ cache (không chạy lại engine).');
 		fseed.add(s, 'planSource', { 'Sinh từ một seed (mặc định)': 'seed', 'Plan demo làm tay': 'demo' }).name('Nguồn plan').onChange(reload);
 		fseed.add(s, 'mapSeed', 1, 99999999, 1).name('Seed map').onFinishChange(reload);
 		fseed.add(s, 'mapSize', Object.fromEntries(MAP_SIZES.map((n) => [`${n} × ${n} m${n > 128 ? ' (Play chỉ đi được 128 m quanh điểm xuất phát)' : ''}`, n]))).name('Cỡ map').onChange(reload);
@@ -2439,7 +2439,7 @@ export class BiomeLayoutScene extends TerrainScene {
 		fs.add(s, 'densityMasses', 0, 2, 0.05).name('Mật độ khối lớn').onFinishChange(reload);
 
 		const fm = fb.addFolder('Module & tải nhanh');
-		note(fm, 'Map chia thành <b>module 16 m</b> (art-direction/12 §4.14). Chế độ <b>modules</b> chỉ tải kit của vòng 0 (quanh điểm xuất phát) trước khung đầu, phần còn lại tải dần theo khoảng cách mà không khựng hình; <b>all</b> tải mọi thứ trước (như cũ, để so A/B). Layout và splat lấy từ cache trình duyệt hoặc file bake (<code>npm run bake:map</code>) khi khoá khớp, nên map đã biết không chạy lại thuật toán.');
+		note(fm, 'Map chia thành <b>module 16 m</b> (legacy/art-direction/12 §4.14). Chế độ <b>modules</b> chỉ tải kit của vòng 0 (quanh điểm xuất phát) trước khung đầu, phần còn lại tải dần theo khoảng cách mà không khựng hình; <b>all</b> tải mọi thứ trước (như cũ, để so A/B). Layout và splat lấy từ cache trình duyệt hoặc file bake (<code>npm run bake:map</code>) khi khoá khớp, nên map đã biết không chạy lại thuật toán.');
 		fm.add(s, 'loadMode', { 'modules · vòng 0 trước, còn lại tải dần (mặc định)': 'modules', 'all · mọi kit + module trước khung đầu (như cũ)': 'all' }).name('Chế độ tải (tải lại trang)').onChange(reload);
 		fm.add(s, 'useCache').name('Dùng cache map (IndexedDB + file bake)').onChange(reload);
 		const cleared = note(fm, '');

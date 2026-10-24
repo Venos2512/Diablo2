@@ -676,7 +676,7 @@ test('15 · the existing placement helpers are untouched and the shared numbers 
 });
 
 test('15b · the metre table of AD 12 §4.13.4 names every LAYOUT_RULES key; the files §4.13 points to exist', () => {
-	const doc = readFileSync(new URL('../../art-direction/12_QUY_CHUAN_QUAI_CANH_QUAN_CONG_TRINH.md', import.meta.url), 'utf8');
+	const doc = readFileSync(new URL('../../legacy/art-direction/12_QUY_CHUAN_QUAI_CANH_QUAN_CONG_TRINH.md', import.meta.url), 'utf8');
 	const a = doc.indexOf('#### 4.13.4'), b = doc.indexOf('#### 4.13.5');
 	assert.ok(a > 0 && b > a, '§4.13.4 not found');
 	const table = doc.slice(a, b);

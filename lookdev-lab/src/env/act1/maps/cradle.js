@@ -6,9 +6,9 @@
 // of each hand falls on the floor before it strikes (telegraph markers). Palette: Mercy's linen (the one allowed clean white), milk-white still light, a
 // tiny poppy red, black void; no human (warm, flickering) light anywhere. Remember: dozens of soft white hands bending to tuck you in while the
 // night-lights go out one by one.
-// Sizes (H = 1.8 m) from ashlar/art/act-01-environments/groups/A14_the_cradle/{perspective,turnaround}_scale_v2.png and their prompt (A14.1 crib 3.5H × 2H
+// Sizes (H = 1.8 m) from ashlar/art/act-01/environments/A14_the_cradle/{perspective,turnaround}_scale_v2.png and their prompt (A14.1 crib 3.5H × 2H
 // × 2H, A14.2 curtains 2.4H × 3H, A14.3 night-light 1.2H, A14.4 mobile 1.8H × 1.4H, A14.5 platform 3H × 3H × 0.4H, A14.6 runners 3H × 1.6H × 0.8H); B05
-// from ashlar/art/map-01-concepts/monsters/B05_hospice_mother/vA/concept_r2.png (crown 2.75H, hands 3.00H) and ASHLAR_QUY_CHUAN_QUAI_VI.md (h 2.50–3.00H).
+// from ashlar/art/act-01/monsters/B05_hospice_mother/vA/concept_r2.png (crown 2.75H, hands 3.00H) and ASHLAR_QUY_CHUAN_QUAI_VI.md (h 2.50–3.00H).
 // Pure data + small pure helpers (the engine: ../interior.js; format documented at its top). Kit swap (2026-10-23, lookdev-lab/assets/act1-kit): A14.1–A14.6 on
 // their GLBs (the night-lights' glowing globes re-anchored on the models: KIT globe; colliders keep the curtains' drapes and the mobile's bones walk-through).
 // A21–A25 swap (2026-10-23, the v3 batch, tmp/act1-base-maps/ACT1_KIT_FIT.md §A21–A25): the turned-down quilt (A24.5) and the linen pillow (A24.6) on their

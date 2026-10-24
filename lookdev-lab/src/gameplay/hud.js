@@ -1,5 +1,5 @@
 // Diablo-style HUD for gameplay preview, built from the project's HUD sprite sheets
-// (art-output/ui-hud-assets → scripts/prepare-hud.py → ./hud/*.webp): life / mana orbs in iron housings,
+// (legacy/art-output/ui-hud-assets → scripts/prepare-hud.py → ./hud/*.webp): life / mana orbs in iron housings,
 // stone bottom bar with mouse skills, potion belt and F1–F8 skills, XP bar, menu buttons,
 // hovered-target name plate, death banner.
 import { toast } from '../ui/toast.js';

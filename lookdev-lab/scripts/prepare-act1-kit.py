@@ -1,15 +1,15 @@
-"""Act I kit for the lab: the 86 Tripo row props of ashlar/3d/props/act1_kit_v1 (A01.1-A14.6, A21.1-A25.6) -> assets/act1-kit/act1-<id>-<name>.glb.
+"""Act I kit for the lab: the 86 Tripo row props of ashlar/3d/act-01/_batches/kit_v1 (A01.1-A14.6, A21.1-A25.6) -> assets/act1-kit/act1-<id>-<name>.glb.
 
 The sources were built in Tripo from multi-asset row images (one run per row: tmp/act1-base-maps/TRIPO_ROWS.md section 2; R23-R33 + R31r for A21-A25,
-after the v3 concepts ashlar/art/act-01-environments-v3) and cut into one GLB per asset
-by ashlar/3d/props/act1_kit_v1/_tools/split_rows.py, which already levelled each piece, turned its FRONT to +z with the front width along x, normalised
+after the v3 concepts ashlar/art/act-01/_batches/env_A21-A25) and cut into one GLB per asset
+by ashlar/3d/act-01/_batches/kit_v1/_tools/split_rows.py, which already levelled each piece, turned its FRONT to +z with the front width along x, normalised
 its longest side to 1 m (pivot at the bottom centre, Y up) and cut its UV islands out of the row atlas into an atlas of its own at the row's texel density
 (base colour up to 8192 px, normal and metallicRoughness often at half that; the whole row atlas is kept when the islands cover most of it). Each piece is
   1. levelled where it still leans (`level` = 'support': support plane of the convex hull, as in prepare-act1-extras.py),
   2. turned by a baked yaw (three.js rotation.y degrees) where the split's front guess or a small skew needs it, so that size [w, h, d] = local x, y, z
      and front = local +z as in the Act I blockouts (env/act1/blockout.js, interiorBlockout.js and the map KIT / parts shapes),
-  3. scaled UNIFORMLY to its real size, keyed on the dimension the concept states first (cells of ashlar/art/map-01-concepts/environments/E01-E04 for
-     A01-A04, ashlar/art/act-01-environments/prompts for A06-A14) with the base-map value of that dimension (docs/act1-base/ASSETS.md, the sizes of
+  3. scaled UNIFORMLY to its real size, keyed on the dimension the concept states first (cells of ashlar/art/act-01/environments/E0x_* (E01-E04) for
+     A01-A04, ashlar/art/act-01/_batches/env_A01-A14/prompts for A06-A14) with the base-map value of that dimension (docs/act1-base/ASSETS.md, the sizes of
      TRIPO_ROWS.md section 2), measured on the bbox after the yaw; for A21-A25 the sizes of tmp/act1-base-maps/MISSING_ENV_CONCEPTS_2.md (= the
      placeholders' base-map sizes), keyed on the first-stated one unless that makes the model absurd (the ASSETS comment says which),
   4. re-pivoted to the bottom centre (bbox centre in x / z, lowest point at y = 0),
@@ -18,7 +18,7 @@ its longest side to 1 m (pivot at the bottom centre, Y up) and cut its UV island
      longest side 2048 px for the landmarks and 1024 px for the TEX_1024 props (about 3-4 m or less, seen from ~15 m by the ARPG camera);
      constant roughness / metalness factors (the metallicRoughness map is dropped, as for the act1 extras and the dungeon props).
 TRIM adds a variant of the two post-and-crossbar props whose post rises over the bar (A07.6 rook roost pole, A13.4 Hush bell post: from the game camera
-they can read as a cross, which ashlar/artdirection.md forbids): the post is cut CUT_ABOVE m over the top of its bar and the cut end is closed by
+they can read as a cross, which ashlar/art-direction/artdirection.md forbids): the post is cut CUT_ABOVE m over the top of its bar and the cut end is closed by
 flattening the post's top onto the cut plane (the top keeps its own end-grain texels). Sample id <id>-trim; the full model stays registered too.
 CUT adds a lab variant with a part the base map walks through cut away (A02.1: the knee-high rail across the lychgate's back opening, 0.40-0.62 m, which the
 hero would cross on every pass; A06.1: the causeway's two end posts, on its centre line, which put a pair of posts every 4 m down a dike road): every face
@@ -60,16 +60,17 @@ ext = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(ext)  # helpers only (retry, support_up, rot_align, yaw_matrix, up_planes, light_spots, register): its main() does not run
 
 ROOT = ext.ROOT
-SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'props', 'act1_kit_v1'))
+SRC = os.path.abspath(os.path.join(ROOT, '..', 'ashlar', '3d', 'act-01', '_batches', 'kit_v1'))
 OUT = os.path.join(ROOT, 'assets', 'act1-kit')
-SOURCE = 'ashlar/3d/props/act1_kit_v1'
+SOURCE = 'ashlar/3d/act-01/_batches/kit_v1'  # the batch folder only: the pieces live in group folders (ext.piece_dir / ext.piece_rel find them)
+piece_dir, piece_rel = ext.piece_dir, ext.piece_rel
 ANCHOR = 'act1-p06-poppy-mound'  # the last act1 extras line: the kit lines follow it
 TAG = 'act1-kit-v1'
-CREDIT = ('Generated with Tripo (image to 3D from a multi-asset row image, split per asset by ashlar/3d/props/act1_kit_v1/_tools/split_rows.py) from a '
+CREDIT = ('Generated with Tripo (image to 3D from a multi-asset row image, split per asset by ashlar/3d/act-01/_batches/kit_v1/_tools/split_rows.py) from a '
           'Codex row image after the Act I concepts; turned to the Act I blockout frame, scaled to real size and re-encoded (JPEG, 2048 px longest side for '
           'the landmarks, 1024 px for props of about 3-4 m or less) by scripts/prepare-act1-kit.py')
 LICENSE = ('The ASHLAR Act I kit - {names} - are project props generated with Tripo (image to 3D) from Codex row images after the Act I environment '
-           'concepts (`ashlar/art/map-01-concepts/environments`, `ashlar/art/act-01-environments`; rows and split pieces in `ashlar/3d/props/act1_kit_v1`), '
+           'concepts (`ashlar/art/act-01/environments/E01_*` to `E04_*` and `A01_*` to `A14_*`; rows in `ashlar/3d/act-01/_batches/kit_v1`, split pieces in `ashlar/3d/act-01/environments/<group>`), '
            'turned, scaled to real size and re-encoded into `assets/act1-kit/` by `scripts/prepare-act1-kit.py`; project-internal.')
 
 # (asset id, source folder, label, key: (axis, metres, band or None), yaw deg, level, roughness, metalness, extra)
@@ -200,7 +201,7 @@ CUT = [('A02.1', 'open', 'back rail cut out (walk-through passage)', [(-1.08, 0.
        # deck top (<= 0.45 m): the stubs left stand <= 0.15 m over the deck floor (as the map def note and the act1-outdoor test say)
        ('A06.1', 'open', 'end posts cut out (the road walks over it)', [(1.50, 1.95, 0.47, 1.20, -0.45, 0.15), (-1.75, -1.40, 0.47, 1.00, -0.25, 0.15)])]
 # TINT: asset id -> (desaturate toward the luminance, RGB multipliers), a grade of the base colour (sRGB, before the JPEG). A08.2 (and its stile, the same
-# stone): the pale cream lichened tops read near-white, the brightest thing in every Poppy Reach view (ashlar/artdirection.md: no clean white but Mercy's
+# stone): the pale cream lichened tops read near-white, the brightest thing in every Poppy Reach view (ashlar/art-direction/artdirection.md: no clean white but Mercy's
 # linen; human work looks worn): greyed and darkened to ~0.7 with a slight green-grey shift. Every other asset's bytes stay as they are.
 TINT = {'A08.2': (0.3, (0.68, 0.71, 0.69)), 'A08.2-stile': (0.3, (0.68, 0.71, 0.69))}
 # LIFT: asset id -> (faces, fade, ref, gmax, chroma), a lift of a dark band in the base colour (sRGB, before the JPEG) toward the clean tone of the same
@@ -208,7 +209,7 @@ TINT = {'A08.2': (0.3, (0.68, 0.71, 0.69)), 'A08.2-stile': (0.3, (0.68, 0.71, 0.
 # the atlas with its height y; its weight is 1 below fade[0] m and eases (smoothstep) to 0 at fade[1] m, and spreads ~2 px (of a 1024 px atlas) past
 # the island edges: the soft edge. The clean tone = the median of the region's texels between ref[0] and ref[1] m up. Each texel is scaled by the clean
 # luma / its local luma (a 3 px blur inside the region), never below 1 (it only lifts) and at most gmax, then moved `chroma` of the way to the clean
-# hue (in full once lifted by 25 %). A23.3 (the Gentle House garth bed, the cloister centrepiece; Mercy things are clean, ashlar/artdirection.md §4.2:
+# hue (in full once lifted by 25 %). A23.3 (the Gentle House garth bed, the cloister centrepiece; Mercy things are clean, ashlar/art-direction/artdirection.md §4.2:
 # Act I = fresh limewash): its kerb's outer sides fade from the clean cream (~192 / 174 / 156) at 0.4-0.62 m to a grey-brown grime (~120 / 105 / 90)
 # under 0.2 m with a brown streak up to 0.42 m (so the full weight reaches 0.4 m; the clean texels over it are left alone by the gain): a black smear
 # on the south face at game distance (review a2x F-b; most of it was the normals, see FLAT). The kerb top, the soil and the flowers are
@@ -539,9 +540,9 @@ def prep(entry, report, trim=None, cut_out=None, warp_row=None):
     warp_row = a WARP row (sample id <id>-<suffix>)."""
     import trimesh
     aid, folder, label, (kax, kval, band), yaw, level, rough, metal, extra = entry
-    src = [f for f in os.listdir(os.path.join(SRC, folder)) if f.startswith('act1_kit_v1_') and f.endswith('.glb')]
+    src = [f for f in os.listdir(piece_dir(folder)) if f.startswith('act1_kit_v1_') and f.endswith('.glb')]
     assert len(src) == 1, f'{folder}: expected one source GLB, found {src}'
-    scene = trimesh.load(os.path.join(SRC, folder, src[0]), force='scene')
+    scene = trimesh.load(os.path.join(piece_dir(folder), src[0]), force='scene')
     assert len(scene.geometry) == 1, f'{folder}: expected one mesh'
     g = list(scene.geometry.values())[0]
     node_t = scene.graph.get(scene.graph.nodes_geometry[0])[0]
@@ -701,7 +702,7 @@ def entry_tuple(e, trim=False, cut_out=None, warp_row=None):
     aid, folder, label = e[:3]
     sid = sample_id(folder) + ('-trim' if trim else '') + (f'-{cut_out[1]}' if cut_out else '') + (f'-{warp_row[1]}' if warp_row else '')
     return (sid, f'{aid} {label}{" · post cut over the bar" if trim else ""}{f" · {cut_out[2]}" if cut_out else ""}{f" · {warp_row[2]}" if warp_row else ""}'
-            ' · Tripo row prop (GLB, real size, pivot bottom centre) · Act I kit', f'act1-kit/{sid}.glb', f'{SOURCE}/{folder}', CREDIT)
+            ' · Tripo row prop (GLB, real size, pivot bottom centre) · Act I kit', f'act1-kit/{sid}.glb', piece_rel(folder), CREDIT)
 
 
 def main():

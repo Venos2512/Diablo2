@@ -3,7 +3,7 @@
 // Colour rules of The Dying Gods · Act I (rule sheet "Quy tắc màu cho gameplay và môi trường"):
 // world colour = context, creature colour = identity, effect colour = gameplay information.
 //   VALDREN   base palette of every Act I exterior. The sheet names the families; the hex values are the lab's
-//             concept proposal (after art-direction/04 Act I values) — change them here, every locked material follows.
+//             concept proposal (after legacy/art-direction/04 Act I values) — change them here, every locked material follows.
 //   DECOR     population set dressing (Redbound camp, Remnant corruption, Blightbeast signs): environment tier,
 //             kept darker and less saturated than the creatures that own them.
 //   FUNCTION  gameplay signal palette of the sheet: [base, highlight].

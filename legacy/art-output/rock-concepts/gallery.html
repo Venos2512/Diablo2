@@ -1,0 +1,16 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+body{margin:0;color:var(--foreground,#d3d1c4);font:14px var(--font-sans,system-ui)}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}button{font:inherit;color:inherit;background:var(--secondary,#283025);border:1px solid var(--border,#454c3e);padding:8px 11px;border-radius:8px;cursor:pointer}button[aria-pressed=true]{color:var(--primary-foreground,#182015);background:var(--primary,#aebc99)}
+figure{margin:0}.viewport{overflow:auto;border-radius:8px;background:#1b1f1c}img{display:block;width:100%;height:auto}.actual img{width:1800px;max-width:none}figcaption{color:var(--muted-foreground,#9a9f90);font-size:13px;line-height:1.6;margin-top:10px}.controls{display:flex;gap:8px;align-items:center;margin-top:8px}#caption{flex:1}button:focus-visible{outline:2px solid var(--ring,#bdc9a9);outline-offset:2px}
+</style><nav aria-label="Chọn concept sheet"><button data-i="0" aria-pressed="true">01 · Họ đá Act I</button><button data-i="1" aria-pressed="false">02 · Landmark</button><button data-i="2" aria-pressed="false">03 · Năm Act</button><button data-i="3" aria-pressed="false">04 · Đọc hình</button></nav>
+<figure><div class="viewport" id="viewport"><img id="art" src="E:/Diablo2/legacy/art-output/rock-concepts/01_act1_rock_family.png" alt="Sheet họ đá Act I, từ đá vụn tới mép vách"></div><div class="controls"><figcaption id="caption">1800 × 1260 px · Nghiên cứu phóng lớn từng mẫu.</figcaption><button id="zoom" aria-pressed="false">Xem 100%</button></div></figure>
+<script>
+const sheets=[
+["E:/Diablo2/legacy/art-output/rock-concepts/01_act1_rock_family.png","Sheet họ đá Act I, từ đá vụn tới mép vách","1800 × 1260 px · Nghiên cứu phóng lớn từng mẫu."],
+["E:/Diablo2/legacy/art-output/rock-concepts/02_cairn_landmark.png","Landmark sáu trụ khắc cổ nguyên bản","1800 × 1260 px · Trụ 2.1–2.8 H, rune đỏ tiết chế."],
+["E:/Diablo2/legacy/art-output/rock-concepts/03_act_variants.png","Cùng một silhouette, năm vật liệu theo Act","1800 × 1260 px · Mesh và alpha giống nhau; đổi vật liệu theo Act."],
+["E:/Diablo2/legacy/art-output/rock-concepts/04_readability_check.png","So sánh màu, silhouette và grayscale ở game scale","1800 × 1260 px · Chọn xem 100% để hero hiển thị đúng 75 px."]
+];
+document.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{let s=sheets[+b.dataset.i];document.getElementById("art").src=s[0];document.getElementById("art").alt=s[1];document.getElementById("caption").textContent=s[2];document.querySelectorAll("[data-i]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)))});
+document.getElementById("zoom").onclick=function(){let on=document.getElementById("viewport").classList.toggle("actual");this.setAttribute("aria-pressed",String(on));this.textContent=on?"Vừa khung":"Xem 100%"};
+</script></html>

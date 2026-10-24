@@ -49,7 +49,7 @@ Toàn cảnh · Khu nhà từ trên cao · Ngoại thất (mái hiện) · Lối
 
 29 id: **1 glb** (`dungeon-prop-flint-boulders` ×3) · **2 procedural** (A18.6 bậc thềm, N-HS09 cầu thang đêm: engine dựng) · **26 blockout**: A11.1 ×12, A11.2 ×14, A11.3 ×3, A11.4, A11.5, A11.6 ×18, A18.4 (dãy nhà = tường engine + mái N-HS10, không đặt riêng), A18.5 ×4, A19.1 ×12, A19.2 ×2, A19.3, A19.4 ×4, A19.5 ×2, A19.6 ×8, A08.1 ×9, N-HS02…N-HS08 (bồn hoa, chậu hoa, luống vườn, dây phơi, bàn bếp, giá bánh mì, bàn gấp vải), N-HS10…N-HS13 (mái ngoại thất). Quái: không. NPC: Mẹ Hawise, Sơ Anh Túc ×4, Tamsin, người ngủ ×13 (hình đứng thay, không model). Texture còn thiếu: vôi trắng mới liền mạch (tile `BIO05_lime` có mảng như vết rạn: tường đang dùng normal 0.3), sàn gỗ cọ sạch, vải lanh viền đỏ, mái đá + ngói, lối đồi đá phấn ướt, cỏ garth cắt đều. VFX còn thiếu: vision trà anh túc, bị thấy → dẫn ra cổng, người ngủ thở đều cùng nhịp, hơi trà / bánh, tiếng ru (đang dùng thay: mưa vệt, quầng nến tĩnh, cửa sổ phát sáng, bụi GPU, ánh ngày xám).
 
-## Thẻ mood (`ashlar/artdirection.md` §2.1)
+## Thẻ mood (`ashlar/art-direction/artdirection.md` §2.1)
 
 | Trường | Nội dung |
 |---|---|
@@ -226,7 +226,7 @@ vàng ấm trên bánh mì là màu texture, không phải đèn.
   - độ sáng trung bình 100 → 123 (WebGPU), 102 → 119 (WebGL);
   - 10 % điểm tối nhất 25 → 79 (WebGPU), 28 → 75 (WebGL).
   - Không còn dải đen hay vệt đen. Mặt bên đọc là vôi ấm, tối hơn gờ trên một chút: mặt đứng nhận ít sáng hơn mặt trên (khối sáng tối bình thường).
-- **QA theo `ashlar/artdirection.md` §11:** không thêm micro texture, không viền đen. Viền là vôi kem có texture, không phát sáng, không lẫn hai màu
+- **QA theo `ashlar/art-direction/artdirection.md` §11:** không thêm micro texture, không viền đen. Viền là vôi kem có texture, không phát sáng, không lẫn hai màu
   trắng (§4.6). Chuyển sang ảnh xám vẫn tách bồn khỏi nền đá. Hợp với bề mặt Perfection của Act I là "vôi mới" (§4.2: không bụi, không mòn).
 - **Ảnh** (`shots/gentleHouse/`):
   - `a2x-fix-garth-before-after.png`: trái là trước, phải là sau; hàng trên là cloister WebGPU, hàng dưới là cận cảnh WebGL;
