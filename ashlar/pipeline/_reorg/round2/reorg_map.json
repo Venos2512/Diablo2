@@ -1,0 +1,444 @@
+{
+ "moves": [
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/B06_choir_of_nails",
+   "new": "ashlar/art/act-02/monsters/B06_choir_of_nails",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/B07_brother_cassian",
+   "new": "ashlar/art/act-02/monsters/B07_brother_cassian",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/D05_cinder_clan",
+   "new": "ashlar/art/act-02/monsters/D05_cinder_clan",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F03_exhumer",
+   "new": "ashlar/art/act-02/monsters/F03_exhumer",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F04_kneeler",
+   "new": "ashlar/art/act-02/monsters/F04_kneeler",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F05_bell_head",
+   "new": "ashlar/art/act-02/monsters/F05_bell_head",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F06_censer_bearer",
+   "new": "ashlar/art/act-02/monsters/F06_censer_bearer",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F07_turned_exhumer",
+   "new": "ashlar/art/act-02/monsters/F07_turned_exhumer",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F08_halo_knight",
+   "new": "ashlar/art/act-02/monsters/F08_halo_knight",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/F09_chancery_guard",
+   "new": "ashlar/art/act-02/monsters/F09_chancery_guard",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/L01_saint_statue",
+   "new": "ashlar/art/act-02/monsters/L01_saint_statue",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/L02_plumb_hound",
+   "new": "ashlar/art/act-02/monsters/L02_plumb_hound",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/L03_gargoyle_mortarer",
+   "new": "ashlar/art/act-02/monsters/L03_gargoyle_mortarer",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/P08_kneeler",
+   "new": "ashlar/art/act-02/monsters/P08_kneeler",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/P09_chain_hung",
+   "new": "ashlar/art/act-02/monsters/P09_chain_hung",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U06_pall_wight",
+   "new": "ashlar/art/act-02/monsters/U06_pall_wight",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U07_pyre_risen",
+   "new": "ashlar/art/act-02/monsters/U07_pyre_risen",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U08_charnel_chanter",
+   "new": "ashlar/art/act-02/monsters/U08_charnel_chanter",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U09_ossuary_glutton",
+   "new": "ashlar/art/act-02/monsters/U09_ossuary_glutton",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U10_wallshade",
+   "new": "ashlar/art/act-02/monsters/U10_wallshade",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U11_scribe_shade",
+   "new": "ashlar/art/act-02/monsters/U11_scribe_shade",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/U12_the_pressed",
+   "new": "ashlar/art/act-02/monsters/U12_the_pressed",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02/monsters/monsters/W08_bell_bat",
+   "new": "ashlar/art/act-02/monsters/W08_bell_bat",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/heroes/FL_flagellant_vA_sorceress_rig",
+   "new": "ashlar/3d/heroes/FL_flagellant_vA/rig_sorceress",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/nature/_tools",
+   "new": "ashlar/pipeline/tripo/scripts",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/camp",
+   "new": "legacy/tripo-models/camp",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/early_kits",
+   "new": "legacy/tripo-models/early_kits",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/rock_01",
+   "new": "legacy/tripo-models/rock_01",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/_shots",
+   "new": "legacy/tripo-models/_shots",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/_texcheck",
+   "new": "legacy/tripo-models/_texcheck",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/_downloads",
+   "new": "legacy/tripo-models/_downloads",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/_tools",
+   "new": "legacy/tripo-models/_tools",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/pipeline/tripo/nature",
+   "new": "legacy/tripo-models/nature",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/B01_sextons_dog",
+   "new": "ashlar/3d/monsters/act-01/B01_sextons_dog",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/B02_lullaby_man",
+   "new": "ashlar/3d/monsters/act-01/B02_lullaby_man",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/B03_ember_pot",
+   "new": "ashlar/3d/monsters/act-01/B03_ember_pot",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/B04_willow_bride",
+   "new": "ashlar/3d/monsters/act-01/B04_willow_bride",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/B05_hospice_mother",
+   "new": "ashlar/3d/monsters/act-01/B05_hospice_mother",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/D01_hodling",
+   "new": "ashlar/3d/monsters/act-01/D01_hodling",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/D02_kiln_shaman",
+   "new": "ashlar/3d/monsters/act-01/D02_kiln_shaman",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/D04_tithe_thief",
+   "new": "ashlar/3d/monsters/act-01/D04_tithe_thief",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/F01_body_snatcher",
+   "new": "ashlar/3d/monsters/act-01/F01_body_snatcher",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/F02_poppy_nurse",
+   "new": "ashlar/3d/monsters/act-01/F02_poppy_nurse",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P01_the_soothed",
+   "new": "ashlar/3d/monsters/act-01/P01_the_soothed",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P02_hush_herald",
+   "new": "ashlar/3d/monsters/act-01/P02_hush_herald",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P03_hush_moths",
+   "new": "ashlar/3d/monsters/act-01/P03_hush_moths",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P04_hive_sleeper",
+   "new": "ashlar/3d/monsters/act-01/P04_hive_sleeper",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P05_wet_nurse",
+   "new": "ashlar/3d/monsters/act-01/P05_wet_nurse",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P06_poppy_mound",
+   "new": "ashlar/3d/monsters/act-01/P06_poppy_mound",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/P07_cradle_warden",
+   "new": "ashlar/3d/monsters/act-01/P07_cradle_warden",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/U01_shambler",
+   "new": "ashlar/3d/monsters/act-01/U01_shambler",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/U02_charnel_dead",
+   "new": "ashlar/3d/monsters/act-01/U02_charnel_dead",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/U03_charnel_bowman",
+   "new": "ashlar/3d/monsters/act-01/U03_charnel_bowman",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/U04_charnel_ghoul",
+   "new": "ashlar/3d/monsters/act-01/U04_charnel_ghoul",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/U05_the_swollen",
+   "new": "ashlar/3d/monsters/act-01/U05_the_swollen",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W01_mortar_rat",
+   "new": "ashlar/3d/monsters/act-01/W01_mortar_rat",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W02_gibbet_crow",
+   "new": "ashlar/3d/monsters/act-01/W02_gibbet_crow",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W03_hush_wolf",
+   "new": "ashlar/3d/monsters/act-01/W03_hush_wolf",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W04_mire_sucker",
+   "new": "ashlar/3d/monsters/act-01/W04_mire_sucker",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W06_willow_hulk",
+   "new": "ashlar/3d/monsters/act-01/W06_willow_hulk",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/W07_shroud_spinner",
+   "new": "ashlar/3d/monsters/act-01/W07_shroud_spinner",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/3d/monsters/_review",
+   "new": "ashlar/3d/monsters/act-01/_review",
+   "blocked": false
+  }
+ ],
+ "vanishing": [
+  "ashlar/art/act-02/monsters/monsters",
+  "ashlar/pipeline/tripo/heroes"
+ ],
+ "baseline_broken_links": [
+  [
+   "ashlar/3d/monsters/act-01/D01_hodling/rig/_snapshots/v3/qa_report.md",
+   "rig_brief.md"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_1_barrow_door/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_2_flint_retaining_wall/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_3_peat_stack/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_4_vigil_chair/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_5_leaning_stones/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_6_bog_grave/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_1_worn_shoes/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_2_toll_post/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_3_wicker_cradle/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_4_harvester_cairn/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_5_crook_and_coat/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_6_straw_doll/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_1_abandoned_reaping/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_2_ribbon_thorn/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_3_garth_flower_bed/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_4_potted_flowers/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_5_walled_flower_bed/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_6_drying_line/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_1_kitchen_table/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_2_bread_rack/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_3_linen_folding_table/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_4_turned_down_coverlet/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_5_turned_down_quilt/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_6_linen_pillow/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_1_root_rib_arch/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_2_plank_crossing/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_3_root_fall/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_4_harvest_basket/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_5_tending_kit/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_6_tamsin_lantern/"
+  ]
+ ]
+}

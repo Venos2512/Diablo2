@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G4), r2 fresh gen with concept.png as design reference + pixel size fix.
+Style: PASS, same look as r1.
+Size: hood tip ~1.29H (H ~350 px display, figure ~450 px), better than 1.41H but still above 1.10-1.20H; model-drawn 1.15H line misplaced.
+Verdict: FAIL on size -> r3 with a relative size anchor (top of H's head level with the monster's mouth).

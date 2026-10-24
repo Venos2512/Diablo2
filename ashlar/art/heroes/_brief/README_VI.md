@@ -1,6 +1,6 @@
 # Hero concept brief: sáu nghề × hai hướng, Prologue lineup, key art chọn nghề và sheet camera game
 
-> **Trạng thái (20/10/2026, cập nhật sau v3):** bộ brief (vòng 3, v1) để Astra tạo ảnh **đã chạy**; trên đĩa có **36 ảnh**: 9 sheet hero v1, 12 sheet v2, 12 sheet v3, pilot bố cục `PB_A` (`concept_pilot.png`, đã duyệt về bố cục, xem §9), `PROLOGUE_LINEUP` và `CHOICE_HANDS` (palette v1). **Trình bày hero hiện hành là v3 (§15);** v2 là nguồn palette và đạo cụ (§14); v1 là lịch sử. `TOPDOWN_A/B`: v1 không chạy; v3 chưa có ảnh (§15.1). Chưa có hướng A hay B nào được chọn. Mọi kích thước, màu và hướng thiết kế đều là **đề xuất** hoặc **Voc** lấy từ `ashlar/ASHLAR_HERO_CONCEPT_VI.md` (chưa khóa); danh tính nghề là Canon theo các mục nguồn mà concept doc dẫn.
+> **Trạng thái (20/10/2026, cập nhật sau v3):** bộ brief (vòng 3, v1) để Astra tạo ảnh **đã chạy**; trên đĩa có **36 ảnh**: 9 sheet hero v1, 12 sheet v2, 12 sheet v3, pilot bố cục `PB_A` (`concept_pilot.png`, đã duyệt về bố cục, xem §9), `PROLOGUE_LINEUP` và `CHOICE_HANDS` (palette v1). **Trình bày hero hiện hành là v3 (§15);** v2 là nguồn palette và đạo cụ (§14); v1 là lịch sử. `TOPDOWN_A/B`: v1 không chạy; v3 chưa có ảnh (§15.1). Chưa có hướng A hay B nào được chọn. Mọi kích thước, màu và hướng thiết kế đều là **đề xuất** hoặc **Voc** lấy từ `ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md` (chưa khóa); danh tính nghề là Canon theo các mục nguồn mà concept doc dẫn.
 > Brief này chỉ nằm trong `ashlar/art/heroes/_brief/`; không sửa master, board hay tài liệu nào khác.
 > Vòng 3 áp dụng thêm toàn bộ phản hồi review vòng 2 (thước pilot, màu khung PB-B, nắp Prologue, các khối value, miếng vá mũ EX, tay màn chọn, lọ, tên Severin, Smoke-Shape, độ khả thi của sheet; xem concept doc §0, §2, §12).
 
@@ -18,7 +18,7 @@
 | `prompts_v2/*.txt` | 12 prompt v2 (hero push), mỗi file một job hero; sinh bằng `E:/hero-batch/build_v2.py` (§14) |
 | `prompts_v3/*.txt` | 14 prompt v3: 12 job hero (một hình 3/4 + bốn góc + vũ khí riêng) và `TOPDOWN_A/B`; sinh bằng `E:/hero-batch/build_v3.py` và `build_topdown_v3.py` (§15) |
 
-Tất cả đường dẫn trong manifest là tuyệt đối, dùng dấu `/`. Concept doc: `E:/Diablo2/ashlar/ASHLAR_HERO_CONCEPT_VI.md`.
+Tất cả đường dẫn trong manifest là tuyệt đối, dùng dấu `/`. Concept doc: `E:/Diablo2/ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md`.
 
 ## 2. Con số
 
@@ -120,8 +120,8 @@ Key art: 16:9 (PB, OS, BR chìa **mu bàn tay** vì dấu của họ nằm ở m
 
 | Ảnh | Vai trò | Dùng cho |
 |---|---|---|
-| `E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg` | style **chỉ** nét cọ và khối vật liệu (không lấy địa hình, panel, magenta) | cả 16 job |
-| `E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png` | layout và cách vẽ **chỉ** (H người + hình trên một đường nền, khối phẳng ít chi tiết); không sao chép giải phẫu, quần áo, màu hay thiết kế; sheet hero có **bảy** hình, không phải sáu | 12 sheet hero + `PROLOGUE_LINEUP` |
+| `E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg` | style **chỉ** nét cọ và khối vật liệu (không lấy địa hình, panel, magenta) | cả 16 job |
+| `E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png` | layout và cách vẽ **chỉ** (H người + hình trên một đường nền, khối phẳng ít chi tiết); không sao chép giải phẫu, quần áo, màu hay thiết kế; sheet hero có **bảy** hình, không phải sáu | 12 sheet hero + `PROLOGUE_LINEUP` |
 | `E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png` | pilot bố cục đã duyệt: **chỉ** thứ tự hàng, vị trí đường nền, vị trí nhãn; **không** lấy cỡ hình (hình pilot cao khoảng 480 px, ở đây 1H = 400 px); không lấy thiết kế, màu, đạo cụ, càng không lấy Pallbearer | 11 sheet hero (**trừ `PB_A`**) |
 | sáu `concept.png` của chữ cái tương ứng (`<NGHỀ>/v<A\|B>/concept.png`) | **chỉ danh tính** của từng hero; không thiết kế lại, không trộn, không lấy layout | `TOPDOWN_A`, `TOPDOWN_B` |
 
@@ -364,4 +364,4 @@ Kích thước đo bằng Pillow trên file thật; trạng thái của 12 sheet
 - **Cỡ ảnh:** 1672×941 (EX_B và FL_A 1672×940), nhỏ hơn 2048×1152 đã xin; công cụ ảnh tích hợp là giới hạn, không phải prompt.
 - **Không có H, ALT, `BODIES`:** thân 1 hay thân 2 và thước 1,0H không còn trên sheet; kiểm ở bước T-pose và model (concept doc §12 mục 24).
 - **TOPDOWN v3 bị chặn:** công cụ `image_gen` chỉ nhận tối đa **5** `referenced_image_paths`, mà prompt gắn **6** ảnh (một sheet mỗi nghề). Lỗi nằm ở `_shared/topdown_<A|B>/concept_v3.result*.txt`. Runner `hero_batch.py` còn phân loại nhầm lượt 1 của A là `capacity` vì cuối log có dòng "stream disconnected" (khớp `CAPACITY_RE`). Cần đổi cách gắn tham chiếu (ví dụ ghép các sheet để gắn tối đa 5 ảnh, hoặc chia hai lượt) trước khi chạy lại; chưa chọn cách.
-- **Việc tiếp theo:** người dùng chọn hướng A hay B cho từng nghề (concept doc §12 mục 21); sau đó T-pose cho Tripo theo `art-output/tripo-models/Agent.md` (concept → T-pose → tách ảnh từng góc → Tripo Studio trên trình duyệt → GLB), gỡ đồ mặc bị vẽ lặp khỏi thân và dựng vũ khí riêng. `PROLOGUE_LINEUP`, `CHOICE_HANDS` và ảnh pilot không chạy lại ở v3.
+- **Việc tiếp theo:** người dùng chọn hướng A hay B cho từng nghề (concept doc §12 mục 21); sau đó T-pose cho Tripo theo `ashlar/pipeline/tripo/Agent.md` (concept → T-pose → tách ảnh từng góc → Tripo Studio trên trình duyệt → GLB), gỡ đồ mặc bị vẽ lặp khỏi thân và dựng vũ khí riêng. `PROLOGUE_LINEUP`, `CHOICE_HANDS` và ảnh pilot không chạy lại ở v3.

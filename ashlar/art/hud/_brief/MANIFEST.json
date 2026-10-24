@@ -17,11 +17,11 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/PC_A_footing_course/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_A.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
         {"path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png", "role": "hero design (Pallbearer A pilot)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Shambler)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "churchyard props"}
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Shambler)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png", "role": "churchyard props"}
       ]
     },
     {
@@ -37,11 +37,11 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/PC_B_keystone_arch/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_B.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and painterly ground"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W03_hush_wolf/vA/concept.png", "role": "enemy design (Hush-Wolf, direction A, not approved)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W05_corpse_candle/vA/concept.png", "role": "enemy design (Corpse-Candle, direction A, not approved)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and painterly ground"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/W03_hush_wolf/vA/concept.png", "role": "enemy design (Hush-Wolf, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/W05_corpse_candle/vA/concept.png", "role": "enemy design (Corpse-Candle, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
       ]
     },
     {
@@ -57,7 +57,7 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/PC_C_quiet_stones/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/PC_C.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"}
       ]
     },
     {
@@ -73,10 +73,10 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/M_A_thumb_arch/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_A.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Mire-Shambler = Shambler rank)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png", "role": "enemy design (Mire-Shambler = Shambler rank)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/environments/E01_wetland/perspective.png", "role": "fen vegetation and stones"}
       ]
     },
     {
@@ -92,11 +92,11 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/M_B_crest/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_B.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U02_charnel_dead/vA/concept.png", "role": "enemy design (Charnel Dead, direction A, not approved)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/W02_gibbet_crow/vA/concept.png", "role": "enemy design (Gibbet-Crow, direction A, not approved)"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "burial props"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "world painting style"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_ingame/d2_webgl.png", "role": "camera height and Map 1 mood"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/U02_charnel_dead/vA/concept.png", "role": "enemy design (Charnel Dead, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/W02_gibbet_crow/vA/concept.png", "role": "enemy design (Gibbet-Crow, direction A, not approved)"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png", "role": "burial props"}
       ]
     },
     {
@@ -112,8 +112,8 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/M_C_low_profile/mockup.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/M_C.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U04_charnel_ghoul/vA/concept.png", "role": "enemy design (Charnel Ghoul, direction A, not approved)"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/monsters/U04_charnel_ghoul/vA/concept.png", "role": "enemy design (Charnel Ghoul, direction A, not approved)"}
       ]
     },
     {
@@ -129,7 +129,7 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/KIT_1_globe_vessels/sheet.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/KIT_1.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
         {"path": "E:/Diablo2/ashlar/art/heroes/PB_pallbearer/vA/concept_pilot.png", "role": "Pallbearer bier-frame match"}
       ]
     },
@@ -146,8 +146,8 @@
       "outputPath": "E:/Diablo2/ashlar/art/hud/KIT_2_sockets_rarity/sheet.png",
       "promptPath": "E:/Diablo2/ashlar/art/hud/_brief/prompts/KIT_2.txt",
       "referenceImages": [
-        {"path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
-        {"path": "E:/Diablo2/ashlar/art/map-01-concepts/environments/E04_burial/perspective.png", "role": "stone, mortar, oak and iron material language"}
+        {"path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg", "role": "painting style only"},
+        {"path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png", "role": "stone, mortar, oak and iron material language"}
       ]
     }
   ]

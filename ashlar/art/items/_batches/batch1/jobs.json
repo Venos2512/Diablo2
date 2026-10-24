@@ -1,0 +1,77 @@
+[
+  {
+    "id": "IT-01_prologue_weapons",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-01_prologue_weapons\\_work\\sheet_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-01_prologue_weapons\\sheet_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "IT-02_class_offhands",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-02_class_offhands\\_work\\sheet_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-02_class_offhands\\sheet_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "IT-03_starting_armour",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-03_starting_armour\\_work\\sheet_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-03_starting_armour\\sheet_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "IT-04_relics_act1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-04_relics_act1\\_work\\sheet_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-04_relics_act1\\sheet_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "IT-05_consumables_coin",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\_work\\sheet_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\sheet_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  }
+]

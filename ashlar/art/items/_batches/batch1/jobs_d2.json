@@ -1,0 +1,97 @@
+[
+  {
+    "id": "IT-01_prologue_weapons_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-01_prologue_weapons\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-01_prologue_weapons\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-01_prologue_weapons.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-02_class_offhands_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-02_class_offhands\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-02_class_offhands\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-02_class_offhands.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-03_starting_armour_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-03_starting_armour\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-03_starting_armour\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-03_starting_armour.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-04_relics_act1_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-04_relics_act1\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-04_relics_act1\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-04_relics_act1.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-05_consumables_coin_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-05_consumables_coin.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  }
+]

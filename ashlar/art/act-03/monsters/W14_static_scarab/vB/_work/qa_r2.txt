@@ -1,0 +1,2 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G5).
+r2 edit with code scale guide: Astra returned nearly the same image (size ~0.79H, horn still red). Verdict: FAIL -> r3: one-fix edit of concept.png for the horn colour, then code rescale.

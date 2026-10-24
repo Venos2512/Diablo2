@@ -1,0 +1,63 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-11 KEYS",
+ "items": [
+  {
+   "label": "K01 OSSUARY GRILLE KEY",
+   "cells": [
+    1,
+    2
+   ],
+   "rect": [
+    791,
+    378,
+    909,
+    614
+   ],
+   "label_pos": [
+    850,
+    624
+   ]
+  },
+  {
+   "label": "K02 BARROW VAULT KEY",
+   "cells": [
+    1,
+    2
+   ],
+   "rect": [
+    1027,
+    378,
+    1145,
+    614
+   ],
+   "label_pos": [
+    1086,
+    624
+   ]
+  },
+  {
+   "label": "K03 GENTLE HOUSE GATE KEY",
+   "cells": [
+    1,
+    2
+   ],
+   "rect": [
+    1263,
+    378,
+    1381,
+    614
+   ],
+   "label_pos": [
+    1322,
+    624
+   ]
+  }
+ ]
+}

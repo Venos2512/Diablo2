@@ -1,0 +1,116 @@
+[
+  {
+    "id": "IT-06_brannoc_weapons_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-06_brannoc_weapons\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-06_brannoc_weapons\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-06_brannoc_weapons.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-07_shields_heavy_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-07_shields_heavy\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-07_shields_heavy\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-07_shields_heavy.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-08_lychgate_armour_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-08_lychgate_armour\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-08_lychgate_armour\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-08_lychgate_armour.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-09_small_goods_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-09_small_goods\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-09_small_goods\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-09_small_goods.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-10_act1_quest_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-10_act1_quest\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-10_act1_quest\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-10_act1_quest.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  },
+  {
+    "id": "IT-11_keys_d2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-11_keys\\_work\\sheet_d2_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-11_keys\\sheet_d2_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch2\\templates\\IT-11_keys.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  }
+]

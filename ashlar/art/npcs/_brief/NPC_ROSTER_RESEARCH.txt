@@ -20,8 +20,8 @@ Source files are T3 attachments in C:/Users/HLC_2021/.t3/userdata/attachments/. 
           Quest-giver status of NPCs is therefore NOT verified beyond what [CAST]/[BIBLE] say.
 
 Repo (old Diablo II material, NOT ASHLAR canon):
-  bestiary/docs/NPCS.md (18 lines), bestiary/assets/NPC_SOURCES.json,
-  bestiary/assets/npcs/*.gif (8 files), bestiary/src/data/npc-images.json (empty).
+  legacy/bestiary/docs/NPCS.md (18 lines), legacy/bestiary/assets/NPC_SOURCES.json,
+  legacy/bestiary/assets/npcs/*.gif (8 files), legacy/bestiary/src/data/npc-images.json (empty).
   Subject: Blizzard's Diablo II Act I NPCs: Akara, Charsi, Deckard Cain, Flavie, Gheed,
   Kashya, Warriv, Rogue Scout (hireling). DO NOT carry these names or designs into ASHLAR.
   [CAST] 11.2 says every named character of all five Diablo games is deliberately not reused.
@@ -39,9 +39,9 @@ Repo (old Diablo II material, NOT ASHLAR canon):
 - From Act III on, every hub needs NPC REACTION STATES tied to Perfection trees (LD L579).
 - Act V: NPC/town layers change per act (LD L590; BIOME doc). Plan the after-state now.
 - Hub light is small and flickering (LD L439). A steady beautiful light = a Perfection.
-- Art direction (ashlar/artdirection.md L183) for humanoid NPC sheets: use the humanoid block.
-  The image rules in ashlar/artdirection.md (sec. 3 prompt blocks, sec. 11 QA) govern all images.
-- Hero-concept rule that also binds NPCs (ashlar/ASHLAR_HERO_CONCEPT_VI.md L859, L1013):
+- Art direction (ashlar/art-direction/artdirection.md L183) for humanoid NPC sheets: use the humanoid block.
+  The image rules in ashlar/art-direction/artdirection.md (sec. 3 prompt blocks, sec. 11 QA) govern all images.
+- Hero-concept rule that also binds NPCs (ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md L859, L1013):
   Frostwife NPCs wear veils pulled forward over brow or face, and long fur cloaks to the
   floor, so they never look like the hero (Zorya: over seventy, white braids).
   This is marked as a PROPOSAL in that file (§12 item 16).
@@ -129,7 +129,7 @@ Companions (CAST 8.2): Tamsin Reed (end of I), Ser Hamon (II), Ignatia Corr (end
 - The Five Perfections (Eleisa, Latreus, Kathara, Mnemora, Elpis): gods/Interred, BIBLE 6. Not NPCs.
 - The Hero (the Loosed): player character, BIBLE 10.1.
 - Saint-Statue: roaming statue (CAST L783). Object.
-- Diablo material in bestiary/docs/NPCS.md: Akara, Charsi, Cain, Flavie, Gheed, Kashya,
+- Diablo material in legacy/bestiary/docs/NPCS.md: Akara, Charsi, Cain, Flavie, Gheed, Kashya,
   Warriv, Rogue Scout. Old Blizzard D2 design. NOT ASHLAR canon. Do not use.
 
 === 4. UNCERTAINTIES AND DECISIONS FOR THE USER ===
@@ -197,5 +197,5 @@ Sources: BIBLE 7.9 (L464-475); CAST 10 (L836-847). These match.
 
 1. Confirm U1 scope and U2 vessel handling.
 2. Attach the Quest Ledger if quest-giver status matters for the concept board.
-3. Parent writes the concept briefs from §2 + §5 using artdirection.md §3 blocks and §11 QA.
+3. Parent writes the concept briefs from §2 + §5 using ashlar/art-direction/artdirection.md §3 blocks and §11 QA.
    Each NPC: 2 concepts (per user request "mỗi con 2 bản").

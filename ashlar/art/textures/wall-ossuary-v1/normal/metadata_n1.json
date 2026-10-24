@@ -1,0 +1,504 @@
+{
+  "generated": "2026-10-23T11:41:35Z",
+  "tool": "tools/prepare_normals.py",
+  "manifest": {
+    "path": "normal/manifest_ids.json",
+    "sha256": "91865b6a9942245b3c6a39eb52e14035958ef0d7f34d4981f10eb3fe0c03155a",
+    "jobs": 2
+  },
+  "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+  "size": 1024,
+  "register": true,
+  "parameters": {
+    "light": [
+      -1.0,
+      1.0,
+      1.1
+    ],
+    "nz_slope_floor": 0.15,
+    "nz_min": 0.05,
+    "max_shift_px": 8,
+    "min_ncc_gain": 0.01,
+    "block_agree_px": 1.0,
+    "block_min_usable": 6,
+    "block_min_fraction": 0.6,
+    "block_peak_usable": 8.0,
+    "convention_rule": "r = curl_DX/curl_GL (sigma 2), d = relief_GL - relief_DX: r <= 0.75 -> DirectX (conflict if d > 0.3); r >= 1.33 -> OpenGL (conflict if d < -0.3); else d <= -0.4 DirectX, d >= 0.4 OpenGL, otherwise OpenGL + ambiguous",
+    "convention_thresholds": {
+      "r_directx_max": 0.75,
+      "r_opengl_min": 1.33,
+      "d_conflict": 0.3,
+      "d_decide": 0.4
+    },
+    "seam_band": {
+      "k": 8,
+      "warn_ratio": 1.8
+    },
+    "trusted_shift_warn_px": 0.5,
+    "block_warn_px": 1.5
+  },
+  "counts": {
+    "manifest_jobs": 2,
+    "raw_present": 2,
+    "delivered": 2,
+    "missing": 0,
+    "raw_only": 0,
+    "errors": 0,
+    "with_warnings": 2
+  },
+  "notes": [
+    "Normal map chuẩn OpenGL (+Y lên) cho three.js; phẳng = #8080FF.",
+    "Tạo bằng Codex gpt-6-astra từ albedo1024 (ảnh albedo là ảnh đích để sửa); ảnh gốc Codex giữ nguyên.",
+    "Hậu kỳ chỉ gồm: resize (trên vector float), kiểm tra quy ước kênh G, căn lệch với albedo, sửa seam (periodic+smooth trên độ dốc), chuẩn hoá vector — không vẽ thêm gì.",
+    "Ảnh 'lit' là xem trước với ánh sáng từ góc trên-trái (-1, 1, 1.1) — chỉ để kiểm tra, không phải kết quả cuối.",
+    "Dùng trong three.js: texture.colorSpace = THREE.NoColorSpace (dữ liệu tuyến tính, không phải màu); material.normalScale chỉnh độ mạnh theo từng biome (xem độ nghiêng TB/p95 trên mỗi thẻ).",
+    "Đã bỏ độ nghiêng đều (mean slope) của mỗi ảnh gốc; thẻ có nhãn v2 dùng bản chạy lại được chọn trong normal/selection.json.",
+    "Các chỉ số là gợi ý; hãy nhìn normal_qa/ (bảng so sánh và lặp 3×3) để đánh giá bằng mắt. Chưa tích hợp engine."
+  ],
+  "outputs": {
+    "normal_dir": "normal1024",
+    "qa": {
+      "compare": [
+        {
+          "file": "normal_qa/compare_sheet_01.png",
+          "ids": [
+            "W_skull_wall_a",
+            "W_skull_wall_b"
+          ]
+        }
+      ],
+      "normals_repeat3x3": [
+        {
+          "file": "normal_qa/normals_repeat3x3_sheet_01.png",
+          "ids": [
+            "W_skull_wall_a",
+            "W_skull_wall_b"
+          ]
+        }
+      ],
+      "lit_repeat3x3": [
+        {
+          "file": "normal_qa/lit_repeat3x3_sheet_01.png",
+          "ids": [
+            "W_skull_wall_a",
+            "W_skull_wall_b"
+          ]
+        }
+      ],
+      "tile_corners": [
+        {
+          "file": "normal_qa/tile_corners_01.png",
+          "ids": [
+            "W_skull_wall_a",
+            "W_skull_wall_b"
+          ]
+        }
+      ],
+      "thumbnails": "normal_qa/thumbnails_all.png"
+    },
+    "gallery": "gallery.normals.html"
+  },
+  "extra_cards": [
+    {
+      "biome_id": "BIO-25",
+      "texture": null,
+      "explanation": [
+        "Seamless (BIO-25) là mặt trắng thuần cố ý, không có texture albedo.",
+        "Vì không có texture nên cũng không có normal map."
+      ]
+    }
+  ],
+  "sources_unchanged": true,
+  "sources_changed": [],
+  "raw_sources_unchanged": true,
+  "albedo_sources_unchanged": true,
+  "entries": [
+    {
+      "id": "W_skull_wall_a",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/W_skull_wall_a_n1.png",
+        "sha256": "db9d2fa2099894417eb93d8329cb8e04d5935bec6592ddfd93b4cbac4ccbae15",
+        "bytes": 1937727,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/W_skull_wall_a.png",
+        "sha256": "8f12372a34360f07bf46378ce76adce06926f506e323d8ef92bae4fcc51abd16"
+      },
+      "selection": {
+        "raw": "textures/W_skull_wall_a_n1.png",
+        "version": "selected",
+        "why": "candidate n1"
+      },
+      "provenance": {
+        "file": "normal/logs/W_skull_wall_a_n1.provenance.json",
+        "source_path": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3361-7723-86f4-315627971e7e\\exec-c5b8a208-d597-460e-9111-a4ceaad3fa83.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a167bd-3361-7723-86f4-315627971e7e"
+        ],
+        "sha256": "db9d2fa2099894417eb93d8329cb8e04d5935bec6592ddfd93b4cbac4ccbae15",
+        "model": "gpt-6-astra",
+        "started": "2026-10-23T07:50:15Z",
+        "finished": "2026-10-23T07:54:57Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\textures\\wall-ossuary-v1\\albedo1024\\W_skull_wall_a.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/W_skull_wall_a_n1.txt",
+        "sha256": "77da76ea0da0232d403135a294ec37558b74109e459599545ffd2b31488e4641"
+      },
+      "delivered": {
+        "path": "normal1024/W_skull_wall_a.png",
+        "sha256": "ace79b41c9967ef240cd62792b8a8cd398beeecb79cf50d64ed728277780d188",
+        "bytes": 1317185,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "db9d2fa2099894417eb93d8329cb8e04d5935bec6592ddfd93b4cbac4ccbae15",
+        "albedo_sha256": "8f12372a34360f07bf46378ce76adce06926f506e323d8ef92bae4fcc51abd16",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p -0.2270, q +0.7238 (37.18 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-1.71 sx=0.253",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-23T11:41:27Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 1.0775,
+          "p5": 0.9475,
+          "min": 0.0731,
+          "max": 1.5738
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": -0.227,
+          "mean_q": 0.7238,
+          "tilt_deg": 37.18
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.527,
+            "s2": 0.427
+          },
+          "ratio_dx": {
+            "s0": 0.881,
+            "s2": 0.759
+          },
+          "r_s0": 1.672,
+          "r_s2": 1.778,
+          "relief_gl": 0.674,
+          "relief_dx": -0.184,
+          "d": 0.858,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -1.71,
+          "shift_sx": 0.253,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -3.829,
+          "ncc_shift_sx": 0.363,
+          "ncc_before": 0.1312,
+          "ncc_best_integer": 0.2899,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 16,
+            "agree_fraction": 1.0,
+            "within_px": 1.0,
+            "median_sy": -1.71,
+            "median_sx": 0.253,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.2382,
+          "ncc_after": 0.2382,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 39.3,
+            "median_sy": 0.05,
+            "median_sx": 0.08,
+            "max_abs": 1.16,
+            "median_abs": 0.36
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 15.394,
+            "edge_tb": 14.655,
+            "adjacent_x": 2.869,
+            "adjacent_y": 3.198,
+            "ratio_lr": 5.37,
+            "ratio_tb": 4.58
+          },
+          "after": {
+            "edge_lr": 2.224,
+            "edge_tb": 3.72,
+            "adjacent_x": 3.026,
+            "adjacent_y": 3.775,
+            "ratio_lr": 0.74,
+            "ratio_tb": 0.99
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 5.09,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.28,
+            "cols": 5.56,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.22,
+            "max": 5.56
+          },
+          "band_after": {
+            "rows": 1.53,
+            "rows_pair": 4,
+            "rows_interior_ref": 1.36,
+            "cols": 1.23,
+            "cols_pair": -2,
+            "cols_interior_ref": 1.21,
+            "max": 1.53
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.6948,
+        "tilt": {
+          "mean_deg": 44.29,
+          "p95_deg": 78.46,
+          "near_flat_fraction": 0.001,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0,
+          "p5": 0.9963,
+          "min": 0.9935,
+          "max": 1.0065
+        },
+        "mean_slope_final": {
+          "mean_p": 0.0018,
+          "mean_q": -0.0078,
+          "tilt_deg": 0.46
+        }
+      },
+      "warnings": [
+        "large uniform tilt bias removed (37.18 deg; mean p -0.227, q +0.724)"
+      ]
+    },
+    {
+      "id": "W_skull_wall_b",
+      "biome_id": "",
+      "name_vi": "",
+      "material": "",
+      "status": "ready",
+      "raw": {
+        "path": "normal/textures/W_skull_wall_b_n1.png",
+        "sha256": "80b2e8ae996479f58d5aef4aa95db2990c8958e3e46f40ba36af280b495e0a84",
+        "bytes": 1900495,
+        "width": 1254,
+        "height": 1254
+      },
+      "albedo": {
+        "path": "albedo1024/W_skull_wall_b.png",
+        "sha256": "9b86e9c96835f6e65ddc8487c5661cf3ae80d681295176f13d8555790f942c56"
+      },
+      "selection": {
+        "raw": "textures/W_skull_wall_b_n1.png",
+        "version": "selected",
+        "why": "candidate n1"
+      },
+      "provenance": {
+        "file": "normal/logs/W_skull_wall_b_n1.provenance.json",
+        "source_path": "E:\\map01-batch\\home-nam\\generated_images\\01a167bd-3363-78e0-8063-f7c8089abcf7\\exec-8edcd1e1-9767-47ba-beb1-69ca93e430d9.png",
+        "source_how": "event",
+        "thread_ids": [
+          "01a167bd-3363-78e0-8063-f7c8089abcf7"
+        ],
+        "sha256": "80b2e8ae996479f58d5aef4aa95db2990c8958e3e46f40ba36af280b495e0a84",
+        "model": "gpt-6-astra",
+        "started": "2026-10-23T07:50:15Z",
+        "finished": "2026-10-23T07:53:29Z",
+        "sandbox": "workspace-write",
+        "reference": "E:\\Diablo2\\ashlar\\art\\textures\\wall-ossuary-v1\\albedo1024\\W_skull_wall_b.png"
+      },
+      "prompt_file": {
+        "path": "normal/prompts/W_skull_wall_b_n1.txt",
+        "sha256": "77da76ea0da0232d403135a294ec37558b74109e459599545ffd2b31488e4641"
+      },
+      "delivered": {
+        "path": "normal1024/W_skull_wall_b.png",
+        "sha256": "5fb72a2035ff183a4dc00ab3dafa1a9c3ffba72af97dad7a308a128550372ae0",
+        "bytes": 1288280,
+        "width": 1024,
+        "height": 1024
+      },
+      "processing": {
+        "algorithm": "normal-delivery-v4: native-size mean-slope removal + moisan periodic slopes, periodic (wrap) float-vector lanczos resize, convention curl(sigma2)+relief, block-median fourier registration on the periodic map, nz floor rebuild",
+        "source_sha256": "80b2e8ae996479f58d5aef4aa95db2990c8958e3e46f40ba36af280b495e0a84",
+        "albedo_sha256": "9b86e9c96835f6e65ddc8487c5661cf3ae80d681295176f13d8555790f942c56",
+        "size": 1024,
+        "register": true,
+        "steps": [
+          "mean slope removed at native 1254x1254: p -0.1602, q +0.3426 (20.72 deg uniform tilt)",
+          "seam at native size: periodic component (Moisan 2011) of slopes p, q; rebuild (-p, q, 1); normalise",
+          "resize 1254x1254 -> 1024: periodic (3x3 wrap-tiled mosaic, float vector components, LANCZOS, renormalise)",
+          "convention: opengl",
+          "registration: fourier shift sy=-2.09 sx=0.698",
+          "rebuild (-p, q, 1) through the nz floor; normalise; encode RGB8"
+        ],
+        "processed": "2026-10-23T11:41:33Z"
+      },
+      "metrics": {
+        "raw_vector_length": {
+          "mean": 1.0863,
+          "p5": 0.9814,
+          "min": 0.3891,
+          "max": 1.4985
+        },
+        "resized_from": [
+          1254,
+          1254
+        ],
+        "non_square_source": false,
+        "mean_slope_removed": {
+          "mean_p": -0.1602,
+          "mean_q": 0.3426,
+          "tilt_deg": 20.72
+        },
+        "convention": {
+          "ratio_gl": {
+            "s0": 0.608,
+            "s2": 0.45
+          },
+          "ratio_dx": {
+            "s0": 0.828,
+            "s2": 0.739
+          },
+          "r_s0": 1.363,
+          "r_s2": 1.642,
+          "relief_gl": 0.74,
+          "relief_dx": -0.052,
+          "d": 0.792,
+          "decision": "opengl",
+          "flags": [],
+          "flipped": false
+        },
+        "registration": {
+          "shift_sy": -2.09,
+          "shift_sx": 0.698,
+          "shift_source": "median of usable 4x4 block phase correlations",
+          "convention": "np.roll applied to the normal content: out[r,c]=in[r-sy,c-sx]; +sy down, +sx right",
+          "ncc_shift_sy": -3.511,
+          "ncc_shift_sx": 0.755,
+          "ncc_before": 0.2172,
+          "ncc_best_integer": 0.4016,
+          "block_agreement": {
+            "usable": 16,
+            "agree": 12,
+            "agree_fraction": 0.75,
+            "within_px": 1.0,
+            "median_sy": -2.09,
+            "median_sx": 0.698,
+            "trusted": true
+          },
+          "applied": true,
+          "uncertain": false,
+          "decision": "applied",
+          "ncc_candidate": 0.3764,
+          "ncc_after": 0.3764,
+          "block_residual": {
+            "grid": 4,
+            "usable_blocks": 16,
+            "blocks": 16,
+            "peak_z_median": 42.4,
+            "median_sy": -0.01,
+            "median_sx": -0.15,
+            "max_abs": 1.67,
+            "median_abs": 0.66
+          }
+        },
+        "seam": {
+          "before": {
+            "edge_lr": 6.727,
+            "edge_tb": 13.604,
+            "adjacent_x": 2.66,
+            "adjacent_y": 2.927,
+            "ratio_lr": 2.53,
+            "ratio_tb": 4.65
+          },
+          "after": {
+            "edge_lr": 1.771,
+            "edge_tb": 2.155,
+            "adjacent_x": 2.883,
+            "adjacent_y": 3.28,
+            "ratio_lr": 0.61,
+            "ratio_tb": 0.66
+          },
+          "measured_on": "8-bit RGB; before = raw at native size",
+          "band_before": {
+            "rows": 4.91,
+            "rows_pair": -1,
+            "rows_interior_ref": 1.32,
+            "cols": 2.71,
+            "cols_pair": -1,
+            "cols_interior_ref": 1.3,
+            "max": 4.91
+          },
+          "band_after": {
+            "rows": 0.82,
+            "rows_pair": 1,
+            "rows_interior_ref": 1.42,
+            "cols": 0.97,
+            "cols_pair": 2,
+            "cols_interior_ref": 1.28,
+            "max": 0.97
+          },
+          "band_k": 8
+        },
+        "relief_ncc": 0.7787,
+        "tilt": {
+          "mean_deg": 33.79,
+          "p95_deg": 60.74,
+          "near_flat_fraction": 0.0041,
+          "near_flat_deg": 2.0
+        },
+        "delivered_vector_length": {
+          "mean": 1.0,
+          "p5": 0.9963,
+          "min": 0.9935,
+          "max": 1.0065
+        },
+        "mean_slope_final": {
+          "mean_p": -0.0004,
+          "mean_q": 0.0007,
+          "tilt_deg": 0.04
+        }
+      },
+      "warnings": [
+        "large uniform tilt bias removed (20.72 deg; mean p -0.160, q +0.343)",
+        "block residual shift up to 1.67 px after registration (non-uniform misalignment)"
+      ]
+    }
+  ]
+}

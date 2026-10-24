@@ -1,0 +1,80 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-08 LYCHGATE ARMOUR",
+ "items": [
+  {
+   "label": "A03 PATCHED BRIGANDINE",
+   "cells": [
+    2,
+    3
+   ],
+   "rect": [
+    437,
+    260,
+    673,
+    614
+   ],
+   "label_pos": [
+    555,
+    624
+   ]
+  },
+  {
+   "label": "A04 OILSKIN COAT",
+   "cells": [
+    2,
+    3
+   ],
+   "rect": [
+    791,
+    260,
+    1027,
+    614
+   ],
+   "label_pos": [
+    909,
+    624
+   ]
+  },
+  {
+   "label": "A06 SEXTON'S COWL",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    1145,
+    378,
+    1381,
+    614
+   ],
+   "label_pos": [
+    1263,
+    624
+   ]
+  },
+  {
+   "label": "A14 SEXTON'S TOOL BELT",
+   "cells": [
+    2,
+    1
+   ],
+   "rect": [
+    1499,
+    496,
+    1735,
+    614
+   ],
+   "label_pos": [
+    1617,
+    624
+   ]
+  }
+ ]
+}

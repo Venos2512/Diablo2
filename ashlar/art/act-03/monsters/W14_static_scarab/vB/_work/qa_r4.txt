@@ -1,0 +1,2 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G5).
+r4 = concept_r3.png with every figure scaled to 0.75 about its bottom centre and the model-drawn dashed lines/labels removed by code (cut/scale/paste + backdrop fill only; tool _batches/monsters/v1_1024/rescale_figures.py). Size now ~0.61H long, ~0.36H high. Leftovers: a very faint trace of the old dashed line in places; tiny gaps in the baseline. Verdict: PASS for review. Best: concept_r4.png

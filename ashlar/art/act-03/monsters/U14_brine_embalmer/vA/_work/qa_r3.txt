@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G4), r3 fresh gen from concept.png as design reference + relative size anchor.
+Style: PASS, same look.
+Size: hood tip ~1.31H (H ~350 px display, figure ~460 px); target 1.15H (source 1.10-1.20H). Three passes used (r1 1.41H, r2 1.29H, r3 1.31H).
+Verdict: FAIL on size, best of 3 = concept_r2.png (1.29H, design identical). Left for the user: accept as a taller variant, or scale at the Tripo/3D stage.

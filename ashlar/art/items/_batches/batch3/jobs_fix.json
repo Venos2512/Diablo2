@@ -1,0 +1,24 @@
+[
+  {
+    "id": "IT-12_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-12_ansel_crane_weapons\\_work\\sheet_d2_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-12_ansel_crane_weapons\\sheet_d2_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\IT-12_ansel_crane_weapons\\sheet_d2_v1.png",
+        "role": "sheet to edit"
+      }
+    ]
+  },
+  {
+    "id": "IT-15_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-15_act2_relics_quest\\_work\\sheet_d2_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-15_act2_relics_quest\\sheet_d2_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\IT-15_act2_relics_quest\\sheet_d2_v1.png",
+        "role": "sheet to edit"
+      }
+    ]
+  }
+]

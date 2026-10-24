@@ -5,7 +5,7 @@
  "revision": "round 3 (applies decisions_r3 and the Opus round-2 review on top of round 2)",
  "projectRoot": "E:/Diablo2/ashlar/art/heroes",
  "briefRoot": "E:/Diablo2/ashlar/art/heroes/_brief",
- "conceptDoc": "E:/Diablo2/ashlar/ASHLAR_HERO_CONCEPT_VI.md",
+ "conceptDoc": "E:/Diablo2/ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md",
  "status": "images generated 2026-10-20, 36 on disk (checked 2026-10-20 12:55): v1 hero sheets 9 of 12 (FL_A, OS_A, BR_A v1 stopped when the direction changed) + PROLOGUE_LINEUP + CHOICE_HANDS + layout pilot concept_pilot.png; v2 hero sheets 12 of 12; v3 hero sheets 12 of 12 (current presentation, see v3); TOPDOWN_A / TOPDOWN_B: v1 not run, v3 running / failed (0 of 2 on disk, see jobs[].v3). Per-job \"status\" is the state of the v1 output (outputPath); per-job v2 and v3 fields carry theirs. No direction A/B has been chosen yet.",
  "overwritePolicy": "never overwrite an existing output; retries use a new filename suffix (e.g. concept_v2.png)",
  "counts": {
@@ -35,11 +35,11 @@
  "topdownRule": "TOPDOWN_A / TOPDOWN_B: one 3:1 sheet each, two rows of six (PB, FL, OS, BR, EX, PS): game-camera colour row on a flat neutral mid-grey ground, then flat black silhouettes of the same six from the same camera. References: the style image + the six generated concept.png sheets of that letter (identity only). They depend on exactly those six sheets. Run them as a SECOND batch, only after their six sheets pass QA; pass any accepted _v2 sheet with the runner's --ref-map OLD=NEW option.",
  "pilotRule": "PB_A was generated once as a layout pilot (art/heroes/PB_pallbearer/vA/concept_pilot.png, 2172x724) and accepted for LAYOUT only: copy ONLY the row order, the baseline position and the label placement; do NOT copy its figure size (its figures are about 480 px tall; here 1H = 400 px). The 11 other hero sheets carry it as an extra LAYOUT-ONLY reference and have no dependency. PB_A is regenerated from its revised prompt to concept.png WITHOUT the pilot attached. If the seven-figure layout fails in other sheets, fall back to six figures (drop ALT) and move ALT to phase 2.",
  "styleReferences": [
-  "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg"
+  "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg"
  ],
- "layoutReference": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+ "layoutReference": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
  "notes": [
-  "Sizes come from the proposal tables in ASHLAR_HERO_CONCEPT_VI.md (§4.7, §5.7, §6.7, §7.7, §8.8, §9.7); they are production proposals, not canon.",
+  "Sizes come from the proposal tables in docs/ASHLAR_HERO_CONCEPT_VI.md (§4.7, §5.7, §6.7, §7.7, §8.8, §9.7); they are production proposals, not canon.",
   "Display body per vocation (concept doc §2.1, presentation only, not a gender lock): PB and EX base body 1, ALT body 2; FL, OS, BR, PS base body 2, ALT body 1.",
   "Hero sheets use neutral studio light and their own palette; no Act I mood reference is attached to any hero job.",
   "Light-only colours (coal red, soul white, lamp amber, ember orange, rime) are listed with usedOnSheet:false and are not drawn on the sheets.",
@@ -66,13 +66,13 @@
    "displayBody": 1,
    "altBody": 2,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
     "Voc §3.2, §3.3, §10.1, §10.2, §10.4, §10.9, §17.6; Bible §8.3; Cast §4.1 (Pall-Wight, Ser Hamon)"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §4 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §4 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -180,11 +180,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PB_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     }
    ],
@@ -268,13 +268,13 @@
    "displayBody": 1,
    "altBody": 2,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §4, §11.1",
     "Voc §3.2, §3.3, §10.1, §10.2, §10.4, §10.9, §17.6; Bible §8.3; Cast §4.1 (Pall-Wight, Ser Hamon)"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §4 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §4 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -387,11 +387,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PB_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -461,13 +461,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
     "Voc §3.2, §3.3, §11.1, §11.9, §23 item 15; Bible §13.3; Cast §4.3, §4.4, §3.7; QCQ F04, F06, F08, P09, D02"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §5 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §5 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -553,11 +553,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/FL_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -622,13 +622,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §5, §11.1",
     "Voc §3.2, §3.3, §11.1, §11.9, §23 item 15; Bible §13.3; Cast §4.3, §4.4, §3.7; QCQ F04, F06, F08, P09, D02"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §5 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §5 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -714,11 +714,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/FL_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -788,13 +788,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
     "Voc §3.2, §12.1, §12.2, §12.5, §12.9; Bible §13.2; Cast §3.1 (Gennet), §4.5, §4.6, §6.7; QCQ U10, U11, F15"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §6 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §6 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -888,11 +888,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/OS_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -963,13 +963,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §6, §11.1",
     "Voc §3.2, §12.1, §12.2, §12.5, §12.9; Bible §13.2; Cast §3.1 (Gennet), §4.5, §4.6, §6.7; QCQ U10, U11, F15"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §6 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §6 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1063,11 +1063,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/OS_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1143,13 +1143,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
     "Voc §3.2, §13.1, §13.2, §13.8, §13.9; Bible §13.2; Cast §5.2, §5.4, §5.6, §5.7; QCQ F13, D06, P12, U13, U14; AD §8 (erratum, concept doc §12 item 14)"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §7 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §7 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1221,11 +1221,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/BR_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1289,13 +1289,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §7, §11.1",
     "Voc §3.2, §13.1, §13.2, §13.8, §13.9; Bible §13.2; Cast §5.2, §5.4, §5.6, §5.7; QCQ F13, D06, P12, U13, U14; AD §8 (erratum, concept doc §12 item 14)"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §7 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §7 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1371,11 +1371,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/BR_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1447,13 +1447,13 @@
    "displayBody": 1,
    "altBody": 2,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
     "Voc §3.2, §14.1, §14.2, §14.3, §14.9, §17.6, §17.10, §17.14; Bible §8.4; Cast §3.1 (Tamsin), §4.1 (F03, Ignatia), §7.2, §7.4; QCQ F03, F07, F16, F17, B15, P24"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §8 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §8 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1560,11 +1560,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/EX_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1640,13 +1640,13 @@
    "displayBody": 1,
    "altBody": 2,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §8, §11.1",
     "Voc §3.2, §14.1, §14.2, §14.3, §14.9, §17.6, §17.10, §17.14; Bible §8.4; Cast §3.1 (Tamsin), §4.1 (F03, Ignatia), §7.2, §7.4; QCQ F03, F07, F16, F17, B15, P24"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §8 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §8 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1745,11 +1745,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/EX_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1824,13 +1824,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
     "Voc §3.2, §15.1, §15.9, §24.3; Bible §8.5, §13.2, §13.3; Cast §6.1; QCQ P16, U07, P02"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §9 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §9 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -1913,11 +1913,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PS_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -1983,13 +1983,13 @@
    "displayBody": 2,
    "altBody": 1,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1-§2.11, §3, §9, §11.1",
     "Voc §3.2, §15.1, §15.9, §24.3; Bible §8.5, §13.2, §13.3; Cast §6.1; QCQ P16, U07, P02"
    ],
    "sizeSpec": {
     "unit": "H = hero standing height on the neutral base body (head crown, excluding hat, helm, hood, veil frame and props)",
     "status": "proposal (concept doc: sizes are production proposals; final values lock after scene tests)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §9 size table",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §9 size table",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -2072,11 +2072,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PS_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (accepted U01 A lineup: H human + views on one baseline); never copy its anatomy, design or colours; the hero sheet has SEVEN figures, not six"
     },
     {
@@ -2147,7 +2147,7 @@
    },
    "altBody": null,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.9, §2.1, §11.1, §3",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.9, §2.1, §11.1, §3",
     "Voc §3.4 (starting kit), §3.3, §21.1",
     "Bible §10.1, §10.3, §11.2",
     "Cast §2.1 (The Loosed)",
@@ -2156,7 +2156,7 @@
    "sizeSpec": {
     "unit": "H = neutral human height; all six heroes have the crown at 1.0H",
     "status": "provisional (Prologue prop sizes are production choices; the doc gives only the lamp, 0.16H)",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §2.1, §2.9, §8.8",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §2.1, §2.9, §8.8",
     "canvas": {
      "reference": "2172x724",
      "baselineY": 640,
@@ -2233,11 +2233,11 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/PROLOGUE_LINEUP.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
-     "path": "E:/Diablo2/ashlar/art/map-01-concepts/monsters/U01_shambler/vA/concept_v3.png",
+     "path": "E:/Diablo2/ashlar/art/act-01/monsters/U01_shambler/vA/concept_v3.png",
      "role": "layout and rendering style only (H human + figures on one baseline); never copy its anatomy, design or colours; this sheet has SEVEN figures"
     }
    ],
@@ -2260,14 +2260,14 @@
    "displayBody": null,
    "altBody": null,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §10, §2.2 (hand marker table)",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §10, §2.2 (hand marker table)",
     "Voc §3.2 (the choice screen and hand markers), §9.1 (canonical order)",
     "LD §5.2 (one far light, one big dark mass), §10"
    ],
    "sizeSpec": {
     "unit": "no H ruler (key art)",
     "status": "composition only",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §10",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §10",
     "aspect": "16:9 (for example 1920x1080 or 3840x2160 if the built-in tool supports it)",
     "values": {}
    },
@@ -2359,7 +2359,7 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/CHOICE_HANDS.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     }
    ],
@@ -2386,14 +2386,14 @@
    "displayBody": null,
    "altBody": null,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
     "AD §13 (black silhouette, colour at play size)",
     "Opus round-1 review finding #12"
    ],
    "sizeSpec": {
     "unit": "relative: every hero body 1.0H, props at the sizes of its own sheet",
     "status": "readability test, not a design sheet",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §11.1",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §11.1",
     "canvas": {
      "reference": "2172x724",
      "aspect": "3:1"
@@ -2407,7 +2407,7 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/TOPDOWN_A.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
@@ -2496,7 +2496,7 @@
     "checkedAt": "2026-10-20 12:55",
     "lastError": [
      {
-      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A/concept_v3.result.txt",
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_A/_work/concept_v3.result.txt",
       "text": "`referenced_image_paths` must contain at most 5 paths"
      }
     ],
@@ -2519,14 +2519,14 @@
    "displayBody": null,
    "altBody": null,
    "sourceIds": [
-    "ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
+    "docs/ASHLAR_HERO_CONCEPT_VI.md §2.3, §2.5, §11.1",
     "AD §13 (black silhouette, colour at play size)",
     "Opus round-1 review finding #12"
    ],
    "sizeSpec": {
     "unit": "relative: every hero body 1.0H, props at the sizes of its own sheet",
     "status": "readability test, not a design sheet",
-    "source": "ASHLAR_HERO_CONCEPT_VI.md §11.1",
+    "source": "docs/ASHLAR_HERO_CONCEPT_VI.md §11.1",
     "canvas": {
      "reference": "2172x724",
      "aspect": "3:1"
@@ -2540,7 +2540,7 @@
    "promptPath": "E:/Diablo2/ashlar/art/heroes/_brief/prompts/TOPDOWN_B.txt",
    "referenceImages": [
     {
-     "path": "E:/Diablo2/ashlar/art/terrain-dark-wood/_review_stylized2.jpg",
+     "path": "E:/Diablo2/ashlar/art/textures/terrain-dark-wood/_review_stylized2.jpg",
      "role": "style only: brushwork simplification and broad material planes; never its terrain, panels or magenta"
     },
     {
@@ -2630,11 +2630,11 @@
     "checkedAt": "2026-10-20 12:55",
     "lastError": [
      {
-      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept_v3.result.attempt2.txt",
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/_work/concept_v3.result.attempt2.txt",
       "text": "`referenced_image_paths` must contain at most 5 paths"
      },
      {
-      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/concept_v3.result.txt",
+      "file": "E:/Diablo2/ashlar/art/heroes/_shared/topdown_B/_work/concept_v3.result.txt",
       "text": "`referenced_image_paths` must contain at most 5 paths"
      }
     ],
@@ -2648,7 +2648,7 @@
  "v2": {
   "decision": "User, 2026-10-20, after seeing the v1 sheets: \"vì đây là các hero, tôi cần nó ngầu hơn, nhiều màu sắc hơn chút, bụi bặm thế này không được nổi bật, cường điệu các chi tiết là đặc điểm riêng của class\" (these are heroes: cooler, a bit more colourful; the dusty look does not stand out; exaggerate the class-signature details). Latest art-direction decision for HERO presentation: it overrides the muted v1 hero palettes and the \"strict low detail / no glow\" rule for hero sheets. Layout (seven figures, one ruler, labels) is unchanged.",
   "date": "2026-10-20",
-  "conceptDocSection": "ASHLAR_HERO_CONCEPT_VI.md §1.3 (rules), §11.1b (jobs), §12 item 20 (open point)",
+  "conceptDocSection": "docs/ASHLAR_HERO_CONCEPT_VI.md §1.3 (rules), §11.1b (jobs), §12 item 20 (open point)",
   "promptsDir": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v2",
   "outputSuffix": "_v2",
   "outputPattern": "E:/Diablo2/ashlar/art/heroes/<FOLDER>/vA|vB/concept_v2.png",
@@ -2753,7 +2753,7 @@
  "v3": {
   "decision": "User, 2026-10-20, after seeing the v2 sheets: \"gen thành 1 góc 3/4. 4 góc các hướng, vũ khí tách riêng, cách điệu hơn nữa để tạo ấn tượng, giảm detail quần áo đi\" (one 3/4 view plus four directional views, weapons separate, stylize even more for impact, reduce clothing detail). Latest art-direction decision for HERO presentation: v3 is now the current hero presentation; it overrides the seven-figure row layout (H + 3/4 + LEFT + RIGHT + FRONT + BACK + ALT) of v1/v2 and the clothing detail level of v2.",
   "date": "2026-10-20",
-  "conceptDocSection": "ASHLAR_HERO_CONCEPT_VI.md §1.4 (rules and per-job kit table), §11.1c (jobs), §12 items 21-26 (open points)",
+  "conceptDocSection": "docs/ASHLAR_HERO_CONCEPT_VI.md §1.4 (rules and per-job kit table), §11.1c (jobs), §12 items 21-26 (open points)",
   "promptsDir": "E:/Diablo2/ashlar/art/heroes/_brief/prompts_v3",
   "outputSuffix": "_v3",
   "outputPattern": "E:/Diablo2/ashlar/art/heroes/<FOLDER>/vA|vB/concept_v3.png",
@@ -2793,7 +2793,7 @@
   "openPoints": [
    "User picks direction A or B per vocation (keep the pairs that must stay apart: OS-A with BR-B, FL-B with EX-B; concept doc §3).",
    "Remove the worn duplicates (EX_A spade, EX_B crossbow, OS_A and OS_B sickle) from the body when building 3D; model them as separate props.",
-   "Next step after the pick: Tripo T-pose per E:/Diablo2/art-output/tripo-models/Agent.md (concept -> T-pose -> split views -> Tripo Studio in the browser -> GLB); hand-held weapons are not held in the T-pose and are modelled separately.",
+   "Next step after the pick: Tripo T-pose per E:/Diablo2/ashlar/pipeline/tripo/Agent.md (concept -> T-pose -> split views -> Tripo Studio in the browser -> GLB); hand-held weapons are not held in the T-pose and are modelled separately.",
    "v3 drops the H silhouette, the ALT body and the BODIES line: base body 1/2 (concept doc §2.1) and the 1.0H ruler are no longer checked on the sheet; check them at the T-pose / model step.",
    "TOPDOWN_A / TOPDOWN_B v3: the built-in image tool accepts at most 5 referenced_image_paths and these prompts attach 6 (one v3 sheet per vocation); every attempt so far ended without an image (see jobs[].v3.lastError). Change how the references are attached before re-running.",
    "v2.openPoints still apply (lock the palettes only after in-scene tests; re-run the value rule on v2/v3 colours)."

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "IT-05_d2_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\_work\\sheet_d2_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\items\\IT-05_consumables_coin\\sheet_d2_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet with weapon cells)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\items\\_batches\\batch1\\templates\\IT-05_consumables_coin.png",
+        "role": "layout guide with footprint boxes"
+      }
+    ]
+  }
+]

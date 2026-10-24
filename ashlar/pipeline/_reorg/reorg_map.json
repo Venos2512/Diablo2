@@ -1,0 +1,338 @@
+{
+ "moves": [
+  {
+   "old": "ashlar/artdirection.md",
+   "new": "ashlar/art-direction/artdirection.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_ART_DIRECTION_VI.md",
+   "new": "ashlar/art-direction/ASHLAR_ART_DIRECTION_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_ART_DIRECTION_BOARD.html",
+   "new": "ashlar/art-direction/ASHLAR_ART_DIRECTION_BOARD.html",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_BIOME_VA_KHU_VUC_VI.md",
+   "new": "ashlar/docs/ASHLAR_BIOME_VA_KHU_VUC_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_HERO_CONCEPT_VI.md",
+   "new": "ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_MONSTER_CHECKLIST_VI.md",
+   "new": "ashlar/docs/ASHLAR_MONSTER_CHECKLIST_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+   "new": "ashlar/docs/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/_codex",
+   "new": "ashlar/pipeline/codex",
+   "blocked": false
+  },
+  {
+   "old": "art-output/tripo-models",
+   "new": "ashlar/pipeline/tripo",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/map-01-concepts/monsters",
+   "new": "ashlar/art/act-01/monsters",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/map-01-concepts/environments",
+   "new": "ashlar/art/act-01/environments/E01-E04_map01",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/map-01-concepts/_brief",
+   "new": "ashlar/art/act-01/_map01/_brief",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/map-01-concepts/_runs",
+   "new": "ashlar/art/act-01/_map01/_runs",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/map-01-concepts/REVISION_2_VI.md",
+   "new": "ashlar/art/act-01/_map01/REVISION_2_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-01-environments",
+   "new": "ashlar/art/act-01/environments/A01-A14",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-01-environments-v2",
+   "new": "ashlar/art/act-01/environments/A15-A20",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-01-environments-v3",
+   "new": "ashlar/art/act-01/environments/A21-A25",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/act-02-monsters",
+   "new": "ashlar/art/act-02/monsters",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/prologue-concepts-v1",
+   "new": "ashlar/art/prologue/concepts-v1",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/terrain-biomes-v1",
+   "new": "ashlar/art/textures/terrain-biomes-v1",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/terrain-biomes-v2-stylized",
+   "new": "ashlar/art/textures/terrain-biomes-v2-stylized",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/terrain-dark-wood",
+   "new": "ashlar/art/textures/terrain-dark-wood",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/terrain-dungeon-v1",
+   "new": "ashlar/art/textures/terrain-dungeon-v1",
+   "blocked": false
+  },
+  {
+   "old": "ashlar/art/wall-ossuary-v1",
+   "new": "ashlar/art/textures/wall-ossuary-v1",
+   "blocked": false
+  },
+  {
+   "old": "art-direction",
+   "new": "legacy/art-direction",
+   "blocked": false
+  },
+  {
+   "old": "art-output",
+   "new": "legacy/art-output",
+   "blocked": false
+  },
+  {
+   "old": "bestiary",
+   "new": "legacy/bestiary",
+   "blocked": false
+  },
+  {
+   "old": "sites",
+   "new": "legacy/sites",
+   "blocked": false
+  },
+  {
+   "old": "output",
+   "new": "legacy/output",
+   "blocked": false
+  },
+  {
+   "old": "ACT1_MONSTER_ANIMATION_VI.md",
+   "new": "legacy/ACT1_MONSTER_ANIMATION_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "DIABLO_II_ART_CHECKLIST_VI.md",
+   "new": "legacy/DIABLO_II_ART_CHECKLIST_VI.md",
+   "blocked": false
+  },
+  {
+   "old": "D2RR.html",
+   "new": "legacy/D2RR.html",
+   "blocked": false
+  },
+  {
+   "old": "Diablo_II_Act1_Bestiary.html",
+   "new": "legacy/Diablo_II_Act1_Bestiary.html",
+   "blocked": false
+  },
+  {
+   "old": "Diablo_II_Act1_Source.zip",
+   "new": "legacy/Diablo_II_Act1_Source.zip",
+   "blocked": false
+  },
+  {
+   "old": "Sanctuary_Databook.html",
+   "new": "legacy/Sanctuary_Databook.html",
+   "blocked": false
+  },
+  {
+   "old": "Sanctuary_Databook_Source.zip",
+   "new": "legacy/Sanctuary_Databook_Source.zip",
+   "blocked": false
+  },
+  {
+   "old": "Sanctuary_Lookdev_Lab_Source.zip",
+   "new": "legacy/Sanctuary_Lookdev_Lab_Source.zip",
+   "blocked": false
+  },
+  {
+   "old": "book-of-cain-site.tar.gz",
+   "new": "legacy/book-of-cain-site.tar.gz",
+   "blocked": false
+  },
+  {
+   "old": "site-package-v5.tar",
+   "new": "legacy/site-package-v5.tar",
+   "blocked": false
+  },
+  {
+   "old": "research_notes",
+   "new": "research/notes",
+   "blocked": false
+  },
+  {
+   "old": "reports",
+   "new": "research/reports",
+   "blocked": false
+  }
+ ],
+ "vanishing": [
+  "ashlar/art/map-01-concepts"
+ ],
+ "baseline_broken_links": [
+  [
+   "ashlar/3d/monsters/D01_hodling/rig/_snapshots/v3/qa_report.md",
+   "rig_brief.md"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_1_barrow_door/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_2_flint_retaining_wall/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_3_peat_stack/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_4_vigil_chair/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_5_leaning_stones/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A21_6_bog_grave/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_1_worn_shoes/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_2_toll_post/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_3_wicker_cradle/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_4_harvester_cairn/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_5_crook_and_coat/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A22_6_straw_doll/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_1_abandoned_reaping/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_2_ribbon_thorn/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_3_garth_flower_bed/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_4_potted_flowers/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_5_walled_flower_bed/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A23_6_drying_line/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_1_kitchen_table/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_2_bread_rack/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_3_linen_folding_table/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_4_turned_down_coverlet/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_5_turned_down_quilt/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A24_6_linen_pillow/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_1_root_rib_arch/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_2_plank_crossing/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_3_root_fall/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_4_harvest_basket/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_5_tending_kit/"
+  ],
+  [
+   "ashlar/3d/props/act1_kit_v1/_review/A21-A25_catalogue.md",
+   "props/act1_kit_v1/A25_6_tamsin_lantern/"
+  ]
+ ]
+}

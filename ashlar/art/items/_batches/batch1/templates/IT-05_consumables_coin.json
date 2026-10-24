@@ -1,0 +1,80 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-05 CONSUMABLES AND COIN",
+ "items": [
+  {
+   "label": "C01 DRAUGHT",
+   "cells": [
+    1,
+    1
+   ],
+   "rect": [
+    614,
+    496,
+    732,
+    614
+   ],
+   "label_pos": [
+    673,
+    624
+   ]
+  },
+  {
+   "label": "C02 WAKING SALTS",
+   "cells": [
+    1,
+    1
+   ],
+   "rect": [
+    850,
+    496,
+    968,
+    614
+   ],
+   "label_pos": [
+    909,
+    624
+   ]
+  },
+  {
+   "label": "G01 COIN",
+   "cells": [
+    1,
+    1
+   ],
+   "rect": [
+    1086,
+    496,
+    1204,
+    614
+   ],
+   "label_pos": [
+    1145,
+    624
+   ]
+  },
+  {
+   "label": "G03 GRAVE-GOODS BUNDLE",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    1322,
+    378,
+    1558,
+    614
+   ],
+   "label_pos": [
+    1440,
+    624
+   ]
+  }
+ ]
+}

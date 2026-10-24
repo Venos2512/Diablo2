@@ -1,0 +1,63 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-12 ANSEL CRANE: WEAPONS",
+ "items": [
+  {
+   "label": "W05 KNOTTED SCOURGE",
+   "cells": [
+    2,
+    3
+   ],
+   "rect": [
+    614,
+    260,
+    850,
+    614
+   ],
+   "label_pos": [
+    732,
+    624
+   ]
+  },
+  {
+   "label": "W12 EXHUMER'S SPADE",
+   "cells": [
+    2,
+    4
+   ],
+   "rect": [
+    968,
+    142,
+    1204,
+    614
+   ],
+   "label_pos": [
+    1086,
+    624
+   ]
+  },
+  {
+   "label": "W13 EXHUMER'S CROSSBOW",
+   "cells": [
+    2,
+    4
+   ],
+   "rect": [
+    1322,
+    142,
+    1558,
+    614
+   ],
+   "label_pos": [
+    1440,
+    624
+   ]
+  }
+ ]
+}

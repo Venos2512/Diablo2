@@ -180,7 +180,7 @@ def build():
     for (nid, folder, name, act, acts, group, role, a, b, cav) in NPCS:
         ea = ROOT / folder / a
         eb = ROOT / folder / b
-        pending = not (ea.is_file() and eb.is_file() and (ROOT / folder / "QA.txt").is_file())
+        pending = not (ea.is_file() and eb.is_file() and (ROOT / folder / "_work" / "QA.txt").is_file())
         entries.append({
             "id": nid,
             "name": name,
@@ -192,9 +192,9 @@ def build():
             "status": "pending" if pending else "ready",
             "A": f"{folder}/{a}",
             "B": f"{folder}/{b}",
-            "promptA": f"{folder}/{a[:-4]}.prompt.txt",
-            "promptB": f"{folder}/{b[:-4]}.prompt.txt",
-            "qa": f"{folder}/QA.txt",
+            "promptA": f"{folder}/_work/{a[:-4]}.prompt.txt",
+            "promptB": f"{folder}/_work/{b[:-4]}.prompt.txt",
+            "qa": f"{folder}/_work/QA.txt",
             "caveats": ([PENDING_NOTE] if pending else []) + cav,
         })
     return {

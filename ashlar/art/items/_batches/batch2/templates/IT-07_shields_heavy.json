@@ -1,0 +1,80 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-07 SHIELDS AND HEAVY PIECES",
+ "items": [
+  {
+   "label": "O02 PALL COFFIN-LID",
+   "cells": [
+    2,
+    4
+   ],
+   "rect": [
+    437,
+    142,
+    673,
+    614
+   ],
+   "label_pos": [
+    555,
+    624
+   ]
+  },
+  {
+   "label": "O07 MORTSAFE-GRILLE SHIELD",
+   "cells": [
+    2,
+    3
+   ],
+   "rect": [
+    791,
+    260,
+    1027,
+    614
+   ],
+   "label_pos": [
+    909,
+    624
+   ]
+  },
+  {
+   "label": "A11 NAILED GAUNTLET",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    1145,
+    378,
+    1381,
+    614
+   ],
+   "label_pos": [
+    1263,
+    624
+   ]
+  },
+  {
+   "label": "A13 IRON-SHOD SABATONS",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    1499,
+    378,
+    1735,
+    614
+   ],
+   "label_pos": [
+    1617,
+    624
+   ]
+  }
+ ]
+}

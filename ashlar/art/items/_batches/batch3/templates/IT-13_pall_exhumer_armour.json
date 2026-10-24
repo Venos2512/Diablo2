@@ -1,0 +1,80 @@
+{
+ "canvas": [
+  2172,
+  724
+ ],
+ "cell": 118,
+ "gap": 118,
+ "baseline": 614,
+ "title": "ASHLAR ITEMS — IT-13 PALL AND EXHUMER ARMOUR",
+ "items": [
+  {
+   "label": "A05 PALL CUIRASS",
+   "cells": [
+    2,
+    3
+   ],
+   "rect": [
+    437,
+    260,
+    673,
+    614
+   ],
+   "label_pos": [
+    555,
+    624
+   ]
+  },
+  {
+   "label": "A09 PALL GREAT-HELM",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    791,
+    378,
+    1027,
+    614
+   ],
+   "label_pos": [
+    909,
+    624
+   ]
+  },
+  {
+   "label": "A07 WIDE-BRIM HAT",
+   "cells": [
+    2,
+    2
+   ],
+   "rect": [
+    1145,
+    378,
+    1381,
+    614
+   ],
+   "label_pos": [
+    1263,
+    624
+   ]
+  },
+  {
+   "label": "A15 TEN-KNOT CORD",
+   "cells": [
+    2,
+    1
+   ],
+   "rect": [
+    1499,
+    496,
+    1735,
+    614
+   ],
+   "label_pos": [
+    1617,
+    624
+   ]
+  }
+ ]
+}

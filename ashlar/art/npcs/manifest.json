@@ -27,9 +27,9 @@
       "status": "ready",
       "A": "N01_gennet-barrow/concept_A_r2.png",
       "B": "N01_gennet-barrow/concept_B_r2.png",
-      "promptA": "N01_gennet-barrow/concept_A_r2.prompt.txt",
-      "promptB": "N01_gennet-barrow/concept_B_r2.prompt.txt",
-      "qa": "N01_gennet-barrow/QA.txt",
+      "promptA": "N01_gennet-barrow/_work/concept_A_r2.prompt.txt",
+      "promptB": "N01_gennet-barrow/_work/concept_B_r2.prompt.txt",
+      "qa": "N01_gennet-barrow/_work/QA.txt",
       "caveats": [
         "Coat (A) vs cap and apron (B) are costume proposals.",
         "A keeps a few broad metal brush planes."
@@ -46,9 +46,9 @@
       "status": "ready",
       "A": "N02_brannoc-the-mortsmith/concept_A.png",
       "B": "N02_brannoc-the-mortsmith/concept_B.png",
-      "promptA": "N02_brannoc-the-mortsmith/concept_A.prompt.txt",
-      "promptB": "N02_brannoc-the-mortsmith/concept_B.prompt.txt",
-      "qa": "N02_brannoc-the-mortsmith/QA.txt",
+      "promptA": "N02_brannoc-the-mortsmith/_work/concept_A.prompt.txt",
+      "promptB": "N02_brannoc-the-mortsmith/_work/concept_B.prompt.txt",
+      "qa": "N02_brannoc-the-mortsmith/_work/QA.txt",
       "caveats": [
         "Hair/beard alternative is a proposal; canon gives no age.",
         "A has low-contrast brush variation on apron and skin."
@@ -65,9 +65,9 @@
       "status": "ready",
       "A": "N03_edda/concept_A_r2.png",
       "B": "N03_edda/concept_B_r2.png",
-      "promptA": "N03_edda/concept_A_r2.prompt.txt",
-      "promptB": "N03_edda/concept_B_r2.prompt.txt",
-      "qa": "N03_edda/QA.txt",
+      "promptA": "N03_edda/_work/concept_A_r2.prompt.txt",
+      "promptB": "N03_edda/_work/concept_B_r2.prompt.txt",
+      "qa": "N03_edda/_work/QA.txt",
       "caveats": [
         "Middle-aged adult look is a proposal (canon gives no age).",
         "Fully covered; two different beds."
@@ -84,9 +84,9 @@
       "status": "ready",
       "A": "N04_osric-dunmore/concept_A.png",
       "B": "N04_osric-dunmore/concept_B.png",
-      "promptA": "N04_osric-dunmore/concept_A.prompt.txt",
-      "promptB": "N04_osric-dunmore/concept_B.prompt.txt",
-      "qa": "N04_osric-dunmore/QA.txt",
+      "promptA": "N04_osric-dunmore/_work/concept_A.prompt.txt",
+      "promptB": "N04_osric-dunmore/_work/concept_B.prompt.txt",
+      "qa": "N04_osric-dunmore/_work/QA.txt",
       "caveats": [
         "Which arm is missing is not canon: left absent / right present is a design proposal.",
         "B has more broad mottled paint on the leather than A."
@@ -103,9 +103,9 @@
       "status": "ready",
       "A": "N05_nell-coppercoin/concept_A.png",
       "B": "N05_nell-coppercoin/concept_B.png",
-      "promptA": "N05_nell-coppercoin/concept_A.prompt.txt",
-      "promptB": "N05_nell-coppercoin/concept_B.prompt.txt",
-      "qa": "N05_nell-coppercoin/QA.txt",
+      "promptA": "N05_nell-coppercoin/_work/concept_A.prompt.txt",
+      "promptB": "N05_nell-coppercoin/_work/concept_B.prompt.txt",
+      "qa": "N05_nell-coppercoin/_work/QA.txt",
       "caveats": [
         "Exact ten-ring count is not verifiable from one view; check in production turnaround.",
         "Costume, hair and goods selection are proposals."
@@ -122,9 +122,9 @@
       "status": "ready",
       "A": "N06_tamsin-reed/concept_A.png",
       "B": "N06_tamsin-reed/concept_B.png",
-      "promptA": "N06_tamsin-reed/concept_A.prompt.txt",
-      "promptB": "N06_tamsin-reed/concept_B.prompt.txt",
-      "qa": "N06_tamsin-reed/QA.txt",
+      "promptA": "N06_tamsin-reed/_work/concept_A.prompt.txt",
+      "promptB": "N06_tamsin-reed/_work/concept_B.prompt.txt",
+      "qa": "N06_tamsin-reed/_work/QA.txt",
       "caveats": [
         "B bowstring is not clearly legible behind the shoulder; resolve in turnaround if B is picked.",
         "Teenage, fully covered practical clothing; one view, not model-ready."
@@ -141,9 +141,9 @@
       "status": "ready",
       "A": "N07_fen-reed/concept_A.png",
       "B": "N07_fen-reed/concept_B.png",
-      "promptA": "N07_fen-reed/concept_A.prompt.txt",
-      "promptB": "N07_fen-reed/concept_B.prompt.txt",
-      "qa": "N07_fen-reed/QA.txt",
+      "promptA": "N07_fen-reed/_work/concept_A.prompt.txt",
+      "promptB": "N07_fen-reed/_work/concept_B.prompt.txt",
+      "qa": "N07_fen-reed/_work/QA.txt",
       "caveats": [
         "Child concept (user exception 2026-10-23): sleeping, fully covered, dignified.",
         "No rig or multi-view consistency claim."
@@ -160,9 +160,9 @@
       "status": "ready",
       "A": "N08_odo-pell/concept_A.png",
       "B": "N08_odo-pell/concept_B_r2.png",
-      "promptA": "N08_odo-pell/concept_A.prompt.txt",
-      "promptB": "N08_odo-pell/concept_B_r2.prompt.txt",
-      "qa": "N08_odo-pell/QA.txt",
+      "promptA": "N08_odo-pell/_work/concept_A.prompt.txt",
+      "promptB": "N08_odo-pell/_work/concept_B_r2.prompt.txt",
+      "qa": "N08_odo-pell/_work/QA.txt",
       "caveats": [
         "A reused from earlier work; B is a second attempt (first rejected for mottling).",
         "Wetness is only a smooth dark hem band, not droplets."
@@ -179,9 +179,9 @@
       "status": "ready",
       "A": "N09_counting-child/concept_A.png",
       "B": "N09_counting-child/concept_B.png",
-      "promptA": "N09_counting-child/concept_A.prompt.txt",
-      "promptB": "N09_counting-child/concept_B.prompt.txt",
-      "qa": "N09_counting-child/QA.txt",
+      "promptA": "N09_counting-child/_work/concept_A.prompt.txt",
+      "promptB": "N09_counting-child/_work/concept_B.prompt.txt",
+      "qa": "N09_counting-child/_work/QA.txt",
       "caveats": [
         "A and B are two representatives (boy/girl) of an unnamed group, not two canonical characters.",
         "Child concepts; exact age and costume are proposals."
@@ -198,9 +198,9 @@
       "status": "ready",
       "A": "N10_ferryman/concept_A_r2.png",
       "B": "N10_ferryman/concept_B_v2.png",
-      "promptA": "N10_ferryman/concept_A_r2.prompt.txt",
-      "promptB": "N10_ferryman/concept_B_v2.prompt.txt",
-      "qa": "N10_ferryman/QA.txt",
+      "promptA": "N10_ferryman/_work/concept_A_r2.prompt.txt",
+      "promptB": "N10_ferryman/_work/concept_B_v2.prompt.txt",
+      "qa": "N10_ferryman/_work/QA.txt",
       "caveats": [
         "Pole top margin is narrow in both (nothing cropped).",
         "No barge scenery (studio-only portrait)."
@@ -217,9 +217,9 @@
       "status": "ready",
       "A": "N11_mother-hawise/concept_A.png",
       "B": "N11_mother-hawise/concept_B.png",
-      "promptA": "N11_mother-hawise/concept_A.prompt.txt",
-      "promptB": "N11_mother-hawise/concept_B.prompt.txt",
-      "qa": "N11_mother-hawise/QA.txt",
+      "promptA": "N11_mother-hawise/_work/concept_A.prompt.txt",
+      "promptB": "N11_mother-hawise/_work/concept_B.prompt.txt",
+      "qa": "N11_mother-hawise/_work/QA.txt",
       "caveats": [
         "Civilian form only; her Mercy-vessel boss form is not drawn.",
         "Some low-contrast brush strokes remain."
@@ -236,9 +236,9 @@
       "status": "ready",
       "A": "N12_poppy-sister/concept_A.png",
       "B": "N12_poppy-sister/concept_B.png",
-      "promptA": "N12_poppy-sister/concept_A.prompt.txt",
-      "promptB": "N12_poppy-sister/concept_B.prompt.txt",
-      "qa": "N12_poppy-sister/QA.txt",
+      "promptA": "N12_poppy-sister/_work/concept_A.prompt.txt",
+      "promptB": "N12_poppy-sister/_work/concept_B.prompt.txt",
+      "qa": "N12_poppy-sister/_work/QA.txt",
       "caveats": [
         "One representative adult (~35, a proposal) stands for the group.",
         "Needles shown in a sewing/care routine, not combat; embroidery placement is a proposal."
@@ -255,9 +255,9 @@
       "status": "ready",
       "A": "N13_perpetua/concept_A_v3.png",
       "B": "N13_perpetua/concept_B_v2.png",
-      "promptA": "N13_perpetua/concept_A_v3.prompt.txt",
-      "promptB": "N13_perpetua/concept_B_v2.prompt.txt",
-      "qa": "N13_perpetua/QA.txt",
+      "promptA": "N13_perpetua/_work/concept_A_v3.prompt.txt",
+      "promptB": "N13_perpetua/_work/concept_B_v2.prompt.txt",
+      "qa": "N13_perpetua/_work/QA.txt",
       "caveats": [
         "Earlier attempts were rejected (A: cross-shaped ash mark; B: cloth texture); these are the retries.",
         "A robe silhouette is somewhat elongated."
@@ -274,9 +274,9 @@
       "status": "ready",
       "A": "N14_ignatia/concept_A_v2.png",
       "B": "N14_ignatia/concept_B.png",
-      "promptA": "N14_ignatia/concept_A_v2.prompt.txt",
-      "promptB": "N14_ignatia/concept_B.prompt.txt",
-      "qa": "N14_ignatia/QA.txt",
+      "promptA": "N14_ignatia/_work/concept_A_v2.prompt.txt",
+      "promptB": "N14_ignatia/_work/concept_B.prompt.txt",
+      "qa": "N14_ignatia/_work/QA.txt",
       "caveats": [
         "One neutral look; hostile-Act-II vs ally-Act-V states are not drawn separately.",
         "B shows more angular facet strokes than A."
@@ -293,9 +293,9 @@
       "status": "ready",
       "A": "N15_ansel/concept_A_v2.png",
       "B": "N15_ansel/concept_B.png",
-      "promptA": "N15_ansel/concept_A_v2.prompt.txt",
-      "promptB": "N15_ansel/concept_B.prompt.txt",
-      "qa": "N15_ansel/QA.txt",
+      "promptA": "N15_ansel/_work/concept_A_v2.prompt.txt",
+      "promptB": "N15_ansel/_work/concept_B.prompt.txt",
+      "qa": "N15_ansel/_work/QA.txt",
       "caveats": [
         "Deaf ear set to anatomical right by design choice (canon silent).",
         "B bell mould and long apron are optional costume details."
@@ -312,9 +312,9 @@
       "status": "ready",
       "A": "N16_quint/concept_A.png",
       "B": "N16_quint/concept_B.png",
-      "promptA": "N16_quint/concept_A.prompt.txt",
-      "promptB": "N16_quint/concept_B.prompt.txt",
-      "qa": "N16_quint/QA.txt",
+      "promptA": "N16_quint/_work/concept_A.prompt.txt",
+      "promptB": "N16_quint/_work/concept_B.prompt.txt",
+      "qa": "N16_quint/_work/QA.txt",
       "caveats": [
         "B has many angular folds.",
         "No real religious sign used."
@@ -331,9 +331,9 @@
       "status": "ready",
       "A": "N17_saint-in-the-box/concept_A.png",
       "B": "N17_saint-in-the-box/concept_B.png",
-      "promptA": "N17_saint-in-the-box/concept_A.prompt.txt",
-      "promptB": "N17_saint-in-the-box/concept_B.prompt.txt",
-      "qa": "N17_saint-in-the-box/QA.txt",
+      "promptA": "N17_saint-in-the-box/_work/concept_A.prompt.txt",
+      "promptB": "N17_saint-in-the-box/_work/concept_B.prompt.txt",
+      "qa": "N17_saint-in-the-box/_work/QA.txt",
       "caveats": [
         "An object-character, not a person.",
         "B cradle is drawn as stone-like planes instead of a soft insert."
@@ -350,9 +350,9 @@
       "status": "ready",
       "A": "N18_old-vellum/concept_A_v2.png",
       "B": "N18_old-vellum/concept_B.png",
-      "promptA": "N18_old-vellum/concept_A_v2.prompt.txt",
-      "promptB": "N18_old-vellum/concept_B.prompt.txt",
-      "qa": "N18_old-vellum/QA.txt",
+      "promptA": "N18_old-vellum/_work/concept_A_v2.prompt.txt",
+      "promptB": "N18_old-vellum/_work/concept_B.prompt.txt",
+      "qa": "N18_old-vellum/_work/QA.txt",
       "caveats": [
         "A original was superseded (star chart touched the right edge); A_v2 is selected.",
         "Clouded-eye side and garment details are proposals; canon only says half blind.",
@@ -370,9 +370,9 @@
       "status": "ready",
       "A": "N19_ser-hamon/concept_A_v2.png",
       "B": "N19_ser-hamon/concept_B_v2.png",
-      "promptA": "N19_ser-hamon/concept_A_v2.prompt.txt",
-      "promptB": "N19_ser-hamon/concept_B_v2.prompt.txt",
-      "qa": "N19_ser-hamon/QA.txt",
+      "promptA": "N19_ser-hamon/_work/concept_A_v2.prompt.txt",
+      "promptB": "N19_ser-hamon/_work/concept_B_v2.prompt.txt",
+      "qa": "N19_ser-hamon/_work/QA.txt",
       "caveats": [
         "Originals were superseded for dense scratched metal/wood texture; v2 edits keep face, build and props.",
         "Silver-nail count beyond the nail motif is a proposal (A: six shield studs plus one; B: four).",
@@ -390,9 +390,9 @@
       "status": "ready",
       "A": "N20_wystan/concept_A.png",
       "B": "N20_wystan/concept_B.png",
-      "promptA": "N20_wystan/concept_A.prompt.txt",
-      "promptB": "N20_wystan/concept_B.prompt.txt",
-      "qa": "N20_wystan/QA.txt",
+      "promptA": "N20_wystan/_work/concept_A.prompt.txt",
+      "promptB": "N20_wystan/_work/concept_B.prompt.txt",
+      "qa": "N20_wystan/_work/QA.txt",
       "caveats": [
         "Fourteen-year-old impression; wetness is subtle, stronger damp blocking may be needed in production.",
         "Costume variants (A tunic, B tabard + kit bag) are proposals."
@@ -409,9 +409,9 @@
       "status": "ready",
       "A": "N21_nareh/concept_A.png",
       "B": "N21_nareh/concept_B.png",
-      "promptA": "N21_nareh/concept_A.prompt.txt",
-      "promptB": "N21_nareh/concept_B.prompt.txt",
-      "qa": "N21_nareh/QA.txt",
+      "promptA": "N21_nareh/_work/concept_A.prompt.txt",
+      "promptB": "N21_nareh/_work/concept_B.prompt.txt",
+      "qa": "N21_nareh/_work/QA.txt",
       "caveats": [
         "Missing-finger side differs: A shows it on the anatomical right, B on the left; canon only fixes the count.",
         "B smile is restrained rather than an open laugh. Living form only (salted state not drawn)."
@@ -428,9 +428,9 @@
       "status": "ready",
       "A": "N22_anoush/concept_A.png",
       "B": "N22_anoush/concept_B.png",
-      "promptA": "N22_anoush/concept_A.prompt.txt",
-      "promptB": "N22_anoush/concept_B.prompt.txt",
-      "qa": "N22_anoush/QA.txt",
+      "promptA": "N22_anoush/_work/concept_A.prompt.txt",
+      "promptB": "N22_anoush/_work/concept_B.prompt.txt",
+      "qa": "N22_anoush/_work/QA.txt",
       "caveats": [
         "Cheek scar side differs: A anatomical right, B left; canon does not fix the side.",
         "Age (~thirties) and props are proposals; B spool has more cord loops than briefed."
@@ -447,9 +447,9 @@
       "status": "ready",
       "A": "N23_zabel/concept_A.png",
       "B": "N23_zabel/concept_B.png",
-      "promptA": "N23_zabel/concept_A.prompt.txt",
-      "promptB": "N23_zabel/concept_B.prompt.txt",
-      "qa": "N23_zabel/QA.txt",
+      "promptA": "N23_zabel/_work/concept_A.prompt.txt",
+      "promptB": "N23_zabel/_work/concept_B.prompt.txt",
+      "qa": "N23_zabel/_work/QA.txt",
       "caveats": [
         "Human state only; salt-pillar fate is not drawn.",
         "Face/hair age interpretation and props are proposals."
@@ -466,9 +466,9 @@
       "status": "ready",
       "A": "N24_vardan/concept_A.png",
       "B": "N24_vardan/concept_B.png",
-      "promptA": "N24_vardan/concept_A.prompt.txt",
-      "promptB": "N24_vardan/concept_B.prompt.txt",
-      "qa": "N24_vardan/QA.txt",
+      "promptA": "N24_vardan/_work/concept_A.prompt.txt",
+      "promptB": "N24_vardan/_work/concept_B.prompt.txt",
+      "qa": "N24_vardan/_work/QA.txt",
       "caveats": [
         "B visor leaves the chin uncovered by design.",
         "Age, cuts and routine props are proposals."
@@ -485,9 +485,9 @@
       "status": "ready",
       "A": "N25_hovik/concept_A.png",
       "B": "N25_hovik/concept_B.png",
-      "promptA": "N25_hovik/concept_A.prompt.txt",
-      "promptB": "N25_hovik/concept_B.prompt.txt",
-      "qa": "N25_hovik/QA.txt",
+      "promptA": "N25_hovik/_work/concept_A.prompt.txt",
+      "promptB": "N25_hovik/_work/concept_B.prompt.txt",
+      "qa": "N25_hovik/_work/QA.txt",
       "caveats": [
         "A shows many faceted brush planes; B beard has finer strands; density preference awaits the user.",
         "A is stockier than B; height is not canon."
@@ -504,9 +504,9 @@
       "status": "ready",
       "A": "N26_inkman/concept_A.png",
       "B": "N26_inkman/concept_B.png",
-      "promptA": "N26_inkman/concept_A.prompt.txt",
-      "promptB": "N26_inkman/concept_B.prompt.txt",
-      "qa": "N26_inkman/QA.txt",
+      "promptA": "N26_inkman/_work/concept_A.prompt.txt",
+      "promptB": "N26_inkman/_work/concept_B.prompt.txt",
+      "qa": "N26_inkman/_work/QA.txt",
       "caveats": [
         "Tattoos are abstract shapes with no legible writing; the tattoo writing system is unresolved.",
         "Tattoos under clothing cannot be verified in one view."
@@ -523,9 +523,9 @@
       "status": "ready",
       "A": "N27_arsham/concept_A.png",
       "B": "N27_arsham/concept_B.png",
-      "promptA": "N27_arsham/concept_A.prompt.txt",
-      "promptB": "N27_arsham/concept_B.prompt.txt",
-      "qa": "N27_arsham/QA.txt",
+      "promptA": "N27_arsham/_work/concept_A.prompt.txt",
+      "promptB": "N27_arsham/_work/concept_B.prompt.txt",
+      "qa": "N27_arsham/_work/QA.txt",
       "caveats": [
         "Blank-face design, no boss or saltrot traits; age 25 is a visual proposal.",
         "Glass and salt-glass crown shapes are proposals."
@@ -542,9 +542,9 @@
       "status": "ready",
       "A": "N28_zorya/concept_A.png",
       "B": "N28_zorya/concept_B_v2.png",
-      "promptA": "N28_zorya/concept_A.prompt.txt",
-      "promptB": "N28_zorya/concept_B_v2.prompt.txt",
-      "qa": "N28_zorya/QA.txt",
+      "promptA": "N28_zorya/_work/concept_A.prompt.txt",
+      "promptB": "N28_zorya/_work/concept_B_v2.prompt.txt",
+      "qa": "N28_zorya/_work/QA.txt",
       "caveats": [
         "A keeps some angular fur strokes; B torch top margin is small.",
         "Toggles and gold trim in B are proposal details."
@@ -561,9 +561,9 @@
       "status": "ready",
       "A": "N29_frostwife/concept_A.png",
       "B": "N29_frostwife/concept_B.png",
-      "promptA": "N29_frostwife/concept_A.prompt.txt",
-      "promptB": "N29_frostwife/concept_B.prompt.txt",
-      "qa": "N29_frostwife/QA.txt",
+      "promptA": "N29_frostwife/_work/concept_A.prompt.txt",
+      "promptB": "N29_frostwife/_work/concept_B.prompt.txt",
+      "qa": "N29_frostwife/_work/QA.txt",
       "caveats": [
         "Group representatives; B is more fitted than a ritual elder.",
         "Veil and floor-length fur cloak follow the Frostwife rule."
@@ -580,9 +580,9 @@
       "status": "ready",
       "A": "N30_radomir/concept_A.png",
       "B": "N30_radomir/concept_B.png",
-      "promptA": "N30_radomir/concept_A.prompt.txt",
-      "promptB": "N30_radomir/concept_B.prompt.txt",
-      "qa": "N30_radomir/QA.txt",
+      "promptA": "N30_radomir/_work/concept_A.prompt.txt",
+      "promptB": "N30_radomir/_work/concept_B.prompt.txt",
+      "qa": "N30_radomir/_work/QA.txt",
       "caveats": [
         "Human form only, no boss traits; gloved left hand.",
         "B has slight fine cloth surface."
@@ -599,9 +599,9 @@
       "status": "ready",
       "A": "N31a_ilka/concept_A.png",
       "B": "N31a_ilka/concept_B.png",
-      "promptA": "N31a_ilka/concept_A.prompt.txt",
-      "promptB": "N31a_ilka/concept_B.prompt.txt",
-      "qa": "N31a_ilka/QA.txt",
+      "promptA": "N31a_ilka/_work/concept_A.prompt.txt",
+      "promptB": "N31a_ilka/_work/concept_B.prompt.txt",
+      "qa": "N31a_ilka/_work/QA.txt",
       "caveats": [
         "Support wires are only discretely suggested at the wrists; explicit attachments are not resolved.",
         "Appearance concept, not a finished preserved-state model; age beyond adulthood is a proposal."
@@ -618,9 +618,9 @@
       "status": "ready",
       "A": "N31b_yarik/concept_A.png",
       "B": "N31b_yarik/concept_B.png",
-      "promptA": "N31b_yarik/concept_A.prompt.txt",
-      "promptB": "N31b_yarik/concept_B.prompt.txt",
-      "qa": "N31b_yarik/QA.txt",
+      "promptA": "N31b_yarik/_work/concept_A.prompt.txt",
+      "promptB": "N31b_yarik/_work/concept_B.prompt.txt",
+      "qa": "N31b_yarik/_work/QA.txt",
       "caveats": [
         "A cuffs hide the wire connection; B wrist supports are visible; attachments unresolved.",
         "Early-adolescent age is a proposal. Appearance concept only."
@@ -637,9 +637,9 @@
       "status": "ready",
       "A": "N31c_mila/concept_A.png",
       "B": "N31c_mila/concept_B.png",
-      "promptA": "N31c_mila/concept_A.prompt.txt",
-      "promptB": "N31c_mila/concept_B.prompt.txt",
-      "qa": "N31c_mila/QA.txt",
+      "promptA": "N31c_mila/_work/concept_A.prompt.txt",
+      "promptB": "N31c_mila/_work/concept_B.prompt.txt",
+      "qa": "N31c_mila/_work/QA.txt",
       "caveats": [
         "Fine support wires are not visually resolved in either image; attachments left for production turnaround.",
         "Appearance concept only, not an in-game preserved-state model."
@@ -656,9 +656,9 @@
       "status": "ready",
       "A": "N31d_bozhena/concept_A.png",
       "B": "N31d_bozhena/concept_B.png",
-      "promptA": "N31d_bozhena/concept_A.prompt.txt",
-      "promptB": "N31d_bozhena/concept_B.prompt.txt",
-      "qa": "N31d_bozhena/QA.txt",
+      "promptA": "N31d_bozhena/_work/concept_A.prompt.txt",
+      "promptB": "N31d_bozhena/_work/concept_B.prompt.txt",
+      "qa": "N31d_bozhena/_work/QA.txt",
       "caveats": [
         "Fine support wires are not resolved in these views; add explicit attachments in turnaround.",
         "Exact age and costumes are proposals. Appearance concept only."
@@ -675,9 +675,9 @@
       "status": "ready",
       "A": "N32_stanimir/concept_A.png",
       "B": "N32_stanimir/concept_B.png",
-      "promptA": "N32_stanimir/concept_A.prompt.txt",
-      "promptB": "N32_stanimir/concept_B.prompt.txt",
-      "qa": "N32_stanimir/QA.txt",
+      "promptA": "N32_stanimir/_work/concept_A.prompt.txt",
+      "promptB": "N32_stanimir/_work/concept_B.prompt.txt",
+      "qa": "N32_stanimir/_work/QA.txt",
       "caveats": [
         "Minor decorative metal marks; B cap has visible strokes."
       ]
@@ -693,9 +693,9 @@
       "status": "ready",
       "A": "N33_ilya/concept_A.png",
       "B": "N33_ilya/concept_B.png",
-      "promptA": "N33_ilya/concept_A.prompt.txt",
-      "promptB": "N33_ilya/concept_B.prompt.txt",
-      "qa": "N33_ilya/QA.txt",
+      "promptA": "N33_ilya/_work/concept_A.prompt.txt",
+      "promptB": "N33_ilya/_work/concept_B.prompt.txt",
+      "qa": "N33_ilya/_work/QA.txt",
       "caveats": [
         "B apron is longer than briefed and has faint leather brush marks.",
         "Hair colour and garment details are proposals."
@@ -712,9 +712,9 @@
       "status": "ready",
       "A": "N34_dragana/concept_A.png",
       "B": "N34_dragana/concept_B.png",
-      "promptA": "N34_dragana/concept_A.prompt.txt",
-      "promptB": "N34_dragana/concept_B.prompt.txt",
-      "qa": "N34_dragana/QA.txt",
+      "promptA": "N34_dragana/_work/concept_A.prompt.txt",
+      "promptB": "N34_dragana/_work/concept_B.prompt.txt",
+      "qa": "N34_dragana/_work/QA.txt",
       "caveats": [
         "Fur edges are painted strokes, not photographic hair."
       ]
@@ -730,9 +730,9 @@
       "status": "ready",
       "A": "N35_lev/concept_A_v2.png",
       "B": "N35_lev/concept_B.png",
-      "promptA": "N35_lev/concept_A_v2.prompt.txt",
-      "promptB": "N35_lev/concept_B.prompt.txt",
-      "qa": "N35_lev/QA.txt",
+      "promptA": "N35_lev/_work/concept_A_v2.prompt.txt",
+      "promptB": "N35_lev/_work/concept_B.prompt.txt",
+      "qa": "N35_lev/_work/QA.txt",
       "caveats": [
         "A is on a wider landscape canvas so the whole sledge fits; B shows no dog (runners and harness only).",
         "Frostbitten ear is subtle in B."
@@ -749,9 +749,9 @@
       "status": "ready",
       "A": "N36_miron/concept_A.png",
       "B": "N36_miron/concept_B.png",
-      "promptA": "N36_miron/concept_A.prompt.txt",
-      "promptB": "N36_miron/concept_B.prompt.txt",
-      "qa": "N36_miron/QA.txt",
+      "promptA": "N36_miron/_work/concept_A.prompt.txt",
+      "promptB": "N36_miron/_work/concept_B.prompt.txt",
+      "qa": "N36_miron/_work/QA.txt",
       "caveats": [
         "B looks older and its hem is longer than briefed; monocle crack is subtle at normal scale."
       ]
@@ -767,9 +767,9 @@
       "status": "ready",
       "A": "N37_rozenn/concept_A.png",
       "B": "N37_rozenn/concept_B.png",
-      "promptA": "N37_rozenn/concept_A.prompt.txt",
-      "promptB": "N37_rozenn/concept_B.prompt.txt",
-      "qa": "N37_rozenn/QA.txt",
+      "promptA": "N37_rozenn/_work/concept_A.prompt.txt",
+      "promptB": "N37_rozenn/_work/concept_B.prompt.txt",
+      "qa": "N37_rozenn/_work/QA.txt",
       "caveats": [
         "A has small brush strands/water drops; B mitten surface shows wear.",
         "Deafness is conveyed by a cupped hand in B."
@@ -786,9 +786,9 @@
       "status": "ready",
       "A": "N38_goulven/concept_A.png",
       "B": "N38_goulven/concept_B.png",
-      "promptA": "N38_goulven/concept_A.prompt.txt",
-      "promptB": "N38_goulven/concept_B.prompt.txt",
-      "qa": "N38_goulven/QA.txt",
+      "promptA": "N38_goulven/_work/concept_A.prompt.txt",
+      "promptB": "N38_goulven/_work/concept_B.prompt.txt",
+      "qa": "N38_goulven/_work/QA.txt",
       "caveats": [
         "B anchor is large but entirely visible and reads as trade stock, not a weapon."
       ]
@@ -804,9 +804,9 @@
       "status": "ready",
       "A": "N39_morvan/concept_A.png",
       "B": "N39_morvan/concept_B.png",
-      "promptA": "N39_morvan/concept_A.prompt.txt",
-      "promptB": "N39_morvan/concept_B.prompt.txt",
-      "qa": "N39_morvan/QA.txt",
+      "promptA": "N39_morvan/_work/concept_A.prompt.txt",
+      "promptB": "N39_morvan/_work/concept_B.prompt.txt",
+      "qa": "N39_morvan/_work/QA.txt",
       "caveats": [
         "B has a duplicate pulley in the salvage tray."
       ]
@@ -822,9 +822,9 @@
       "status": "ready",
       "A": "N40_maelys/concept_A.png",
       "B": "N40_maelys/concept_B.png",
-      "promptA": "N40_maelys/concept_A.prompt.txt",
-      "promptB": "N40_maelys/concept_B.prompt.txt",
-      "qa": "N40_maelys/QA.txt",
+      "promptA": "N40_maelys/_work/concept_A.prompt.txt",
+      "promptB": "N40_maelys/_work/concept_B.prompt.txt",
+      "qa": "N40_maelys/_work/QA.txt",
       "caveats": [
         "B shows a tiny candle flame on the pocket candle although the brief said unlit.",
         "A oar top margin is narrow (not cropped); B net is more intricate than briefed."
@@ -841,9 +841,9 @@
       "status": "ready",
       "A": "N41_the_waiting/concept_A.png",
       "B": "N41_the_waiting/concept_B.png",
-      "promptA": "N41_the_waiting/concept_A.prompt.txt",
-      "promptB": "N41_the_waiting/concept_B.prompt.txt",
-      "qa": "N41_the_waiting/QA.txt",
+      "promptA": "N41_the_waiting/_work/concept_A.prompt.txt",
+      "promptB": "N41_the_waiting/_work/concept_B.prompt.txt",
+      "qa": "N41_the_waiting/_work/QA.txt",
       "caveats": [
         "Daytime human form only; no night-monster traits or window scenery.",
         "A is a man, B a woman; hunger is conveyed through thinness only."
@@ -860,9 +860,9 @@
       "status": "ready",
       "A": "S01_severin/concept_A.png",
       "B": "S01_severin/concept_B.png",
-      "promptA": "S01_severin/concept_A.prompt.txt",
-      "promptB": "S01_severin/concept_B.prompt.txt",
-      "qa": "S01_severin/QA.txt",
+      "promptA": "S01_severin/_work/concept_A.prompt.txt",
+      "promptB": "S01_severin/_work/concept_B.prompt.txt",
+      "qa": "S01_severin/_work/QA.txt",
       "caveats": [
         "A cape sits on the anatomical right (not canon); B hem is longer than briefed.",
         "Not a turnaround or rig; broad painterly marks retained."
@@ -879,9 +879,9 @@
       "status": "ready",
       "A": "S02a_plumb/concept_A_v2.png",
       "B": "S02a_plumb/concept_B.png",
-      "promptA": "S02a_plumb/concept_A_v2.prompt.txt",
-      "promptB": "S02a_plumb/concept_B.prompt.txt",
-      "qa": "S02a_plumb/QA.txt",
+      "promptA": "S02a_plumb/_work/concept_A_v2.prompt.txt",
+      "promptB": "S02a_plumb/_work/concept_B.prompt.txt",
+      "qa": "S02a_plumb/_work/QA.txt",
       "caveats": [
         "Intermediary speaking-statue look; flying-buttress wings are not represented, so not the Mason true form.",
         "A_v2 has slightly denser marks around hands and feet; residual broad stone brush patches."
@@ -898,9 +898,9 @@
       "status": "ready",
       "A": "S02b_square/concept_A.png",
       "B": "S02b_square/concept_B.png",
-      "promptA": "S02b_square/concept_A.prompt.txt",
-      "promptB": "S02b_square/concept_B.prompt.txt",
-      "qa": "S02b_square/QA.txt",
+      "promptA": "S02b_square/_work/concept_A.prompt.txt",
+      "promptB": "S02b_square/_work/concept_B.prompt.txt",
+      "qa": "S02b_square/_work/QA.txt",
       "caveats": [
         "Intermediary statue, not the Mason true form.",
         "Broad stone brush marks are more pronounced on B."
@@ -917,9 +917,9 @@
       "status": "ready",
       "A": "S02c_trowel/concept_A_v3.png",
       "B": "S02c_trowel/concept_B_v3.png",
-      "promptA": "S02c_trowel/concept_A_v3.prompt.txt",
-      "promptB": "S02c_trowel/concept_B_v3.prompt.txt",
-      "qa": "S02c_trowel/QA.txt",
+      "promptA": "S02c_trowel/_work/concept_A_v3.prompt.txt",
+      "promptB": "S02c_trowel/_work/concept_B_v3.prompt.txt",
+      "qa": "S02c_trowel/_work/QA.txt",
       "caveats": [
         "Earlier A/B and v2 were rejected for surface density or missing face groove; v3 is selected.",
         "Intermediary statue, not the Mason true form."
@@ -936,9 +936,9 @@
       "status": "ready",
       "A": "S02d_level/concept_A_v2.png",
       "B": "S02d_level/concept_B_v2.png",
-      "promptA": "S02d_level/concept_A_v2.prompt.txt",
-      "promptB": "S02d_level/concept_B_v2.prompt.txt",
-      "qa": "S02d_level/QA.txt",
+      "promptA": "S02d_level/_work/concept_A_v2.prompt.txt",
+      "promptB": "S02d_level/_work/concept_B_v2.prompt.txt",
+      "qa": "S02d_level/_work/QA.txt",
       "caveats": [
         "A plumb bob hangs below the beam instead of at the requested notch; tool construction to resolve before modelling.",
         "Intermediary statue; B mantle and hem show stronger paint variation."
@@ -955,9 +955,9 @@
       "status": "ready",
       "A": "S03_cassian/concept_A_v2.png",
       "B": "S03_cassian/concept_B_v2.png",
-      "promptA": "S03_cassian/concept_A_v2.prompt.txt",
-      "promptB": "S03_cassian/concept_B_v2.prompt.txt",
-      "qa": "S03_cassian/QA.txt",
+      "promptA": "S03_cassian/_work/concept_A_v2.prompt.txt",
+      "promptB": "S03_cassian/_work/concept_B_v2.prompt.txt",
+      "qa": "S03_cassian/_work/QA.txt",
       "caveats": [
         "Inner crown teeth point inward but their 3D orientation and depth need resolving before modelling.",
         "B has more fractured paint marks on the pale mantle."
@@ -974,9 +974,9 @@
       "status": "ready",
       "A": "S04_ignatias-mother/concept_A.png",
       "B": "S04_ignatias-mother/concept_B.png",
-      "promptA": "S04_ignatias-mother/concept_A.prompt.txt",
-      "promptB": "S04_ignatias-mother/concept_B.prompt.txt",
-      "qa": "S04_ignatias-mother/QA.txt",
+      "promptA": "S04_ignatias-mother/_work/concept_A.prompt.txt",
+      "promptB": "S04_ignatias-mother/_work/concept_B.prompt.txt",
+      "qa": "S04_ignatias-mother/_work/QA.txt",
       "caveats": [
         "Standalone appearance study, not the wall reunion scene.",
         "Ash reads close to grey hair; keep the ash-in-hair note for production."
