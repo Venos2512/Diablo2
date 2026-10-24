@@ -1,6 +1,0 @@
-2026-10-23 — Kiln-Bull scale correction
-User specification: biped height 1.40H, replacing the oversized relative scale in r3b.
-Built-in image_gen edit; prompt stored alongside image. Old candidates retained.
-Visual QA: human and monster share a ground reference; human head now reaches horn level. In the 1536x1024 image, human spans approximately y=352..919, monster top at y=118 and floor around y=919 (nearest hoof extends to about y=934). Visual height ratio is approximately 1.41 at the common baseline, 1.44 including the nearer hoof projection. This concept communicates 1.4H; asset/model height specification is exactly 1.40H, not an exact-pixel claim about the illustration.
-Biped anatomy, bulky arms, clay plates, bull head, horns and palette retained. No cropping or overlap. Labels correct. Single view; no multi-view QA applicable. Final user approval pending.
-Current size is recorded in ashlar/artdirection.md and ashlar/ASHLAR_QUY_CHUAN_QUAI_VI.md.

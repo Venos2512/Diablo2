@@ -1,3 +1,0 @@
-Đã lưu [ảnh v2](E:/Diablo2/art-output/mmo-hub-bloodmoor/assets_2d/asset_07_ground_texture_sheet_v2.png) và thêm prompt vào [README](E:/Diablo2/art-output/mmo-hub-bloodmoor/assets_2d/README.md:113). Dùng imagegen với cả bốn ảnh reference; giữ nguyên ảnh cũ.
-
-**Chưa đạt hoàn toàn** sau tối đa 2 lần tạo lại: cỏ đã thành lá mảnh, nhưng chi tiết còn dày, ô mẫu chưa vuông tuyệt đối và seamless bốn cạnh chưa được xác nhận. Đã lưu bản tốt nhất.
