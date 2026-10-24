@@ -143,13 +143,13 @@ Phương án a/b đã chọn ghi trong `ashlar/art/textures/terrain-dungeon-v1/s
 
 ### Prop: `heroes/_hands_v1/` (tay màn chọn nghề, 2026-10-23)
 
-Từ key art `art/heroes/_shared/choice_hands/keyart.png`; FL/OS/BR vẽ lại theo concept hero v5 hướng A. Nhánh một ảnh (Astra → Smart Mesh), 145 credit mỗi tay. Tường sọ là texture, không phải model: `art/textures/wall-ossuary-v1/` (albedo, normal, height 1024). PB, EX, PS mới có ảnh đầu vào (`textures/H1/H5/H6_*_a.png`, bản key art cũ), chưa dựng.
+Từ key art `art/heroes/_shared/choice_hands/keyart.png`; FL/OS/BR vẽ lại theo concept hero v5 hướng A. Nhánh một ảnh (Astra → Smart Mesh), 145 credit mỗi tay. Tường sọ là texture, không phải model: `art/textures/wall-ossuary-v1/` (albedo, normal, height 1024). PB, EX, PS mới có ảnh đầu vào (`textures/H1/H5/H6_*_a.png`, bản key art cũ), chưa dựng: scene lab `choiceHands` (`?scene=choiceHands`, `lookdev-lab/docs/HUONG_DAN.md` §7m) dùng **stand-in** — PB ← bản sao tinted thép của OS (mu tay), EX ← FL lật + tinted da nâu, PS ← FL lật + tinted da + vòng chỉ đỏ; thả GLB thật vào `HAND_MODELS` / `SLOTS` ở `lookdev-lab/src/env/choiceHands.js` và đặt `standIn: false`. Script chuẩn bị: `lookdev-lab/scripts/prepare-choice-hands.py`.
 
 | Vật | GLB | Tam giác | Kích thước thật | Bản trong lab |
 | --- | --- | --- | --- | --- |
-| [H2 FL Flagellant](heroes/_hands_v1/H2_FL_hand/) | 12,7 MB | 10.006 | cẳng + bàn tay ~45 cm; GLB nguồn dài 1 m | chưa |
-| [H3 OS Ossuarist](heroes/_hands_v1/H3_OS_hand/) | 20,1 MB | 9.880 | như trên | chưa; lớp vữa trên mu tay mỏng hơn ảnh đầu vào |
-| [H4 BR Brinecaller](heroes/_hands_v1/H4_BR_hand/) | 12,6 MB | 10.273 | như trên | chưa |
+| [H2 FL Flagellant](heroes/_hands_v1/H2_FL_hand/) | 12,7 MB | 10.006 | cẳng + bàn tay ~45 cm; GLB nguồn dài 1 m | `lookdev-lab/assets/choice-hands/choice-hand-fl.glb` (0,45 m, mu tay +y, gốc ở đầu tay áo, kèm ống tay áo kéo dài; scene `choiceHands`) |
+| [H3 OS Ossuarist](heroes/_hands_v1/H3_OS_hand/) | 20,1 MB | 9.880 | như trên | `choice-hand-os.glb` (như trên); lớp vữa trên mu tay mỏng hơn ảnh đầu vào. PB đang dùng bản sao tinted của tay này làm stand-in |
+| [H4 BR Brinecaller](heroes/_hands_v1/H4_BR_hand/) | 12,6 MB | 10.273 | như trên | `choice-hand-br.glb` (như trên) |
 
 ### Prop: `act-01/environments/A15_* ... A20_*/<vật>/` (36 asset; lô dựng ở `act-01/_batches/extras_v1/` môi trường Act I A15–A20, 2026-10-22)
 

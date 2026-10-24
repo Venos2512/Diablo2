@@ -1,0 +1,451 @@
+// ASHLAR · Class select (scene src/scenes/choiceHands.js; Hero Concept §10, key art ashlar/art/heroes/_shared/choice_hands/keyart.png): the CPU side of the six hands that
+// reach out of the ossuary wall round Gennet's candle. Pure maths plus THREE's Vector3 / Quaternion (no DOM): the slot table (order, canon lines, which hand model, palm up or
+// back up, where on the arc), the arm geometry (the wall hole, the arm direction, the pose of a hand for a hover / reach / retract weight), the camera dolly, easings and the
+// candle flicker. Tested by scripts/choice-hands.test.mjs.
+// Coordinates are world metres: x right, y up, z toward the viewer; the wall is the plane z = 0 (its skulls stand 0..0.05 m behind it), the ledge is below y = 0, the candle is on it.
+// Arm frame: local +z along the forearm toward the fingers, +y the back of the hand (as the prepared GLBs, scripts/prepare-choice-hands.py), origin at the sleeve end.
+import * as THREE from 'three';
+import { flicker1f, smoothstep } from './dungeon.js';
+
+export { flicker1f, smoothstep };
+
+const DEG = Math.PI / 180;
+export const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+export const lerp = (a, b, t) => a + (b - a) * t;
+
+// ---- the set -----------------------------------------------------------------------------------------------------------------------
+export const HAND_LENGTH = 0.45; // m, sleeve end to fingertips (the prepared GLBs)
+export const WALL = { width: 3.8, height: 2.3, cy: 1.05, tile: 0.92, relief: 0.05, segX: 380, segY: 230 }; // tile: one 1024 px texture = ~5 skulls (a skull is ~0.18 m); relief: the skull tops are z = 0, the recesses -0.05
+export const LEDGE = { width: 4.4, depth: 0.36, height: 0.5 }; // top at y = 0, front at z = depth
+export const CANDLE = { x: 0, z: 0.19, height: 0.14, radius: 0.03, flameY: 0.185 }; // on the ledge, between hands 3 and 4
+
+
+/** How far out (reach progress 0..1) the offered hand must be before it can be taken: the buttons show and a queued grab fires. */
+export const GRAB_AT = 0.85;
+
+const vnoise = (x, y, seed) => {
+	const x0 = Math.floor(x);
+	const y0 = Math.floor(y);
+	const fx = x - x0;
+	const fy = y - y0;
+	const sx = fx * fx * (3 - 2 * fx);
+	const sy = fy * fy * (3 - 2 * fy);
+	const h = (i, j) => hash01(i * 7 + j * 131, seed);
+	return lerp(lerp(h(x0, y0), h(x0 + 1, y0), sx), lerp(h(x0, y0 + 1), h(x0 + 1, y0 + 1), sx), sy);
+};
+
+/**
+ * How much of tile B (instead of tile A) the wall shows at a point (0..1): none in the lit middle of the frame, a smooth cross-fade over ~0.35 m through the dim ring, then
+ * tile B. Noise-perturbed ellipse, so the transition has no shape the eye can follow.
+ */
+export function wallBlend(x, y) {
+	const n = vnoise(x / 0.7 + 3.1, y / 0.7 + 7.7, 11) * 0.6 + vnoise(x / 0.3 + 9.3, y / 0.3 + 1.9, 12) * 0.4;
+	const r = Math.hypot(x / 1.0, (y - 0.55) / 0.8) + (n - 0.5) * 0.35;
+	return smoothstep(0.92, 1.32, r);
+}
+
+/** Where the two tiles start (in tiles) so neither has a seam or a tile border in the middle of the frame. */
+export const WALL_OFFSETS = { a: [0.21, 0.37], b: [0.37, 0.61] };
+
+/**
+ * Bake rows [y0, y1) of the wall's three maps from the two 1024 px tiles (periodic, so sampled with wrap): out = { albedo, normal, height } RGBA8 arrays of W x H (row 0 =
+ * the BOTTOM of the wall, the DataTexture convention), tiles = { a, b } each { albedo, normal, height } = { data, width, height } (ImageData; image row 0 = the top, so a tile's
+ * v = 1 is its first row). albedo and height cross-fade, normals are blended as vectors and renormalised. One non-repeating texture for the whole wall: no repeat, no seam.
+ * W x H covers WALL.width x WALL.height; pixels where wallBlend is 0 or 1 sample one tile only.
+ */
+export function composeWallRows(out, tiles, W, H, y0, y1) {
+	const WL = WALL;
+	const sample = (img, u, v, ch, store, o) => {
+		const x = (u - Math.floor(u)) * img.width - 0.5;
+		const y = (1 - (v - Math.floor(v))) * img.height - 0.5;
+		const ix = Math.floor(x);
+		const iy = Math.floor(y);
+		const fx = x - ix;
+		const fy = y - iy;
+		const w = img.width;
+		const h = img.height;
+		const x0 = ((ix % w) + w) % w;
+		const x1 = (x0 + 1) % w;
+		const r0 = (((iy % h) + h) % h) * w;
+		const r1 = ((((iy + 1) % h) + h) % h) * w;
+		const d = img.data;
+		for (let c = 0; c < ch; c++) {
+			store[o + c] = (d[(r0 + x0) * 4 + c] * (1 - fx) + d[(r0 + x1) * 4 + c] * fx) * (1 - fy) + (d[(r1 + x0) * 4 + c] * (1 - fx) + d[(r1 + x1) * 4 + c] * fx) * fy;
+		}
+	};
+	const a = new Float32Array(12);
+	const b = new Float32Array(12);
+	for (let r = y0; r < y1; r++) {
+		const y = WL.cy - WL.height / 2 + ((r + 0.5) / H) * WL.height;
+		for (let i = 0; i < W; i++) {
+			const x = ((i + 0.5) / W - 0.5) * WL.width;
+			const w = wallBlend(x, y);
+			const o = (r * W + i) * 4;
+			for (const [key, kind] of [['albedo', 0], ['normal', 1], ['height', 2]]) {
+				const o4 = kind * 4;
+				if (w < 1) sample(tiles.a[key], x / WL.tile + WALL_OFFSETS.a[0], y / WL.tile + WALL_OFFSETS.a[1], 3, a, o4);
+				if (w > 0) sample(tiles.b[key], x / WL.tile + WALL_OFFSETS.b[0], y / WL.tile + WALL_OFFSETS.b[1], 3, b, o4);
+			}
+			for (let kind = 0; kind < 3; kind++) {
+				const o4 = kind * 4;
+				const dst = [out.albedo, out.normal, out.height][kind];
+				let c0;
+				let c1;
+				let c2;
+				if (kind === 1) {
+					// normals: decode, blend, renormalise
+					const va = [a[o4] / 127.5 - 1, a[o4 + 1] / 127.5 - 1, a[o4 + 2] / 127.5 - 1];
+					const vb = [b[o4] / 127.5 - 1, b[o4 + 1] / 127.5 - 1, b[o4 + 2] / 127.5 - 1];
+					let nx = w <= 0 ? va[0] : w >= 1 ? vb[0] : lerp(va[0], vb[0], w);
+					let ny = w <= 0 ? va[1] : w >= 1 ? vb[1] : lerp(va[1], vb[1], w);
+					let nz = w <= 0 ? va[2] : w >= 1 ? vb[2] : lerp(va[2], vb[2], w);
+					const l = Math.hypot(nx, ny, nz) || 1;
+					nx /= l;
+					ny /= l;
+					nz /= l;
+					c0 = (nx + 1) * 127.5;
+					c1 = (ny + 1) * 127.5;
+					c2 = (nz + 1) * 127.5;
+				} else {
+					c0 = w <= 0 ? a[o4] : w >= 1 ? b[o4] : lerp(a[o4], b[o4], w);
+					c1 = w <= 0 ? a[o4 + 1] : w >= 1 ? b[o4 + 1] : lerp(a[o4 + 1], b[o4 + 1], w);
+					c2 = w <= 0 ? a[o4 + 2] : w >= 1 ? b[o4 + 2] : lerp(a[o4 + 2], b[o4 + 2], w);
+				}
+				dst[o] = c0;
+				dst[o + 1] = c1;
+				dst[o + 2] = c2;
+				dst[o + 3] = 255;
+			}
+		}
+	}
+}
+
+/** A low-frequency brightness multiplier (0.76 .. 1.08) of the wall at a point: blotches of soot and wear that stop the eye from counting tiles. */
+export function wallTone(x, y) {
+	const n = vnoise(x / 0.55 + 1.7, y / 0.55 + 4.1, 21) * 0.65 + vnoise(x / 0.2 + 6.3, y / 0.2 + 2.2, 22) * 0.35;
+	return 0.76 + 0.32 * n;
+}
+
+/** The camera: key art framing, a little above the candle line looking slightly down on a 16:9 wall (vertical fov 30). */
+export const FRAME = { fov: 30, position: [0, 0.72, 2.2], target: [0, 0.5, 0] };
+
+// ---- the hands ---------------------------------------------------------------------------------------------------------------------
+/**
+ * The prepared hand models: file = samples.json id, wrist = metres from the sleeve end to where the wrist bends (the pivot of the wrist group; the GLB's WRIST of
+ * scripts/prepare-choice-hands.py), sleeve = the extension's ellipse radii (m) so a prop ring can wrap it.
+ */
+export const HAND_MODELS = {
+	fl: { file: 'choice-hand-fl', wrist: 0.27, sleeve: [0.045, 0.046] },
+	os: { file: 'choice-hand-os', wrist: 0.27, sleeve: [0.039, 0.041] },
+	br: { file: 'choice-hand-br', wrist: 0.261, sleeve: [0.043, 0.043] },
+};
+
+/**
+ * The six hands, left to right: Voc §3.2 / §9.1 order PB FL OS BR EX PS. `pose`: 'back' = the back of the hand toward the viewer (PB OS BR: their marks are on it), 'palm' =
+ * palm up / toward the viewer (FL EX PS). `source`: the model that draws it; `standIn` = no GLB of its own yet (PB EX PS: only concepts), so a clone of the hand with the same pose
+ * is tinted: dropping the real GLB in means setting `file` and `standIn: false`. `tip` = the fingertip on the wall plane at rest, `a` = the in-plane direction of the arm (0 = straight
+ * down, + turns toward +x), `phi` = how steeply the arm leans out of the wall at rest, `twist` = extra roll about the arm. `quote` is canon (Hero Concept §10): kept in English.
+ */
+export const SLOTS = [
+	{ id: 'PB', name: 'Pallbearer', quote: 'Lift with the legs. And with the heart.', source: 'os', file: null, standIn: true, pose: 'back', mirror: false,
+		tip: [-0.74, 0.68], a: 30, phi: 38, twist: -4, tint: { mono: [0.74, 0.8, 0.9], metalness: 0.45, roughness: 0.38 }, rings: null },
+	{ id: 'FL', name: 'Flagellant', quote: 'Pain is the only prayer that never lies.', source: 'fl', file: 'choice-hand-fl', standIn: false, pose: 'palm', mirror: false,
+		tip: [-0.43, 0.56], a: 36, phi: 38, twist: 0, tint: null, rings: null },
+	{ id: 'OS', name: 'Ossuarist', quote: 'Only borrowing, love. We\'ll put them back.', source: 'os', file: 'choice-hand-os', standIn: false, pose: 'back', mirror: false,
+		tip: [-0.15, 0.36], a: 12, phi: 34, twist: 0, tint: null, rings: null },
+	{ id: 'BR', name: 'Brinecaller', quote: 'Salt keeps. Salt cleans. Salt kills. Mind which you ask for.', source: 'br', file: 'choice-hand-br', standIn: false, pose: 'back', mirror: true,
+		tip: [0.15, 0.36], a: -12, phi: 34, twist: 0, tint: null, rings: null },
+	{ id: 'EX', name: 'Exhumer', quote: 'Keep your light low. The things worth killing see better than you.', source: 'fl', file: null, standIn: true, pose: 'palm', mirror: true,
+		tip: [0.43, 0.56], a: -36, phi: 38, twist: 0, tint: { mono: [1.0, 0.64, 0.38], metalness: 0.0, roughness: 0.6 }, rings: null },
+	{ id: 'PS', name: 'Pyre-Singer', quote: 'Sing, so they don\'t go frightened.', source: 'fl', file: null, standIn: true, pose: 'palm', mirror: true,
+		tip: [0.74, 0.68], a: -30, phi: 38, twist: 4, tint: { color: [1.0, 0.86, 0.8], metalness: 0.0, roughness: 0.78 }, rings: { color: [0.62, 0.05, 0.04], count: 2 } },
+];
+export const TRAIL = 'The stranger\'s hand crumbles on the ossuary floor when the Keystone lets go of the Wall'; // canon (Voc): the grasp's dust
+
+/** Arm numbers shared by every slot. */
+export const ARM = {
+	visible: 0.34, // m of arm in front of the wall at rest, measured from the wall hole to the fingertips along the arm
+	slide: 0.26, // local m (x the hand scale) the forearm slides out along its axis when chosen
+	retract: 0.32, // m the other five slide back into the wall
+	hoverSlide: 0.035, // m a hovered hand edges out
+	hoverTurn: 0.1, // fraction of the way to the reach pose a hovered hand turns
+	reachYaw: 16, // deg: the reached arm points nearly AT the viewer, this far toward the screen centre ...
+	reachPitch: -20, // ... and this far below horizontal (the hand is offered, not thrust)
+	wristBack: -14, // deg wrist pitch of a back-up hand when offered (the hand lifts)
+	wristPalm: 8, // deg wrist pitch of a palm-up hand when offered (the palm cups)
+};
+/** The dissolve cuts the arm into SLABS slabs of equal thickness between SLAB_Z0 and SLAB_Z1 (m, arm frame, +z = fingers); everything below SLAB_Z0 is slab 0. */
+export const SLABS = 40;
+export const SLAB_Z0 = -0.02;
+export const SLAB_Z1 = 0.47;
+export const TIMES = { reach: 1.8, back: 1.4, tremble: 0.55, crumble: 1.9, fadeAt: 1.5, endAt: 2.9 }; // seconds
+
+// ---- finger rig (optional: the hands are static meshes today; a rigged GLB with these bones is driven by code, no clips) -------------------
+/**
+ * RIG INTERFACE for the person who will rig the fingers in Blender (GLB with a skin). Names are matched case-insensitively with every non-alphanumeric
+ * character ignored ("Thumb.01", "thumb_01", "THUMB01" are one name). A missing bone is skipped silently (a hand with only index + middle still works; a GLB with
+ * no such bone at all stays a static mesh). Change names HERE only.
+ *
+ * Frame: the HAND frame of the prepared GLBs (scripts/prepare-choice-hands.py: origin = the sleeve end, +z toward the fingertips, +y the BACK of the hand, x across) is the
+ * frame of the glTF scene root. The BONES' OWN LOCAL AXES CAN BE ANYTHING: Blender bones export with local +Y along the bone and any roll. At bind time the rig reads each
+ * bone's rest pose in the hand frame and DERIVES its axes from the finger geometry:
+ *   - along = toward the next bone of the chain (for `_03`: from the previous one);
+ *   - curl axis = along x palm-ward (the palm is -y of the hand frame): a positive curl moves the fingertip toward the PALM, a negative one extends it;
+ *   - spread axis = along x curl (the dorsum side): a positive spread (first segment `_01` only) moves the finger toward +x of the hand frame;
+ *   - the sign is CHECKED: the axis is turned +5 deg and the tip must move toward the palm, otherwise it is flipped;
+ *   - the pose is rest * spread * curl, in the bone's own local axes (no accumulation; the rest orientation, roll included, is kept).
+ * So the rigger only has to: model the hand in the prepared frame, name the bones, keep each chain parent -> child (`_01` -> `_02` -> `_03`), and rig ONE hand (the scene
+ * mirrors it with scale.x = -1 for the slots that need the other hand). `hand_root` and `wrist` are looked up and reported but NOT driven: the wrist bend and the squeeze are
+ * group transforms in the scene, the forearm stays rigid (skin the sleeve / forearm 100 % to hand_root or wrist, each finger segment to its own bone).
+ */
+export const FINGER_BONES = {
+	root: 'hand_root',
+	wrist: 'wrist',
+	fingers: {
+		thumb: ['thumb_01', 'thumb_02', 'thumb_03'],
+		index: ['index_01', 'index_02', 'index_03'],
+		middle: ['middle_01', 'middle_02', 'middle_03'],
+		ring: ['ring_01', 'ring_02', 'ring_03'],
+		pinky: ['pinky_01', 'pinky_02', 'pinky_03'],
+	},
+};
+/**
+ * Optional per-finger override of the derived axes, given in the HAND frame: FINGER_AXES.thumb = { curl: [x, y, z], spread: [x, y, z] } (curl: positive toward the palm).
+ * Empty by default: the thumb, whose chain does not run along +z, gets the same derivation from its own bones (a thumb that curls the wrong way is the first thing to check).
+ */
+export const FINGER_AXES = {};
+/**
+ * Procedural poses, degrees per segment [_01, _02, _03] and the spread of _01. relaxed = idle (a loose half-curl, the little finger most), open = the hand OFFERED (nearly
+ * flat, fingers slightly fanned: "come, take it"), grip = grasped (a closed fist). Blend: relaxed -> open by `offer`, then -> grip by `grip`.
+ */
+export const FINGER_POSES = {
+	thumb: { relaxed: [8, 12, 8], open: [-4, 0, 0], grip: [30, 38, 28], spread: { relaxed: 6, open: 14, grip: -6 } },
+	index: { relaxed: [16, 22, 14], open: [-4, -2, 0], grip: [72, 88, 62], spread: { relaxed: 2, open: 5, grip: 0 } },
+	middle: { relaxed: [20, 26, 16], open: [-3, -2, 0], grip: [76, 92, 64], spread: { relaxed: 0, open: 1, grip: 0 } },
+	ring: { relaxed: [24, 30, 18], open: [-3, -1, 0], grip: [76, 92, 62], spread: { relaxed: -2, open: -4, grip: 0 } },
+	pinky: { relaxed: [28, 32, 20], open: [-2, 0, 0], grip: [74, 86, 58], spread: { relaxed: -4, open: -10, grip: -2 } },
+};
+const normBone = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/** Curl per segment (deg) and spread (deg) of one finger for an offer / grip weight (both 0..1). `sway` = a small relaxed-pose breath (-1..1). */
+export function fingerAngles(finger, offer, grip, sway = 0, out = { curl: [0, 0, 0], spread: 0 }) {
+	const p = FINGER_POSES[finger];
+	const o = clamp(offer, 0, 1);
+	const g = clamp(grip, 0, 1);
+	for (let k = 0; k < 3; k++) {
+		const rest = p.relaxed[k] * (1 + 0.12 * sway * (1 - o));
+		out.curl[k] = lerp(lerp(rest, p.open[k], o), p.grip[k], g);
+	}
+	out.spread = lerp(lerp(p.spread.relaxed, p.spread.open, o), p.spread.grip, g);
+	return out;
+}
+
+const PALM = new THREE.Vector3(0, -1, 0); // the palm side of the hand frame
+
+/**
+ * Find the finger bones under `root` (an Object3D: a cloned GLB scene, whose local axes are the hand frame) and return a driver. { found, missing, hasFingers, hasRoot,
+ * hasWrist, bones: [{ finger, seg, bone, rest, curl, spread, along }] (axes in each bone's LOCAL frame, derived as described at FINGER_BONES), apply(offer, grip, sway) }.
+ * `frame` = the object whose axes are the hand frame (default `root`). Missing bones are skipped.
+ */
+export function createFingerRig(root, table = FINGER_BONES, axes = FINGER_AXES, frame = root) {
+	const byName = new Map();
+	root.traverse((o) => {
+		if (o.name) byName.set(normBone(o.name), o);
+	});
+	frame.updateWorldMatrix(true, true);
+	const inv = new THREE.Matrix4().copy(frame.matrixWorld).invert();
+	const inHand = (o) => {
+		const m = new THREE.Matrix4().multiplyMatrices(inv, o.matrixWorld);
+		const pos = new THREE.Vector3();
+		const quat = new THREE.Quaternion();
+		m.decompose(pos, quat, new THREE.Vector3());
+		return { pos, quat };
+	};
+	const found = [];
+	const missing = [];
+	const bones = [];
+	for (const [finger, names] of Object.entries(table.fingers)) {
+		const objs = names.map((n) => byName.get(normBone(n)));
+		objs.forEach((bone, seg) => {
+			if (!bone) return missing.push(names[seg]);
+			found.push(names[seg]);
+			const me = inHand(bone);
+			const next = objs.slice(seg + 1).find(Boolean);
+			const prev = objs.slice(0, seg).reverse().find(Boolean);
+			const along = new THREE.Vector3(0, 0, 1);
+			if (next) along.copy(inHand(next).pos).sub(me.pos);
+			else if (prev) along.copy(me.pos).sub(inHand(prev).pos);
+			if (along.lengthSq() < 1e-12) along.set(0, 0, 1);
+			along.normalize();
+			let curlH;
+			let spreadH;
+			const o = axes[finger];
+			if (o) {
+				curlH = new THREE.Vector3(...o.curl).normalize();
+				spreadH = new THREE.Vector3(...o.spread).normalize();
+			} else {
+				const n = PALM.clone().addScaledVector(along, -PALM.dot(along)); // the palm direction across the finger
+				if (n.lengthSq() < 1e-6) n.set(1, 0, 0);
+				n.normalize();
+				curlH = new THREE.Vector3().crossVectors(along, n).normalize();
+				// self-check: +5 deg about the curl axis must bring the tip toward the palm; flip otherwise
+				const turned = along.clone().applyAxisAngle(curlH, 5 * DEG);
+				if (turned.dot(PALM) <= along.dot(PALM)) curlH.negate();
+				spreadH = new THREE.Vector3().crossVectors(along, curlH).normalize();
+				if (spreadH.y < 0) spreadH.negate(); // the spread axis points to the dorsum: positive spread = toward +x for a finger along +z
+			}
+			const toLocal = me.quat.clone().invert();
+			bones.push({ finger, seg, bone, rest: bone.quaternion.clone(), along, curlH, spreadH, curl: curlH.clone().applyQuaternion(toLocal), spread: spreadH.clone().applyQuaternion(toLocal) });
+		});
+	}
+	const q = new THREE.Quaternion();
+	const tmp = { curl: [0, 0, 0], spread: 0 };
+	return {
+		found, missing, bones,
+		hasFingers: bones.length > 0,
+		hasRoot: byName.has(normBone(table.root)),
+		hasWrist: byName.has(normBone(table.wrist)),
+		apply(offer = 0, grip = 0, sway = 0) {
+			for (const b of bones) {
+				fingerAngles(b.finger, offer, grip, sway, tmp);
+				b.bone.quaternion.copy(b.rest);
+				if (b.seg === 0) b.bone.quaternion.multiply(q.setFromAxisAngle(b.spread, tmp.spread * DEG));
+				b.bone.quaternion.multiply(q.setFromAxisAngle(b.curl, tmp.curl[b.seg] * DEG));
+			}
+		},
+	};
+}
+
+// ---- easings -----------------------------------------------------------------------------------------------------------------------
+export const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+/** Settles on 1 after a small overshoot (c1 = 1.05: ~4 %). */
+export const easeOutBack = (t, c1 = 1.05) => {
+	const c3 = c1 + 1;
+	const u = t - 1;
+	return 1 + c3 * u * u * u + c1 * u * u;
+};
+export const easeOutCubic = (t) => 1 - (1 - t) ** 3;
+/** Exponential approach: `current` moves toward `target`, reaching 63 % after 1 / rate seconds, framerate independent. */
+export const damp = (current, target, rate, dt) => current + (target - current) * (1 - Math.exp(-rate * dt));
+
+// ---- arm geometry ------------------------------------------------------------------------------------------------------------------
+/** Unit direction of an arm from the in-plane angle a (deg, 0 = down, + toward +x) and its lean out of the wall phi (deg). */
+export function armDirection(a, phi, out = new THREE.Vector3()) {
+	const A = a * DEG;
+	const P = phi * DEG;
+	return out.set(Math.sin(A) * Math.cos(P), -Math.cos(A) * Math.cos(P), Math.sin(P)).normalize();
+}
+
+/**
+ * Quaternion of an arm whose forearm points along `dir` and whose hand shows its back (dorsum) or its palm toward `hint` (a world direction, the viewer-ish side):
+ * local +z = dir, local +y = the back of the hand (= the hint side for 'back', the opposite for 'palm').
+ */
+export function armQuaternion(dir, hint, pose, twist = 0, out = new THREE.Quaternion()) {
+	const z = dir.clone().normalize();
+	const h = hint.clone().normalize();
+	const y = h.addScaledVector(z, -h.dot(z)).normalize();
+	if (pose === 'palm') y.negate();
+	const x = new THREE.Vector3().crossVectors(y, z).normalize();
+	y.crossVectors(z, x);
+	out.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z));
+	if (twist) out.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), twist * DEG));
+	return out;
+}
+
+const HINT_BACK = new THREE.Vector3(0, 0.3, 1); // the back of the hand shown toward the viewer, a little up
+const HINT_PALM = new THREE.Vector3(0, 0.55, 1); // the palm up and toward the viewer
+/** Offered: EVERY hand ends palm up and a little inward (toward the screen centre) and toward the viewer, like a hand held out to be taken (a back-up hand turns over on the way). */
+const reachHint = (side) => new THREE.Vector3(-side * 0.32, 1, 0.3);
+
+/**
+ * Everything static about one slot's arm: the hole in the wall (`entry`), the arm direction and orientation at rest and reached, the world positions of the tip, the wrist and
+ * the hand centre at rest, and the reached hand centre (for the camera). Memoise with the slot's id by the caller (cheap anyway).
+ */
+export function armGeometry(slot, opts = {}) {
+	const visible = opts.visible ?? ARM.visible;
+	const slideReach = opts.slide ?? ARM.slide;
+	const sc = opts.scale ?? 1; // the hands are drawn bigger than life in the key art: the scene scales each arm about its wall hole; lengths below are local (model) metres
+	const dir = armDirection(slot.a, slot.phi);
+	const tip = new THREE.Vector3(slot.tip[0], slot.tip[1], visible * sc * dir.z);
+	const entry = tip.clone().addScaledVector(dir, -visible * sc); // the arm axis crosses the wall plane here (entry.z = 0)
+	const model = HAND_MODELS[slot.source];
+	const hintIdle = slot.pose === 'back' ? HINT_BACK : HINT_PALM;
+	// the idle orientation shows the BACK to the viewer for 'back' hands, the PALM for 'palm' hands (armQuaternion's pose flag handles the sign)
+	const qIdle = armQuaternion(dir, hintIdle, slot.pose, slot.twist);
+	// reached: the arm swings out toward the screen centre, below horizontal; the mirror of the side keeps the same sign rule
+	const side = Math.sign(slot.tip[0]) || 1;
+	const yaw = -side * ARM.reachYaw * DEG;
+	const pitch = ARM.reachPitch * DEG;
+	const dirReach = new THREE.Vector3(Math.sin(yaw) * Math.cos(pitch), Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)).normalize();
+	// a back-up hand shows its PALM when offered (pose flipped), a palm-up hand keeps its palm up
+	const qReach = armQuaternion(dirReach, reachHint(side), 'palm', 0);
+	// shortest path between the two (slerp takes the short way when the dot is positive)
+	if (qIdle.dot(qReach) < 0) qReach.set(-qReach.x, -qReach.y, -qReach.z, -qReach.w);
+	// along the arm axis, measured from the wall hole: the sleeve end is at -(HAND_LENGTH - visible), the wrist at model.wrist - (HAND_LENGTH - visible), the tip at +visible
+	const back = HAND_LENGTH - visible;
+	const at = (d, s, slide = 0) => entry.clone().addScaledVector(d, (s + slide) * sc);
+	const palmReach = new THREE.Vector3(0, -1, 0).applyQuaternion(qReach); // the palm side of the offered hand (local -y)
+	return {
+		dir, dirReach, qIdle, qReach, palmReach, entry, tip, back, scale: sc,
+		wrist: at(dir, model.wrist - back),
+		hand: at(dir, visible - 0.1), // the middle of the hand, about 10 cm behind the tip
+		handReach: at(dirReach, visible - 0.1, slideReach),
+		tipReach: at(dirReach, visible, slideReach),
+		sleeveEnd: at(dir, -back),
+	};
+}
+
+/** Shoulder-group number of a slot's arm in a given moment: weights in [0, 1] (hover, reach, retract) -> slide (m along the axis), the orientation, the wrist pitch (rad). */
+export function armPose(slot, geo, w, out = { slide: 0, quat: new THREE.Quaternion(), wrist: 0, rise: 0 }) {
+	const reach = w.reach ?? 0; // eased with overshoot already
+	const hover = clamp(w.hover ?? 0, 0, 1);
+	const retract = clamp(w.retract ?? 0, 0, 1);
+	// slide out when chosen, a little when hovered, back into the wall when another hand is chosen (never past the hole: keep 4 cm of the tips out)
+	const retractMax = Math.min(ARM.retract, ARM.visible - 0.04);
+	out.slide = ARM.slide * reach + ARM.hoverSlide * hover * (1 - clamp(reach, 0, 1)) - retractMax * retract;
+	// orientation: idle -> reached (the hover turns a tenth of the way, the reach all the way), retract does not turn
+	const turn = clamp(reach, -0.2, 1.15) + ARM.hoverTurn * hover * (1 - clamp(reach, 0, 1));
+	out.quat.slerpQuaternions(geo.qIdle, geo.qReach, turn);
+	const pitch = (slot.pose === 'back' ? ARM.wristBack : ARM.wristPalm) * DEG;
+	out.wrist = pitch * clamp(reach, 0, 1.1);
+	return out;
+}
+
+/**
+ * Camera for a reached hand: the camera home dollies toward the hand and turns to it. p = 0 home, p = 1 the offer; `out.position / out.target` are Vector3s.
+ */
+export function cameraPose(geo, p, out = { position: new THREE.Vector3(), target: new THREE.Vector3() }) {
+	const homeP = new THREE.Vector3(...FRAME.position);
+	const homeT = new THREE.Vector3(...FRAME.target);
+	const focus = geo.handReach;
+	// the offer is seen from in front of the fingertips and a little above the palm: the hand reaches TOWARD the viewer and the open palm reads (the key art's viewpoint)
+	const view = geo.dirReach.clone().multiplyScalar(0.78).addScaledVector(geo.palmReach, 0.45).add(new THREE.Vector3(0, 0.03, 0.1)).normalize();
+	const reachP = focus.clone().addScaledVector(view, 1.22);
+	reachP.z = Math.max(reachP.z, focus.z + 0.7);
+	const reachT = focus.clone().addScaledVector(geo.dirReach, 0.06);
+	reachT.y += 0.07; // the hand sits a little below the middle of the frame
+	out.target.lerpVectors(homeT, reachT, p);
+	out.position.lerpVectors(homeP, reachP, p);
+	return out;
+}
+
+/** Where the candle's light stands for a reached hand: in front of it, on the palm side and a little below (the flame lights the palm it offers). */
+export function reachLight(geo, out = new THREE.Vector3()) {
+	return out.copy(geo.handReach).addScaledVector(geo.palmReach, 0.5).addScaledVector(geo.dirReach, -0.12).add(new THREE.Vector3(0, -0.06, 0.15));
+}
+
+/** A reproducible hash in [0, 1) (grasp dust, particle seeds). */
+export function hash01(i, seed = 0) {
+	const s = Math.sin(i * 127.1 + seed * 311.7) * 43758.5453;
+	return s - Math.floor(s);
+}
+
+/** Candle flame brightness: the lab's 1/f flicker with the lab's layered-sine flutter on top (~1 on average). */
+export function candleLevel(t, seed = 0) {
+	return flicker1f(t, seed) * (0.9 + 0.12 * Math.sin(t * 9.1 + seed) * Math.sin(t * 3.7 + seed * 1.3));
+}
+
+/** What a UI line says for a slot (caption block): { name, quote, tag } with tag '' for a real model. */
+export function captionFor(slot) {
+	return { name: slot.name, quote: slot.quote, tag: slot.standIn ? 'stand-in · chưa dựng (đang dùng bản sao tay cùng tư thế)' : '' };
+}

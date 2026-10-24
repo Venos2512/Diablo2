@@ -8,6 +8,7 @@ import { DungeonScene } from './dungeon.js';
 import { OldFaceScene } from './oldFace.js';
 import { Act1InteriorScene } from './act1Interior.js';
 import { Act1OutdoorScene } from './act1Outdoor.js';
+import { ChoiceHandsScene } from './choiceHands.js';
 
 export const SCENES = {
 	studio: { label: 'Studio · lookdev', create: (app) => new StudioScene(app) },
@@ -23,5 +24,6 @@ export const SCENES = {
 	act1Lychgate: { label: 'ASHLAR · Act I · base · Lychgate → Churchyard', create: (app) => new Act1OutdoorScene(app, 'lychgate') },
 	act1Fens: { label: 'ASHLAR · Act I · base · Night Fens → Rook\'s Weir', create: (app) => new Act1OutdoorScene(app, 'fens') },
 	act1PoppyReach: { label: 'ASHLAR · Act I · base · Poppy Reach', create: (app) => new Act1OutdoorScene(app, 'poppyReach') },
+	choiceHands: { label: 'ASHLAR · Màn chọn nghề (sáu bàn tay)', create: (app) => new ChoiceHandsScene(app) },
 	act1LychgateHub: { label: 'ASHLAR · Act I · hub · Lychgate có tường (seed 21)', create: (app) => new Act1OutdoorScene(app, 'lychgateHub') },
 };

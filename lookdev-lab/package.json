@@ -15,6 +15,7 @@
     "test:modules": "node --test scripts/map-modules.test.mjs",
     "test:plangen": "node --test scripts/plan-gen.test.mjs",
     "test:oldface": "node --test scripts/old-face.test.mjs",
+    "test:choicehands": "node --test scripts/choice-hands.test.mjs",
     "test:act1": "node --test \"scripts/act1-*.test.mjs\"",
     "test:cast": "node --import ./scripts/test-assets-register.mjs --test scripts/cast.test.mjs",
     "test": "node --test scripts/biome-placement.test.mjs scripts/biome-layout.test.mjs scripts/map-modules.test.mjs scripts/plan-gen.test.mjs scripts/footsteps.test.mjs && npm run test:cast",
