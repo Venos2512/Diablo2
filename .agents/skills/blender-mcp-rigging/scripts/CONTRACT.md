@@ -5,7 +5,7 @@ that several writers can work in parallel. Change it only through the orchestrat
 report; do not edit another owner's file.
 
 The spec is in `ashlar/3d/rig-anim/RIG_SKILL_WORKFLOW.md` and the skill text in `../SKILL.md` + `../references/*.md`. The reference
-implementation is D01's `ashlar/3d/monsters/D01_hodling/rig/tools/` (read its README and `qa_report.md`).
+implementation is D01's `ashlar/3d/act-01/monsters/D01_hodling/rig/tools/` (read its README and `qa_report.md`).
 
 ## Hard rules for every writer
 

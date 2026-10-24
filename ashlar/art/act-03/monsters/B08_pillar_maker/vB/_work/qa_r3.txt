@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G4), r3 fresh gen with design reference + code-made scale guide templates/B08_2p0H.png.
+Style: PASS, same design.
+Size: ~1.47H (target 2.00H); the model redrew the guide and moved the 2.00H line down to ~1.4H. Three passes used (r1 1.5H, r2 1.57H, r3 1.47H).
+Verdict: FAIL on size, best of 3 = concept_r2.png (design identical, 1.57H). Left for the user: accept smaller, or scale at the 3D stage.

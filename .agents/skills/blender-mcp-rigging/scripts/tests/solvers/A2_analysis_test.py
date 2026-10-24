@@ -20,8 +20,8 @@ from solvers import analysis, glbmesh  # noqa: E402
 from solvers import landmarks_geo as lg  # noqa: E402
 
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 6))
-D01 = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "D01_hodling.glb")
-FL = os.path.join(REPO, "ashlar", "3d", "heroes", "FL_flagellant_vA", "FL_flagellant_vA.glb")
+D01 = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "D01_hodling.glb")
+FL = os.path.join(REPO, "ashlar", "3d", "heroes", "FL_flagellant", "vA", "FL_flagellant_vA.glb")
 
 
 def _analyse(glb, asset, H, family, out):

@@ -1,0 +1,92 @@
+{
+ "id": "F07",
+ "variant": "A",
+ "title": "F07 TURNED EXHUMER — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/docs/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.4",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 344,
+ "silhouette_px": [
+  122,
+  344
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "WEAPON",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 288,
+     "drawn_as": "short margin tick (exact crown/top line drawn dashed; the two heights are not merged)"
+    },
+    {
+     "label": "crown 1.025H",
+     "h": 1.025,
+     "y": 279
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "WEAPON",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h",
+   "source_range": "1.00–1.05H (G3), halo sắt kẹp mũ",
+   "mid": 1.025,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.025
+  }
+ ],
+ "weapon_cell": {
+  "kind": "WEAPON",
+  "contents": "the long-bladed spade (as F03 Exhumer)"
+ },
+ "estimates": {
+  "notes": [
+   "view widths",
+   "WEAPON cell width",
+   "weapon inherited from F03 (\"Như Exhumer\")"
+  ],
+  "view_widths_H": {
+   "3/4": 0.8,
+   "WEAPON": 0.4,
+   "LEFT": 0.55,
+   "RIGHT": 0.55,
+   "FRONT": 1.2,
+   "BACK": 1.2
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}

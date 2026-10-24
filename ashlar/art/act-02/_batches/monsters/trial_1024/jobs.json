@@ -1,0 +1,47 @@
+[
+  {
+    "id": "U07_A_v3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vA\\_work\\concept_v3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vA\\concept_v3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vA\\concept.png",
+        "role": "design to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only"
+      }
+    ]
+  },
+  {
+    "id": "U07_B_v3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vB\\_work\\concept_v3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vB\\concept_v3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U07_pyre_risen\\vB\\concept.png",
+        "role": "design to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only"
+      }
+    ]
+  },
+  {
+    "id": "U10_A_v3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U10_wallshade\\vA\\_work\\concept_v3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U10_wallshade\\vA\\concept_v3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U10_wallshade\\vA\\concept.png",
+        "role": "design to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only"
+      }
+    ]
+  }
+]

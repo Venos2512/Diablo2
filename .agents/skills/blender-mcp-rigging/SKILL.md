@@ -99,7 +99,7 @@ Data formats and ownership are in `scripts/CONTRACT.md`.
 - targeted fixes of red lights, with before/after numbers;
 - the final `qa_report.md` and the G2 hand-off.
 
-D01's `ashlar/3d/monsters/D01_hodling/rig/tools/` stays the reference for the legacy profile (`S_legacy_D01`).
+D01's `ashlar/3d/act-01/monsters/D01_hodling/rig/tools/` stays the reference for the legacy profile (`S_legacy_D01`).
 
 ## Procedure
 

@@ -1,7 +1,7 @@
 {
   "schema": 0,
   "asset_id": "D01_hodling",
-  "note": "D01 Hodling skin rules as data: every constant of ashlar/3d/monsters/D01_hodling/rig/tools/d01_skin.py (v4, G2-approved 2026-10-21) moved here unchanged. Blender frame, metres, H = 0.5 m, mesh scaled by 0.679495687. Colour rules read the base colour sampled at the vertex UV (mesh.npz extra 'col', welded mean). Test fixture of writer B (P3); the legacy 35-bone rig has no clavicle/twist, so joint profiles are off.",
+  "note": "D01 Hodling skin rules as data: every constant of ashlar/3d/act-01/monsters/D01_hodling/rig/tools/d01_skin.py (v4, G2-approved 2026-10-21) moved here unchanged. Blender frame, metres, H = 0.5 m, mesh scaled by 0.679495687. Colour rules read the base colour sampled at the vertex UV (mesh.npz extra 'col', welded mean). Test fixture of writer B (P3); the legacy 35-bone rig has no clavicle/twist, so joint profiles are off.",
   "side_gate": {
     "x0": 0.0,
     "band_H": 0.01,

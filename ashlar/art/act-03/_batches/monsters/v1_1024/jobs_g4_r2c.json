@@ -1,0 +1,47 @@
+[
+  {
+    "id": "B08_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vA\\concept.png",
+        "role": "design reference (own first gen; match its design, fix the scale)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B08_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vB\\concept.png",
+        "role": "design reference (own first gen; match its design, fix the scale)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B10_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vB\\concept.png",
+        "role": "design reference (own first gen; match its design, fix the scale)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  }
+]

@@ -35,7 +35,7 @@ import time
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = os.path.dirname(os.path.dirname(HERE))
 REPO = os.path.normpath(os.path.join(SCRIPTS, "..", "..", "..", ".."))
-GLB = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "D01_hodling.glb")
+GLB = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "D01_hodling.glb")
 GLB_SHA256 = "bf22ccea25b72a879048fe3d0bf4ecf92b551984b85081ae97e3bea56f3d8c5a"
 SCRATCH = r"E:\tmp_rigkit"
 DEFAULT_OUT = r"E:\tmp_rigkit\I3\smoke"

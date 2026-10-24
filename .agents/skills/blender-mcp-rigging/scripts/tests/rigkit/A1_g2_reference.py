@@ -16,7 +16,7 @@ import traceback
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCRIPTS = os.path.dirname(os.path.dirname(HERE))
 REPO = os.path.normpath(os.path.join(SCRIPTS, "..", "..", "..", ".."))
-G2_SRC = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "rig", "_snapshots", "g2_approved", "D01_hodling_rig_g2.blend")
+G2_SRC = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "rig", "_snapshots", "g2_approved", "D01_hodling_rig_g2.blend")
 G2_SHA256 = "bf6c53dc783842774b6c75b2f35eb708bbbbe47cee0139e560c97efa97bc0bcb"
 DEFAULT_OUT = r"E:\tmp_rigkit\A1\g2"
 sys.dont_write_bytecode = True

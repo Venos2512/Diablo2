@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASHLAR Act I: xem nhanh 2 sheet perspective</title>
+<style>
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: transparent; }
+body {
+  color: var(--foreground, inherit);
+  font: 14px/1.5 var(--font-sans, system-ui, -apple-system, "Segoe UI", sans-serif);
+  padding: 4px 0;
+}
+.muted { color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+.count { margin: 0 0 8px; font-variant-numeric: tabular-nums; }
+.switch { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.switch button {
+  font: inherit; color: inherit; cursor: pointer; text-align: left;
+  background: transparent;
+  border: 1px solid var(--border, color-mix(in srgb, currentColor 28%, transparent));
+  border-radius: 6px; padding: 6px 10px; min-height: 36px; flex: 1 1 200px;
+}
+.switch button:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.switch button[aria-pressed=true] {
+  background: var(--primary, color-mix(in srgb, currentColor 16%, transparent));
+  color: var(--primary-foreground, inherit);
+  border-color: var(--primary, currentColor);
+  font-weight: 600;
+}
+.switch button[aria-pressed=true] small { color: inherit; opacity: 1; }
+.switch button:focus-visible { outline: 2px solid var(--ring, currentColor); outline-offset: 2px; }
+.switch small { display: block; font-weight: 400; color: var(--muted-foreground, color-mix(in srgb, currentColor 62%, transparent)); }
+figure { margin: 0; }
+figure[hidden] { display: none; }
+figure img { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 4px; }
+figcaption { margin: 6px 0 0; }
+.note { margin: 10px 0 0; font-size: 0.93em; }
+@media (max-width: 520px) { body { font-size: 13.5px; } }
+</style>
+</head>
+<body>
+<p class="count"><b>84</b> concept asset · <b>14</b> nhóm · <b>28</b> ảnh (14 perspective + 14 turnaround)</p>
+<div class="switch" role="group" aria-label="Chọn sheet perspective">
+  <button type="button" data-show="weir" aria-pressed="true">Rook's Weir · khu 11.5<small>Đầm lầy / làng ngập nước (wetland, BIO-01)</small></button>
+  <button type="button" data-show="house" aria-pressed="false">Gentle House · khu 11.9<small>Nhà tế bần / hospice vôi trắng (BIO-05)</small></button>
+</div>
+<figure id="weir">
+  <img src="E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/perspective.png" decoding="async" alt="A07 Rook's Weir: sheet perspective 6 asset của làng ngập nước, đầm lầy">
+  <figcaption>Rook's Weir (A07): nhà đá lửa chìm nửa, đập gỗ-đá, tường đầu hồi, bè ván, cột đậu của quạ.</figcaption>
+</figure>
+<figure id="house" hidden>
+  <img src="E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/perspective.png" decoding="async" alt="A11 Gentle House: sheet perspective 6 asset của hospice vôi trắng">
+  <figcaption>Gentle House (A11): gian hành lang, giường, bàn ăn, tháp cổng, bếp, chân đèn nến. Sạch, mới, không vá.</figcaption>
+</figure>
+<p class="note muted">Đây là concept 2D để tham chiếu, không phải model 3D, không phải bản vẽ kỹ thuật hay texture. Nhãn H (1,8 m) chỉ là hướng dẫn gần đúng; kích thước và màu là đề xuất.</p>
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.switch button');
+  function show(id) {
+    document.getElementById('weir').hidden = id !== 'weir';
+    document.getElementById('house').hidden = id !== 'house';
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-show') === id ? 'true' : 'false');
+    }
+  }
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () { show(this.getAttribute('data-show')); });
+  }
+})();
+</script>
+</body>
+</html>

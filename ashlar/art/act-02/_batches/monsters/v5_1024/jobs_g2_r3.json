@@ -1,0 +1,89 @@
+[
+  {
+    "id": "F04_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F04_kneeler\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F04_kneeler\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F04_kneeler\\vB\\concept_v5_r2.png",
+        "role": "design reference only (previous sheet of this monster; redraw fresh, do not trace)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\F04_B.png",
+        "role": "scale guide (mandatory sizes; not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F05_A_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F05_bell_head\\vA\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F05_bell_head\\vA\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F05_bell_head\\vA\\concept_v5.png",
+        "role": "design reference only (previous sheet of this monster; redraw fresh, do not trace)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\F05_A.png",
+        "role": "scale guide (mandatory sizes; not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F08_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F08_halo_knight\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F08_halo_knight\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F08_halo_knight\\vB\\concept_v5_r2.png",
+        "role": "design reference only (previous sheet of this monster; redraw fresh, do not trace)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\F08_B.png",
+        "role": "scale guide (mandatory sizes; not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F07_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F07_turned_exhumer\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F07_turned_exhumer\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F07_turned_exhumer\\vB\\concept_v5.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F09_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F09_chancery_guard\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F09_chancery_guard\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\F09_chancery_guard\\vB\\concept_v5.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  }
+]

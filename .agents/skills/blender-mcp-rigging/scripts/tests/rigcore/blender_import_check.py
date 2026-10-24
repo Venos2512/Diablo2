@@ -22,7 +22,7 @@ except NameError:  # pragma: no cover - Blender normally defines __file__ for --
 SCRIPTS = os.path.abspath(os.path.join(HERE, "..", ".."))
 SKILL = os.path.dirname(SCRIPTS)
 REPO = os.path.abspath(os.path.join(SKILL, "..", "..", ".."))
-D01_LANDMARKS = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
+D01_LANDMARKS = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
 sys.dont_write_bytecode = True
 if SCRIPTS not in sys.path:
     sys.path.insert(0, SCRIPTS)

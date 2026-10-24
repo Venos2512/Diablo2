@@ -1,0 +1,2 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G1), concept_v5_r3.png = edit of concept_v5_r2.png with a short fix list (third and last pass). Heights by pixel against the H silhouette (+/-3 %).
+Result: FAIL (size), passes exhausted. The model shrank H again: helm top 1.41H (canon 1.10-1.20H). Best = concept_v5_r2.png (1.28H, side arms fixed; v5 was 1.03H). Option: rescale only the flat H silhouette, or one more fresh gen with a scale guide.

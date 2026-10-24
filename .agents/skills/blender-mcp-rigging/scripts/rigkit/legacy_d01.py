@@ -1,7 +1,7 @@
 r"""rigkit.legacy_d01 - D01-only pose specs for rigkit.poses (pure Python; Blender and rigkit-env). Nothing here is used for another
 asset; the matching D01 measurements live in solvers/legacy_d01.py.
 
-The 17 QA poses are the Actions ``QA_pose_<name>`` of ``ashlar/3d/monsters/D01_hodling/rig/qa/D01_hodling_qa_poses.blend`` (D01
+The 17 QA poses are the Actions ``QA_pose_<name>`` of ``ashlar/3d/act-01/monsters/D01_hodling/rig/qa/D01_hodling_qa_poses.blend`` (D01
 ``d01_poses.py``); ``rigkit.poses`` appends them into the rig file inside its emulation context and assigns each to the control
 armature at frame 1. Tags follow D01 qa_report §4: FK leg poses lift a foot, so they are not contact-checked.
 """

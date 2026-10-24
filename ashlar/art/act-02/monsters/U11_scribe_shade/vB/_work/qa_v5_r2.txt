@@ -1,0 +1,2 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G1), concept_v5_r2.png = edit of concept_v5.png (or fresh gen where noted) with a short fix list. Heights by pixel against the H silhouette (+/-3 %).
+Result: FAIL (views swapped). Fresh gen: order H, 3/4, WEAPON, LEFT, RIGHT, FRONT, BACK correct; plain yoke, no writing; style PASS, ~0.95H. Fault: figure under LEFT faces image-right and under RIGHT faces image-left. Next: v5_r3 edit (swap positions).

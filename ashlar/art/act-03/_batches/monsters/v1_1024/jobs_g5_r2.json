@@ -1,0 +1,206 @@
+[
+  {
+    "id": "W10_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "W10_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W10_salt_kite\\vB\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\W10_B_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  },
+  {
+    "id": "W11_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W11_pillar_crab\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W11_pillar_crab\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W11_pillar_crab\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "W12_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\W12_A_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  },
+  {
+    "id": "W12_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W12_glass_wasp\\vB\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\W12_B_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  },
+  {
+    "id": "W13_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W13_coilborn\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W13_coilborn\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W13_coilborn\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "W14_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W14_static_scarab\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W14_static_scarab\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\W14_static_scarab\\vB\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\W14_B_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  },
+  {
+    "id": "P10_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P10_the_blanched\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P10_the_blanched\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P10_the_blanched\\vB\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "P11_B_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P11_brine_leech\\vB\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P11_brine_leech\\vB\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P11_brine_leech\\vB\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\P11_B_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  },
+  {
+    "id": "P12_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P12_salt_pillar\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P12_salt_pillar\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P12_salt_pillar\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "P13_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P13_glass_folk\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P13_glass_folk\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P13_glass_folk\\vA\\concept.png",
+        "role": "image to edit (best version; keep its design and rendering)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "P11_A_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P11_brine_leech\\vA\\_work\\concept_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\P11_brine_leech\\vA\\concept_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W04_mire_sucker\\vA\\concept_r2b.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-03\\_batches\\monsters\\v1_1024\\templates\\P11_A_guide.png",
+        "role": "scale guide (sizes only; draw no blocks or numbers)"
+      }
+    ]
+  }
+]

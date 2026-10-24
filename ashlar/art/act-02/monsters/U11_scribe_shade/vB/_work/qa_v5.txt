@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G1), concept_v5.png = fresh gen with the Act I recipe (three big masses, acting 3/4, Act I sheets as style refs). Heights measured by pixel against the H silhouette, not the model's guide lines (+/-3 %).
+Result: FAIL (layout). Style PASS.
+Faults: cell order H, 3/4, LEFT, WEAPON, RIGHT (WEAPON must follow 3/4); scribbled writing on the parchment yoke.
+Next: v5_r2 fresh gen with explicit order.

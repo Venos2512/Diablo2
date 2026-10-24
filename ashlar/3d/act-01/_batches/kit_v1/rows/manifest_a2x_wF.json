@@ -1,0 +1,327 @@
+{
+ "manifestVersion": 1,
+ "title": "ASHLAR Act I kit v1: Tripo row images R23-R33 for the concept groups A21-A25 (AD 3.7 TRIPO ROW INPUT)",
+ "createdDate": "2026-10-22",
+ "projectRoot": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows",
+ "workdir": "E:/Diablo2",
+ "overwritePolicy": "never overwrite; reruns get a new tag (_r2 ...) with a new prompt file and output path",
+ "gate": "run a row only when the chosen perspective AND turnaround of every group in it passed QA (AD 3.7); the sheet paths come from rows_spec_a2x.SHEETS",
+ "runner": {
+  "script": "E:/act1-env-batch/rows/rows_batch.py --manifest <this file>",
+  "model": "gpt-6-astra",
+  "codexHome": "E:/map01-batch/home-nam",
+  "defaultParallel": 4,
+  "defaultAttempts": 2,
+  "defaultTimeoutSeconds": 1500
+ },
+ "counts": {
+  "groups": 4,
+  "jobs": 4,
+  "assets": 8
+ },
+ "groups": [
+  {
+   "id": "R23",
+   "slug": "leaning_stones_root_arch",
+   "assets": [
+    "A21.5",
+    "A25.1"
+   ],
+   "layout": {
+    "scale": 117.6,
+    "base": 871,
+    "gap": 198,
+    "boxes": [
+     {
+      "cx": 339,
+      "w": 538,
+      "h": 619,
+      "up": 1.0
+     },
+     {
+      "cx": 1136,
+      "w": 660,
+      "h": 661,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R24",
+   "slug": "ribbon_thorn",
+   "assets": [
+    "A23.2"
+   ],
+   "layout": {
+    "scale": 111.6,
+    "base": 920,
+    "gap": 0,
+    "boxes": [
+     {
+      "cx": 768,
+      "w": 869,
+      "h": 760,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R25",
+   "slug": "barrow_door_flint_wall",
+   "assets": [
+    "A21.1",
+    "A21.2"
+   ],
+   "layout": {
+    "scale": 189.8,
+    "base": 894,
+    "gap": 216,
+    "boxes": [
+     {
+      "cx": 300,
+      "w": 460,
+      "h": 598,
+      "up": 1.0
+     },
+     {
+      "cx": 1106,
+      "w": 720,
+      "h": 707,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R27",
+   "slug": "peat_chair_bog_grave",
+   "assets": [
+    "A21.3",
+    "A21.4",
+    "A21.6"
+   ],
+   "layout": {
+    "scale": 216.1,
+    "base": 764,
+    "gap": 122,
+    "boxes": [
+     {
+      "cx": 274,
+      "w": 407,
+      "h": 303,
+      "up": 1.0
+     },
+     {
+      "cx": 690,
+      "w": 181,
+      "h": 237,
+      "up": 1.0
+     },
+     {
+      "cx": 1202,
+      "w": 528,
+      "h": 448,
+      "up": 1.0
+     }
+    ]
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "R23_row",
+   "kind": "tripo-row",
+   "groupId": "R23",
+   "name": "R23 leaning_stones_root_arch",
+   "assets": [
+    {
+     "id": "A21.5",
+     "name": "The leaning stones (A17.1 v2)",
+     "group": "A21",
+     "cell": 5,
+     "sizeM": {
+      "w": 4.6,
+      "h": 4.6,
+      "d": 1.4
+     }
+    },
+    {
+     "id": "A25.1",
+     "name": "Root rib arch",
+     "group": "A25",
+     "cell": 1,
+     "sizeM": {
+      "w": 6.5,
+      "h": 4.9,
+      "d": 0.5
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R23_leaning_stones_root_arch.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R23_leaning_stones_root_arch/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A25_garden_roots_and_tending/perspective_v2f.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A25 GARDEN OF HUSH ROOTS AND TENDING\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A25_garden_roots_and_tending/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R24_row",
+   "kind": "tripo-row",
+   "groupId": "R24",
+   "name": "R24 ribbon_thorn",
+   "assets": [
+    {
+     "id": "A23.2",
+     "name": "Ribbon thorn",
+     "group": "A23",
+     "cell": 2,
+     "sizeM": {
+      "w": 6,
+      "h": 5.5,
+      "d": 5
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R24_ribbon_thorn_r2.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R24_ribbon_thorn/input_r2.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A23 POPPY REACH TO THE GENTLE HOUSE GARTH\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A23_poppy_reach_to_the_garth/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": [
+    {
+     "output": "R24_ribbon_thorn/input.png",
+     "qa": "design ok (wind-swept crown, ribbons, no shoes) but a patch of grass, small plants and pebbles around the foot (AD 3.7: no turf or scenery around the asset)"
+    }
+   ]
+  },
+  {
+   "id": "R25_row",
+   "kind": "tripo-row",
+   "groupId": "R25",
+   "name": "R25 barrow_door_flint_wall",
+   "assets": [
+    {
+     "id": "A21.1",
+     "name": "Barrow vault door",
+     "group": "A21",
+     "cell": 1,
+     "sizeM": {
+      "w": 2.4,
+      "h": 2.8,
+      "d": 0.8
+     }
+    },
+    {
+     "id": "A21.2",
+     "name": "Flint retaining wall",
+     "group": "A21",
+     "cell": 2,
+     "sizeM": {
+      "w": 4,
+      "h": 3.2,
+      "d": 0.9
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R25_barrow_door_flint_wall.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R25_barrow_door_flint_wall/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R27_row",
+   "kind": "tripo-row",
+   "groupId": "R27",
+   "name": "R27 peat_chair_bog_grave",
+   "assets": [
+    {
+     "id": "A21.3",
+     "name": "Peat stack",
+     "group": "A21",
+     "cell": 3,
+     "sizeM": {
+      "w": 1.6,
+      "h": 1.1,
+      "d": 1
+     }
+    },
+    {
+     "id": "A21.4",
+     "name": "Vigil chair",
+     "group": "A21",
+     "cell": 4,
+     "sizeM": {
+      "w": 0.6,
+      "h": 0.95,
+      "d": 0.6
+     }
+    },
+    {
+     "id": "A21.6",
+     "name": "Bog grave",
+     "group": "A21",
+     "cell": 6,
+     "sizeM": {
+      "w": 1.3,
+      "h": 1.6,
+      "d": 2.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R27_peat_chair_bog_grave.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R27_peat_chair_bog_grave/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A21 BARROW TERRACE AND FEN STONES\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  }
+ ]
+}

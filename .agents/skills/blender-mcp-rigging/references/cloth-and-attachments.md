@@ -3,7 +3,7 @@
 Sources:
 - `ashlar/3d/rig-anim/research/04_cloth_long_accessories.md` (spring-bone fields, bake, layering, QA ideas);
 - `research/00a` §4.2–4.4 and `00b` §6 (bake cloth to bones; never run cloth sim at runtime on low-end targets);
-- FL hand rig `ashlar/3d/heroes/FL_flagellant_vA/rig/` (`REPORT.md`, `rig_brief.md`). It has skirt bones (front 6, back L/R 5,
+- FL hand rig `ashlar/3d/heroes/FL_flagellant/vA/rig/` (`REPORT.md`, `rig_brief.md`). It has skirt bones (front 6, back L/R 5,
   side L/R 4) but they are **unweighted**: a static one-layer skin tore 114 edges in a deep crouch (failure-catalog #6);
 - D01 (sack, loincloth flap; failure-catalog #1, #5);
 - `research/05a_cloth_industry_engines_tools.md` (shipped games, engines and plugins, licences);

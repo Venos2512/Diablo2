@@ -6,7 +6,7 @@
 
 Placeholders it fills ({{...}}; any other one left in the result is an error):
   {{DESIGN}} {{ASYMMETRY}} {{REMOVE}} {{PROPORTIONS}} {{VIEWS}}   sections of <asset_dir>/design.txt (KEY: at the start of a line)
-  {{STYLE_CORE}} {{SHEET_RULES}} {{TPOSE_RULES}} {{CONTENT}}   the fenced text blocks of ashlar/artdirection.md
+  {{STYLE_CORE}} {{SHEET_RULES}} {{TPOSE_RULES}} {{CONTENT}}   the fenced text blocks of ashlar/art-direction/artdirection.md
                                                         3.1, 3.2, 3.6 and 3.8, pasted VERBATIM (art direction rule 0.2)
   {{POSE}}        the "## <pose-section>" part of the pose blocks file, with {{PROPORTIONS}} filled
   {{HUMANOID}}    the "## <humanoid-section>" part of templates/humanoid.block.md (PROPORTIONS filled); removed if not given
@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 SKILL = Path(__file__).resolve().parent.parent
-ART = SKILL.parents[2] / 'ashlar' / 'artdirection.md'  # repo root = .agents/skills/<skill> three levels up
+ART = SKILL.parents[2] / 'ashlar' / 'art-direction' / 'artdirection.md'  # repo root = .agents/skills/<skill> three levels up
 KEYS = ('HUMANOID', 'FAMILY', 'DESIGN', 'ASYMMETRY', 'REMOVE', 'PROPORTIONS', 'VIEWS')
 IGNORED_KEYS = ('NOTES',)
 AD_BLOCKS = {'STYLE_CORE': '### 3.1 ', 'SHEET_RULES': '### 3.2 ', 'TPOSE_RULES': '### 3.6 ', 'CONTENT': '### 3.8 '}

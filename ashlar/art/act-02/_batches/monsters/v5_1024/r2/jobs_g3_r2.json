@@ -1,0 +1,153 @@
+[
+  {
+    "id": "L01_A_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vA\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vA\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vA\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L01_B_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vB\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vB\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L01_saint_statue\\vB\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L02_A_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vA\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vA\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vA\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "P08_A_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vA\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vA\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vA\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\P08_A.png",
+        "role": "scale guide only (flat guide, not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "P08_B_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vB\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vB\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\P08_kneeler\\vB\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\P08_B.png",
+        "role": "scale guide only (flat guide, not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "W08_A_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vA\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vA\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vA\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\W08_A.png",
+        "role": "scale guide only (flat guide, not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W02_gibbet_crow\\vA\\concept_r2b.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "W08_B_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vB\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vB\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\W08_bell_bat\\vB\\concept_v5.png",
+        "role": "sheet to edit (best image of this variant)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\_batches\\monsters\\templates\\W08_B.png",
+        "role": "scale guide only (flat guide, not a style reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W02_gibbet_crow\\vA\\concept_r2b.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L02_B_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vB\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vB\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L03_B_v5_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L03_gargoyle_mortarer\\vB\\_work\\concept_v5_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L03_gargoyle_mortarer\\vB\\concept_v5_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\D03_kiln_bull\\vA\\concept_r4_1p4H.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W06_willow_hulk\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  }
+]

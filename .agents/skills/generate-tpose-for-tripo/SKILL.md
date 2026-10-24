@@ -1,12 +1,12 @@
 ---
 name: generate-tpose-for-tripo
-description: Generate T-pose concept for Tripo. Reads a monster/character concept image and produces four T-pose reference images (front.png, back.png, left.png, right.png) ready to drop into Tripo Studio's multi-view slots. Use for steps 2-3 of art-output/tripo-models/Agent.md (T-pose by Astra, split into four views).
+description: Generate T-pose concept for Tripo. Reads a monster/character concept image and produces four T-pose reference images (front.png, back.png, left.png, right.png) ready to drop into Tripo Studio's multi-view slots. Use for steps 2-3 of ashlar/pipeline/tripo/Agent.md (T-pose by Astra, split into four views).
 ---
 
 # Generate T-pose concept for Tripo
 
 Input: one concept image of a creature/character (usually a lineup: H silhouette + 3/4 + LEFT + RIGHT + FRONT + BACK).
-Output, in the asset folder `<ASSET>` (for example `E:\Diablo2\ashlar\3d\monsters\D01_hodling`; ASHLAR models live under `E:\Diablo2\ashlar\3d\`):
+Output, in the asset folder `<ASSET>` (for example `E:\Diablo2\ashlar\3d\act-01\monsters\D01_hodling`; ASHLAR models live under `E:\Diablo2\ashlar\3d\`):
 
 | File | What |
 | --- | --- |
@@ -16,17 +16,18 @@ Output, in the asset folder `<ASSET>` (for example `E:\Diablo2\ashlar\3d\monster
 | `tpose_front_back.png` | sheet 1: left = FRONT, right = BACK |
 | `tpose_sides.png` | sheet 2: left = LEFT side, right = RIGHT side |
 | `design.txt` | the design notes you wrote from the concept (step 1) |
-| `tpose.log` | what you generated, measurements, retries, problems |
+| `_work/tpose.log` | what you generated, measurements, retries, problems |
+| `_work/` | every sidecar: `tpose.log`, filled prompts (`*.prompt.txt`), `_rejected/`, `_tasks/`. Wherever this file says `tpose.log`, `_rejected/` or a prompt file, it lives in `<ASSET>/_work/`; `<ASSET>` itself holds only finals (images, `design.txt`, `brief.md`, `views/`). Create `_work/` first. |
 
 `<ASSET>/concept.png` must exist. Tools: `scripts/tpose_tools.py` in this skill folder (`E:\Diablo2\.agents\skills\generate-tpose-for-tripo\scripts\`).
 Run Python with `python -I` (it only crops and measures; never draw or edit art with code).
 
 ## Hard rules
 
-- Make every bitmap with your BUILT-IN `image_gen` tool, one call per sheet. Never draw with PIL/SVG/canvas/HTML, never use an API key or `scripts/image_gen.py`, never start a nested `codex`. If `image_gen` fails, write the exact error in `tpose.log` and stop.
+- Make every bitmap with your BUILT-IN `image_gen` tool, one call per sheet. Never draw with PIL/SVG/canvas/HTML, never use an API key or `scripts/image_gen.py`, never start a nested `codex`. If `image_gen` fails, write the exact error in `_work/tpose.log` and stop.
 - Do not redesign the creature. The concept is the identity reference for design, colours, materials, proportions.
-- Art direction: `E:\Diablo2\ashlar\artdirection.md` governs every image in this project (style = moderately stylized like Diablo Immortal). The templates here already carry its T-pose rules (§3.6) and content rules (§3.8); keep the concept's style, never restyle it.
-- At most 2 generations per sheet (1 + one retry). Keep rejected images in `<ASSET>/_rejected/` with a suffix; never delete them.
+- Art direction: `E:\Diablo2\ashlar\art-direction\artdirection.md` governs every image in this project (style = moderately stylized like Diablo Immortal). The templates here already carry its T-pose rules (§3.6) and content rules (§3.8); keep the concept's style, never restyle it.
+- At most 2 generations per sheet (1 + one retry). Keep rejected images in `<ASSET>/_work/_rejected/` with a suffix; never delete them.
 - Generated images land in `<CODEX_HOME>\generated_images\<session>\`; copy the one you accept into `<ASSET>` (a shell copy is fine).
 
 ## 0. Humanoid or not
@@ -98,21 +99,21 @@ Every sheet is QA'd on its own, so errors BETWEEN views slip through. B01 (2026-
 1. Landmark table BEFORE generating: put it into `design.txt` as `VIEWS:` (see step 1), measured on the concept's side views or, once accepted, on the side sheet. One row per feature that wraps around the body or can be hidden (collar, belt, chain, strap, sash, cape, hood, tail, ears, patches, marks): height band in % of the figure height (0 % = highest point, 100 % = soles), and what hides it in each view. Wrapping parts and the tail are the usual offenders: what a nearer body mass hides in one view stays hidden in every view that looks from the same side, and a feature on the body axis (collar top, chain end, tail tip, belt) sits at the same % in every view where it shows.
 2. After the split run `python -I scripts\tpose_tools.py strip <ASSET> --from-pct 0 --to-pct 60` and `--from-pct 40 --to-pct 100` and VIEW both `views/_strip_*.png`: the same band of the figure cut from FRONT, BACK, LEFT and RIGHT at one scale with a tick every 10 %.
 3. Walk the table row by row against the strips: height %, occlusion order, size, number of rivets or segments, colours, which side. The side views decide heights and depth order; FRONT and BACK are checked against them. Any mismatch fails the view that disagrees: retry that sheet with the mismatch named first (`fill_prompt.py --retry`), the VIEWS rows in the prompt, and the side sheet attached as a reference.
-4. Write the table with the measured percentages (feature, LEFT, RIGHT, FRONT, BACK, verdict) into `tpose.log`.
+4. Write the table with the measured percentages (feature, LEFT, RIGHT, FRONT, BACK, verdict) into `_work/tpose.log`.
 
 ## 5. Report
 
-Write `tpose.log` and reply with: the four file paths, the measured heights of both sheets and the rescale factor, retries and why, anything that still deviates (pose, proportions, asymmetry), and the Codex session ids / source paths of the images used. Never say the pose is correct without having viewed the images.
+Write `_work/tpose.log` and reply with: the four file paths, the measured heights of both sheets and the rescale factor, retries and why, anything that still deviates (pose, proportions, asymmetry), and the Codex session ids / source paths of the images used. Never say the pose is correct without having viewed the images.
 
 ## CREATURE flow (HUMANOID: no, FAMILY: Q, A or W; O drafted)
 
-DRAFT 2026-10-21, first run on B01 Sexton's Dog (`ashlar/3d/monsters/B01_sextons_dog/`); family A (many legs) added 2026-10-22, pilot W07 Shroud-Spinner (`ashlar/3d/monsters/W07_shroud_spinner/`). Tripo documents no pose for creatures, so the neutral stand below is a hypothesis until a Tripo run confirms it (research: `art-output/tripo-models/Agent.md`).
+DRAFT 2026-10-21, first run on B01 Sexton's Dog (`ashlar/3d/act-01/monsters/B01_sextons_dog/`); family A (many legs) added 2026-10-22, pilot W07 Shroud-Spinner (`ashlar/3d/act-01/monsters/W07_shroud_spinner/`). Tripo documents no pose for creatures, so the neutral stand below is a hypothesis until a Tripo run confirms it (research: `ashlar/pipeline/tripo/Agent.md`).
 
 What differs from the T-pose flow:
 - `design.txt`: `HUMANOID: no`, `FAMILY: Q`, `DESIGN`, `ASYMMETRY`, `REMOVE`, `PROPORTIONS` (the concept's own numbers: height at the shoulders and body length in H units, head share, leg type, tail).
-- Prompts are built ONLY with `scripts/fill_prompt.py`, never by hand: it pastes STYLE CORE (§3.1), T-POSE RULES (§3.6) and CONTENT (§3.8) verbatim from `ashlar/artdirection.md` into `templates/front_back_creature.prompt.md` / `templates/sides_creature.prompt.md` and the pose text of `templates/creature_pose.blocks.md` (`--pose-section "Q front_back"` / `"Q sides"`; family A: `"A front_back"` / `"A sides"`; human-type body on all fours: `"Qh front_back"` / `"Qh sides"`, with the ground contacts, the back carriage and the mouth stated in `design.txt` PROPORTIONS / DESIGN; family W: `"W front_back"` / `"W sides"`; `O` sections are an unrun draft). The two creature templates no longer name a body plan: the POSE section states it.
+- Prompts are built ONLY with `scripts/fill_prompt.py`, never by hand: it pastes STYLE CORE (§3.1), T-POSE RULES (§3.6) and CONTENT (§3.8) verbatim from `ashlar/art-direction/artdirection.md` into `templates/front_back_creature.prompt.md` / `templates/sides_creature.prompt.md` and the pose text of `templates/creature_pose.blocks.md` (`--pose-section "Q front_back"` / `"Q sides"`; family A: `"A front_back"` / `"A sides"`; human-type body on all fours: `"Qh front_back"` / `"Qh sides"`, with the ground contacts, the back carriage and the mouth stated in `design.txt` PROPORTIONS / DESIGN; family W: `"W front_back"` / `"W sides"`; `O` sections are an unrun draft). The two creature templates no longer name a body plan: the POSE section states it.
 - Placement templates: `scripts/make_view_template.py` writes a 3:1 flat grey canvas with two lighter size blocks (one per view). They fix the canvas shape, the floor line and the scale, so sheet 1 and sheet 2 come out at one scale. Measure the block sizes from the concept's silhouettes in H units (its H silhouette = 1 H): FRONT/BACK block = width x height of the neutral stand (narrower than a braced stance), side block = nose-to-tail-tip length x height. B01: `--blocks 0.50x0.72 0.50x0.72` for sheet 1 and `--blocks 1.42x0.72 1.42x0.72` for sheet 2 (640 px per H).
-- Running Astra: the main agent runs one session per sheet with the batch runner (outside the repo) `python E:\map01-batch\map01_batch.py --jobfile <jobs.json> --jobs <id> --parallel 1`, with `CODEX_HOME=E:\map01-batch\home` and `TEMP`/`TMP` on E: (C: is nearly full). A job is `{id, promptPath, outputPath, referenceImages:[{path}]}`; references in this order: sheet 1 = `concept.png`, `template_fb.png`; sheet 2 = `concept.png`, the accepted `tpose_front_back.png`, `template_sides.png`. Attempts, task text and logs stay in `<ASSET>/_tasks/`; copy the accepted PNGs to `<ASSET>/tpose_front_back.png` and `tpose_sides.png`; rejected ones go to `_rejected/`. `run_session.sh` runs the T-pose flow only.
+- Running Astra: the main agent runs one session per sheet with the batch runner (outside the repo) `python E:\map01-batch\map01_batch.py --jobfile <jobs.json> --jobs <id> --parallel 1`, with `CODEX_HOME=E:\map01-batch\home` and `TEMP`/`TMP` on E: (C: is nearly full). A job is `{id, promptPath, outputPath, referenceImages:[{path}]}`; references in this order: sheet 1 = `concept.png`, `template_fb.png`; sheet 2 = `concept.png`, the accepted `tpose_front_back.png`, `template_sides.png`. Attempts, task text and logs stay in `<ASSET>/_work/_tasks/`; copy the accepted PNGs to `<ASSET>/tpose_front_back.png` and `tpose_sides.png`; rejected ones go to `_work/_rejected/`. `run_session.sh` runs the T-pose flow only.
 - Numeric checks: `python -I scripts\tpose_tools.py creature <sheet> --kind fb|sides` (mirror symmetry at least 0.85, at least 2 paw groups, heights within 4 %, widths within 12 %). WARN lines only; they do not replace looking.
 - Split with `python -I scripts\tpose_tools.py split <ASSET> --vcenter` (a long low animal fills the width of the square canvas, so `--vcenter` puts the figure in the middle instead of the bottom; all four views keep one common scale and one floor row), then `python -I scripts\tpose_tools.py guides <ASSET> --creature` and view `views/_guides.png` (top, 50 %, soles lines and a centre line per figure).
 - Observed on B01 (2026-10-21): sheet 1 passed its own QA on the first try (193 s) but failed the CROSS-VIEW check of step 4b (collar and tail in BACK disagreed with the side views; the user caught it first): three generations, then an edit pass for the tail, with the VIEWS table in the prompt. Sheet 2 failed once (the far legs stepped ahead of the near legs and the RIGHT view mirrored that, so LEFT and RIGHT disagreed about which leg is forward) and passed on the retry with "only TWO legs show, the far legs are completely hidden behind them" in the LEGS text. Do the VIEWS table BEFORE the first generation: it would have saved the extra rounds. The generator ignored the template block height (it drew 87 % of the image height instead of 64 %): harmless, `split` normalises, but do not rely on the blocks for absolute size.

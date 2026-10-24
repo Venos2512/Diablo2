@@ -19,8 +19,8 @@ Nguồn, đã chép vào [`research/`](research/):
 | `02_autorig_skinning_methods.md` | đặt khớp và tính trọng số: Pinocchio, UniRig, MagicArticulate, Puppeteer, SkinTokens, Robust Weight Transfer… |
 | `03_game_rig_standards_lbs.md` | chuẩn rig game chỉ có LBS: xương xoắn, bone phụ, giải phẫu khớp, ROM |
 
-Bài học thực tế: D01 Hodling ([`qa_report.md`](../monsters/D01_hodling/rig/qa_report.md) v4, `anim/R7_opus_review.md`) và FL
-Flagellant ([`REPORT.md`](../heroes/FL_flagellant_vA/rig/REPORT.md), `REVIEW_opus.md`).
+Bài học thực tế: D01 Hodling ([`qa_report.md`](../act-01/monsters/D01_hodling/rig/qa_report.md) v4, `anim/R7_opus_review.md`) và FL
+Flagellant ([`REPORT.md`](../heroes/FL_flagellant/vA/rig/REPORT.md), `REVIEW_opus.md`).
 
 Nhãn số liệu:
 - **[đo]** đã đo trong dự án;

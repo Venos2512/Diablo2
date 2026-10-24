@@ -22,7 +22,7 @@ ROM = os.path.join(OUT, "d01", "rom")
 CAND = os.path.join(OUT, "d01", "candidates")
 SRUN = os.path.join(OUT, "s_template", "run")
 B_KEYS = {"A_region", "B_transfer", "C_unirig"}  # meta.candidate of writer B's candidate files
-D01_RIG = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "..", "..", "ashlar", "3d", "monsters",
+D01_RIG = os.path.normpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "..", "..", "ashlar", "3d", "act-01", "monsters",
                                         "D01_hodling", "rig"))
 BRIEF = {"head_turn": 15.8, "squat": 11.0, "twist_p45": 10.8, "twist_m45": 7.5, "hands_crossed": 22.9, "hip_flex_fk": 8.6}
 # D01 hinge regions (bone regions of the G2 weights): knees, elbows, hips (+ pelvis side), shoulders (+ chest side), ankles, wrists,

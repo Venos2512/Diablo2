@@ -1,7 +1,7 @@
 # Quy trình rigging và animation — hero, quái, NPC của ASHLAR
 
 Áp dụng cho model 3D trong [`ashlar/3d/`](../README.md) (`heroes/`, `monsters/`, sau này `npcs/`). Điểm vào là GLB gốc từ Tripo
-([`art-output/tripo-models/Agent.md`](../../../art-output/tripo-models/Agent.md)); điểm ra là GLB có skeleton, skin và clip dùng
+([`ashlar/pipeline/tripo/Agent.md`](../../pipeline/tripo/Agent.md)); điểm ra là GLB có skeleton, skin và clip dùng
 được trong lab ([`lookdev-lab/src/character/`](../../../lookdev-lab/src/character/)) và game.
 
 Tài liệu đi kèm:
@@ -25,11 +25,11 @@ Trạng thái: **đã duyệt khung quy trình (2026-10-21)**. Chưa chạy th�
 
 ## 0. Nguyên tắc
 
-1. **Rig và animation là việc riêng, hỏi trước.** Theo `tripo-models/Agent.md`, không tự thêm bước tốn credit (rig, animate trên
+1. **Rig và animation là việc riêng, hỏi trước.** Theo `../../pipeline/tripo/Agent.md`, không tự thêm bước tốn credit (rig, animate trên
    Tripo) khi người dùng chưa yêu cầu cho asset đó. Trước khi tiêu credit phải nêu ước tính (xem mục 3, cổng G1).
 2. **GLB gốc của Tripo không bị sửa.** Mọi thứ của rig nằm trong `<asset_dir>/rig/`. Bản cho lab hoặc game do script sinh ra.
 3. **Một họ skeleton cho nhiều asset**, không rig riêng từng con. Có 99 quái thường và 17 boss trong danh sách ASHLAR
-   ([`ASHLAR_MONSTER_CHECKLIST_VI.md`](../../ASHLAR_MONSTER_CHECKLIST_VI.md)); rig từng con riêng là không khả thi. Quái cùng họ dùng
+   ([`docs/ASHLAR_MONSTER_CHECKLIST_VI.md`](../../docs/ASHLAR_MONSTER_CHECKLIST_VI.md)); rig từng con riêng là không khả thi. Quái cùng họ dùng
    chung tên bone và bộ clip, khác nhau ở mesh, màu, VFX.
 4. **Rig đúng kích thước thật.** Tripo chuẩn hoá cạnh dài nhất về 1 m. Scale về chiều cao trong danh mục
    ([`ashlar/3d/README.md`](../README.md): FL ~1,8 m, D01 ~0,5 m) *trước* khi dựng xương.
@@ -242,7 +242,7 @@ Chọn một cho mỗi asset, ghi trong brief. Có thể đổi route nếu rout
 | **A — auto-rig** | Dịch vụ hoặc model tự rig: Tripo (`rig_model`, `animate_prerigcheck`, `retarget_animation`), UniRig chạy máy, Meshy Animate | Quái lạ (họ Q, W, A, L) cần ra rig nhanh | Tốn credit (Tripo, Meshy), cần kiểm tra kỹ skin, tên bone không chuẩn nên phải đặt lại tên |
 | **M — rig tay trong Blender** | Dựng armature, đặt bone, gán trọng số bằng heat map rồi chỉnh | Họ O, F, L, và bất cứ thứ gì route T/A cho kết quả xấu | Chậm, cần người rành |
 
-**Route T đã có bản thử** trong repo: `art-output/tripo-models/heroes/FL_flagellant_vA_sorceress_rig/` (một thread khác dựng
+**Route T đã có bản thử** trong repo: `ashlar/3d/heroes/FL_flagellant/vA/rig_sorceress/` (một thread khác dựng
 ngày 2026-10-21). Đây là cách làm tham chiếu, chưa phải kết quả đã duyệt:
 - Lấy skeleton D2R Sorceress (181 bone) làm mẫu, đặt lên mesh FL bằng `rig_fit.py`, skin bằng `skin.py`, xuất GLB bằng
   `build_rig.py`.
@@ -262,7 +262,7 @@ và kiểm `git status` trước.
 ## 5. Cấu trúc thư mục một asset sau khi rig
 
 ```text
-ashlar/3d/<nhóm>/<asset_id>/
+ashlar/3d/<act>/<loại>/<ID>/      (hero: ashlar/3d/heroes/<ID>/vA/)
 ├─ <asset_id>.glb              GLB gốc Tripo (không sửa)
 ├─ <asset_id>_rig.glb          GLB có skeleton + skin (4096)
 ├─ rig/
@@ -275,7 +275,7 @@ ashlar/3d/<nhóm>/<asset_id>/
 │     ├─ clips.json            manifest (xem dưới)
 │     ├─ refs/                 video / ảnh tham chiếu và đường dẫn nguồn
 │     └─ <state>.glb           (tuỳ chọn) từng clip riêng nếu tách file
-└─ _rejected/, _v*/            bản trước, giữ để đối chiếu
+└─ _work/                     file phụ: _tasks/, _rejected/, _v*/ (bản trước, giữ để đối chiếu), tripo.log, tpose.log
 ```
 
 **Manifest `clips.json`** (mỗi clip), theo `blender-game-animation` và `references/engine-handoff.md`:

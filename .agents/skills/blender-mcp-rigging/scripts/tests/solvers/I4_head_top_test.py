@@ -33,10 +33,10 @@ from solvers import analysis, consensus as cs, glbmesh, unirig_bridge  # noqa: E
 from solvers import landmarks_geo as lg  # noqa: E402
 
 REPO = os.path.normpath(os.path.join(HERE, *[".."] * 6))
-G2_LM = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
-ASSETS = {"D01_hodling": (r"ashlar\3d\monsters\D01_hodling\D01_hodling.glb", 0.5, "S"),
-          "FL_flagellant_vA": (r"ashlar\3d\heroes\FL_flagellant_vA\FL_flagellant_vA.glb", 1.8, "H"),
-          "U01_shambler": (r"ashlar\3d\monsters\U01_shambler\U01_shambler.glb", 0.95 * 1.8, "H")}
+G2_LM = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
+ASSETS = {"D01_hodling": (r"ashlar\3d\act-01\monsters\D01_hodling\D01_hodling.glb", 0.5, "S"),
+          "FL_flagellant_vA": (r"ashlar\3d\heroes\FL_flagellant\vA\FL_flagellant_vA.glb", 1.8, "H"),
+          "U01_shambler": (r"ashlar\3d\act-01\monsters\U01_shambler\U01_shambler.glb", 0.95 * 1.8, "H")}
 UNIRIG_OUT = r"E:\tmp_unirig\out"
 
 

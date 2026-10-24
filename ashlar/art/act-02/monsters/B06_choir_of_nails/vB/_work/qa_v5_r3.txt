@@ -1,0 +1,2 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G1), concept_v5_r3.png = edit of concept_v5_r2.png with a short fix list (third and last pass). Heights by pixel against the H silhouette (+/-3 %).
+Result: FAIL (scale), passes exhausted. Views now correct (LEFT faces image-left, RIGHT image-right, order H, 3/4, LEFT, RIGHT), ~12 singers, style PASS. But bottom-row H shrank to ~110 px, so FRONT/BACK read ~3.5H vs 3/4 2.11H. Best = concept_v5_r3.png (views right; bottom-row H must be rescaled to ~182 px).

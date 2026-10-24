@@ -89,7 +89,7 @@ trong chuẩn riêng của ASHLAR trừ khi cần tương thích trực tiếp v
 | `ground` *(đề xuất)* | điểm đặt bóng, ring chọn | `root`, y = 0 |
 
 Socket là bone rỗng hoặc empty trong glTF, không có trọng số. Vũ khí là mesh riêng gắn vào socket; hero dùng vũ khí rời theo
-concept (xem `ashlar/ASHLAR_HERO_CONCEPT_VI.md`).
+concept (xem `ashlar/docs/ASHLAR_HERO_CONCEPT_VI.md`).
 
 ## 5. Bộ clip tối thiểu theo họ
 
@@ -114,7 +114,7 @@ thêm clip theo stance (`1h_`, `2h_`, `dual_`, `ranged1h_`, `ranged2h_`, `spell_
 `walk`, `run`, `attack` cho mỗi stance.
 
 Clip dùng chung giữa các asset cùng họ H/S được retarget thay vì làm lại; dòng nào dùng chung thì ghi "dùng lại" trong
-inventory, đúng như ghi chú của `ACT1_MONSTER_ANIMATION_VI.md`.
+inventory, đúng như ghi chú của `legacy/ACT1_MONSTER_ANIMATION_VI.md`.
 
 ## 6. Thời gian và chuyển động
 

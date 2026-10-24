@@ -1,0 +1,5 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G1), concept_v5.png = fresh gen with the Act I recipe (three big masses, acting 3/4, Act I sheets as style refs). Heights measured by pixel against the H silhouette, not the model's guide lines (+/-3 %).
+Result: FAIL (side consistency). Style PASS.
+Good: hunched top-heavy body, vertical belly maw, bone rack on the back, clearly different from A, ~1.03H.
+Faults: FRONT puts the hip bone mass on image-left (anatomical right) while BACK/LEFT put it on the anatomical left; mantle has many small holes and dots.
+Next: v5_r2 edit.

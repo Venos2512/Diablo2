@@ -1,0 +1,302 @@
+[
+  {
+    "id": "U13_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U13_salted_dead\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U13_salted_dead\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "U13_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U13_salted_dead\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U13_salted_dead\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "U14_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U14_brine_embalmer\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U14_brine_embalmer\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "U14_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U14_brine_embalmer\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\U14_brine_embalmer\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "D06_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\D06_salt_clan\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\D06_salt_clan\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "D06_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\D06_salt_clan\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\D06_salt_clan\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U02_charnel_dead\\vB\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F10_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F10_salt_reaver\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F10_salt_reaver\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F10_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F10_salt_reaver\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F10_salt_reaver\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F11_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F11_salt_dervish\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F11_salt_dervish\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F11_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F11_salt_dervish\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F11_salt_dervish\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F12_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F12_white_watch\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F12_white_watch\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F12_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F12_white_watch\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F12_white_watch\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F13_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F13_lye_priest\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F13_lye_priest\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "F13_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F13_lye_priest\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\F13_lye_priest\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B08_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B08_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B08_pillar_maker\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\P02_hush_herald\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B09_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B09_the_chisel\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B09_the_chisel\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\B05_hospice_mother\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B09_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B09_the_chisel\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B09_the_chisel\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\B05_hospice_mother\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B10_A",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vA\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vA\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\B05_hospice_mother\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B10_B",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vB\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-03\\monsters\\B10_kathara\\vB\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\B05_hospice_mother\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  }
+]

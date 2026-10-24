@@ -48,7 +48,7 @@ def families_dir():
 
 @pytest.fixture(scope="session")
 def d01_dir():
-    p = os.path.join(REPO_ROOT, "ashlar", "3d", "monsters", "D01_hodling")
+    p = os.path.join(REPO_ROOT, "ashlar", "3d", "act-01", "monsters", "D01_hodling")
     if not os.path.isdir(p):
         pytest.skip(f"D01 asset folder not found: {p}")
     return p

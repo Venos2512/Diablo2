@@ -24,8 +24,8 @@ from solvers import glbmesh  # noqa: E402
 from solvers import landmarks_geo as lg  # noqa: E402
 
 REPO = os.path.normpath(os.path.join(HERE, *[".."] * 6))
-D01 = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "D01_hodling.glb")
-D01_LM = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
+D01 = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "D01_hodling.glb")
+D01_LM = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "rig", "tools", "landmarks.json")
 
 
 def _cylinder(r=0.1, h=1.0, n=64, m=10, cx=0.0, cy=0.0, z0=0.0, caps=False):

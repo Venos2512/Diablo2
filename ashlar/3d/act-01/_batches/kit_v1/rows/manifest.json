@@ -1,0 +1,1873 @@
+{
+ "manifestVersion": 1,
+ "title": "ASHLAR Act I kit v1: Tripo row images (AD 3.7 TRIPO ROW INPUT, 22/10)",
+ "createdDate": "2026-10-22",
+ "projectRoot": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows",
+ "workdir": "E:/Diablo2",
+ "overwritePolicy": "never overwrite; reruns get a new tag (_r2 ...) with a new prompt file and output path",
+ "runner": {
+  "script": "E:/act1-env-batch/rows/rows_batch.py (act01_batch.py unchanged, rows validator)",
+  "model": "gpt-6-astra",
+  "codexHome": "E:/map01-batch/home-nam",
+  "defaultParallel": 6,
+  "defaultAttempts": 2,
+  "defaultTimeoutSeconds": 1500
+ },
+ "counts": {
+  "groups": 22,
+  "jobs": 22,
+  "assets": 56
+ },
+ "groups": [
+  {
+   "id": "R01",
+   "slug": "lychgate_cottage_ossuary",
+   "assets": [
+    "A01.1",
+    "A02.4"
+   ],
+   "layout": {
+    "scale": 88.0,
+    "base": 920,
+    "gap": 160,
+    "boxes": [
+     {
+      "cx": 477,
+      "w": 534,
+      "h": 548,
+      "up": 1.0
+     },
+     {
+      "cx": 1115,
+      "w": 423,
+      "h": 760,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R02",
+   "slug": "lychgate_gate_saint_well",
+   "assets": [
+    "A02.1",
+    "A02.5",
+    "A01.5"
+   ],
+   "layout": {
+    "scale": 115.9,
+    "base": 813,
+    "gap": 103,
+    "boxes": [
+     {
+      "cx": 318,
+      "w": 496,
+      "h": 522,
+      "up": 1.0
+     },
+     {
+      "cx": 868,
+      "w": 308,
+      "h": 546,
+      "up": 1.0
+     },
+     {
+      "cx": 1295,
+      "w": 342,
+      "h": 452,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R03",
+   "slug": "village_walls_walkway",
+   "assets": [
+    "A01.3",
+    "A01.4",
+    "A01.2"
+   ],
+   "layout": {
+    "scale": 114.7,
+    "base": 645,
+    "gap": 110,
+    "boxes": [
+     {
+      "cx": 253,
+      "w": 366,
+      "h": 211,
+      "up": 1.0
+     },
+     {
+      "cx": 701,
+      "w": 313,
+      "h": 200,
+      "up": 1.0
+     },
+     {
+      "cx": 1232,
+      "w": 468,
+      "h": 206,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R04",
+   "slug": "churchyard_graves_cart",
+   "assets": [
+    "A02.2",
+    "A02.3",
+    "A02.6"
+   ],
+   "layout": {
+    "scale": 115.1,
+    "base": 666,
+    "gap": 125,
+    "boxes": [
+     {
+      "cx": 239,
+      "w": 338,
+      "h": 191,
+      "up": 1.0
+     },
+     {
+      "cx": 740,
+      "w": 415,
+      "h": 251,
+      "up": 1.0
+     },
+     {
+      "cx": 1269,
+      "w": 394,
+      "h": 198,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R05",
+   "slug": "willows",
+   "assets": [
+    "A04.1",
+    "A04.2"
+   ],
+   "layout": {
+    "scale": 113.5,
+    "base": 920,
+    "gap": 204,
+    "boxes": [
+     {
+      "cx": 439,
+      "w": 681,
+      "h": 731,
+      "up": 1.0
+     },
+     {
+      "cx": 1211,
+      "w": 454,
+      "h": 760,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R06",
+   "slug": "dead_tree_roots",
+   "assets": [
+    "A04.3",
+    "A04.6"
+   ],
+   "layout": {
+    "scale": 101.1,
+    "base": 920,
+    "gap": 184,
+    "boxes": [
+     {
+      "cx": 370,
+      "w": 303,
+      "h": 760,
+      "up": 1.0
+     },
+     {
+      "cx": 1011,
+      "w": 613,
+      "h": 326,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R07",
+   "slug": "fen_rock_peat_stump",
+   "assets": [
+    "A03.4",
+    "A03.5",
+    "A03.6"
+   ],
+   "layout": {
+    "scale": 149.6,
+    "base": 698,
+    "gap": 137,
+    "boxes": [
+     {
+      "cx": 297,
+      "w": 453,
+      "h": 316,
+      "up": 1.0
+     },
+     {
+      "cx": 890,
+      "w": 458,
+      "h": 278,
+      "up": 1.0
+     },
+     {
+      "cx": 1361,
+      "w": 209,
+      "h": 231,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R08",
+   "slug": "fen_stone_lure_pier",
+   "assets": [
+    "A06.2",
+    "A06.4",
+    "A06.6"
+   ],
+   "layout": {
+    "scale": 133.5,
+    "base": 920,
+    "gap": 63,
+    "boxes": [
+     {
+      "cx": 251,
+      "w": 152,
+      "h": 372,
+      "up": 1.0
+     },
+     {
+      "cx": 496,
+      "w": 211,
+      "h": 422,
+      "up": 1.0
+     },
+     {
+      "cx": 1069,
+      "w": 584,
+      "h": 760,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R09",
+   "slug": "fen_causeway_ford_raft",
+   "assets": [
+    "A06.1",
+    "A06.3",
+    "A07.5"
+   ],
+   "layout": {
+    "scale": 78.4,
+    "base": 634,
+    "gap": 141,
+    "boxes": [
+     {
+      "cx": 223,
+      "w": 307,
+      "h": 119,
+      "up": 1.12
+     },
+     {
+      "cx": 752,
+      "w": 469,
+      "h": 136,
+      "up": 1.0
+     },
+     {
+      "cx": 1297,
+      "w": 339,
+      "h": 188,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R10",
+   "slug": "weir_cottage_roof",
+   "assets": [
+    "A07.1",
+    "A07.4"
+   ],
+   "layout": {
+    "scale": 74.1,
+    "base": 822,
+    "gap": 191,
+    "boxes": [
+     {
+      "cx": 389,
+      "w": 637,
+      "h": 563,
+      "up": 1.0
+     },
+     {
+      "cx": 1182,
+      "w": 568,
+      "h": 332,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R11",
+   "slug": "weir_gable_roost_weir",
+   "assets": [
+    "A07.3",
+    "A07.6",
+    "A07.2"
+   ],
+   "layout": {
+    "scale": 98.6,
+    "base": 869,
+    "gap": 119,
+    "boxes": [
+     {
+      "cx": 292,
+      "w": 443,
+      "h": 581,
+      "up": 1.0
+     },
+     {
+      "cx": 799,
+      "w": 305,
+      "h": 658,
+      "up": 1.0
+     },
+     {
+      "cx": 1268,
+      "w": 396,
+      "h": 243,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R12",
+   "slug": "fen_trunk_punt",
+   "assets": [
+    "A04.5",
+    "A06.5"
+   ],
+   "layout": {
+    "scale": 139.7,
+    "base": 682,
+    "gap": 210,
+    "boxes": [
+     {
+      "cx": 420,
+      "w": 701,
+      "h": 283,
+      "up": 1.0
+     },
+     {
+      "cx": 1223,
+      "w": 485,
+      "h": 169,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R13",
+   "slug": "poppy_farmhouse_rick",
+   "assets": [
+    "A08.3",
+    "A08.4"
+   ],
+   "layout": {
+    "scale": 89.8,
+    "base": 898,
+    "gap": 260,
+    "boxes": [
+     {
+      "cx": 503,
+      "w": 867,
+      "h": 715,
+      "up": 1.0
+     },
+     {
+      "cx": 1331,
+      "w": 269,
+      "h": 334,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R14",
+   "slug": "poppy_walls_gate",
+   "assets": [
+    "A08.2",
+    "A08.2-stile",
+    "A08.5"
+   ],
+   "layout": {
+    "scale": 114.8,
+    "base": 663,
+    "gap": 104,
+    "boxes": [
+     {
+      "cx": 244,
+      "w": 347,
+      "h": 197,
+      "up": 1.0
+     },
+     {
+      "cx": 695,
+      "w": 347,
+      "h": 197,
+      "up": 1.0
+     },
+     {
+      "cx": 1236,
+      "w": 460,
+      "h": 245,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R15",
+   "slug": "drying_racks",
+   "assets": [
+    "A01.6",
+    "A08.6"
+   ],
+   "layout": {
+    "scale": 162.7,
+    "base": 830,
+    "gap": 183,
+    "boxes": [
+     {
+      "cx": 371,
+      "w": 602,
+      "h": 580,
+      "up": 1.0
+     },
+     {
+      "cx": 1161,
+      "w": 610,
+      "h": 465,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R16",
+   "slug": "gentle_gate_cloister",
+   "assets": [
+    "A11.4",
+    "A11.1"
+   ],
+   "layout": {
+    "scale": 92.2,
+    "base": 920,
+    "gap": 166,
+    "boxes": [
+     {
+      "cx": 424,
+      "w": 555,
+      "h": 760,
+      "up": 1.0
+     },
+     {
+      "cx": 1128,
+      "w": 522,
+      "h": 476,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R17",
+   "slug": "gentle_hearth_candle_bed",
+   "assets": [
+    "A11.5",
+    "A11.6",
+    "A11.2"
+   ],
+   "layout": {
+    "scale": 158.0,
+    "base": 816,
+    "gap": 101,
+    "boxes": [
+     {
+      "cx": 384,
+      "w": 629,
+      "h": 552,
+      "up": 1.0
+     },
+     {
+      "cx": 959,
+      "w": 142,
+      "h": 394,
+      "up": 1.0
+     },
+     {
+      "cx": 1298,
+      "w": 335,
+      "h": 179,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R18",
+   "slug": "refectory_table_platform",
+   "assets": [
+    "A11.3",
+    "A14.5"
+   ],
+   "layout": {
+    "scale": 98.7,
+    "base": 640,
+    "gap": 223,
+    "boxes": [
+     {
+      "cx": 285,
+      "w": 431,
+      "h": 143,
+      "up": 1.0
+     },
+     {
+      "cx": 1095,
+      "w": 742,
+      "h": 200,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R19",
+   "slug": "garden_root_bay_canopy",
+   "assets": [
+    "A13.5",
+    "A13.2"
+   ],
+   "layout": {
+    "scale": 90.7,
+    "base": 805,
+    "gap": 208,
+    "boxes": [
+     {
+      "cx": 318,
+      "w": 495,
+      "h": 529,
+      "up": 1.0
+     },
+     {
+      "cx": 1119,
+      "w": 693,
+      "h": 505,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R20",
+   "slug": "garden_bell_jar_furrows",
+   "assets": [
+    "A13.4",
+    "A13.3",
+    "A13.1",
+    "A13.6"
+   ],
+   "layout": {
+    "scale": 109.2,
+    "base": 751,
+    "gap": 57,
+    "boxes": [
+     {
+      "cx": 164,
+      "w": 189,
+      "h": 422,
+      "up": 1.0
+     },
+     {
+      "cx": 374,
+      "w": 117,
+      "h": 171,
+      "up": 1.7
+     },
+     {
+      "cx": 678,
+      "w": 307,
+      "h": 117,
+      "up": 1.04
+     },
+     {
+      "cx": 1222,
+      "w": 488,
+      "h": 210,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R21",
+   "slug": "cradle_crib_curtains",
+   "assets": [
+    "A14.1",
+    "A14.2"
+   ],
+   "layout": {
+    "scale": 104.7,
+    "base": 850,
+    "gap": 227,
+    "boxes": [
+     {
+      "cx": 448,
+      "w": 757,
+      "h": 496,
+      "up": 1.0
+     },
+     {
+      "cx": 1260,
+      "w": 413,
+      "h": 621,
+      "up": 1.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "R22",
+   "slug": "cradle_runners_mobile_light",
+   "assets": [
+    "A14.6",
+    "A14.4",
+    "A14.3"
+   ],
+   "layout": {
+    "scale": 113.2,
+    "base": 745,
+    "gap": 88,
+    "boxes": [
+     {
+      "cx": 414,
+      "w": 688,
+      "h": 270,
+      "up": 1.0
+     },
+     {
+      "cx": 1110,
+      "w": 292,
+      "h": 410,
+      "up": 1.0
+     },
+     {
+      "cx": 1405,
+      "w": 122,
+      "h": 266,
+      "up": 1.0
+     }
+    ]
+   }
+  }
+ ],
+ "jobs": [
+  {
+   "id": "R01_row",
+   "kind": "tripo-row",
+   "groupId": "R01",
+   "name": "R01 lychgate_cottage_ossuary",
+   "assets": [
+    {
+     "id": "A01.1",
+     "name": "Repaired thatched stilt cottage",
+     "group": "A01",
+     "cell": 1,
+     "sizeM": {
+      "w": 4.6,
+      "h": 5.2,
+      "d": 4
+     }
+    },
+    {
+     "id": "A02.4",
+     "name": "Round ossuary tower",
+     "group": "A02",
+     "cell": 4,
+     "sizeM": {
+      "w": 4.8,
+      "h": 7.8,
+      "d": 4.8
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R01_lychgate_cottage_ossuary.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R01_lychgate_cottage_ossuary/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E03_village/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E03 VILLAGE KIT (A01, Lychgate village)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A01_lychgate_village/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E04 BURIAL KIT (A02, Lychgate churchyard)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A02_churchyard_burial/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R02_row",
+   "kind": "tripo-row",
+   "groupId": "R02",
+   "name": "R02 lychgate_gate_saint_well",
+   "assets": [
+    {
+     "id": "A02.1",
+     "name": "Lychgate roofed gate",
+     "group": "A02",
+     "cell": 1,
+     "sizeM": {
+      "w": 3.4,
+      "h": 3.8,
+      "d": 2.6
+     }
+    },
+    {
+     "id": "A02.5",
+     "name": "Faceless saint statue supporting an arch",
+     "group": "A02",
+     "cell": 5,
+     "sizeM": {
+      "w": 2.4,
+      "h": 4.3,
+      "d": 1.2
+     }
+    },
+    {
+     "id": "A01.5",
+     "name": "Village well",
+     "group": "A01",
+     "cell": 5,
+     "sizeM": {
+      "w": 2.2,
+      "h": 3.4,
+      "d": 2
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R02_lychgate_gate_saint_well.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R02_lychgate_gate_saint_well/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E04 BURIAL KIT (A02, Lychgate churchyard)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A02_churchyard_burial/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E03_village/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E03 VILLAGE KIT (A01, Lychgate village)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A01_lychgate_village/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R03_row",
+   "kind": "tripo-row",
+   "groupId": "R03",
+   "name": "R03 village_walls_walkway",
+   "assets": [
+    {
+     "id": "A01.3",
+     "name": "Patched low flint wall",
+     "group": "A01",
+     "cell": 3,
+     "sizeM": {
+      "w": 3.4,
+      "h": 1.4,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A01.4",
+     "name": "Willow hurdle fence",
+     "group": "A01",
+     "cell": 4,
+     "sizeM": {
+      "w": 3.2,
+      "h": 1.4,
+      "d": 0.18
+     }
+    },
+    {
+     "id": "A01.2",
+     "name": "Raised wooden walkway segment",
+     "group": "A01",
+     "cell": 2,
+     "sizeM": {
+      "w": 4,
+      "h": 1.2,
+      "d": 1.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R03_village_walls_walkway.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R03_village_walls_walkway/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E03_village/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E03 VILLAGE KIT (A01, Lychgate village)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A01_lychgate_village/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R04_row",
+   "kind": "tripo-row",
+   "groupId": "R04",
+   "name": "R04 churchyard_graves_cart",
+   "assets": [
+    {
+     "id": "A02.2",
+     "name": "Mortsafe grave cage",
+     "group": "A02",
+     "cell": 2,
+     "sizeM": {
+      "w": 2.6,
+      "h": 1.2,
+      "d": 1.4
+     }
+    },
+    {
+     "id": "A02.3",
+     "name": "Small mismatched headstone cluster",
+     "group": "A02",
+     "cell": 3,
+     "sizeM": {
+      "w": 3,
+      "h": 1.6,
+      "d": 2
+     }
+    },
+    {
+     "id": "A02.6",
+     "name": "Funeral hand cart",
+     "group": "A02",
+     "cell": 6,
+     "sizeM": {
+      "w": 3.2,
+      "h": 1.2,
+      "d": 1.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R04_churchyard_graves_cart.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R04_churchyard_graves_cart/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E04_burial/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E04 BURIAL KIT (A02, Lychgate churchyard)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A02_churchyard_burial/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R05_row",
+   "kind": "tripo-row",
+   "groupId": "R05",
+   "name": "R05 willows",
+   "assets": [
+    {
+     "id": "A04.1",
+     "name": "Old broad weeping willow",
+     "group": "A04",
+     "cell": 1,
+     "sizeM": {
+      "w": 6,
+      "h": 5.4,
+      "d": 6
+     }
+    },
+    {
+     "id": "A04.2",
+     "name": "Young willow",
+     "group": "A04",
+     "cell": 2,
+     "sizeM": {
+      "w": 4,
+      "h": 6,
+      "d": 4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R05_willows.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R05_willows/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E02_trees/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E02 TREES AND WOOD (A04, fens)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A04_willow_trees/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R06_row",
+   "kind": "tripo-row",
+   "groupId": "R06",
+   "name": "R06 dead_tree_roots",
+   "assets": [
+    {
+     "id": "A04.3",
+     "name": "Dead angular tree",
+     "group": "A04",
+     "cell": 3,
+     "sizeM": {
+      "w": 3,
+      "h": 7,
+      "d": 3
+     }
+    },
+    {
+     "id": "A04.6",
+     "name": "Exposed willow root cluster",
+     "group": "A04",
+     "cell": 6,
+     "sizeM": {
+      "w": 4.6,
+      "h": 2.2,
+      "d": 4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R06_dead_tree_roots.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R06_dead_tree_roots/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E02_trees/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E02 TREES AND WOOD (A04, fens)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A04_willow_trees/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R07_row",
+   "kind": "tripo-row",
+   "groupId": "R07",
+   "name": "R07 fen_rock_peat_stump",
+   "assets": [
+    {
+     "id": "A03.4",
+     "name": "Large moss rock",
+     "group": "A03",
+     "cell": 4,
+     "sizeM": {
+      "w": 2.3,
+      "h": 1.6,
+      "d": 2
+     }
+    },
+    {
+     "id": "A03.5",
+     "name": "Peat bank chunk",
+     "group": "A03",
+     "cell": 5,
+     "sizeM": {
+      "w": 2.9,
+      "h": 1.4,
+      "d": 1.2
+     }
+    },
+    {
+     "id": "A03.6",
+     "name": "Waterlogged root stump",
+     "group": "A03",
+     "cell": 6,
+     "sizeM": {
+      "w": 1.4,
+      "h": 1.3,
+      "d": 1.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R07_fen_rock_peat_stump.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R07_fen_rock_peat_stump/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E01_wetland/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E01 WETLAND VEGETATION AND ROCKS (A03, fens)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A03_fen_wetland/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R08_row",
+   "kind": "tripo-row",
+   "groupId": "R08",
+   "name": "R08 fen_stone_lure_pier",
+   "assets": [
+    {
+     "id": "A06.2",
+     "name": "Upright marker stone",
+     "group": "A06",
+     "cell": 2,
+     "sizeM": {
+      "w": 0.9,
+      "h": 2.6,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A06.4",
+     "name": "Unlit bog-lure post",
+     "group": "A06",
+     "cell": 4,
+     "sizeM": {
+      "w": 1.3,
+      "h": 2.9,
+      "d": 0.9
+     }
+    },
+    {
+     "id": "A06.6",
+     "name": "Broken bridge pier",
+     "group": "A06",
+     "cell": 6,
+     "sizeM": {
+      "w": 3.8,
+      "h": 5,
+      "d": 2.2
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R08_fen_stone_lure_pier.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R08_fen_stone_lure_pier/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A06 NIGHT FENS KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R09_row",
+   "kind": "tripo-row",
+   "groupId": "R09",
+   "name": "R09 fen_causeway_ford_raft",
+   "assets": [
+    {
+     "id": "A06.1",
+     "name": "Fen causeway segment",
+     "group": "A06",
+     "cell": 1,
+     "sizeM": {
+      "w": 4,
+      "h": 0.9,
+      "d": 0.4
+     }
+    },
+    {
+     "id": "A06.3",
+     "name": "Stepping-stone ford",
+     "group": "A06",
+     "cell": 3,
+     "sizeM": {
+      "w": 2.4,
+      "h": 0.5,
+      "d": 7
+     }
+    },
+    {
+     "id": "A07.5",
+     "name": "Pontoon plank raft",
+     "group": "A07",
+     "cell": 5,
+     "sizeM": {
+      "w": 3.6,
+      "h": 1.7,
+      "d": 2.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R09_fen_causeway_ford_raft.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R09_fen_causeway_ford_raft/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A06 NIGHT FENS KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A07 ROOK'S WEIR KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R10_row",
+   "kind": "tripo-row",
+   "groupId": "R10",
+   "name": "R10 weir_cottage_roof",
+   "assets": [
+    {
+     "id": "A07.1",
+     "name": "Half-drowned flint cottage",
+     "group": "A07",
+     "cell": 1,
+     "sizeM": {
+      "w": 7,
+      "h": 6.2,
+      "d": 5
+     }
+    },
+    {
+     "id": "A07.4",
+     "name": "Sunken roof-ridge platform",
+     "group": "A07",
+     "cell": 4,
+     "sizeM": {
+      "w": 6,
+      "h": 3.2,
+      "d": 4.8
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R10_weir_cottage_roof.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R10_weir_cottage_roof/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A07 ROOK'S WEIR KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R11_row",
+   "kind": "tripo-row",
+   "groupId": "R11",
+   "name": "R11 weir_gable_roost_weir",
+   "assets": [
+    {
+     "id": "A07.3",
+     "name": "Gable wall with door arch",
+     "group": "A07",
+     "cell": 3,
+     "sizeM": {
+      "w": 5,
+      "h": 5.3,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A07.6",
+     "name": "Rook roost pole",
+     "group": "A07",
+     "cell": 6,
+     "sizeM": {
+      "w": 2.8,
+      "h": 6.2,
+      "d": 1.4
+     }
+    },
+    {
+     "id": "A07.2",
+     "name": "Timber-and-stone weir segment",
+     "group": "A07",
+     "cell": 2,
+     "sizeM": {
+      "w": 4.2,
+      "h": 1.9,
+      "d": 1
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R11_weir_gable_roost_weir.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R11_weir_gable_roost_weir/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A07 ROOK'S WEIR KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A07_rooks_weir/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R12_row",
+   "kind": "tripo-row",
+   "groupId": "R12",
+   "name": "R12 fen_trunk_punt",
+   "assets": [
+    {
+     "id": "A04.5",
+     "name": "Fallen hollow trunk",
+     "group": "A04",
+     "cell": 5,
+     "sizeM": {
+      "w": 5,
+      "h": 1.3,
+      "d": 1.6
+     }
+    },
+    {
+     "id": "A06.5",
+     "name": "Half-sunk fen punt",
+     "group": "A06",
+     "cell": 5,
+     "sizeM": {
+      "w": 3.4,
+      "h": 0.7,
+      "d": 1.2
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R12_fen_trunk_punt.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R12_fen_trunk_punt/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E02_trees/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E02 TREES AND WOOD (A04, fens)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A04_willow_trees/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A06 NIGHT FENS KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A06_night_fens/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R13_row",
+   "kind": "tripo-row",
+   "groupId": "R13",
+   "name": "R13 poppy_farmhouse_rick",
+   "assets": [
+    {
+     "id": "A08.3",
+     "name": "Abandoned hillside farmhouse",
+     "group": "A08",
+     "cell": 3,
+     "sizeM": {
+      "w": 8,
+      "h": 6.4,
+      "d": 5.4
+     }
+    },
+    {
+     "id": "A08.4",
+     "name": "Hay rick",
+     "group": "A08",
+     "cell": 4,
+     "sizeM": {
+      "w": 3,
+      "h": 3.2,
+      "d": 3
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R13_poppy_farmhouse_rick.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R13_poppy_farmhouse_rick/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A08 POPPY REACH KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R14_row",
+   "kind": "tripo-row",
+   "groupId": "R14",
+   "name": "R14 poppy_walls_gate",
+   "assets": [
+    {
+     "id": "A08.2",
+     "name": "Drystone wall module",
+     "group": "A08",
+     "cell": 2,
+     "sizeM": {
+      "w": 3.2,
+      "h": 1.3,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A08.2-stile",
+     "name": "Squeeze stile in a drystone wall",
+     "group": "A08",
+     "cell": 2,
+     "sizeM": {
+      "w": 3.2,
+      "h": 1.3,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A08.5",
+     "name": "Field gate between stone posts",
+     "group": "A08",
+     "cell": 5,
+     "sizeM": {
+      "w": 4.4,
+      "h": 1.6,
+      "d": 0.7
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R14_poppy_walls_gate.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R14_poppy_walls_gate/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A08 POPPY REACH KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R15_row",
+   "kind": "tripo-row",
+   "groupId": "R15",
+   "name": "R15 drying_racks",
+   "assets": [
+    {
+     "id": "A01.6",
+     "name": "Eel-trap fishing rack",
+     "group": "A01",
+     "cell": 6,
+     "sizeM": {
+      "w": 3.4,
+      "h": 3,
+      "d": 1.6
+     }
+    },
+    {
+     "id": "A08.6",
+     "name": "Poppy-drying rack",
+     "group": "A08",
+     "cell": 6,
+     "sizeM": {
+      "w": 3.6,
+      "h": 2.3,
+      "d": 1.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R15_drying_racks.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R15_drying_racks/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/E03_village/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"E03 VILLAGE KIT (A01, Lychgate village)\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A01_lychgate_village/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A08 POPPY REACH KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A08_poppy_reach/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R16_row",
+   "kind": "tripo-row",
+   "groupId": "R16",
+   "name": "R16 gentle_gate_cloister",
+   "assets": [
+    {
+     "id": "A11.4",
+     "name": "Gate tower",
+     "group": "A11",
+     "cell": 4,
+     "sizeM": {
+      "w": 4.32,
+      "h": 7.2,
+      "d": 4.32
+     }
+    },
+    {
+     "id": "A11.1",
+     "name": "Whitewashed cloister bay",
+     "group": "A11",
+     "cell": 1,
+     "sizeM": {
+      "w": 5.4,
+      "h": 4.32,
+      "d": 2.16
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R16_gentle_gate_cloister.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R16_gentle_gate_cloister/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A11 GENTLE HOUSE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R17_row",
+   "kind": "tripo-row",
+   "groupId": "R17",
+   "name": "R17 gentle_hearth_candle_bed",
+   "assets": [
+    {
+     "id": "A11.5",
+     "name": "Kitchen hearth with cauldron",
+     "group": "A11",
+     "cell": 5,
+     "sizeM": {
+      "w": 3.6,
+      "h": 2.88,
+      "d": 1.8
+     }
+    },
+    {
+     "id": "A11.6",
+     "name": "Steady candle stand",
+     "group": "A11",
+     "cell": 6,
+     "sizeM": {
+      "w": 0.9,
+      "h": 2.34,
+      "d": 0.9
+     }
+    },
+    {
+     "id": "A11.2",
+     "name": "Hospice bed",
+     "group": "A11",
+     "cell": 2,
+     "sizeM": {
+      "w": 1.08,
+      "h": 0.72,
+      "d": 2.16
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R17_gentle_hearth_candle_bed.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R17_gentle_hearth_candle_bed/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A11 GENTLE HOUSE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R18_row",
+   "kind": "tripo-row",
+   "groupId": "R18",
+   "name": "R18 refectory_table_platform",
+   "assets": [
+    {
+     "id": "A11.3",
+     "name": "Refectory table with bread",
+     "group": "A11",
+     "cell": 3,
+     "sizeM": {
+      "w": 4.32,
+      "h": 0.81,
+      "d": 1.44
+     }
+    },
+    {
+     "id": "A14.5",
+     "name": "Quilted floor platform",
+     "group": "A14",
+     "cell": 5,
+     "sizeM": {
+      "w": 5.4,
+      "h": 0.72,
+      "d": 5.4
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R18_refectory_table_platform.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R18_refectory_table_platform/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A11 GENTLE HOUSE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A11_gentle_house/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/perspective_scale_v2.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A14 THE CRADLE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/turnaround_scale_v2.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 3 does not show. Where it disagrees with image 3, image 3 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R19_row",
+   "kind": "tripo-row",
+   "groupId": "R19",
+   "name": "R19 garden_root_bay_canopy",
+   "assets": [
+    {
+     "id": "A13.5",
+     "name": "Root-vaulted wall bay",
+     "group": "A13",
+     "cell": 5,
+     "sizeM": {
+      "w": 5.4,
+      "h": 5.04,
+      "d": 1.8
+     }
+    },
+    {
+     "id": "A13.2",
+     "name": "Cloth canopy frame",
+     "group": "A13",
+     "cell": 2,
+     "sizeM": {
+      "w": 6.3,
+      "h": 4.32,
+      "d": 4.32
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R19_garden_root_bay_canopy.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R19_garden_root_bay_canopy/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A13_garden_of_hush/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A13 GARDEN OF HUSH KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A13_garden_of_hush/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R20_row",
+   "kind": "tripo-row",
+   "groupId": "R20",
+   "name": "R20 garden_bell_jar_furrows",
+   "assets": [
+    {
+     "id": "A13.4",
+     "name": "Hush bell post",
+     "group": "A13",
+     "cell": 4,
+     "sizeM": {
+      "w": 1.62,
+      "h": 3.6,
+      "d": 0.7
+     }
+    },
+    {
+     "id": "A13.3",
+     "name": "Pink night-light jar",
+     "group": "A13",
+     "cell": 3,
+     "sizeM": {
+      "w": 0.63,
+      "h": 0.81,
+      "d": 0.63
+     }
+    },
+    {
+     "id": "A13.1",
+     "name": "Sleeping bed furrow",
+     "group": "A13",
+     "cell": 1,
+     "sizeM": {
+      "w": 1.4,
+      "h": 0.5,
+      "d": 2.7
+     }
+    },
+    {
+     "id": "A13.6",
+     "name": "Poppy furrow",
+     "group": "A13",
+     "cell": 6,
+     "sizeM": {
+      "w": 4.32,
+      "h": 1.26,
+      "d": 1.62
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R20_garden_bell_jar_furrows.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R20_garden_bell_jar_furrows/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A13_garden_of_hush/perspective.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A13 GARDEN OF HUSH KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A13_garden_of_hush/turnaround.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R21_row",
+   "kind": "tripo-row",
+   "groupId": "R21",
+   "name": "R21 cradle_crib_curtains",
+   "assets": [
+    {
+     "id": "A14.1",
+     "name": "Bone-rail crib frame",
+     "group": "A14",
+     "cell": 1,
+     "sizeM": {
+      "w": 6.3,
+      "h": 3.6,
+      "d": 3.6
+     }
+    },
+    {
+     "id": "A14.2",
+     "name": "Linen curtain pair",
+     "group": "A14",
+     "cell": 2,
+     "sizeM": {
+      "w": 4.32,
+      "h": 5.4,
+      "d": 0.7
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R21_cradle_crib_curtains.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R21_cradle_crib_curtains/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/perspective_scale_v2.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A14 THE CRADLE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/turnaround_scale_v2.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  },
+  {
+   "id": "R22_row",
+   "kind": "tripo-row",
+   "groupId": "R22",
+   "name": "R22 cradle_runners_mobile_light",
+   "assets": [
+    {
+     "id": "A14.6",
+     "name": "Rocker runner pair",
+     "group": "A14",
+     "cell": 6,
+     "sizeM": {
+      "w": 5.4,
+      "h": 1.44,
+      "d": 2.88
+     }
+    },
+    {
+     "id": "A14.4",
+     "name": "Bone mobile on stand",
+     "group": "A14",
+     "cell": 4,
+     "sizeM": {
+      "w": 2.52,
+      "h": 3.24,
+      "d": 0.9
+     }
+    },
+    {
+     "id": "A14.3",
+     "name": "Milk-white night-light",
+     "group": "A14",
+     "cell": 3,
+     "sizeM": {
+      "w": 1.08,
+      "h": 2.16,
+      "d": 1.08
+     }
+    }
+   ],
+   "promptPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/_prompts/R22_cradle_runners_mobile_light.txt",
+   "outputPath": "E:/Diablo2/ashlar/3d/act-01/_batches/kit_v1/rows/R22_cradle_runners_mobile_light/input.png",
+   "referenceImages": [
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/perspective_scale_v2.png",
+     "role": "IDENTITY REFERENCE: the approved PERSPECTIVE concept sheet \"A14 THE CRADLE KIT\" (six numbered cells). Copy the cells named in ROW exactly: design, proportions, materials, colours, repairs and one-sided details. Ignore everything else on that sheet: its title, labels, H silhouettes, guide lines, cell borders, backdrop and the cells not named."
+    },
+    {
+     "path": "E:/Diablo2/ashlar/art/act-01/environments/A14_the_cradle/turnaround_scale_v2.png",
+     "role": "SIDE-VIEW REFERENCE: the approved TURNAROUND sheet of the same group (LEFT, RIGHT, FRONT, BACK of each cell), only to understand the sides that image 1 does not show. Where it disagrees with image 1, image 1 wins."
+    }
+   ],
+   "dependsOn": [],
+   "generate": true,
+   "history": []
+  }
+ ]
+}

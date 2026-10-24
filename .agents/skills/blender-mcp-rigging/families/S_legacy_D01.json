@@ -55,7 +55,7 @@
       "ear_tail"
     ],
     "rules": {
-      "source": "ashlar/3d/monsters/D01_hodling/rig/tools/landmarks.json via rigcore.landmarks.from_d01_landmarks (arms and ears mirrored about x = 0 except the ears, legs about x = leg_mirror_x = 0.0105)",
+      "source": "ashlar/3d/act-01/monsters/D01_hodling/rig/tools/landmarks.json via rigcore.landmarks.from_d01_landmarks (arms and ears mirrored about x = 0 except the ears, legs about x = leg_mirror_x = 0.0105)",
       "head_top": "spine.head_tail of the D01 file",
       "ear_head": "ear base, measured per side (not mirrored)",
       "ear_tail": "ear tip, measured per side",

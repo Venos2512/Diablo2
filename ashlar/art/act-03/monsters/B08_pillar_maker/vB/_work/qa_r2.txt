@@ -1,0 +1,4 @@
+Status: pending_user_review; NOT approved. QA 2026-10-24 (Claude, fork G4), r2 fresh gen with design reference + relative size anchor.
+Style: PASS.
+Size: still ~1.57H (target 2.00H).
+Verdict: FAIL -> r3 with a code-made scale guide (templates/B08_2p0H.png).

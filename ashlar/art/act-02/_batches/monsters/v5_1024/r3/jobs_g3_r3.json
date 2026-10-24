@@ -1,0 +1,47 @@
+[
+  {
+    "id": "L02_A_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vA\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vA\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L02_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L02_plumb_hound\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  },
+  {
+    "id": "L03_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L03_gargoyle_mortarer\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\L03_gargoyle_mortarer\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\D03_kiln_bull\\vA\\concept_r4_1p4H.png",
+        "role": "style reference only (Act I approved sheet): match its hand-painted rendering, not its design"
+      }
+    ]
+  }
+]

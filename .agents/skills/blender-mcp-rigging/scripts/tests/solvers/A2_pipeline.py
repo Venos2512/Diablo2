@@ -33,11 +33,11 @@ from solvers import analysis, consensus, glbmesh, landmarks_geo, unirig_bridge  
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "..", ".."))
 OUT = r"E:\tmp_rigkit\I1\pipe"
 ASSETS = {
-    "D01_hodling": {"glb": r"ashlar\3d\monsters\D01_hodling\D01_hodling.glb", "H": 0.5, "family": "S"},
-    "FL_flagellant_vA": {"glb": r"ashlar\3d\heroes\FL_flagellant_vA\FL_flagellant_vA.glb", "H": 1.8, "family": "H"},
-    "U01_shambler": {"glb": r"ashlar\3d\monsters\U01_shambler\U01_shambler.glb", "H": 0.95 * 1.8, "family": "H"},
+    "D01_hodling": {"glb": r"ashlar\3d\act-01\monsters\D01_hodling\D01_hodling.glb", "H": 0.5, "family": "S"},
+    "FL_flagellant_vA": {"glb": r"ashlar\3d\heroes\FL_flagellant\vA\FL_flagellant_vA.glb", "H": 1.8, "family": "H"},
+    "U01_shambler": {"glb": r"ashlar\3d\act-01\monsters\U01_shambler\U01_shambler.glb", "H": 0.95 * 1.8, "family": "H"},
 }
-D01_G2 = r"ashlar\3d\monsters\D01_hodling\rig\tools\landmarks.json"
+D01_G2 = r"ashlar\3d\act-01\monsters\D01_hodling\rig\tools\landmarks.json"
 ELBOW_PREBEND = 0.0033  # d01_rig_def.ELBOW_PREBEND (m, toward +Y)
 FIXED = ("shoulder", "elbow", "wrist", "hip", "knee", "ankle", "ball")
 CONVENTION = ("pelvis", "spine_01", "spine_02", "chest", "neck", "head", "clavicle")

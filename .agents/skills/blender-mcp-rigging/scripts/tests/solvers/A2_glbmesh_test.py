@@ -16,7 +16,7 @@ import pytest  # noqa: E402
 from solvers import glbmesh  # noqa: E402
 
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 6))
-D01_GLB = os.path.join(REPO, "ashlar", "3d", "monsters", "D01_hodling", "D01_hodling.glb")
+D01_GLB = os.path.join(REPO, "ashlar", "3d", "act-01", "monsters", "D01_hodling", "D01_hodling.glb")
 BLENDER = r"E:\SteamLibrary\steamapps\common\Blender\blender.exe"
 
 

@@ -58,7 +58,7 @@
     "Aux bones from the D01 brief, for reference: helmet (head), sack (chest, rigid content + region-limited cloth), loincloth_front (pelvis), L_ear/R_ear (head)."
   ],
   "legacy_profiles": {
-    "S_legacy_D01": "35 runtime bones = 22 core (no clavicle, no twist) + 5 aux + 8 sockets; ashlar/3d/monsters/D01_hodling/rig/tools/d01_rig_def.py"
+    "S_legacy_D01": "35 runtime bones = 22 core (no clavicle, no twist) + 5 aux + 8 sockets; ashlar/3d/act-01/monsters/D01_hodling/rig/tools/d01_rig_def.py"
   },
   "plausibility": {
     "segment_ratio": {

@@ -18,8 +18,8 @@ import pytest  # noqa: E402
 from solvers import glbmesh, unirig_bridge as ub  # noqa: E402
 
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), *[".."] * 6))
-ASSETS = {"D01_hodling": (r"ashlar\3d\monsters\D01_hodling\D01_hodling.glb", 0.5),
-          "FL_flagellant_vA": (r"ashlar\3d\heroes\FL_flagellant_vA\FL_flagellant_vA.glb", 1.8)}
+ASSETS = {"D01_hodling": (r"ashlar\3d\act-01\monsters\D01_hodling\D01_hodling.glb", 0.5),
+          "FL_flagellant_vA": (r"ashlar\3d\heroes\FL_flagellant\vA\FL_flagellant_vA.glb", 1.8)}
 STD_BONES = {"pelvis", "spine_01", "spine_02", "chest", "neck", "head"} | {
     f"{s}_{b}" for s in "LR" for b in ("Clavicle", "UpperArm", "ForeArm", "Hand", "Thigh", "Calf", "Foot", "Toe")}
 

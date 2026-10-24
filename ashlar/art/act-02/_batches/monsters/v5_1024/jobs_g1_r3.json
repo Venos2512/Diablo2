@@ -1,0 +1,77 @@
+[
+  {
+    "id": "U06_A_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U06_pall_wight\\vA\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U06_pall_wight\\vA\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U06_pall_wight\\vA\\concept_v5_r2.png",
+        "role": "edit target: the current sheet to correct"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "U12_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U12_the_pressed\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U12_the_pressed\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U12_the_pressed\\vB\\concept_v5_r2.png",
+        "role": "edit target: the current sheet to correct"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B06_A_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vA\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vA\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vA\\concept_v5_r2.png",
+        "role": "edit target: the current sheet to correct"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "B06_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\B06_choir_of_nails\\vB\\concept_v5_r2.png",
+        "role": "edit target: the current sheet to correct"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  },
+  {
+    "id": "U11_B_v5_r3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U11_scribe_shade\\vB\\_work\\concept_v5_r3.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U11_scribe_shade\\vB\\concept_v5_r3.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\monsters\\U11_scribe_shade\\vB\\concept_v5_r2.png",
+        "role": "edit target: the current sheet to correct"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only (Act I approved sheet)"
+      }
+    ]
+  }
+]

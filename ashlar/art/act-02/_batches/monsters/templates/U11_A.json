@@ -1,0 +1,91 @@
+{
+ "id": "U11",
+ "variant": "A",
+ "title": "U11 SCRIBE-SHADE — A",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/docs/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.1",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 382,
+ "silhouette_px": [
+  136,
+  382
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "WEAPON",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 250
+    },
+    {
+     "label": "top 0.95H",
+     "h": 0.95,
+     "y": 269
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "WEAPON",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h",
+   "source_range": "0.90–1.00H (G3), cúi như đang viết",
+   "mid": 0.95,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 0.95
+  }
+ ],
+ "weapon_cell": {
+  "kind": "WEAPON",
+  "contents": "the long quill pen"
+ },
+ "estimates": {
+  "notes": [
+   "view widths",
+   "WEAPON cell width",
+   "the 3/4 view may stoop below 0.95H; the line is the neutral top"
+  ],
+  "view_widths_H": {
+   "3/4": 0.7,
+   "WEAPON": 0.3,
+   "LEFT": 0.5,
+   "RIGHT": 0.5,
+   "FRONT": 1.1,
+   "BACK": 1.1
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}
