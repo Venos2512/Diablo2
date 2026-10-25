@@ -1,0 +1,2597 @@
+{
+ "tag": "V3",
+ "poses": {
+  "rest": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000333916996,
+     "edge_max": 1.0000000822688575,
+     "edge_min": 0.9999995478574427,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.0000014768826808,
+     "edge_max": 1.000002133119121,
+     "edge_min": 0.9999985701011821,
+     "area_frac": 0.0
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.0000032614942145,
+     "edge_max": 1.0000037350274893,
+     "edge_min": 0.9999973005364188,
+     "area_frac": 0.0
+    },
+    "palm": {
+     "torn": 0,
+     "edge_p99": 1.0000007552656058,
+     "edge_max": 1.0000009485367995,
+     "edge_min": 0.9999995223063685,
+     "area_frac": 0.0
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0000018318805974,
+     "edge_max": 1.0000027610031916,
+     "edge_min": 0.9999983321736415,
+     "area_frac": 0.0
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.0000008465589298,
+     "edge_max": 1.000001447154682,
+     "edge_min": 0.9999974105492282,
+     "area_frac": 0.0
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000177721014,
+     "edge_max": 1.0000002460030495,
+     "edge_min": 0.9999995223063685,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 0,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.0,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 1.0,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 1.0,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 1.0,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   },
+   "penetration": {}
+  },
+  "lab_relaxed": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.00000003428322,
+     "edge_max": 1.0252861422425663,
+     "edge_min": 0.9023198757576556,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.247816299367622,
+     "edge_max": 1.4256219950553886,
+     "edge_min": 0.6789977325794456,
+     "area_frac": 0.18723292174162973
+    },
+    "middle": {
+     "torn": 1,
+     "edge_p99": 1.3354343021801358,
+     "edge_max": 1.6519422588342705,
+     "edge_min": 0.4558730057003281,
+     "area_frac": 0.13867573008331818
+    },
+    "palm": {
+     "torn": 7,
+     "edge_p99": 1.4326459529514177,
+     "edge_max": 1.8830264741099891,
+     "edge_min": 0.469583862923531,
+     "area_frac": 0.21131640050465758
+    },
+    "pinky": {
+     "torn": 2,
+     "edge_p99": 1.370851463615165,
+     "edge_max": 1.5580164021656688,
+     "edge_min": 0.2160735989517215,
+     "area_frac": 0.25200442490664976
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 1,
+     "edge_p99": 1.38718380556467,
+     "edge_max": 1.6519422588342705,
+     "edge_min": 0.4015062135302598,
+     "area_frac": 0.20117589895048213
+    },
+    "thumb": {
+     "torn": 5,
+     "edge_p99": 1.4468957153054895,
+     "edge_max": 1.8830264741099891,
+     "edge_min": 0.8254614553871266,
+     "area_frac": 0.11817463056847924
+    }
+   },
+   "torn_total": 12,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.01,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 0.995,
+    "index_mcp": 0.991,
+    "index_pip": 1.0,
+    "index_dip": 0.992,
+    "middle_mcp": 0.97,
+    "middle_pip": 0.999,
+    "middle_dip": 0.991,
+    "ring_mcp": 0.967,
+    "ring_pip": 1.0,
+    "ring_dip": 0.979,
+    "pinky_mcp": 0.96,
+    "pinky_pip": 0.995,
+    "pinky_dip": 0.997,
+    "wrist": 1.002
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.079,
+    "0.3": 1.125
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "lab_open": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000336454273,
+     "edge_max": 1.0058765546779564,
+     "edge_min": 0.9000958004850989,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.1158802259045741,
+     "edge_max": 1.1987354130860868,
+     "edge_min": 0.8466560426305442,
+     "area_frac": 0.03591463192264854
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.1816955138257559,
+     "edge_max": 1.4567997374699377,
+     "edge_min": 0.7126582189548797,
+     "area_frac": 0.07397764867587965
+    },
+    "palm": {
+     "torn": 12,
+     "edge_p99": 1.5464580067857943,
+     "edge_max": 2.5818591806179625,
+     "edge_min": 0.7646532943706554,
+     "area_frac": 0.13663662030524287
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.2104165428095257,
+     "edge_max": 1.4287232257668308,
+     "edge_min": 0.5380175391505552,
+     "area_frac": 0.10332579086384525
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.2141891711941841,
+     "edge_max": 1.4567997374699377,
+     "edge_min": 0.7216393611014958,
+     "area_frac": 0.07927173850909662
+    },
+    "thumb": {
+     "torn": 9,
+     "edge_p99": 1.5353432114852168,
+     "edge_max": 2.5818591806179625,
+     "edge_min": 0.9000958004850989,
+     "area_frac": 0.14753087616688595
+    }
+   },
+   "torn_total": 15,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.036,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.002,
+    "index_pip": 1.0,
+    "index_dip": 0.996,
+    "middle_mcp": 0.989,
+    "middle_pip": 1.0,
+    "middle_dip": 0.997,
+    "ring_mcp": 0.989,
+    "ring_pip": 1.0,
+    "ring_dip": 0.992,
+    "pinky_mcp": 1.002,
+    "pinky_pip": 1.0,
+    "pinky_dip": 0.998,
+    "wrist": 1.004
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.285,
+    "0.3": 1.281
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "lab_grip": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000370185718,
+     "edge_max": 1.1215977732347069,
+     "edge_min": 0.7585611203615398,
+     "area_frac": 0.003799635399682747
+    },
+    "index": {
+     "torn": 25,
+     "edge_p99": 1.8109077882602935,
+     "edge_max": 2.34132544018858,
+     "edge_min": 0.1418163724065343,
+     "area_frac": 0.4516514251241736
+    },
+    "middle": {
+     "torn": 39,
+     "edge_p99": 1.990563629234697,
+     "edge_max": 2.5663639248449495,
+     "edge_min": 0.2757289510490624,
+     "area_frac": 0.30448483244321267
+    },
+    "palm": {
+     "torn": 67,
+     "edge_p99": 2.197698105047363,
+     "edge_max": 3.505180666344042,
+     "edge_min": 0.08787596306524655,
+     "area_frac": 0.28839810054747883
+    },
+    "pinky": {
+     "torn": 25,
+     "edge_p99": 1.887978178300852,
+     "edge_max": 2.77493952189952,
+     "edge_min": 0.128069991409884,
+     "area_frac": 0.458351659422901
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 32,
+     "edge_p99": 1.8702640636211678,
+     "edge_max": 2.5022892698590304,
+     "edge_min": 0.08787596306524655,
+     "area_frac": 0.31636792088080246
+    },
+    "thumb": {
+     "torn": 17,
+     "edge_p99": 2.2714293845438784,
+     "edge_max": 3.505180666344042,
+     "edge_min": 0.3536140745436175,
+     "area_frac": 0.44253527333007675
+    }
+   },
+   "torn_total": 158,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.97,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 0.976,
+    "index_mcp": 0.881,
+    "index_pip": 0.891,
+    "index_dip": 0.994,
+    "middle_mcp": 0.866,
+    "middle_pip": 0.85,
+    "middle_dip": 0.965,
+    "ring_mcp": 0.855,
+    "ring_pip": 0.877,
+    "ring_dip": 1.05,
+    "pinky_mcp": 0.879,
+    "pinky_pip": 0.877,
+    "pinky_dip": 0.994,
+    "wrist": 0.996
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.989,
+    "0.3": 1.132
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 63,
+     "n_vert": 28,
+     "n_deep": 25,
+     "max_depth_mm": 10.242638987851617,
+     "into": [
+      "middle",
+      "palm"
+     ]
+    },
+    "middle": {
+     "new_pairs": 202,
+     "n_vert": 25,
+     "n_deep": 18,
+     "max_depth_mm": 11.975244700440602,
+     "into": [
+      "index",
+      "middle",
+      "palm",
+      "pinky",
+      "ring"
+     ]
+    },
+    "ring": {
+     "new_pairs": 233,
+     "n_vert": 30,
+     "n_deep": 20,
+     "max_depth_mm": 6.73673281691477,
+     "into": [
+      "middle",
+      "palm",
+      "pinky",
+      "ring"
+     ]
+    },
+    "pinky": {
+     "new_pairs": 82,
+     "n_vert": 29,
+     "n_deep": 23,
+     "max_depth_mm": 7.057097123645876,
+     "into": [
+      "palm",
+      "pinky",
+      "ring"
+     ]
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "cup": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0053728754384696,
+     "edge_max": 1.1233283503561091,
+     "edge_min": 0.9704020487855837,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 1,
+     "edge_p99": 1.327932419901175,
+     "edge_max": 1.5657687834064573,
+     "edge_min": 0.5803713142396016,
+     "area_frac": 0.25233318732111526
+    },
+    "middle": {
+     "torn": 1,
+     "edge_p99": 1.3858042178735146,
+     "edge_max": 1.5534414361435152,
+     "edge_min": 0.46152103117778764,
+     "area_frac": 0.15404427891871106
+    },
+    "palm": {
+     "torn": 4,
+     "edge_p99": 1.3982162567544547,
+     "edge_max": 2.022293420888879,
+     "edge_min": 0.2086724827576139,
+     "area_frac": 0.25088578284478924
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.3314780321760713,
+     "edge_max": 1.5822751909052846,
+     "edge_min": 0.2907831690929865,
+     "area_frac": 0.20760206251352564
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 1,
+     "edge_p99": 1.3331012806789675,
+     "edge_max": 1.5118181565481355,
+     "edge_min": 0.4840378608390673,
+     "area_frac": 0.19881620131240416
+    },
+    "thumb": {
+     "torn": 2,
+     "edge_p99": 1.303326114830954,
+     "edge_max": 2.022293420888879,
+     "edge_min": 0.2086724827576139,
+     "area_frac": 0.19785777494857718
+    }
+   },
+   "torn_total": 7,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.939,
+    "thumb_mcp": 0.999,
+    "thumb_ip": 1.004,
+    "index_mcp": 0.97,
+    "index_pip": 1.0,
+    "index_dip": 0.991,
+    "middle_mcp": 0.96,
+    "middle_pip": 0.999,
+    "middle_dip": 0.992,
+    "ring_mcp": 0.952,
+    "ring_pip": 1.0,
+    "ring_dip": 0.986,
+    "pinky_mcp": 0.947,
+    "pinky_pip": 0.997,
+    "pinky_dip": 0.997,
+    "wrist": 0.991
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.899,
+    "0.3": 0.836
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 13,
+     "n_vert": 1,
+     "n_deep": 0,
+     "max_depth_mm": 0.5349405538825824,
+     "into": [
+      "palm",
+      "thumb"
+     ]
+    },
+    "index": {
+     "new_pairs": 59,
+     "n_vert": 15,
+     "n_deep": 9,
+     "max_depth_mm": 4.245593459893565,
+     "into": [
+      "middle"
+     ]
+    },
+    "middle": {
+     "new_pairs": 59,
+     "n_vert": 8,
+     "n_deep": 4,
+     "max_depth_mm": 3.9534917460990906,
+     "into": [
+      "index"
+     ]
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "fist": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0072338137751466,
+     "edge_max": 1.1801111554097172,
+     "edge_min": 0.9555566566771554,
+     "area_frac": 0.000912374511319014
+    },
+    "index": {
+     "torn": 23,
+     "edge_p99": 1.8037739856340989,
+     "edge_max": 2.238753883084141,
+     "edge_min": 0.14016790543048824,
+     "area_frac": 0.44667325571275057
+    },
+    "middle": {
+     "torn": 31,
+     "edge_p99": 1.8273507116625665,
+     "edge_max": 2.088022546342293,
+     "edge_min": 0.1388560897725366,
+     "area_frac": 0.2754369095701225
+    },
+    "palm": {
+     "torn": 57,
+     "edge_p99": 1.9869582260639715,
+     "edge_max": 3.0763627277599204,
+     "edge_min": 0.14016790543048824,
+     "area_frac": 0.2682236107029142
+    },
+    "pinky": {
+     "torn": 20,
+     "edge_p99": 1.7288079908400198,
+     "edge_max": 2.6476297509379036,
+     "edge_min": 0.18215247287337544,
+     "area_frac": 0.43928652502193
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 24,
+     "edge_p99": 1.7847243178750336,
+     "edge_max": 2.037672709136963,
+     "edge_min": 0.11829804887961343,
+     "area_frac": 0.29386804460579335
+    },
+    "thumb": {
+     "torn": 17,
+     "edge_p99": 1.7588535195405701,
+     "edge_max": 3.0763627277599204,
+     "edge_min": 0.2963470375947245,
+     "area_frac": 0.3868829430917807
+    }
+   },
+   "torn_total": 131,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.907,
+    "thumb_mcp": 0.999,
+    "thumb_ip": 1.094,
+    "index_mcp": 0.883,
+    "index_pip": 0.954,
+    "index_dip": 0.996,
+    "middle_mcp": 0.862,
+    "middle_pip": 0.961,
+    "middle_dip": 0.92,
+    "ring_mcp": 0.854,
+    "ring_pip": 0.973,
+    "ring_dip": 0.95,
+    "pinky_mcp": 0.872,
+    "pinky_pip": 0.936,
+    "pinky_dip": 0.967,
+    "wrist": 0.985
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.871,
+    "0.3": 0.789
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 243,
+     "n_vert": 66,
+     "n_deep": 57,
+     "max_depth_mm": 9.060064306682118,
+     "into": [
+      "index",
+      "middle",
+      "palm",
+      "thumb"
+     ]
+    },
+    "index": {
+     "new_pairs": 273,
+     "n_vert": 63,
+     "n_deep": 49,
+     "max_depth_mm": 6.713678546106552,
+     "into": [
+      "middle",
+      "palm",
+      "ring",
+      "thumb"
+     ]
+    },
+    "middle": {
+     "new_pairs": 341,
+     "n_vert": 67,
+     "n_deep": 55,
+     "max_depth_mm": 7.459952068008653,
+     "into": [
+      "index",
+      "palm",
+      "ring",
+      "thumb"
+     ]
+    },
+    "ring": {
+     "new_pairs": 239,
+     "n_vert": 34,
+     "n_deep": 22,
+     "max_depth_mm": 6.3615034147780785,
+     "into": [
+      "index",
+      "middle",
+      "palm",
+      "pinky"
+     ]
+    },
+    "pinky": {
+     "new_pairs": 85,
+     "n_vert": 21,
+     "n_deep": 17,
+     "max_depth_mm": 14.088526238361723,
+     "into": [
+      "palm",
+      "ring"
+     ]
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "loose_grip": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0059537755190762,
+     "edge_max": 1.1522561131233076,
+     "edge_min": 0.9629355329016398,
+     "area_frac": 0.0004517554915413804
+    },
+    "index": {
+     "torn": 6,
+     "edge_p99": 1.4497582387407881,
+     "edge_max": 1.7383070569412569,
+     "edge_min": 0.48575336955400983,
+     "area_frac": 0.31524545874308624
+    },
+    "middle": {
+     "torn": 9,
+     "edge_p99": 1.5204974769632869,
+     "edge_max": 1.6857471830090378,
+     "edge_min": 0.45014505028067875,
+     "area_frac": 0.21833474310545975
+    },
+    "palm": {
+     "torn": 24,
+     "edge_p99": 1.6375016372185776,
+     "edge_max": 2.4752976912362996,
+     "edge_min": 0.09380608547612537,
+     "area_frac": 0.283576989227952
+    },
+    "pinky": {
+     "torn": 1,
+     "edge_p99": 1.4169788908830692,
+     "edge_max": 1.8343827687965495,
+     "edge_min": 0.19417663258722573,
+     "area_frac": 0.3122627966412973
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 7,
+     "edge_p99": 1.5022266172451038,
+     "edge_max": 1.6714131389717233,
+     "edge_min": 0.39484141132854955,
+     "area_frac": 0.24697842619665453
+    },
+    "thumb": {
+     "torn": 4,
+     "edge_p99": 1.2849244150277557,
+     "edge_max": 2.4752976912362996,
+     "edge_min": 0.09380608547612537,
+     "area_frac": 0.20215043188021828
+    }
+   },
+   "torn_total": 35,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.921,
+    "thumb_mcp": 0.993,
+    "thumb_ip": 1.126,
+    "index_mcp": 0.956,
+    "index_pip": 0.999,
+    "index_dip": 0.987,
+    "middle_mcp": 0.936,
+    "middle_pip": 0.996,
+    "middle_dip": 0.988,
+    "ring_mcp": 0.929,
+    "ring_pip": 0.999,
+    "ring_dip": 0.977,
+    "pinky_mcp": 0.921,
+    "pinky_pip": 0.994,
+    "pinky_dip": 0.997,
+    "wrist": 0.987
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.884,
+    "0.3": 0.811
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 62,
+     "n_vert": 6,
+     "n_deep": 6,
+     "max_depth_mm": 5.508841623023077,
+     "into": [
+      "index",
+      "palm",
+      "thumb"
+     ]
+    },
+    "index": {
+     "new_pairs": 126,
+     "n_vert": 42,
+     "n_deep": 36,
+     "max_depth_mm": 7.90422914709849,
+     "into": [
+      "middle",
+      "thumb"
+     ]
+    },
+    "middle": {
+     "new_pairs": 84,
+     "n_vert": 21,
+     "n_deep": 16,
+     "max_depth_mm": 6.162629737662522,
+     "into": [
+      "index"
+     ]
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "point": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0072338137751466,
+     "edge_max": 1.1801111554097172,
+     "edge_min": 0.9555566566771554,
+     "area_frac": 0.000912374511319014
+    },
+    "index": {
+     "torn": 6,
+     "edge_p99": 1.3835812550551572,
+     "edge_max": 2.937128055562179,
+     "edge_min": 0.315894038541018,
+     "area_frac": 0.1618161070616162
+    },
+    "middle": {
+     "torn": 37,
+     "edge_p99": 1.9511198531668692,
+     "edge_max": 4.091007905468952,
+     "edge_min": 0.1388560897725366,
+     "area_frac": 0.32710156322481854
+    },
+    "palm": {
+     "torn": 41,
+     "edge_p99": 1.9006005144688083,
+     "edge_max": 3.163726427071041,
+     "edge_min": 0.18215247287337544,
+     "area_frac": 0.22305993763963725
+    },
+    "pinky": {
+     "torn": 20,
+     "edge_p99": 1.7288079908400198,
+     "edge_max": 2.6476297509379036,
+     "edge_min": 0.18215247287337544,
+     "area_frac": 0.43928652502193
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 24,
+     "edge_p99": 1.7847243178750336,
+     "edge_max": 2.037672709136963,
+     "edge_min": 0.11829804887961343,
+     "area_frac": 0.30092915000516995
+    },
+    "thumb": {
+     "torn": 17,
+     "edge_p99": 1.7588535195405701,
+     "edge_max": 3.163726427071041,
+     "edge_min": 0.2963470375947245,
+     "area_frac": 0.3868829430917807
+    }
+   },
+   "torn_total": 111,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.907,
+    "thumb_mcp": 0.998,
+    "thumb_ip": 1.004,
+    "index_mcp": 0.955,
+    "index_pip": 1.0,
+    "index_dip": 1.001,
+    "middle_mcp": 0.865,
+    "middle_pip": 0.961,
+    "middle_dip": 0.92,
+    "ring_mcp": 0.855,
+    "ring_pip": 0.973,
+    "ring_dip": 0.95,
+    "pinky_mcp": 0.872,
+    "pinky_pip": 0.936,
+    "pinky_dip": 0.967,
+    "wrist": 0.985
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.871,
+    "0.3": 0.789
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 146,
+     "n_vert": 48,
+     "n_deep": 43,
+     "max_depth_mm": 9.060064306682118,
+     "into": [
+      "middle",
+      "palm",
+      "thumb"
+     ]
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 254,
+     "n_vert": 55,
+     "n_deep": 49,
+     "max_depth_mm": 12.382825934134036,
+     "into": [
+      "palm",
+      "ring",
+      "thumb"
+     ]
+    },
+    "ring": {
+     "new_pairs": 209,
+     "n_vert": 39,
+     "n_deep": 28,
+     "max_depth_mm": 7.32758490370906,
+     "into": [
+      "middle",
+      "palm",
+      "pinky"
+     ]
+    },
+    "pinky": {
+     "new_pairs": 85,
+     "n_vert": 19,
+     "n_deep": 15,
+     "max_depth_mm": 14.088526238361723,
+     "into": [
+      "palm",
+      "ring"
+     ]
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "spread": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000352800227,
+     "edge_max": 1.0138814334258837,
+     "edge_min": 0.9364219961631116,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.2370110846010476,
+     "edge_max": 1.526431904350254,
+     "edge_min": 0.585741193983698,
+     "area_frac": 0.17718721518099909
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.3855114281616978,
+     "edge_max": 1.7846884840295056,
+     "edge_min": 0.5970710158777403,
+     "area_frac": 0.1126096455096067
+    },
+    "palm": {
+     "torn": 4,
+     "edge_p99": 1.377921756765076,
+     "edge_max": 2.12102821319478,
+     "edge_min": 0.6205895607978256,
+     "area_frac": 0.18218340727144194
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.244890705803307,
+     "edge_max": 1.9929115602255556,
+     "edge_min": 0.6512622132316367,
+     "area_frac": 0.15684688120769213
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.2518995048187949,
+     "edge_max": 1.4964763005847364,
+     "edge_min": 0.6277643515846567,
+     "area_frac": 0.1545850624083737
+    },
+    "thumb": {
+     "torn": 3,
+     "edge_p99": 1.3638944929056622,
+     "edge_max": 2.12102821319478,
+     "edge_min": 0.7490803339318318,
+     "area_frac": 0.1616484374295527
+    }
+   },
+   "torn_total": 6,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.026,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 0.995,
+    "index_mcp": 1.009,
+    "index_pip": 1.0,
+    "index_dip": 1.001,
+    "middle_mcp": 1.015,
+    "middle_pip": 1.0,
+    "middle_dip": 1.003,
+    "ring_mcp": 1.031,
+    "ring_pip": 1.0,
+    "ring_dip": 1.005,
+    "pinky_mcp": 1.037,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.002,
+    "wrist": 1.002
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.217,
+    "0.3": 1.272
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "wrist_flex40": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 20,
+     "edge_p99": 1.6218462625358405,
+     "edge_max": 2.5253808676708007,
+     "edge_min": 0.4851077688367621,
+     "area_frac": 0.028122361913234972
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.000001381390828,
+     "edge_max": 1.0000020265529896,
+     "edge_min": 0.9999985014166872,
+     "area_frac": 0.0
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.0000032482737171,
+     "edge_max": 1.0000037263135957,
+     "edge_min": 0.9999972985640165,
+     "area_frac": 0.0
+    },
+    "palm": {
+     "torn": 18,
+     "edge_p99": 1.7740708896608033,
+     "edge_max": 2.5253808676708007,
+     "edge_min": 0.4851077688367621,
+     "area_frac": 0.11074028842950565
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0000018574288931,
+     "edge_max": 1.0000028570059476,
+     "edge_min": 0.9999983905454952,
+     "area_frac": 0.0
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.0000008309303459,
+     "edge_max": 1.0000014410087925,
+     "edge_min": 0.9999974296354399,
+     "area_frac": 0.0
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.0708434345547537,
+     "edge_max": 1.4917835123169763,
+     "edge_min": 0.49404369497377754,
+     "area_frac": 0.04163408619420243
+    }
+   },
+   "torn_total": 22,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.882,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.0,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 1.0,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 1.0,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 1.0,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 0.966
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.627,
+    "0.3": 1.009
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 2,
+     "max_depth_mm": 0.5346462632231908,
+     "regions": [
+      "palm"
+     ]
+    }
+   }
+  },
+  "wrist_ext40": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 21,
+     "edge_p99": 1.6596951675378775,
+     "edge_max": 2.447654225544234,
+     "edge_min": 0.2572273924277096,
+     "area_frac": 0.02962832095836067
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.000001532386964,
+     "edge_max": 1.0000021985628413,
+     "edge_min": 0.9999986174377696,
+     "area_frac": 0.0
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.0000033279461238,
+     "edge_max": 1.0000037982394931,
+     "edge_min": 0.9999973071288716,
+     "area_frac": 0.0
+    },
+    "palm": {
+     "torn": 24,
+     "edge_p99": 1.7250212216754162,
+     "edge_max": 2.447654225544234,
+     "edge_min": 0.7810346616562694,
+     "area_frac": 0.13464149090470082
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0000018641953317,
+     "edge_max": 1.0000026981510735,
+     "edge_min": 0.9999982929531979,
+     "area_frac": 0.0
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.0000008632585342,
+     "edge_max": 1.0000015295041182,
+     "edge_min": 0.9999974090678293,
+     "area_frac": 0.0
+    },
+    "thumb": {
+     "torn": 5,
+     "edge_p99": 1.3170451997071433,
+     "edge_max": 1.7272174248846262,
+     "edge_min": 0.9015489148651472,
+     "area_frac": 0.04771948370972873
+    }
+   },
+   "torn_total": 28,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.029,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.0,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 1.0,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 1.0,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 1.0,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.028
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.376,
+    "0.3": 1.404
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 4,
+     "max_depth_mm": 3.596748099880728,
+     "regions": [
+      "palm"
+     ]
+    }
+   }
+  },
+  "pron90": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 16,
+     "edge_p99": 1.5090793242919365,
+     "edge_max": 1.7319830950976358,
+     "edge_min": 0.5544198393686404,
+     "area_frac": 0.05826394749972771
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.0000014476088228,
+     "edge_max": 1.0000021238500656,
+     "edge_min": 0.9999984609740089,
+     "area_frac": 0.0
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.0000036519819961,
+     "edge_max": 1.0000041315189425,
+     "edge_min": 0.9999974007103719,
+     "area_frac": 0.0
+    },
+    "palm": {
+     "torn": 0,
+     "edge_p99": 1.0000007541725555,
+     "edge_max": 1.0000009406845312,
+     "edge_min": 0.999999289965576,
+     "area_frac": 0.0
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0000020254311883,
+     "edge_max": 1.0000029094379328,
+     "edge_min": 0.9999985355671716,
+     "area_frac": 0.0
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.000000494390302,
+     "edge_max": 1.000000510153311,
+     "edge_min": 0.9999994926093353,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.0000011523632455,
+     "edge_max": 1.0000018578064929,
+     "edge_min": 0.9999975307578435,
+     "area_frac": 0.0
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.0000004749040077,
+     "edge_max": 1.0000005562520191,
+     "edge_min": 0.9999990416512099,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 16,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.0,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 1.0,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 1.0,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 1.0,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 0.879,
+    "0.115": 0.886,
+    "0.29": 0.868,
+    "0.3": 0.849
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "sup90": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 31,
+     "edge_p99": 1.6025427961909597,
+     "edge_max": 1.854698568783354,
+     "edge_min": 0.5956497682299169,
+     "area_frac": 0.06641203564703163
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.0000014234481776,
+     "edge_max": 1.000002099369272,
+     "edge_min": 0.9999984508721379,
+     "area_frac": 0.0
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.0000036124739111,
+     "edge_max": 1.0000040922441302,
+     "edge_min": 0.9999973647441007,
+     "area_frac": 0.0
+    },
+    "palm": {
+     "torn": 0,
+     "edge_p99": 1.000000765276129,
+     "edge_max": 1.0000009288967775,
+     "edge_min": 0.9999992867816447,
+     "area_frac": 0.0
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0000019865886027,
+     "edge_max": 1.0000028768537181,
+     "edge_min": 0.9999984921779921,
+     "area_frac": 0.0
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.0000005016148192,
+     "edge_max": 1.0000005110032937,
+     "edge_min": 0.9999994929832557,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.0000011375022817,
+     "edge_max": 1.0000018753181117,
+     "edge_min": 0.9999974901250648,
+     "area_frac": 0.0
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000482394746,
+     "edge_max": 1.0000005366625926,
+     "edge_min": 0.9999990412247705,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 31,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.0,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 1.0,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 1.0,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 1.0,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 0.872,
+    "0.115": 0.878,
+    "0.29": 0.92,
+    "0.3": 0.94
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "fist_wrist_flex40": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 21,
+     "edge_p99": 1.653918396546032,
+     "edge_max": 2.5253808676708007,
+     "edge_min": 0.4851077688367621,
+     "area_frac": 0.025924532256342614
+    },
+    "index": {
+     "torn": 23,
+     "edge_p99": 1.8037738913141559,
+     "edge_max": 2.238753946159819,
+     "edge_min": 0.14016789331450272,
+     "area_frac": 0.44667325571275057
+    },
+    "middle": {
+     "torn": 31,
+     "edge_p99": 1.827350777961199,
+     "edge_max": 2.08802244247646,
+     "edge_min": 0.1388560892642813,
+     "area_frac": 0.2754369095701225
+    },
+    "palm": {
+     "torn": 76,
+     "edge_p99": 2.1733242537846134,
+     "edge_max": 3.076362474775597,
+     "edge_min": 0.14016789331450272,
+     "area_frac": 0.3669510167065201
+    },
+    "pinky": {
+     "torn": 20,
+     "edge_p99": 1.7288080485247475,
+     "edge_max": 2.6476298037067605,
+     "edge_min": 0.1821524681170006,
+     "area_frac": 0.43928652502193
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 24,
+     "edge_p99": 1.7847242942105057,
+     "edge_max": 2.037672707600079,
+     "edge_min": 0.11829803899644759,
+     "area_frac": 0.29386804460579335
+    },
+    "thumb": {
+     "torn": 19,
+     "edge_p99": 1.7588534720293474,
+     "edge_max": 3.076362474775597,
+     "edge_min": 0.29634701664327295,
+     "area_frac": 0.40302897877535576
+    }
+   },
+   "torn_total": 155,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 0.803,
+    "thumb_mcp": 0.999,
+    "thumb_ip": 1.094,
+    "index_mcp": 0.883,
+    "index_pip": 0.954,
+    "index_dip": 0.996,
+    "middle_mcp": 0.862,
+    "middle_pip": 0.961,
+    "middle_dip": 0.92,
+    "ring_mcp": 0.854,
+    "ring_pip": 0.973,
+    "ring_dip": 0.95,
+    "pinky_mcp": 0.872,
+    "pinky_pip": 0.936,
+    "pinky_dip": 0.967,
+    "wrist": 0.955
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.573,
+    "0.3": 1.583
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 243,
+     "n_vert": 67,
+     "n_deep": 58,
+     "max_depth_mm": 9.060063981727422,
+     "into": [
+      "index",
+      "middle",
+      "palm",
+      "thumb"
+     ]
+    },
+    "index": {
+     "new_pairs": 273,
+     "n_vert": 63,
+     "n_deep": 49,
+     "max_depth_mm": 6.7136783629104,
+     "into": [
+      "middle",
+      "palm",
+      "ring",
+      "thumb"
+     ]
+    },
+    "middle": {
+     "new_pairs": 341,
+     "n_vert": 67,
+     "n_deep": 55,
+     "max_depth_mm": 7.459952438688677,
+     "into": [
+      "index",
+      "palm",
+      "ring",
+      "thumb"
+     ]
+    },
+    "ring": {
+     "new_pairs": 239,
+     "n_vert": 34,
+     "n_deep": 22,
+     "max_depth_mm": 6.361503192637198,
+     "into": [
+      "index",
+      "middle",
+      "palm",
+      "pinky"
+     ]
+    },
+    "pinky": {
+     "new_pairs": 85,
+     "n_vert": 21,
+     "n_deep": 17,
+     "max_depth_mm": 14.08852758824068,
+     "into": [
+      "palm",
+      "ring"
+     ]
+    },
+    "skin_in_band": {
+     "n_vert": 2,
+     "max_depth_mm": 0.5346462632231908,
+     "regions": [
+      "palm"
+     ]
+    }
+   }
+  },
+  "open_sup90": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 31,
+     "edge_p99": 1.6025427961909597,
+     "edge_max": 1.854698568783354,
+     "edge_min": 0.5956497682299169,
+     "area_frac": 0.06641203564703163
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.1158803650016937,
+     "edge_max": 1.1987354692598904,
+     "edge_min": 0.8466560360417504,
+     "area_frac": 0.03591463192264854
+    },
+    "middle": {
+     "torn": 0,
+     "edge_p99": 1.1816956658554911,
+     "edge_max": 1.4567998076376163,
+     "edge_min": 0.7126585334126391,
+     "area_frac": 0.07397764867587965
+    },
+    "palm": {
+     "torn": 12,
+     "edge_p99": 1.546457978865193,
+     "edge_max": 2.5818588746016333,
+     "edge_min": 0.7646533267655947,
+     "area_frac": 0.13663662030524287
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.2104163571735371,
+     "edge_max": 1.4287233812937756,
+     "edge_min": 0.5380176390251143,
+     "area_frac": 0.10332579086384525
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.0000005016148192,
+     "edge_max": 1.0000005110032937,
+     "edge_min": 0.9999994929832557,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 0,
+     "edge_p99": 1.2141893544067934,
+     "edge_max": 1.4567998076376163,
+     "edge_min": 0.7216394314433066,
+     "area_frac": 0.07927173850909662
+    },
+    "thumb": {
+     "torn": 9,
+     "edge_p99": 1.535343181158244,
+     "edge_max": 2.5818588746016333,
+     "edge_min": 0.9000956090788371,
+     "area_frac": 0.14753087616688595
+    }
+   },
+   "torn_total": 46,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.036,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 1.002,
+    "index_pip": 1.0,
+    "index_dip": 0.996,
+    "middle_mcp": 0.989,
+    "middle_pip": 1.0,
+    "middle_dip": 0.997,
+    "ring_mcp": 0.989,
+    "ring_pip": 1.0,
+    "ring_dip": 0.992,
+    "pinky_mcp": 1.002,
+    "pinky_pip": 1.0,
+    "pinky_dip": 0.998,
+    "wrist": 1.004
+   },
+   "sections": {
+    "0.105": 0.872,
+    "0.115": 0.878,
+    "0.29": 1.063,
+    "0.3": 1.178
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "wave_1": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000333916996,
+     "edge_max": 1.0000000822688575,
+     "edge_min": 0.9999995478574427,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 0,
+     "edge_p99": 1.0100888736022913,
+     "edge_max": 1.0166645634840499,
+     "edge_min": 0.8970578051804717,
+     "area_frac": 0.0045705917813961975
+    },
+    "middle": {
+     "torn": 2,
+     "edge_p99": 1.1829701526901473,
+     "edge_max": 3.1613546636329977,
+     "edge_min": 0.44313857349425123,
+     "area_frac": 0.03637381967188951
+    },
+    "palm": {
+     "torn": 2,
+     "edge_p99": 1.4095200111560002,
+     "edge_max": 1.5980302644302702,
+     "edge_min": 0.3096888942762264,
+     "area_frac": 0.10917072160477655
+    },
+    "pinky": {
+     "torn": 16,
+     "edge_p99": 1.759757946418977,
+     "edge_max": 2.170459539918854,
+     "edge_min": 0.2550482660278629,
+     "area_frac": 0.406809694287629
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 11,
+     "edge_p99": 1.6492174012499168,
+     "edge_max": 3.1613546636329977,
+     "edge_min": 0.39484141472206635,
+     "area_frac": 0.23383213401814334
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000177721014,
+     "edge_max": 1.0000002460030495,
+     "edge_min": 0.9999995223063685,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 25,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 0.999,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 0.974,
+    "middle_pip": 1.0,
+    "middle_dip": 1.0,
+    "ring_mcp": 0.931,
+    "ring_pip": 0.999,
+    "ring_dip": 0.977,
+    "pinky_mcp": 0.89,
+    "pinky_pip": 0.932,
+    "pinky_dip": 0.981,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 34,
+     "n_vert": 39,
+     "n_deep": 39,
+     "max_depth_mm": 12.168413863568375,
+     "into": [
+      "palm"
+     ]
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "wave_2": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000333916996,
+     "edge_max": 1.0000000822688575,
+     "edge_min": 0.9999995478574427,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 1,
+     "edge_p99": 1.1203367353887492,
+     "edge_max": 1.5912943871064045,
+     "edge_min": 0.49654633388783714,
+     "area_frac": 0.03937704994515318
+    },
+    "middle": {
+     "torn": 10,
+     "edge_p99": 1.5294363053694913,
+     "edge_max": 3.231314741287344,
+     "edge_min": 0.18274218735337505,
+     "area_frac": 0.21880842887911842
+    },
+    "palm": {
+     "torn": 12,
+     "edge_p99": 1.5325880452114127,
+     "edge_max": 1.8237258573930635,
+     "edge_min": 0.32414916884053263,
+     "area_frac": 0.15537721905012664
+    },
+    "pinky": {
+     "torn": 1,
+     "edge_p99": 1.4222540438743816,
+     "edge_max": 2.078377958316861,
+     "edge_min": 0.19417662924689788,
+     "area_frac": 0.29112754428294985
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 23,
+     "edge_p99": 1.7587989136801632,
+     "edge_max": 3.231314741287344,
+     "edge_min": 0.13332769569391448,
+     "area_frac": 0.30306230881185886
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000177721014,
+     "edge_max": 1.0000002460030495,
+     "edge_min": 0.9999995223063685,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 35,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 0.991,
+    "index_pip": 1.0,
+    "index_dip": 1.0,
+    "middle_mcp": 0.937,
+    "middle_pip": 0.996,
+    "middle_dip": 0.988,
+    "ring_mcp": 0.916,
+    "ring_pip": 0.951,
+    "ring_dip": 0.942,
+    "pinky_mcp": 0.926,
+    "pinky_pip": 0.994,
+    "pinky_dip": 0.997,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 54,
+     "n_vert": 44,
+     "n_deep": 42,
+     "max_depth_mm": 15.981107984428041,
+     "into": [
+      "palm"
+     ]
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "wave_3": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000333916996,
+     "edge_max": 1.0000000822688575,
+     "edge_min": 0.9999995478574427,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 6,
+     "edge_p99": 1.4615911214808899,
+     "edge_max": 1.6662510427155497,
+     "edge_min": 0.4493284130142168,
+     "area_frac": 0.2793399676645793
+    },
+    "middle": {
+     "torn": 32,
+     "edge_p99": 1.9479830022087605,
+     "edge_max": 3.6220458977342074,
+     "edge_min": 0.10133093954926124,
+     "area_frac": 0.31042567548279165
+    },
+    "palm": {
+     "torn": 15,
+     "edge_p99": 1.5701068879203515,
+     "edge_max": 1.8239523338196693,
+     "edge_min": 0.36197307155558045,
+     "area_frac": 0.16265558058154186
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.1380255596413273,
+     "edge_max": 2.067526331977626,
+     "edge_min": 0.4867082285554311,
+     "area_frac": 0.07333939545479237
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 6,
+     "edge_p99": 1.4630899470101577,
+     "edge_max": 2.3829227218863616,
+     "edge_min": 0.39484141472206635,
+     "area_frac": 0.22210182309252807
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000177721014,
+     "edge_max": 1.0000002460030495,
+     "edge_min": 0.9721968840816748,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 44,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 0.959,
+    "index_pip": 0.999,
+    "index_dip": 0.987,
+    "middle_mcp": 0.911,
+    "middle_pip": 0.932,
+    "middle_dip": 0.963,
+    "ring_mcp": 0.936,
+    "ring_pip": 0.999,
+    "ring_dip": 0.977,
+    "pinky_mcp": 0.959,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "middle": {
+     "new_pairs": 54,
+     "n_vert": 54,
+     "n_deep": 52,
+     "max_depth_mm": 11.566047923594752,
+     "into": [
+      "palm"
+     ]
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  },
+  "wave_4": {
+   "regions": {
+    "cuff_forearm": {
+     "torn": 0,
+     "edge_p99": 1.0000000333916996,
+     "edge_max": 1.0000000822688575,
+     "edge_min": 0.9999995478574427,
+     "area_frac": 0.0
+    },
+    "index": {
+     "torn": 18,
+     "edge_p99": 1.7168665110880679,
+     "edge_max": 2.4051089661616034,
+     "edge_min": 0.15953384131205225,
+     "area_frac": 0.45227575991945934
+    },
+    "middle": {
+     "torn": 13,
+     "edge_p99": 1.623455651746048,
+     "edge_max": 2.884190749068418,
+     "edge_min": 0.45014505003710437,
+     "area_frac": 0.18476325227300358
+    },
+    "palm": {
+     "torn": 11,
+     "edge_p99": 1.517730382798611,
+     "edge_max": 1.9260600022045602,
+     "edge_min": 0.14987802286679452,
+     "area_frac": 0.11650382113811407
+    },
+    "pinky": {
+     "torn": 0,
+     "edge_p99": 1.0159233428788703,
+     "edge_max": 1.1242640625584783,
+     "edge_min": 0.8293280443590529,
+     "area_frac": 0.001418920669682297
+    },
+    "rigid": {
+     "torn": 0,
+     "edge_p99": 1.00000002376523,
+     "edge_max": 1.0000000239095437,
+     "edge_min": 0.9999999906553326,
+     "area_frac": 0.0
+    },
+    "ring": {
+     "torn": 3,
+     "edge_p99": 1.2017355945001695,
+     "edge_max": 2.1443998361143692,
+     "edge_min": 0.7245041665622848,
+     "area_frac": 0.011273552770848504
+    },
+    "thumb": {
+     "torn": 0,
+     "edge_p99": 1.000000177721014,
+     "edge_max": 1.0000002460030495,
+     "edge_min": 0.9723532030910204,
+     "area_frac": 0.0
+    }
+   },
+   "torn_total": 34,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "joint_volume": {
+    "thumb_cmc": 1.0,
+    "thumb_mcp": 1.0,
+    "thumb_ip": 1.0,
+    "index_mcp": 0.912,
+    "index_pip": 0.947,
+    "index_dip": 0.962,
+    "middle_mcp": 0.933,
+    "middle_pip": 0.996,
+    "middle_dip": 0.988,
+    "ring_mcp": 0.97,
+    "ring_pip": 1.0,
+    "ring_dip": 1.0,
+    "pinky_mcp": 0.991,
+    "pinky_pip": 1.0,
+    "pinky_dip": 1.0,
+    "wrist": 1.0
+   },
+   "sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   },
+   "penetration": {
+    "thumb": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "index": {
+     "new_pairs": 57,
+     "n_vert": 62,
+     "n_deep": 60,
+     "max_depth_mm": 12.988384756781306,
+     "into": [
+      "palm"
+     ]
+    },
+    "middle": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "ring": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "pinky": {
+     "new_pairs": 0,
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "into": []
+    },
+    "skin_in_band": {
+     "n_vert": 0,
+     "max_depth_mm": 0.0,
+     "regions": []
+    }
+   }
+  }
+ },
+ "joints": {
+  "thumb_cmc": {
+   "child": "thumb_01",
+   "radius_mm": 114.51,
+   "ball_mm": 30.0,
+   "rest_occ": 0.543
+  },
+  "thumb_mcp": {
+   "child": "thumb_02",
+   "radius_mm": 14.86,
+   "ball_mm": 11.89,
+   "rest_occ": 1.0
+  },
+  "thumb_ip": {
+   "child": "thumb_03",
+   "radius_mm": 23.29,
+   "ball_mm": 15.77,
+   "rest_occ": 0.7
+  },
+  "index_mcp": {
+   "child": "index_01",
+   "radius_mm": 67.48,
+   "ball_mm": 21.34,
+   "rest_occ": 0.901
+  },
+  "index_pip": {
+   "child": "index_02",
+   "radius_mm": 12.73,
+   "ball_mm": 10.19,
+   "rest_occ": 1.0
+  },
+  "index_dip": {
+   "child": "index_03",
+   "radius_mm": 11.33,
+   "ball_mm": 9.06,
+   "rest_occ": 0.987
+  },
+  "middle_mcp": {
+   "child": "middle_01",
+   "radius_mm": 57.86,
+   "ball_mm": 31.19,
+   "rest_occ": 0.767
+  },
+  "middle_pip": {
+   "child": "middle_02",
+   "radius_mm": 12.82,
+   "ball_mm": 10.26,
+   "rest_occ": 1.0
+  },
+  "middle_dip": {
+   "child": "middle_03",
+   "radius_mm": 11.52,
+   "ball_mm": 9.21,
+   "rest_occ": 0.981
+  },
+  "ring_mcp": {
+   "child": "ring_01",
+   "radius_mm": 78.9,
+   "ball_mm": 26.13,
+   "rest_occ": 0.82
+  },
+  "ring_pip": {
+   "child": "ring_02",
+   "radius_mm": 11.69,
+   "ball_mm": 9.35,
+   "rest_occ": 1.0
+  },
+  "ring_dip": {
+   "child": "ring_03",
+   "radius_mm": 11.3,
+   "ball_mm": 9.04,
+   "rest_occ": 0.953
+  },
+  "pinky_mcp": {
+   "child": "pinky_01",
+   "radius_mm": 46.83,
+   "ball_mm": 21.89,
+   "rest_occ": 0.734
+  },
+  "pinky_pip": {
+   "child": "pinky_02",
+   "radius_mm": 9.81,
+   "ball_mm": 7.85,
+   "rest_occ": 1.0
+  },
+  "pinky_dip": {
+   "child": "pinky_03",
+   "radius_mm": 9.2,
+   "ball_mm": 7.36,
+   "rest_occ": 0.996
+  },
+  "wrist": {
+   "child": "wrist",
+   "radius_mm": 101.18,
+   "ball_mm": 59.67,
+   "rest_occ": 0.327
+  }
+ },
+ "sections_rest_mm2": {
+  "0.105": 5390.478396378011,
+  "0.115": 5048.6431081920355,
+  "0.29": 4118.41541079834,
+  "0.3": 4970.228243332324
+ },
+ "heads_inside_main": {
+  "hand_root": false,
+  "forearm": true,
+  "forearm_twist": true,
+  "wrist": true,
+  "thumb_01": true,
+  "thumb_02": true,
+  "thumb_03": true,
+  "index_01": true,
+  "index_02": true,
+  "index_03": true,
+  "middle_01": true,
+  "middle_02": true,
+  "middle_03": true,
+  "ring_01": true,
+  "ring_02": true,
+  "ring_03": true,
+  "pinky_01": true,
+  "pinky_02": true,
+  "pinky_03": true
+ },
+ "regions": {
+  "cuff_forearm": 454,
+  "index": 242,
+  "middle": 233,
+  "palm": 274,
+  "pinky": 242,
+  "rigid": 3294,
+  "ring": 232,
+  "thumb": 209
+ }
+}

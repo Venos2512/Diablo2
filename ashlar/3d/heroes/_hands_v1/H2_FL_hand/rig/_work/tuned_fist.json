@@ -1,0 +1,68 @@
+{
+ "pose": "fist",
+ "weights": "H3",
+ "limit_mm": 1.0,
+ "common_k": 0.021,
+ "k": {
+  "thumb": 0.586,
+  "index": 0.545,
+  "middle": 0.782,
+  "ring": 0.794,
+  "pinky": 0.878
+ },
+ "base_side_contact_mm": {
+  "index": 4.22,
+  "middle": 3.6,
+  "ring": 2.66,
+  "pinky": 0.0
+ },
+ "final_depth_mm_palm_side": {
+  "thumb": [
+   0.0,
+   0.98
+  ],
+  "index": [
+   0.0,
+   4.75
+  ],
+  "middle": [
+   0.0,
+   4.92
+  ],
+  "ring": [
+   0.0,
+   4.81
+  ],
+  "pinky": [
+   0.12,
+   0.4
+  ]
+ },
+ "curl": {
+  "thumb": [
+   17.6,
+   23.4,
+   29.3
+  ],
+  "index": [
+   71.0,
+   42.5,
+   30.5
+  ],
+  "middle": [
+   72.0,
+   45.4,
+   46.9
+  ],
+  "ring": [
+   69.0,
+   48.4,
+   42.1
+  ],
+  "pinky": [
+   67.0,
+   59.7,
+   45.6
+  ]
+ }
+}

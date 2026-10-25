@@ -1,0 +1,10 @@
+2026-10-25  H2_FL_hand  R2-R5  Opus 5.5 (claude-opus-5-5), route M, family Hand (new). G1 approved by the user ("Duyệt, rig tay FL").
+  credit: 0 (Blender 5.2.2 + UniRig local run, seed 12345, 222 s; rigkit-env; system python 3.10 for images)
+  S0  source GLB sha256 f5b619cf..d532 untouched; own Blender instance (MCP, minimised); git status: foreign edit lookdev-lab/src/backends/webgpu/index.js not touched
+  S1  21 islands, fingers separated (4 loops from s 0.382) -> no stop
+  S3  consensus a/d (+c gates, e wrist); 8 vision decisions (_work/vision_decisions.json)
+  S4/S5  22 runtime bones (+ forearm_twist outside the brief list, G2 item), ctl rig + ctl_fist; bend tests 20/20
+  S6  Blender bone heat failed (also on a voxel proxy); own bone heat (B) + A forearm chain = H3
+  S7  20 ROM poses; contact-limited fist / wave; numbers in qa_report.md §5
+  S8  GLB exported, A1 all ok on the file, clean reimport 2.9e-7 m, three.js-style CPU skinning 2.9e-7 m
+  S9  qa_report.md, validation.json, qa/*.png -> waiting for G2 (not passed by the model)

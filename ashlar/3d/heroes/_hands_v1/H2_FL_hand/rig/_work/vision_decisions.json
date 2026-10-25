@@ -1,0 +1,91 @@
+{
+ "index_dip": {
+  "choice": "a",
+  "confidence": 0.75,
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25",
+  "reason": "Bend-plane tile qa/s3_flag_tiles_fingers.png: the medial curve kinks at the green marker (38 mm from the tip); UniRig's joint (46 mm) sits on the straight middle phalanx. DIP rule: joint at the kink of the curled rest pose. Dorsal texture dark line at 20-24 mm is the nail fold, not the DIP (nail ~18 mm long).",
+  "evidence": [
+   "qa/s3_flag_tiles_fingers.png",
+   "qa/s3_finger_profiles.png",
+   "_work/fingers_a.json dir z 0.47->0.61->0.72 at 38 mm"
+  ]
+ },
+ "middle_dip": {
+  "choice": "a",
+  "confidence": 0.75,
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25",
+  "reason": "Bend-plane tile: kink of the medial curve at 37 mm (direction z 0.87 -> 0.76); UniRig 49 mm is mid middle-phalanx. Same reading on ring/pinky where a and d agree (37/37, 29/35).",
+  "evidence": [
+   "qa/s3_flag_tiles_fingers.png",
+   "qa/s3_finger_profiles.png"
+  ]
+ },
+ "middle_pip": {
+  "choice": "a",
+  "confidence": 0.7,
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25",
+  "reason": "Bend-plane tile: the curve peak (PIP flexion ~30 deg at rest) is at 75 mm from the tip (green); UniRig 89 mm lies on the proximal phalanx 14 mm toward the web. Index/ring PIP a vs d differ 6-7 mm in the same direction (UniRig bias proximal).",
+  "evidence": [
+   "qa/s3_flag_tiles_fingers.png",
+   "_work/fingers_a.json dir z 0.78 -> 0.23 over 70-84 mm"
+  ]
+ },
+ "thumb_cmc": {
+  "choice": "a",
+  "confidence": 0.6,
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25",
+  "reason": "Anatomy: the CMC (trapeziometacarpal) joint is at the base of the thenar, ~1 cm distal of the wrist crease on the radial side; the metacarpal is ~1.25 x the proximal phalanx. Source a gives a 51 mm metacarpal (MCP-CMC) from the radial base; UniRig's bone_2 is only 24 mm from the MCP, inside the thenar bulge (it would make thumb_01 too short and its pivot too distal: the opposition swing would bend the thenar in its middle).",
+  "evidence": [
+   "qa/s3_landmarks_plot.png",
+   "landmarks.json thumb_cmc.sources"
+  ]
+ },
+ "index_mcp": {
+  "choice": "a",
+  "confidence": 0.6,
+  "evidence": [
+   "qa/s3_mcp_tiles.png (xray dorsal/side, green a / blue d)",
+   "landmarks.json knuckle_profile"
+  ],
+  "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25"
+ },
+ "middle_mcp": {
+  "choice": "a",
+  "confidence": 0.6,
+  "evidence": [
+   "qa/s3_mcp_tiles.png (xray dorsal/side, green a / blue d)",
+   "landmarks.json knuckle_profile"
+  ],
+  "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25"
+ },
+ "ring_mcp": {
+  "choice": "a",
+  "confidence": 0.6,
+  "evidence": [
+   "qa/s3_mcp_tiles.png (xray dorsal/side, green a / blue d)",
+   "landmarks.json knuckle_profile"
+  ],
+  "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25"
+ },
+ "pinky_mcp": {
+  "choice": "d",
+  "confidence": 0.45,
+  "evidence": [
+   "qa/s3_mcp_tiles.png",
+   "landmarks.json knuckle_profile"
+  ],
+  "reason": "a failed: the pinky dorsal profile has no peak (it rises monotonically toward the wrist, best station at the 37.5 mm window edge, P1/P2 = 2.3). d gives P1/P2 = 1.46 (ring 1.17): plausible. Position = the station of d on the pinky own horizontal axis line, 45 % of the hand thickness under the dorsal hit (UniRig x lies on the ulnar edge, not used). G2 question.",
+  "reviewer": "claude-opus-5-5",
+  "date": "2026-10-25"
+ }
+}

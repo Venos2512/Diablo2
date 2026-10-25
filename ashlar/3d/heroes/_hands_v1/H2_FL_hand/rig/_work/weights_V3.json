@@ -1,0 +1,90 @@
+{
+ "tag": "V3",
+ "rows": 5180,
+ "max_influences": 4,
+ "rows_by_influences": {
+  "1": 4227,
+  "2": 697,
+  "3": 121,
+  "4": 135
+ },
+ "lobe_rows": {
+  "thumb": 169,
+  "index": 199,
+  "middle": 199,
+  "ring": 199,
+  "pinky": 197
+ },
+ "neighbour_leak_rows": 0,
+ "bone_coverage": {
+  "hand_root": 747,
+  "forearm": 1429,
+  "forearm_twist": 1782,
+  "wrist": 473,
+  "thumb_01": 104,
+  "thumb_02": 126,
+  "thumb_03": 106,
+  "index_01": 169,
+  "index_02": 107,
+  "index_03": 134,
+  "middle_01": 239,
+  "middle_02": 107,
+  "middle_03": 125,
+  "ring_01": 218,
+  "ring_02": 103,
+  "ring_03": 128,
+  "pinky_01": 187,
+  "pinky_02": 102,
+  "pinky_03": 138
+ },
+ "rigid_islands": {
+  "0": "forearm_twist",
+  "2": "forearm_twist",
+  "3": "forearm",
+  "4": "forearm",
+  "5": "forearm",
+  "6": "forearm",
+  "7": "hand_root",
+  "8": "hand_root",
+  "9": "hand_root",
+  "10": "hand_root",
+  "11": "hand_root",
+  "12": "hand_root",
+  "13": "hand_root",
+  "14": "hand_root",
+  "15": "hand_root",
+  "16": "hand_root",
+  "17": "hand_root",
+  "18": "hand_root",
+  "19": "forearm",
+  "20": "forearm"
+ },
+ "cfg": {
+  "cuff_end": 0.092,
+  "ramp_root_twist": [
+   0.095,
+   0.125
+  ],
+  "ramp_twist_fore": [
+   0.165,
+   0.195
+  ],
+  "wrist_off": 0.02,
+  "wrist_h": 0.007,
+  "mcp_h": 0.009,
+  "mcp_off": 0.0,
+  "pip_h": 0.005,
+  "dip_h": 0.005,
+  "thumb_cmc_h": 0.016,
+  "thumb_cmc_off": 0.004,
+  "thumb_mcp_h": 0.007,
+  "thumb_ip_h": 0.005,
+  "thumb_r_in": 0.014,
+  "thumb_r_out": 0.03,
+  "inner_bias": 0.3,
+  "smooth_passes": 2,
+  "prune": 0.01,
+  "twist_ramp": "linear"
+ },
+ "partition_thumb_max_on_pinky_side": 0.4824228129825699
+}
