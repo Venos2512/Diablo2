@@ -14,10 +14,11 @@ export const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 export const lerp = (a, b, t) => a + (b - a) * t;
 
 // ---- the set -----------------------------------------------------------------------------------------------------------------------
+export const HAND_SCALE = 1.6; // default cover of a hand (x life size): a hand 1.5-2 skulls long as in the key art
 export const HAND_LENGTH = 0.45; // m, sleeve end to fingertips (the prepared GLBs)
 export const WALL = { width: 3.8, height: 2.3, cy: 1.05, tile: 0.92, relief: 0.05, segX: 380, segY: 230 }; // tile: one 1024 px texture = ~5 skulls (a skull is ~0.18 m); relief: the skull tops are z = 0, the recesses -0.05
-export const LEDGE = { width: 4.4, depth: 0.36, height: 0.5 }; // top at y = 0, front at z = depth
-export const CANDLE = { x: 0, z: 0.19, height: 0.14, radius: 0.03, flameY: 0.185 }; // on the ledge, between hands 3 and 4
+export const LEDGE = { width: 4.4, depth: 0.18, height: 0.5 }; // top at y = 0, front at z = depth
+export const CANDLE = { x: 0, z: 0.06, scale: 1.12, height: 0.14, radius: 0.03, flameY: 0.185 }; // on the ledge, close to the wall, between hands 3 and 4; scale: the key art's candle is a little over life size
 
 
 /** How far out (reach progress 0..1) the offered hand must be before it can be taken: the buttons show and a queued grab fires. */
@@ -126,8 +127,54 @@ export function wallTone(x, y) {
 	return 0.76 + 0.32 * n;
 }
 
-/** The camera: key art framing, a little above the candle line looking slightly down on a 16:9 wall (vertical fov 30). */
-export const FRAME = { fov: 30, position: [0, 0.72, 2.2], target: [0, 0.5, 0] };
+/**
+ * THE KEY ART, measured (ashlar/art/heroes/_shared/choice_hands/keyart.png, 1672 x 941; normalised x, y in [0, 1], origin top-left; measured on a 0.1 grid with crops, 2026-10-24).
+ * wrist = the middle of the wrist joint, tip = the end of the longest finger, sleeve = where the visible sleeve leaves the wall (the hole). skulls: ~10 across the frame, so the
+ * frame is ~1.8 m wide (a skull 0.18 m). The ledge's front-top edge is the line y = 0.893; the candle's dish stands on the ledge, flame tip at y 0.672.
+ */
+export const KEYART = {
+	width: 1672,
+	height: 941,
+	aspect: 1672 / 941,
+	frameWidthM: 1.8,
+	ledgeY: 0.893,
+	candle: { flameTip: [0.5, 0.672], waxTop: [0.5, 0.75], dishBase: [0.505, 0.885] },
+	hands: {
+		PB: { sleeve: [0.12, 0.1], wrist: [0.095, 0.235], tip: [0.137, 0.5] },
+		FL: { sleeve: [0.266, 0.16], wrist: [0.257, 0.365], tip: [0.3, 0.525] },
+		OS: { sleeve: [0.42, 0.245], wrist: [0.419, 0.41], tip: [0.443, 0.7] },
+		BR: { sleeve: [0.59, 0.25], wrist: [0.59, 0.425], tip: [0.574, 0.73] },
+		EX: { sleeve: [0.76, 0.195], wrist: [0.76, 0.39], tip: [0.705, 0.555] },
+		PS: { sleeve: [0.9, 0.12], wrist: [0.9, 0.315], tip: [0.915, 0.5] },
+	},
+};
+
+/**
+ * The camera: the key art is a flat painting seen straight on, so a long lens (vertical fov 16 deg at 3.6 m: the frame is 1.8 m wide at the wall) a hair above the ledge
+ * (2 deg), looking at the point of the wall that is the middle of the frame (0.40 m above the ledge top). `fov` is the vertical fov of the KEYART.aspect frame.
+ */
+export const FRAME = { fov: 16, position: [0, 0.486, 3.6], target: [0, 0.392, 0] };
+
+/** The vertical fov that shows at least the whole key-art frame in a viewport of this aspect (wider viewports show more wall at the sides, narrower ones a taller frame). */
+export function fovForAspect(aspect, base = FRAME.fov) {
+	if (aspect >= KEYART.aspect) return base;
+	return (2 * Math.atan(Math.tan((base * DEG) / 2) * (KEYART.aspect / aspect))) / DEG;
+}
+
+let _keyCam = null;
+/** World point -> key-art normalised coordinates [x, y] (origin top-left), through the idle camera. */
+export function projectToKeyArt(v, frame = FRAME) {
+	if (!_keyCam || _keyCam.userData.frame !== frame) {
+		_keyCam = new THREE.PerspectiveCamera(frame.fov, KEYART.aspect, 0.1, 100);
+		_keyCam.userData.frame = frame;
+		_keyCam.position.set(...frame.position);
+		_keyCam.lookAt(...frame.target);
+		_keyCam.updateMatrixWorld(true);
+		_keyCam.updateProjectionMatrix();
+	}
+	const p = v.clone().project(_keyCam);
+	return [(p.x + 1) / 2, (1 - p.y) / 2];
+}
 
 // ---- the hands ---------------------------------------------------------------------------------------------------------------------
 /**
@@ -135,36 +182,36 @@ export const FRAME = { fov: 30, position: [0, 0.72, 2.2], target: [0, 0.5, 0] };
  * scripts/prepare-choice-hands.py), sleeve = the extension's ellipse radii (m) so a prop ring can wrap it.
  */
 export const HAND_MODELS = {
-	fl: { file: 'choice-hand-fl', wrist: 0.27, sleeve: [0.045, 0.046] },
-	os: { file: 'choice-hand-os', wrist: 0.27, sleeve: [0.039, 0.041] },
-	br: { file: 'choice-hand-br', wrist: 0.261, sleeve: [0.043, 0.043] },
+	fl: { file: 'choice-hand-fl', wrist: 0.27, sleeve: [0.045, 0.046], tip: [0.087, -0.068, 0.447] }, // tip = the longest fingertip (mean of the 40 highest-z vertices), arm frame
+	os: { file: 'choice-hand-os', wrist: 0.27, sleeve: [0.039, 0.041], tip: [-0.058, -0.02, 0.447] },
+	br: { file: 'choice-hand-br', wrist: 0.261, sleeve: [0.043, 0.043], tip: [0.022, -0.024, 0.448] },
 };
 
 /**
  * The six hands, left to right: Voc §3.2 / §9.1 order PB FL OS BR EX PS. `pose`: 'back' = the back of the hand toward the viewer (PB OS BR: their marks are on it), 'palm' =
  * palm up / toward the viewer (FL EX PS). `source`: the model that draws it; `standIn` = no GLB of its own yet (PB EX PS: only concepts), so a clone of the hand with the same pose
- * is tinted: dropping the real GLB in means setting `file` and `standIn: false`. `tip` = the fingertip on the wall plane at rest, `a` = the in-plane direction of the arm (0 = straight
+ * is tinted: dropping the real GLB in means setting `file` and `standIn: false`. `entry` = the hole in the wall where the arm leaves it (world x, y; calibrated against the key art by scripts/choice-hands-calibrate.mjs; the fingertip follows from the arm direction), `a` = the in-plane direction of the arm (0 = straight
  * down, + turns toward +x), `phi` = how steeply the arm leans out of the wall at rest, `twist` = extra roll about the arm. `quote` is canon (Hero Concept §10): kept in English.
  */
 export const SLOTS = [
 	{ id: 'PB', name: 'Pallbearer', quote: 'Lift with the legs. And with the heart.', source: 'os', file: null, standIn: true, pose: 'back', mirror: false,
-		tip: [-0.74, 0.68], a: 30, phi: 38, twist: -4, tint: { mono: [0.74, 0.8, 0.9], metalness: 0.45, roughness: 0.38 }, rings: null },
+		entry: [-0.727, 0.781], a: 22.5, phi: 15, twist: 13.6, visible: 0.264, k: 0.93, tint: { mono: [0.78, 0.84, 0.94], metalness: 0.4, roughness: 0.4 }, rings: null },
 	{ id: 'FL', name: 'Flagellant', quote: 'Pain is the only prayer that never lies.', source: 'fl', file: 'choice-hand-fl', standIn: false, pose: 'palm', mirror: false,
-		tip: [-0.43, 0.56], a: 36, phi: 38, twist: 0, tint: null, rings: null },
+		entry: [-0.453, 0.726], a: 17.5, phi: 20.6, twist: -42.7, visible: 0.335, k: 0.85, tint: null, rings: null },
 	{ id: 'OS', name: 'Ossuarist', quote: 'Only borrowing, love. We\'ll put them back.', source: 'os', file: 'choice-hand-os', standIn: false, pose: 'back', mirror: false,
-		tip: [-0.15, 0.36], a: 12, phi: 34, twist: 0, tint: null, rings: null },
+		entry: [-0.171, 0.641], a: 19.4, phi: 15, twist: 7.4, visible: 0.286, k: 0.985, tint: null, rings: null },
 	{ id: 'BR', name: 'Brinecaller', quote: 'Salt keeps. Salt cleans. Salt kills. Mind which you ask for.', source: 'br', file: 'choice-hand-br', standIn: false, pose: 'back', mirror: true,
-		tip: [0.15, 0.36], a: -12, phi: 34, twist: 0, tint: null, rings: null },
+		entry: [0.159, 0.645], a: 0.4, phi: 21.2, twist: 0.5, visible: 0.307, k: 1.01, tint: null, rings: null },
 	{ id: 'EX', name: 'Exhumer', quote: 'Keep your light low. The things worth killing see better than you.', source: 'fl', file: null, standIn: true, pose: 'palm', mirror: true,
-		tip: [0.43, 0.56], a: -36, phi: 38, twist: 0, tint: { mono: [1.0, 0.64, 0.38], metalness: 0.0, roughness: 0.6 }, rings: null },
+		entry: [0.5, 0.687], a: -23.3, phi: 16.2, twist: 39.9, visible: 0.322, k: 0.85, tint: { mono: [1.0, 0.64, 0.38], metalness: 0.0, roughness: 0.6 }, rings: null },
 	{ id: 'PS', name: 'Pyre-Singer', quote: 'Sing, so they don\'t go frightened.', source: 'fl', file: null, standIn: true, pose: 'palm', mirror: true,
-		tip: [0.74, 0.68], a: -30, phi: 38, twist: 4, tint: { color: [1.0, 0.86, 0.8], metalness: 0.0, roughness: 0.78 }, rings: { color: [0.62, 0.05, 0.04], count: 2 } },
+		entry: [0.736, 0.771], a: -15.6, phi: 21.1, twist: 20.9, visible: 0.335, k: 0.85, tint: { color: [1.0, 0.86, 0.8], metalness: 0.0, roughness: 0.78 }, rings: { color: [0.62, 0.05, 0.04], count: 2 } },
 ];
 export const TRAIL = 'The stranger\'s hand crumbles on the ossuary floor when the Keystone lets go of the Wall'; // canon (Voc): the grasp's dust
 
 /** Arm numbers shared by every slot. */
 export const ARM = {
-	visible: 0.34, // m of arm in front of the wall at rest, measured from the wall hole to the fingertips along the arm
+	visible: 0.32, // m of arm in front of the wall at rest, measured from the wall hole to the fingertips along the arm
 	slide: 0.26, // local m (x the hand scale) the forearm slides out along its axis when chosen
 	retract: 0.32, // m the other five slide back into the wall
 	hoverSlide: 0.035, // m a hovered hand edges out
@@ -316,6 +363,188 @@ export function createFingerRig(root, table = FINGER_BONES, axes = FINGER_AXES, 
 	};
 }
 
+// ---- the showcase: what a hand shows of its CLASS the moment it is chosen -------------------------------------------------------------------
+/**
+ * Piecewise keyframes [[t, value], ...] sampled with a smoothstep between neighbours (clamped outside). The whole showcase is data of this kind: no clips, no timeline objects.
+ */
+export function keyAt(keys, t) {
+	if (!keys || !keys.length) return 0;
+	if (t <= keys[0][0]) return keys[0][1];
+	for (let i = 1; i < keys.length; i++) {
+		if (t <= keys[i][0]) {
+			const [t0, v0] = keys[i - 1];
+			const [t1, v1] = keys[i];
+			const u = (t - t0) / (t1 - t0 || 1);
+			return lerp(v0, v1, u * u * (3 - 2 * u));
+		}
+	}
+	return keys[keys.length - 1][1];
+}
+
+/**
+ * Small hand-drawn-style VFX. `pool` 'alpha' = soft grey grains lit by the candle (normal blending), 'add' = tiny additive points (no bloom: a few px, dim). size / life are [min, max]
+ * (m, s), `vel` the initial velocity (m/s) as [vx, vy, vz] ranges' half-widths + a mean [mx, my, mz], gravity m/s2 (+ down), drag 1/s, colour = an sRGB hex or [from, to] over the
+ * life, `twinkle` = size flicker rate (salt), `grow` = size grows to this factor by the end of life (smoke). ART DIRECTION: warm fire only for lamp / coals / pyre, the cold
+ * white-blue still points ONLY for the Ossuarist, never a white-gold halo.
+ */
+export const FX_PRESETS = {
+	// sprite = the shape (scenes/choiceHands.js fxSprite): a jagged chip of stone / plaster, a glint, a soft point, a streak (turned along its velocity), a wisp; spin = rad/s about the view axis
+	dust: { pool: 'alpha', sprite: 'shard', size: [0.0170, 0.0408], life: [0.9, 1.8], mean: [0, 0, 0], spread: [0.05, 0.03, 0.05], gravity: 0.55, drag: 1.2, spin: 4, aspect: 0.85, colour: '#6e695f' },
+	flake: { pool: 'alpha', sprite: 'shardB', size: [0.0272, 0.0578], life: [1.2, 2.3], mean: [0, -0.02, 0], spread: [0.05, 0.02, 0.05], gravity: 0.4, drag: 1.4, spin: 3, colour: '#a39d8f' },
+	soul: { pool: 'add', sprite: 'point', size: [0.0272, 0.0510], life: [1.6, 2.6], mean: [0, 0.07, 0], spread: [0.015, 0.02, 0.015], gravity: -0.01, drag: 0.8, colour: '#9fd0ff', fade: 'bell' },
+	salt: { pool: 'add', sprite: 'crystal', size: [0.0180, 0.0380], life: [1.0, 1.9], mean: [0, -0.02, 0], spread: [0.03, 0.01, 0.03], gravity: 0.3, drag: 1.1, spin: 1.5, colour: ['#f2f8f4', '#9fb9c4'], twinkle: 18 },
+	ember: { pool: 'add', sprite: 'streak', streak: 4.5, size: [0.0136, 0.0272], life: [0.9, 1.9], mean: [0, 0.2, 0], spread: [0.06, 0.05, 0.06], gravity: -0.06, drag: 0.5, colour: ['#ffb060', '#c8401a'], sway: 0.05 },
+	smoke: { pool: 'alpha', sprite: 'puff', size: [0.0510, 0.1020], life: [1.6, 2.6], mean: [0, 0.07, 0], spread: [0.012, 0.01, 0.012], gravity: -0.05, drag: 0.7, spin: 0.3, colour: '#5c5853', grow: 2.4, sway: 0.03 },
+};
+
+/**
+ * SHOWCASE: per class (by slot id, so the stand-ins PB EX PS borrow nothing: they run THEIR class's showcase on the donor's mesh). Time in seconds from the moment the hand has
+ * come out; `dur` is when the hand rests in its offer pose again.
+ *   roll   deg about the forearm: where the hand starts and how it turns to show its marks, must end at 0 (the offer pose);
+ *   squeeze/tremor   a uniform squeeze about the wrist (0..0.1) and a shake (m);
+ *   grip   finger fist 0..1 for a RIGGED hand (FINGER_POSES, see FINGER_BONES); a static hand uses `squeeze` for the clench;
+ *   cam    { dist m, elev deg, yaw: keys deg } an orbit round the hand (yaw mirrored for the right-hand slots so it always turns toward the middle);
+ *   light  { colour, anchor, dist, intensity: keys, offset?: moving offset along x of the anchor: keys }: ONE extra point light with the class's colour;
+ *   shake  multiplier of the candle's flicker (keys): "the candle shakes harder one beat";
+ *   flame  an oil flame at the anchor (strength keys); fx  [{ kind, at: anchor, from, to, rate/s, spread? }].
+ * Anchors (computeAnchors): wrist, palm, dorsum, knuckles, thumb, tip.
+ */
+export const SHOWCASE = {
+	PB: {
+		dur: 3.8, note: 'Găng sắt, đinh quan tài bạc trên khớp, vết dây hằn trong lòng tay',
+		roll: [[0, 178], [0.5, 178], [2.1, 0], [3.8, 0]],
+		squeeze: [[2.15, 0], [2.45, 0.05], [2.75, 0.05], [3.15, 0]], tremor: [[2.15, 0], [2.4, 0.003], [2.8, 0]], grip: [[2.15, 0], [2.5, 1], [2.85, 1], [3.4, 0]],
+		cam: { dist: 0.95, elev: 26, yaw: [[0, -34], [2.1, 4], [3.8, 14]] },
+		light: { colour: '#b6c4dc', anchor: 'knuckles', dist: 0.7, intensity: [[0, 0], [0.5, 0.9], [1.7, 0.9], [2.2, 0.15], [3.8, 0]], offset: [[0.45, 0.075], [1.75, -0.075]] },
+		fx: [{ kind: 'dust', at: 'knuckles', from: 2.3, to: 3.0, rate: 85 }, { kind: 'dust', at: 'wrist', from: 2.35, to: 2.8, rate: 40 }],
+	},
+	FL: {
+		dur: 3.6, note: 'Dây thắt nút quấn hai vòng cổ tay, cổ tay áo đen của nữ tu',
+		roll: [[0, 26], [0.8, 26], [2.5, 0], [3.6, 0]],
+		squeeze: [[0.5, 0], [0.95, 0.07], [1.35, 0.07], [1.8, 0]], tremor: [[0.7, 0], [1.1, 0.004], [2.0, 0.0035], [2.4, 0]], grip: [[0.7, 0], [1.1, 0.8], [1.9, 0.8], [2.6, 0]],
+		cam: { dist: 0.9, elev: 22, yaw: [[0, 24], [1.6, -8], [3.6, 6]] },
+		light: { colour: '#ffb870', anchor: 'wrist', dist: 0.55, intensity: [[0, 0], [3.6, 0]] }, // none of its own: the cord, the tremor and the candle that shakes are the whole showcase
+		shake: [[0, 1], [0.85, 1], [1.05, 3.2], [1.6, 3.2], [2.0, 1], [3.6, 1]],
+		fx: [{ kind: 'flake', at: 'wrist', from: 1.0, to: 1.7, rate: 30 }, { kind: 'dust', at: 'palm', from: 1.2, to: 2.2, rate: 22 }],
+	},
+	OS: {
+		dur: 3.8, note: 'Bàn tay già: mực và vữa trong nếp tay, nhẫn đốt xương',
+		roll: [[0, 118], [0.6, 118], [2.4, 0], [3.8, 0]],
+		squeeze: [], tremor: [], grip: [],
+		cam: { dist: 0.9, elev: 20, yaw: [[0, -26], [2.4, 10], [3.8, 18]] },
+		light: { colour: '#8ec0ff', anchor: 'knuckles', dist: 0.5, intensity: [[0, 0], [0.8, 0.22], [2.6, 0.22], [3.8, 0]] },
+		fx: [{ kind: 'soul', at: 'knuckles', from: 0.8, to: 2.8, rate: 3.2, spread: 0.07 }, { kind: 'flake', at: 'dorsum', from: 0.6, to: 2.6, rate: 8 }, { kind: 'dust', at: 'palm', from: 1.8, to: 2.8, rate: 10 }],
+	},
+	BR: {
+		dur: 3.6, note: 'Muối nứt trắng ngả xanh, tay áo ố vệt triều, vòng vỏ sò',
+		roll: [[0, 150], [0.5, 150], [2.2, 0], [3.6, 0]],
+		squeeze: [], tremor: [], grip: [],
+		cam: { dist: 0.92, elev: 28, yaw: [[0, 30], [2.2, -6], [3.6, -14]] },
+		light: { colour: '#bfe0ee', anchor: 'dorsum', dist: 0.55, intensity: [[0, 0], [1.0, 0], [1.3, 0.8], [2.0, 0.15], [3.6, 0]] },
+		fx: [{ kind: 'salt', at: 'dorsum', from: 0.5, to: 3.0, rate: 46, spread: 0.07, lift: 0.13 }],
+	},
+	EX: {
+		dur: 3.8, note: 'Găng tẩm dầu đèn, chai ngón cái',
+		roll: [[0, 70], [0.6, 70], [2.0, 0], [3.8, 0]],
+		squeeze: [[1.0, 0], [1.2, 0.04], [1.45, 0]], tremor: [], grip: [[0.9, 0], [1.25, 0.6], [1.6, 0.3], [2.2, 0]],
+		cam: { dist: 0.85, elev: 18, yaw: [[0, -22], [2.0, 6], [3.8, 12]] },
+		light: { colour: '#ffa24a', anchor: 'thumb', dist: 0.6, intensity: [[0, 0], [1.1, 0], [1.3, 1.0], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
+		flame: { anchor: 'thumb', strength: [[0, 0], [1.1, 0], [1.3, 1], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
+		fx: [{ kind: 'smoke', at: 'thumb', from: 2.5, to: 3.5, rate: 9 }, { kind: 'ember', at: 'thumb', from: 1.3, to: 1.7, rate: 14 }],
+	},
+	PS: {
+		dur: 3.8, note: 'Sẹo bỏng, tro dưới móng, bím chỉ đỏ',
+		roll: [[0, 38], [0.6, 38], [2.2, 0], [3.8, 0]],
+		squeeze: [], tremor: [[1.0, 0], [1.6, 0.0018], [2.6, 0.001], [3.2, 0]], grip: [[1.0, 0], [1.6, 0.35], [2.8, 0.2], [3.3, 0]],
+		cam: { dist: 0.9, elev: 24, yaw: [[0, 28], [2.2, -4], [3.8, -12]] },
+		light: { colour: '#ff7a2a', anchor: 'palm', dist: 0.55, intensity: [[0, 0], [0.7, 0.2], [1.8, 1.1], [3.0, 0.5], [3.8, 0]] },
+		fx: [{ kind: 'ember', at: 'palm', from: 0.8, to: 2.9, rate: 24, spread: 0.05 }, { kind: 'dust', at: 'tip', from: 1.5, to: 2.6, rate: 10 }],
+	},
+};
+/** The showcase camera's framing: the hand's bounding sphere fills `fill` of the frame height and its centre sits at `centreY` of it from the top (the quote is below). */
+export const SHOWCASE_FIT = { fill: 0.9, centreY: 0.38 };
+export const SHOWCASE_ORDER = ['PB', 'FL', 'OS', 'BR', 'EX', 'PS'];
+
+/**
+ * Anchors of a hand mesh in the ARM frame from its vertices (flat xyz array): where the showcase's effects are born. Only the parts that can be found are returned (merge
+ * over fallbackAnchors). wrist = the axis point at the wrist (z = wristZ); tip = the 40 highest-z vertices; dorsum = the highest-y vertices of the middle of the back of the
+ * hand (wrist + 0.02..0.06); knuckles = the same on the knuckle row (wrist + 0.06..0.11); palm = the lowest-y vertices of the first 8 cm beyond the wrist; thumb = the
+ * vertices that stick out farthest sideways on the thumb's side, between the wrist and wrist + 0.13 (a sleeve hem below the wrist is not the thumb).
+ */
+export function computeAnchors(positions, wristZ) {
+	const n = Math.floor(positions.length / 3);
+	const X = (i) => positions[i * 3];
+	const Y = (i) => positions[i * 3 + 1];
+	const Z = (i) => positions[i * 3 + 2];
+	const pick = (lo, hi) => {
+		const out = [];
+		for (let i = 0; i < n; i++) if (Z(i) > wristZ + lo && Z(i) < wristZ + hi && Number.isFinite(X(i) + Y(i))) out.push(i);
+		return out;
+	};
+	const mean = (ids) => {
+		const v = new THREE.Vector3();
+		for (const i of ids) v.add(new THREE.Vector3(X(i), Y(i), Z(i)));
+		return v.multiplyScalar(1 / ids.length);
+	};
+	const top = (ids, key, count, dir = 1) => ids.slice().sort((a, b) => dir * (positions[b * 3 + key] - positions[a * 3 + key])).slice(0, count);
+	const out = { wrist: new THREE.Vector3(0, 0, wristZ) };
+	const set = (name, ids) => {
+		if (ids.length) out[name] = mean(ids);
+	};
+	const all = [];
+	for (let i = 0; i < n; i++) all.push(i);
+	set('tip', top(all, 2, 40));
+	const band = pick(0, 0.08);
+	set('dorsum', top(pick(0.02, 0.06), 1, 30));
+	set('knuckles', top(pick(0.06, 0.11), 1, 30));
+	set('palm', top(band, 1, 30, -1));
+	const side = pick(0, 0.13);
+	if (band.length && side.length) {
+		const cx = mean(band).x;
+		let far = 0;
+		for (const i of side) if (Math.abs(X(i) - cx) > Math.abs(far)) far = X(i) - cx;
+		const sgn = far < 0 ? -1 : 1; // the thumb side: where the mesh reaches farthest from the middle of the hand
+		set('thumb', side.slice().sort((a, b) => sgn * (X(b) - X(a))).slice(0, 14));
+	}
+	return out;
+}
+
+/** Anchors from the model table alone (no mesh to measure, or a mesh that gave nothing): the showcase still has a place for every effect. */
+export function fallbackAnchors(model) {
+	const w = model.wrist;
+	const tip = model.tip ?? [0, -0.03, w + 0.18];
+	return {
+		wrist: new THREE.Vector3(0, 0, w),
+		tip: new THREE.Vector3(...tip),
+		knuckles: new THREE.Vector3(0, 0.03, w + 0.085),
+		dorsum: new THREE.Vector3(0, 0.03, w + 0.04),
+		palm: new THREE.Vector3(0, -0.03, w + 0.05),
+		thumb: new THREE.Vector3(0.07, 0, w + 0.06),
+	};
+}
+
+/** The mesh whose vertices say where the hand's parts are: the one named 'hand', else the largest; skinned meshes too (their position attribute is the bind pose). */
+export function handAnchors(root, model) {
+	let best = null;
+	root.traverse((o) => {
+		if (!o.isMesh || !o.geometry?.attributes?.position) return;
+		const count = o.geometry.attributes.position.count;
+		if (count < 1000) return;
+		if (!best || (o.name === 'hand' && best.name !== 'hand') || (best.name !== 'hand' && count > best.geometry.attributes.position.count)) best = o;
+	});
+	let found = {};
+	if (best) {
+		const attr = best.geometry.attributes.position;
+		let arr = attr.array;
+		if (attr.isInterleavedBufferAttribute || attr.itemSize !== 3) {
+			arr = new Float32Array(attr.count * 3);
+			for (let i = 0; i < attr.count; i++) arr.set([attr.getX(i), attr.getY(i), attr.getZ(i)], i * 3);
+		}
+		found = computeAnchors(arr, model.wrist);
+	}
+	return { ...fallbackAnchors(model), ...found };
+}
+
 // ---- easings -----------------------------------------------------------------------------------------------------------------------
 export const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
 /** Settles on 1 after a small overshoot (c1 = 1.05: ~4 %). */
@@ -362,18 +591,18 @@ const reachHint = (side) => new THREE.Vector3(-side * 0.32, 1, 0.3);
  * the hand centre at rest, and the reached hand centre (for the camera). Memoise with the slot's id by the caller (cheap anyway).
  */
 export function armGeometry(slot, opts = {}) {
-	const visible = opts.visible ?? ARM.visible;
+	const visible = opts.visible ?? slot.visible ?? ARM.visible; // slot.visible / slot.k: per-slot fit to the key art (calibrate script)
 	const slideReach = opts.slide ?? ARM.slide;
-	const sc = opts.scale ?? 1; // the hands are drawn bigger than life in the key art: the scene scales each arm about its wall hole; lengths below are local (model) metres
+	const sc = (opts.scale ?? 1) * (slot.k ?? 1); // the hands are drawn bigger than life in the key art: the scene scales each arm about its wall hole; lengths below are local (model) metres
 	const dir = armDirection(slot.a, slot.phi);
-	const tip = new THREE.Vector3(slot.tip[0], slot.tip[1], visible * sc * dir.z);
-	const entry = tip.clone().addScaledVector(dir, -visible * sc); // the arm axis crosses the wall plane here (entry.z = 0)
+	const entry = new THREE.Vector3(slot.entry[0], slot.entry[1], 0); // the hole in the wall: the arm axis crosses the wall plane here
+	const tip = entry.clone().addScaledVector(dir, visible * sc);
 	const model = HAND_MODELS[slot.source];
 	const hintIdle = slot.pose === 'back' ? HINT_BACK : HINT_PALM;
 	// the idle orientation shows the BACK to the viewer for 'back' hands, the PALM for 'palm' hands (armQuaternion's pose flag handles the sign)
 	const qIdle = armQuaternion(dir, hintIdle, slot.pose, slot.twist);
 	// reached: the arm swings out toward the screen centre, below horizontal; the mirror of the side keeps the same sign rule
-	const side = Math.sign(slot.tip[0]) || 1;
+	const side = Math.sign(slot.entry[0]) || 1;
 	const yaw = -side * ARM.reachYaw * DEG;
 	const pitch = ARM.reachPitch * DEG;
 	const dirReach = new THREE.Vector3(Math.sin(yaw) * Math.cos(pitch), Math.sin(pitch), Math.cos(yaw) * Math.cos(pitch)).normalize();
@@ -386,7 +615,7 @@ export function armGeometry(slot, opts = {}) {
 	const at = (d, s, slide = 0) => entry.clone().addScaledVector(d, (s + slide) * sc);
 	const palmReach = new THREE.Vector3(0, -1, 0).applyQuaternion(qReach); // the palm side of the offered hand (local -y)
 	return {
-		dir, dirReach, qIdle, qReach, palmReach, entry, tip, back, scale: sc,
+		dir, dirReach, qIdle, qReach, palmReach, entry, tip, back, scale: sc, visible,
 		wrist: at(dir, model.wrist - back),
 		hand: at(dir, visible - 0.1), // the middle of the hand, about 10 cm behind the tip
 		handReach: at(dirReach, visible - 0.1, slideReach),
@@ -401,7 +630,7 @@ export function armPose(slot, geo, w, out = { slide: 0, quat: new THREE.Quaterni
 	const hover = clamp(w.hover ?? 0, 0, 1);
 	const retract = clamp(w.retract ?? 0, 0, 1);
 	// slide out when chosen, a little when hovered, back into the wall when another hand is chosen (never past the hole: keep 4 cm of the tips out)
-	const retractMax = Math.min(ARM.retract, ARM.visible - 0.04);
+	const retractMax = Math.min(ARM.retract, geo.visible - 0.04);
 	out.slide = ARM.slide * reach + ARM.hoverSlide * hover * (1 - clamp(reach, 0, 1)) - retractMax * retract;
 	// orientation: idle -> reached (the hover turns a tenth of the way, the reach all the way), retract does not turn
 	const turn = clamp(reach, -0.2, 1.15) + ARM.hoverTurn * hover * (1 - clamp(reach, 0, 1));
@@ -409,6 +638,23 @@ export function armPose(slot, geo, w, out = { slide: 0, quat: new THREE.Quaterni
 	const pitch = (slot.pose === 'back' ? ARM.wristBack : ARM.wristPalm) * DEG;
 	out.wrist = pitch * clamp(reach, 0, 1.1);
 	return out;
+}
+
+/** A point of a hand mesh (arm frame: origin = the sleeve end, +z fingers) in world space for a slot at rest (the mirror, the hand scale and the arm orientation included). */
+export function armPointToWorld(slot, geo, p, out = new THREE.Vector3()) {
+	const mirror = slot.mirror ? -1 : 1;
+	out.set(mirror * p[0], p[1], p[2] - geo.back).multiplyScalar(geo.scale).applyQuaternion(geo.qIdle);
+	return out.add(geo.entry);
+}
+
+/** The three measured points of a slot at rest, in key-art coordinates: the hole (`sleeve`), the wrist joint and the longest fingertip. */
+export function slotMarkers(slot, geo = armGeometry(slot, { scale: HAND_SCALE })) {
+	const model = HAND_MODELS[slot.source];
+	return {
+		sleeve: projectToKeyArt(geo.entry),
+		wrist: projectToKeyArt(armPointToWorld(slot, geo, [0, 0, model.wrist])),
+		tip: projectToKeyArt(armPointToWorld(slot, geo, model.tip)),
+	};
 }
 
 /**

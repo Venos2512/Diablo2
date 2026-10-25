@@ -9,6 +9,7 @@ import * as THREE from 'three';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { registerDefaults } from '../core/settings.js';
 import { kelvinToColor } from '../core/grading.js';
+import { assetUrl } from '../core/assets.js';
 import { FlameField } from '../env/flames.js';
 import * as C from '../env/choiceHands.js';
 import { note } from '../ui/gui.js';
@@ -16,7 +17,13 @@ import { note } from '../ui/gui.js';
 export const CHOICE_HANDS_DEFAULTS = {
 	duration: C.TIMES.reach, // s of the reach (also scales the way back)
 	reach: C.ARM.slide, // m the chosen forearm slides out along its axis
-	handScale: 1.5, // the key art draws the hands bigger than the skulls (a hand ~1.5-2 skulls long); 1 = life size (0.45 m forearm + hand)
+	handScale: C.HAND_SCALE, // the key art draws the hands bigger than the skulls (a hand ~1.5-2 skulls long); 1 = life size (0.45 m forearm + hand). Per-slot fits (SLOTS.k) ride on it
+	glow: 0.15, // the candle's haze on the wall (additive sprite behind the flame)
+	wallTint: 1, // multiplier of the wall's albedo (the lighting calibration)
+	handLight: 0.6,
+	handOuter: 0.2, // the outer hands (PB, PS) read this much brighter than the middle ones (the key art lights its edge hands more than the cone does) // albedo multiplier of the hands (the lighting calibration: how bright the hands read next to the wall)
+	showcase: true, // the chosen hand shows what it is of its class before it offers itself
+	overlay: 0, // opacity of the key-art overlay (the calibration view; ?overlay=1 opens it at 0.5)
 	candle: 1, // candle light multiplier
 	lean: 1, // how far the candle light and flame lean toward the hovered / chosen hand
 	showStandIns: true,
@@ -26,7 +33,8 @@ export const CHOICE_HANDS_DEFAULTS = {
 };
 registerDefaults('choiceHands', CHOICE_HANDS_DEFAULTS);
 
-const CANDLE_COLOR = kelvinToColor(2900);
+const WALL_BASE = [0.8, 0.64, 0.4]; // the wall's albedo multiplier: the key art's skulls are golden-brown, not grey-white
+const CANDLE_COLOR = kelvinToColor(3200);
 const COLD_COLOR = kelvinToColor(6500);
 const NO_PICK = (o) => {
 	o.userData.labNoPick = o.userData.labNoCollide = true;
@@ -34,6 +42,7 @@ const NO_PICK = (o) => {
 };
 const UI_STYLE = `
 .ch-ui { position:absolute; inset:0; pointer-events:none; z-index:4; font-family: Georgia, 'Times New Roman', serif; color:#e9dcc0; user-select:none; }
+.ch-keyart { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; pointer-events:none; opacity:0; }
 .ch-fade { position:absolute; inset:0; background:#000; opacity:0; }
 .ch-caption { position:absolute; left:6%; right:6%; bottom:12%; text-align:center; opacity:0; text-shadow:0 2px 14px #000, 0 0 3px #000; }
 .ch-name { font-size:clamp(13px,1.55vw,22px); letter-spacing:.32em; text-transform:uppercase; color:#d9b979; }
@@ -88,6 +97,243 @@ function spriteTexture(mode) {
 	const t = new THREE.DataTexture(d, N, N, THREE.RGBAFormat, THREE.UnsignedByteType);
 	Object.assign(t, { magFilter: THREE.LinearFilter, minFilter: THREE.LinearFilter, generateMipmaps: false, needsUpdate: true });
 	return t;
+}
+
+/**
+ * The showcase's own sprites, 64 x 64 DataTextures (no canvas: premultiplied alpha makes additive black), one SHAPE per kind of particle so nothing reads as a bubble:
+ * 'shard' / 'shardB' = a jagged chip of stone / plaster (alpha, shaded, no round outline); 'crystal' = a four-ray glint with a bright core (additive); 'point' = a soft
+ * white-blue point with no edge (additive); 'streak' = a hot head with a short tail along +x (additive; the pool turns it along the particle's velocity); 'puff' = a soft
+ * irregular wisp (alpha).
+ */
+function fxSprite(kind) {
+	const N = 64;
+	const d = new Uint8Array(N * N * 4);
+	let seed = { shard: 3, shardB: 11 }[kind] ?? 5;
+	const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+	const smooth = (a, b, x) => C.smoothstep(a, b, x);
+	const at = (x, y) => (y * N + x) * 4;
+	if (kind === 'shard' || kind === 'shardB') {
+		const k = kind === 'shard' ? 7 : 6;
+		const poly = [];
+		for (let i = 0; i < k; i++) {
+			const a = ((i + rnd() * 0.55) / k) * Math.PI * 2;
+			const r = 0.45 + 0.47 * rnd();
+			poly.push([Math.cos(a) * r, Math.sin(a) * r * (kind === 'shard' ? 1 : 0.72)]);
+		}
+		const inside = (px, py) => {
+			let c = false;
+			for (let i = 0, j = k - 1; i < k; j = i++) if (poly[i][1] > py !== poly[j][1] > py && px < ((poly[j][0] - poly[i][0]) * (py - poly[i][1])) / (poly[j][1] - poly[i][1]) + poly[i][0]) c = !c;
+			return c;
+		};
+		const edge = (px, py) => {
+			let best = 9;
+			for (let i = 0, j = k - 1; i < k; j = i++) {
+				const [ax, ay] = poly[j];
+				const [bx, by] = poly[i];
+				const t = C.clamp(((px - ax) * (bx - ax) + (py - ay) * (by - ay)) / ((bx - ax) ** 2 + (by - ay) ** 2), 0, 1);
+				best = Math.min(best, Math.hypot(px - (ax + t * (bx - ax)), py - (ay + t * (by - ay))));
+			}
+			return best;
+		};
+		for (let y = 0; y < N; y++) {
+			for (let x = 0; x < N; x++) {
+				const px = ((x + 0.5) / N) * 2 - 1;
+				const py = ((y + 0.5) / N) * 2 - 1;
+				const e = edge(px, py);
+				const a = inside(px, py) ? smooth(0, 0.07, e) : 0;
+				// a lit top-left face, a dark lower-right rim, a little grain: a chip, not a ball
+				const shade = 0.62 + 0.3 * (-px * 0.55 - py * 0.6) + 0.1 * (rnd() - 0.5) - 0.22 * (1 - smooth(0.02, 0.2, e));
+				const v = Math.round(255 * C.clamp(shade, 0.15, 1));
+				d.set([v, v, v, Math.round(255 * a)], at(x, y));
+			}
+		}
+	} else if (kind === 'puff') {
+		const g = Array.from({ length: 81 }, () => rnd());
+		const vn = (x, y) => {
+			const fx = Math.floor(x);
+			const fy = Math.floor(y);
+			const tx = x - fx;
+			const ty = y - fy;
+			const h = (i, j) => g[(j % 9) * 9 + (i % 9)];
+			return C.lerp(C.lerp(h(fx, fy), h(fx + 1, fy), tx), C.lerp(h(fx, fy + 1), h(fx + 1, fy + 1), tx), ty);
+		};
+		for (let y = 0; y < N; y++) {
+			for (let x = 0; x < N; x++) {
+				const px = ((x + 0.5) / N) * 2 - 1;
+				const py = ((y + 0.5) / N) * 2 - 1;
+				const r = Math.hypot(px, py);
+				const n = 0.55 * vn(x / 9 + 1, y / 9 + 1) + 0.45 * vn(x / 4.5 + 2, y / 4.5 + 2);
+				const a = smooth(1, 0.15, r + (n - 0.5) * 0.7) * 0.55;
+				d.set([255, 255, 255, Math.round(255 * a)], at(x, y));
+			}
+		}
+	} else {
+		for (let y = 0; y < N; y++) {
+			for (let x = 0; x < N; x++) {
+				const px = ((x + 0.5) / N) * 2 - 1;
+				const py = ((y + 0.5) / N) * 2 - 1;
+				let v = 0;
+				if (kind === 'crystal') {
+					const win = smooth(1, 0.7, Math.abs(px)) * smooth(1, 0.7, Math.abs(py));
+					v = Math.max(Math.exp(-(px * px + py * py) * 70), Math.exp(-py * py * 1100) * Math.exp(-Math.abs(px) * 3.4) * 0.8, Math.exp(-px * px * 1100) * Math.exp(-Math.abs(py) * 3.4) * 0.8) * win;
+				} else if (kind === 'streak') {
+					const u = (px + 1) / 2;
+					const head = Math.exp(-(((u - 0.82) / 0.075) ** 2 + (py / 0.14) ** 2));
+					const tail = u < 0.82 ? Math.exp(-(0.82 - u) * 4.2) * Math.exp(-(py * py) / 0.02) * 0.5 * smooth(0.02, 0.2, u) : 0;
+					v = Math.max(head, tail);
+				} else {
+					const r = Math.hypot(px, py);
+					v = (Math.exp(-r * r * 9) * 0.85 + Math.exp(-r * r * 90) * 0.5) * smooth(1, 0.8, r); // 'point': soft, no edge
+				}
+				const b = Math.round(255 * C.clamp(v, 0, 1));
+				d.set([b, b, b, 255], at(x, y));
+			}
+		}
+	}
+	const t = new THREE.DataTexture(d, N, N, THREE.RGBAFormat, THREE.UnsignedByteType);
+	Object.assign(t, { magFilter: THREE.LinearFilter, minFilter: THREE.LinearFilter, generateMipmaps: false, needsUpdate: true });
+	return t;
+}
+
+/**
+ * A pool of showcase particles of ONE kind (one preset of FX_PRESETS): ONE InstancedMesh of camera-facing quads (never PointsMaterial: its size is ignored by WebGPU r180) with
+ * the kind's own sprite. pool 'alpha' = pieces lit by the candle (normal blending: shrink to die), pool 'add' = additive glints (dim: no bloom needed). Per-instance colour is
+ * `instanceColor`; every particle spins about the view axis (or, for a streak, points along its velocity on screen); the scene calls emit() and update().
+ */
+class FxPool {
+	constructor(scene, preset, count, sprite) {
+		this.preset = preset;
+		this.kind = preset.pool;
+		this.N = count;
+		this.sprite = sprite;
+		this.material = this.kind === 'add'
+			? new THREE.MeshBasicMaterial({ name: 'Showcase glints', map: sprite, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false })
+			: new THREE.MeshLambertMaterial({ name: 'Showcase pieces', map: sprite, transparent: true, depthWrite: false, emissive: new THREE.Color(0.03, 0.028, 0.025) });
+		this.mesh = NO_PICK(new THREE.InstancedMesh(new THREE.PlaneGeometry(1, 1), this.material, count));
+		this.mesh.frustumCulled = false;
+		this.mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+		const hide = new THREE.Matrix4().makeScale(0, 0, 0);
+		const white = new THREE.Color(1, 1, 1);
+		for (let i = 0; i < count; i++) {
+			this.mesh.setMatrixAt(i, hide);
+			this.mesh.setColorAt(i, white);
+		}
+		scene.add(this.mesh);
+		this.p = Array.from({ length: count }, () => ({ age: 9, life: 1, x: 0, y: 0, z: 0, vx: 0, vy: 0, vz: 0, size: 0, rot: 0, spin: 0, seed: 0, c0: new THREE.Color(), c1: new THREE.Color() }));
+		this.next = 0;
+		this.live = 0;
+		this.awake = false; // set by emit(), cleared when the last particle has died: update() costs nothing in between
+		this._m = new THREE.Matrix4();
+		this._pos = new THREE.Vector3();
+		this._scale = new THREE.Vector3();
+		this._col = new THREE.Color();
+		this._q = new THREE.Quaternion();
+		this._qz = new THREE.Quaternion();
+		this._zAxis = new THREE.Vector3(0, 0, 1);
+		this._v = new THREE.Vector3();
+		this._hide = hide;
+	}
+
+	emit(at) {
+		const preset = this.preset;
+		const q = this.p[this.next];
+		const i = this.next;
+		this.next = (this.next + 1) % this.N;
+		const r = (a, b) => a + Math.random() * (b - a);
+		const sp = preset.spread;
+		Object.assign(q, { age: 0, life: r(...preset.life), x: at.x, y: at.y, z: at.z, size: r(...preset.size), seed: Math.random() * 6.28, rot: Math.random() * 6.28, spin: (Math.random() - 0.5) * 2 * (preset.spin ?? 0),
+			vx: preset.mean[0] + (Math.random() - 0.5) * 2 * sp[0], vy: preset.mean[1] + (Math.random() - 0.5) * 2 * sp[1], vz: preset.mean[2] + (Math.random() - 0.5) * 2 * sp[2] });
+		const c = Array.isArray(preset.colour) ? preset.colour : [preset.colour, preset.colour];
+		q.c0.set(c[0]);
+		q.c1.set(c[1]);
+		if (this.kind === 'alpha') this.mesh.setColorAt(i, this._col.copy(q.c0).multiplyScalar(0.75 + Math.random() * 0.35));
+		this.dirtyColour = true;
+		this.awake = true;
+	}
+
+	update(delta, camQ, time) {
+		if (delta <= 0 || !this.awake) return;
+		const pr = this.preset;
+		let live = 0;
+		for (let i = 0; i < this.N; i++) {
+			const q = this.p[i];
+			if (q.age >= 9) continue;
+			if (q.age >= q.life) {
+				this.mesh.setMatrixAt(i, this._hide);
+				q.age = 9;
+				live++; // upload this frame's removal
+				continue;
+			}
+			live++;
+			q.age += delta;
+			const damp = Math.exp(-pr.drag * delta);
+			q.vx *= damp;
+			q.vz *= damp;
+			q.vy = q.vy * Math.exp(-pr.drag * 0.4 * delta) - pr.gravity * delta;
+			if (pr.sway) {
+				q.vx += Math.sin(time * 3.1 + q.seed) * pr.sway * delta;
+				q.vz += Math.cos(time * 2.3 + q.seed * 1.7) * pr.sway * delta;
+			}
+			q.x += q.vx * delta;
+			q.y += q.vy * delta;
+			q.z += q.vz * delta;
+			if (q.y < 0.006 && q.z > 0 && q.z < C.LEDGE.depth - 0.02 && Math.abs(q.x) < C.LEDGE.width / 2 && pr.gravity > 0) {
+				q.y = 0.006; // lands on the ledge
+				q.vx = q.vy = q.vz = 0;
+				q.spin = 0;
+			}
+			const t = q.age / q.life;
+			let fade;
+			if (pr.fade === 'bell') fade = Math.sin(Math.PI * t) ** 0.8;
+			else fade = 1 - C.smoothstep(0.55, 1, t);
+			fade *= C.smoothstep(0, 0.07, t);
+			let size = q.size * (pr.grow ? 1 + (pr.grow - 1) * t : 1);
+			if (pr.twinkle) size *= Math.max(0.12, Math.abs(Math.sin(time * pr.twinkle + q.seed))) ** 1.6; // a glint flashes: mostly dim, brief and bright
+			if (this.kind === 'alpha') size *= fade;
+			else {
+				// additive: dim the colour with the fade, keep the dot's size nearly constant
+				this._col.copy(q.c0).lerp(q.c1, t).multiplyScalar(0.9 * fade);
+				this.mesh.setColorAt(i, this._col);
+				this.dirtyColour = true;
+			}
+			// orientation: a streak points along its screen-space velocity, everything else spins about the view axis
+			let angle = q.rot + q.spin * q.age;
+			let sx = size;
+			let sy = size * (pr.aspect ?? 1);
+			if (pr.streak) {
+				this._v.set(q.vx, q.vy, q.vz).applyQuaternion(this._q.copy(camQ).invert());
+				angle = Math.atan2(this._v.y, this._v.x);
+				sx = size * pr.streak;
+			}
+			this._q.copy(camQ).multiply(this._qz.setFromAxisAngle(this._zAxis, angle));
+			this._m.compose(this._pos.set(q.x, q.y, q.z), this._q, this._scale.set(sx, sy, 1));
+			this.mesh.setMatrixAt(i, this._m);
+		}
+		this.mesh.instanceMatrix.needsUpdate = true;
+		if (this.dirtyColour && this.mesh.instanceColor) {
+			this.mesh.instanceColor.needsUpdate = true;
+			this.dirtyColour = false;
+		}
+		this.live = live;
+		if (live === 0) this.awake = false;
+	}
+
+	clear() {
+		for (let i = 0; i < this.N; i++) {
+			this.p[i].age = 9;
+			this.mesh.setMatrixAt(i, this._hide);
+		}
+		this.mesh.instanceMatrix.needsUpdate = true;
+		this.live = 0;
+		this.awake = false;
+	}
+
+	dispose() {
+		this.mesh.geometry.dispose();
+		this.material.dispose();
+		this.sprite.dispose();
+		this.mesh.dispose();
+	}
 }
 
 /** A worn flagstone for the ledge (albedo + OpenGL normal, tileable, 256 px): fbm value noise, slab joints. Procedural: the scene needs no extra file for it. */
@@ -160,7 +406,7 @@ export class ChoiceHandsScene {
 		this.vfx.name = 'Class select VFX';
 		this.sun = { direction: new THREE.Vector3(0.3, 1, 0.5).normalize(), color: new THREE.Color(0, 0, 0) };
 		this.lights = [];
-		this.postDefaults = { toneMapping: 'aces', exposure: 1.25, fog: { enabled: false }, grade: { vignette: 0.68, contrast: 1.06, saturation: 0.7, lift: 0, temperature: 0, tint: 0 } };
+		this.postDefaults = { toneMapping: 'aces', exposure: 1.0, fog: { enabled: false }, grade: { vignette: 0.375, contrast: 1.06, saturation: 0.75, lift: 0, temperature: 0, tint: 0 } };
 		this.home = { position: new THREE.Vector3(...C.FRAME.position), target: new THREE.Vector3(...C.FRAME.target) };
 		this.slots = [];
 		this.state = 'idle'; // idle | reach (out and offered) | back | grasp | done
@@ -173,6 +419,10 @@ export class ChoiceHandsScene {
 		this.camSlot = null;
 		this.gripW = 0;
 		this.pendingGrab = false;
+		this.showcase = { active: false, done: false, started: false, t: 0, def: null, acc: [], roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1, cam: 0 };
+		this._qr = new THREE.Quaternion();
+		this._up = new THREE.Vector3();
+		this._zAxis = new THREE.Vector3(0, 0, 1);
 		this._offeredShown = false;
 		this.grasp = { t: 0, spawned: 0, front: 9 };
 		this.time = 0;
@@ -232,7 +482,7 @@ export class ChoiceHandsScene {
 		scene.add(this.hemi);
 		// the one shadowed light: the candle. A SpotLight (one shadow frustum, 140 deg wide) aimed at the wall, not a PointLight: the six faces of a point light's cube shadow
 		// showed as brightness steps on the wall where they meet. Its cone is also the vignette of the set (the wall fades to black past 70 deg).
-		this.candleLight = new THREE.SpotLight(CANDLE_COLOR, 0, 0, 1.22, 1, 2);
+		this.candleLight = new THREE.SpotLight(CANDLE_COLOR, 0, 0, 1.22, 1, 1.05); // decay 1.05: the key art's glow is broad (a physical 2 would make a hot spot and black corners)
 		this.candleLight.name = "Gennet's candle";
 		this.candleLight.castShadow = true;
 		this.candleLight.shadow.mapSize.set(2048, 2048);
@@ -241,15 +491,20 @@ export class ChoiceHandsScene {
 		this.candleLight.shadow.bias = -0.0004;
 		this.candleLight.shadow.normalBias = 0.01;
 		this.candleLight.shadow.radius = 2;
-		this.candleBase = new THREE.Vector3(C.CANDLE.x, C.CANDLE.flameY + 0.02, C.CANDLE.z + 0.1); // 10 cm in front of the flame: the hands (10-14 cm off the wall) get light on their faces, not at a grazing angle
+		this.candleBase = new THREE.Vector3(C.CANDLE.x, 0.21 * C.CANDLE.scale, C.CANDLE.z + 0.03); // the middle of the flame, low and close to the wall (the key art's one light)
 		this.candleLight.position.copy(this.candleBase);
-		this.candleLight.target.position.set(0, 0.75, -0.1);
+		this.candleLight.target.position.set(0, 0.15, -0.1);
 		scene.add(this.candleLight, this.candleLight.target);
 		// the same flame lights what the cone misses (ledge, dish, wax, the underside of the nearest hands): short range, no shadow
-		this.candleNear = new THREE.PointLight(CANDLE_COLOR, 0, 0.9, 2);
+		this.candleNear = new THREE.PointLight(CANDLE_COLOR, 0, 2.2, 1.15);
 		this.candleNear.name = "Gennet's candle (near, unshadowed)";
-		this.candleNear.position.copy(this.candleBase);
+		this.nearOffset = new THREE.Vector3(0, 0.06, 0.266); // the ledge and the wax bounce the flame toward the viewer: this lights the fronts and undersides of the hands
+		this.candleNear.position.copy(this.candleBase).add(this.nearOffset);
 		scene.add(this.candleNear);
+		// the class light: one more point light, off until a hand is chosen; its colour and place come from the showcase table (cold for the Ossuarist, warm fire for lamp / coals / pyre)
+		this.classLight = new THREE.PointLight(0xffffff, 0, 1.2, 2);
+		this.classLight.name = 'Class light (showcase)';
+		scene.add(this.classLight);
 		// a very weak cold fill from the upper left front so the dark side of the hands reads (no shadow)
 		this.fill = new THREE.DirectionalLight(COLD_COLOR, 0);
 		this.fill.name = 'Cool fill (weak)';
@@ -257,10 +512,11 @@ export class ChoiceHandsScene {
 		this.fill.target.position.set(0, 0.6, 0);
 		scene.add(this.fill, this.fill.target);
 		this.lights = [
-			{ name: "Gennet's candle (shadowed spot)", light: this.candleLight, kelvin: 2900, base: 2.2, flicker: 3.1, flickerAmount: 1 },
-			{ name: "Gennet's candle (near, no shadow)", light: this.candleNear, kelvin: 2900, base: 1.1, flicker: 3.1, flickerAmount: 1 },
-			{ name: 'Cold fill', light: this.fill, kelvin: 6500, base: 1.1 },
+			{ name: "Gennet's candle (shadowed spot)", light: this.candleLight, kelvin: 3200, base: 0.64, flicker: 3.1, flickerAmount: 1 },
+			{ name: "Gennet's candle (near, no shadow)", light: this.candleNear, kelvin: 3200, base: 0.42, flicker: 3.1, flickerAmount: 1 },
+			{ name: 'Cold fill', light: this.fill, kelvin: 6500, base: 0.6 },
 			{ name: 'Cold ambient', light: this.hemi, base: 0.5 },
+			{ name: 'Class light (showcase, driven)', light: this.classLight, kelvin: 0, base: 0 },
 		];
 		this.applyRigIntensity();
 	}
@@ -318,7 +574,7 @@ export class ChoiceHandsScene {
 		const tone = new Float32Array(g.attributes.position.count * 3);
 		for (let j = 0; j < g.attributes.position.count; j++) tone.fill(C.wallTone(g.attributes.position.getX(j), g.attributes.position.getY(j) + W.cy), j * 3, j * 3 + 3);
 		g.setAttribute('color', new THREE.BufferAttribute(tone, 3));
-		this.wallMaterial = new THREE.MeshStandardMaterial({ name: 'Ossuary wall', map: set.map, normalMap: set.normal, normalScale: new THREE.Vector2(1.1, 1.1), displacementMap: set.height, displacementScale: W.relief, displacementBias: -W.relief, roughness: 0.92, metalness: 0, vertexColors: true, color: new THREE.Color(0.84, 0.8, 0.76) });
+		this.wallMaterial = new THREE.MeshStandardMaterial({ name: 'Ossuary wall', map: set.map, normalMap: set.normal, normalScale: new THREE.Vector2(1.1, 1.1), displacementMap: set.height, displacementScale: W.relief, displacementBias: -W.relief, roughness: 0.92, metalness: 0, vertexColors: true, color: new THREE.Color(...WALL_BASE) });
 		const mesh = new THREE.Mesh(g, this.wallMaterial);
 		mesh.name = 'Skull wall';
 		mesh.position.set(0, W.cy, 0);
@@ -349,7 +605,7 @@ export class ChoiceHandsScene {
 		this.scene.add(this.ledge);
 		// worn lip of the stone
 		const lip = new THREE.Mesh(new THREE.BoxGeometry(L.width, 0.03, 0.05), this.ledgeMaterial);
-		lip.position.set(0, -0.012, L.depth - 0.02);
+		lip.position.set(0, -0.012, L.depth - 0.045); // flush with the front of the ledge (its front edge is the key art's ledge line)
 		lip.castShadow = lip.receiveShadow = true;
 		this.scene.add(lip);
 	}
@@ -359,6 +615,7 @@ export class ChoiceHandsScene {
 		const group = new THREE.Group();
 		group.name = "Gennet's candle";
 		group.position.set(K.x, 0, K.z);
+		group.scale.setScalar(K.scale);
 		const brass = new THREE.MeshStandardMaterial({ name: 'Candle dish', color: new THREE.Color(0.34, 0.27, 0.17), roughness: 0.5, metalness: 0.75 });
 		const dishProfile = [[0, 0.002], [0.046, 0.002], [0.074, 0.011], [0.082, 0.024], [0.076, 0.026], [0.07, 0.016], [0.046, 0.011], [0, 0.011]].map(([r, y]) => new THREE.Vector2(r, y));
 		const dish = new THREE.Mesh(new THREE.LatheGeometry(dishProfile, 40), brass);
@@ -375,13 +632,27 @@ export class ChoiceHandsScene {
 		group.add(stem);
 		// wax: a slightly bulged lathe, melted lip at the top
 		const waxProfile = [[0, 0.011], [0.029, 0.011], [0.031, 0.04], [0.033, 0.085], [0.031, 0.118], [0.026, 0.132], [0.02, 0.1355], [0.012, 0.128], [0, 0.128]].map(([r, y]) => new THREE.Vector2(r, y));
-		this.waxMaterial = new THREE.MeshStandardMaterial({ name: 'Candle wax', color: new THREE.Color(0.88, 0.76, 0.5), roughness: 0.55, metalness: 0, emissive: new THREE.Color(0, 0, 0) });
-		const wax = new THREE.Mesh(new THREE.LatheGeometry(waxProfile, 32), this.waxMaterial);
+		// the wax is its own light: the flame sits a finger above it, so any real light there clips to white. A gradient painted into vertex colours (bright at the lip, warm
+		// below, a little lighter on the side that faces the viewer) in an unlit material: a golden cream like the key art's, whatever the lights are doing
+		this.waxMaterial = new THREE.MeshBasicMaterial({ name: 'Candle wax', vertexColors: true, color: new THREE.Color(1, 1, 1) });
+		const paintWax = (geometry) => {
+			const pos = geometry.attributes.position;
+			const nor = geometry.attributes.normal;
+			const col = new Float32Array(pos.count * 3);
+			for (let i = 0; i < pos.count; i++) {
+				const t = C.clamp((pos.getY(i) - 0.011) / 0.125, 0, 1);
+				const shade = 0.62 + 0.38 * C.clamp(nor.getZ(i) * 0.8 + 0.3 * nor.getX(i) + 0.4, 0, 1);
+				col.set([C.lerp(0.3, 0.8, t) * shade, C.lerp(0.1, 0.33, t) * shade, C.lerp(0.02, 0.055, t) * shade], i * 3); // linear values
+			}
+			geometry.setAttribute('color', new THREE.BufferAttribute(col, 3));
+			return geometry;
+		};
+		const wax = new THREE.Mesh(paintWax(new THREE.LatheGeometry(waxProfile, 32)), this.waxMaterial);
 		wax.name = 'Wax';
 		group.add(wax);
 		// two drips and a wick
 		for (const [x, z, h, r] of [[0.0295, 0.01, 0.05, 0.0065], [-0.011, 0.0295, 0.034, 0.0055]]) {
-			const d = new THREE.Mesh(new THREE.CapsuleGeometry(r, h, 4, 8), this.waxMaterial);
+			const d = new THREE.Mesh(paintWax(new THREE.CapsuleGeometry(r, h, 4, 8)), this.waxMaterial);
 			d.position.set(x, 0.12 - h / 2, z);
 			group.add(d);
 		}
@@ -392,10 +663,27 @@ export class ChoiceHandsScene {
 		this.candle = group;
 		this.scene.add(group);
 		// the flame: the lab's flame billboard, bottom at the wick top
-		this.flames = new FlameField(this.app, 1);
-		this.flameBase = new THREE.Vector3(K.x, 0.148, K.z);
-		this.flameIndex = this.flames.add(this.flameBase, { width: 0.052, height: 0.1, strength: 1 });
+		this.flames = new FlameField(this.app, 2); // the candle's and, for the Exhumer's showcase, a small oil flame on the thumb
+		this.flameBase = new THREE.Vector3(K.x, 0.148 * K.scale, K.z);
+		this.flameIndex = this.flames.add(this.flameBase, { width: 0.046 * K.scale, height: 0.085 * K.scale, strength: 1 });
+		this.flameIndex2 = this.flames.add(new THREE.Vector3(0, -9, 0), { width: 0.026, height: 0.05, strength: 0 });
 		this.vfx.add(this.flames.mesh);
+		// the key art's golden haze round the flame: one soft warm additive sprite on the wall behind the candle (the lights give the halo its shape, this its warmth)
+		this.glowTexture = spriteTexture('add');
+		this.glowMaterial = new THREE.MeshBasicMaterial({ name: 'Candle glow', map: this.glowTexture, color: new THREE.Color(0, 0, 0), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false });
+		this.glowMesh = NO_PICK(new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.glowMaterial));
+		this.glowMesh.scale.setScalar(0.8);
+		this.glowMesh.position.set(K.x, 0.18 * K.scale, 0.03);
+		this.glowMesh.renderOrder = 1;
+		this.scene.add(this.glowMesh);
+		// ...and on the ledge: the stone's top face round the dish is the brightest stone of the key art (the same warm sprite, lying flat)
+		this.ledgeGlowMaterial = this.glowMaterial.clone();
+		this.ledgeGlowMesh = NO_PICK(new THREE.Mesh(new THREE.PlaneGeometry(1, 1), this.ledgeGlowMaterial));
+		this.ledgeGlowMesh.rotation.x = -Math.PI / 2;
+		this.ledgeGlowMesh.scale.set(0.5, 0.2, 1);
+		this.ledgeGlowMesh.position.set(K.x, 0.0035, C.LEDGE.depth * 0.5);
+		this.ledgeGlowMesh.renderOrder = 1;
+		this.scene.add(this.ledgeGlowMesh);
 	}
 
 	// ---- hands -----------------------------------------------------------------------------------------------------------------
@@ -407,8 +695,8 @@ export class ChoiceHandsScene {
 	}
 
 	buildSlot(def, index) {
-		const sc = this.settings.handScale;
-		const geo = C.armGeometry(def, { scale: sc });
+		const geo = C.armGeometry(def, { scale: this.settings.handScale });
+		const sc = geo.scale; // handScale x the slot's own fit
 		const model = C.HAND_MODELS[def.source];
 		const root = new THREE.Group(); // the wall hole: swings the arm
 		root.name = `Hand ${def.id}`;
@@ -492,11 +780,12 @@ export class ChoiceHandsScene {
 		this.scene.add(root);
 		// pick proxy: a capsule over the visible arm and hand at rest (static, so a hovered hand cannot run away from the pointer)
 		const r = 0.075;
-		const len = C.ARM.visible - 0.04 - 2 * r + 0.1;
+		const len = geo.visible - 0.04 - 2 * r + 0.1;
 		const proxy = new THREE.Mesh(new THREE.CapsuleGeometry(r, len, 2, 8), new THREE.MeshBasicMaterial({ visible: false }));
 		proxy.userData.slot = index;
 		this.proxyRoot.add(proxy);
-		const slot = { def, index, geo, root, slideG, wristG, armG, mats, meshes, proxy, dust, hover: 0, dim: 1, phase: index * 1.37, rig: null, slices: null, handProxy };
+		const anchors = C.handAnchors(model3d, model);
+		const slot = { outerK: Math.min(1, Math.abs(geo.entry.x) / 0.75), def, index, geo, root, slideG, wristG, armG, mats, meshes, proxy, dust, anchors, hover: 0, dim: 1, phase: index * 1.37, rig: null, slices: null, handProxy };
 		this.bindFingerRig(slot, model3d);
 		this.placeProxy(slot);
 		return slot;
@@ -542,7 +831,7 @@ export class ChoiceHandsScene {
 	placeProxy(slot) {
 		const { geo, proxy } = slot;
 		const sc = geo.scale;
-		proxy.position.copy(geo.entry).addScaledVector(geo.dir, ((C.ARM.visible - 0.04) / 2 + 0.02) * sc);
+		proxy.position.copy(geo.entry).addScaledVector(geo.dir, ((geo.visible - 0.04) / 2 + 0.02) * sc);
 		proxy.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), geo.dir);
 		proxy.scale.setScalar(sc);
 		proxy.updateMatrixWorld(true);
@@ -550,11 +839,10 @@ export class ChoiceHandsScene {
 
 	/** The Hand size slider: every arm is rebuilt about its hole (tips stay where the table puts them). */
 	applyHandScale() {
-		const sc = this.settings.handScale;
 		for (const s of this.slots) {
-			s.geo = C.armGeometry(s.def, { scale: sc });
+			s.geo = C.armGeometry(s.def, { scale: this.settings.handScale });
 			s.root.position.copy(s.geo.entry);
-			s.root.scale.setScalar(sc);
+			s.root.scale.setScalar(s.geo.scale);
 			this.placeProxy(s);
 		}
 	}
@@ -598,6 +886,7 @@ export class ChoiceHandsScene {
 			this.dustMesh.setColorAt(i, this.ashColor);
 		}
 		this.scene.add(this.dustMesh);
+		this.fxPools = Object.fromEntries(Object.entries(C.FX_PRESETS).map(([kind, preset]) => [kind, new FxPool(this.scene, preset, kind === 'dust' ? 260 : 140, fxSprite(preset.sprite))]));
 		this.dust = { N: P, next: 0, live: false, p: Array.from({ length: P }, () => ({ age: 9, life: 1, x: 0, y: 0, z: 0, vx: 0, vy: 0, vz: 0, size: 0, heavy: 1, rest: false })) };
 		this._m4 = new THREE.Matrix4();
 		this._s3 = new THREE.Vector3();
@@ -725,6 +1014,7 @@ export class ChoiceHandsScene {
 		this.camSlot = slot;
 		this.state = 'reach';
 		this.pendingGrab = false;
+		this.resetShowcase();
 		this.hoverIndex = this.keyHover = -1;
 		this.tween(1, this.settings.duration, C.easeOutBack, instant);
 		this.syncUi();
@@ -736,13 +1026,28 @@ export class ChoiceHandsScene {
 		if (this.state !== 'reach') return false;
 		this.state = 'back';
 		this.pendingGrab = false;
+		this.resetShowcase();
 		this.tween(0, this.settings.duration * 0.78, C.easeInOutCubic, instant);
 		if (instant) this.finishBack();
 		this.syncUi();
 		return true;
 	}
 
+	resetShowcase() {
+		const sc = this.showcase;
+		sc.active = false;
+		sc.done = false;
+		sc.started = false;
+		sc.t = 0;
+	}
+
 	finishBack() {
+		const slot = this.slots[this.sel];
+		if (slot) {
+			slot.wristG.scale.setScalar(1); // the showcase's squeeze / tremor leave nothing behind
+			slot.wristG.position.set(0, 0, C.HAND_MODELS[slot.def.source].wrist);
+		}
+		Object.assign(this.showcase, { roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1, cam: 0 });
 		this.state = 'idle';
 		this.sel = -1;
 		this.syncUi();
@@ -754,7 +1059,8 @@ export class ChoiceHandsScene {
 	 */
 	grab(instant = false) {
 		if (this.state !== 'reach' || this.reach.to !== 1) return false;
-		if (this.reach.value < C.GRAB_AT && !instant) {
+		if (instant) this.skipShowcase();
+		if ((!this.offered || this.showcase.active) && !instant) {
 			this.pendingGrab = true;
 			return true;
 		}
@@ -776,6 +1082,9 @@ export class ChoiceHandsScene {
 		this.sel = -1;
 		this.camSlot = null;
 		this.pendingGrab = false;
+		this.resetShowcase();
+		Object.assign(this.showcase, { roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1, cam: 0, def: null }); // nothing of a showcase cut short carries over to the next hand
+		for (const pool of Object.values(this.fxPools)) pool.clear();
 		this.gripW = 0;
 		this.reach = { value: 0, from: 0, to: 0, t: 1, dur: 1, ease: C.easeOutBack };
 		this.retract = 0;
@@ -837,7 +1146,10 @@ export class ChoiceHandsScene {
 				if (this.state === 'idle') {
 					const i = this.pick(e.clientX, e.clientY);
 					if (i >= 0) this.select(i);
-				} else if (this.state === 'reach' && this.pickChosen(e.clientX, e.clientY)) this.grab(); // "choose which hand to take": the one held out
+				} else if (this.state === 'reach' && this.pickChosen(e.clientX, e.clientY)) {
+					if (this.showcase.active) this.skipShowcase(); // a click on the hand while it shows itself: enough, offer it
+					else this.grab(); // "choose which hand to take": the one held out
+				}
 			}),
 			app.on('key', (k, e) => {
 				if (this.onKey(k)) e?.preventDefault?.();
@@ -864,7 +1176,7 @@ export class ChoiceHandsScene {
 			}
 			if ((k === 'enter' || k === ' ') && current >= 0) return this.select(current);
 		} else if (this.state === 'reach') {
-			if (k === 'enter' || k === ' ') return this.grab();
+			if (k === 'enter' || k === ' ') return this.showcase.active ? this.skipShowcase() : this.grab();
 			if (k === 'backspace') return this.back();
 		} else if (this.state === 'done' && (k === 'enter' || k === ' ')) {
 			this.replay();
@@ -883,13 +1195,15 @@ export class ChoiceHandsScene {
 		const el = document.createElement('div');
 		el.className = 'ch-ui';
 		el.innerHTML = `
+			<img class="ch-keyart" alt="" draggable="false">
 			<div class="ch-fade"></div>
 			<div class="ch-hint">Rê chuột lên một bàn tay · ← → hoặc 1–6 để chọn · Enter / click: bàn tay giơ ra</div>
 			<div class="ch-caption"><div class="ch-name"></div><div class="ch-quote"></div><div class="ch-tag"></div></div>
-			<div class="ch-actions"><button class="ch-btn main" data-act="grab" tabindex="-1">Nắm tay</button><button class="ch-btn" data-act="back" tabindex="-1">Quay lại</button></div>
+			<div class="ch-actions"><button class="ch-btn main" data-act="grab" tabindex="-1">Nắm tay</button><button class="ch-btn" data-act="back" tabindex="-1">Quay lại</button><button class="ch-btn" data-act="showcase" tabindex="-1">Xem lại showcase</button></div>
 			<div class="ch-end"><div class="ch-end-name"></div><div class="ch-end-quote"></div><div class="ch-end-note"></div><button class="ch-btn" data-act="replay" tabindex="-1">Chơi lại</button></div>`.normalize('NFC');
 		host.appendChild(el);
 		this.ui = {
+			keyart: el.querySelector('.ch-keyart'),
 			root: el,
 			fade: el.querySelector('.ch-fade'),
 			hint: el.querySelector('.ch-hint'),
@@ -915,6 +1229,7 @@ export class ChoiceHandsScene {
 			const act = btn.dataset.act;
 			if (act === 'grab') this.grab();
 			else if (act === 'back') this.back();
+			else if (act === 'showcase') this.playShowcase();
 			else if (act === 'replay') this.replay();
 		});
 		this.syncUi();
@@ -927,9 +1242,14 @@ export class ChoiceHandsScene {
 		this.styleEl = null;
 	}
 
+	/** Showcase particles alive (all kinds). */
+	get fxLive() {
+		return Object.values(this.fxPools).reduce((n, pool) => n + pool.live, 0);
+	}
+
 	/** True once the offered hand is far enough out to be taken: the Nắm tay / Quay lại buttons show then. */
 	get offered() {
-		return this.state === 'reach' && this.reach.to === 1 && this.reach.value >= C.GRAB_AT;
+		return this.state === 'reach' && this.reach.to === 1 && this.reach.value >= C.GRAB_AT && !this.showcase.active && !(this.settings.showcase && !this.showcase.started);
 	}
 
 	/** Static parts of the UI that follow the state (buttons, end card); the caption is faded per frame in updateUi. */
@@ -952,6 +1272,8 @@ export class ChoiceHandsScene {
 		if (!ui) return;
 		if (this.offered !== this._offeredShown) this.syncUi();
 		const s = this.settings;
+		if (s.overlay > 0 && !ui.keyart.src) ui.keyart.src = assetUrl('choice-hands/choice-keyart.webp'); // the calibration image is only fetched when the overlay is used
+		ui.keyart.style.opacity = String(s.overlay);
 		const hov = this.state === 'idle' ? (this.keyHover >= 0 ? this.keyHover : this.hoverIndex) : -1;
 		const want = this.state === 'reach' ? this.sel : this.state === 'idle' ? hov : -1;
 		const cap = this.cap;
@@ -965,9 +1287,14 @@ export class ChoiceHandsScene {
 					ui.name.textContent = `${c.name} · ${this.slots[wanted].def.id}`;
 					ui.quote.textContent = `“${c.quote}”`;
 					ui.tag.textContent = c.tag;
+					this._tagBase = c.tag;
 				}
 			}
 		} else cap.alpha = C.damp(cap.alpha, wanted >= 0 ? 1 : 0, 3.2, delta);
+		if (this.state === 'reach' && cap.shown === this.sel && this.sel >= 0) {
+			const note = this.showcase.active ? this.showcase.def.note : (this._tagBase ?? '');
+			if (ui.tag.textContent !== note) ui.tag.textContent = note; // while the hand shows itself the line under the quote names the marks
+		}
 		ui.caption.style.opacity = cap.alpha.toFixed(3);
 		ui.caption.style.bottom = this.state === 'reach' ? '13%' : '8%';
 		const idleHint = this.state === 'idle' && hov < 0 && this.time > 1.2;
@@ -992,11 +1319,14 @@ export class ChoiceHandsScene {
 			if (r.t >= 1) r.value = r.to;
 		}
 		if (this.state === 'back' && r.t >= 1) this.finishBack();
-		if (this.pendingGrab && this.state === 'reach' && this.reach.value >= C.GRAB_AT) this.grab(); // the order given while the hand was still coming out
+		if (this.state === 'reach' && !this.showcase.started && r.t >= 1 && r.to === 1 && this.settings.showcase) this.playShowcase(); // the hand is out: it shows what it is
+		if (this.pendingGrab && this.showcase.active) this.skipShowcase(); // a grab ordered during the showcase: the player has seen enough
+		if (this.pendingGrab && this.offered) this.grab(); // the order given while the hand was still coming out or showing itself
 		const away = this.state !== 'idle'; // another hand is up: the five sink
 		this.retract = C.damp(this.retract, this.state === 'idle' ? 0 : this.state === 'back' ? 0 : 1, this.state === 'back' ? 3 : 1.6, delta);
 		const activeHover = this.state === 'idle' ? (this.keyHover >= 0 ? this.keyHover : this.hoverIndex) : -1;
 		for (const slot of this.slots) this.updateSlot(slot, delta, elapsed, activeHover, s, away);
+		this.updateShowcase(delta);
 		if (this.state === 'grasp') this.updateGrasp(delta);
 		this.updateLight(delta, elapsed, activeHover, s);
 		this.updateCamera(delta, s);
@@ -1018,8 +1348,9 @@ export class ChoiceHandsScene {
 		// breathing: a few mm and a fraction of a degree, out of phase, quieter when it is the one being offered
 		const calm = 1 - Math.min(1, Math.abs(reachW));
 		const breath = Math.sin(elapsed * 0.85 + slot.phase);
-		const back = C.HAND_LENGTH - C.ARM.visible;
+		const back = slot.geo.back;
 		slot.root.quaternion.copy(pose.quat);
+		if (chosen && Math.abs(this.showcase.roll) > 1e-3) slot.root.quaternion.multiply(this._qr.setFromAxisAngle(this._zAxis, (this.showcase.roll * Math.PI) / 180)); // the showcase turns the hand about its forearm
 		slot.root.rotateX(breath * 0.006 * calm);
 		slot.root.rotateY(Math.sin(elapsed * 0.6 + slot.phase * 2) * 0.004 * calm);
 		slot.slideG.position.z = -back + slide + breath * 0.003 * calm;
@@ -1029,9 +1360,9 @@ export class ChoiceHandsScene {
 		slot.dim = C.damp(slot.dim, dimTarget, away ? 1.4 : 2.5, delta);
 		const warm = 0.06 * slot.hover + (chosen ? 0.05 * Math.min(1, reachW) : 0);
 		// procedural fingers (only a rigged model): relaxed at rest, a little stirred by the hover, fanned open when offered, a fist on the grasp
-		if (slot.rig) slot.rig.apply(Math.max(chosen ? reachW : 0, 0.18 * slot.hover), chosen ? this.gripW : 0, breath);
+		if (slot.rig) slot.rig.apply(Math.max(chosen ? reachW : 0, 0.18 * slot.hover), chosen ? Math.max(this.gripW, this.showcase.grip) : 0, breath);
 		for (const m of slot.mats) {
-			m.color.copy(m.userData.base).multiplyScalar(slot.dim * (1 + 0.07 * slot.hover + (chosen ? 0.04 * Math.min(1, reachW) : 0)));
+			m.color.copy(m.userData.base).multiplyScalar(s.handLight * (1 + s.handOuter * slot.outerK) * slot.dim * (1 + 0.07 * slot.hover + (chosen ? 0.04 * Math.min(1, reachW) : 0)));
 			if (m.emissive) m.emissive.setRGB(0.5 * warm, 0.28 * warm, 0.1 * warm);
 		}
 	}
@@ -1150,6 +1481,146 @@ export class ChoiceHandsScene {
 		slot.slices = null;
 	}
 
+	// ---- showcase: what the chosen hand shows of its class ------------------------------------------------------------------------------
+
+	/** (Re)measure the anchors of a slot from `root` (default: its own hand); a root with nothing to measure gives the model table's anchors (tests, a hand whose mesh is not measurable). */
+	rebuildAnchors(slot, root = slot.armG) {
+		slot.anchors = C.handAnchors(root, C.HAND_MODELS[slot.def.source]);
+		return slot.anchors;
+	}
+
+	/** World position of a named anchor of a slot's hand (arm-frame anchors of the mesh, through the live scene graph: slide, turn, roll, mirror). */
+	anchorWorld(slot, name, out = new THREE.Vector3()) {
+		out.copy(slot.anchors[name] ?? slot.anchors.palm ?? slot.anchors.wrist);
+		slot.armG.updateWorldMatrix(true, false);
+		return slot.armG.localToWorld(out);
+	}
+
+	/** Start (or restart) the showcase of the chosen hand. */
+	playShowcase() {
+		const slot = this.slots[this.sel];
+		if (!slot || this.state !== 'reach' || this.reach.to !== 1) return false;
+		const def = C.SHOWCASE[slot.def.id];
+		if (!def) return false;
+		const sc = this.showcase;
+		sc.active = true;
+		sc.started = true;
+		sc.t = 0;
+		sc.def = def;
+		sc.acc = def.fx.map(() => 0);
+		this.classLight.color.set(def.light.colour);
+		this.classLight.distance = def.light.dist * 2;
+		this.syncUi();
+		return true;
+	}
+
+	/** Jump to the end of the showcase (tests, the Enter key during it): the hand rests in its offer pose, the effects have the time to die out. */
+	skipShowcase() {
+		const sc = this.showcase;
+		if (!sc.active) return false;
+		sc.t = sc.def.dur;
+		Object.assign(sc, { roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1 }); // the keys end at rest: snap there, so a grab right after the skip does not start on a turning hand
+		return true;
+	}
+
+	updateShowcase(delta) {
+		const sc = this.showcase;
+		const slot = this.slots[this.sel] ?? null;
+		const def = sc.active ? sc.def : null;
+		const t = sc.t;
+		if (sc.active) {
+			sc.t += delta;
+			if (sc.t >= def.dur) {
+				sc.active = false;
+				sc.done = true;
+				this.syncUi();
+			}
+		}
+		const tt = Math.min(sc.t, def?.dur ?? 0);
+		// the values the rest of the frame reads: they follow the keys while it plays and relax to rest (0) afterwards, so Esc / the end never snaps
+		const rate = sc.active ? 40 : 6;
+		sc.roll = C.damp(sc.roll, def ? C.keyAt(def.roll, tt) : 0, rate, delta);
+		sc.squeeze = C.damp(sc.squeeze, def ? C.keyAt(def.squeeze, tt) : 0, rate, delta);
+		sc.tremor = C.damp(sc.tremor, def ? C.keyAt(def.tremor, tt) : 0, rate, delta);
+		sc.grip = C.damp(sc.grip, def ? C.keyAt(def.grip, tt) : 0, rate, delta);
+		sc.shake = C.damp(sc.shake, def?.shake ? C.keyAt(def.shake, tt) : 1, rate, delta);
+		const camTarget = def ? C.smoothstep(0, 0.55, tt) * (1 - C.smoothstep(def.dur - 0.7, def.dur, tt)) : 0;
+		sc.cam = C.damp(sc.cam, camTarget, 8, delta);
+		// the class light and the oil flame
+		let light = 0;
+		if (def && slot) {
+			light = C.keyAt(def.light.intensity, tt);
+			this.anchorWorld(slot, def.light.anchor, this._w);
+			if (def.light.offset) this._w.x += C.keyAt(def.light.offset, tt) * slot.geo.scale * (slot.def.mirror ? -1 : 1);
+			this.classLight.position.copy(this._w).add(this._q3.set(0, 0.09, 0.2));
+		}
+		this.classLight.intensity = C.damp(this.classLight.intensity, light * 0.2, 30, delta);
+		let flame = 0;
+		if (def?.flame && slot) {
+			flame = C.keyAt(def.flame.strength, tt);
+			this.anchorWorld(slot, def.flame.anchor, this._w);
+			this.flames.move(this.flameIndex2, this._w.add(this._q3.set(0, 0.012, 0.01)));
+		}
+		this.flames.entries[this.flameIndex2].strength = flame;
+		// the effects
+		if (def && slot && sc.active) {
+			def.fx.forEach((ev, i) => {
+				if (tt < ev.from || tt > ev.to) return;
+				sc.acc[i] += ev.rate * delta;
+				const n = Math.floor(sc.acc[i]);
+				if (n <= 0) return;
+				sc.acc[i] -= n;
+				for (let k = 0; k < n; k++) {
+					this.anchorWorld(slot, ev.at, this._w);
+					const r = (ev.spread ?? 0.025) * slot.geo.scale;
+					this._w.add(this._q3.set((Math.random() - 0.5) * 2 * r, (Math.random() - 0.5) * r + (ev.lift ?? 0), (Math.random() - 0.5) * 2 * r));
+					this.fxPools[ev.kind].emit(this._w);
+				}
+			});
+		}
+		const camQ = this.app.rig.camera.quaternion;
+		for (const pool of Object.values(this.fxPools)) pool.update(delta, camQ, this.time);
+		// the wrist of the chosen hand: the squeeze and the tremor of the class (a grasp takes the wrist over: updateGrasp)
+		if (slot && (this.state === 'reach' || this.state === 'back')) { // 'back': the squeeze relaxes while the hand returns
+			const wz = C.HAND_MODELS[slot.def.source].wrist;
+			const shake = Math.sin(this.time * 47) * sc.tremor;
+			slot.wristG.scale.setScalar(1 - sc.squeeze);
+			slot.wristG.position.set(shake, shake * 0.6, wz);
+		}
+	}
+
+	/**
+	 * The camera of the showcase: an orbit round the hand (direction from the table: yaw keys, elevation), blended over the offer camera by sc.cam. The DISTANCE is fitted so the
+	 * whole hand - a hand's length of fingers, the wrist and the first of the sleeve - lies in a sphere that fills FIT_FILL of the frame height, and the sphere is put in the upper
+	 * part of the frame (the quote and the candle sit under it): nothing of the hand is ever cut by the edge, whatever the class, the turn or the window shape.
+	 */
+	showcaseCamera(slot, pose) {
+		const sc = this.showcase;
+		if (sc.cam < 0.001) return;
+		const def = sc.def ?? C.SHOWCASE[slot.def.id];
+		const tt = Math.min(sc.t, def.dur);
+		const a = (this._sa ??= new THREE.Vector3());
+		const b = (this._sb ??= new THREE.Vector3());
+		this.anchorWorld(slot, 'tip', b);
+		this.anchorWorld(slot, 'wrist', a);
+		const len = a.distanceTo(b);
+		const sc3 = slot.geo.scale;
+		a.addScaledVector(this._q3.copy(b).sub(a).normalize(), -0.05 * sc3); // a little sleeve behind the wrist
+		const centre = this._w.copy(a).add(b).multiplyScalar(0.5);
+		const R = (len / 2 + 0.025 * sc3) + 0.075 * sc3; // half the hand's length (+ the sleeve) and its width
+		const aspect = this.app.size.w / this.app.size.h;
+		const tan = Math.tan((this.app.rig.persp.fov * Math.PI) / 360);
+		const d = Math.max(R / (C.SHOWCASE_FIT.fill * tan), R / (0.8 * aspect * tan)) * (def.cam.dist / 0.9);
+		const yaw = C.keyAt(def.cam.yaw, tt) * (slot.geo.entry.x < 0 ? 1 : -1) * (Math.PI / 180);
+		const elev = def.cam.elev * (Math.PI / 180);
+		const dir = this._q3.set(Math.sin(yaw) * Math.cos(elev), Math.sin(elev), Math.cos(yaw) * Math.cos(elev));
+		// the centre of the sphere sits at SHOWCASE_FIT.centreY of the frame height from the top: the target is that much above it, along the view's up
+		const focus = centre.addScaledVector(this._up.set(0, 1, 0).addScaledVector(dir, -Math.sin(elev)).normalize(), -(0.5 - C.SHOWCASE_FIT.centreY) * 2 * d * tan);
+		const pos = dir.multiplyScalar(d).add(focus);
+		pose.position.lerp(pos, sc.cam);
+		pose.target.lerp(focus, sc.cam);
+	}
+
 	updateLight(delta, elapsed, activeHover, s) {
 		const entry = this.lights[0];
 		const focus = this.state === 'idle' ? activeHover : this.sel;
@@ -1169,13 +1640,17 @@ export class ChoiceHandsScene {
 		this.lean.y = C.damp(this.lean.y, target.y, 5, delta);
 		this.lean.z = C.damp(this.lean.z, target.z, 5, delta);
 		this.candleLight.position.copy(this.candleBase).add(this.lean);
-		this.candleNear.position.copy(this.candleLight.position);
-		const level = C.candleLevel(elapsed, entry.flicker);
+		this.candleNear.position.copy(this.candleLight.position).add(this.nearOffset);
+		const sh = this.showcase.shake; // the Flagellant's showcase: the candle shakes harder one beat
+		const level0 = C.candleLevel(elapsed, entry.flicker);
+		const level = 1 + (level0 - 1) * sh + (sh - 1) * 0.1 * Math.sin(elapsed * 41);
 		const boost = 1 + 0.5 * lift + 0.12 * (slot ? 1 : 0);
 		this.candleLight.intensity = entry.base * s.candle * level * boost;
 		this.candleNear.intensity = this.lights[1].base * s.candle * level;
-		const e = this.waxMaterial.emissive;
-		e.setRGB(0.55, 0.26, 0.07).multiplyScalar(0.55 * level);
+		this.glowMaterial.color.setRGB(1, 0.5, 0.15).multiplyScalar(s.glow * level);
+		this.ledgeGlowMaterial.color.setRGB(1, 0.5, 0.15).multiplyScalar(s.glow * 0.45 * level);
+		this.wallMaterial.color.setRGB(...WALL_BASE).multiplyScalar(s.wallTint);
+		this.waxMaterial.color.setScalar(0.62 + 0.1 * level);
 		// the flame leans a little toward the light and breathes
 		this.flames.move(this.flameIndex, this._v.set(this.flameBase.x + Math.max(-0.02, Math.min(0.02, this.lean.x * 0.3)), this.flameBase.y, this.flameBase.z));
 		this.flames.entries[this.flameIndex].strength = 0.95 + 0.12 * lift;
@@ -1186,6 +1661,10 @@ export class ChoiceHandsScene {
 		if (!rig) return;
 		const target = this.sel >= 0 && (this.state === 'reach' || this.state === 'grasp' || this.state === 'done') ? 1 : 0;
 		this.camP = C.damp(this.camP, this.state === 'back' ? Math.max(0, this.reach.value) : target, this.state === 'back' ? 30 : 2.4, delta);
+		// the idle frame is the key art's long lens (fov 16); the offer and the showcase widen to 30 as the camera comes in (a close-up with a 16 deg lens would be a hand and nothing else)
+		const aspect = this.app.size.w / this.app.size.h;
+		const fov = C.lerp(C.fovForAspect(aspect), C.fovForAspect(aspect, 30), this.camP);
+		if (Math.abs(rig.persp.fov - fov) > 0.01) rig.setFov(fov);
 		const locked = s.lockCamera;
 		if (rig.controls.enabled === locked) rig.controls.enabled = !locked;
 		if (!locked) return;
@@ -1196,6 +1675,7 @@ export class ChoiceHandsScene {
 			pose.position.set(...C.FRAME.position);
 			pose.target.set(...C.FRAME.target);
 		}
+		if (this.camSlot && this.showcase.cam > 0.001) this.showcaseCamera(this.camSlot, pose);
 		rig.lookAt(pose.position, pose.target);
 	}
 
@@ -1219,7 +1699,7 @@ export class ChoiceHandsScene {
 	// ---- panels ----------------------------------------------------------------------------------------------------------------
 
 	buildLightingControls(folder) {
-		note(folder, 'Ngọn nến của Gennet là nguồn sáng duy nhất có bóng (spot 2900 K, nón 140° = cũng là vignette của tường, chớp 1/f; thêm một point light ngắn tầm không bóng cho bệ đá và thân nến); thêm một fill lạnh rất yếu và ánh môi trường gần như đen. Chỉnh từng đèn ở danh sách <b>Lights</b> bên dưới.');
+		note(folder, 'Ngọn nến của Gennet là nguồn sáng duy nhất có bóng (spot 3200 K, nón 140°, suy giảm chậm = quầng ấm tối dần ra mép, chớp 1/f; thêm một point light ngắn tầm không bóng cho bệ đá và các ngón tay); thêm một quầng vàng additive sau ngọn lửa, một fill lạnh và ánh môi trường rất yếu để hố giữa các sọ không đen hẳn. Chỉnh từng đèn ở danh sách <b>Lights</b> bên dưới.');
 	}
 
 	buildEnvironmentControls(folder) {
@@ -1232,6 +1712,7 @@ export class ChoiceHandsScene {
 		fp.add({ hover: () => this.state === 'idle' && this.hover(idx()) }, 'hover').name('Rê chuột lên tay này');
 		fp.add({ pick: () => this.select(idx()) }, 'pick').name('Chọn (giơ ra)');
 		fp.add({ grab: () => this.grab() }, 'grab').name('Nắm tay (vỡ vụn)');
+		fp.add({ show: () => this.playShowcase() }, 'show').name('Xem lại showcase của tay đang chọn');
 		fp.add({ back: () => this.back() }, 'back').name('Quay lại (Esc)');
 		fp.add({ replay: () => this.replay() }, 'replay').name('Chơi lại / đặt lại về tường');
 		const fa = folder.addFolder('Chuyển động');
@@ -1240,9 +1721,15 @@ export class ChoiceHandsScene {
 		fa.add(s, 'handScale', 0.8, 2.0, 0.01).name('Cỡ tay × (1 = đúng cỡ thật 0,45 m)').onChange(() => (save(), this.applyHandScale()));
 		const fl = folder.addFolder('Ánh sáng nến');
 		fl.add(s, 'candle', 0.2, 3, 0.01).name('Cường độ nến ×').onChange(save);
+		fl.add(s, 'glow', 0, 1.2, 0.01).name('Quầng nến trên tường').onChange(save);
+		fl.add(s, 'wallTint', 0.3, 1.5, 0.01).name('Độ sáng albedo tường ×').onChange(save);
+		fl.add(s, 'handOuter', 0, 0.8, 0.01).name('Tay ngoài sáng thêm').onChange(save);
+		fl.add(s, 'handLight', 0.3, 1.6, 0.01).name('Độ sáng bàn tay ×').onChange(save);
 		fl.add(s, 'lean', 0, 2.5, 0.01).name('Độ nghiêng về phía tay ×').onChange(save);
 		fl.add(s, 'dust').name('Bụi lơ lửng + bụi vỡ').onChange(save);
 		const fv = folder.addFolder('Hiển thị');
+		fv.add(s, 'overlay', 0, 1, 0.01).name('Phủ key art lên khung (hiệu chỉnh)').onChange(save);
+		fv.add(s, 'showcase').name('Showcase khi chọn tay (3–4 s)').onChange(save);
 		fv.add(s, 'showStandIns').name('Hiện tay stand-in (PB · EX · PS)').onChange(() => (save(), this.applyStandIns()));
 		fv.add(s, 'lockCamera').name('Khoá camera (tắt = orbit tự do)').onChange(save);
 		fv.add(s, 'quote').name('Câu thoại khi rê chuột').onChange(save);
@@ -1255,7 +1742,9 @@ export class ChoiceHandsScene {
 		const { app } = this;
 		app.world.vfxScene.add(this.vfx);
 		this._fov = app.rig.persp.fov;
-		app.rig.setFov(C.FRAME.fov);
+		app.rig.setFov(C.fovForAspect(app.size.w / app.size.h));
+		const q = new URLSearchParams(location.search).get('overlay'); // ?overlay=1 opens the key-art overlay at 0.5, ?overlay=0.7 at 0.7
+		if (q !== null) this.settings.overlay = Number(q) > 0 ? (Number(q) >= 1 ? 0.5 : Number(q)) : 0;
 		this.buildUi();
 		this.bindEvents();
 		this.cap = { shown: -1, alpha: 0 };
@@ -1295,8 +1784,9 @@ export class ChoiceHandsScene {
 			p.geometry.dispose();
 			p.material.dispose();
 		}
-		for (const t of [...(this.textures || []), this.sootMap, this.stoneMap, this.stoneNormal, this.spriteAlpha, this.spriteAdd, ...(this._mono?.values() ?? [])]) t?.dispose();
+		for (const t of [...(this.textures || []), this.sootMap, this.stoneMap, this.stoneNormal, this.spriteAlpha, this.spriteAdd, this.glowTexture, ...(this._mono?.values() ?? [])]) t?.dispose();
 		this.dustMesh?.dispose();
+		for (const pool of Object.values(this.fxPools ?? {})) pool.dispose();
 		this.moteMesh?.dispose();
 		this.flames?.dispose();
 		this._env?.dispose?.();

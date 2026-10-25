@@ -73,6 +73,7 @@ WALL = [  # (sample id, source file, label, mode)
     ('choice-wall-b-n', 'normal1024/W_skull_wall_b.png', 'ASHLAR ossuary skull wall · tile B (normal, OpenGL)', 'normal'),
     ('choice-wall-b-h', 'height1024/W_skull_wall_b.png', 'ASHLAR ossuary skull wall · tile B (height)', 'height'),
 ]
+KEYART_SRC = os.path.join(REPO, 'ashlar', 'art', 'heroes', '_shared', 'choice_hands', 'keyart.png')
 ANCHOR_TAG = 'choice-hands-v1'
 
 
@@ -255,6 +256,13 @@ def wall_textures():
         retry(lambda: open(out, 'wb').write(buf.getvalue()))
         print(f'  {sid}.webp: {img.size[0]} px, {len(buf.getvalue()) / 1e3:.0f} KB')
         entries.append((sid, label, 'texture', f'choice-hands/{sid}.webp', 'ashlar/art/textures/wall-ossuary-v1', WALL_CREDIT))
+    # the key art itself: the calibration overlay of the scene (?overlay=1) and the reference of scripts/choice-hands-calibrate.mjs
+    img = Image.open(KEYART_SRC).convert('RGB')
+    buf = io.BytesIO()
+    img.save(buf, 'WEBP', quality=88, method=6)
+    retry(lambda: open(os.path.join(OUT, 'choice-keyart.webp'), 'wb').write(buf.getvalue()))
+    print(f'  choice-keyart.webp: {img.size[0]} x {img.size[1]}, {len(buf.getvalue()) / 1e3:.0f} KB')
+    entries.append(('choice-keyart', 'ASHLAR class-select key art (calibration overlay)', 'texture', 'choice-hands/choice-keyart.webp', 'ashlar/art/heroes/_shared/choice_hands', 'Project concept art (Codex), ashlar/art/heroes/_shared/choice_hands/keyart.png re-encoded as WebP by scripts/prepare-choice-hands.py; used only as the calibration overlay of the scene'))
     return entries
 
 

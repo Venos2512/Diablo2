@@ -42,42 +42,64 @@ test('PB OS BR show the back of the hand, FL EX PS the palm (Hero Concept §10);
 	assert.deepEqual(C.SLOTS.filter((s) => s.standIn).map((s) => s.id), ['PB', 'EX', 'PS']);
 });
 
-test('the six tips sit on an arc round the candle: outer hands high and far, middle hands low and near, left-right mirrored', () => {
-	const tips = C.SLOTS.map((s) => s.tip);
-	for (let i = 0; i < 3; i++) {
-		near(tips[i][0], -tips[5 - i][0]);
-		near(tips[i][1], tips[5 - i][1]);
-		near(C.SLOTS[i].a, -C.SLOTS[5 - i].a);
-	}
-	assert.ok(tips[0][1] > tips[1][1] && tips[1][1] > tips[2][1], 'rising outward on the left');
-	assert.ok(Math.abs(tips[0][0]) > Math.abs(tips[1][0]) && Math.abs(tips[1][0]) > Math.abs(tips[2][0]));
-	assert.ok(tips[2][0] < C.CANDLE.x && tips[3][0] > C.CANDLE.x, 'the candle is between hands 3 and 4');
-	for (const t of tips) assert.ok(Math.abs(t[0]) < C.WALL.width / 2 - 0.4 && t[1] > 0.2 && t[1] < C.WALL.cy + C.WALL.height / 2 - 0.4, 'inside the wall');
+test('the six holes follow the key art: left to right, the candle between hands 3 and 4, all inside the wall', () => {
+	const e = C.SLOTS.map((s) => s.entry);
+	for (let i = 1; i < 6; i++) assert.ok(e[i][0] > e[i - 1][0], 'left to right');
+	assert.ok(e[2][0] < C.CANDLE.x && e[3][0] > C.CANDLE.x);
+	for (const p of e) assert.ok(Math.abs(p[0]) < C.WALL.width / 2 - 0.4 && p[1] > 0.3 && p[1] < C.WALL.cy + C.WALL.height / 2 - 0.4, 'inside the wall');
+	// the arms are not mirrored copies (the key art's are not): the middle two hands are the lowest, the outer ones the highest
+	assert.ok(e[0][1] > e[2][1] && e[5][1] > e[3][1]);
 });
 
-test('arm geometry: the arm axis crosses the wall plane at the hole, the visible length is ARM.visible, the sleeve end is behind the wall', () => {
+test('KEY ART MARKERS: the projected hole, wrist joint and longest fingertip of every hand are within 0.03 of the measured points (either axis of the frame)', () => {
+	for (const s of C.SLOTS) {
+		const m = C.slotMarkers(s);
+		const t = C.KEYART.hands[s.id];
+		for (const k of ['sleeve', 'wrist', 'tip']) {
+			assert.ok(Math.abs(m[k][0] - t[k][0]) <= 0.03 && Math.abs(m[k][1] - t[k][1]) <= 0.03, `${s.id} ${k}: got ${m[k].map((v) => v.toFixed(3))}, measured ${t[k]}`);
+		}
+	}
+});
+
+test('KEY ART CANDLE AND LEDGE: the flame, the wax and the dish of the scene project onto the measured points', () => {
+	const K = C.CANDLE;
+	const dish = C.projectToKeyArt(new THREE.Vector3(K.x, 0.004, K.z));
+	const wax = C.projectToKeyArt(new THREE.Vector3(K.x, 0.1355 * K.scale, K.z));
+	const flame = C.projectToKeyArt(new THREE.Vector3(K.x, (0.148 + 0.085 * 0.8) * K.scale, K.z)); // the flame billboard: bottom at the wick top, the visible tip at ~80 % of its height
+	const edge = C.projectToKeyArt(new THREE.Vector3(0, 0, C.LEDGE.depth - 0.02));
+	const ok = (a, b, what) => assert.ok(Math.abs(a[0] - b[0]) <= 0.03 && Math.abs(a[1] - b[1]) <= 0.03, `${what}: ${a.map((v) => v.toFixed(3))} vs ${b}`);
+	ok(dish, C.KEYART.candle.dishBase, 'dish base');
+	ok(wax, C.KEYART.candle.waxTop, 'wax top');
+	ok(flame, C.KEYART.candle.flameTip, 'flame tip');
+	assert.ok(Math.abs(edge[1] - C.KEYART.ledgeY) <= 0.03, `ledge line ${edge[1]}`);
+	// the frame is 1.8 m wide at the wall: ~10 skulls of 0.18 m
+	const w = C.projectToKeyArt(new THREE.Vector3(0.9, 0.4, 0))[0] - C.projectToKeyArt(new THREE.Vector3(-0.9, 0.4, 0))[0];
+	assert.ok(Math.abs(w - 1) < 0.03, `1.8 m of wall spans ${w.toFixed(3)} of the frame`);
+});
+
+test('arm geometry: the arm axis crosses the wall plane at the hole, the visible length is the slot\'s, the sleeve end is behind the wall', () => {
 	for (const s of C.SLOTS) {
 		const g = C.armGeometry(s);
 		near(g.entry.z, 0, 1e-9);
 		near(g.dir.length(), 1);
-		near(g.tip.distanceTo(g.entry), C.ARM.visible, 1e-9);
-		assert.ok(g.dir.z > 0.52 && g.dir.z < 0.68, `${s.id} leans out of the wall by ${s.phi} deg (30-50 deg like the key art)`);
-		assert.ok(s.phi >= 30 && s.phi <= 50);
+		near(g.tip.distanceTo(g.entry), g.visible * g.scale, 1e-9);
+		assert.ok(g.dir.z > 0.2 && g.dir.z < 0.6, `${s.id} leans out of the wall by ${s.phi} deg (the key art's arms lie 15-40 deg off the wall, fitted by the calibration)`);
+		assert.ok(s.phi >= 15 && s.phi <= 60);
 		assert.ok(g.sleeveEnd.z < 0, `${s.id}: the sleeve end is behind the wall (${g.sleeveEnd.z.toFixed(3)})`);
-		assert.ok(g.tip.z > 0.17 && g.tip.z < 0.24, `${s.id}: fingertips ${g.tip.z.toFixed(3)} m off the wall`);
-		near(g.back, C.HAND_LENGTH - C.ARM.visible, 1e-9);
-		assert.ok(g.wrist.distanceTo(g.entry) < C.ARM.visible, `${s.id}: the wrist is inside the visible part`);
+		assert.ok(g.tip.z > 0.06 && g.tip.z < 0.3, `${s.id}: fingertips ${g.tip.z.toFixed(3)} m off the wall`);
+		near(g.back, C.HAND_LENGTH - g.visible, 1e-9);
+		assert.ok(g.wrist.distanceTo(g.entry) < g.visible * g.scale, `${s.id}: the wrist is inside the visible part`);
 	}
 });
 
-test('hand scale: the tips stay where the table puts them, the arm lengthens about the hole', () => {
+test('hand scale: the holes stay where the table puts them, the arm lengthens about the hole', () => {
 	for (const s of C.SLOTS) {
 		const a = C.armGeometry(s);
 		const b = C.armGeometry(s, { scale: 1.2 });
 		near(b.entry.z, 0, 1e-9);
-		near(b.tip.x, a.tip.x, 1e-9);
-		near(b.tip.y, a.tip.y, 1e-9);
-		near(b.tip.distanceTo(b.entry), C.ARM.visible * 1.2, 1e-9);
+		near(b.entry.x, a.entry.x, 1e-9);
+		near(b.entry.y, a.entry.y, 1e-9);
+		near(b.tip.distanceTo(b.entry) / a.tip.distanceTo(a.entry), 1.2, 1e-9);
 		assert.ok(b.sleeveEnd.z < 0);
 	}
 });
@@ -95,10 +117,10 @@ test('orientation: local +z is the forearm, local +y the back of the hand; the o
 		const zr = new THREE.Vector3(0, 0, 1).applyQuaternion(g.qReach);
 		near(zr.distanceTo(g.dirReach), 0, 1e-6);
 		assert.ok(g.palmReach.y > 0.8 && g.palmReach.z > 0.1, `${s.id}: palm up and a little toward the viewer when offered (a back-up hand turns over)`);
-		assert.ok(Math.sign(g.palmReach.x) === -Math.sign(s.tip[0]), `${s.id}: ... and turned inward`);
+		assert.ok(Math.sign(g.palmReach.x) === -Math.sign(s.entry[0]), `${s.id}: ... and turned inward`);
 		assert.ok(g.dirReach.z > 0.85 && g.dirReach.y < -0.2, `${s.id}: the offered arm points at the viewer, a little down`);
 		// the reached arm swings toward the screen centre
-		assert.ok(Math.sign(g.dirReach.x) === -Math.sign(s.tip[0]) || g.dirReach.x === 0);
+		assert.ok(Math.sign(g.dirReach.x) === -Math.sign(s.entry[0]) || g.dirReach.x === 0);
 	}
 });
 
@@ -114,7 +136,7 @@ test('armPose: rest = identity pose, reached = slide ARM.slide with the reach or
 		assert.ok(Math.abs(out.wrist) > 0.1 && Math.abs(out.wrist) < 0.3, 'a wrist bend of 9-13 deg');
 		const sunk = C.armPose(s, g, { retract: 1 });
 		assert.ok(sunk.slide < -0.15, `${s.id} slides back ${sunk.slide.toFixed(3)} m`);
-		assert.ok(C.ARM.visible + sunk.slide >= 0.04 - 1e-9, `${s.id}: at least 4 cm of the hand stays out`);
+		assert.ok(g.visible + sunk.slide >= 0.04 - 1e-9, `${s.id}: at least 4 cm of the hand stays out`);
 		const hov = C.armPose(s, g, { hover: 1 });
 		near(hov.slide, C.ARM.hoverSlide);
 		const turned = hov.quat.angleTo(g.qIdle);
@@ -397,4 +419,109 @@ test('wall: tile A in the lit middle, tile B in the dim ring, a smooth cross-fad
 			assert.ok(Math.abs(Math.hypot(x, y, z) - 1) < 0.03, `normal length at ${i},${r}`);
 		}
 	}
+});
+
+// ---- the showcase table -------------------------------------------------------------------------------------------------------------
+test('showcase: one per class, 3-4.2 s, the hand ends in the offer pose (roll 0, no squeeze, no grip), effects use known presets and anchors, the cold points are the Ossuarist\'s only', () => {
+	assert.deepEqual(Object.keys(C.SHOWCASE).sort(), [...C.SHOWCASE_ORDER].sort());
+	const anchors = ['wrist', 'palm', 'dorsum', 'knuckles', 'thumb', 'tip'];
+	for (const id of C.SHOWCASE_ORDER) {
+		const d = C.SHOWCASE[id];
+		assert.ok(d.dur >= 3 && d.dur <= 4.2, `${id} lasts ${d.dur} s`);
+		assert.ok(d.note.length > 10, `${id} has its note (the marks it shows)`);
+		for (const k of ['roll', 'squeeze', 'tremor', 'grip']) near(C.keyAt(d[k], d.dur), 0, 1e-9);
+		assert.ok(C.keyAt(d.roll, 0) !== 0, `${id} starts turned`);
+		assert.ok(anchors.includes(d.light.anchor));
+		near(C.keyAt(d.light.intensity, 0), 0);
+		near(C.keyAt(d.light.intensity, d.dur), 0);
+		assert.ok(d.cam.dist > 0.6 && d.cam.dist < 1.3 && d.cam.elev > 0);
+		for (const ev of d.fx) {
+			assert.ok(C.FX_PRESETS[ev.kind], `${id}: preset ${ev.kind}`);
+			assert.ok(anchors.includes(ev.at) && ev.from >= 0 && ev.to <= d.dur && ev.to > ev.from && ev.rate > 0);
+		}
+		assert.equal(d.fx.some((ev) => ev.kind === 'soul'), id === 'OS', 'the still cold-white points belong to the Ossuarist only');
+	}
+	// warm fire only for lamp / coals / pyre: the flame is the Exhumer's, embers the Exhumer's and Pyre-Singer's
+	assert.ok(C.SHOWCASE.EX.flame && !Object.entries(C.SHOWCASE).some(([id, d]) => id !== 'EX' && d.flame));
+	for (const [id, d] of Object.entries(C.SHOWCASE)) if (d.fx.some((ev) => ev.kind === 'ember')) assert.ok(id === 'EX' || id === 'PS', `${id} has embers`);
+	// the clench of the Pallbearer, the rope of the Flagellant: squeezes; stand-ins run their own class's showcase (it is keyed by the slot id, not by the donor)
+	assert.ok(C.keyAt(C.SHOWCASE.PB.squeeze, 2.6) > 0.03 && C.keyAt(C.SHOWCASE.FL.squeeze, 1.1) > 0.05);
+	for (const slot of C.SLOTS) assert.ok(C.SHOWCASE[slot.id]);
+});
+
+test('keyAt: clamps outside, smooth between keys; computeAnchors finds the parts of a synthetic hand', () => {
+	const k = [[0, 0], [1, 10], [2, 10], [3, 0]];
+	near(C.keyAt(k, -1), 0);
+	near(C.keyAt(k, 0.5), 5, 1e-9);
+	near(C.keyAt(k, 1.5), 10);
+	near(C.keyAt(k, 9), 0);
+	// a flat-ish hand: points on a grid in x (-0.05..0.1), y (-0.02..0.03), z 0..0.45
+	const pts = [];
+	for (let z = 0; z <= 0.45; z += 0.01) for (let x = -0.05; x <= 0.1; x += 0.01) for (const y of [-0.02, 0.03]) pts.push(x, y, z);
+	pts.push(0.2, 0.0, 0.3); // a thumb sticking out sideways
+	const a = C.computeAnchors(new Float32Array(pts), 0.27);
+	near(a.wrist.z, 0.27);
+	assert.ok(a.tip.z > 0.43, `tip z ${a.tip.z}`);
+	assert.ok(a.dorsum.y > 0.02 && a.palm.y < -0.01, 'the back of the hand is +y, the palm -y');
+	assert.ok(a.thumb.x > 0.1, `the thumb is the sideways extreme (${a.thumb.x})`);
+});
+
+// ---- the anchors of the showcase: synthetic, skinned, empty and the real GLBs --------------------------------------------------------
+/** The POSITION array of the mesh named `hand` of a prepared GLB (float32 VEC3, plain accessor). */
+function glbHandPositions(file) {
+	const b = readFileSync(file);
+	const jl = b.readUInt32LE(12);
+	const j = JSON.parse(b.subarray(20, 20 + jl).toString('utf8'));
+	const bin = b.subarray(20 + jl + 8);
+	const prim = j.meshes.find((m) => m.name === 'hand').primitives[0];
+	const acc = j.accessors[prim.attributes.POSITION];
+	const view = j.bufferViews[acc.bufferView];
+	assert.equal(acc.componentType, 5126);
+	assert.ok(!view.byteStride || view.byteStride === 12);
+	const off = bin.byteOffset + (view.byteOffset ?? 0) + (acc.byteOffset ?? 0);
+	return new Float32Array(bin.buffer.slice(off, off + acc.count * 12));
+}
+
+test('anchors: the thumb is above the wrist (a sleeve hem below it does not count), the knuckle row is beyond the middle of the back, on the three real hands', () => {
+	for (const [id, model] of Object.entries(C.HAND_MODELS)) {
+		const file = path.join(root, 'assets/choice-hands', `${model.file}.glb`);
+		if (!existsSync(file)) continue;
+		const a = C.computeAnchors(glbHandPositions(file), model.wrist);
+		for (const k of ['wrist', 'tip', 'dorsum', 'knuckles', 'palm', 'thumb']) assert.ok(a[k], `${id}.${k}`);
+		assert.ok(a.thumb.z > model.wrist && a.thumb.z < model.wrist + 0.13, `${id} thumb z ${a.thumb.z.toFixed(3)} (wrist ${model.wrist})`);
+		assert.ok(Math.abs(a.thumb.x) > 0.03, `${id} thumb sticks out sideways (${a.thumb.x.toFixed(3)})`);
+		assert.ok(a.knuckles.z > a.dorsum.z + 0.01, `${id} knuckles ${a.knuckles.z.toFixed(3)} beyond dorsum ${a.dorsum.z.toFixed(3)}`);
+		assert.ok(a.dorsum.y > a.palm.y, `${id} back of the hand above the palm`);
+		assert.ok(a.tip.distanceTo(new THREE.Vector3(...model.tip)) < 0.02, `${id} tip matches the model table`);
+	}
+});
+
+test('anchors: a flared sleeve below the wrist is not the thumb; a skinned or empty mesh still gives every anchor; fallbackAnchors covers all names', () => {
+	const model = { wrist: 0.27, tip: [0.02, -0.02, 0.447] };
+	const names = ['wrist', 'tip', 'dorsum', 'knuckles', 'palm', 'thumb'];
+	const pts = [];
+	for (let z = 0.0; z <= 0.45; z += 0.01) for (let x = -0.04; x <= 0.06; x += 0.01) for (const y of [-0.02, 0.03]) pts.push(x, y, z);
+	for (let z = 0.2; z < 0.27; z += 0.01) pts.push(0.15, 0, z, -0.14, 0, z); // the sleeve flares wide below the wrist
+	pts.push(0.12, 0, 0.33); // the thumb
+	const a = C.computeAnchors(new Float32Array(pts), model.wrist);
+	assert.ok(a.thumb.x > 0.05 && a.thumb.x < 0.1 && a.thumb.z > 0.27, `thumb ${a.thumb.x.toFixed(3)}, ${a.thumb.z.toFixed(3)}`);
+	assert.ok(a.knuckles.z > a.dorsum.z);
+	// a SkinnedMesh (the finger-rigged GLB): its bind-pose positions are used
+	const geo = new THREE.BoxGeometry(0.1, 0.05, 0.45, 12, 12, 12);
+	geo.translate(0, 0, 0.225);
+	const bone = new THREE.Bone();
+	const skinned = new THREE.SkinnedMesh(geo, new THREE.MeshBasicMaterial());
+	skinned.name = 'hand';
+	skinned.add(bone);
+	skinned.bind(new THREE.Skeleton([bone]));
+	const group = new THREE.Group();
+	group.add(skinned);
+	const b = C.handAnchors(group, model);
+	for (const n of names) assert.ok(b[n] && Number.isFinite(b[n].x + b[n].y + b[n].z), `skinned ${n}`);
+	assert.ok(b.tip.z > 0.43, 'the skinned mesh was measured, not the table');
+	// nothing to measure: the table
+	const c = C.handAnchors(new THREE.Group(), model);
+	for (const n of names) assert.ok(c[n], `empty ${n}`);
+	near(c.tip.z, 0.447);
+	assert.deepEqual(Object.keys(C.computeAnchors(new Float32Array(0), 0.27)), ['wrist']);
 });

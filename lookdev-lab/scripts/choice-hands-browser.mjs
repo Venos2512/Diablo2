@@ -206,7 +206,7 @@ await evaluate(`(async () => { const s = __LAB__.app.current; let n = 0; while (
 for (const [i, name] of [[2, 'OS'], [0, 'PB'], [4, 'EX'], [5, 'PS']]) {
 	await S('s.back(true)');
 	await settle(8);
-	await S(`s.select(${i}, true)`);
+	await S(`(s.select(${i}, true), s.skipShowcase(), 0)`);
 	await settle(60);
 	step(`reach ${name}`, await S('({ state: s.state, sel: s.sel, colour: s.slots[s.sel].mats[0].color.toArray().map((v) => +v.toFixed(2)) })'));
 	await shot(`06-reach-${name}`);
@@ -214,7 +214,7 @@ for (const [i, name] of [[2, 'OS'], [0, 'PB'], [4, 'EX'], [5, 'PS']]) {
 // grasp the OS one: first the real timeline for the tremble and the crumble in frames
 await S('s.back(true)');
 await settle(10);
-await S('s.select(2, true)');
+await S('(s.select(2, true), s.skipShowcase(), 0)');
 await settle(60);
 const g = await S('s.grab()');
 step('grab', { ok: g });
@@ -286,7 +286,7 @@ if (!(!l1a.buttons && l1b.pending && l1d.state === 'grasp' && l1d.value >= 0.84)
 await X('s.replay();');
 await settle(10);
 // M3: with a hand held out, the pointer over THAT hand is a pointer cursor and a click on it takes it
-await X('s.select(3, true);');
+await X('s.select(3, true);'); // the showcase plays: the first click on the hand ends it
 await settle(70);
 const hp = await S(`(() => { const c = __LAB__.app.rig.camera; const r = __LAB__.app.backend.canvas.getBoundingClientRect(); const v = s.slots[3].geo.handReach.clone().project(c); return { x: r.left + (v.x + 1) / 2 * r.width, y: r.top + (1 - v.y) / 2 * r.height }; })()`);
 await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 30, y: 30, button: 'none' });
@@ -297,9 +297,13 @@ await frames(2);
 const cur1 = await S('__LAB__.app.backend.canvas.style.cursor');
 await clickAt(hp.x, hp.y);
 await frames(3);
+const m3a = await S('({ state: s.state, active: s.showcase.active })');
+await until('!s.showcase.active && s.offered', 300);
+await clickAt(hp.x, hp.y); // the second click takes it
+await frames(3);
 const m3 = await S('({ state: s.state, sel: s.sel })');
-step('M3 click the offered hand', { cursorAway: cur0, cursorOver: cur1, ...m3, ok: cur0 !== 'pointer' && cur1 === 'pointer' && m3.state === 'grasp' });
-if (!(cur0 !== 'pointer' && cur1 === 'pointer' && m3.state === 'grasp')) results.errors.push({ type: 'M3', text: JSON.stringify([cur0, cur1, m3]) });
+step('M3 click the offered hand (1st click ends the showcase, 2nd takes it)', { cursorAway: cur0, cursorOver: cur1, afterFirst: m3a, ...m3, ok: cur0 !== 'pointer' && cur1 === 'pointer' && m3.state === 'grasp' });
+if (!(cur0 !== 'pointer' && cur1 === 'pointer' && m3.state === 'grasp')) results.errors.push({ type: 'M3', text: JSON.stringify([cur0, cur1, m3a, m3]) });
 // L3a: replay in the middle of the grasp puts everything back
 await until(`s.grasp.t > 1.0`);
 await X('s.replay();');
@@ -327,7 +331,7 @@ await settle(5);
 // B1: the red thread rings of PS must dissolve WITH the wrist (they are cut by their z in the arm frame, not in their own space)
 await X('s.replay();');
 await settle(10);
-await X('s.select(5, true);');
+await X('s.select(5, true); s.skipShowcase();');
 await settle(70);
 await X('s.grab();');
 const ringPx = () => evaluate(`(async () => {
@@ -368,6 +372,100 @@ if (!(rp0.n > 100 && rp0.rings >= 2 && rp1.n < 400 && rp1.visibleRings === 0)) r
 await X('s.replay();');
 await settle(10);
 
+// ---- SHOWCASE: every class shows its hand the moment it is chosen, ends in the offer pose (buttons), leaves no residue -----------------------------------------------------
+const showcaseStats = () => S(`({ t: +s.showcase.t.toFixed(2), live: s.fxLive, light: +s.classLight.intensity.toFixed(2), roll: +s.showcase.roll.toFixed(1), flame: +s.flames.entries[s.flameIndex2].strength.toFixed(2), camW: +s.showcase.cam.toFixed(2), active: s.showcase.active, state: s.state })`);
+// the hand (from a little before the wrist to the fingertips) projected through the live camera: fractions of the canvas; the quote's top edge is the floor
+const frameBox = () => S(`(() => {
+	const slot = s.slots[s.sel];
+	const cam = __LAB__.app.rig.camera;
+	cam.updateMatrixWorld(true);
+	let mesh = null;
+	slot.armG.traverse((o) => { if (o.isMesh && o.name === 'hand' && !o.isSkinnedMesh) mesh = o; });
+	mesh.updateWorldMatrix(true, false);
+	const pos = mesh.geometry.attributes.position;
+	const zmin = slot.anchors.wrist.z - 0.045;
+	const v = new mesh.position.constructor();
+	const box = { x0: 9, x1: -9, y0: 9, y1: -9 };
+	for (let i = 0; i < pos.count; i += 3) {
+		if (pos.getZ(i) < zmin) continue;
+		v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld).project(cam);
+		const fx = (v.x + 1) / 2, fy = (1 - v.y) / 2;
+		box.x0 = Math.min(box.x0, fx); box.x1 = Math.max(box.x1, fx); box.y0 = Math.min(box.y0, fy); box.y1 = Math.max(box.y1, fy);
+	}
+	const r = __LAB__.app.backend.canvas.getBoundingClientRect();
+	const cap = s.ui.caption.getBoundingClientRect();
+	box.capTop = (cap.top - r.top) / r.height;
+	return box;
+})()`);
+const frameOk = (b) => b.x0 >= 0.05 && b.x1 <= 0.95 && b.y0 >= 0.05 && b.y1 <= Math.min(0.95, b.capTop - 0.03);
+for (const [i, id] of ['PB', 'FL', 'OS', 'BR', 'EX', 'PS'].entries()) {
+	await X('s.replay();');
+	await settle(8);
+	await X(`s.select(${i}, true);`); // instant reach: the showcase starts at once
+	const seen = { live: 0, light: 0, flame: 0, roll: 0, frameWorst: 1, frameFails: 0 };
+	const samples = [];
+	for (const [k, t] of [0.7, 1.0, 1.4, 1.9, 2.4, 2.9, 3.4].entries()) {
+		await until(`s.showcase.t >= ${t} || !s.showcase.active`, 900);
+		const st = await showcaseStats();
+		if (st.active) {
+			const b = await frameBox();
+			st.box = Object.fromEntries(Object.entries(b).map(([k2, v2]) => [k2, +v2.toFixed(3)]));
+			seen.frameWorst = Math.min(seen.frameWorst, b.x0, 1 - b.x1, b.y0, Math.min(0.95, b.capTop - 0.03) - b.y1);
+			if (!frameOk(b)) seen.frameFails++;
+		}
+		samples.push(st);
+		seen.live = Math.max(seen.live, st.live);
+		seen.light = Math.max(seen.light, st.light);
+		seen.flame = Math.max(seen.flame, st.flame);
+		seen.roll = Math.max(seen.roll, Math.abs(st.roll));
+		await frames(3); // the screenshot is of the compositor's last frame: let a few go by
+		if (t === 1.0) await shot(`17-showcase-${id}-a`);
+		if (t === 1.9) await shot(`17-showcase-${id}-b`);
+		if (t === 2.9) await shot(`17-showcase-${id}-c`);
+	}
+	const fin = await until(`s.state === 'reach' && s.offered`, 900);
+	const end = await S(`({ offered: s.offered, buttons: s.ui.actions.classList.contains('on'), roll: +s.showcase.roll.toFixed(1), done: s.showcase.done, state: s.state, light: +s.classLight.intensity.toFixed(2) })`);
+	const ok = fin.ok && end.offered && end.buttons && seen.live > 0 && (id === 'FL' ? seen.light < 0.02 : seen.light > 0.02) && seen.frameFails === 0 && Math.abs(end.roll) < 2 && (id !== 'EX' || seen.flame > 0.5);
+	step(`showcase ${id}`, { seen, end, boxes: samples.map((x) => x.box && `${x.t}: x ${x.box.x0}-${x.box.x1} y ${x.box.y0}-${x.box.y1} cap ${x.box.capTop}`).filter(Boolean), ok });
+	if (!ok) results.errors.push({ type: 'showcase', text: `${id}: ${JSON.stringify({ seen, end, fin })}` });
+}
+// Esc in the middle of a showcase: back to the wall, the hand's turn, the light, the flame and the effects leave no residue
+await X('s.replay();');
+await settle(8);
+await X('s.select(1, true);');
+await until(`s.showcase.t >= 1.1`, 900);
+const squeezed = await S('+s.slots[1].wristG.scale.x.toFixed(3)'); // the Flagellant's cord at its tightest
+await key('Escape');
+await until(`s.state === 'idle'`, 900);
+await settle(40);
+const resid = await S(`({ state: s.state, active: s.showcase.active, roll: +s.showcase.roll.toFixed(2), tremor: +s.showcase.tremor.toFixed(4), cam: +s.showcase.cam.toFixed(3), light: +s.classLight.intensity.toFixed(3), flame: s.flames.entries[s.flameIndex2].strength, wristScale: +s.slots[1].wristG.scale.x.toFixed(3), wristPos: s.slots[1].wristG.position.toArray().map((v) => +v.toFixed(4)), wristZ: s.slots[1].anchors.wrist.z })`);
+const gone = await until(`s.fxLive === 0`, 900);
+const escOk = squeezed < 0.97 && resid.state === 'idle' && !resid.active && Math.abs(resid.roll) < 0.5 && resid.light < 0.02 && resid.flame === 0 && gone.ok && resid.wristScale === 1 && resid.wristPos[0] === 0 && resid.wristPos[1] === 0 && Math.abs(resid.wristPos[2] - resid.wristZ) < 1e-6;
+step('Esc mid-showcase (Flagellant, squeezed)', { squeezed, resid, fxGone: gone.ok, ok: escOk });
+if (!escOk) results.errors.push({ type: 'showcase-esc', text: JSON.stringify([squeezed, resid, gone]) });
+// the buttons wait for the showcase: no flash of Nắm tay / Quay lại between the hand being out and its showcase beginning (a normal, non-instant reach)
+await X('s.replay();');
+await settle(8);
+const flash = await evaluate(`(async () => { const a = __LAB__.app, s = a.current; s.select(3); let bad = 0, n = 0; while (!s.showcase.started && n < 400) { await a.nextFrames(1); n++; if (s.ui.actions.classList.contains('on') || s.offered) bad++; } return { bad, frames: n, started: s.showcase.started }; })()`);
+step('no button flash before the showcase', { flash, ok: flash.bad === 0 && flash.started });
+if (!(flash.bad === 0 && flash.started)) results.errors.push({ type: 'flash', text: JSON.stringify(flash) });
+// a hand whose mesh gave no measurable anchors (a skinned GLB, an empty one): the table's anchors keep the showcase running, no error
+await X('s.replay();');
+await settle(8);
+const fb = await evaluate(`(async () => { const a = __LAB__.app, s = a.current; s.select(0, true); const slot = s.slots[0]; const keep = slot.anchors; s.rebuildAnchors(slot, new slot.root.constructor()); s.replay(); s.select(0, true); await a.nextFrames(8); const mid = s.showcase.active; let live = 0; for (let n = 0; n < 400 && !live; n++) { await a.nextFrames(1); live = s.fxLive; } s.skipShowcase(); await a.nextFrames(30); const end = s.offered; slot.anchors = keep; return { mid, live, end }; })()`);
+step('showcase with fallback anchors', { fb, ok: fb.mid && fb.end && fb.live > 0 });
+if (!(fb.mid && fb.end && fb.live > 0)) results.errors.push({ type: 'fallback-anchors', text: JSON.stringify(fb) });
+await X('s.replay();');
+await settle(8);
+// the "Xem lại showcase" button: replays it from the offer pose
+await X('s.select(2, true); s.skipShowcase();');
+await until(`s.offered`, 900);
+await clickButton('showcase');
+await frames(4);
+step('replay showcase button', await S('({ active: s.showcase.active, t: +s.showcase.t.toFixed(2), offered: s.offered })'));
+await X('s.replay();');
+await settle(10);
+
 // 5b. the optional finger rig: a fake rigged hand (bones named like the table, a box on each segment) is bound to the OS slot; the scene must drive it relaxed / open / fist
 await S('s.back(true)');
 await settle(5);
@@ -401,7 +499,7 @@ step('finger rig', await evaluate(`(async () => {
 	const angle = () => +idx.quaternion.angleTo(new idx.quaternion.constructor()).toFixed(3);
 	await a.nextFrames(30);
 	info.relaxed = angle();
-	s.select(2, true);
+	s.select(2, true); s.skipShowcase();
 	await a.nextFrames(60);
 	info.offered = angle();
 	window.__fake = fake;
@@ -454,7 +552,7 @@ step('unlock camera', await evaluate(`(async () => {
 // leaving the scene restores the camera, the controls and the DOM
 const leaveMark = logs.length;
 overlayOk = false; // the Studio scene's colour checker has a pipeline error on WebGPU (pre-existing; seen without this scene too): not ours
-await evaluate(`(async () => { const a = __LAB__.app, s = a.current; s.select(2, true); await a.nextFrames(30); s.grab(); await a.nextFrames(20); return s.state; })()`); // leave in the middle of a grasp
+await evaluate(`(async () => { const a = __LAB__.app, s = a.current; s.select(2, true); s.skipShowcase(); await a.nextFrames(30); s.grab(); await a.nextFrames(20); return s.state; })()`); // leave in the middle of a grasp
 step('leave', await evaluate(`(async () => {
 	const a = __LAB__.app;
 	await a.setScene('studio');
