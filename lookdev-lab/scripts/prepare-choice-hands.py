@@ -26,11 +26,11 @@ scene (src/env/choiceHands.js HANDS) repeats them in metres: that is where the w
 The wall tiles A and B (albedo / OpenGL normal / height, 1024 px, periodic, ~5 skulls across = ~0.9-1.0 m; the scene mixes them in patches) are re-encoded as WebP (what the lab's other texture samples are).
 FRAME CONVENTION = THE RIG'S: origin at the centre of the sleeve end, +z toward the fingertips, +y the back of the hand, x across. The finger rig that will be added in Blender
 (GLB with a skin) follows it; the bone names and axes the scene drives procedurally are documented at FINGER_BONES / FINGER_AXES in src/env/choiceHands.js and in
-docs/HUONG_DAN.md section 7m. This script keeps writing static meshes: re-run it on a rigged source only after teaching it to keep the skin (it does not today).
+docs/HUONG_DAN.md section 7m. The RIGGED Flagellant hand (ashlar/3d/heroes/_hands_v1/H2_FL_hand/H2_FL_hand_rig.glb, when it exists) takes its own branch, prep_rig: the skin is kept (see there); --fake-rig writes a synthetic rig of the static hand instead while the real one is made.
 Registered in src/assets/samples.json (kind "model" / "texture") and credited in THIRD_PARTY_LICENSES.md (scripts/check.mjs looks for every sample name there).
 Never edits the sources. Idempotent.
 
-Usage: python scripts/prepare-choice-hands.py [--no-register] [--preview <dir>]
+Usage: python scripts/prepare-choice-hands.py [--no-register] [--fake-rig] [--preview <dir>]
 """
 import io
 import json
@@ -242,6 +242,56 @@ def prep(entry, report):
     return (sid, f'{hid.upper()} {label} · class-select hand (GLB, 0.45 m, pivot sleeve end, +z fingers, +y back of hand, sleeve extension)', 'model', f'choice-hands/{sid}.glb', f'{SOURCE_REL}/{folder}'), body, tube
 
 
+RIG_SRC = os.environ.get('HAND_RIG_SRC') or os.path.join(SRC, 'H2_FL_hand', 'H2_FL_hand_rig.glb')  # the Blender rig of the Flagellant hand (a skin, bones hand_root ... pinky_03, sockets fx_*)
+RIG_SAMPLE = 'choice-hand-fl-rig'
+RIG_REL = 'ashlar/3d/heroes/_hands_v1/H2_FL_hand/H2_FL_hand_rig.glb'
+
+
+def prep_rig(report, fake=False):
+    """The RIGGED Flagellant hand -> assets/choice-hands/choice-hand-fl-rig.glb, SKIN KEPT (bones, inverse binds, weights, sockets): the glTF is edited as JSON + BIN (scripts/glb_rig_tools.py), not
+    through trimesh, which would drop the skin. The rig is expected IN THE LAB FRAME already (the brief says so: 0.45 m, pivot at the centre of the sleeve end, +z toward the fingers, +y the back of the
+    hand): checked on the rest-pose box of the skinned mesh and the `wrist` joint; if it is not, a wrapper node (uniform scale, shift) brings it there for mesh AND skeleton alike, and what a wrapper
+    cannot fix (tilt, roll) is reported as a warning. Textures are re-encoded to <= 2048 px JPEG. Without the source file this is skipped quietly (and with --fake-rig a SYNTHETIC rig of the static
+    hand is written instead, to test the lab's drivers while the real one is made; the real file replaces it on the next run)."""
+    sys.path.insert(0, HERE)
+    import glb_rig_tools as G
+    out = os.path.join(OUT, f'{RIG_SAMPLE}.glb')
+    if os.path.exists(RIG_SRC):
+        j, b = G.read_glb(RIG_SRC)
+        info = G.inspect_rig(j, b)
+        if not info['skins']:
+            print(f'  {RIG_SAMPLE}: {RIG_REL} has no skin - skipped')
+            return None
+        warn = []
+        need = ['hand_root', 'wrist'] + [f'{f}_0{k}' for f in ('thumb', 'index', 'middle', 'ring', 'pinky') for k in (1, 2, 3)]
+        have = {G.norm_name(n) for n in info['joints']}
+        missing = [n for n in need if G.norm_name(n) not in have]
+        if missing:
+            warn.append(f'missing bones: {missing}')
+        if info['max_influences'] > 4:
+            warn.append(f'{info["max_influences"]} influences per vertex (glTF allows 4)')
+        ft = G.frame_transform(info)
+        if ft:
+            G.wrap_frame(j, *ft)
+            warn.append(f'not in the lab frame (box {np.round(info["bbox"], 3).tolist()}, wrist {info["wrist"]}): wrapped with scale {ft[0]:.4f}, shift {np.round(ft[2], 3).tolist()}; tilt / roll NOT corrected')
+        j, b = G.rebuild(j, b, TEX)
+        size = G.write_glb(out, j, b)
+        label = 'Flagellant hand RIGGED (Blender): skin + bones hand_root, forearm, wrist, thumb / index / middle / ring / pinky _01-03, sockets fx_*'
+        rec = {'sample': RIG_SAMPLE, 'source': RIG_REL, 'bytes': size, 'joints': len(info['joints']), 'influences_max': info['max_influences'], 'frame_wrapped': bool(ft), 'warnings': warn}
+        print(f'  {RIG_SAMPLE}.glb: {len(info["joints"])} joints, <= {info["max_influences"]} influences, {size / 1e6:.2f} MB' + ('; ' + '; '.join(warn) if warn else '; lab frame OK'))
+    elif fake:
+        static = os.path.join(OUT, 'choice-hand-fl.glb')
+        size = G.fake_rig(static, out)
+        label = 'Flagellant hand SYNTHETIC rig (position-weighted skin of the static hand: a stand-in for the Blender rig)'
+        rec = {'sample': RIG_SAMPLE, 'source': 'synthetic (scripts/glb_rig_tools.py fake_rig)', 'bytes': size, 'synthetic': True}
+        print(f'  {RIG_SAMPLE}.glb: SYNTHETIC rig of the static FL hand, {size / 1e6:.2f} MB (the real file {RIG_REL} does not exist yet)')
+    else:
+        print(f'  {RIG_SAMPLE}.glb: {RIG_REL} not found - rig branch skipped (use --fake-rig for a synthetic stand-in)')
+        return None
+    report.append(rec)
+    return (RIG_SAMPLE, label + ' · class-select hand (GLB, 0.45 m, pivot sleeve end, +z fingers, +y back of hand)', 'model', f'choice-hands/{RIG_SAMPLE}.glb', RIG_REL if os.path.exists(RIG_SRC) else 'ashlar/3d/heroes/_hands_v1/H2_FL_hand')
+
+
 def wall_textures():
     entries = []
     for sid, rel, label, mode in WALL:
@@ -369,6 +419,9 @@ def main():
         entries.append(e)
         items.append((e[0], body, tube))
     entries += wall_textures()
+    rig = prep_rig(report, '--fake-rig' in args)
+    if rig:
+        entries.append(rig)
     if prev:
         os.makedirs(prev, exist_ok=True)
         preview(os.path.join(prev, 'prep_hands.png'), items)

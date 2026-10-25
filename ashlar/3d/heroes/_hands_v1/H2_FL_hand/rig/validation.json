@@ -1,0 +1,477 @@
+{
+ "asset": "H2_FL_hand",
+ "tag": "H3",
+ "glb": "E:/Diablo2/ashlar/3d/heroes/_hands_v1/H2_FL_hand/H2_FL_hand_rig.glb",
+ "all_A1_ok": true,
+ "checks": {
+  "A1.1 one skin, one mesh": {
+   "ok": true,
+   "skins": 1,
+   "mesh_nodes": 1,
+   "primitives": 1
+  },
+  "A1.2 bone names": {
+   "ok": true,
+   "joints": 22,
+   "missing": [],
+   "extra": [],
+   "lab_FINGER_BONES_present": true
+  },
+  "A1.3 one tree, root hand_root": {
+   "ok": true,
+   "roots": [
+    "hand_root"
+   ]
+  },
+  "A1.4 every vertex weighted": {
+   "ok": true,
+   "empty": 0
+  },
+  "A1.5 weights sum to 1": {
+   "ok": true,
+   "max_abs_err": 1.30385160446167e-07,
+   "note": "float32 storage; three.js renormalises (normalizeSkinWeights)"
+  },
+  "A1.6 <= 4 influences": {
+   "ok": true,
+   "per_vertex_max": 4
+  },
+  "A1.7 joint indices in range": {
+   "ok": true,
+   "max": 20
+  },
+  "A1.8 inverse bind matrices = hierarchy": {
+   "ok": true,
+   "max_err": 4.506811606130867e-07
+  },
+  "A1.9 mesh = lab-frame input": {
+   "ok": true,
+   "max_m": 3.514431838712321e-08,
+   "ref": "lookdev-lab/assets/choice-hands/choice-hand-fl.glb (same frame, same scale)"
+  },
+  "A1.10 textures byte-identical to the Tripo GLB": {
+   "ok": true,
+   "exported": {
+    "choice_hands_H2_FL_hand_normal": "77f1d54b6f04a3d7aa7ba9aeb2d7433da7831ba0f696818ee19e227261ff7e71",
+    "choice_hands_H2_FL_hand_basecolor": "a16c69bc48ea267a933f3117f22138d064c4e9771aa5449b834ad99520806298",
+    "choice_hands_H2_FL_hand_rm": "3cbf01d1da9dbcd650dab57d9936e54f04f3d63c014e8b3920418a245755f41c"
+   },
+   "source": {
+    "choice_hands_H2_FL_hand_basecolor.jpg": "a16c69bc48ea267a933f3117f22138d064c4e9771aa5449b834ad99520806298",
+    "choice_hands_H2_FL_hand_rm.png": "3cbf01d1da9dbcd650dab57d9936e54f04f3d63c014e8b3920418a245755f41c",
+    "choice_hands_H2_FL_hand_normal.jpg": "77f1d54b6f04a3d7aa7ba9aeb2d7433da7831ba0f696818ee19e227261ff7e71"
+   }
+  },
+  "A1.11 length 0.45 m +-2 %": {
+   "ok": true,
+   "length_m": 0.44999998807907104,
+   "bbox": [
+    [
+     -0.051538512110710144,
+     -0.08381681144237518,
+     0.0
+    ],
+    [
+     0.1588711142539978,
+     0.050080906599760056,
+     0.44999998807907104
+    ]
+   ]
+  },
+  "A1.12 (hand) sleeve-end pivot at the origin": {
+   "ok": true,
+   "min_z": 0.0,
+   "note": "origin = the forearm-axis point of the sleeve end (lab frame); the sleeve end is a closed cap"
+  },
+  "A1.13 unweighted bones = sockets only": {
+   "ok": true,
+   "unweighted": [
+    "fx_palm",
+    "fx_tip_index",
+    "fx_thumb"
+   ]
+  },
+  "A1.14 scale 1, no negative scale": {
+   "ok": true,
+   "bad": []
+  },
+  "no neutral / leaf joints": {
+   "ok": true,
+   "joints": 22
+  },
+  "animations": {
+   "ok": true,
+   "count": 0
+  },
+  "three.js CPU skinning parity (all ROM poses)": {
+   "ok": true,
+   "max_m": 2.885476857310867e-07,
+   "per_pose_m": {
+    "rest": 2.274324363429596e-07,
+    "lab_relaxed": 2.3518925369222764e-07,
+    "lab_open": 2.3519715074342417e-07,
+    "lab_grip": 2.5231263595731033e-07,
+    "cup": 2.3843721533571703e-07,
+    "fist": 2.3833802840919507e-07,
+    "loose_grip": 2.2105208753622907e-07,
+    "point": 2.885476857310867e-07,
+    "spread": 2.536045253396354e-07,
+    "wrist_flex40": 2.734743089702446e-07,
+    "wrist_ext40": 2.481606600530265e-07,
+    "pron90": 2.233793411268142e-07,
+    "sup90": 2.4031611103710745e-07,
+    "fist_wrist_flex40": 2.590053367442681e-07,
+    "open_sup90": 2.467375584974227e-07,
+    "wave_1": 2.3953217698607217e-07,
+    "wave_2": 2.3005582985990427e-07,
+    "wave_3": 2.542281551666318e-07,
+    "wave_4": 2.148626436756104e-07,
+    "lab_grip_tuned": 2.707605191202892e-07
+   },
+   "tolerance_m": 0.00025,
+   "note": "WebGL / WebGPU GPU skinning in the lab not run (Sonnet / lab work)"
+  },
+  "clean reimport (Blender, copied folder)": {
+   "ok": true,
+   "bones_reimport": 22,
+   "max_head_diff_m": 2.1950781103896588e-07,
+   "rest_match_max_m": 1.9460853195596428e-07,
+   "posed_parity_max_m": {
+    "fist": 2.2865059833507766e-07,
+    "spread": 2.87596271419805e-07,
+    "pron90": 2.7082117451244356e-07,
+    "wrist_flex40": 2.4131141216608354e-07,
+    "lab_grip_tuned": 2.5474013384101925e-07,
+    "point": 2.6289043969478237e-07
+   },
+   "tolerance_m": 2.5e-05
+  }
+ },
+ "deformation": {
+  "rest": {
+   "torn": 0,
+   "min_joint_volume": 1.0,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.0,
+    "0.3": 1.0
+   }
+  },
+  "lab_relaxed": {
+   "torn": 1,
+   "min_joint_volume": 0.971,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.062,
+    "0.3": 1.102
+   }
+  },
+  "lab_open": {
+   "torn": 1,
+   "min_joint_volume": 0.972,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.273,
+    "0.3": 1.262
+   }
+  },
+  "lab_grip": {
+   "torn": 14,
+   "min_joint_volume": 0.873,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 14.147529480593048,
+   "finger_side_mm": 3.5410494519874933,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.928,
+    "0.3": 1.058
+   }
+  },
+  "cup": {
+   "torn": 1,
+   "min_joint_volume": 0.968,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.33755099704048075,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.884,
+    "0.3": 0.821
+   }
+  },
+  "fist": {
+   "torn": 12,
+   "min_joint_volume": 0.872,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.0,
+   "finger_side_mm": 5.720789210991125,
+   "skin_in_band_mm": 0.04926383894860455,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.88,
+    "0.3": 0.841
+   }
+  },
+  "loose_grip": {
+   "torn": 1,
+   "min_joint_volume": 0.95,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.6679033388535115,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.855,
+    "0.3": 0.787
+   }
+  },
+  "point": {
+   "torn": 19,
+   "min_joint_volume": 0.836,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 5.480655056564624,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.875,
+    "0.3": 0.801
+   }
+  },
+  "spread": {
+   "torn": 1,
+   "min_joint_volume": 0.968,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.173,
+    "0.3": 1.253
+   }
+  },
+  "wrist_flex40": {
+   "torn": 0,
+   "min_joint_volume": 0.973,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 2.1936494411746423,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.55,
+    "0.3": 1.013
+   }
+  },
+  "wrist_ext40": {
+   "torn": 0,
+   "min_joint_volume": 0.986,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 3.512554761127929,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.282,
+    "0.3": 1.389
+   }
+  },
+  "pron90": {
+   "torn": 3,
+   "min_joint_volume": 1.0,
+   "rigid_dev_mm": 0.0001,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.34992144365613703,
+   "forearm_sections": {
+    "0.105": 0.935,
+    "0.115": 0.889,
+    "0.29": 0.868,
+    "0.3": 0.849
+   }
+  },
+  "sup90": {
+   "torn": 6,
+   "min_joint_volume": 1.0,
+   "rigid_dev_mm": 0.0001,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.7589644597767692,
+   "forearm_sections": {
+    "0.105": 0.933,
+    "0.115": 0.888,
+    "0.29": 0.92,
+    "0.3": 0.94
+   }
+  },
+  "fist_wrist_flex40": {
+   "torn": 12,
+   "min_joint_volume": 0.872,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.0,
+   "finger_side_mm": 5.720845596672105,
+   "skin_in_band_mm": 1.2245373131003703,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.617,
+    "0.3": 1.106
+   }
+  },
+  "open_sup90": {
+   "torn": 7,
+   "min_joint_volume": 0.972,
+   "rigid_dev_mm": 0.0001,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.7589644597767692,
+   "forearm_sections": {
+    "0.105": 0.933,
+    "0.115": 0.888,
+    "0.29": 1.052,
+    "0.3": 1.16
+   }
+  },
+  "wave_1": {
+   "torn": 8,
+   "min_joint_volume": 0.904,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.6914650741930767,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.936,
+    "0.3": 0.936
+   }
+  },
+  "wave_2": {
+   "torn": 4,
+   "min_joint_volume": 0.926,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.8993038762250903,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.971,
+    "0.3": 0.97
+   }
+  },
+  "wave_3": {
+   "torn": 1,
+   "min_joint_volume": 0.909,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.9873466863939556,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.016,
+    "0.3": 1.017
+   }
+  },
+  "wave_4": {
+   "torn": 2,
+   "min_joint_volume": 0.919,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0,
+   "finger_side_mm": 0,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 1.023,
+    "0.3": 1.043
+   }
+  },
+  "lab_grip_tuned": {
+   "torn": 4,
+   "min_joint_volume": 0.923,
+   "rigid_dev_mm": 0.0,
+   "seam_mm": 0.0,
+   "palm_mm": 0.9805394694814967,
+   "finger_side_mm": 1.0026979760975097,
+   "skin_in_band_mm": 0.0,
+   "forearm_sections": {
+    "0.105": 1.0,
+    "0.115": 1.0,
+    "0.29": 0.91,
+    "0.3": 0.881
+   }
+  }
+ },
+ "heads_inside_main": {
+  "hand_root": false,
+  "forearm": true,
+  "forearm_twist": true,
+  "wrist": true,
+  "thumb_01": true,
+  "thumb_02": true,
+  "thumb_03": true,
+  "index_01": true,
+  "index_02": true,
+  "index_03": true,
+  "middle_01": true,
+  "middle_02": true,
+  "middle_03": true,
+  "ring_01": true,
+  "ring_02": true,
+  "ring_03": true,
+  "pinky_01": true,
+  "pinky_02": true,
+  "pinky_03": true
+ },
+ "frame": {
+  "gltf": "+z fingers, +y back of hand, x across (thumb +x), origin = sleeve-end axis point, metres",
+  "blender": "fingers -Y, back +Z, thumb +X"
+ }
+}

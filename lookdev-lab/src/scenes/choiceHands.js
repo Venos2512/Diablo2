@@ -22,6 +22,8 @@ export const CHOICE_HANDS_DEFAULTS = {
 	wallTint: 1, // multiplier of the wall's albedo (the lighting calibration)
 	handLight: 0.6,
 	handOuter: 0.2, // the outer hands (PB, PS) read this much brighter than the middle ones (the key art lights its edge hands more than the cone does) // albedo multiplier of the hands (the lighting calibration: how bright the hands read next to the wall)
+	rigAlways: false, // a SYNTHETIC stand-in rig (--fake-rig) is crude: it is used only in the hand test unless this is on; a real rig is always used
+	flRig: true, // the Flagellant's hand is the RIGGED one (assets/choice-hands/choice-hand-fl-rig.glb) when that file exists
 	offerLight: true, // the soft warm light that stays on the palm of a class that reads too dark in the offer (SHOWCASE[id].offer)
 	showcase: true, // the chosen hand shows what it is of its class before it offers itself
 	overlay: 0, // opacity of the key-art overlay (the calibration view; ?overlay=1 opens it at 0.5)
@@ -410,6 +412,7 @@ export class ChoiceHandsScene {
 		this.postDefaults = { toneMapping: 'aces', exposure: 1.0, fog: { enabled: false }, grade: { vignette: 0.375, contrast: 1.06, saturation: 0.75, lift: 0, temperature: 0, tint: 0 } };
 		this.home = { position: new THREE.Vector3(...C.FRAME.position), target: new THREE.Vector3(...C.FRAME.target) };
 		this.slots = [];
+		this.handtest = { on: false, index: 1, motion: null, mode: 'preset', preset: 'offer', t: 0, presetT0: 0, runT: 0, runIndex: -1, ui: null, controllers: [], keepLock: true, skeleton: null, wire: false, profile: 'default' }; // the hand-test mode (enterHandTest)
 		this.state = 'idle'; // idle | reach (out and offered) | back | grasp | done
 		this.sel = -1; // the chosen slot while reaching / offered / grasping
 		this.hoverIndex = -1; // pointer
@@ -456,6 +459,11 @@ export class ChoiceHandsScene {
 		this.textures = Object.values(wallSet);
 		const gltfs = {};
 		await Promise.all(Object.entries(C.HAND_MODELS).map(async ([key, m]) => (gltfs[key] = await app.loader.loadSample(m.file))));
+		try {
+			gltfs.flrig = await app.loader.loadSample('choice-hand-fl-rig'); // optional: the rigged Flagellant hand (the Blender rig, or the synthetic stand-in of prepare-choice-hands.py --fake-rig)
+		} catch {
+			gltfs.flrig = null;
+		}
 		this.gltfs = gltfs;
 		this.buildLights();
 		this.buildWall(wallSet);
@@ -712,7 +720,12 @@ export class ChoiceHandsScene {
 		root.add(slideG);
 		slideG.add(wristG);
 		wristG.add(armG);
-		const model3d = cloneSkinned(this.gltfs[def.source].scene); // SkeletonUtils: a plain clone would share one skeleton between the slots of a rigged GLB
+		const rigged = this.wantsRig(def); // the rigged Flagellant hand (a skin and its bones), else the static one
+		const model3d = cloneSkinned((rigged ? this.gltfs.flrig : this.gltfs[def.source]).scene); // SkeletonUtils: a plain clone would share one skeleton between the slots of a rigged GLB
+		if (rigged && !model3d.getObjectByName('sleeve_ext')) {
+			const ext = this.gltfs.fl.scene.getObjectByName('sleeve_ext'); // the rig has the hand and the forearm only: the cloth tube the arm slides out of is the static hand's (same frame, same sleeve)
+			if (ext) model3d.add(ext.clone());
+		}
 		const mats = [];
 		const meshes = [];
 		const dust = [];
@@ -787,8 +800,13 @@ export class ChoiceHandsScene {
 		this.proxyRoot.add(proxy);
 		const anchors = C.handAnchors(model3d, model);
 		geo.fitLocal = C.sampleHandPoints(model3d, model); // the offer camera is fitted to the real mesh
-		const slot = { outerK: Math.min(1, Math.abs(geo.entry.x) / 0.75), def, index, geo, root, slideG, wristG, armG, mats, meshes, proxy, dust, anchors, hover: 0, dim: 1, phase: index * 1.37, rig: null, slices: null, handProxy };
+		const slot = { model3d, skinned: !!model3d.getObjectByProperty('isSkinnedMesh', true), outerK: Math.min(1, Math.abs(geo.entry.x) / 0.75), def, index, geo, root, slideG, wristG, armG, mats, meshes, proxy, dust, anchors, hover: 0, dim: 1, phase: index * 1.37, rig: null, slices: null, handProxy };
 		this.bindFingerRig(slot, model3d);
+		slot.sockets = {};
+		for (const [anchor, node] of Object.entries({ palm: 'fx_palm', thumb: 'fx_thumb', tip: 'fx_tip_index' })) {
+			const o = model3d.getObjectByName(node);
+			if (o) slot.sockets[anchor] = o; // the rig's sockets follow the hand: the effects are born where it is NOW, not where the rest-pose mesh was
+		}
 		this.placeProxy(slot);
 		return slot;
 	}
@@ -822,9 +840,12 @@ export class ChoiceHandsScene {
 	 * offered, closed on the grasp. A static mesh (today's GLBs) has none and keeps the wrist-only motion. `root` = the object to search (default: the slot's arm group).
 	 */
 	bindFingerRig(slot, root = slot.armG) {
-		const rig = C.createFingerRig(root);
+		const profile = slot.def.id === 'FL' && slot.skinned && !this.rigIsSynthetic ? 'flRig' : 'default'; // the real Flagellant rig has its own finger angles (they are added to a half-curled rest)
+		slot.profile = profile;
+		const rig = C.createFingerRig(root, undefined, undefined, undefined, C.HAND_PROFILES[profile].poses);
 		slot.rig = rig.hasFingers ? rig : null;
 		slot.rigInfo = { found: rig.found.length, missing: rig.missing, root: rig.hasRoot, wrist: rig.hasWrist };
+		slot.joints = slot.rig ? C.createJointRig(root) : null; // the wrist and forearm bones (hand-test mode: flexion, deviation, roll)
 		if (slot.rig) slot.rig.apply(0, 0, 0);
 		return slot.rig;
 	}
@@ -1073,7 +1094,7 @@ export class ChoiceHandsScene {
 		this.state = 'grasp';
 		this.grasp = { t: 0, spawned: 0, front: C.HAND_LENGTH + 0.03 };
 		this.gripW = 0;
-		this.sliceSlot(this.slots[this.sel]);
+		if (!this.slots[this.sel].skinned || instant) this.sliceSlot(this.slots[this.sel]); // a skinned hand is cut when its fingers have closed (updateGrasp)
 		if (instant) this.grasp.t = C.TIMES.endAt + 0.01;
 		this.syncUi();
 		return true;
@@ -1140,11 +1161,12 @@ export class ChoiceHandsScene {
 		});
 		on(canvas, 'pointerleave', () => (this.hoverIndex = -1));
 		on(canvas, 'contextmenu', (e) => {
-			if (this.state === 'reach' || this.state === 'back') e.preventDefault();
-			if (this.state === 'reach') this.back();
+			if ((this.state === 'reach' || this.state === 'back') && !this.handtest.on) e.preventDefault();
+			if (this.state === 'reach' && !this.handtest.on) this.back();
 		});
 		on(window, 'keydown', (e) => {
-			if (e.key === 'Escape' && this.state === 'reach') this.back();
+			if (e.key === 'Escape' && this.handtest.on) this.exitHandTest();
+			else if (e.key === 'Escape' && this.state === 'reach') this.back();
 		});
 		this.listeners.push(
 			app.on('click', (e) => {
@@ -1152,7 +1174,7 @@ export class ChoiceHandsScene {
 				if (this.state === 'idle') {
 					const i = this.pick(e.clientX, e.clientY);
 					if (i >= 0) this.select(i);
-				} else if (this.state === 'reach' && this.pickChosen(e.clientX, e.clientY)) {
+				} else if (this.state === 'reach' && !this.handtest.on && this.pickChosen(e.clientX, e.clientY)) {
 					if (this.showcase.active) this.skipShowcase(); // a click on the hand while it shows itself: enough, offer it
 					else this.grab(); // "choose which hand to take": the one held out
 				}
@@ -1181,7 +1203,7 @@ export class ChoiceHandsScene {
 				return true;
 			}
 			if ((k === 'enter' || k === ' ') && current >= 0) return this.select(current);
-		} else if (this.state === 'reach') {
+		} else if (this.state === 'reach' && !this.handtest.on) {
 			if (k === 'enter' || k === ' ') return this.showcase.active ? this.skipShowcase() : this.grab();
 			if (k === 'backspace') return this.back();
 		} else if (this.state === 'done' && (k === 'enter' || k === ' ')) {
@@ -1255,7 +1277,7 @@ export class ChoiceHandsScene {
 
 	/** True once the offered hand is far enough out to be taken: the Nắm tay / Quay lại buttons show then. */
 	get offered() {
-		return this.state === 'reach' && this.reach.to === 1 && this.reach.value >= C.GRAB_AT && !this.showcase.active && !(this.settings.showcase && !this.showcase.started);
+		return this.state === 'reach' && !this.handtest.on && this.reach.to === 1 && this.reach.value >= C.GRAB_AT && !this.showcase.active && !(this.settings.showcase && !this.showcase.started);
 	}
 
 	/** Static parts of the UI that follow the state (buttons, end card); the caption is faded per frame in updateUi. */
@@ -1331,6 +1353,7 @@ export class ChoiceHandsScene {
 		const away = this.state !== 'idle'; // another hand is up: the five sink
 		this.retract = C.damp(this.retract, this.state === 'idle' ? 0 : this.state === 'back' ? 0 : 1, this.state === 'back' ? 3 : 1.6, delta);
 		const activeHover = this.state === 'idle' ? (this.keyHover >= 0 ? this.keyHover : this.hoverIndex) : -1;
+		this.updateHandTest(delta);
 		for (const slot of this.slots) this.updateSlot(slot, delta, elapsed, activeHover, s, away);
 		this.updateShowcase(delta);
 		if (this.state === 'grasp') this.updateGrasp(delta);
@@ -1366,7 +1389,12 @@ export class ChoiceHandsScene {
 		slot.dim = C.damp(slot.dim, dimTarget, away ? 1.4 : 2.5, delta);
 		const warm = 0.06 * slot.hover + (chosen ? 0.05 * Math.min(1, reachW) : 0);
 		// procedural fingers (only a rigged model): relaxed at rest, a little stirred by the hover, fanned open when offered, a fist on the grasp
-		if (slot.rig) slot.rig.apply(Math.max(chosen ? reachW : 0, 0.18 * slot.hover), chosen ? Math.max(this.gripW, this.showcase.grip) : 0, breath);
+		if (slot.rig) {
+			if (chosen && this.handtest.on) {
+				slot.rig.applyPose(this.handtest.motion.pose); // the hand-test mode drives every joint
+				slot.joints?.apply(this.handtest.motion.pose);
+			} else slot.rig.apply(Math.max(chosen ? reachW : 0, 0.18 * slot.hover), chosen ? Math.max(this.gripW, this.showcase.grip) : 0, breath);
+		}
 		for (const m of slot.mats) {
 			m.color.copy(m.userData.base).multiplyScalar(s.handLight * (1 + s.handOuter * slot.outerK) * slot.dim * (1 + 0.07 * slot.hover + (chosen ? 0.04 * Math.min(1, reachW) : 0)));
 			if (m.emissive) m.emissive.setRGB(0.5 * warm, 0.28 * warm, 0.1 * warm);
@@ -1391,6 +1419,7 @@ export class ChoiceHandsScene {
 		// the dissolve: the arm is cut into thin slabs across its length (sliceSlot); the front sweeps from the fingertips to the sleeve end (z of the arm frame, +z = fingers) and
 		// every slab above it disappears, so the hand wears away from its tips toward the wrist; the ash is born on the surface just behind the front. (A clipping plane would do
 		// the same, but WebGPURenderer r180 does not clip in the lab's scene pass: slabs are plain visibility, identical on both backends, shadow included)
+		if (slot.skinned && !slot.slices && g.t >= T.tremble * 0.9) this.sliceSlot(slot); // the posed (fist) vertices of the skinned hand become static slabs now
 		const front = C.lerp(C.HAND_LENGTH + 0.03, -0.12, C.easeInOutCubic(cr));
 		g.front = front;
 		if (slot.slices) for (const sl of slot.slices) sl.mesh.visible = sl.lo < front;
@@ -1415,9 +1444,69 @@ export class ChoiceHandsScene {
 	 * buffer differs: each triangle goes to the slab of its centroid's z in the arm frame), the original is hidden. Slab 0 holds everything below C.SLAB_Z0 (the sleeve and the
 	 * tube in the wall), which is never hidden before the very end. Skinned meshes (a future rigged hand) are not cut: they vanish with the arm group at the end.
 	 */
+	/**
+	 * The vertices of a skinned mesh AS POSED NOW (CPU skinning with the skeleton's bone matrices: position and normal), as a plain static twin mesh beside it: the dissolve cuts static
+	 * meshes into slabs, and a skinned one cannot be (WebGPU r180 does not clip it either). The twin keeps UVs, indices and the material; the skinned original is hidden.
+	 */
+	freezeSkinned(o) {
+		o.updateWorldMatrix(true, true);
+		o.skeleton.update();
+		const g = o.geometry;
+		const P = g.attributes.position;
+		const N = g.attributes.normal;
+		const si = g.attributes.skinIndex;
+		const sw = g.attributes.skinWeight;
+		const B = o.skeleton.boneMatrices;
+		const bind = o.bindMatrix.elements;
+		const bindInv = o.bindMatrixInverse.elements;
+		const pos = new Float32Array(P.count * 3);
+		const nor = new Float32Array(P.count * 3);
+		const apply = (m, x, y, z, w) => [m[0] * x + m[4] * y + m[8] * z + m[12] * w, m[1] * x + m[5] * y + m[9] * z + m[13] * w, m[2] * x + m[6] * y + m[10] * z + m[14] * w];
+		for (let i = 0; i < P.count; i++) {
+			const [bx, by, bz] = apply(bind, P.getX(i), P.getY(i), P.getZ(i), 1);
+			const [nx, ny, nz] = N ? apply(bind, N.getX(i), N.getY(i), N.getZ(i), 0) : [0, 1, 0];
+			let px = 0, py = 0, pz = 0, qx = 0, qy = 0, qz = 0;
+			for (let k = 0; k < 4; k++) {
+				const w = sw.getComponent(i, k);
+				if (!w) continue;
+				const m = B.subarray(si.getComponent(i, k) * 16, si.getComponent(i, k) * 16 + 16);
+				const a = apply(m, bx, by, bz, 1);
+				const b = apply(m, nx, ny, nz, 0);
+				px += w * a[0]; py += w * a[1]; pz += w * a[2];
+				qx += w * b[0]; qy += w * b[1]; qz += w * b[2];
+			}
+			const [vx, vy, vz] = apply(bindInv, px, py, pz, 1);
+			const [mx, my, mz] = apply(bindInv, qx, qy, qz, 0);
+			const l = Math.hypot(mx, my, mz) || 1;
+			pos.set([vx, vy, vz], i * 3);
+			nor.set([mx / l, my / l, mz / l], i * 3);
+		}
+		const tg = new THREE.BufferGeometry();
+		tg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+		tg.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+		if (g.attributes.uv) tg.setAttribute('uv', g.attributes.uv);
+		tg.setIndex(g.index);
+		const twin = new THREE.Mesh(tg, o.material);
+		twin.name = `${o.name || 'hand'} (posed)`;
+		twin.userData.frozenTwin = true;
+		twin.userData.labNoPick = twin.userData.labNoCollide = true;
+		twin.castShadow = o.castShadow;
+		twin.receiveShadow = o.receiveShadow;
+		twin.frustumCulled = false;
+		o.matrix.decompose(twin.position, twin.quaternion, twin.scale);
+		const inside = new THREE.Mesh(tg, new THREE.MeshBasicMaterial({ name: 'cut interior', color: new THREE.Color(0.045, 0.04, 0.036), side: THREE.BackSide }));
+		inside.userData.cutInterior = true;
+		inside.userData.labNoPick = inside.userData.labNoCollide = true;
+		inside.castShadow = false;
+		twin.add(inside);
+		o.parent.add(twin);
+		o.visible = false;
+		return { twin, original: o, inside };
+	}
+
 	sliceSlot(slot) {
 		if (slot.slices) return;
-		if (slot.sliceCache) {
+		if (slot.sliceCache && !slot.skinned) {
 			for (const sl of slot.sliceCache) {
 				sl.mesh.visible = true;
 				slot.armG.add(sl.mesh);
@@ -1428,6 +1517,21 @@ export class ChoiceHandsScene {
 		}
 		const { SLABS, SLAB_Z0, SLAB_Z1 } = C;
 		const dz = (SLAB_Z1 - SLAB_Z0) / SLABS;
+		slot.frozen = [];
+		if (slot.skinned) {
+			const skinned = [];
+			slot.armG.traverse((o) => {
+				if (o.isSkinnedMesh && o.visible) skinned.push(o);
+			});
+			for (const o of skinned) slot.frozen.push(this.freezeSkinned(o));
+			const twin = slot.frozen.find((f) => f.original.name === 'hand')?.twin ?? slot.frozen[0]?.twin;
+			if (twin) { // the ash is born on the posed surface
+				const p = twin.geometry.attributes.position;
+				const pts = [];
+				for (let i = 0; i < p.count; i += Math.max(1, Math.floor(p.count / 900))) if (p.getZ(i) > -0.02) pts.push(new THREE.Vector3(p.getX(i), p.getY(i), p.getZ(i)));
+				slot.dust = pts.sort((a, b) => a.z - b.z);
+			}
+		}
 		const list = [];
 		slot.armG.traverse((o) => {
 			if (o.isMesh && !o.isSkinnedMesh && o !== slot.handProxy && o.geometry && !o.userData.slab) list.push(o);
@@ -1483,8 +1587,265 @@ export class ChoiceHandsScene {
 			sl.mesh.removeFromParent();
 			sl.original.visible = true;
 		}
+		if (slot.frozen?.length) { // a skinned hand is cut anew every time (its pose differs): nothing is cached, the posed twins and their slabs are freed
+			for (const sl of slot.slices) sl.mesh.geometry.dispose();
+			for (const f of slot.frozen) {
+				f.twin.removeFromParent();
+				f.twin.geometry.dispose();
+				f.inside.material.dispose();
+				f.original.visible = true;
+			}
+			slot.frozen = [];
+			slot.slices = null;
+			return;
+		}
 		slot.sliceCache = slot.slices;
 		slot.slices = null;
+	}
+
+	// ---- hand test: a close look at one rigged hand, every joint under the user's hand --------------------------------------------------------------------
+
+	syncHandTestUi() {} // replaced by the panel (buildHandTestControls)
+
+	/** A synthetic stand-in rig (scripts/glb_rig_tools.py fake_rig) is flagged in the GLB's asset.extras. */
+	get rigIsSynthetic() {
+		return !!this.gltfs.flrig?.asset?.extras?.synthetic_rig;
+	}
+
+	/** Does this slot get the rigged hand? Only the Flagellant, when the toggle is on and the GLB exists; a synthetic rig only in the hand test (or when rigAlways is on). */
+	wantsRig(def) {
+		return def.id === 'FL' && this.settings.flRig && !!this.gltfs.flrig && (!this.rigIsSynthetic || this.handtest.on || this.settings.rigAlways);
+	}
+
+	/** The slot whose rig is on the table (the Flagellant), or null when it has no skeleton. */
+	handtestSlot() {
+		return this.slots[this.handtest.index] ?? null;
+	}
+
+	/**
+	 * Enter the hand-test mode (?scene=choiceHands&handtest=1, or the panel): the Flagellant's hand comes out and rests offered, the camera comes close and is FREE (orbit / zoom), the UI of the
+	 * scene and the showcase are off, and the joints follow a HandMotion (sliders, presets, the auto loop). Esc or the panel button leaves it.
+	 */
+	enterHandTest(index = C.SLOTS.findIndex((d) => d.id === 'FL')) {
+		const ht = this.handtest;
+		if (ht.on) return true;
+		if (!this.slots[index] || this.slots[index].hidden) return false;
+		if (this.state !== 'idle') this.replay();
+		ht.on = true;
+		ht.index = index;
+		if (!this.slots[index].skinned && this.wantsRig(this.slots[index].def)) this.swapFlSlot(); // the hand of the test is the rigged one
+		ht.keepLock = this.settings.lockCamera;
+		this.settings.lockCamera = false;
+		ht.mode = 'preset';
+		ht.preset = 'offer';
+		ht.profile = this.handtestSlot().profile ?? 'default'; // the finger tables of this model (the real rig has its own)
+		ht.motion = new C.HandMotion(C.presetPose('offer', 0, ht.profile));
+		ht.t = 0;
+		ht.presetT0 = 0;
+		ht.runT = 0;
+		ht.runIndex = -1;
+		if (this.ui) this.ui.root.style.display = 'none';
+		this.select(index, true);
+		this.reach.value = 1;
+		this.placeHandTestCamera();
+		this.syncHandTestUi();
+		return true;
+	}
+
+	exitHandTest() {
+		const ht = this.handtest;
+		if (!ht.on) return;
+		const slot = this.handtestSlot();
+		ht.on = false;
+		this.setHandTestSkeleton(false);
+		this.setHandTestWire(false);
+		slot?.joints?.apply(C.emptyPose());
+		this.settings.lockCamera = ht.keepLock;
+		if (this.ui) this.ui.root.style.display = '';
+		this.replay();
+		if (slot?.skinned && !this.wantsRig(slot.def)) this.swapFlSlot(); // a synthetic rig goes back to the static hand
+		this.syncHandTestUi();
+	}
+
+	/** The free camera of the hand test: above and in front of the offered hand, close. (The user orbits from here.) */
+	placeHandTestCamera() {
+		const slot = this.handtestSlot();
+		if (!slot || !this.app.rig) return;
+		const focus = this.anchorWorld(slot, 'palm', new THREE.Vector3());
+		focus.addScaledVector(slot.geo.dirReach, 0.1 * slot.geo.scale);
+		const view = new THREE.Vector3(0.18, 0.62, 0.78).normalize();
+		this.app.rig.lookAt(focus.clone().addScaledVector(view, 0.9), focus);
+	}
+
+	/** A preset (by id) becomes the target; a dynamic one (the wave) is evaluated every frame. `instant` jumps there (screenshots, tests). */
+	setHandPreset(id, { instant = false } = {}) {
+		const ht = this.handtest;
+		if (!C.presetSet(ht.profile)[id]) return false;
+		ht.mode = 'preset';
+		ht.preset = id;
+		ht.presetT0 = ht.t;
+		if (!ht.motion) ht.motion = new C.HandMotion(C.presetPose(id, 0, ht.profile));
+		ht.motion.setTarget(C.presetPose(id, 0, ht.profile), { instant });
+		if (instant) ht.motion.update(0);
+		return true;
+	}
+
+	/** The auto loop through every preset (smooth, with the lag between the fingers). */
+	setHandTestRun(on) {
+		const ht = this.handtest;
+		ht.mode = on ? 'run' : 'preset';
+		ht.runT = 0;
+		ht.runIndex = -1;
+		if (!on) ht.presetT0 = ht.t;
+	}
+
+	/** The pose the panel's sliders hold, as a pose. */
+	handTestPoseFromUi() {
+		const u = this.handtest.ui;
+		const p = C.emptyPose();
+		for (const f of Object.keys(p.fingers)) p.fingers[f] = { curl: [u[f].mcp, u[f].pip, u[f].dip], spread: u[f].spread };
+		p.wrist = { flex: u.wrist.flex, dev: u.wrist.dev };
+		p.roll = u.wrist.roll;
+		return C.clampPose(p);
+	}
+
+	updateHandTest(delta) {
+		const ht = this.handtest;
+		if (this.pendingHandTest && this.ready) {
+			this.pendingHandTest = false;
+			this.enterHandTest();
+		}
+		if (!ht.on || !ht.motion) return;
+		ht.t += delta;
+		if (ht.mode === 'run') {
+			ht.runT += delta;
+			const q = C.sequenceAt(ht.runT);
+			const dyn = !!C.presetSet(ht.profile)[q.id].dynamic;
+			if (q.index !== ht.runIndex || dyn) {
+				ht.runIndex = q.index;
+				ht.preset = q.id;
+				ht.motion.setTarget(C.presetPose(q.id, q.local, ht.profile), { lag: !dyn });
+			}
+		} else if (ht.mode === 'preset' && C.presetSet(ht.profile)[ht.preset].dynamic) ht.motion.setTarget(C.presetPose(ht.preset, ht.t - ht.presetT0, ht.profile), { lag: false });
+		ht.motion.update(Math.min(delta, 0.05));
+		if (ht.mode !== 'manual' && ht.ui) { // the sliders show where the hand is
+			const p = ht.motion.pose;
+			for (const f of Object.keys(p.fingers)) Object.assign(ht.ui[f], { mcp: p.fingers[f].curl[0], pip: p.fingers[f].curl[1], dip: p.fingers[f].curl[2], spread: p.fingers[f].spread });
+			Object.assign(ht.ui.wrist, { flex: p.wrist.flex, dev: p.wrist.dev, roll: p.roll });
+		}
+		if (ht.skeleton) ht.skeleton.updateMatrixWorld(true);
+	}
+
+	setHandTestSkeleton(on) {
+		const ht = this.handtest;
+		if (on && !ht.skeleton) {
+			const slot = this.handtestSlot();
+			if (!slot?.rig) return;
+			ht.skeleton = new THREE.SkeletonHelper(slot.model3d);
+			ht.skeleton.geometry.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(ht.skeleton.geometry.attributes.position.count * 3), 3)); // WebGPU's line material asks every geometry for a normal
+			ht.skeleton.renderOrder = 20;
+			ht.skeleton.userData.labNoPick = ht.skeleton.userData.labNoCollide = true;
+			this.scene.add(ht.skeleton);
+		} else if (!on && ht.skeleton) {
+			ht.skeleton.removeFromParent();
+			ht.skeleton.dispose?.();
+			ht.skeleton = null;
+		}
+	}
+
+	setHandTestWire(on) {
+		const ht = this.handtest;
+		ht.wire = !!on;
+		const slot = this.handtestSlot();
+		if (!slot) return;
+		for (const m of slot.mats) m.wireframe = ht.wire;
+	}
+
+	/** Swap the Flagellant's hand between the static mesh and the rigged one (the panel toggle `flRig`). */
+	rebuildFlRig() {
+		const wasTest = this.handtest.on;
+		if (wasTest) this.exitHandTest();
+		this.swapFlSlot();
+		if (wasTest) this.enterHandTest();
+	}
+
+	/** Build the Flagellant's slot anew (static or rigged, as wantsRig says) and put it in the place of the old one. */
+	swapFlSlot() {
+		const i = C.SLOTS.findIndex((d) => d.id === 'FL');
+		if (this.state !== 'idle') this.replay();
+		const old = this.slots[i];
+		this.scene.remove(old.root);
+		this.proxyRoot.remove(old.proxy);
+		old.proxy.geometry.dispose();
+		for (const sl of old.sliceCache ?? []) sl.mesh.geometry.dispose();
+		for (const m of old.mats) m.dispose();
+		const slot = this.buildSlot(old.def, i);
+		slot.hidden = old.hidden;
+		this.slots[i] = slot;
+		this.proxyRoot.updateMatrixWorld(true);
+	}
+
+	/** Panel of the hand test: the on / off button, the rig toggle, presets, the auto loop, one slider per joint, the skeleton and wireframe views. */
+	buildHandTestControls(folder) {
+		const ht = this.handtest;
+		const s = this.settings;
+		const save = () => this.app.settings.changed(this.id);
+		const fh = folder.addFolder('Thử tay (rig ngón)');
+		const slot0 = this.slots[C.SLOTS.findIndex((d) => d.id === 'FL')];
+		fh.add(s, 'flRig').name('Tay FL có rig (nếu có GLB rig)').onChange(() => (save(), this.rebuildFlRig()));
+		fh.add(s, 'rigAlways').name('Dùng cả rig GIẢ ngoài chế độ thử').onChange(() => (save(), this.rebuildFlRig()));
+		const status = { rig: '' };
+		const rigText = () => {
+			const sl = this.handtestSlot() ?? slot0;
+			if (!this.gltfs.flrig) return 'chưa có choice-hand-fl-rig.glb';
+			const syn = this.gltfs.flrig.asset?.extras?.synthetic_rig ? ' · rig GIẢ (thử)' : '';
+			return sl?.rig ? `${sl.rigInfo.found}/15 bone ngón${syn}` : 'slot FL đang dùng mesh tĩnh';
+		};
+		status.rig = rigText();
+		fh.add(status, 'rig').name('Rig').listen().disable();
+		fh.add({ go: () => (ht.on ? this.exitHandTest() : this.enterHandTest()) }, 'go').name('Vào / thoát chế độ thử tay (Esc)');
+		const sync = () => {
+			status.rig = rigText();
+			for (const c of ht.controllers) c.updateDisplay?.();
+		};
+		this.syncHandTestUi = sync;
+		const state = { preset: 'offer', run: false, skeleton: false, wire: false };
+		fh.add(state, 'preset', Object.fromEntries(Object.entries(C.HAND_PRESETS).map(([id, p]) => [p.label, id]))).name('Tư thế').onChange((id) => {
+			if (!ht.on) this.enterHandTest();
+			state.run = false;
+			this.setHandPreset(id);
+		});
+		fh.add(state, 'run').name('Chạy vòng thử (tự chuyển các tư thế)').listen().onChange((v) => {
+			if (!ht.on) this.enterHandTest();
+			this.setHandTestRun(v);
+		});
+		fh.add(state, 'skeleton').name('Hiện skeleton').onChange((v) => this.setHandTestSkeleton(v));
+		fh.add(state, 'wire').name('Wireframe').onChange((v) => this.setHandTestWire(v));
+		fh.add({ cam: () => this.placeHandTestCamera() }, 'cam').name('Đặt lại camera cận');
+		// one slider per joint (degrees, inside the anatomical limits), moved by the presets and the loop, taken over by the hand
+		ht.ui = {};
+		const take = () => {
+			if (!ht.on) this.enterHandTest();
+			ht.mode = 'manual';
+			state.run = false;
+			ht.motion.setTarget(this.handTestPoseFromUi(), { lag: false });
+		};
+		const names = { thumb: 'Ngón cái', index: 'Trỏ', middle: 'Giữa', ring: 'Áp út', pinky: 'Út' };
+		for (const f of Object.keys(names)) {
+			const L = C.HAND_LIMITS[f];
+			const g = fh.addFolder(names[f]);
+			g.close();
+			ht.ui[f] = { mcp: 0, pip: 0, dip: 0, spread: 0 };
+			for (const [key, label, range] of [['mcp', f === 'thumb' ? 'Gốc (CMC/MCP)' : 'Gốc (MCP)', L.curl[0]], ['pip', f === 'thumb' ? 'Giữa (IP)' : 'Giữa (PIP)', L.curl[1]], ['dip', 'Đầu (DIP)', L.curl[2]], ['spread', 'Xoè', L.spread]]) {
+				ht.controllers.push(g.add(ht.ui[f], key, range[0], range[1], 0.5).name(`${label} °`).listen().onChange(take));
+			}
+		}
+		ht.ui.wrist = { flex: 0, dev: 0, roll: 0 };
+		const gw = fh.addFolder('Cổ tay và cẳng tay');
+		ht.controllers.push(gw.add(ht.ui.wrist, 'flex', C.WRIST_LIMITS.flex[0], C.WRIST_LIMITS.flex[1], 0.5).name('Gập (+ về lòng tay) °').listen().onChange(take));
+		ht.controllers.push(gw.add(ht.ui.wrist, 'dev', C.WRIST_LIMITS.dev[0], C.WRIST_LIMITS.dev[1], 0.5).name('Nghiêng (+ về ngón cái) °').listen().onChange(take));
+		ht.controllers.push(gw.add(ht.ui.wrist, 'roll', C.WRIST_LIMITS.roll[0], C.WRIST_LIMITS.roll[1], 0.5).name('Xoay cẳng tay °').listen().onChange(take));
+		note(fh, '<b>Thử tay:</b> camera tự do (kéo = xoay, lăn = zoom); thanh trượt = từng khớp trong giới hạn giải phẫu (MCP 0–90°, PIP 0–110°, DIP 0–80°); các ngón vào cuộc lệch nhau (trỏ trước, út sau) và đốt ngoài theo đốt trong. <b>Chạy vòng thử</b> đi qua: thả lỏng · mở mời nắm · khum chén · nắm đấm · nắm hờ · chỉ · xoè · gợn sóng · cổ tay ±40° · xoay cẳng tay ±90°. Bảng thông số: <code>HAND_LIMITS / HAND_PRESETS / HAND_MOTION</code> ở <code>env/choiceHands.js</code>. URL: <code>?scene=choiceHands&amp;handtest=1</code>.');
 	}
 
 	// ---- showcase: what the chosen hand shows of its class ------------------------------------------------------------------------------
@@ -1496,7 +1857,12 @@ export class ChoiceHandsScene {
 	}
 
 	/** World position of a named anchor of a slot's hand (arm-frame anchors of the mesh, through the live scene graph: slide, turn, roll, mirror). */
-	anchorWorld(slot, name, out = new THREE.Vector3()) {
+	anchorWorld(slot, name, out = new THREE.Vector3(), live = true) {
+		const socket = live ? slot.sockets?.[name] : null; // live = follow the rig's sockets (effects); false = the rest-pose mesh anchors (the camera must not breathe with the fingers)
+		if (socket) {
+			socket.updateWorldMatrix(true, false);
+			return socket.getWorldPosition(out);
+		}
 		out.copy(slot.anchors[name] ?? slot.anchors.palm ?? slot.anchors.wrist);
 		slot.armG.updateWorldMatrix(true, false);
 		return slot.armG.localToWorld(out);
@@ -1505,7 +1871,7 @@ export class ChoiceHandsScene {
 	/** Start (or restart) the showcase of the chosen hand. */
 	playShowcase() {
 		const slot = this.slots[this.sel];
-		if (!slot || this.state !== 'reach' || this.reach.to !== 1) return false;
+		if (!slot || this.state !== 'reach' || this.reach.to !== 1 || this.handtest.on) return false; // the hand-test mode has no showcase
 		const def = C.SHOWCASE[slot.def.id];
 		if (!def) return false;
 		const sc = this.showcase;
@@ -1618,8 +1984,8 @@ export class ChoiceHandsScene {
 		const tt = Math.min(sc.t, def.dur);
 		const a = (this._sa ??= new THREE.Vector3());
 		const b = (this._sb ??= new THREE.Vector3());
-		this.anchorWorld(slot, 'tip', b);
-		this.anchorWorld(slot, 'wrist', a);
+		this.anchorWorld(slot, 'tip', b, false);
+		this.anchorWorld(slot, 'wrist', a, false);
 		const len = a.distanceTo(b);
 		const sc3 = slot.geo.scale;
 		a.addScaledVector(this._q3.copy(b).sub(a).normalize(), -0.05 * sc3); // a little sleeve behind the wrist
@@ -1732,6 +2098,7 @@ export class ChoiceHandsScene {
 		fp.add({ show: () => this.playShowcase() }, 'show').name('Xem lại showcase của tay đang chọn');
 		fp.add({ back: () => this.back() }, 'back').name('Quay lại (Esc)');
 		fp.add({ replay: () => this.replay() }, 'replay').name('Chơi lại / đặt lại về tường');
+		this.buildHandTestControls(folder);
 		const fa = folder.addFolder('Chuyển động');
 		fa.add(s, 'duration', 0.8, 4, 0.05).name('Thời lượng vươn (s)').onChange(save);
 		fa.add(s, 'reach', 0.1, 0.36, 0.005).name('Biên độ vươn dọc cẳng tay (m)').onChange(save);
@@ -1766,6 +2133,7 @@ export class ChoiceHandsScene {
 		this.buildUi();
 		this.bindEvents();
 		this.cap = { shown: -1, alpha: 0 };
+		if (new URLSearchParams(location.search).get('handtest')) this.pendingHandTest = true; // ?scene=choiceHands&handtest=1: the hand-test mode as soon as the scene is ready
 	}
 
 	deactivate() {
@@ -1779,6 +2147,7 @@ export class ChoiceHandsScene {
 			if (this._fov) app.rig.setFov(this._fov);
 		}
 		this.hoverIndex = this.keyHover = -1;
+		if (this.handtest.on) this.exitHandTest();
 		if (this.state !== 'idle') this.replay();
 	}
 

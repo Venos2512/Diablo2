@@ -384,7 +384,7 @@ const frameBox = () => S(`(() => {
 	const cam = __LAB__.app.rig.camera;
 	cam.updateMatrixWorld(true);
 	let mesh = null;
-	slot.armG.traverse((o) => { if (o.isMesh && o.name === 'hand' && !o.isSkinnedMesh) mesh = o; });
+	slot.armG.traverse((o) => { if (o.isMesh && !o.userData.cutInterior && !o.userData.frozenTwin && (o.name === 'hand' || (!mesh && o.geometry.attributes.position.count > 1000))) mesh = o; });
 	mesh.updateWorldMatrix(true, false);
 	const pos = mesh.geometry.attributes.position;
 	const zmin = slot.anchors.wrist.z - 0.045;
@@ -392,7 +392,7 @@ const frameBox = () => S(`(() => {
 	const box = { x0: 9, x1: -9, y0: 9, y1: -9 };
 	for (let i = 0; i < pos.count; i += 3) {
 		if (pos.getZ(i) < zmin) continue;
-		v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld).project(cam);
+		(mesh.isSkinnedMesh ? mesh.getVertexPosition(i, v) : v.fromBufferAttribute(pos, i)).applyMatrix4(mesh.matrixWorld).project(cam);
 		const fx = (v.x + 1) / 2, fy = (1 - v.y) / 2;
 		box.x0 = Math.min(box.x0, fx); box.x1 = Math.max(box.x1, fx); box.y0 = Math.min(box.y0, fy); box.y1 = Math.max(box.y1, fy);
 	}
@@ -409,10 +409,10 @@ const offerStats = () => evaluate(`(async () => {
 	const box = { x0: 9, x1: -9, y0: 9, y1: -9 };
 	const add = (v) => { v.project(cam); const fx = (v.x + 1) / 2, fy = (1 - v.y) / 2; box.x0 = Math.min(box.x0, fx); box.x1 = Math.max(box.x1, fx); box.y0 = Math.min(box.y0, fy); box.y1 = Math.max(box.y1, fy); };
 	let mesh = null;
-	slot.armG.traverse((o) => { if (o.isMesh && o.name === 'hand' && !o.isSkinnedMesh) mesh = o; });
+	slot.armG.traverse((o) => { if (o.isMesh && !o.userData.cutInterior && !o.userData.frozenTwin && (o.name === 'hand' || (!mesh && o.geometry.attributes.position.count > 1000))) mesh = o; });
 	mesh.updateWorldMatrix(true, false);
 	const pos = mesh.geometry.attributes.position, zmin = slot.anchors.wrist.z - 0.045, v = new V();
-	for (let i = 0; i < pos.count; i += 3) if (pos.getZ(i) >= zmin) add(v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld));
+	for (let i = 0; i < pos.count; i += 3) if (pos.getZ(i) >= zmin) add((mesh.isSkinnedMesh ? mesh.getVertexPosition(i, v) : v.fromBufferAttribute(pos, i)).applyMatrix4(mesh.matrixWorld));
 	const cb = { x0: 9, x1: -9, y0: 9, y1: -9 };
 	const save = { ...box };
 	Object.assign(box, cb);

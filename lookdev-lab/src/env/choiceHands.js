@@ -247,6 +247,8 @@ export const TIMES = { reach: 1.8, back: 1.4, tremble: 0.55, crumble: 1.9, fadeA
  */
 export const FINGER_BONES = {
 	root: 'hand_root',
+	forearm: 'forearm',
+	twist: 'forearm_twist',
 	wrist: 'wrist',
 	fingers: {
 		thumb: ['thumb_01', 'thumb_02', 'thumb_03'],
@@ -260,7 +262,10 @@ export const FINGER_BONES = {
  * Optional per-finger override of the derived axes, given in the HAND frame: FINGER_AXES.thumb = { curl: [x, y, z], spread: [x, y, z] } (curl: positive toward the palm).
  * Empty by default: the thumb, whose chain does not run along +z, gets the same derivation from its own bones (a thumb that curls the wrong way is the first thing to check).
  */
-export const FINGER_AXES = {};
+export const FINGER_AXES = {
+	// H2_FL_hand_rig.glb (qa_report.md section 7.4): the thumb lies in the palm plane, its nail toward the wrist, so the geometry-derived axis is 72-76 deg off the real hinge
+	thumb: { curl: [-0.007, -0.954, -0.299], spread: [0.226, 0.29, -0.93] },
+};
 /**
  * Procedural poses, degrees per segment [_01, _02, _03] and the spread of _01. relaxed = idle (a loose half-curl, the little finger most), open = the hand OFFERED, palm UP (a loose
  * cup: a few degrees of curl, fingers slightly fanned: "come, take it"), grip = grasped (a closed fist). Blend: relaxed -> open by `offer`, then -> grip by `grip`.
@@ -274,27 +279,282 @@ export const FINGER_POSES = {
 };
 const normBone = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
 
+/** Fractions of a 0..1 weight that a finger / a joint waits before it starts (the index leads, the little finger follows; an outer joint follows the inner one). */
+const FINGER_LAG_FRAC = { thumb: 0.1, index: 0, middle: 0.03, ring: 0.06, pinky: 0.09 };
+const SEG_LAG_FRAC = 0.05;
+const phased = (x, lag) => clamp((x - lag) / (1 - lag), 0, 1);
+
 /** Curl per segment (deg) and spread (deg) of one finger for an offer / grip weight (both 0..1). `sway` = a small relaxed-pose breath (-1..1). */
-export function fingerAngles(finger, offer, grip, sway = 0, out = { curl: [0, 0, 0], spread: 0 }) {
-	const p = FINGER_POSES[finger];
-	const o = clamp(offer, 0, 1);
-	const g = clamp(grip, 0, 1);
+export function fingerAngles(finger, offer, grip, sway = 0, out = { curl: [0, 0, 0], spread: 0 }, poses = FINGER_POSES) {
+	const p = poses[finger];
+	const o0 = clamp(offer, 0, 1);
+	const g0 = clamp(grip, 0, 1);
+	const lag = FINGER_LAG_FRAC[finger] ?? 0;
 	for (let k = 0; k < 3; k++) {
+		// the fingers do not move as one block: each starts a little after the one before it and each outer joint a little after the inner one (both ends of the weight are untouched)
+		const l = lag + SEG_LAG_FRAC * k;
+		const o = phased(o0, l);
+		const g = phased(g0, l);
 		const rest = p.relaxed[k] * (1 + 0.12 * sway * (1 - o));
 		out.curl[k] = lerp(lerp(rest, p.open[k], o), p.grip[k], g);
 	}
-	out.spread = lerp(lerp(p.spread.relaxed, p.spread.open, o), p.spread.grip, g);
+	const ol = phased(o0, lag);
+	const gl = phased(g0, lag);
+	out.spread = lerp(lerp(p.spread.relaxed, p.spread.open, ol), p.spread.grip, gl);
 	return out;
 }
 
 const PALM = new THREE.Vector3(0, -1, 0); // the palm side of the hand frame
+
+// ---- the hand-test mode: anatomical limits, presets, the way a hand moves (one table, edit here) ---------------------------------------------------------
+const FINGER_NAMES = ['thumb', 'index', 'middle', 'ring', 'pinky'];
+/** Per finger: [min, max] curl (deg, + toward the palm) of the three joints [MCP / thumb CMC-MCP, PIP, DIP] and of the spread (+ toward the thumb side x), RELATIVE TO THE RIG'S REST POSE. Real hands, from straight: MCP 0-90 (a little hyperextension), PIP 0-110, DIP 0-80; the lower bounds go further down because a mesh modelled half curled (the Flagellant's: PIP 22-42 deg at rest) needs negative angles to straighten. */
+export const HAND_LIMITS = {
+	thumb: { curl: [[-25, 55], [-25, 75], [-20, 65]], spread: [-30, 45] },
+	index: { curl: [[-30, 90], [-50, 110], [-35, 80]], spread: [-20, 20] },
+	middle: { curl: [[-30, 90], [-50, 110], [-35, 80]], spread: [-14, 14] },
+	ring: { curl: [[-30, 90], [-50, 110], [-35, 80]], spread: [-16, 16] },
+	pinky: { curl: [[-30, 90], [-50, 110], [-35, 80]], spread: [-24, 24] },
+};
+/** Wrist flexion (+ toward the palm) / extension, deviation (+ toward the thumb) and the forearm's roll (deg). */
+export const WRIST_LIMITS = { flex: [-70, 80], dev: [-20, 35], roll: [-90, 90] };
+/** How a hand moves between poses: each finger starts `lag` s after the one before it (the index leads); each joint is a critically damped spring, the outer joints slower than the inner ones. */
+export const HAND_MOTION = {
+	lag: { thumb: 0.05, index: 0, middle: 0.02, ring: 0.04, pinky: 0.06 }, // s
+	omega: { curl: [15, 12, 10], spread: 13, flex: 10, dev: 10, roll: 7 }, // rad/s of the spring of each joint
+	zeta: 0.92, // a hair under critical: a tiny settle, no robot stop
+};
+const J = (a, b, c, spread = 0) => ({ curl: [a, b, c], spread });
+/** A pose with every joint at 0 (the hand flat and straight). */
+export function emptyPose() {
+	return { fingers: Object.fromEntries(FINGER_NAMES.map((f) => [f, J(0, 0, 0)])), wrist: { flex: 0, dev: 0 }, roll: 0 };
+}
+export function copyPose(p) {
+	return { fingers: Object.fromEntries(FINGER_NAMES.map((f) => [f, { curl: [...p.fingers[f].curl], spread: p.fingers[f].spread }])), wrist: { ...p.wrist }, roll: p.roll };
+}
+/** The pose inside the anatomical limits (a copy). */
+export function clampPose(p) {
+	const o = copyPose(p);
+	for (const f of FINGER_NAMES) {
+		const L = HAND_LIMITS[f];
+		o.fingers[f].curl = o.fingers[f].curl.map((v, k) => clamp(v, ...L.curl[k]));
+		o.fingers[f].spread = clamp(o.fingers[f].spread, ...L.spread);
+	}
+	o.wrist.flex = clamp(o.wrist.flex, ...WRIST_LIMITS.flex);
+	o.wrist.dev = clamp(o.wrist.dev, ...WRIST_LIMITS.dev);
+	o.roll = clamp(o.roll, ...WRIST_LIMITS.roll);
+	return o;
+}
+/** The finger part of a pose from FINGER_POSES for given weights (the scene's own idle / offer / grip). */
+export function poseFromWeights(offer, grip, poses = FINGER_POSES) {
+	const p = emptyPose();
+	const tmp = { curl: [0, 0, 0], spread: 0 };
+	for (const f of FINGER_NAMES) {
+		fingerAngles(f, offer, grip, 0, tmp, poses);
+		p.fingers[f] = { curl: [...tmp.curl], spread: tmp.spread };
+	}
+	return p;
+}
+const withFingers = (base, fingers) => {
+	const p = copyPose(base);
+	for (const [f, v] of Object.entries(fingers)) p.fingers[f] = v;
+	return p;
+};
+/** The hand-test presets: id -> { label, pose() } (static) or { label, dynamic: (t) => pose } (the wave). The ROM list of the rig brief. */
+export const HAND_PRESETS = {
+	relaxed: { label: 'Thả lỏng', pose: () => poseFromWeights(0, 0) },
+	offer: { label: 'Mở mời nắm', pose: () => poseFromWeights(1, 0) },
+	cup: {
+		label: 'Khum chén',
+		pose: () => ({ ...withFingers(emptyPose(), { thumb: J(12, 16, 10, 8), index: J(26, 34, 18, 3), middle: J(30, 38, 20, 0), ring: J(34, 42, 22, -4), pinky: J(38, 44, 24, -8) }), wrist: { flex: 10, dev: 0 }, roll: 0 }),
+	},
+	fist: { label: 'Nắm đấm', pose: () => withFingers(emptyPose(), { thumb: J(38, 50, 38, 0), index: J(88, 106, 72, 0), middle: J(90, 108, 74, 0), ring: J(90, 108, 74, 0), pinky: J(90, 108, 72, 0) }) },
+	hold: {
+		label: 'Nắm hờ (cầm tay người khác)',
+		pose: () => ({ ...withFingers(emptyPose(), { thumb: J(20, 30, 20, 14), index: J(46, 58, 32, 2), middle: J(50, 62, 34, 0), ring: J(54, 64, 36, -3), pinky: J(58, 68, 38, -6) }), wrist: { flex: 6, dev: 0 }, roll: 0 }),
+	},
+	point: { label: 'Chỉ', pose: () => withFingers(emptyPose(), { thumb: J(30, 42, 30, 0), index: J(0, 0, 0, 2), middle: J(88, 106, 72, 0), ring: J(90, 108, 74, 0), pinky: J(90, 108, 72, 0) }) },
+	spread: { label: 'Xoè hết', pose: () => withFingers(emptyPose(), { thumb: J(0, 0, 0, 40), index: J(0, 0, 0, 14), middle: J(0, 0, 0, 4), ring: J(0, 0, 0, -6), pinky: J(0, 0, 0, -18) }) },
+	wave: {
+		label: 'Gợn sóng ngón (út → trỏ)',
+		dynamic: (t) => {
+			const p = poseFromWeights(0.6, 0);
+			const order = ['pinky', 'ring', 'middle', 'index']; // the wave runs from the little finger to the index, one beat behind each
+			order.forEach((f, i) => {
+				const w = 0.5 - 0.5 * Math.cos(2 * Math.PI * (t / 1.6 - i * 0.14)); // 0..1
+				p.fingers[f] = J(lerp(8, 62, w), lerp(10, 80, w), lerp(6, 50, w), p.fingers[f].spread);
+			});
+			return p;
+		},
+	},
+	flexed: { label: 'Cổ tay gập +40°', pose: () => ({ ...poseFromWeights(0.3, 0), wrist: { flex: 40, dev: 0 }, roll: 0 }) },
+	extended: { label: 'Cổ tay ngửa −40°', pose: () => ({ ...poseFromWeights(0.3, 0), wrist: { flex: -40, dev: 0 }, roll: 0 }) },
+	rollPlus: { label: 'Xoay cẳng tay +90°', pose: () => ({ ...poseFromWeights(0.3, 0), roll: 90 }) },
+	rollMinus: { label: 'Xoay cẳng tay −90°', pose: () => ({ ...poseFromWeights(0.3, 0), roll: -90 }) },
+};
+/** The auto test loop: the presets in order, `hold` seconds each (the wave runs longer). */
+export const HAND_TEST_SEQUENCE = [
+	['relaxed', 1.4], ['offer', 1.6], ['cup', 1.6], ['fist', 1.6], ['hold', 1.6], ['point', 1.6], ['spread', 1.6], ['wave', 3.4],
+	['flexed', 1.6], ['extended', 1.8], ['rollPlus', 1.8], ['rollMinus', 2.2], ['relaxed', 1.4],
+];
+/** The pose of a preset at time t (dynamic presets move with t). */
+export function presetPose(id, t = 0, profile = 'default') {
+	const pr = presetSet(profile)[id];
+	return clampPose(pr.dynamic ? pr.dynamic(t) : pr.pose());
+}
+
+/**
+ * The finger pose tables of the MODELS: angles are ADDED to the rig's rest pose. 'default' = FINGER_POSES (a straight-modelled hand). 'flRig' = the Flagellant's real rig
+ * (H2_FL_hand_rig.glb): its mesh is modelled half curled (PIP 22-42 deg), so `relaxed` is ~0, the offered hand is slightly NEGATIVE (a little straighter than the mesh, not a claw), and
+ * `grip` is the fist measured on contact (fingertips touch the palm, <= 1 mm; qa_report.md section 7.3, thumb from section 4) instead of a textbook fist that buries the fingers 14 mm in it.
+ */
+export const HAND_PROFILES = {
+	default: { poses: FINGER_POSES },
+	flRig: {
+		poses: {
+			thumb: { relaxed: [0, 0, 0], open: [-4, -8, -4], grip: [20, 40, 58], spread: { relaxed: 0, open: 6, grip: -20 } },
+			index: { relaxed: [0, 0, 0], open: [-4, -12, -7], grip: [52.7, 64.8, 45.4], spread: { relaxed: 0, open: 3, grip: 0 } },
+			middle: { relaxed: [0, 0, 0], open: [-4, -12, -7], grip: [42.5, 52, 35.5], spread: { relaxed: 0, open: 1, grip: 0 } },
+			ring: { relaxed: [0, 0, 0], open: [-3, -10, -6], grip: [48.5, 59, 39.2], spread: { relaxed: 0, open: -3, grip: 0 } },
+			pinky: { relaxed: [0, 0, 0], open: [-3, -8, -5], grip: [60.2, 70.1, 46.9], spread: { relaxed: 0, open: -7, grip: -2 } },
+		},
+	},
+};
+const lerpFinger = (a, b, t) => ({ curl: a.curl.map((v, k) => lerp(v, b.curl[k], t)), spread: lerp(a.spread, b.spread, t) });
+const lerpFingers = (a, b, t) => {
+	const p = copyPose(a);
+	for (const f of FINGER_NAMES) p.fingers[f] = lerpFinger(a.fingers[f], b.fingers[f], t);
+	return p;
+};
+const presetSets = new Map([['default', HAND_PRESETS]]);
+/** The preset table of a profile: the default one is HAND_PRESETS; others are built from the profile's own relaxed / open / grip so a half-curled mesh never gets a claw. */
+export function presetSet(profile = 'default') {
+	if (!presetSets.has(profile)) {
+		const P = HAND_PROFILES[profile].poses;
+		const rel = poseFromWeights(0, 0, P);
+		const open = poseFromWeights(1, 0, P);
+		const fist = poseFromWeights(0, 1, P);
+		const wr = (pose, flex = 0, roll = 0) => ({ ...pose, wrist: { flex, dev: 0 }, roll });
+		const straight = (pose) => { // the index of `point`: a little more than open
+			const q = copyPose(pose);
+			q.fingers.index = { curl: pose.fingers.index.curl.map((v) => v * 1.8), spread: pose.fingers.index.spread };
+			return q;
+		};
+		const mid = lerpFingers(rel, open, 0.5);
+		presetSets.set(profile, {
+			relaxed: { label: HAND_PRESETS.relaxed.label, pose: () => rel },
+			offer: { label: HAND_PRESETS.offer.label, pose: () => open },
+			cup: { label: HAND_PRESETS.cup.label, pose: () => wr(lerpFingers(rel, fist, 0.26), 10) },
+			fist: { label: HAND_PRESETS.fist.label, pose: () => fist },
+			hold: { label: HAND_PRESETS.hold.label, pose: () => wr(lerpFingers(rel, fist, 0.5), 6) }, // 45-55 % of the fist
+			point: { label: HAND_PRESETS.point.label, pose: () => { const q = copyPose(fist); q.fingers.index = straight(open).fingers.index; q.fingers.thumb = lerpFinger(fist.fingers.thumb, rel.fingers.thumb, 0.4); return q; } },
+			spread: { label: HAND_PRESETS.spread.label, pose: () => { const q = copyPose(open); const sp = { thumb: 38, index: 14, middle: 4, ring: -6, pinky: -18 }; for (const f of FINGER_NAMES) q.fingers[f].spread = sp[f]; return q; } },
+			wave: {
+				label: HAND_PRESETS.wave.label,
+				dynamic: (t) => {
+					const q = copyPose(lerpFingers(rel, open, 0.6));
+					['pinky', 'ring', 'middle', 'index'].forEach((f, i) => {
+						const w = 0.5 - 0.5 * Math.cos(2 * Math.PI * (t / 1.6 - i * 0.14));
+						q.fingers[f] = lerpFinger(open.fingers[f], fist.fingers[f], w * 0.8);
+					});
+					return q;
+				},
+			},
+			flexed: { label: HAND_PRESETS.flexed.label, pose: () => wr(mid, 40) },
+			extended: { label: HAND_PRESETS.extended.label, pose: () => wr(mid, -40) },
+			rollPlus: { label: HAND_PRESETS.rollPlus.label, pose: () => wr(mid, 0, 90) },
+			rollMinus: { label: HAND_PRESETS.rollMinus.label, pose: () => wr(mid, 0, -90) },
+		});
+	}
+	return presetSets.get(profile);
+}
+/** Where the auto loop is at time t: { id, index, local } (the sequence repeats). */
+export function sequenceAt(t) {
+	const total = HAND_TEST_SEQUENCE.reduce((s, [, d]) => s + d, 0);
+	let u = ((t % total) + total) % total;
+	for (let i = 0; i < HAND_TEST_SEQUENCE.length; i++) {
+		const [id, d] = HAND_TEST_SEQUENCE[i];
+		if (u < d) return { id, index: i, local: u };
+		u -= d;
+	}
+	return { id: HAND_TEST_SEQUENCE[0][0], index: 0, local: 0 };
+}
+
+/**
+ * The moving hand: joints that follow a target pose like a real one. setTarget(pose) queues each finger `HAND_MOTION.lag[finger]` s after the previous (unless `lag: false`), and every joint
+ * (3 curls + spread per finger, wrist flexion, deviation, roll) is a damped spring toward its target, the outer joints slower (HAND_MOTION.omega). `pose` is always inside the limits.
+ */
+export class HandMotion {
+	constructor(pose = presetPose('relaxed')) { // (a pose; the profile's presets are made with presetPose(id, t, profile))
+		this.cur = copyPose(pose);
+		this.vel = emptyPose();
+		this.tgt = copyPose(pose);
+		this.pending = [];
+		this.time = 0;
+	}
+
+	setTarget(pose, { instant = false, lag = true } = {}) {
+		const p = clampPose(pose);
+		this.pending = [];
+		if (instant) {
+			this.cur = copyPose(p);
+			this.tgt = copyPose(p);
+			this.vel = emptyPose();
+			return;
+		}
+		for (const f of FINGER_NAMES) {
+			const at = this.time + (lag ? HAND_MOTION.lag[f] : 0);
+			if (at <= this.time) this.tgt.fingers[f] = { curl: [...p.fingers[f].curl], spread: p.fingers[f].spread };
+			else this.pending.push({ f, at, v: { curl: [...p.fingers[f].curl], spread: p.fingers[f].spread } });
+		}
+		this.tgt.wrist = { ...p.wrist };
+		this.tgt.roll = p.roll;
+	}
+
+	update(dt) {
+		const steps = Math.max(1, Math.ceil(dt / (1 / 120)));
+		const h = dt / steps;
+		for (let n = 0; n < steps; n++) {
+			this.time += h;
+			if (this.pending.length) {
+				this.pending = this.pending.filter((e) => {
+					if (e.at > this.time) return true;
+					this.tgt.fingers[e.f] = e.v;
+					return false;
+				});
+			}
+			const z = HAND_MOTION.zeta;
+			const spring = (x, v, target, w) => {
+				const a = w * w * (target - x) - 2 * z * w * v;
+				const nv = v + a * h;
+				return [x + nv * h, nv];
+			};
+			for (const f of FINGER_NAMES) {
+				const c = this.cur.fingers[f];
+				const v = this.vel.fingers[f];
+				const t = this.tgt.fingers[f];
+				for (let k = 0; k < 3; k++) [c.curl[k], v.curl[k]] = spring(c.curl[k], v.curl[k], t.curl[k], HAND_MOTION.omega.curl[k]);
+				[c.spread, v.spread] = spring(c.spread, v.spread, t.spread, HAND_MOTION.omega.spread);
+			}
+			[this.cur.wrist.flex, this.vel.wrist.flex] = spring(this.cur.wrist.flex, this.vel.wrist.flex, this.tgt.wrist.flex, HAND_MOTION.omega.flex);
+			[this.cur.wrist.dev, this.vel.wrist.dev] = spring(this.cur.wrist.dev, this.vel.wrist.dev, this.tgt.wrist.dev, HAND_MOTION.omega.dev);
+			[this.cur.roll, this.vel.roll] = spring(this.cur.roll, this.vel.roll, this.tgt.roll, HAND_MOTION.omega.roll);
+		}
+		this.cur = clampPose(this.cur);
+		return this.cur;
+	}
+
+	get pose() {
+		return this.cur;
+	}
+}
 
 /**
  * Find the finger bones under `root` (an Object3D: a cloned GLB scene, whose local axes are the hand frame) and return a driver. { found, missing, hasFingers, hasRoot,
  * hasWrist, bones: [{ finger, seg, bone, rest, curl, spread, along }] (axes in each bone's LOCAL frame, derived as described at FINGER_BONES), apply(offer, grip, sway) }.
  * `frame` = the object whose axes are the hand frame (default `root`). Missing bones are skipped.
  */
-export function createFingerRig(root, table = FINGER_BONES, axes = FINGER_AXES, frame = root) {
+export function createFingerRig(root, table = FINGER_BONES, axes = FINGER_AXES, frame = root, poses = FINGER_POSES) {
 	const byName = new Map();
 	root.traverse((o) => {
 		if (o.name) byName.set(normBone(o.name), o);
@@ -354,10 +614,80 @@ export function createFingerRig(root, table = FINGER_BONES, axes = FINGER_AXES, 
 		hasWrist: byName.has(normBone(table.wrist)),
 		apply(offer = 0, grip = 0, sway = 0) {
 			for (const b of bones) {
-				fingerAngles(b.finger, offer, grip, sway, tmp);
+				fingerAngles(b.finger, offer, grip, sway, tmp, poses);
 				b.bone.quaternion.copy(b.rest);
 				if (b.seg === 0) b.bone.quaternion.multiply(q.setFromAxisAngle(b.spread, tmp.spread * DEG));
 				b.bone.quaternion.multiply(q.setFromAxisAngle(b.curl, tmp.curl[b.seg] * DEG));
+			}
+		},
+		/** Drive every finger bone to an explicit pose ({ fingers: { index: { curl: [mcp, pip, dip], spread } ... } }, degrees, limits applied): the hand-test mode. */
+		applyPose(pose) {
+			for (const b of bones) {
+				const f = pose.fingers[b.finger];
+				if (!f) continue;
+				const [lo, hi] = HAND_LIMITS[b.finger].curl[b.seg];
+				b.bone.quaternion.copy(b.rest);
+				if (b.seg === 0) b.bone.quaternion.multiply(q.setFromAxisAngle(b.spread, clamp(f.spread, ...HAND_LIMITS[b.finger].spread) * DEG));
+				b.bone.quaternion.multiply(q.setFromAxisAngle(b.curl, clamp(f.curl[b.seg], lo, hi) * DEG));
+			}
+		},
+	};
+}
+
+/**
+ * The forearm and wrist joints (bones `forearm`, `wrist`): flexion (toward the palm +), deviation (toward the thumb +) and the roll of the forearm (toward the thumb side +: the palm turns toward the thumb)
+ * about the hand frame's axes x, y, z, turned into each bone's local frame like the fingers' and signed by a self-check on the geometry (the palm moves the way it should, the thumb tells the side).
+ * A missing bone is skipped; { has: { wrist, forearm } } says which. `frame` = the object whose axes are the hand frame (default `root`).
+ */
+export function createJointRig(root, table = FINGER_BONES, frame = root) {
+	const byName = new Map();
+	root.traverse((o) => {
+		if (o.name) byName.set(normBone(o.name), o);
+	});
+	frame.updateWorldMatrix(true, true);
+	const inv = new THREE.Matrix4().copy(frame.matrixWorld).invert();
+	const inHand = (o) => {
+		const m = new THREE.Matrix4().multiplyMatrices(inv, o.matrixWorld);
+		const pos = new THREE.Vector3();
+		const quat = new THREE.Quaternion();
+		m.decompose(pos, quat, new THREE.Vector3());
+		return { pos, quat };
+	};
+	const thumb = byName.get(normBone(table.fingers.thumb[0]));
+	const index = byName.get(normBone(table.fingers.index[0]));
+	const thumbSide = thumb && index ? Math.sign(inHand(thumb).pos.x - inHand(index).pos.x) || 1 : 1; // the thumb is on this side of x in the hand frame
+	const mk = (name, axisH) => {
+		const bone = byName.get(normBone(name));
+		if (!bone) return null;
+		const me = inHand(bone);
+		return { bone, rest: bone.quaternion.clone(), axis: axisH.clone().normalize().applyQuaternion(me.quat.clone().invert()) };
+	};
+	// flexion: +x or -x such that the fingers (+z) move toward the palm (-y) for a positive angle: rotation about x by +a turns +z toward -y when a > 0 for -x... checked, not assumed
+	const toward = (axis, from, to) => from.clone().applyAxisAngle(axis, 5 * DEG).dot(to) > from.dot(to);
+	const flexAxis = toward(new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 1), PALM) ? new THREE.Vector3(1, 0, 0) : new THREE.Vector3(-1, 0, 0);
+	const devAxis = toward(new THREE.Vector3(0, 1, 0), new THREE.Vector3(0, 0, 1), new THREE.Vector3(thumbSide, 0, 0)) ? new THREE.Vector3(0, 1, 0) : new THREE.Vector3(0, -1, 0);
+	const rollAxis = toward(new THREE.Vector3(0, 0, 1), PALM, new THREE.Vector3(thumbSide, 0, 0)) ? new THREE.Vector3(0, 0, 1) : new THREE.Vector3(0, 0, -1);
+	const wrist = [mk(table.wrist, flexAxis), mk(table.wrist, devAxis)];
+	const forearm = mk(table.forearm ?? 'forearm', rollAxis);
+	const twist = mk(table.twist ?? 'forearm_twist', rollAxis); // the bone between the cuff and the braided cord (H2_FL_hand_rig): it takes -theta/2 so the skin between them is twisted by half, not torn
+	const q = new THREE.Quaternion();
+	return {
+		has: { wrist: !!wrist[0], forearm: !!forearm, twist: !!twist },
+		axes: { flex: flexAxis, dev: devAxis, roll: rollAxis, thumbSide },
+		apply(pose) {
+			if (wrist[0]) {
+				wrist[0].bone.quaternion.copy(wrist[0].rest);
+				wrist[0].bone.quaternion.multiply(q.setFromAxisAngle(wrist[0].axis, clamp(pose.wrist.flex, ...WRIST_LIMITS.flex) * DEG));
+				wrist[0].bone.quaternion.multiply(q.setFromAxisAngle(wrist[1].axis, clamp(pose.wrist.dev, ...WRIST_LIMITS.dev) * DEG));
+			}
+			if (forearm) {
+				forearm.bone.quaternion.copy(forearm.rest);
+				const roll = clamp(pose.roll, ...WRIST_LIMITS.roll);
+				forearm.bone.quaternion.multiply(q.setFromAxisAngle(forearm.axis, roll * DEG));
+				if (twist) {
+					twist.bone.quaternion.copy(twist.rest);
+					twist.bone.quaternion.multiply(q.setFromAxisAngle(twist.axis, -0.5 * roll * DEG));
+				}
 			}
 		},
 	};

@@ -1,0 +1,806 @@
+{
+ "asset_id": "H2_FL_hand",
+ "family": "Hand (new, G1 2026-10-25)",
+ "route": "M (Blender, asset tools in rig/tools; shared skill modules reused: solvers.skin_common, solvers.metrics, unirig_bridge)",
+ "source": {
+  "glb": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/choice_hands_H2_FL_hand.glb",
+  "sha256": "f5b619cf79da3266f16a0c23a1dbfc22de0524057fb19a24e910d164a0ffd532"
+ },
+ "frame": {
+  "tool": "tools/h01_frame.py (= lookdev-lab/scripts/prepare-choice-hands.py steps 1-4 for 'fl')",
+  "check_vs_lab_glb_max_mm": 1.6e-05,
+  "blender": "fingers -Y, back of hand +Z, palm -Z, thumb +X, origin = sleeve-end axis point, metres",
+  "gltf": "+Y up export = lab hand frame (+z fingers, +y back of hand)"
+ },
+ "steps": [
+  "tools/h01_frame.py (rigkit-env)",
+  "tools/h02_import.py (blender -b)",
+  "tools/h03_analyse.py (S1)",
+  "tools/h04_fingers.py (S3 a)",
+  "tools/h04u_unirig.py (S3 d; UniRig run via solvers/unirig_bridge.py run --seed 12345)",
+  "tools/h05_landmarks.py (S3 consensus, _work/vision_decisions.json)",
+  "tools/h06_skeleton.py (S4/S5)",
+  "tools/h07_skin.py (S6)",
+  "tools/h08_apply.py (S6 -> blend)",
+  "tools/h09_rom.py (S7 poses)",
+  "tools/h10_metrics.py (S7 metrics)",
+  "tools/h11_render.py (S7/R5 images)",
+  "tools/h12_export.py (S8)"
+ ],
+ "skeleton": {
+  "twist_span": [
+   0.2,
+   0.5
+  ],
+  "twist_factor": 0.5,
+  "scaphoid_point": [
+   0.05,
+   -0.28,
+   -0.036
+  ],
+  "conv_blend_distal": 0.5,
+  "tip_inset": 0.0025,
+  "thumb_targets": [
+   [
+    0.045,
+    -0.345,
+    -0.04
+   ],
+   [
+    0.07,
+    -0.37,
+    -0.045
+   ],
+   [
+    0.07,
+    -0.37,
+    -0.045
+   ]
+  ],
+  "fx_palm": [
+   0.041,
+   -0.3165,
+   -0.0415
+  ],
+  "fist_travel": 0.02,
+  "fist_deg": {
+   "thumb_01": [
+    20,
+    -20
+   ],
+   "thumb_02": [
+    40
+   ],
+   "thumb_03": [
+    58
+   ],
+   "index_01": [
+    71.0
+   ],
+   "index_02": [
+    42.5
+   ],
+   "index_03": [
+    30.5
+   ],
+   "middle_01": [
+    72.0
+   ],
+   "middle_02": [
+    45.4
+   ],
+   "middle_03": [
+    46.9
+   ],
+   "ring_01": [
+    69.0
+   ],
+   "ring_02": [
+    48.4
+   ],
+   "ring_03": [
+    42.1
+   ],
+   "pinky_01": [
+    67.0
+   ],
+   "pinky_02": [
+    59.7
+   ],
+   "pinky_03": [
+    45.6
+   ]
+  },
+  "fist_note": "contact-limited fist (tools/h14b_fist_joint.py, weights H3, palm intrusion <= 1 mm, pressed-neighbour side overlap <= 5 mm) from the textbook target MCP 85 / PIP 100 / DIP 65 total (+ thumb CMC 30, MCP 40, IP 50 added): the textbook fist buried the tips 7-15 mm in the palm of this long-fingered hand; thumb from tools/h15_thumb_fist.py (grid inside anatomical limits, thumb pad toward index/middle middle phalanges, intrusion <= 1 mm): thumb_01 [X, Z swing]",
+  "forearm_axis": "forearm_start (skin centroid at s 0.095) -> wrist centre; hand_root = sleeve end -> forearm_start",
+  "conv_blend_proximal": 1.0,
+  "hinge_mix": {
+   "proximal": {
+    "conv": 0.3,
+    "rest": 0.0,
+    "palm": 0.7
+   },
+   "distal": {
+    "conv": 0.15,
+    "rest": 0.0,
+    "palm": 0.85
+   },
+   "note": "sweep 2026-10-25 (tools: /e/tmp hinge sweep, numbers in qa_report): full convergence (conv 1 / 0.5) pressed index into middle 4-6 mm in cup / loose grip / fist; palm-plane only 0 in cup / loose grip but no convergence; 0.3 / 0.15 keeps a slight convergence with 0 side contact in cup / loose grip"
+  }
+ },
+ "skin": {
+  "cuff_end": 0.092,
+  "ramp_root_twist": [
+   0.095,
+   0.125
+  ],
+  "ramp_twist_fore": [
+   0.165,
+   0.195
+  ],
+  "wrist_off": 0.02,
+  "wrist_h": 0.007,
+  "mcp_h": 0.006,
+  "mcp_off": 0.0,
+  "pip_h": 0.0035,
+  "dip_h": 0.003,
+  "thumb_cmc_h": 0.012,
+  "thumb_cmc_off": 0.004,
+  "thumb_mcp_h": 0.005,
+  "thumb_ip_h": 0.0035,
+  "thumb_r_in": 0.014,
+  "thumb_r_out": 0.03,
+  "inner_bias": 0.0,
+  "smooth_passes": 2,
+  "prune": 0.01
+ },
+ "skin_variants": {
+  "A": {},
+  "A_wristjoint": {
+   "wrist_off": 0.0
+  },
+  "A_bias": {
+   "inner_bias": 0.3
+  },
+  "V1": {
+   "pip_h": 0.005,
+   "dip_h": 0.005,
+   "mcp_h": 0.009,
+   "thumb_cmc_h": 0.016,
+   "thumb_mcp_h": 0.007,
+   "thumb_ip_h": 0.005,
+   "twist_ramp": "linear"
+  },
+  "V2": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear"
+  },
+  "V3": {
+   "pip_h": 0.005,
+   "dip_h": 0.005,
+   "mcp_h": 0.009,
+   "thumb_cmc_h": 0.016,
+   "thumb_mcp_h": 0.007,
+   "thumb_ip_h": 0.005,
+   "twist_ramp": "linear",
+   "inner_bias": 0.3
+  },
+  "V4": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "inner_bias": 0.3
+  },
+  "V5": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "smooth_passes": 4
+  },
+  "V6": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "ramp_root_twist": [
+    0.095,
+    0.17
+   ],
+   "ramp_twist_fore": [
+    0.175,
+    0.215
+   ]
+  },
+  "V6c1": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "ramp_root_twist": [
+    0.095,
+    0.17
+   ],
+   "ramp_twist_fore": [
+    0.175,
+    0.215
+   ],
+   "hand_cut": [
+    0.25,
+    0.29
+   ]
+  },
+  "V6c2": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "ramp_root_twist": [
+    0.095,
+    0.17
+   ],
+   "ramp_twist_fore": [
+    0.175,
+    0.215
+   ],
+   "hand_cut": [
+    0.265,
+    0.295
+   ]
+  },
+  "V6c3": {
+   "pip_h": 0.0065,
+   "dip_h": 0.0055,
+   "mcp_h": 0.012,
+   "thumb_cmc_h": 0.02,
+   "thumb_mcp_h": 0.008,
+   "thumb_ip_h": 0.006,
+   "twist_ramp": "linear",
+   "ramp_root_twist": [
+    0.095,
+    0.17
+   ],
+   "ramp_twist_fore": [
+    0.175,
+    0.215
+   ],
+   "hand_cut": [
+    0.275,
+    0.3
+   ]
+  }
+ },
+ "rom": {
+  "poses": {
+   "rest": {},
+   "lab_relaxed": {
+    "lab": [
+     0,
+     0
+    ]
+   },
+   "lab_open": {
+    "lab": [
+     1,
+     0
+    ]
+   },
+   "lab_grip": {
+    "lab": [
+     1,
+     1
+    ]
+   },
+   "cup": {
+    "curl": {
+     "index": [
+      25,
+      30,
+      15
+     ],
+     "middle": [
+      25,
+      30,
+      15
+     ],
+     "ring": [
+      25,
+      30,
+      15
+     ],
+     "pinky": [
+      25,
+      30,
+      15
+     ],
+     "thumb": [
+      20,
+      15,
+      10
+     ]
+    },
+    "spread": {
+     "index": -4,
+     "middle": 0,
+     "ring": 3,
+     "pinky": 6
+    }
+   },
+   "fist": {
+    "fist": 1.0
+   },
+   "loose_grip": {
+    "curl": {
+     "index": [
+      39.1,
+      23.4,
+      16.8
+     ],
+     "middle": [
+      39.6,
+      25.0,
+      25.8
+     ],
+     "ring": [
+      38.0,
+      26.6,
+      23.2
+     ],
+     "pinky": [
+      36.9,
+      32.8,
+      25.1
+     ],
+     "thumb": [
+      22,
+      8,
+      4
+     ]
+    }
+   },
+   "point": {
+    "curl": {
+     "index": [
+      -12,
+      -20,
+      -8
+     ],
+     "middle": [
+      72.0,
+      45.4,
+      46.9
+     ],
+     "ring": [
+      69.0,
+      48.4,
+      42.1
+     ],
+     "pinky": [
+      67.0,
+      59.7,
+      45.6
+     ],
+     "thumb": [
+      20,
+      40,
+      58
+     ]
+    },
+    "bones": {
+     "thumb_01": [
+      0,
+      0,
+      -20
+     ]
+    }
+   },
+   "spread": {
+    "curl": {
+     "index": [
+      -12,
+      -20,
+      -8
+     ],
+     "middle": [
+      -12,
+      -20,
+      -8
+     ],
+     "ring": [
+      -12,
+      -20,
+      -8
+     ],
+     "pinky": [
+      -12,
+      -20,
+      -8
+     ],
+     "thumb": [
+      -10,
+      -10,
+      -10
+     ]
+    },
+    "spread": {
+     "index": 14,
+     "middle": 3,
+     "ring": -7,
+     "pinky": -16
+    }
+   },
+   "wrist_flex40": {
+    "bones": {
+     "wrist": [
+      40,
+      0,
+      0
+     ]
+    }
+   },
+   "wrist_ext40": {
+    "bones": {
+     "wrist": [
+      -40,
+      0,
+      0
+     ]
+    }
+   },
+   "pron90": {
+    "bones": {
+     "forearm": [
+      0,
+      90,
+      0
+     ]
+    }
+   },
+   "sup90": {
+    "bones": {
+     "forearm": [
+      0,
+      -90,
+      0
+     ]
+    }
+   },
+   "fist_wrist_flex40": {
+    "fist": 1.0,
+    "bones": {
+     "wrist": [
+      40,
+      0,
+      0
+     ]
+    }
+   },
+   "open_sup90": {
+    "lab": [
+     1,
+     0
+    ],
+    "bones": {
+     "forearm": [
+      0,
+      -90,
+      0
+     ]
+    }
+   },
+   "wave_1": {
+    "curl": {
+     "pinky": [
+      67.0,
+      59.7,
+      45.6
+     ],
+     "ring": [
+      34.5,
+      24.2,
+      21.1
+     ],
+     "middle": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "index": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "wave_2": {
+    "curl": {
+     "pinky": [
+      32.1,
+      28.6,
+      21.8
+     ],
+     "ring": [
+      66.0,
+      46.3,
+      40.3
+     ],
+     "middle": [
+      34.5,
+      21.7,
+      22.4
+     ],
+     "index": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "wave_3": {
+    "curl": {
+     "pinky": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "ring": [
+      34.0,
+      23.9,
+      20.8
+     ],
+     "middle": [
+      71.0,
+      44.8,
+      46.3
+     ],
+     "index": [
+      35.0,
+      20.9,
+      15.0
+     ]
+    }
+   },
+   "wave_4": {
+    "curl": {
+     "pinky": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "ring": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "middle": [
+      36.0,
+      22.7,
+      23.4
+     ],
+     "index": [
+      71.0,
+      42.5,
+      30.5
+     ]
+    }
+   },
+   "lab_grip_tuned": {
+    "lab_curl": {
+     "thumb": [
+      7.0,
+      9.8,
+      6.7
+     ],
+     "index": [
+      52.7,
+      64.8,
+      45.4
+     ],
+     "middle": [
+      42.5,
+      52.0,
+      35.5
+     ],
+     "ring": [
+      48.5,
+      59.0,
+      39.2
+     ],
+     "pinky": [
+      60.2,
+      70.1,
+      46.9
+     ]
+    },
+    "lab_spread": {
+     "thumb": -6,
+     "index": 0,
+     "middle": 0,
+     "ring": 0,
+     "pinky": -2
+    }
+   }
+  },
+  "extreme": [
+   "fist",
+   "point",
+   "spread",
+   "wrist_flex40",
+   "wrist_ext40",
+   "pron90",
+   "sup90",
+   "fist_wrist_flex40",
+   "open_sup90"
+  ],
+  "note": "curl / spread degrees ADDED to the rest pose on the ctl bones (local X = flexion toward the palm, spread = toward world +x (thumb side) on _01). 'lab' = [offer, grip] emulating lookdev-lab/src/env/choiceHands.js createFingerRig + FINGER_POSES (axes derived from the bone chain, palm = -Z). fist = the ctl_fist slider (fist_deg). wave_k: pinky -> index. wave / loose_grip / point use the contact-limited fist curls (fist_deg). lab_grip = the lab FINGER_POSES as they are (evidence for the lab); lab_grip_tuned = the contact-limited lab grip proposed for this hand.",
+  "lab_finger_poses": {
+   "thumb": {
+    "relaxed": [
+     8,
+     12,
+     8
+    ],
+    "open": [
+     3,
+     5,
+     3
+    ],
+    "grip": [
+     30,
+     38,
+     28
+    ],
+    "spread": {
+     "relaxed": 6,
+     "open": 14,
+     "grip": -6
+    }
+   },
+   "index": {
+    "relaxed": [
+     16,
+     22,
+     14
+    ],
+    "open": [
+     7,
+     10,
+     6
+    ],
+    "grip": [
+     72,
+     88,
+     62
+    ],
+    "spread": {
+     "relaxed": 2,
+     "open": 5,
+     "grip": 0
+    }
+   },
+   "middle": {
+    "relaxed": [
+     20,
+     26,
+     16
+    ],
+    "open": [
+     9,
+     12,
+     7
+    ],
+    "grip": [
+     76,
+     92,
+     64
+    ],
+    "spread": {
+     "relaxed": 0,
+     "open": 1,
+     "grip": 0
+    }
+   },
+   "ring": {
+    "relaxed": [
+     24,
+     30,
+     18
+    ],
+    "open": [
+     11,
+     14,
+     8
+    ],
+    "grip": [
+     76,
+     92,
+     62
+    ],
+    "spread": {
+     "relaxed": -2,
+     "open": -4,
+     "grip": 0
+    }
+   },
+   "pinky": {
+    "relaxed": [
+     28,
+     32,
+     20
+    ],
+    "open": [
+     13,
+     16,
+     9
+    ],
+    "grip": [
+     74,
+     86,
+     58
+    ],
+    "spread": {
+     "relaxed": -4,
+     "open": -10,
+     "grip": -2
+    }
+   }
+  },
+  "wave_note": "wave frames scaled to contact (tools/h14c_wave.py): {\"wave_1\": 1.0, \"wave_2\": 0.957, \"wave_3\": 0.986, \"wave_4\": 1.0}"
+ },
+ "final": {
+  "weights_tag": "H3",
+  "weights_rule": "hybrid: hand rows = candidate B (bone heat solved in tools/h07b_heat.py, rigkit-env) with its hand share faded in along s 0.22 -> 0.26 (hand_cut); arm share redistributed by candidate A recipe V6 (cuff 1.0 hand_root to s 0.092, linear hand_root -> forearm_twist over s 0.095-0.17 (visible gap + under cord 1), forearm_twist -> forearm over 0.175-0.215 (hidden)); enforce: rigid islands, lobe gate, top-4, prune 0.01, normalise",
+  "rebuild": [
+   "python h01_frame.py",
+   "blender h02_import.py",
+   "python h03_analyse.py",
+   "python h04_fingers.py",
+   "unirig_bridge run (seed 12345) + blender h04u_unirig.py",
+   "python h05_landmarks.py (uses _work/vision_decisions.json)",
+   "blender h06_skeleton.py",
+   "python h07_skin.py . V6",
+   "rigkit-env h07b_heat.py",
+   "python h07_skin.py . enforce _work/weights_Bheat_raw.npz B",
+   "python h07_skin.py . hybrid V6 B H3 Bcut",
+   "blender h08_apply.py apply H3",
+   "blender h09_rom.py H3",
+   "rigkit-env h10_metrics.py . H3",
+   "blender h11_render.py {skeleton,weights,rom,stretch} H3 + python h11b_compose.py . H3 A",
+   "blender h12_export.py H3",
+   "python h12b_validate.py . H3"
+  ],
+  "selection": {
+   "method": "per region by S7 numbers (FK sweep, tools/h_fk.py parity 4.5e-7 m with Blender, then Blender-evaluated confirmation)",
+   "table": {
+    "A (crease planes, h 3.5/3/6 mm)": "torn std 562 / ext 798, vol min 0.80, twist gap torn 27-30",
+    "V2/V5 (wider creases)": "torn std 420 / 294; finger tears remain (5 mm edges)",
+    "B (bone heat)": "torn std 143 / ext 70 (fingers 0-5), vol min 0.835 std 0.924; forearm twist gap max edge x16 (no twist chain)",
+    "H3 = B hand + V6 arm": "torn std 33 -> 36 final; ext 62; vol min 0.836; twist gap max edge 1.21-1.30, 0 torn",
+    "H3c1-c3 (hand weight starts at the band edge)": "skin-in-band 2.9 -> 0 mm but wrist tears 0 -> 20-84 and wrist volume 0.97 -> 0.76: rejected, G2 question"
+   }
+  },
+  "blender_bone_heat": "fails on every bone of this mesh (21 islands, 161 non-manifold edges) and on a 1.5 mm voxel proxy: 0 rows weighted",
+  "note_poses_A": "rig/_work/poses_A.npz is a copy of poses_H3 (reference rest/bone order for the FK mode of h10); metrics_A.json is the original candidate-A Blender run (before evidence)"
+ }
+}

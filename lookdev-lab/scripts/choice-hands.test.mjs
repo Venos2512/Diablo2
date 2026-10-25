@@ -686,3 +686,225 @@ test('offer light: only the classes that need it (Pallbearer steel, Brinecaller 
 	assert.ok(d.offer.intensity > 0 && d.offer.intensity <= peak * 2, `offer ${d.offer.intensity} vs showcase peak ${peak}`);
 	near(C.CLASS_LIGHT_SCALE, 0.2);
 });
+
+// ---- the hand-test mode: limits, presets, the way a hand moves, the joint drivers ----------------------------------------------------------------------
+const FINGERS = ['thumb', 'index', 'middle', 'ring', 'pinky'];
+
+test('hand test: every preset lies inside the anatomical limits and says what it says (fist closes, point points, spread spreads, wrist and roll presets move only those)', () => {
+	for (const [id, pr] of Object.entries(C.HAND_PRESETS)) {
+		for (const t of pr.dynamic ? [0, 0.4, 0.8, 1.2, 1.6, 2.4] : [0]) {
+			const raw = pr.dynamic ? pr.dynamic(t) : pr.pose();
+			const clamped = C.clampPose(raw);
+			assert.deepEqual(clamped, raw, `${id} @${t}: inside the limits already (nothing had to be clamped)`);
+		}
+	}
+	const fist = C.presetPose('fist');
+	for (const f of ['index', 'middle', 'ring', 'pinky']) {
+		assert.ok(fist.fingers[f].curl[0] >= 85 && fist.fingers[f].curl[1] >= 100 && fist.fingers[f].curl[2] >= 70, `${f} closes in the fist`);
+	}
+	const point = C.presetPose('point');
+	assert.ok(point.fingers.index.curl.every((v) => v < 5) && point.fingers.middle.curl[1] > 90, 'the index is straight, the rest are closed');
+	const spread = C.presetPose('spread');
+	assert.ok(spread.fingers.thumb.spread >= 35 && spread.fingers.pinky.spread <= -15 && spread.fingers.index.spread > spread.fingers.ring.spread, 'the fingers fan away from each other');
+	near(C.presetPose('flexed').wrist.flex, 40);
+	near(C.presetPose('extended').wrist.flex, -40);
+	near(C.presetPose('rollPlus').roll, 90);
+	near(C.presetPose('rollMinus').roll, -90);
+	const cup = C.presetPose('cup');
+	const offer = C.presetPose('offer');
+	for (const f of ['index', 'middle', 'ring', 'pinky']) assert.ok(cup.fingers[f].curl[1] > offer.fingers[f].curl[1] && cup.fingers[f].curl[1] < fist.fingers[f].curl[1]);
+	const wild = C.emptyPose();
+	wild.fingers.index.curl = [200, 300, 400];
+	wild.fingers.index.spread = 99;
+	wild.wrist = { flex: 500, dev: -500 };
+	wild.roll = 999;
+	const c = C.clampPose(wild);
+	assert.deepEqual(c.fingers.index.curl, [90, 110, 80]);
+	assert.equal(c.fingers.index.spread, 20);
+	assert.deepEqual([c.wrist.flex, c.wrist.dev, c.roll], [80, -20, 90]);
+});
+
+test('hand test: the sequence visits every preset in order and wraps', () => {
+	const total = C.HAND_TEST_SEQUENCE.reduce((s, [, d]) => s + d, 0);
+	assert.equal(new Set(C.HAND_TEST_SEQUENCE.map(([id]) => id)).size, Object.keys(C.HAND_PRESETS).length, 'every preset is in the loop');
+	let t = 0;
+	C.HAND_TEST_SEQUENCE.forEach(([id, d], i) => {
+		const a = C.sequenceAt(t + d / 2);
+		assert.equal(a.id, id);
+		assert.equal(a.index, i);
+		t += d;
+	});
+	assert.equal(C.sequenceAt(total + 0.1).index, 0);
+	assert.equal(C.sequenceAt(-0.1).index, C.HAND_TEST_SEQUENCE.length - 1);
+});
+
+test('hand motion: the hand settles on its target with almost no overshoot, the outer joints and the later fingers follow, nothing leaves the limits', () => {
+	const from = C.presetPose('relaxed');
+	const to = C.presetPose('fist');
+	const cross = (get, level) => {
+		const mm = new C.HandMotion(from);
+		mm.setTarget(to);
+		const a0 = get(from);
+		const a1 = get(to);
+		for (let tt = 0; tt < 3; tt += 1 / 120) {
+			mm.update(1 / 120);
+			if ((get(mm.pose) - a0) / (a1 - a0) >= level) return tt;
+		}
+		return Infinity;
+	};
+	assert.ok(cross((p) => p.fingers.pinky.curl[0], 0.2) > cross((p) => p.fingers.index.curl[0], 0.2) + 0.03, 'the little finger starts after the index');
+	assert.ok(cross((p) => p.fingers.index.curl[2], 0.5) > cross((p) => p.fingers.index.curl[0], 0.5), 'the fingertip joint follows the knuckle');
+	const m = new C.HandMotion(from);
+	m.setTarget(to);
+	let peak = 0;
+	for (let i = 0; i < 360; i++) {
+		m.update(1 / 120);
+		for (const f of FINGERS) {
+			m.pose.fingers[f].curl.forEach((v, k) => {
+				const [lo, hi] = C.HAND_LIMITS[f].curl[k];
+				assert.ok(v >= lo - 1e-9 && v <= hi + 1e-9, `${f} joint ${k} ${v}`);
+				peak = Math.max(peak, (v - to.fingers[f].curl[k]) / (to.fingers[f].curl[k] - from.fingers[f].curl[k]));
+			});
+		}
+	}
+	assert.ok(peak < 0.04, `overshoot ${(peak * 100).toFixed(1)} %`);
+	for (const f of FINGERS) m.pose.fingers[f].curl.forEach((v, k) => near(v, to.fingers[f].curl[k], 0.5));
+	const big = new C.HandMotion(from);
+	big.setTarget(to);
+	big.update(0.5);
+	big.update(0.5);
+	big.update(1.0);
+	near(big.pose.fingers.index.curl[1], to.fingers.index.curl[1], 0.5);
+	big.setTarget(from, { instant: true });
+	near(big.pose.fingers.index.curl[1], from.fingers.index.curl[1], 1e-9);
+});
+
+/** A little bone skeleton in the hand frame (+z fingers, +y back of the hand, the thumb toward +x), every bone with identity rest rotation, like the synthetic rig. */
+function boneHand() {
+	const root = new THREE.Group();
+	const add = (name, parent, pos) => {
+		const b = new THREE.Bone();
+		b.name = name;
+		b.position.set(...pos);
+		parent.add(b);
+		return b;
+	};
+	const hr = add('hand_root', root, [0, 0, 0]);
+	const fa = add('forearm', hr, [0, 0, 0.04]);
+	const ft = add('forearm_twist', fa, [0, 0, 0.06]);
+	const wr = add('wrist', fa, [0, 0, 0.23]);
+	const bones = { hand_root: hr, forearm: fa, forearm_twist: ft, wrist: wr };
+	const xs = { pinky: -0.04, ring: -0.02, middle: 0, index: 0.02 };
+	for (const [f, x] of Object.entries(xs)) {
+		let parent = wr;
+		for (let k = 1; k <= 3; k++) parent = bones[`${f}_0${k}`] = add(`${f}_0${k}`, parent, k === 1 ? [x, 0, 0.085] : [0, 0, 0.028]);
+	}
+	let parent = wr;
+	for (let k = 1; k <= 3; k++) parent = bones[`thumb_0${k}`] = add(`thumb_0${k}`, parent, k === 1 ? [0.045, 0, 0.03] : [0.01, 0, 0.026]);
+	root.updateMatrixWorld(true);
+	return { root, bones };
+}
+
+test('finger rig: applyPose bends the bones the right way and clamps; the joint rig flexes toward the palm, deviates toward the thumb, rolls the palm toward the thumb', () => {
+	const { root, bones } = boneHand();
+	const rig = C.createFingerRig(root, C.FINGER_BONES, {}); // axes derived from the bones (the real rig's thumb override does not belong to this test skeleton)
+	assert.equal(rig.missing.length, 0);
+	const tip = (f) => bones[`${f}_03`].getWorldPosition(new THREE.Vector3());
+	const rest = tip('index');
+	rig.applyPose(C.presetPose('fist'));
+	root.updateMatrixWorld(true);
+	assert.ok(tip("index").y < rest.y - 0.015 && tip("index").z < rest.z, `the index fingertip curls to the palm side: ${tip('index').toArray().map((v) => v.toFixed(3))}`);
+	assert.ok(tip('thumb').y < -0.005, 'the thumb curls toward the palm too');
+	const wild = C.emptyPose();
+	wild.fingers.middle.curl = [200, 0, 0];
+	rig.applyPose(wild);
+	near(bones.middle_01.quaternion.angleTo(new THREE.Quaternion()), (90 * Math.PI) / 180, 1e-6);
+	rig.applyPose(C.emptyPose());
+	for (const f of FINGERS) for (let k = 1; k <= 3; k++) near(bones[`${f}_0${k}`].quaternion.angleTo(new THREE.Quaternion()), 0, 1e-6);
+	const sp = C.emptyPose();
+	sp.fingers.index.spread = 15;
+	rig.applyPose(sp);
+	root.updateMatrixWorld(true);
+	assert.ok(tip('index').x > rest.x + 0.005, 'positive spread moves the index toward the thumb side');
+	rig.applyPose(C.emptyPose());
+	root.updateMatrixWorld(true);
+	const joints = C.createJointRig(root);
+	assert.ok(joints.has.wrist && joints.has.forearm);
+	assert.equal(joints.axes.thumbSide, 1);
+	const mid0 = tip('middle');
+	const pose = C.emptyPose();
+	pose.wrist.flex = 40;
+	joints.apply(pose);
+	root.updateMatrixWorld(true);
+	assert.ok(tip('middle').y < mid0.y - 0.05, 'wrist flexion drops the fingers toward the palm');
+	pose.wrist.flex = 0;
+	pose.wrist.dev = 20;
+	joints.apply(pose);
+	root.updateMatrixWorld(true);
+	assert.ok(tip('middle').x > mid0.x + 0.03, 'deviation swings the hand toward the thumb');
+	pose.wrist.dev = 0;
+	pose.roll = 90;
+	joints.apply(pose);
+	root.updateMatrixWorld(true);
+	const palmN = new THREE.Vector3(0, -1, 0).applyQuaternion(bones.wrist.getWorldQuaternion(new THREE.Quaternion()));
+	assert.ok(palmN.x > 0.9, `after +90 the palm faces the thumb side: ${palmN.toArray().map((v) => v.toFixed(2))}`);
+	// the bone between the cuff and the cord takes the other half of the twist, the other way: -theta/2 about the same axis
+	assert.ok(joints.has.twist);
+	near(bones.forearm_twist.quaternion.angleTo(new THREE.Quaternion()), (45 * Math.PI) / 180, 1e-6);
+	const net = bones.forearm.quaternion.clone().multiply(bones.forearm_twist.quaternion);
+	near(net.angleTo(new THREE.Quaternion()), (45 * Math.PI) / 180, 1e-6); // 90 - 45 = 45 deg of net roll beyond the twist bone
+	pose.roll = 200;
+	joints.apply(pose);
+	near(bones.forearm.quaternion.angleTo(new THREE.Quaternion()), (90 * Math.PI) / 180, 1e-6);
+	near(bones.forearm_twist.quaternion.angleTo(new THREE.Quaternion()), (45 * Math.PI) / 180, 1e-6); // the limit applies to it too
+});
+
+test('finger weights: the natural lag (index first, little finger last, outer joints after inner) keeps both ends exact', () => {
+	for (const f of FINGERS) {
+		const a0 = C.fingerAngles(f, 0, 0);
+		const a1 = C.fingerAngles(f, 1, 0);
+		const g1 = C.fingerAngles(f, 1, 1);
+		for (let k = 0; k < 3; k++) {
+			near(a0.curl[k], C.FINGER_POSES[f].relaxed[k], 1e-9);
+			near(a1.curl[k], C.FINGER_POSES[f].open[k], 1e-9);
+			near(g1.curl[k], C.FINGER_POSES[f].grip[k], 1e-9);
+		}
+	}
+	const idx = C.fingerAngles('index', 0, 0.35);
+	const pky = C.fingerAngles('pinky', 0, 0.35);
+	const frac = (a, f, k) => (a.curl[k] - C.FINGER_POSES[f].relaxed[k]) / (C.FINGER_POSES[f].grip[k] - C.FINGER_POSES[f].relaxed[k]);
+	assert.ok(frac(idx, 'index', 0) > frac(pky, 'pinky', 0), 'the index leads the little finger');
+	assert.ok(frac(idx, 'index', 0) > frac(idx, 'index', 2), 'the knuckle leads the fingertip joint');
+});
+
+test('the real Flagellant rig: measured fist, a straightened (negative) offer, the thumb hinge, presets inside the limits', () => {
+	const P = C.HAND_PROFILES.flRig.poses;
+	assert.deepEqual(P.index.grip, [52.7, 64.8, 45.4]);
+	assert.deepEqual(P.middle.grip, [42.5, 52, 35.5]);
+	assert.deepEqual(P.ring.grip, [48.5, 59, 39.2]);
+	assert.deepEqual(P.pinky.grip, [60.2, 70.1, 46.9]);
+	assert.deepEqual(C.FINGER_AXES.thumb.curl, [-0.007, -0.954, -0.299]);
+	assert.deepEqual(C.FINGER_AXES.thumb.spread, [0.226, 0.29, -0.93]);
+	for (const f of ['index', 'middle', 'ring', 'pinky']) {
+		assert.ok(P[f].relaxed.every((v) => v === 0), `${f}: the mesh is already curled: relaxed adds nothing`);
+		assert.ok(P[f].open.every((v) => v < 0), `${f}: the offered hand is a little straighter than the mesh (negative), never a claw`);
+	}
+	const set = C.presetSet('flRig');
+	assert.deepEqual(Object.keys(set), Object.keys(C.HAND_PRESETS), 'the same presets');
+	for (const [id, pr] of Object.entries(set)) {
+		for (const t of pr.dynamic ? [0, 0.4, 0.8, 1.2, 1.6] : [0]) {
+			const raw = pr.dynamic ? pr.dynamic(t) : pr.pose();
+			assert.deepEqual(C.clampPose(raw), raw, `${id} @${t} inside the limits`);
+		}
+	}
+	const fist = C.presetPose('fist', 0, 'flRig');
+	assert.deepEqual(fist.fingers.index.curl, P.index.grip.map((v) => v));
+	const hold = C.presetPose('hold', 0, 'flRig');
+	for (const f of ['index', 'middle', 'ring', 'pinky']) hold.fingers[f].curl.forEach((v, k) => assert.ok(v / P[f].grip[k] > 0.45 && v / P[f].grip[k] < 0.55, `${f}: the loose hold is ~50 % of the fist`));
+	const point = C.presetPose('point', 0, 'flRig');
+	assert.ok(point.fingers.index.curl.every((v) => v < 0) && point.fingers.middle.curl[1] > 50, 'the index is straight, the rest closed');
+	const relaxed = C.presetPose('relaxed', 0, 'flRig');
+	for (const f of ['index', 'middle', 'ring', 'pinky']) assert.deepEqual(relaxed.fingers[f].curl, [0, 0, 0]);
+	// the default profile is untouched
+	assert.deepEqual(C.HAND_PROFILES.default.poses, C.FINGER_POSES);
+});

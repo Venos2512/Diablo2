@@ -1,0 +1,502 @@
+{
+ "schema": "hand-1",
+ "frame": "Blender Z-up: fingers -Y, back of hand +Z, thumb +X, origin = sleeve-end axis point; glTF export +Y up = lab hand frame",
+ "H": 0.45,
+ "tau_rule": "clamp(max(1.5% H, 0.5 r_local), 0.6% H, 3% H)",
+ "weights": {
+  "a": 1.0,
+  "d": 0.7,
+  "e": 0.7
+ },
+ "landmarks": {
+  "index_mcp": {
+   "pos": [
+    0.076584,
+    -0.346844,
+    -0.002405
+   ],
+   "sources": {
+    "a": 0.11216327252223704,
+    "d": 0.12038711560173038
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.008223843079493337,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+   "confidence": 0.6,
+   "arc_from_tip_mm": 112.2,
+   "knuckle_profile": {
+    "web_arc_mm": 95.2,
+    "knuckle_beyond_web_mm": 17.0,
+    "dorsal_z": 0.0164,
+    "palmar_z": -0.0254
+   }
+  },
+  "index_pip": {
+   "pos": [
+    0.09777,
+    -0.375033,
+    -0.007044
+   ],
+   "sources": {
+    "a": 0.074133,
+    "d": 0.08078137607498347
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.006648266411791809,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 76.9
+  },
+  "index_dip": {
+   "pos": [
+    0.116038,
+    -0.403984,
+    -0.025823
+   ],
+   "sources": {
+    "a": 0.038063,
+    "d": 0.045560003345005276
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.007496730359452676,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "Bend-plane tile qa/s3_flag_tiles_fingers.png: the medial curve kinks at the green marker (38 mm from the tip); UniRig's joint (46 mm) sits on the straight middle phalanx. DIP rule: joint at the kink of the curled rest pose. Dorsal texture dark line at 20-24 mm is the nail fold, not the DIP (nail ~18 mm long).",
+   "confidence": 0.75,
+   "arc_from_tip_mm": 38.1
+  },
+  "index_tip": {
+   "pos": [
+    0.130606,
+    -0.429863,
+    -0.04845
+   ],
+   "sources": {
+    "a": "extreme vertex of the lobe"
+   },
+   "decision": "a",
+   "confidence": 0.95
+  },
+  "middle_mcp": {
+   "pos": [
+    0.056196,
+    -0.358475,
+    -0.004753
+   ],
+   "sources": {
+    "a": 0.1267923528958402,
+    "d": 0.13583184949039795
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.009039496594557744,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+   "confidence": 0.6,
+   "arc_from_tip_mm": 126.8,
+   "knuckle_profile": {
+    "web_arc_mm": 108.8,
+    "knuckle_beyond_web_mm": 18.0,
+    "dorsal_z": 0.0154,
+    "palmar_z": -0.0294
+   }
+  },
+  "middle_pip": {
+   "pos": [
+    0.073807,
+    -0.406767,
+    -0.012468
+   ],
+   "sources": {
+    "a": 0.074778,
+    "d": 0.08885646884124383
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.01407840500565774,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "Bend-plane tile: the curve peak (PIP flexion ~30 deg at rest) is at 75 mm from the tip (green); UniRig 89 mm lies on the proximal phalanx 14 mm toward the web. Index/ring PIP a vs d differ 6-7 mm in the same direction (UniRig bias proximal).",
+   "confidence": 0.7,
+   "arc_from_tip_mm": 74.8
+  },
+  "middle_dip": {
+   "pos": [
+    0.085253,
+    -0.428203,
+    -0.041396
+   ],
+   "sources": {
+    "a": 0.037148,
+    "d": 0.049027936571859256
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.011879611723469782,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "Bend-plane tile: kink of the medial curve at 37 mm (direction z 0.87 -> 0.76); UniRig 49 mm is mid middle-phalanx. Same reading on ring/pinky where a and d agree (37/37, 29/35).",
+   "confidence": 0.75,
+   "arc_from_tip_mm": 37.1
+  },
+  "middle_tip": {
+   "pos": [
+    0.094652,
+    -0.446571,
+    -0.070869
+   ],
+   "sources": {
+    "a": "extreme vertex of the lobe"
+   },
+   "decision": "a",
+   "confidence": 0.95
+  },
+  "ring_mcp": {
+   "pos": [
+    0.035128,
+    -0.363834,
+    -0.009755
+   ],
+   "sources": {
+    "a": 0.11837517800300437,
+    "d": 0.12530797753485842
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.00693279953185405,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "a = the top of the dorsal knuckle bump (vertical ray hits, 3 lines across, 1 mm stations), 15-18 mm proximal of the web; the MCP centre sits under the knuckle top with the proximal phalanx near straight at rest. UniRig puts every finger joint 6-14 mm proximal of the geometry on this mesh (PIP too), so its 7-9 mm proximal MCP is read as the same bias. Proximal / middle phalanx = 0.9-1.4, inside the widened prior band.",
+   "confidence": 0.6,
+   "arc_from_tip_mm": 118.4,
+   "knuckle_profile": {
+    "web_arc_mm": 102.9,
+    "knuckle_beyond_web_mm": 15.5,
+    "dorsal_z": 0.0092,
+    "palmar_z": -0.033
+   }
+  },
+  "ring_pip": {
+   "pos": [
+    0.040074,
+    -0.40583,
+    -0.020183
+   ],
+   "sources": {
+    "a": 0.072748,
+    "d": 0.0782674188672582
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.0055192456902840165,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 75.0
+  },
+  "ring_dip": {
+   "pos": [
+    0.046652,
+    -0.428116,
+    -0.04958
+   ],
+   "sources": {
+    "a": 0.038144,
+    "d": 0.0372439908157723
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.0009001851363411167,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 37.8
+  },
+  "ring_tip": {
+   "pos": [
+    0.051548,
+    -0.443593,
+    -0.081975
+   ],
+   "sources": {
+    "a": "extreme vertex of the lobe"
+   },
+   "decision": "a",
+   "confidence": 0.95
+  },
+  "pinky_mcp": {
+   "pos": [
+    0.014276,
+    -0.358445,
+    -0.016298
+   ],
+   "sources": {
+    "a": 0.11174923238394868,
+    "d": 0.09122862633166141
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.02052060605228727,
+   "tau": 0.00675,
+   "decision": "vision:d",
+   "reason": "a failed: the pinky dorsal profile has no peak (it rises monotonically toward the wrist, best station at the 37.5 mm window edge, P1/P2 = 2.3). d gives P1/P2 = 1.46 (ring 1.17): plausible. Position = the station of d on the pinky own horizontal axis line, 45 % of the hand thickness under the dorsal hit (UniRig x lies on the ulnar edge, not used). G2 question.",
+   "confidence": 0.45,
+   "arc_from_tip_mm": 91.2,
+   "knuckle_profile": {
+    "web_arc_mm": 74.2,
+    "knuckle_beyond_web_mm": 37.5,
+    "dorsal_z": -0.0011,
+    "palmar_z": -0.0349
+   }
+  },
+  "pinky_pip": {
+   "pos": [
+    0.013622,
+    -0.391523,
+    -0.03166
+   ],
+   "sources": {
+    "a": 0.053136,
+    "d": 0.059597940394157244
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.006461611897698276,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 55.8
+  },
+  "pinky_dip": {
+   "pos": [
+    0.015872,
+    -0.405029,
+    -0.051938
+   ],
+   "sources": {
+    "a": 0.02904,
+    "d": 0.034946456869824706
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.005906186163440946,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 31.5
+  },
+  "pinky_tip": {
+   "pos": [
+    0.019438,
+    -0.415754,
+    -0.080376
+   ],
+   "sources": {
+    "a": "extreme vertex of the lobe"
+   },
+   "decision": "a",
+   "confidence": 0.95
+  },
+  "thumb_tip": {
+   "pos": [
+    0.158871,
+    -0.320729,
+    -0.031461
+   ],
+   "sources": {
+    "a": "max-x vertex"
+   },
+   "decision": "a",
+   "confidence": 0.95
+  },
+  "thumb_ip": {
+   "pos": [
+    0.130123,
+    -0.320597,
+    -0.029962
+   ],
+   "sources": {
+    "a": 0.028773,
+    "d": 0.03425346974713495
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.005480969057914696,
+   "tau": 0.00675,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 31.0
+  },
+  "thumb_mcp": {
+   "pos": [
+    0.098233,
+    -0.307726,
+    -0.027665
+   ],
+   "sources": {
+    "a": 0.066446,
+    "d": 0.06476823828674713
+   },
+   "gates": {
+    "a": "ok",
+    "d": "ok"
+   },
+   "spread": 0.0016776592534233359,
+   "tau": 0.006966,
+   "decision": "mean",
+   "confidence": 0.85,
+   "arc_from_tip_mm": 65.8
+  },
+  "wrist": {
+   "pos": [
+    0.022379,
+    -0.265294,
+    -0.012834
+   ],
+   "sources": {
+    "a": 0.262,
+    "e": 0.27
+   },
+   "gates": {
+    "a": "ok",
+    "e": "ok"
+   },
+   "spread": 0.008,
+   "tau": 0.0125,
+   "decision": "mean",
+   "confidence": 0.85,
+   "s_m": 0.2653,
+   "plateau": {
+    "min_perimeter_mm": 166.2,
+    "s_min": 0.246
+   }
+  },
+  "thumb_cmc": {
+   "pos": [
+    0.059588,
+    -0.277294,
+    -0.018672
+   ],
+   "sources": {
+    "a": [
+     0.059588,
+     -0.277294,
+     -0.018672
+    ],
+    "d": [
+     0.076591,
+     -0.299049,
+     -0.027546
+    ]
+   },
+   "spread": 0.029002,
+   "tau": 0.00675,
+   "decision": "vision:a",
+   "reason": "Anatomy: the CMC (trapeziometacarpal) joint is at the base of the thenar, ~1 cm distal of the wrist crease on the radial side; the metacarpal is ~1.25 x the proximal phalanx. Source a gives a 51 mm metacarpal (MCP-CMC) from the radial base; UniRig's bone_2 is only 24 mm from the MCP, inside the thenar bulge (it would make thumb_01 too short and its pivot too distal: the opposition swing would bend the thenar in its middle)."
+  },
+  "sleeve_end": {
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "sources": {
+    "e": "lab frame origin = sleeve-end axis point"
+   },
+   "decision": "e",
+   "confidence": 1.0
+  },
+  "forearm_mid": {
+   "pos": [
+    -0.001664,
+    -0.14,
+    0.000815
+   ],
+   "sources": {
+    "a": "mean of the skin-section centroids s 0.10-0.185"
+   },
+   "decision": "a",
+   "confidence": 0.8
+  },
+  "forearm_start": {
+   "pos": [
+    0.003618,
+    -0.095,
+    -0.000547
+   ],
+   "sources": {
+    "a": "skin-section centroid at s = 0.095 (the cuff end): the forearm bone runs from here to the wrist centre, so a forearm roll turns the visible forearm about its own centre line"
+   },
+   "decision": "a",
+   "confidence": 0.8
+  }
+ },
+ "unirig": {
+  "glb": "E:/tmp_unirig/out/H2_FL_hand/choice_hands_H2_FL_hand_rigged.glb",
+  "mesh_match_mm": {
+   "max": 0.001678,
+   "median": 0.00057
+  },
+  "map": {
+   "thumb": [
+    "bone_2",
+    "bone_3",
+    "bone_4"
+   ],
+   "index": [
+    "bone_5",
+    "bone_6",
+    "bone_7"
+   ],
+   "middle": [
+    "bone_8",
+    "bone_9",
+    "bone_10"
+   ],
+   "ring": [
+    "bone_11",
+    "bone_12",
+    "bone_13"
+   ],
+   "pinky": [
+    "bone_14",
+    "bone_15",
+    "bone_16"
+   ]
+  },
+  "note": "bone_0 sleeve, bone_1 mid forearm (not used: UniRig root)"
+ }
+}

@@ -355,7 +355,9 @@ chưa có đề xuất cụ thể nên **chưa chốt**; chốt ở cổng G1 c�
 
 ## Ghi chú từng lần chạy
 
-*(Trống. Ghi sau mỗi asset: ngày, asset, route, kết quả từng cổng, thời gian, credit, vấn đề gặp và cách xử lý.)*
+*(Ghi sau mỗi asset: ngày, asset, route, kết quả từng cổng, thời gian, credit, vấn đề gặp và cách xử lý.)*
+
+- 2026-10-25 · `H2_FL_hand` (tay FL màn chọn nghề, họ Hand mới) · route M, Opus 5.5 · G1 duyệt → R2–R5 xong, **chờ G2** · 0 credit. Bone heat của Blender hỏng hoàn toàn trên mesh Tripo (kể cả proxy voxel) → tự giải bone heat; trọng số chọn theo vùng (heat cho bàn tay + chuỗi xoắn cho cẳng tay); nắm đấm giới hạn theo tiếp xúc vì ngón dài; thêm `forearm_twist` ngoài brief (câu hỏi G2). Chi tiết: `ashlar/3d/heroes/_hands_v1/H2_FL_hand/rig/qa_report.md`.
 
 ## Lịch sử
 
