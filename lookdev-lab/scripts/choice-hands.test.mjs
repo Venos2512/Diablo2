@@ -169,9 +169,9 @@ test('camera: home at p = 0, in front of the offered hand at p = 1 looking at it
 	near(home.position.distanceTo(new THREE.Vector3(...C.FRAME.position)), 0, 1e-9);
 	near(home.target.distanceTo(new THREE.Vector3(...C.FRAME.target)), 0, 1e-9);
 	const offer = C.cameraPose(g, 1);
-	assert.ok(offer.position.z > g.handReach.z + 0.7, 'the camera is in front of the hand');
-	assert.ok(offer.position.distanceTo(g.handReach) > 1.0 && offer.position.distanceTo(g.handReach) < 1.8, `distance ${offer.position.distanceTo(g.handReach).toFixed(2)}`);
-	assert.ok(offer.target.distanceTo(g.handReach) < 0.12);
+	assert.ok(offer.position.z > g.handReach.z, 'the camera is in front of the hand');
+	assert.ok(offer.position.distanceTo(g.handReach) > 0.4 && offer.position.distanceTo(g.handReach) < 1.8, `distance ${offer.position.distanceTo(g.handReach).toFixed(2)}`);
+	assert.ok(offer.target.distanceTo(g.handReach) < 0.3);
 	const light = C.reachLight(g);
 	assert.ok(light.z > g.handReach.z && light.distanceTo(g.handReach) < 0.8, 'the candle light stands in front of the offered hand');
 });
@@ -430,7 +430,10 @@ test('showcase: one per class, 3-4.2 s, the hand ends in the offer pose (roll 0,
 		assert.ok(d.dur >= 3 && d.dur <= 4.2, `${id} lasts ${d.dur} s`);
 		assert.ok(d.note.length > 10, `${id} has its note (the marks it shows)`);
 		for (const k of ['roll', 'squeeze', 'tremor', 'grip']) near(C.keyAt(d[k], d.dur), 0, 1e-9);
-		assert.ok(C.keyAt(d.roll, 0) !== 0, `${id} starts turned`);
+		near(C.keyAt(d.roll, 0), 0); // the hand has already turned palm up on the way out: the showcase starts there ...
+		const rolls = d.roll.map((k) => k[1]);
+		assert.ok(Math.max(...rolls.map(Math.abs)) >= 20 && Math.max(...rolls.map(Math.abs)) <= 180, `${id} turns to show its marks, never more than half a turn`);
+		assert.ok(d.roll.every((k, i) => i === 0 || Math.abs(k[1] - d.roll[i - 1][1]) <= 180), `${id} no step of more than half a turn`); // ... and ends there
 		assert.ok(anchors.includes(d.light.anchor));
 		near(C.keyAt(d.light.intensity, 0), 0);
 		near(C.keyAt(d.light.intensity, d.dur), 0);
@@ -524,4 +527,162 @@ test('anchors: a flared sleeve below the wrist is not the thumb; a skinned or em
 	for (const n of names) assert.ok(c[n], `empty ${n}`);
 	near(c.tip.z, 0.447);
 	assert.deepEqual(Object.keys(C.computeAnchors(new Float32Array(0), 0.27)), ['wrist']);
+});
+
+// ---- the offer: every hand ends palm up ----------------------------------------------------------------------------------------------
+test('offer pose: the palm of EVERY class faces up (dot >= 0.7), toward the viewer, the way there is at most half a turn, and the fingers are a loose cup', () => {
+	const up = new THREE.Vector3(0, 1, 0);
+	const out = [];
+	for (const slot of C.SLOTS) {
+		const geo = C.armGeometry(slot, { scale: C.HAND_SCALE });
+		const n = C.offerPalmNormal(slot, geo);
+		const d = n.dot(up);
+		out.push(`${slot.id} ${d.toFixed(3)}`);
+		assert.ok(d >= 0.7, `${slot.id}: palm normal ${n.toArray().map((v) => v.toFixed(2))} dot up ${d.toFixed(3)}`);
+		assert.ok(n.z > 0, `${slot.id}: the palm is seen from the viewer's side`);
+		if (slot.pose === 'back') assert.ok(geo.qIdle.angleTo(geo.qReach) > 1.2, `${slot.id}: a back-up hand really turns over on the way out`);
+	}
+	console.log('palm dot up:', out.join(' · '));
+	for (const f of Object.keys(C.FINGER_POSES)) {
+		const open = C.fingerAngles(f, 1, 0);
+		assert.ok(open.curl[0] > 0 && open.curl[0] < 20, `${f}: the offered hand is cupped a little (${open.curl[0]})`);
+	}
+});
+
+/** Total angle (deg, signed) a hand has turned about its own forearm: the way out (reach 0 -> 1 with the real ease), then the showcase's roll over its whole time; returns { min, max, end }. */
+function forearmTwistTrace(slot, geo, def) {
+	const fore = new THREE.Vector3();
+	const axis = new THREE.Vector3();
+	let prev = null;
+	let total = 0;
+	const trace = { min: 0, max: 0, end: 0 };
+	const step = (reach, roll) => {
+		const q = C.armPose(slot, geo, { reach }).quat.clone().multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), (roll * geo.rollSign * Math.PI) / 180));
+		if (prev) {
+			const dq = q.clone().multiply(prev.clone().invert()); // world-frame increment
+			if (dq.w < 0) dq.set(-dq.x, -dq.y, -dq.z, -dq.w);
+			const ang = 2 * Math.acos(Math.min(1, dq.w));
+			if (ang > 1e-9) {
+				axis.set(dq.x, dq.y, dq.z).normalize();
+				total += ang * axis.dot(fore.set(0, 0, 1).applyQuaternion(prev));
+			}
+		}
+		prev = q;
+		trace.min = Math.min(trace.min, total);
+		trace.max = Math.max(trace.max, total);
+	};
+	for (let i = 0; i <= 120; i++) step(C.easeOutBack(i / 120), 0);
+	for (let t = 0; t <= def.dur + 1e-9; t += 0.01) step(1, C.keyAt(def.roll, t));
+	trace.min = (trace.min * 180) / Math.PI;
+	trace.max = (trace.max * 180) / Math.PI;
+	trace.end = (total * 180) / Math.PI;
+	return trace;
+}
+
+test('offer: the forearm never winds up - way out + showcase roll stay within ~185 deg in total, and the roll sign is computed from the way out', () => {
+	const out = [];
+	for (const slot of C.SLOTS) {
+		const geo = C.armGeometry(slot, { scale: C.HAND_SCALE });
+		const t = forearmTwistTrace(slot, geo, C.SHOWCASE[slot.id]);
+		out.push(`${slot.id} twist ${geo.twist.toFixed(0)} deg, roll sign ${geo.rollSign}, range ${t.min.toFixed(0)}..${t.max.toFixed(0)} = ${(t.max - t.min).toFixed(0)} deg`);
+		assert.ok(t.max - t.min <= 185, `${slot.id}: the forearm turns ${(t.max - t.min).toFixed(0)} deg in total`);
+		if (Math.abs(geo.twist) > 3) assert.equal(Math.sign(geo.rollSign), -Math.sign(geo.twist), `${slot.id}: the showcase rolls against the turn of the way out`);
+	}
+	console.log('forearm twist:\n  ' + out.join('\n  '));
+	// the old hard-coded sign would have wound PB and OS to ~290 deg: the test can tell
+	const pb = C.SLOTS.find((s) => s.id === 'PB');
+	const geo = C.armGeometry(pb, { scale: C.HAND_SCALE });
+	const wrong = { ...geo, rollSign: -geo.rollSign };
+	assert.ok(forearmTwistTrace(pb, wrong, C.SHOWCASE.PB).max - forearmTwistTrace(pb, wrong, C.SHOWCASE.PB).min > 250, 'the wrong sign winds the sleeve up (the test sees it)');
+});
+
+// ---- the palm plane of the real meshes, independent of the anchors ---------------------------------------------------------------------
+/** Principal axes of the hand's cross-section just beyond the wrist (wrist + 3..11 cm): the slab's NORMAL (smallest variance) oriented to the CONVEX face. */
+function palmPlane(P, wrist) {
+	const pts = [];
+	for (let i = 0; i < P.length; i += 3) if (P[i + 2] > wrist + 0.03 && P[i + 2] < wrist + 0.11) pts.push([P[i], P[i + 1], P[i + 2]]);
+	const m = [0, 1, 2].map((k) => pts.reduce((s, p) => s + p[k], 0) / pts.length);
+	const cov = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+	for (const p of pts) for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) cov[a][b] += ((p[a] - m[a]) * (p[b] - m[b])) / pts.length;
+	const mul = (M, v) => M.map((r) => r[0] * v[0] + r[1] * v[1] + r[2] * v[2]);
+	const norm = (v) => v.map((x) => x / Math.hypot(...v));
+	let v = norm([1, 0.3, 0.2]);
+	for (let i = 0; i < 200; i++) v = norm(mul(cov, v));
+	const cv = mul(cov, v);
+	const lmax = v[0] * cv[0] + v[1] * cv[1] + v[2] * cv[2];
+	const M = cov.map((r, a) => r.map((x, b) => (a === b ? lmax : 0) - x));
+	let n = norm([0.2, 1, 0.1]);
+	for (let i = 0; i < 300; i++) n = norm(mul(M, n));
+	const along = (p) => (p[0] - m[0]) * n[0] + (p[1] - m[1]) * n[1] + (p[2] - m[2]) * n[2];
+	const xs = pts.map((p) => p[0]);
+	const xc = (Math.min(...xs) + Math.max(...xs)) / 2;
+	const w = Math.max(...xs) - Math.min(...xs);
+	const mean = (a) => a.reduce((s, x) => s + x, 0) / a.length;
+	const arch = mean(pts.filter((p) => Math.abs(p[0] - xc) < w * 0.2).map(along)) - mean(pts.filter((p) => Math.abs(p[0] - xc) > w * 0.35).map(along));
+	if (arch < 0) n = n.map((x) => -x); // the slab bulges toward its convex face: the back of the hand
+	return { n, arch: Math.abs(arch) };
+}
+
+test('palm plane (PCA of wrist + 3..11 cm) of the three GLBs: nearly the XZ plane, and +Y is the convex BACK of the hand (the convention the offer pose relies on)', () => {
+	for (const [id, model] of Object.entries(C.HAND_MODELS)) {
+		const file = path.join(root, 'assets/choice-hands', `${model.file}.glb`);
+		if (!existsSync(file)) continue;
+		const { n, arch } = palmPlane(glbHandPositions(file), model.wrist);
+		assert.ok(arch > 0.004, `${id}: the cross-section is arched (${arch.toFixed(4)}), so its convex side can be told`);
+		assert.ok(Math.abs(n[1]) > 0.75, `${id}: palm plane normal ${n.map((x) => x.toFixed(2))}`);
+		assert.ok(n[1] > 0.75, `${id}: the convex side (the back) is +Y`);
+	}
+});
+
+test('offer camera (fitted to the REAL meshes): the hand fills 30-36 % of the frame height with the margins, and the candle (dish, wax, flame) never overlaps its box', () => {
+	const out = [];
+	for (const slot of C.SLOTS) {
+		const geo = C.armGeometry(slot, { scale: C.HAND_SCALE });
+		const model = C.HAND_MODELS[slot.source];
+		const P = glbHandPositions(path.join(root, 'assets/choice-hands', `${model.file}.glb`));
+		const pts = [];
+		for (let i = 0; i < P.length; i += 3) if (P[i + 2] >= model.wrist - 0.045) pts.push([P[i], P[i + 1], P[i + 2]]);
+		const step = Math.max(1, Math.floor(pts.length / 240));
+		geo.fitLocal = pts.filter((_, i) => i % step === 0); // before the first use of geo.offerCam, as the scene does
+		const c = geo.offerCam;
+		assert.ok(c.ok, `${slot.id}: a view that clears the candle and keeps the margins exists`);
+		for (const aspect of [1.29, 1.6, 2.4]) assert.ok(geo.offerCamFor(C.offerView(aspect)).ok, `${slot.id}: also in a window of aspect ${aspect}`);
+		// an independent re-projection through cameraPose with a real camera
+		const pose = C.cameraPose(geo, 1);
+		const cam = new THREE.PerspectiveCamera(C.OFFER_FIT.fov, C.OFFER_FIT.aspect, 0.1, 50);
+		cam.position.copy(pose.position);
+		cam.lookAt(pose.target);
+		cam.updateMatrixWorld(true);
+		const box = (list) => {
+			const b = { x0: 9, x1: -9, y0: 9, y1: -9 };
+			for (const p of list) {
+				const v = p.clone().project(cam);
+				b.x0 = Math.min(b.x0, (v.x + 1) / 2);
+				b.x1 = Math.max(b.x1, (v.x + 1) / 2);
+				b.y0 = Math.min(b.y0, (1 - v.y) / 2);
+				b.y1 = Math.max(b.y1, (1 - v.y) / 2);
+			}
+			return b;
+		};
+		const h = box(C.offerHandPoints(slot, geo));
+		const k = C.CANDLE.scale;
+		const corners = [];
+		for (const x of [-0.082, 0.145]) for (const y of [0, 0.233]) for (const z of [-0.082, 0.082]) corners.push(new THREE.Vector3(C.CANDLE.x + x * k, y * k, C.CANDLE.z + z * k));
+		const cb = box(corners);
+		const clear = Math.max(cb.x0 - h.x1, h.x0 - cb.x1, cb.y0 - h.y1, h.y0 - cb.y1);
+		out.push(`${slot.id}: dist ${c.dist.toFixed(2)} yaw ${c.yaw} elev ${c.elev}; hand height ${(h.y1 - h.y0).toFixed(3)}, y ${h.y0.toFixed(2)}..${h.y1.toFixed(2)}, x ${h.x0.toFixed(2)}..${h.x1.toFixed(2)}; candle clear ${clear.toFixed(3)}`);
+		assert.ok(h.y1 - h.y0 >= 0.295 && h.y1 - h.y0 <= 0.36, `${slot.id}: height ${(h.y1 - h.y0).toFixed(3)}`);
+		assert.ok(h.x0 >= 0.05 && h.x1 <= 0.95 && h.y0 >= 0.05 && h.y1 <= C.OFFER_FIT.floor, `${slot.id}: margins`);
+		assert.ok(clear >= C.OFFER_FIT.gap - 1e-6, `${slot.id}: the candle box clears the hand box by ${clear.toFixed(3)}`);
+	}
+	console.log('offer camera:\n  ' + out.join('\n  '));
+});
+
+test('offer light: only the classes that need it (Pallbearer steel, Brinecaller dark skin), in the same scale as the showcase light (never brighter than its peak)', () => {
+	const withOffer = C.SHOWCASE_ORDER.filter((id) => C.SHOWCASE[id].offer);
+	assert.deepEqual(withOffer, ['PB', 'BR']); // measured: the others read 66-74/255 without it, these two 46-50
+	const d = C.SHOWCASE.PB;
+	const peak = Math.max(...d.light.intensity.map((k) => k[1]));
+	assert.ok(d.offer.intensity > 0 && d.offer.intensity <= peak * 2, `offer ${d.offer.intensity} vs showcase peak ${peak}`);
+	near(C.CLASS_LIGHT_SCALE, 0.2);
 });

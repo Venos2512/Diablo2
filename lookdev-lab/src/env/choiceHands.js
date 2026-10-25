@@ -218,7 +218,7 @@ export const ARM = {
 	hoverTurn: 0.1, // fraction of the way to the reach pose a hovered hand turns
 	reachYaw: 16, // deg: the reached arm points nearly AT the viewer, this far toward the screen centre ...
 	reachPitch: -20, // ... and this far below horizontal (the hand is offered, not thrust)
-	wristBack: -14, // deg wrist pitch of a back-up hand when offered (the hand lifts)
+	wristBack: 8, // deg wrist pitch of a hand that rests back-up when it is offered: it has turned over by then, so it cups like the others (a negative pitch would droop it and tilt the palm toward the viewer)
 	wristPalm: 8, // deg wrist pitch of a palm-up hand when offered (the palm cups)
 };
 /** The dissolve cuts the arm into SLABS slabs of equal thickness between SLAB_Z0 and SLAB_Z1 (m, arm frame, +z = fingers); everything below SLAB_Z0 is slab 0. */
@@ -262,15 +262,15 @@ export const FINGER_BONES = {
  */
 export const FINGER_AXES = {};
 /**
- * Procedural poses, degrees per segment [_01, _02, _03] and the spread of _01. relaxed = idle (a loose half-curl, the little finger most), open = the hand OFFERED (nearly
- * flat, fingers slightly fanned: "come, take it"), grip = grasped (a closed fist). Blend: relaxed -> open by `offer`, then -> grip by `grip`.
+ * Procedural poses, degrees per segment [_01, _02, _03] and the spread of _01. relaxed = idle (a loose half-curl, the little finger most), open = the hand OFFERED, palm UP (a loose
+ * cup: a few degrees of curl, fingers slightly fanned: "come, take it"), grip = grasped (a closed fist). Blend: relaxed -> open by `offer`, then -> grip by `grip`.
  */
 export const FINGER_POSES = {
-	thumb: { relaxed: [8, 12, 8], open: [-4, 0, 0], grip: [30, 38, 28], spread: { relaxed: 6, open: 14, grip: -6 } },
-	index: { relaxed: [16, 22, 14], open: [-4, -2, 0], grip: [72, 88, 62], spread: { relaxed: 2, open: 5, grip: 0 } },
-	middle: { relaxed: [20, 26, 16], open: [-3, -2, 0], grip: [76, 92, 64], spread: { relaxed: 0, open: 1, grip: 0 } },
-	ring: { relaxed: [24, 30, 18], open: [-3, -1, 0], grip: [76, 92, 62], spread: { relaxed: -2, open: -4, grip: 0 } },
-	pinky: { relaxed: [28, 32, 20], open: [-2, 0, 0], grip: [74, 86, 58], spread: { relaxed: -4, open: -10, grip: -2 } },
+	thumb: { relaxed: [8, 12, 8], open: [3, 5, 3], grip: [30, 38, 28], spread: { relaxed: 6, open: 14, grip: -6 } },
+	index: { relaxed: [16, 22, 14], open: [7, 10, 6], grip: [72, 88, 62], spread: { relaxed: 2, open: 5, grip: 0 } },
+	middle: { relaxed: [20, 26, 16], open: [9, 12, 7], grip: [76, 92, 64], spread: { relaxed: 0, open: 1, grip: 0 } },
+	ring: { relaxed: [24, 30, 18], open: [11, 14, 8], grip: [76, 92, 62], spread: { relaxed: -2, open: -4, grip: 0 } },
+	pinky: { relaxed: [28, 32, 20], open: [13, 16, 9], grip: [74, 86, 58], spread: { relaxed: -4, open: -10, grip: -2 } },
 };
 const normBone = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
 
@@ -405,6 +405,7 @@ export const FX_PRESETS = {
  *   grip   finger fist 0..1 for a RIGGED hand (FINGER_POSES, see FINGER_BONES); a static hand uses `squeeze` for the clench;
  *   cam    { dist m, elev deg, yaw: keys deg } an orbit round the hand (yaw mirrored for the right-hand slots so it always turns toward the middle);
  *   light  { colour, anchor, dist, intensity: keys, offset?: moving offset along x of the anchor: keys }: ONE extra point light with the class's colour;
+ *   offer  (optional) { colour, anchor, dist, intensity }: the class light that stays on after the showcase, in the offer pose (same scale as light.intensity: x CLASS_LIGHT_SCALE);
  *   shake  multiplier of the candle's flicker (keys): "the candle shakes harder one beat";
  *   flame  an oil flame at the anchor (strength keys); fx  [{ kind, at: anchor, from, to, rate/s, spread? }].
  * Anchors (computeAnchors): wrist, palm, dorsum, knuckles, thumb, tip.
@@ -412,57 +413,61 @@ export const FX_PRESETS = {
 export const SHOWCASE = {
 	PB: {
 		dur: 3.8, note: 'Găng sắt, đinh quan tài bạc trên khớp, vết dây hằn trong lòng tay',
-		roll: [[0, 178], [0.5, 178], [2.1, 0], [3.8, 0]],
+		roll: [[0, 0], [0.35, 0], [0.85, 170], [1.35, 170], [2.1, 0], [3.8, 0]],
 		squeeze: [[2.15, 0], [2.45, 0.05], [2.75, 0.05], [3.15, 0]], tremor: [[2.15, 0], [2.4, 0.003], [2.8, 0]], grip: [[2.15, 0], [2.5, 1], [2.85, 1], [3.4, 0]],
-		cam: { dist: 0.95, elev: 26, yaw: [[0, -34], [2.1, 4], [3.8, 14]] },
+		offer: { colour: '#ffcf9a', anchor: 'palm', dist: 1.5, intensity: 1.5 }, // after the showcase: a soft warm light keeps the steel readable at the edge of the wall
+		cam: { dist: 0.95, elev: 44, yaw: [[0, -34], [2.1, 4], [3.8, 14]] },
 		light: { colour: '#b6c4dc', anchor: 'knuckles', dist: 0.7, intensity: [[0, 0], [0.5, 0.9], [1.7, 0.9], [2.2, 0.15], [3.8, 0]], offset: [[0.45, 0.075], [1.75, -0.075]] },
 		fx: [{ kind: 'dust', at: 'knuckles', from: 2.3, to: 3.0, rate: 85 }, { kind: 'dust', at: 'wrist', from: 2.35, to: 2.8, rate: 40 }],
 	},
 	FL: {
 		dur: 3.6, note: 'Dây thắt nút quấn hai vòng cổ tay, cổ tay áo đen của nữ tu',
-		roll: [[0, 26], [0.8, 26], [2.5, 0], [3.6, 0]],
+		roll: [[0, 0], [0.4, 26], [0.9, 26], [2.5, 0], [3.6, 0]],
 		squeeze: [[0.5, 0], [0.95, 0.07], [1.35, 0.07], [1.8, 0]], tremor: [[0.7, 0], [1.1, 0.004], [2.0, 0.0035], [2.4, 0]], grip: [[0.7, 0], [1.1, 0.8], [1.9, 0.8], [2.6, 0]],
-		cam: { dist: 0.9, elev: 22, yaw: [[0, 24], [1.6, -8], [3.6, 6]] },
+		cam: { dist: 0.9, elev: 40, yaw: [[0, 24], [1.6, -8], [3.6, 6]] },
 		light: { colour: '#ffb870', anchor: 'wrist', dist: 0.55, intensity: [[0, 0], [3.6, 0]] }, // none of its own: the cord, the tremor and the candle that shakes are the whole showcase
 		shake: [[0, 1], [0.85, 1], [1.05, 3.2], [1.6, 3.2], [2.0, 1], [3.6, 1]],
 		fx: [{ kind: 'flake', at: 'wrist', from: 1.0, to: 1.7, rate: 30 }, { kind: 'dust', at: 'palm', from: 1.2, to: 2.2, rate: 22 }],
 	},
 	OS: {
 		dur: 3.8, note: 'Bàn tay già: mực và vữa trong nếp tay, nhẫn đốt xương',
-		roll: [[0, 118], [0.6, 118], [2.4, 0], [3.8, 0]],
+		roll: [[0, 0], [0.4, 0], [0.95, 160], [1.7, 160], [2.5, 0], [3.8, 0]],
 		squeeze: [], tremor: [], grip: [],
-		cam: { dist: 0.9, elev: 20, yaw: [[0, -26], [2.4, 10], [3.8, 18]] },
-		light: { colour: '#8ec0ff', anchor: 'knuckles', dist: 0.5, intensity: [[0, 0], [0.8, 0.22], [2.6, 0.22], [3.8, 0]] },
-		fx: [{ kind: 'soul', at: 'knuckles', from: 0.8, to: 2.8, rate: 3.2, spread: 0.07 }, { kind: 'flake', at: 'dorsum', from: 0.6, to: 2.6, rate: 8 }, { kind: 'dust', at: 'palm', from: 1.8, to: 2.8, rate: 10 }],
+		cam: { dist: 0.9, elev: 42, yaw: [[0, -26], [2.4, 10], [3.8, 18]] },
+		light: { colour: '#8ec0ff', anchor: 'palm', dist: 0.5, intensity: [[0, 0], [0.8, 0.22], [2.6, 0.22], [3.8, 0]] },
+		fx: [{ kind: 'soul', at: 'tip', from: 0.8, to: 2.8, rate: 3.2, spread: 0.09, lift: 0.025 }, { kind: 'flake', at: 'palm', from: 0.6, to: 2.6, rate: 8, lift: 0.02 }, { kind: 'dust', at: 'palm', from: 1.8, to: 2.8, rate: 10, lift: 0.02 }],
 	},
 	BR: {
 		dur: 3.6, note: 'Muối nứt trắng ngả xanh, tay áo ố vệt triều, vòng vỏ sò',
-		roll: [[0, 150], [0.5, 150], [2.2, 0], [3.6, 0]],
+		roll: [[0, 0], [0.4, 0], [0.9, 160], [1.7, 160], [2.4, 0], [3.6, 0]],
 		squeeze: [], tremor: [], grip: [],
-		cam: { dist: 0.92, elev: 28, yaw: [[0, 30], [2.2, -6], [3.6, -14]] },
-		light: { colour: '#bfe0ee', anchor: 'dorsum', dist: 0.55, intensity: [[0, 0], [1.0, 0], [1.3, 0.8], [2.0, 0.15], [3.6, 0]] },
-		fx: [{ kind: 'salt', at: 'dorsum', from: 0.5, to: 3.0, rate: 46, spread: 0.07, lift: 0.13 }],
+		offer: { colour: '#ffd6a8', anchor: 'palm', dist: 1.4, intensity: 0.8 }, // the darkest skin after the steel: it hovers at the edge of readable (mean ~50/255) without it
+		cam: { dist: 0.92, elev: 44, yaw: [[0, 30], [2.2, -6], [3.6, -14]] },
+		light: { colour: '#bfe0ee', anchor: 'palm', dist: 0.55, intensity: [[0, 0], [1.0, 0], [1.3, 0.8], [2.0, 0.15], [3.6, 0]] },
+		fx: [{ kind: 'salt', at: 'thumb', from: 0.6, to: 3.0, rate: 32, spread: 0.05, lift: 0.07 }, { kind: 'salt', at: 'tip', from: 1.2, to: 3.0, rate: 14, spread: 0.05, lift: 0.07 }],
 	},
 	EX: {
 		dur: 3.8, note: 'Găng tẩm dầu đèn, chai ngón cái',
-		roll: [[0, 70], [0.6, 70], [2.0, 0], [3.8, 0]],
+		roll: [[0, 0], [0.35, 50], [0.8, 50], [1.25, 0], [3.8, 0]],
 		squeeze: [[1.0, 0], [1.2, 0.04], [1.45, 0]], tremor: [], grip: [[0.9, 0], [1.25, 0.6], [1.6, 0.3], [2.2, 0]],
-		cam: { dist: 0.85, elev: 18, yaw: [[0, -22], [2.0, 6], [3.8, 12]] },
-		light: { colour: '#ffa24a', anchor: 'thumb', dist: 0.6, intensity: [[0, 0], [1.1, 0], [1.3, 1.0], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
-		flame: { anchor: 'thumb', strength: [[0, 0], [1.1, 0], [1.3, 1], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
-		fx: [{ kind: 'smoke', at: 'thumb', from: 2.5, to: 3.5, rate: 9 }, { kind: 'ember', at: 'thumb', from: 1.3, to: 1.7, rate: 14 }],
+		cam: { dist: 0.85, elev: 40, yaw: [[0, -22], [2.0, 6], [3.8, 12]] },
+		light: { colour: '#ffa24a', anchor: 'palm', dist: 0.6, intensity: [[0, 0], [1.1, 0], [1.3, 1.0], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
+		flame: { anchor: 'palm', lift: 0.02, strength: [[0, 0], [1.1, 0], [1.3, 1], [2.3, 0.9], [2.55, 0], [3.8, 0]] },
+		fx: [{ kind: 'smoke', at: 'palm', from: 2.5, to: 3.5, rate: 9, lift: 0.03 }, { kind: 'ember', at: 'palm', from: 1.3, to: 1.7, rate: 14, lift: 0.02 }],
 	},
 	PS: {
 		dur: 3.8, note: 'Sẹo bỏng, tro dưới móng, bím chỉ đỏ',
-		roll: [[0, 38], [0.6, 38], [2.2, 0], [3.8, 0]],
+		roll: [[0, 0], [0.4, 38], [0.9, 38], [2.2, 0], [3.8, 0]],
 		squeeze: [], tremor: [[1.0, 0], [1.6, 0.0018], [2.6, 0.001], [3.2, 0]], grip: [[1.0, 0], [1.6, 0.35], [2.8, 0.2], [3.3, 0]],
-		cam: { dist: 0.9, elev: 24, yaw: [[0, 28], [2.2, -4], [3.8, -12]] },
+		cam: { dist: 0.9, elev: 42, yaw: [[0, 28], [2.2, -4], [3.8, -12]] },
 		light: { colour: '#ff7a2a', anchor: 'palm', dist: 0.55, intensity: [[0, 0], [0.7, 0.2], [1.8, 1.1], [3.0, 0.5], [3.8, 0]] },
-		fx: [{ kind: 'ember', at: 'palm', from: 0.8, to: 2.9, rate: 24, spread: 0.05 }, { kind: 'dust', at: 'tip', from: 1.5, to: 2.6, rate: 10 }],
+		fx: [{ kind: 'ember', at: 'palm', from: 0.8, to: 2.9, rate: 24, spread: 0.05, lift: 0.02 }, { kind: 'dust', at: 'tip', from: 1.5, to: 2.6, rate: 10 }],
 	},
 };
 /** The showcase camera's framing: the hand's bounding sphere fills `fill` of the frame height and its centre sits at `centreY` of it from the top (the quote is below). */
 export const SHOWCASE_FIT = { fill: 0.9, centreY: 0.38 };
+/** The class light's table values (showcase `light.intensity`, `offer.intensity`) are in one scale: PointLight intensity = value x this. */
+export const CLASS_LIGHT_SCALE = 0.2;
 export const SHOWCASE_ORDER = ['PB', 'FL', 'OS', 'BR', 'EX', 'PS'];
 
 /**
@@ -524,7 +529,7 @@ export function fallbackAnchors(model) {
 }
 
 /** The mesh whose vertices say where the hand's parts are: the one named 'hand', else the largest; skinned meshes too (their position attribute is the bind pose). */
-export function handAnchors(root, model) {
+function pickHandMesh(root) {
 	let best = null;
 	root.traverse((o) => {
 		if (!o.isMesh || !o.geometry?.attributes?.position) return;
@@ -532,6 +537,24 @@ export function handAnchors(root, model) {
 		if (count < 1000) return;
 		if (!best || (o.name === 'hand' && best.name !== 'hand') || (best.name !== 'hand' && count > best.geometry.attributes.position.count)) best = o;
 	});
+	return best;
+}
+
+/** About `max` vertices of the hand mesh from a little before the wrist to the fingertips (arm frame, [x, y, z]): what the offer camera is fitted to (null: no mesh, the model table's points are used). */
+export function sampleHandPoints(root, model, max = 240) {
+	const best = pickHandMesh(root);
+	if (!best) return null;
+	const pos = best.geometry.attributes.position;
+	const keep = [];
+	for (let i = 0; i < pos.count; i++) if (pos.getZ(i) >= model.wrist - 0.045) keep.push(i);
+	const step = Math.max(1, Math.floor(keep.length / max));
+	const out = [];
+	for (let k = 0; k < keep.length; k += step) out.push([pos.getX(keep[k]), pos.getY(keep[k]), pos.getZ(keep[k])]);
+	return out.length ? out : null;
+}
+
+export function handAnchors(root, model) {
+	const best = pickHandMesh(root);
 	let found = {};
 	if (best) {
 		const attr = best.geometry.attributes.position;
@@ -610,18 +633,42 @@ export function armGeometry(slot, opts = {}) {
 	const qReach = armQuaternion(dirReach, reachHint(side), 'palm', 0);
 	// shortest path between the two (slerp takes the short way when the dot is positive)
 	if (qIdle.dot(qReach) < 0) qReach.set(-qReach.x, -qReach.y, -qReach.z, -qReach.w);
+	// how far the hand turns about its own forearm on the way out (swing-twist of idle -> offer), and the sign the showcase's roll must take to turn the OTHER way (a back-up hand
+	// that has already turned +121 deg must not be rolled another +170: the sleeve would wind up to ~290 deg). Computed, not hard-coded: a changed twist or mirror stays right.
+	const rel = qIdle.clone().invert().multiply(qReach);
+	let twist = 2 * Math.atan2(rel.z, rel.w);
+	if (twist > Math.PI) twist -= 2 * Math.PI;
+	if (twist < -Math.PI) twist += 2 * Math.PI;
+	const rollSign = Math.abs(twist) < 0.05 ? 1 : -Math.sign(twist);
 	// along the arm axis, measured from the wall hole: the sleeve end is at -(HAND_LENGTH - visible), the wrist at model.wrist - (HAND_LENGTH - visible), the tip at +visible
 	const back = HAND_LENGTH - visible;
 	const at = (d, s, slide = 0) => entry.clone().addScaledVector(d, (s + slide) * sc);
 	const palmReach = new THREE.Vector3(0, -1, 0).applyQuaternion(qReach); // the palm side of the offered hand (local -y)
-	return {
-		dir, dirReach, qIdle, qReach, palmReach, entry, tip, back, scale: sc, visible,
+	const geo = {
+		dir, dirReach, qIdle, qReach, palmReach, entry, tip, back, scale: sc, visible, twist: twist / DEG, rollSign,
 		wrist: at(dir, model.wrist - back),
 		hand: at(dir, visible - 0.1), // the middle of the hand, about 10 cm behind the tip
 		handReach: at(dirReach, visible - 0.1, slideReach),
 		tipReach: at(dirReach, visible, slideReach),
 		sleeveEnd: at(dir, -back),
 	};
+	// the camera of the offer (distance, yaw, framing shift) is fitted on first use: see fitOfferCamera
+	const cache = new Map();
+	const fitFor = (view) => {
+		const key = `${view.fov.toFixed(2)}/${view.aspect}`;
+		if (!cache.has(key)) cache.set(key, fitOfferCamera(slot, geo, view));
+		return cache.get(key);
+	};
+	Object.defineProperty(geo, 'offerCamFor', { enumerable: false, value: fitFor });
+	Object.defineProperty(geo, 'offerCam', { enumerable: false, get: () => fitFor({ aspect: OFFER_FIT.aspect, fov: OFFER_FIT.fov }) });
+	return geo;
+}
+
+/** World direction of the palm (local -y: +y is the back of the hand in the models) of a slot's hand in the offer pose: the arm's reach orientation and the wrist's cup. EVERY class ends palm up. */
+export function offerPalmNormal(slot, geo, out = new THREE.Vector3()) {
+	const pose = armPose(slot, geo, { reach: 1 });
+	const q = pose.quat.multiply(new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), pose.wrist));
+	return out.set(0, -1, 0).applyQuaternion(q);
 }
 
 /** Shoulder-group number of a slot's arm in a given moment: weights in [0, 1] (hover, reach, retract) -> slide (m along the axis), the orientation, the wrist pitch (rad). */
@@ -658,20 +705,119 @@ export function slotMarkers(slot, geo = armGeometry(slot, { scale: HAND_SCALE })
 }
 
 /**
- * Camera for a reached hand: the camera home dollies toward the hand and turns to it. p = 0 home, p = 1 the offer; `out.position / out.target` are Vector3s.
+ * The offered hand's frame, solved (not guessed): the hand (from a little sleeve behind the wrist to the fingertips, with its width) fills `height` of the frame, sits with its
+ * centre at `centreY` from the top, keeps `margin` from the left / right / top and stays above `floor` (the quote and the buttons are below); and the candle with its dish and
+ * flame does NOT overlap the hand's box (`gap`): the camera yaws about the hand, the smallest turn that clears it. Pure math, a 30 deg lens at the lab's usual 1.92 aspect.
  */
-export function cameraPose(geo, p, out = { position: new THREE.Vector3(), target: new THREE.Vector3() }) {
-	const homeP = new THREE.Vector3(...FRAME.position);
-	const homeT = new THREE.Vector3(...FRAME.target);
+export const OFFER_FIT = { height: 0.34, centreY: 0.4, margin: 0.06, floor: 0.68, gap: 0.015, fov: 30, aspect: 1.92 };
+
+const _X = new THREE.Vector3(1, 0, 0);
+/** The offered hand's key points in world space (the pose of armPose reach 1, wrist cup and slide included). */
+export function offerHandPoints(slot, geo) {
+	const model = HAND_MODELS[slot.source];
+	const pose = armPose(slot, geo, { reach: 1 });
+	const rx = new THREE.Quaternion().setFromAxisAngle(_X, pose.wrist);
+	const mir = slot.mirror ? -1 : 1;
+	const w = model.wrist;
+	const local = geo.fitLocal ?? [[0, 0, w - 0.05], model.tip, [0.075, 0, w + 0.06], [-0.075, 0, w + 0.06], [0.03, 0.03, w + 0.12], [-0.03, -0.03, w + 0.12]]; // the real mesh's vertices when the scene gives them
+	return local.map(([x, y, z]) => new THREE.Vector3(mir * x, y, z - w).applyQuaternion(rx).add(new THREE.Vector3(0, 0, w - geo.back + pose.slide)).multiplyScalar(geo.scale).applyQuaternion(pose.quat).add(geo.entry));
+}
+/** The candle's box corners (dish with its ring handle, wax, flame) in world space. */
+function candleCorners() {
+	const k = CANDLE.scale;
+	const out = [];
+	for (const x of [-0.082, 0.145]) for (const y of [0, 0.233]) for (const z of [-0.082, 0.082]) out.push(new THREE.Vector3(CANDLE.x + x * k, y * k, CANDLE.z + z * k));
+	return out;
+}
+/** Camera position / target of the offer for a distance, a yaw (deg about the vertical through the hand) and a vertical shift of the target. */
+function offerViewPose(geo, dist, yawDeg, shift, elevDeg = 0, out = { position: new THREE.Vector3(), target: new THREE.Vector3() }) {
 	const focus = geo.handReach;
 	// the offer is seen from in front of the fingertips and a little above the palm: the hand reaches TOWARD the viewer and the open palm reads (the key art's viewpoint)
-	const view = geo.dirReach.clone().multiplyScalar(0.78).addScaledVector(geo.palmReach, 0.45).add(new THREE.Vector3(0, 0.03, 0.1)).normalize();
-	const reachP = focus.clone().addScaledVector(view, 1.22);
-	reachP.z = Math.max(reachP.z, focus.z + 0.7);
-	const reachT = focus.clone().addScaledVector(geo.dirReach, 0.06);
-	reachT.y += 0.07; // the hand sits a little below the middle of the frame
-	out.target.lerpVectors(homeT, reachT, p);
-	out.position.lerpVectors(homeP, reachP, p);
+	const view = geo.dirReach.clone().multiplyScalar(0.78).addScaledVector(geo.palmReach, 0.85).add(new THREE.Vector3(0, 0.03, 0.1)).normalize();
+	view.applyAxisAngle(new THREE.Vector3(0, 1, 0), yawDeg * DEG);
+	if (elevDeg) {
+		const h = new THREE.Vector3(view.x, 0, view.z).normalize();
+		view.applyAxisAngle(new THREE.Vector3(0, 1, 0).cross(h), -elevDeg * DEG); // higher: looking down on the palm and the candle drops below the hand
+	}
+	out.position.copy(focus).addScaledVector(view, dist);
+	out.target.copy(focus).addScaledVector(geo.dirReach, 0.06);
+	out.target.y += shift;
+	return out;
+}
+
+/** The lens the offer is seen through for a window of this aspect (the lab widens the vertical fov of narrow windows: fovForAspect), aspect quantised so a resize does not refit every pixel. */
+export function offerView(aspect) {
+	const a = Math.round(clamp(aspect, 0.6, 3) * 20) / 20;
+	return { aspect: a, fov: fovForAspect(a, OFFER_FIT.fov) };
+}
+
+export function fitOfferCamera(slot, geo, view = { aspect: OFFER_FIT.aspect, fov: OFFER_FIT.fov }) {
+	const fit = { ...OFFER_FIT, ...view };
+	const cam = new THREE.PerspectiveCamera(fit.fov, fit.aspect, 0.1, 50);
+	const hand = offerHandPoints(slot, geo);
+	const candle = candleCorners();
+	const box = (pts) => {
+		const b = { x0: 9, x1: -9, y0: 9, y1: -9 };
+		for (const p of pts) {
+			const v = p.clone().project(cam);
+			b.x0 = Math.min(b.x0, (v.x + 1) / 2);
+			b.x1 = Math.max(b.x1, (v.x + 1) / 2);
+			b.y0 = Math.min(b.y0, (1 - v.y) / 2);
+			b.y1 = Math.max(b.y1, (1 - v.y) / 2);
+		}
+		return b;
+	};
+	const tan = Math.tan((fit.fov * DEG) / 2);
+	const pose = { position: new THREE.Vector3(), target: new THREE.Vector3() };
+	const turns = []; // [yaw, elevation] pairs, the smallest turn first
+	for (let e = 0; e <= 32; e += 8) for (let y = 0; y <= 32; y += 8) turns.push([y, e], ...(y ? [[-y, e]] : []));
+	turns.sort((a, b) => Math.abs(a[0]) * 2 + a[1] - (Math.abs(b[0]) * 2 + b[1])); // a turn to the side runs into the end of the wall (black beyond it): lifting the camera is cheaper
+	// the frames tried at each turn: the hand's height in the frame and where its centre sits (a hand a little smaller / higher can clear the candle without another turn)
+	const frames = [[fit.height, fit.centreY], [fit.height - 0.02, fit.centreY - 0.03], [fit.height - 0.04, fit.centreY - 0.06], [fit.height - 0.04, fit.centreY + 0.03]];
+	let best = null;
+	for (const [[yaw, elev], [height, centreY]] of turns.flatMap((t) => frames.map((f) => [t, f]))) {
+		let dist = 1.1;
+		let shift = 0.07;
+		let hb;
+		for (let it = 0; it < 6; it++) {
+			offerViewPose(geo, dist, yaw, shift, elev, pose);
+			cam.position.copy(pose.position);
+			cam.lookAt(pose.target);
+			cam.updateMatrixWorld(true);
+			cam.matrixWorldInverse.copy(cam.matrixWorld).invert();
+			hb = box(hand);
+			dist = clamp(dist * ((hb.y1 - hb.y0) / height), 0.45, 2.4);
+			shift -= ((hb.y0 + hb.y1) / 2 - centreY) * 2 * dist * tan;
+		}
+		offerViewPose(geo, dist, yaw, shift, elev, pose);
+		cam.position.copy(pose.position);
+		cam.lookAt(pose.target);
+		cam.updateMatrixWorld(true);
+		cam.matrixWorldInverse.copy(cam.matrixWorld).invert();
+		hb = box(hand);
+		const cb = box(candle);
+		const sepX = Math.max(cb.x0 - hb.x1, hb.x0 - cb.x1);
+		const sepY = Math.max(cb.y0 - hb.y1, hb.y0 - cb.y1);
+		const clear = Math.max(sepX, sepY); // > 0: the boxes do not touch
+		const inside = Math.min(hb.x0 - fit.margin, 1 - fit.margin - hb.x1, hb.y0 - fit.margin, fit.floor - hb.y1);
+		const cand = { dist, yaw, elev, shift, height, clear, inside, ok: clear >= fit.gap && inside >= 0 };
+		if (cand.ok) return cand; // the smallest turn that works
+		const score = Math.min(clear - fit.gap, 0) + Math.min(inside, 0);
+		if (!best || score > best.score) best = { ...cand, score };
+	}
+	return best; // nothing fits perfectly: the least bad
+}
+
+/**
+ * Camera for a reached hand: the camera home dollies toward the hand and turns to it. p = 0 home, p = 1 the offer (fitted: geo.offerCam); `out.position / out.target` are Vector3s.
+ */
+export function cameraPose(geo, p, out = { position: new THREE.Vector3(), target: new THREE.Vector3() }, view = null) {
+	const homeP = new THREE.Vector3(...FRAME.position);
+	const homeT = new THREE.Vector3(...FRAME.target);
+	const c = view ? geo.offerCamFor(view) : geo.offerCam;
+	const reach = offerViewPose(geo, c.dist, c.yaw, c.shift, c.elev);
+	out.target.lerpVectors(homeT, reach.target, p);
+	out.position.lerpVectors(homeP, reach.position, p);
 	return out;
 }
 

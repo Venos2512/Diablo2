@@ -22,6 +22,7 @@ export const CHOICE_HANDS_DEFAULTS = {
 	wallTint: 1, // multiplier of the wall's albedo (the lighting calibration)
 	handLight: 0.6,
 	handOuter: 0.2, // the outer hands (PB, PS) read this much brighter than the middle ones (the key art lights its edge hands more than the cone does) // albedo multiplier of the hands (the lighting calibration: how bright the hands read next to the wall)
+	offerLight: true, // the soft warm light that stays on the palm of a class that reads too dark in the offer (SHOWCASE[id].offer)
 	showcase: true, // the chosen hand shows what it is of its class before it offers itself
 	overlay: 0, // opacity of the key-art overlay (the calibration view; ?overlay=1 opens it at 0.5)
 	candle: 1, // candle light multiplier
@@ -785,6 +786,7 @@ export class ChoiceHandsScene {
 		proxy.userData.slot = index;
 		this.proxyRoot.add(proxy);
 		const anchors = C.handAnchors(model3d, model);
+		geo.fitLocal = C.sampleHandPoints(model3d, model); // the offer camera is fitted to the real mesh
 		const slot = { outerK: Math.min(1, Math.abs(geo.entry.x) / 0.75), def, index, geo, root, slideG, wristG, armG, mats, meshes, proxy, dust, anchors, hover: 0, dim: 1, phase: index * 1.37, rig: null, slices: null, handProxy };
 		this.bindFingerRig(slot, model3d);
 		this.placeProxy(slot);
@@ -840,7 +842,9 @@ export class ChoiceHandsScene {
 	/** The Hand size slider: every arm is rebuilt about its hole (tips stay where the table puts them). */
 	applyHandScale() {
 		for (const s of this.slots) {
+			const fitLocal = s.geo.fitLocal; // the measured mesh points the offer camera is fitted to
 			s.geo = C.armGeometry(s.def, { scale: this.settings.handScale });
+			s.geo.fitLocal = fitLocal;
 			s.root.position.copy(s.geo.entry);
 			s.root.scale.setScalar(s.geo.scale);
 			this.placeProxy(s);
@@ -1048,6 +1052,7 @@ export class ChoiceHandsScene {
 			slot.wristG.position.set(0, 0, C.HAND_MODELS[slot.def.source].wrist);
 		}
 		Object.assign(this.showcase, { roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1, cam: 0 });
+		this.classLight.intensity = 0; // the hand is back in the wall: its light goes with it
 		this.state = 'idle';
 		this.sel = -1;
 		this.syncUi();
@@ -1084,6 +1089,7 @@ export class ChoiceHandsScene {
 		this.pendingGrab = false;
 		this.resetShowcase();
 		Object.assign(this.showcase, { roll: 0, squeeze: 0, tremor: 0, grip: 0, shake: 1, cam: 0, def: null }); // nothing of a showcase cut short carries over to the next hand
+		this.classLight.intensity = 0;
 		for (const pool of Object.values(this.fxPools)) pool.clear();
 		this.gripW = 0;
 		this.reach = { value: 0, from: 0, to: 0, t: 1, dur: 1, ease: C.easeOutBack };
@@ -1350,7 +1356,7 @@ export class ChoiceHandsScene {
 		const breath = Math.sin(elapsed * 0.85 + slot.phase);
 		const back = slot.geo.back;
 		slot.root.quaternion.copy(pose.quat);
-		if (chosen && Math.abs(this.showcase.roll) > 1e-3) slot.root.quaternion.multiply(this._qr.setFromAxisAngle(this._zAxis, (this.showcase.roll * Math.PI) / 180)); // the showcase turns the hand about its forearm
+		if (chosen && Math.abs(this.showcase.roll) > 1e-3) slot.root.quaternion.multiply(this._qr.setFromAxisAngle(this._zAxis, (this.showcase.roll * slot.geo.rollSign * Math.PI) / 180)); // the showcase turns the hand about its forearm, AGAINST the turn it made on the way out (geo.rollSign)
 		slot.root.rotateX(breath * 0.006 * calm);
 		slot.root.rotateY(Math.sin(elapsed * 0.6 + slot.phase * 2) * 0.004 * calm);
 		slot.slideG.position.z = -back + slide + breath * 0.003 * calm;
@@ -1554,12 +1560,23 @@ export class ChoiceHandsScene {
 			if (def.light.offset) this._w.x += C.keyAt(def.light.offset, tt) * slot.geo.scale * (slot.def.mirror ? -1 : 1);
 			this.classLight.position.copy(this._w).add(this._q3.set(0, 0.09, 0.2));
 		}
-		this.classLight.intensity = C.damp(this.classLight.intensity, light * 0.2, 30, delta);
+		// the offer: a class that reads too dark in the candle's glow (the Pallbearer's steel at the edge of the wall) keeps a soft warm light on its palm after the showcase
+		const offered = slot && this.state === 'reach' && this.reach.to === 1 && this.reach.value >= C.GRAB_AT && !sc.active && (sc.done || !this.settings.showcase); // the showcase is over, or switched off
+		const od = offered && this.settings.offerLight ? C.SHOWCASE[slot.def.id].offer : null;
+		let target = light * C.CLASS_LIGHT_SCALE;
+		if (od) {
+			this.classLight.color.set(od.colour);
+			this.classLight.distance = od.dist;
+			this.anchorWorld(slot, od.anchor, this._w);
+			this.classLight.position.copy(this._w).add(this._q3.set(0, 0.14, 0.25));
+			target = od.intensity * C.CLASS_LIGHT_SCALE;
+		}
+		this.classLight.intensity = C.damp(this.classLight.intensity, target, sc.active ? 30 : 5, delta); // quick while the showcase drives it, a soft fade in / out otherwise (the grasp, Esc)
 		let flame = 0;
 		if (def?.flame && slot) {
 			flame = C.keyAt(def.flame.strength, tt);
 			this.anchorWorld(slot, def.flame.anchor, this._w);
-			this.flames.move(this.flameIndex2, this._w.add(this._q3.set(0, 0.012, 0.01)));
+			this.flames.move(this.flameIndex2, this._w.add(this._q3.set(0, def.flame.lift ?? 0.012, 0.01)));
 		}
 		this.flames.entries[this.flameIndex2].strength = flame;
 		// the effects
@@ -1670,7 +1687,7 @@ export class ChoiceHandsScene {
 		if (!locked) return;
 		if (rig.mode !== 'orbit') rig.setMode('orbit');
 		let pose = this._cam;
-		if (this.camSlot) C.cameraPose(this.camSlot.geo, this.camP, pose);
+		if (this.camSlot) C.cameraPose(this.camSlot.geo, this.camP, pose, C.offerView(aspect));
 		else {
 			pose.position.set(...C.FRAME.position);
 			pose.target.set(...C.FRAME.target);
@@ -1729,6 +1746,7 @@ export class ChoiceHandsScene {
 		fl.add(s, 'dust').name('Bụi lơ lửng + bụi vỡ').onChange(save);
 		const fv = folder.addFolder('Hiển thị');
 		fv.add(s, 'overlay', 0, 1, 0.01).name('Phủ key art lên khung (hiệu chỉnh)').onChange(save);
+		fv.add(s, 'offerLight').name('Đèn lòng tay ở offer (PB, BR)').onChange(save);
 		fv.add(s, 'showcase').name('Showcase khi chọn tay (3–4 s)').onChange(save);
 		fv.add(s, 'showStandIns').name('Hiện tay stand-in (PB · EX · PS)').onChange(() => (save(), this.applyStandIns()));
 		fv.add(s, 'lockCamera').name('Khoá camera (tắt = orbit tự do)').onChange(save);

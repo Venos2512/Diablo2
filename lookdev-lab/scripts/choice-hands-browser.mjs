@@ -115,7 +115,7 @@ const diffPixels = (a, b, th = 28) => evaluate(`(async () => {
 // The dissolve test: the count must fall clearly between the tremble and the crumble, on both backends
 const handPixels = (half = 100) => evaluate(`(async () => {
 	const a = __LAB__.app, s = a.current, slot = s.slots[s.sel];
-	s._ug = s.updateGrasp; s._ud = s.updateDust; s.updateGrasp = () => {}; s.updateDust = () => {};
+	s.updateGrasp = () => {}; s.updateDust = () => {}; s.updateLight = () => {}; // own overrides of the prototype's methods: removed with delete (no saved copy to lose)
 	const dustVis = s.dustMesh.visible; s.dustMesh.visible = false;
 	const centre = s._v.clone().set(0, 0, 0.4); // the fingers
 	slot.armG.updateWorldMatrix(true, false);
@@ -130,7 +130,7 @@ const handPixels = (half = 100) => evaluate(`(async () => {
 	await a.nextFrames(2);
 	const B = await a.captureFrame('image/png');
 	slot.slices.forEach((sl, i) => (sl.mesh.visible = was[i]));
-	s.updateGrasp = s._ug; s.updateDust = s._ud; s.dustMesh.visible = dustVis;
+	delete s.updateGrasp; delete s.updateDust; delete s.updateLight; s.dustMesh.visible = dustVis;
 	const load = async (url) => { const bmp = await createImageBitmap(await (await fetch(url)).blob()); const c = new OffscreenCanvas(bmp.width, bmp.height); const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(bmp, 0, 0); return { w: bmp.width, h: bmp.height, d: g.getImageData(0, 0, bmp.width, bmp.height).data }; };
 	const [IA, IB] = [await load(A), await load(B)];
 	const x0 = Math.max(0, cx - ${half}), x1 = Math.min(IA.w, cx + ${half}), y0 = Math.max(0, cy - ${half}), y1 = Math.min(IA.h, cy + ${half});
@@ -229,12 +229,12 @@ if (!(hp0.n > 1500 && hp1.n < hp0.n * 0.5)) results.errors.push({ type: 'dissolv
 // H1: the ash must be more than a 1 px dot on both backends: with / without the dust mesh, same moment (control = two captures with it hidden, to know the noise floor)
 {
 	const cap = () => evaluate(`__LAB__.app.captureFrame('image/png')`);
-	await evaluate(`(() => { const s = __LAB__.app.current; s._ug = s.updateGrasp; s._ud = s.updateDust; s.updateGrasp = () => {}; s.updateDust = () => {}; s.dustMesh.visible = true; })()`); // freeze the hand and the grains (the 52 Hz tremble moves every edge between two frames)
+	await evaluate(`(() => { const s = __LAB__.app.current; s.updateGrasp = () => {}; s.updateDust = () => {}; s.dustMesh.visible = true; })()`); // freeze the hand and the grains (the 52 Hz tremble moves every edge between two frames; the candle's flicker, its glow and the light are frozen too: two captures are never the same moment)
 	const shown = await cap();
 	await evaluate(`__LAB__.app.current.dustMesh.visible = false`);
 	const hidden1 = await cap();
 	const hidden2 = await cap();
-	await evaluate(`(() => { const s = __LAB__.app.current; s.updateGrasp = s._ug; s.updateDust = s._ud; s.dustMesh.visible = true; })()`);
+	await evaluate(`(() => { const s = __LAB__.app.current; delete s.updateGrasp; delete s.updateDust; delete s.updateLight; s.dustMesh.visible = true; })()`);
 	const dust = await diffPixels(shown, hidden1);
 	const noise = await diffPixels(hidden1, hidden2);
 	const live = await S('s.dust.p.filter((q) => q.age < q.life).length');
@@ -336,7 +336,7 @@ await settle(70);
 await X('s.grab();');
 const ringPx = () => evaluate(`(async () => {
 	const a = __LAB__.app, s = a.current, slot = s.slots[5];
-	s._ug = s.updateGrasp; s._ud = s.updateDust; s.updateGrasp = () => {}; s.updateDust = () => {};
+	s.updateGrasp = () => {}; s.updateDust = () => {};
 	const dustVis = s.dustMesh.visible; s.dustMesh.visible = false;
 	const rings = slot.slices.filter((sl) => sl.original.geometry.type === 'TorusGeometry');
 	const centre = s._v.clone().set(0, 0, 0.23);
@@ -352,7 +352,7 @@ const ringPx = () => evaluate(`(async () => {
 	await a.nextFrames(2);
 	const B = await a.captureFrame('image/png');
 	rings.forEach((sl, i) => (sl.mesh.visible = was[i]));
-	s.updateGrasp = s._ug; s.updateDust = s._ud; s.dustMesh.visible = dustVis;
+	delete s.updateGrasp; delete s.updateDust; delete s.updateLight; s.dustMesh.visible = dustVis;
 	const load = async (url) => { const bmp = await createImageBitmap(await (await fetch(url)).blob()); const c = new OffscreenCanvas(bmp.width, bmp.height); const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(bmp, 0, 0); return { w: bmp.width, d: g.getImageData(0, 0, bmp.width, bmp.height).data, h: bmp.height }; };
 	const [IA, IB] = [await load(A), await load(B)];
 	let n = 0;
@@ -372,6 +372,10 @@ if (!(rp0.n > 100 && rp0.rings >= 2 && rp1.n < 400 && rp1.visibleRings === 0)) r
 await X('s.replay();');
 await settle(10);
 
+// the freezing helpers of the pixel tests must leave the scene's own methods in place: the candle leans and flickers in everything that follows (showcase, offer, luminance)
+const unfrozen = await S(`['updateGrasp', 'updateDust', 'updateLight'].every((k) => !Object.hasOwn(s, k) && s[k] === Object.getPrototypeOf(s)[k])`);
+step('pixel-test freezes released', { unfrozen, ok: unfrozen === true });
+if (unfrozen !== true) results.errors.push({ type: 'freeze-leak', text: 'updateGrasp / updateDust / updateLight still overridden after the pixel tests' });
 // ---- SHOWCASE: every class shows its hand the moment it is chosen, ends in the offer pose (buttons), leaves no residue -----------------------------------------------------
 const showcaseStats = () => S(`({ t: +s.showcase.t.toFixed(2), live: s.fxLive, light: +s.classLight.intensity.toFixed(2), roll: +s.showcase.roll.toFixed(1), flame: +s.flames.entries[s.flameIndex2].strength.toFixed(2), camW: +s.showcase.cam.toFixed(2), active: s.showcase.active, state: s.state })`);
 // the hand (from a little before the wrist to the fingertips) projected through the live camera: fractions of the canvas; the quote's top edge is the floor
@@ -396,6 +400,33 @@ const frameBox = () => S(`(() => {
 	const cap = s.ui.caption.getBoundingClientRect();
 	box.capTop = (cap.top - r.top) / r.height;
 	return box;
+})()`);
+// the offer view: the hand's box, the candle's box (candle + dish + flame), the mean luminance (0-255) over the hand's box in the captured frame
+const offerStats = () => evaluate(`(async () => {
+	const a = __LAB__.app, s = a.current, slot = s.slots[s.sel], cam = a.rig.camera;
+	cam.updateMatrixWorld(true);
+	const V = slot.root.position.constructor;
+	const box = { x0: 9, x1: -9, y0: 9, y1: -9 };
+	const add = (v) => { v.project(cam); const fx = (v.x + 1) / 2, fy = (1 - v.y) / 2; box.x0 = Math.min(box.x0, fx); box.x1 = Math.max(box.x1, fx); box.y0 = Math.min(box.y0, fy); box.y1 = Math.max(box.y1, fy); };
+	let mesh = null;
+	slot.armG.traverse((o) => { if (o.isMesh && o.name === 'hand' && !o.isSkinnedMesh) mesh = o; });
+	mesh.updateWorldMatrix(true, false);
+	const pos = mesh.geometry.attributes.position, zmin = slot.anchors.wrist.z - 0.045, v = new V();
+	for (let i = 0; i < pos.count; i += 3) if (pos.getZ(i) >= zmin) add(v.fromBufferAttribute(pos, i).applyMatrix4(mesh.matrixWorld));
+	const cb = { x0: 9, x1: -9, y0: 9, y1: -9 };
+	const save = { ...box };
+	Object.assign(box, cb);
+	const k = s.candle.scale.x, cp = s.candle.position; // the candle group: the dish (radius .082) with its ring handle (to x +.145), the wax and the flame (to y .233) in the group's frame
+	for (const x of [-0.082, 0.145]) for (const y of [0, 0.233]) for (const z of [-0.082, 0.082]) add(new V(cp.x + x * k, cp.y + y * k, cp.z + z * k));
+	Object.assign(cb, box);
+	Object.assign(box, save);
+	const url = await a.captureFrame('image/png'); const img = new Image(); img.src = url; await img.decode();
+	const cv = document.createElement('canvas'); cv.width = img.width; cv.height = img.height; const g = cv.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0);
+	const rx = Math.max(0, Math.floor(box.x0 * img.width)), ry = Math.max(0, Math.floor(box.y0 * img.height)), rw = Math.max(1, Math.floor((Math.min(1, box.x1) - box.x0) * img.width)), rh = Math.max(1, Math.floor((Math.min(1, box.y1) - box.y0) * img.height));
+	const d = g.getImageData(rx, ry, rw, rh).data; let l = 0; for (let i = 0; i < d.length; i += 4) l += 0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2];
+	const r = a.backend.canvas.getBoundingClientRect(); const cap = s.ui.caption.getBoundingClientRect();
+	const overlap = !(box.x1 < cb.x0 || cb.x1 < box.x0 || box.y1 < cb.y0 || cb.y1 < box.y0);
+	return { hand: box, candle: cb, lum: l / (d.length / 4), height: box.y1 - box.y0, capTop: (cap.top - r.top) / r.height, overlap };
 })()`);
 const frameOk = (b) => b.x0 >= 0.05 && b.x1 <= 0.95 && b.y0 >= 0.05 && b.y1 <= Math.min(0.95, b.capTop - 0.03);
 for (const [i, id] of ['PB', 'FL', 'OS', 'BR', 'EX', 'PS'].entries()) {
@@ -424,8 +455,27 @@ for (const [i, id] of ['PB', 'FL', 'OS', 'BR', 'EX', 'PS'].entries()) {
 		if (t === 2.9) await shot(`17-showcase-${id}-c`);
 	}
 	const fin = await until(`s.state === 'reach' && s.offered`, 900);
+	await frames(90); // the camera comes back to the offer view
+	await shot(`18-offer-${id}`);
+	const offer = await offerStats();
+	await X('s.settings.offerLight = false;');
+	await frames(80);
+	const offerOff = await offerStats(); // the same view without the class light of the offer
+	await X('s.settings.offerLight = true;');
+	await frames(80);
+	const r3 = (o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, typeof v === 'number' ? +v.toFixed(3) : v]));
+	console.log('OFFER', id, 'lum on/off', offer.lum.toFixed(1), offerOff.lum.toFixed(1), JSON.stringify({ hand: r3(offer.hand), candle: r3(offer.candle), lum: +offer.lum.toFixed(1), height: +offer.height.toFixed(3), capTop: +offer.capTop.toFixed(3), overlap: offer.overlap }));
 	const end = await S(`({ offered: s.offered, buttons: s.ui.actions.classList.contains('on'), roll: +s.showcase.roll.toFixed(1), done: s.showcase.done, state: s.state, light: +s.classLight.intensity.toFixed(2) })`);
-	const ok = fin.ok && end.offered && end.buttons && seen.live > 0 && (id === 'FL' ? seen.light < 0.02 : seen.light > 0.02) && seen.frameFails === 0 && Math.abs(end.roll) < 2 && (id !== 'EX' || seen.flame > 0.5);
+	// the offered hand lies PALM UP. palmNormal = the hand frame's -Y (+Y = the back of the hand), through the live scene graph (arm, wrist cup, showcase roll, breath); palmMesh = the same
+	// measured on the mesh itself: the direction from the middle of the back of the hand to the middle of the palm
+	end.palmDot = await S(`(() => { const slot = s.slots[s.sel]; slot.armG.updateWorldMatrix(true, false); const e = slot.armG.matrixWorld.elements; const n = new slot.root.position.constructor(-e[4], -e[5], -e[6]).normalize(); return +n.y.toFixed(3); })()`);
+	end.palmMesh = await S(`(() => { const slot = s.slots[s.sel]; const a = s.anchorWorld(slot, 'dorsum', new slot.root.position.constructor()); const b = s.anchorWorld(slot, 'palm', new slot.root.position.constructor()); return +b.sub(a).normalize().y.toFixed(3); })()`);
+	const palmUp = end.palmDot >= 0.7;
+	// the offer view: the hand fills 30-40 % of the frame height with >= 5 % margins above the quote, no candle in front of it, and it is not lost in the dark
+	end.offer = { lumOn: +offer.lum.toFixed(1), lumOff: +offerOff.lum.toFixed(1), height: +offer.height.toFixed(3), lum: +offer.lum.toFixed(1), overlap: offer.overlap, hand: Object.fromEntries(Object.entries(offer.hand).map(([k, v]) => [k, +v.toFixed(3)])) };
+	const hasOfferLight = id === 'PB' || id === 'BR'; // SHOWCASE[id].offer: measured without it 46-50/255, with it 58-68
+	const offerOk = offer.height >= 0.29 && offer.height <= 0.42 && !offer.overlap && offer.hand.x0 >= 0.05 && offer.hand.x1 <= 0.95 && offer.hand.y0 >= 0.05 && offer.hand.y1 <= offer.capTop - 0.03 && offer.lum >= 47 && (!hasOfferLight || (offer.lum >= 58 && offer.lum >= offerOff.lum + 8));
+	const ok = offerOk && palmUp && fin.ok && end.offered && end.buttons && seen.live > 0 && (id === 'FL' ? seen.light < 0.02 : seen.light > 0.02) && seen.frameFails === 0 && Math.abs(end.roll) < 2 && (id !== 'EX' || seen.flame > 0.5);
 	step(`showcase ${id}`, { seen, end, boxes: samples.map((x) => x.box && `${x.t}: x ${x.box.x0}-${x.box.x1} y ${x.box.y0}-${x.box.y1} cap ${x.box.capTop}`).filter(Boolean), ok });
 	if (!ok) results.errors.push({ type: 'showcase', text: `${id}: ${JSON.stringify({ seen, end, fin })}` });
 }

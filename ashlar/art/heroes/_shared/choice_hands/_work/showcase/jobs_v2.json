@@ -1,0 +1,117 @@
+[
+  {
+    "id": "CH_SHOW_PB_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\_work\\showcase_PB_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_PB_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\keyart.png",
+        "role": "approved overview key art of the class-choice screen: match its wall, candle, mood, palette and painting style; style and setting reference, not the camera"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\3d\\heroes\\_hands_v1\\textures\\H1_PB_gauntlet_a.png",
+        "role": "older draft of this hand: keep only its idea of a broad gauntlet with coffin nails on the knuckles; materials and colours follow image 3"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\PB_pallbearer\\vA\\concept_v5.png",
+        "role": "approved hero concept of this vocation: take only costume colours, materials and motifs for the sleeve, cuff and hand; ignore the body, face, weapons, labels and grey backdrop"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_PB.png",
+        "role": "our previous version of THIS showcase image: keep its framing, wall, candle, lighting, effect and hand design, but its hand POSE is wrong; redraw the hand turned PALM UP as described"
+      }
+    ]
+  },
+  {
+    "id": "CH_SHOW_FL_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\_work\\showcase_FL_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_FL_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\keyart.png",
+        "role": "approved overview key art of the class-choice screen: match its wall, candle, mood, palette and painting style; style and setting reference, not the camera"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\3d\\heroes\\_hands_v1\\H2_FL_hand\\input.png",
+        "role": "approved design of this exact hand: keep its sleeve, cords, chain cuff, wraps and colours"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\FL_flagellant\\vA\\concept_v5.png",
+        "role": "approved hero concept of this vocation: take only costume colours, materials and motifs for the sleeve, cuff and hand; ignore the body, face, weapons, labels and grey backdrop"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_FL.png",
+        "role": "our previous version of THIS showcase image: keep its framing, wall, candle, lighting, effect and hand design, but its hand POSE is wrong; redraw the hand turned PALM UP as described"
+      }
+    ]
+  },
+  {
+    "id": "CH_SHOW_OS_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\_work\\showcase_OS_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_OS_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\keyart.png",
+        "role": "approved overview key art of the class-choice screen: match its wall, candle, mood, palette and painting style; style and setting reference, not the camera"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\3d\\heroes\\_hands_v1\\H3_OS_hand\\input.png",
+        "role": "approved design of this exact hand: keep its sleeve, bone-and-silver bracer, mortar crust and bone rings"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\OS_ossuarist\\vA\\concept_v5.png",
+        "role": "approved hero concept of this vocation: take only costume colours, materials and motifs for the sleeve, cuff and hand; ignore the body, face, weapons, labels and grey backdrop"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_OS.png",
+        "role": "our previous version of THIS showcase image: keep its framing, wall, candle, lighting, effect and hand design, but its hand POSE is wrong; redraw the hand turned PALM UP as described"
+      }
+    ]
+  },
+  {
+    "id": "CH_SHOW_BR_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\_work\\showcase_BR_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_BR_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\keyart.png",
+        "role": "approved overview key art of the class-choice screen: match its wall, candle, mood, palette and painting style; style and setting reference, not the camera"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\3d\\heroes\\_hands_v1\\H4_BR_hand\\input.png",
+        "role": "approved design of this exact hand: keep its teal wave sleeve, shell bracelet and salt crust"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\BR_brinecaller\\vA\\concept_v5.png",
+        "role": "approved hero concept of this vocation: take only costume colours, materials and motifs for the sleeve, cuff and hand; ignore the body, face, weapons, labels and grey backdrop"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_BR.png",
+        "role": "our previous version of THIS showcase image: keep its framing, wall, candle, lighting, effect and hand design, but its hand POSE is wrong; redraw the hand turned PALM UP as described"
+      }
+    ]
+  },
+  {
+    "id": "CH_SHOW_PS_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\_work\\showcase_PS_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_PS_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\keyart.png",
+        "role": "approved overview key art of the class-choice screen: match its wall, candle, mood, palette and painting style; style and setting reference, not the camera"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\3d\\heroes\\_hands_v1\\textures\\H6_PS_hand_a.png",
+        "role": "older draft of this hand: keep only its idea of a palm-up burn-scarred hand with ash-dark fingertips and a red thread; colours follow image 3"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\PS_pyre_singer\\vA\\concept_v5.png",
+        "role": "approved hero concept of this vocation: take only costume colours, materials and motifs for the sleeve, cuff and hand; ignore the body, face, weapons, labels and grey backdrop"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\heroes\\_shared\\choice_hands\\showcase_PS.png",
+        "role": "our previous version of THIS showcase image: keep its framing, wall, candle, lighting, effect and hand design, but its hand POSE is wrong; redraw the hand turned PALM UP as described"
+      }
+    ]
+  }
+]
