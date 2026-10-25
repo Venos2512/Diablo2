@@ -842,7 +842,7 @@ export class ChoiceHandsScene {
 	bindFingerRig(slot, root = slot.armG) {
 		const profile = slot.def.id === 'FL' && slot.skinned && !this.rigIsSynthetic ? 'flRig' : 'default'; // the real Flagellant rig has its own finger angles (they are added to a half-curled rest)
 		slot.profile = profile;
-		const rig = C.createFingerRig(root, undefined, undefined, undefined, C.HAND_PROFILES[profile].poses);
+		const rig = C.createFingerRig(root, undefined, C.HAND_PROFILES[profile].axes, undefined, C.HAND_PROFILES[profile].poses);
 		slot.rig = rig.hasFingers ? rig : null;
 		slot.rigInfo = { found: rig.found.length, missing: rig.missing, root: rig.hasRoot, wrist: rig.hasWrist };
 		slot.joints = slot.rig ? C.createJointRig(root) : null; // the wrist and forearm bones (hand-test mode: flexion, deviation, roll)
@@ -1449,43 +1449,13 @@ export class ChoiceHandsScene {
 	 * meshes into slabs, and a skinned one cannot be (WebGPU r180 does not clip it either). The twin keeps UVs, indices and the material; the skinned original is hidden.
 	 */
 	freezeSkinned(o) {
-		o.updateWorldMatrix(true, true);
-		o.skeleton.update();
 		const g = o.geometry;
-		const P = g.attributes.position;
-		const N = g.attributes.normal;
-		const si = g.attributes.skinIndex;
-		const sw = g.attributes.skinWeight;
-		const B = o.skeleton.boneMatrices;
-		const bind = o.bindMatrix.elements;
-		const bindInv = o.bindMatrixInverse.elements;
-		const pos = new Float32Array(P.count * 3);
-		const nor = new Float32Array(P.count * 3);
-		const apply = (m, x, y, z, w) => [m[0] * x + m[4] * y + m[8] * z + m[12] * w, m[1] * x + m[5] * y + m[9] * z + m[13] * w, m[2] * x + m[6] * y + m[10] * z + m[14] * w];
-		for (let i = 0; i < P.count; i++) {
-			const [bx, by, bz] = apply(bind, P.getX(i), P.getY(i), P.getZ(i), 1);
-			const [nx, ny, nz] = N ? apply(bind, N.getX(i), N.getY(i), N.getZ(i), 0) : [0, 1, 0];
-			let px = 0, py = 0, pz = 0, qx = 0, qy = 0, qz = 0;
-			for (let k = 0; k < 4; k++) {
-				const w = sw.getComponent(i, k);
-				if (!w) continue;
-				const m = B.subarray(si.getComponent(i, k) * 16, si.getComponent(i, k) * 16 + 16);
-				const a = apply(m, bx, by, bz, 1);
-				const b = apply(m, nx, ny, nz, 0);
-				px += w * a[0]; py += w * a[1]; pz += w * a[2];
-				qx += w * b[0]; qy += w * b[1]; qz += w * b[2];
-			}
-			const [vx, vy, vz] = apply(bindInv, px, py, pz, 1);
-			const [mx, my, mz] = apply(bindInv, qx, qy, qz, 0);
-			const l = Math.hypot(mx, my, mz) || 1;
-			pos.set([vx, vy, vz], i * 3);
-			nor.set([mx / l, my / l, mz / l], i * 3);
-		}
+		const baked = C.bakeSkinned(o);
 		const tg = new THREE.BufferGeometry();
-		tg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-		tg.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
-		if (g.attributes.uv) tg.setAttribute('uv', g.attributes.uv);
-		tg.setIndex(g.index);
+		tg.setAttribute('position', new THREE.BufferAttribute(baked.position, 3));
+		tg.setAttribute('normal', new THREE.BufferAttribute(baked.normal, 3));
+		if (g.attributes.uv) tg.setAttribute('uv', g.attributes.uv.clone()); // the twin OWNS its attributes: disposing it (and its slabs) never deletes a buffer the skinned original or another slot still uses
+		tg.setIndex(g.index.clone());
 		const twin = new THREE.Mesh(tg, o.material);
 		twin.name = `${o.name || 'hand'} (posed)`;
 		twin.userData.frozenTwin = true;
@@ -1728,6 +1698,10 @@ export class ChoiceHandsScene {
 			}
 		} else if (ht.mode === 'preset' && C.presetSet(ht.profile)[ht.preset].dynamic) ht.motion.setTarget(C.presetPose(ht.preset, ht.t - ht.presetT0, ht.profile), { lag: false });
 		ht.motion.update(Math.min(delta, 0.05));
+		if (ht.panel) { // the panel shows the preset the loop is on
+			ht.panel.preset = ht.mode === 'manual' ? ht.panel.preset : ht.preset;
+			ht.panel.run = ht.mode === 'run';
+		}
 		if (ht.mode !== 'manual' && ht.ui) { // the sliders show where the hand is
 			const p = ht.motion.pose;
 			for (const f of Object.keys(p.fingers)) Object.assign(ht.ui[f], { mcp: p.fingers[f].curl[0], pip: p.fingers[f].curl[1], dip: p.fingers[f].curl[2], spread: p.fingers[f].spread });
@@ -1777,7 +1751,8 @@ export class ChoiceHandsScene {
 		this.scene.remove(old.root);
 		this.proxyRoot.remove(old.proxy);
 		old.proxy.geometry.dispose();
-		for (const sl of old.sliceCache ?? []) sl.mesh.geometry.dispose();
+		(this.retiredSlabs ??= []).push(...(old.sliceCache ?? [])); // static slabs share their vertex buffers with the GLB (and the other slots built from it): freed with the scene, never on their own
+		old.root.traverse((o) => o.skeleton?.dispose()); // the bone texture of a skinned hand
 		for (const m of old.mats) m.dispose();
 		const slot = this.buildSlot(old.def, i);
 		slot.hidden = old.hidden;
@@ -1810,7 +1785,8 @@ export class ChoiceHandsScene {
 		};
 		this.syncHandTestUi = sync;
 		const state = { preset: 'offer', run: false, skeleton: false, wire: false };
-		fh.add(state, 'preset', Object.fromEntries(Object.entries(C.HAND_PRESETS).map(([id, p]) => [p.label, id]))).name('Tư thế').onChange((id) => {
+		ht.panel = state;
+		fh.add(state, 'preset', Object.fromEntries(Object.entries(C.HAND_PRESETS).map(([id, p]) => [p.label, id]))).name('Tư thế').listen().onChange((id) => {
 			if (!ht.on) this.enterHandTest();
 			state.run = false;
 			this.setHandPreset(id);
@@ -1845,7 +1821,7 @@ export class ChoiceHandsScene {
 		ht.controllers.push(gw.add(ht.ui.wrist, 'flex', C.WRIST_LIMITS.flex[0], C.WRIST_LIMITS.flex[1], 0.5).name('Gập (+ về lòng tay) °').listen().onChange(take));
 		ht.controllers.push(gw.add(ht.ui.wrist, 'dev', C.WRIST_LIMITS.dev[0], C.WRIST_LIMITS.dev[1], 0.5).name('Nghiêng (+ về ngón cái) °').listen().onChange(take));
 		ht.controllers.push(gw.add(ht.ui.wrist, 'roll', C.WRIST_LIMITS.roll[0], C.WRIST_LIMITS.roll[1], 0.5).name('Xoay cẳng tay °').listen().onChange(take));
-		note(fh, '<b>Thử tay:</b> camera tự do (kéo = xoay, lăn = zoom); thanh trượt = từng khớp trong giới hạn giải phẫu (MCP 0–90°, PIP 0–110°, DIP 0–80°); các ngón vào cuộc lệch nhau (trỏ trước, út sau) và đốt ngoài theo đốt trong. <b>Chạy vòng thử</b> đi qua: thả lỏng · mở mời nắm · khum chén · nắm đấm · nắm hờ · chỉ · xoè · gợn sóng · cổ tay ±40° · xoay cẳng tay ±90°. Bảng thông số: <code>HAND_LIMITS / HAND_PRESETS / HAND_MOTION</code> ở <code>env/choiceHands.js</code>. URL: <code>?scene=choiceHands&amp;handtest=1</code>.');
+		note(fh, '<b>Thử tay:</b> camera tự do (kéo = xoay, lăn = zoom); thanh trượt = từng khớp trong giới hạn giải phẫu, tính từ tư thế rest của rig (MCP −30…90°, PIP −50…110°, DIP −35…80°; ngón cái −25…55° / −25…75° / −20…65°: mesh cong sẵn cần góc âm để duỗi); các ngón vào cuộc lệch nhau (trỏ trước, út sau) và đốt ngoài theo đốt trong. <b>Chạy vòng thử</b> đi qua: thả lỏng · mở mời nắm · khum chén · nắm đấm · nắm hờ · chỉ · xoè · gợn sóng · cổ tay ±40° · xoay cẳng tay ±90°. Bảng thông số: <code>HAND_LIMITS / HAND_PRESETS / HAND_MOTION</code> ở <code>env/choiceHands.js</code>. URL: <code>?scene=choiceHands&amp;handtest=1</code>.');
 	}
 
 	// ---- showcase: what the chosen hand shows of its class ------------------------------------------------------------------------------
@@ -2156,6 +2132,7 @@ export class ChoiceHandsScene {
 		this.disposed = true;
 		const free = (root) =>
 			root.traverse((o) => {
+				o.skeleton?.dispose();
 				o.geometry?.dispose();
 				if (o.material) {
 					for (const m of Array.isArray(o.material) ? o.material : [o.material]) {
@@ -2165,6 +2142,7 @@ export class ChoiceHandsScene {
 				}
 			});
 		free(this.scene);
+		for (const sl of this.retiredSlabs ?? []) sl.mesh.geometry.dispose();
 		for (const slot of this.slots) for (const sl of slot.sliceCache ?? slot.slices ?? []) sl.mesh.geometry.dispose(); // cached slabs are off the scene graph: free their index buffers here
 		for (const g of Object.values(this.gltfs || {})) free(g.scene);
 		for (const p of this.proxyRoot?.children ?? []) {

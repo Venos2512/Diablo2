@@ -111,7 +111,6 @@ def inspect_rig(j, binb):
             info['skinned_meshes'].append(n.get('name', f'node{i}'))
             for p in j['meshes'][n['mesh']]['primitives']:
                 pos = accessor(j, binb, p['attributes']['POSITION'])
-                M = W[i]  # the mesh node's own transform is ignored by a skin; positions are in the joints' space
                 lo = np.minimum(lo, pos.min(0))
                 hi = np.maximum(hi, pos.max(0))
                 if 'WEIGHTS_0' in p['attributes']:
@@ -151,13 +150,18 @@ def wrap_frame(j, s, turn, t):
 def rebuild(j, binb, image_size=2048, quality=88):
     """Re-encode every image to <= image_size px JPEG and repack the BIN in bufferView order (alignment 4). Returns (j, bin)."""
     views = j['bufferViews']
+    for k, im in enumerate(j.get('images', [])):
+        if 'bufferView' not in im:
+            raise ValueError(f"images[{k}] ({im.get('name', im.get('uri', '?'))[:60]}) is not stored in a bufferView (a uri: an external file or a data: URL): export the GLB with the textures embedded")
     img_views = {im['bufferView']: k for k, im in enumerate(j.get('images', []))}
     out = bytearray()
     for i, v in enumerate(views):
         data = binb[v.get('byteOffset', 0):v.get('byteOffset', 0) + v['byteLength']]
         if i in img_views:
             im = Image.open(io.BytesIO(data))
-            has_alpha = im.mode in ('RGBA', 'LA', 'P') and 'A' in im.getbands()
+            has_alpha = im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info)  # a palette image with a transparent colour has an alpha too
+            if has_alpha:
+                im = im.convert('RGBA')
             if max(im.size) > image_size:
                 f = image_size / max(im.size)
                 im = im.resize((round(im.width * f), round(im.height * f)), Image.LANCZOS)
@@ -201,9 +205,7 @@ def fake_rig(src_path, dst_path, wrist_z=0.27):
     tipz = pos[:, 2].max()
     kz = wrist_z + 0.085  # knuckle row
     far = pos[pos[:, 2] > tipz - 0.03]
-    xs = np.sort(far[:, 0])
     # four fingers: spread the bases over the width of the far part away from the thumb
-    xlo, xhi = (cx - side * 0.0, far[:, 0].max()) if side < 0 else (far[:, 0].min(), cx + 0.0)
     xlo, xhi = far[:, 0].min(), far[:, 0].max()
     span = xhi - xlo
     if side > 0:  # thumb at +x: fingers occupy the -x 80 %
@@ -262,7 +264,6 @@ def fake_rig(src_path, dst_path, wrist_z=0.27):
     fingers = {}
     for name, (chain, tip) in chains.items():
         pts = chain + [tip]
-        d = np.full(nv, 1e9)
         wseg = np.zeros((nv, 3))
         # distance of every vertex to the finger axis (base -> tip), and its position along it
         a, bpt = pts[0], pts[-1]

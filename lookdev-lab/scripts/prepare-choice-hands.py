@@ -289,7 +289,11 @@ def prep_rig(report, fake=False):
         print(f'  {RIG_SAMPLE}.glb: {RIG_REL} not found - rig branch skipped (use --fake-rig for a synthetic stand-in)')
         return None
     report.append(rec)
-    return (RIG_SAMPLE, label + ' · class-select hand (GLB, 0.45 m, pivot sleeve end, +z fingers, +y back of hand)', 'model', f'choice-hands/{RIG_SAMPLE}.glb', RIG_REL if os.path.exists(RIG_SRC) else 'ashlar/3d/heroes/_hands_v1/H2_FL_hand')
+    credit = ('Rigged in Blender (skinned: 22 bones, hand_root to pinky_03, sockets fx_*) from the Tripo-generated Flagellant hand (ashlar/3d/heroes/_hands_v1/H2_FL_hand; rig work in '
+              'ashlar/3d/heroes/_hands_v1/H2_FL_hand/rig), re-encoded (2048 px JPEG, skin kept) by scripts/prepare-choice-hands.py; the cloth tube behind the sleeve is added by the scene from the static hand'
+              if os.path.exists(RIG_SRC) else
+              'SYNTHETIC stand-in rig (scripts/glb_rig_tools.py fake_rig): a position-weighted skin of the static Flagellant hand (assets/choice-hands/choice-hand-fl.glb), only to test the lab drivers until the Blender rig exists')
+    return (RIG_SAMPLE, label + ' · class-select hand (GLB, 0.45 m, pivot sleeve end, +z fingers, +y back of hand)', 'model', f'choice-hands/{RIG_SAMPLE}.glb', RIG_REL if os.path.exists(RIG_SRC) else 'ashlar/3d/heroes/_hands_v1/H2_FL_hand', credit)
 
 
 def wall_textures():

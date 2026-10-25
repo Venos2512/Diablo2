@@ -70,6 +70,24 @@ class RigTools(unittest.TestCase):
             data = b2[v['byteOffset']:v['byteOffset'] + v['byteLength']]
             self.assertLessEqual(max(Image.open(BytesIO(data)).size), 512)
 
+    def test_a_palette_image_with_transparency_stays_a_png_and_an_image_by_uri_is_refused(self):
+        from io import BytesIO
+        from PIL import Image
+        im = Image.new('P', (8, 8), 0)
+        im.putpalette([255, 0, 0] * 256)
+        buf = BytesIO()
+        im.save(buf, 'PNG', transparency=0)
+        data = buf.getvalue()
+        j = {'bufferViews': [{'buffer': 0, 'byteOffset': 0, 'byteLength': len(data)}], 'images': [{'bufferView': 0, 'mimeType': 'image/png'}], 'buffers': [{'byteLength': len(data)}]}
+        j2, b2 = G.rebuild(j, data)
+        self.assertEqual(j2['images'][0]['mimeType'], 'image/png')
+        out = Image.open(BytesIO(b2[:j2['bufferViews'][0]['byteLength']]))
+        self.assertEqual(out.mode, 'RGBA')
+        self.assertEqual(out.getchannel('A').getextrema()[0], 0)
+        with self.assertRaises(ValueError) as ctx:
+            G.rebuild({'bufferViews': [], 'images': [{'uri': 'tex.png'}], 'buffers': []}, b'')
+        self.assertIn('bufferView', str(ctx.exception))
+
 
 if __name__ == '__main__':
     unittest.main()

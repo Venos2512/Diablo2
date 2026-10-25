@@ -262,10 +262,7 @@ export const FINGER_BONES = {
  * Optional per-finger override of the derived axes, given in the HAND frame: FINGER_AXES.thumb = { curl: [x, y, z], spread: [x, y, z] } (curl: positive toward the palm).
  * Empty by default: the thumb, whose chain does not run along +z, gets the same derivation from its own bones (a thumb that curls the wrong way is the first thing to check).
  */
-export const FINGER_AXES = {
-	// H2_FL_hand_rig.glb (qa_report.md section 7.4): the thumb lies in the palm plane, its nail toward the wrist, so the geometry-derived axis is 72-76 deg off the real hinge
-	thumb: { curl: [-0.007, -0.954, -0.299], spread: [0.226, 0.29, -0.93] },
-};
+export const FINGER_AXES = {}; // none by default; a model's own overrides live in HAND_PROFILES[profile].axes (the real Flagellant rig: thumb)
 /**
  * Procedural poses, degrees per segment [_01, _02, _03] and the spread of _01. relaxed = idle (a loose half-curl, the little finger most), open = the hand OFFERED, palm UP (a loose
  * cup: a few degrees of curl, fingers slightly fanned: "come, take it"), grip = grasped (a closed fist). Blend: relaxed -> open by `offer`, then -> grip by `grip`.
@@ -278,6 +275,46 @@ export const FINGER_POSES = {
 	pinky: { relaxed: [28, 32, 20], open: [13, 16, 9], grip: [74, 86, 58], spread: { relaxed: -4, open: -10, grip: -2 } },
 };
 const normBone = (n) => String(n).toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/**
+ * A skinned mesh AS POSED NOW: position and normal arrays (Float32Array, in the mesh's own space, like SkinnedMesh.getVertexPosition) from the skeleton's bone matrices. The dissolve cuts
+ * static meshes, so a hand with a skin is frozen into one (scene.freezeSkinned). Call skeleton.update() (or render) first so the bone matrices are current.
+ */
+export function bakeSkinned(mesh) {
+	mesh.updateWorldMatrix(true, true);
+	mesh.skeleton.update();
+	const g = mesh.geometry;
+	const P = g.attributes.position;
+	const N = g.attributes.normal;
+	const si = g.attributes.skinIndex;
+	const sw = g.attributes.skinWeight;
+	const B = mesh.skeleton.boneMatrices;
+	const bind = mesh.bindMatrix.elements;
+	const bindInv = mesh.bindMatrixInverse.elements;
+	const pos = new Float32Array(P.count * 3);
+	const nor = new Float32Array(P.count * 3);
+	const apply = (m, x, y, z, w) => [m[0] * x + m[4] * y + m[8] * z + m[12] * w, m[1] * x + m[5] * y + m[9] * z + m[13] * w, m[2] * x + m[6] * y + m[10] * z + m[14] * w];
+	for (let i = 0; i < P.count; i++) {
+		const [bx, by, bz] = apply(bind, P.getX(i), P.getY(i), P.getZ(i), 1);
+		const [nx, ny, nz] = N ? apply(bind, N.getX(i), N.getY(i), N.getZ(i), 0) : [0, 1, 0];
+		let px = 0, py = 0, pz = 0, qx = 0, qy = 0, qz = 0;
+		for (let k = 0; k < 4; k++) {
+			const w = sw.getComponent(i, k);
+			if (!w) continue;
+			const m = B.subarray(si.getComponent(i, k) * 16, si.getComponent(i, k) * 16 + 16);
+			const a = apply(m, bx, by, bz, 1);
+			const b = apply(m, nx, ny, nz, 0);
+			px += w * a[0]; py += w * a[1]; pz += w * a[2];
+			qx += w * b[0]; qy += w * b[1]; qz += w * b[2];
+		}
+		const [vx, vy, vz] = apply(bindInv, px, py, pz, 1);
+		const [mx, my, mz] = apply(bindInv, qx, qy, qz, 0);
+		const l = Math.hypot(mx, my, mz) || 1;
+		pos.set([vx, vy, vz], i * 3);
+		nor.set([mx / l, my / l, mz / l], i * 3);
+	}
+	return { position: pos, normal: nor };
+}
 
 /** Fractions of a 0..1 weight that a finger / a joint waits before it starts (the index leads, the little finger follows; an outer joint follows the inner one). */
 const FINGER_LAG_FRAC = { thumb: 0.1, index: 0, middle: 0.03, ring: 0.06, pinky: 0.09 };
@@ -409,8 +446,10 @@ export function presetPose(id, t = 0, profile = 'default') {
  * `grip` is the fist measured on contact (fingertips touch the palm, <= 1 mm; qa_report.md section 7.3, thumb from section 4) instead of a textbook fist that buries the fingers 14 mm in it.
  */
 export const HAND_PROFILES = {
-	default: { poses: FINGER_POSES },
+	default: { poses: FINGER_POSES, axes: {} },
 	flRig: {
+		// H2_FL_hand_rig.glb (qa_report.md section 7.4): the thumb lies in the palm plane, its nail toward the wrist, so the geometry-derived hinge is 72-76 deg off the real one; the measured axes, hand frame
+		axes: { thumb: { curl: [-0.007, -0.954, -0.299], spread: [0.226, 0.29, -0.93] } },
 		poses: {
 			thumb: { relaxed: [0, 0, 0], open: [-4, -8, -4], grip: [20, 40, 58], spread: { relaxed: 0, open: 6, grip: -20 } },
 			index: { relaxed: [0, 0, 0], open: [-4, -12, -7], grip: [52.7, 64.8, 45.4], spread: { relaxed: 0, open: 3, grip: 0 } },

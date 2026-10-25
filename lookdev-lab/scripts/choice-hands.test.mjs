@@ -883,8 +883,10 @@ test('the real Flagellant rig: measured fist, a straightened (negative) offer, t
 	assert.deepEqual(P.middle.grip, [42.5, 52, 35.5]);
 	assert.deepEqual(P.ring.grip, [48.5, 59, 39.2]);
 	assert.deepEqual(P.pinky.grip, [60.2, 70.1, 46.9]);
-	assert.deepEqual(C.FINGER_AXES.thumb.curl, [-0.007, -0.954, -0.299]);
-	assert.deepEqual(C.FINGER_AXES.thumb.spread, [0.226, 0.29, -0.93]);
+	assert.deepEqual(C.HAND_PROFILES.flRig.axes.thumb.curl, [-0.007, -0.954, -0.299]);
+	assert.deepEqual(C.HAND_PROFILES.flRig.axes.thumb.spread, [0.226, 0.29, -0.93]);
+	assert.deepEqual(C.FINGER_AXES, {}, 'no global override: the axes belong to the model');
+	assert.deepEqual(C.HAND_PROFILES.default.axes, {});
 	for (const f of ['index', 'middle', 'ring', 'pinky']) {
 		assert.ok(P[f].relaxed.every((v) => v === 0), `${f}: the mesh is already curled: relaxed adds nothing`);
 		assert.ok(P[f].open.every((v) => v < 0), `${f}: the offered hand is a little straighter than the mesh (negative), never a claw`);
@@ -907,4 +909,60 @@ test('the real Flagellant rig: measured fist, a straightened (negative) offer, t
 	for (const f of ['index', 'middle', 'ring', 'pinky']) assert.deepEqual(relaxed.fingers[f].curl, [0, 0, 0]);
 	// the default profile is untouched
 	assert.deepEqual(C.HAND_PROFILES.default.poses, C.FINGER_POSES);
+});
+
+test('bakeSkinned (the dissolve of a skinned hand) agrees with SkinnedMesh.getVertexPosition and turns the normals with the bones', () => {
+	const geo = new THREE.CylinderGeometry(0.02, 0.02, 0.2, 8, 10);
+	geo.translate(0, 0.1, 0);
+	const n = geo.attributes.position.count;
+	const idx = new Uint16Array(n * 4);
+	const wts = new Float32Array(n * 4);
+	for (let i = 0; i < n; i++) {
+		const y = geo.attributes.position.getY(i);
+		const w = Math.min(1, Math.max(0, y / 0.2)); // 0 at the base: bone 0, 1 at the top: bone 1
+		idx.set([0, 1, 0, 0], i * 4);
+		wts.set([1 - w, w, 0, 0], i * 4);
+	}
+	geo.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(idx, 4));
+	geo.setAttribute('skinWeight', new THREE.Float32BufferAttribute(wts, 4));
+	const b0 = new THREE.Bone();
+	const b1 = new THREE.Bone();
+	b1.position.set(0, 0.2, 0);
+	b0.add(b1);
+	const mesh = new THREE.SkinnedMesh(geo, new THREE.MeshBasicMaterial());
+	mesh.position.set(0.1, 0.05, -0.02); // a bind matrix that is not the identity
+	mesh.rotation.y = 0.4;
+	const root = new THREE.Group();
+	root.add(mesh, b0);
+	root.updateMatrixWorld(true);
+	mesh.bind(new THREE.Skeleton([b0, b1]));
+	// pose: the lower bone leans, the upper one bends further
+	b0.rotation.z = 0.3;
+	b1.rotation.x = 0.8;
+	b1.position.set(0, 0.2, 0);
+	root.updateMatrixWorld(true);
+	const baked = C.bakeSkinned(mesh);
+	const v = new THREE.Vector3();
+	let worst = 0;
+	for (let i = 0; i < n; i += 7) {
+		mesh.getVertexPosition(i, v);
+		worst = Math.max(worst, Math.hypot(v.x - baked.position[i * 3], v.y - baked.position[i * 3 + 1], v.z - baked.position[i * 3 + 2]));
+	}
+	assert.ok(worst < 1e-5, `positions differ from getVertexPosition by ${worst}`);
+	// the pose really moved something, and the normals stay unit length
+	mesh.getVertexPosition(n - 1, v);
+	const rest = geo.attributes.position;
+	assert.ok(Math.hypot(v.x - rest.getX(n - 1), v.y - rest.getY(n - 1), v.z - rest.getZ(n - 1)) > 0.03, 'the top of the cylinder moved');
+	for (let i = 0; i < n; i += 11) near(Math.hypot(baked.normal[i * 3], baked.normal[i * 3 + 1], baked.normal[i * 3 + 2]), 1, 1e-5);
+	// a vertex fully on the lower bone: its normal turns with that bone alone (rotation z 0.3, seen in the mesh's space)
+	let k = 0; // a vertex of the base ring: y = 0 -> weight 0 -> bone 0
+	for (let i = 0; i < n; i++) if (geo.attributes.position.getY(i) < geo.attributes.position.getY(k) - 1e-9) k = i;
+	const nrm = new THREE.Vector3(geo.attributes.normal.getX(k), geo.attributes.normal.getY(k), geo.attributes.normal.getZ(k));
+	// bone 0's rotation is about the world z of its parent (root), the mesh is turned 0.4 about y: express in mesh space
+	const toMesh = new THREE.Matrix3().setFromMatrix4(mesh.matrixWorld).invert();
+	const world = nrm.clone().applyMatrix3(new THREE.Matrix3().setFromMatrix4(mesh.matrixWorld)).applyAxisAngle(new THREE.Vector3(0, 0, 1), 0.3);
+	const inMesh = world.applyMatrix3(toMesh).normalize();
+	near(baked.normal[k * 3], inMesh.x, 1e-4);
+	near(baked.normal[k * 3 + 1], inMesh.y, 1e-4);
+	near(baked.normal[k * 3 + 2], inMesh.z, 1e-4);
 });
