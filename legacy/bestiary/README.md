@@ -1,14 +1,14 @@
 # Sanctuary Databook · ASHLAR · D2RR
 
-The project's Book of Cain: its own 2D concept art (the ASHLAR *Concept chốt* world with 28 approved monster sheets, plus the D2RR world; 105 concept records with 153 images) plus an English-language cross-game asset reference library for five action RPGs, with a game-wide Torchlight I species index. Includes 34 Diablo II Act I creature records, 181 curated enemy records from Grim Dawn, Titan Quest, Torchlight and Dungeon Siege, 157 Diablo II item references, 7 named Act I NPCs and a Rogue Scout hireling archetype. Environments, 3D models, animation clips and VFX have a shared structure for later expansion. The item section combines quest objects and an early-game reference selection; it is not a verified Act I drop table. Lord of Destruction-only records are labeled.
+The project's Book of Cain: its own 2D concept art (the ASHLAR world with the *Concept chốt*, 28 approved monster sheets, followed by 166 not-yet-approved ASHLAR records, plus the D2RR world; 271 concept records with 459 images) plus an English-language cross-game asset reference library for five action RPGs, with a game-wide Torchlight I species index. Includes 34 Diablo II Act I creature records, 181 curated enemy records from Grim Dawn, Titan Quest, Torchlight and Dungeon Siege, 157 Diablo II item references, 7 named Act I NPCs and a Rogue Scout hireling archetype. Environments, 3D models, animation clips and VFX have a shared structure for later expansion. The item section combines quest objects and an early-game reference selection; it is not a verified Act I drop table. Lord of Destruction-only records are labeled.
 
 ## Open
 
-Open `../D2RR.html` in a modern browser. The file embeds application code, Three.js, the concept art and all reference images (about 54 MB). It works without a server or network; source links require Internet access, and a concept's **Source PNG** link opens the original file when `D2RR.html` stays in `legacy/` (its links climb to the repository root with `../`). `dist/index.html` contains the same build. `../Sanctuary_Databook.html` and `../Diablo_II_Act1_Bestiary.html` are earlier snapshots without the concept art and are no longer rebuilt.
+Open `../D2RR.html` in a modern browser. The file embeds application code, Three.js, the concept art and all reference images (about 80 MB). It works without a server or network; source links require Internet access, and a concept's **Source PNG** link opens the original file when `D2RR.html` stays in `legacy/` (its links climb to the repository root with `../`). `dist/index.html` contains the same build. `../Sanctuary_Databook.html` and `../Diablo_II_Act1_Bestiary.html` are earlier snapshots without the concept art and are no longer rebuilt.
 
 ## Features
 
-- Concept art: the ASHLAR Concept chốt (28 approved monsters) and 8 D2RR concept sets with review notes, a strip of versions or tiles per record, fit/actual-size enlargement and a link to the original PNG. See `docs/CONCEPTS.md`.
+- Concept art: the ASHLAR Concept chốt (28 approved monsters), nine sets of not-yet-approved ASHLAR concepts (Act I–III monsters, heroes, NPCs, items, HUD, Act I environments, Prologue) and 8 D2RR concept sets with review notes, a strip of versions or tiles per record, fit/actual-size enlargement and a link to the original PNG. See `docs/CONCEPTS.md`.
 - Collection navigation, searchable metadata, family/kind/status filters and sorting.
 - Image grid and compact data table.
 - Record dialog with large reference image, source link, art notes and proposed motion checklist.
@@ -24,13 +24,14 @@ Requires Node.js 20+.
 
 ```sh
 npm ci
+python scripts/add_ashlar_unapproved.py   # optional: regenerate the not-yet-approved ASHLAR sets from ashlar/art
 python scripts/import_concepts.py   # after changing assets/CONCEPT_SOURCES.json (needs Pillow)
 npm run build
 npm run check
 npm start
 ```
 
-Preview at http://127.0.0.1:4173. Build writes `dist/index.html` and `../D2RR.html`. `npm run build:site` also writes the website build into `../sites/book-of-cain-act1/dist` (index.html plus `concepts/*.webp` loaded by URL, about 19 MB + 26 MB), the source of the ChatGPT site https://book-of-cain-act1.wise-lemon-0677.chatgpt.site; publishing it uses the Codex Sites plugin. Dependencies are locked in package-lock.json.
+Preview at http://127.0.0.1:4173. Build writes `dist/index.html` and `../D2RR.html`. `npm run build:site` also writes the website build into `../sites/book-of-cain-act1/dist` (index.html plus `concepts/*.webp` loaded by URL, about 20 MB + 45 MB), the source of the ChatGPT site https://book-of-cain-act1.wise-lemon-0677.chatgpt.site; publishing it uses the Codex Sites plugin. Dependencies are locked in package-lock.json.
 
 ## Modules
 
@@ -61,7 +62,7 @@ assets/SOURCES.json       Creature image provenance
 assets/ITEM_SOURCES.json  Item image provenance
 assets/MULTIVERSE_IMAGE_SOURCES.json  Cross-game image provenance and exact/family labels
 assets/NPC_SOURCES.json   NPC image provenance
-scripts/                  Asset retrieval, concept import (import_concepts.py, concept-media.mjs), build, preview and checks
+scripts/                  Asset retrieval, concept import (import_concepts.py, add_ashlar_unapproved.py, concept-media.mjs), build, preview and checks
 docs/SCHEMA.md            Shared data contract and extension example
 docs/DEVELOPMENT.md       Implementation and lifecycle notes
 docs/CONTENT.md           Content boundaries and source interpretation
