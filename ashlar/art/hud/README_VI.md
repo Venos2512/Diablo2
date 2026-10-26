@@ -66,3 +66,17 @@ Người dùng: "vòm lên giữa màn bị cao quá" (bản PC-B 20/10 vòm lê
 | PC-B5 | Vòm ngược, thấp nhất ở giữa | `PC_B5_inverted_arch/mockup_r2.png`, `mockup_r3.png` | ~13 % giữa, ~18 % hai đầu |
 
 Lượt 1 (gắn bản mockup cũ làm mờ) bị Codex chép gần y nguyên, nằm ở `_work/_rejected/mockup_r1.png`. QA từng lượt: `_work/qa_r*.txt`. Chưa duyệt.
+
+## 7. HUD theo nghề, FL và PS trước (26/10/2026)
+
+Base: lớp HUD cắt rời của người dùng `PC_B7_hooded/base_user_layer.png` (2000×696, alpha; cặp tượng trùm mũ). Codex chỉ vẽ lớp HUD trên nền đen (`_work/base_layer_black16x9.png`, lớp đặt ở y = 214 trên 2000×1125); `_brief/v4/cutout_layer.py` cắt về 2000×696 có alpha. Quyết định ở art direction §12 (26/10). Brief và jobfile: `_brief/v4/`.
+
+| Job | Ảnh | Kết quả |
+|---|---|---|
+| HUD-00 thanh chung | `PC_B7_hooded/HUD00_common_v1.png`, lớp `HUD00_common_v1_layer.png` | LMB RMB 1–4, SPACE/Q/R, F/T; giữ tượng và globe |
+| FL-K1 bình Contrition | `class_FL/K1_vessel_v1.png` | A hốc 10 mắt xích / B hộp than + vòm xích |
+| FL-K2 globe và Wound | `class_FL/K2_globe_v1.png` | FULL, WOUND, HEALING, FLOOR 10%, SHORED, REDUCED IMAGERY + 3 trạng thái cốt truyện |
+| PS-K1 bình Breath | `class_PS/K1_vessel_v1.png` | A lồng củi / B trăng khuyết |
+| PS-K2 ô 5, bộ đếm, party | `class_PS/K2_counters_v1.png` | Hymn 3 trạng thái, Smoke-Shape, Long Song, Courage, Last Verse |
+
+QA: `_work/qa_*_v1.txt` cạnh từng ảnh. Bước sau (FL-L1, PS-L1: lớp HUD theo nghề) chờ người dùng chọn hình bình. Chưa duyệt.
