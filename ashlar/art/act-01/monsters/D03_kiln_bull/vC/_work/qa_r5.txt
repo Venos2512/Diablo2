@@ -1,0 +1,5 @@
+D03 vC/concept_r5.png — FAIL as generated; fixed by code → vC/concept_r5b.png PASS (Claude QA AD §11, 2026-10-26)
+r5 raw: views correct (LEFT/RIGHT true profile, near arm end-on; FRONT/BACK horizontal T-pose, long arms ~0.8H shoulder→knuckles), but FRONT/BACK hands fused again and the H silhouette drawn ~326 px (bull 1.28H of it).
+r5b (_batch/fix_C_r5b_layout.py): BACK block shifted 80 px right (canvas 2252 wide), cut fingertips capped round; drawn H replaced by the guide silhouette at 299 px so horns (419 px) = 1.40H; 1H line redrawn at y 287, label at the left end.
+Open: LEFT/RIGHT near hand is a closed fist seen end-on (prompt asked open hand); model to open hands for Tripo.
+pending_user_review: yes
