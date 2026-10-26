@@ -1,0 +1,37 @@
+Astra generation-only harness for ONE concept image.
+- Use ONLY your BUILT-IN image_gen tool to create the bitmap, exactly once.
+- Do NOT read any skill, doc or other file: the prompt below is complete. Do NOT create, copy, move or edit any file: the harness collects the generated image from its generated_images folder by itself.
+- Do NOT launch codex or any other agent or CLI, do NOT delegate, do NOT draw with code (no PIL, SVG, canvas or HTML), do NOT use an OpenAI API key, scripts/image_gen.py or any other fallback.
+- The attached images are references; their order and roles are stated in the prompt below. Keep every layout, scale, view, style, colour and text requirement of the prompt and pass its full content to image_gen.
+- When the image is generated, reply in one short line with the generated file path. If image_gen is unavailable or fails, reply with the exact error message. Do not retry on your own.
+
+PROMPT:
+STYLE CORE (ASHLAR art direction, mandatory): moderately stylized hand-painted dark fantasy in the spirit of Diablo Immortal (the Diablo III / Diablo Immortal family look). NOT photoreal, NOT Diablo IV realism, NOT cartoon, chibi, anime, cel-shaded or toy-like. Proportions follow real anatomy; exaggeration goes only to the identity features (heroes: hands, feet and class props slightly oversized; monsters: their signature features pushed further). Strong readable silhouette, clear value grouping, clean colour blocking: a dominant colour, a secondary colour and a small accent, plus neutrals. Surfaces are SIMPLE: broad painted planes with soft gradients and a few crisp highlights; detail comes from big shapes (large torn edges, plates, straps, bones, cracks, patches), never from texture. No micro texture: no pores, fabric weave, leather grain, scratches, stains, speckle noise, fine grunge or photoreal PBR. No spiky, bristly or jagged rendering: no hair-thin scratchy strokes, saw-tooth, splintered or frayed edges, crackle or busy little spikes; outlines and edges are smooth, clean and softly rounded (sharp points only where the design itself names them, such as thorns or horns), and the detail density never exceeds the approved low-detail sheets. Low detail never means flat: keep clear 3D form shading with a lit side, a shadow side, big soft fold shadows and darker occlusion in deep folds. No black cartoon outlines.
+
+SHEET RULES: flat warm mid-grey studio backdrop, no environment, minimal soft contact shadows. Neutral studio light from above and slightly in front, the same in every view, with clear form shading (never a flat, evenly lit look); no bloom, no coloured light. No VFX and no particles unless stated. Every view shows the SAME design, proportions, colours and asymmetries; one-sided details stay on the same anatomical side in every view. LEFT = the subject's anatomical left side toward the camera, facing image-left; RIGHT = the true opposite side, facing image-right, never a mirror of LEFT; BACK = the true back, never a mirrored front. Model views use an eye-level orthographic camera. Nothing cropped, nothing overlapping. Concept art only: not a sprite, not a 3D model sheet with wireframes. Text: only the exact title and labels given; no other text, no watermark.
+
+CONTENT: no crosses, no real saints, prayers or religious symbols; ASHLAR's church sign is the Wedge (a keystone shape), only where the brief asks for it. No gore emphasis and no blood splatter (Act III blood accents are small painted stains only); heroes show no wounds and no blood. Adults only, except canon child and teenage NPC concepts explicitly allowed on 23/10/2026: preserve their canon age, fully clothed, age-appropriate and non-sexualised; no graphic injury or distress. No nudity, no anatomical detail, no sexualised poses; no likeness of any real person. Never stage hanged bodies.
+
+INPUT IMAGES (attached in this order): image 1 = design reference (intentionally blurred): keep its design, poses and layout, NOT its texture; image 2 = style reference only: match its hand-painted rendering and low level of detail, not its design, colours or layout.
+
+TASK: repaint the attached Ash Cantor concept sheet (image 1, intentionally blurred) as a cleaner, LOWER-DETAIL version. Keep the same design, the same four figures, the same poses and the same layout; change only the surface rendering.
+
+SUBJECT (canon for this sheet): W05 Corpse-Candle, Act I Dolmoor. A gaunt human cleric whose whole head is capped in thick melted candle wax, swinging a censer as he chants. Solemn, quiet and dangerous.
+
+BUILD (three big masses):
+1. Head and shoulders: off-white aged wax (#D7CFB8) poured over scalp, brow and cheeks in 5 to 7 big rounded drip ridges, a few long drips down to the chin and the collar; dark recessed eye slits; still a human head. No candle, no flame on the head.
+2. Robe: long narrow ash-beige outer robe (#B1A28B) with huge hanging sleeves; charcoal inner robe (#303035) shown in the sleeve openings, the collar and the front split; wide dark sash at the waist. Long simple vertical folds with big soft fold shadows.
+3. Censer: one blackened-iron round pierced censer with a lid on short chains, held in the right hand at knee height; amber coals (#E0A050 to #B76D36) glow only inside the openings, with one thin faint smoke curl. The free left hand rests on the chest.
+
+SURFACE (the point of this pass): broad smooth painted planes with soft gradients, like the attached Act I style sheet (image 2). The cloth is clean, plain painted wool: NO mottling, no blotchy soot stains, no speckles, no fabric texture, no scratchy strokes. The hems and sleeve ends get at most three to five large torn notches each with clean, smooth, softly rounded edges; never frayed, shredded, saw-tooth or spiky edges and never many small tears. Soot only as one soft dark gradient near the hem. The wax is smooth and creamy with soft highlights, not lumpy or crusted. The iron is plain and dark with one soft highlight. Keep strong form shading: lit side, shadow side, dark occlusion in deep folds.
+
+LAYOUT (same as image 1): wide 16:9 landscape sheet. Left 55 %: one LARGE full-body three-quarter view, camera slightly above looking down, bowed forward, censer hanging away from the body. Right 45 %: three smaller full-body views on one baseline with generous gaps: FRONT, true SIDE (facing image-left), true BACK. All four show the same wax shape, robe, sash, hands, censer and chain length. Nothing cropped, feet and censers fully visible.
+
+COLOUR: primary ash beige about 60 %, secondary charcoal about 30 %, accent only the small amber glow in the censer; wax is the brightest value. Keep the beige warm, not grey.
+
+NO TEXT at all: no title, no labels, no numbers, no swatches, no watermark.
+
+WRONG IN THE REFERENCE (fix these, keep everything else):
+- blotchy mottled cloth texture and dark soot speckles all over the robe -> clean broad painted cloth;
+- frayed, ragged, spiky hems and sleeve edges -> a few big clean torn notches;
+- busy small wax lumps -> fewer, bigger, smoother drips.

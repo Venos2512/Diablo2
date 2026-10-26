@@ -1,0 +1,17 @@
+[
+  {
+    "id": "W05_C_v1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W05_corpse_candle\\vC\\_work\\concept.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W05_corpse_candle\\vC\\concept.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W05_corpse_candle\\vC\\_work\\ash_cantor_blur.png",
+        "role": "design reference (intentionally blurred): keep its design, poses and layout, NOT its texture"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\U01_shambler\\vA\\concept_r2.png",
+        "role": "style reference only: match its hand-painted rendering and low level of detail, not its design, colours or layout"
+      }
+    ]
+  }
+]
