@@ -1,0 +1,57 @@
+[
+  {
+    "id": "HUD00",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\HUD00_common_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "approved HUD layer on black to edit (change only the bar sockets)"
+      }
+    ]
+  },
+  {
+    "id": "FL_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "FL_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\K2_globe_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\K2_globe_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "PS_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "PS_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\K2_counters_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\K2_counters_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "PC_B2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B2_low_arch\\_work\\mockup.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B2_low_arch\\mockup.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\_brief\\v2\\PC_B_mockup_blur.png",
+        "role": "blurred earlier mockup of this screen (scene, camera, HUD material; its arch is too tall)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\environments\\G12_cathedral_nave\\perspective_v4.png",
+        "role": "style reference only (painting style and low level of detail)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "design of the Hush-Wolves"
+      }
+    ]
+  },
+  {
+    "id": "PC_B3",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B3_flat_arch\\_work\\mockup.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B3_flat_arch\\mockup.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\_brief\\v2\\PC_B_mockup_blur.png",
+        "role": "blurred earlier mockup of this screen (scene, camera, HUD material; its arch is too tall)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\environments\\G12_cathedral_nave\\perspective_v4.png",
+        "role": "style reference only (painting style and low level of detail)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "design of the Hush-Wolves"
+      }
+    ]
+  },
+  {
+    "id": "PC_B4",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B4_sunken_arch\\_work\\mockup.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B4_sunken_arch\\mockup.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\_brief\\v2\\PC_B_mockup_blur.png",
+        "role": "blurred earlier mockup of this screen (scene, camera, HUD material; its arch is too tall)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\environments\\G12_cathedral_nave\\perspective_v4.png",
+        "role": "style reference only (painting style and low level of detail)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "design of the Hush-Wolves"
+      }
+    ]
+  },
+  {
+    "id": "PC_B5",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B5_inverted_arch\\_work\\mockup.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B5_inverted_arch\\mockup.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\_brief\\v2\\PC_B_mockup_blur.png",
+        "role": "blurred earlier mockup of this screen (scene, camera, HUD material; its arch is too tall)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-02\\environments\\G12_cathedral_nave\\perspective_v4.png",
+        "role": "style reference only (painting style and low level of detail)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\act-01\\monsters\\W03_hush_wolf\\vA\\concept_r2.png",
+        "role": "design of the Hush-Wolves"
+      }
+    ]
+  }
+]
