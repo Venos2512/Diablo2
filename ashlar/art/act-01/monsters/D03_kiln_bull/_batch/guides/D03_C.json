@@ -1,0 +1,83 @@
+{
+ "id": "D03",
+ "variant": "C",
+ "title": "D03 KILN-BULL — C",
+ "status": "scale/layout guide only; not concept art; not approved",
+ "source_file": "ashlar/docs/ASHLAR_QUY_CHUAN_QUAI_VI.md",
+ "source_section": "4.2",
+ "pose": "tpose",
+ "layout": "single",
+ "canvas": [
+  2172,
+  724
+ ],
+ "backdrop_rgb": [
+  141,
+  137,
+  131
+ ],
+ "hpx_per_H": 262,
+ "silhouette_px": [
+  93,
+  262
+ ],
+ "rows": [
+  {
+   "views": [
+    "H",
+    "3/4",
+    "LEFT",
+    "RIGHT",
+    "FRONT",
+    "BACK"
+   ],
+   "baseline_y": 632,
+   "lines": [
+    {
+     "label": "1H",
+     "h": 1.0,
+     "y": 370
+    },
+    {
+     "label": "top of horns 1.40H",
+     "h": 1.4,
+     "y": 265
+    }
+   ]
+  }
+ ],
+ "labels": [
+  "H",
+  "3/4",
+  "LEFT",
+  "RIGHT",
+  "FRONT",
+  "BACK"
+ ],
+ "source": [
+  {
+   "metric": "h",
+   "source_range": "1.40H (G4), hai chân — người dùng chốt 23/10/2026",
+   "mid": 1.4,
+   "unit": "H",
+   "tag": "Đề xuất",
+   "guide_value_H": 1.4
+  }
+ ],
+ "weapon_cell": null,
+ "estimates": {
+  "notes": [
+   "view widths (huge arms and shoulders)"
+  ],
+  "view_widths_H": {
+   "3/4": 1.35,
+   "LEFT": 0.95,
+   "RIGHT": 0.95,
+   "FRONT": 1.55,
+   "BACK": 1.55
+  },
+  "spans": {}
+ },
+ "ghost_size_blocks": false,
+ "span_ruler": false
+}
