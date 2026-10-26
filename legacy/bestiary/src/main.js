@@ -28,7 +28,7 @@ function saved(id){return workspace.favorites.includes(id);}
 function toggleSaved(id){workspace.favorites=saved(id)?workspace.favorites.filter(x=>x!==id):[...workspace.favorites,id];store();render();if(selected?.id===id)updateSaved();}
 function updateSaved(){const on=saved(selected.id);$('record-save').textContent=on?'★':'☆';$('record-save').setAttribute('aria-pressed',String(on));$('record-save').setAttribute('aria-label',on?'Remove saved asset':'Save asset');}
 
-const gameOptions=[{id:'all',name:'All worlds',scope:'ASHLAR concept chốt + D2RR concepts + five-game archive'},...worlds];
+const gameOptions=[{id:'all',name:'All worlds',scope:'ASHLAR concepts (approved + unapproved) + D2RR concepts + five-game archive'},...worlds];
 gameOptions.forEach(game=>{const b=el('button','game-tab');b.type='button';b.dataset.game=game.id;b.setAttribute('aria-pressed','false');b.append(el('span','game-tab-title',game.name));if(game.scope)b.append(el('small','',game.scope));b.addEventListener('click',()=>{state.game=game.id;state.collection='all';state.saved=false;resetFilters();render();});$('game-tabs').append(b);});
 collections.forEach(c=>{const b=el('button','nav-button');b.dataset.collection=c.id;b.append(el('span','nav-icon',c.symbol),el('span','',c.name),el('span','count',String(countType(c.id))));b.addEventListener('click',()=>{state.collection=c.id;state.saved=false;resetFilters();render();});$('collections').append(b);});
 function groupName(a){return allGroupById[a.group]?.name||a.role||collectionById[a.type]?.name;}
