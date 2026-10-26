@@ -1,0 +1,4 @@
+mockup_r1 (26/10): FAIL
+- Codex treated image 1 (blurred old mockup) as an edit base: near copy of the old PC-B, old Corpse-Candle flames kept.
+- HUD top still at 23-27% of screen height (target <= 15%); the requested low_arch shape did not appear.
+next: r2 without the old mockup, code layout guide guide_B2.png
