@@ -23,7 +23,7 @@ python astra_batch.py --jobfile E:/.../jobs.json [--jobs M07_v2 ...] [--parallel
 - `--kind`: monster, hero, prop, terrain, tpose-humanoid, tpose-quadruped, env-sheet, scene, tripo-row; hoặc `--blocks STYLE SHEET ...` (khoá: STYLE SHEET HERO MONSTER TERRAIN TPOSE HUMANOID QUADRUPED ENV SIX SCENE TRIPO CONTENT).
 - Khối nào thiếu hoặc trùng trong ashlar/art-direction/artdirection.md thì script dừng ngay.
 - Status mặc định: `<thư mục jobfile>/_runs/status.jsonl`. Cuối batch in: ảnh ok, lỗi, tổng token, token/ảnh.
-- Tài khoản: `--codex-home` hoặc biến `ASTRA_CODEX_HOME` (mặc định `E:/map01-batch/home`); đầu lần chạy in account id (và plan) trong auth.json. Không in token hay email.
+- Tài khoản: `--codex-home` hoặc biến `ASTRA_CODEX_HOME` (mặc định `E:/map01-batch/home`); đầu lần chạy in account id (và plan) trong auth.json. Không in token hay email. **Không dùng `E:/map01-batch/home-nam`** (người dùng, 25/10/2026); chạy với `--codex-home ~/.codex`.
 - Thư mục làm việc: codex chạy với `-C` một thư mục rỗng ngoài repo (`--workdir`, mặc định `E:/map01-batch/work`, tự tạo) cùng `--skip-git-repo-check`, để không nạp AGENTS.md của repo và Astra khỏi đọc ashlar/art-direction/artdirection.md. Ảnh tham chiếu dùng đường dẫn tuyệt đối. Nếu log cho thấy session vẫn chạy lệnh shell (đọc file), status ghi `policy: "read-files"`: kiểm tra token của ảnh đó.
 - Đường dẫn trong jobfile được `build_prompt.py` đổi sang tuyệt đối; đường dẫn tương đối còn sót được hiểu theo thư mục của jobfile. `--jobs` trùng id chỉ chạy một lần; hai job cùng outputPath thì dừng ngay.
 - Chạy thử: `python -m pytest tests/test_build_prompt.py tests/test_astra_batch.py` (không gọi codex).

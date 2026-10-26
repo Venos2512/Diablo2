@@ -83,6 +83,21 @@ def test_hero_npc_environment_and_common_rows(tmp_path):
     assert 'dungeon_bone_pile.glb' in com and com.startswith('| dungeon_v1 | — | — |')
 
 
+def test_approved_npc_concept_replaces_newest(tmp_path):
+    r = make(tmp_path)
+    touch(r, 'art/npcs/N02_brannoc/concept_B.png', 90)
+    touch(r, 'art/npcs_approved/N01_gennet.png', 5)             # older than concept_A.png, still wins
+    touch(r, 'art/npcs_approved/approved.json')
+    text = BI.render(BI.collect(r))
+    npc = next(l for l in text.splitlines() if l.startswith('| N01_gennet '))
+    assert '[approved: N01_gennet.png](art/npcs_approved/N01_gennet.png)' in npc and 'concept_A.png' not in npc
+    assert '(art/npcs/N01_gennet/)' in npc                      # the concept folder link stays
+    other = next(l for l in text.splitlines() if l.startswith('| N02_brannoc '))
+    assert 'concept_B.png' in other and 'approved' not in other  # no approved file: newest as before
+    assert not any('approved' in l for l in text.splitlines() if l.startswith('## '))   # no section of its own
+    assert text.count('| N01_gennet ') == 1 and not any(l.startswith('| N01_gennet.png') for l in text.splitlines())
+
+
 def test_section_order(tmp_path):
     text = BI.render(BI.collect(make(tmp_path)))
     heads = [l for l in text.splitlines() if l.startswith('## ')]

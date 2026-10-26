@@ -15,7 +15,7 @@ One row per asset ID. `art/` and `3d/` use the same path for the same asset: `<a
 | B05_hospice_mother | [B05_hospice_mother](art/act-01/monsters/B05_hospice_mother/) | [vB/concept_r2.png](art/act-01/monsters/B05_hospice_mother/vB/concept_r2.png) | [B05_hospice_mother](3d/act-01/monsters/B05_hospice_mother/) | [B05_hospice_mother.glb](3d/act-01/monsters/B05_hospice_mother/B05_hospice_mother.glb) |
 | D01_hodling | [D01_hodling](art/act-01/monsters/D01_hodling/) | [vB/concept_r2.png](art/act-01/monsters/D01_hodling/vB/concept_r2.png) | [D01_hodling](3d/act-01/monsters/D01_hodling/) | [D01_hodling.glb](3d/act-01/monsters/D01_hodling/D01_hodling.glb) |
 | D02_kiln_shaman | [D02_kiln_shaman](art/act-01/monsters/D02_kiln_shaman/) | [vB/concept_r2b.png](art/act-01/monsters/D02_kiln_shaman/vB/concept_r2b.png) | [D02_kiln_shaman](3d/act-01/monsters/D02_kiln_shaman/) | [D02_kiln_shaman.glb](3d/act-01/monsters/D02_kiln_shaman/D02_kiln_shaman.glb)<br>[D02_kiln_shaman_ladle.glb](3d/act-01/monsters/D02_kiln_shaman/weapons/ladle/D02_kiln_shaman_ladle.glb) |
-| D03_kiln_bull | [D03_kiln_bull](art/act-01/monsters/D03_kiln_bull/) | [vA/concept_r4_1p4H.png](art/act-01/monsters/D03_kiln_bull/vA/concept_r4_1p4H.png) | — | — |
+| D03_kiln_bull | [D03_kiln_bull](art/act-01/monsters/D03_kiln_bull/) | [vC/concept_r5b.png](art/act-01/monsters/D03_kiln_bull/vC/concept_r5b.png) | — | — |
 | D04_tithe_thief | [D04_tithe_thief](art/act-01/monsters/D04_tithe_thief/) | [vB/concept_r2b.png](art/act-01/monsters/D04_tithe_thief/vB/concept_r2b.png) | [D04_tithe_thief](3d/act-01/monsters/D04_tithe_thief/) | [D04_tithe_thief.glb](3d/act-01/monsters/D04_tithe_thief/D04_tithe_thief.glb) |
 | F01_body_snatcher | [F01_body_snatcher](art/act-01/monsters/F01_body_snatcher/) | [vB/concept_r2.png](art/act-01/monsters/F01_body_snatcher/vB/concept_r2.png) | [F01_body_snatcher](3d/act-01/monsters/F01_body_snatcher/) | [F01_body_snatcher.glb](3d/act-01/monsters/F01_body_snatcher/F01_body_snatcher.glb)<br>[F01_body_snatcher_sack.glb](3d/act-01/monsters/F01_body_snatcher/weapons/sack/F01_body_snatcher_sack.glb)<br>[F01_body_snatcher_spade.glb](3d/act-01/monsters/F01_body_snatcher/weapons/spade/F01_body_snatcher_spade.glb) |
 | F02_poppy_nurse | [F02_poppy_nurse](art/act-01/monsters/F02_poppy_nurse/) | [vB/concept_r2.png](art/act-01/monsters/F02_poppy_nurse/vB/concept_r2.png) | [F02_poppy_nurse](3d/act-01/monsters/F02_poppy_nurse/) | [F02_poppy_nurse.glb](3d/act-01/monsters/F02_poppy_nurse/F02_poppy_nurse.glb)<br>[F02_poppy_nurse_needle.glb](3d/act-01/monsters/F02_poppy_nurse/weapons/needle/F02_poppy_nurse_needle.glb) |
@@ -101,6 +101,25 @@ One row per asset ID. `art/` and `3d/` use the same path for the same asset: `<a
 | U12_the_pressed | [U12_the_pressed](art/act-02/monsters/U12_the_pressed/) | [vB/concept_v5_r3.png](art/act-02/monsters/U12_the_pressed/vB/concept_v5_r3.png) | — | — |
 | W08_bell_bat | [W08_bell_bat](art/act-02/monsters/W08_bell_bat/) | [vB/concept_v5_r2.png](art/act-02/monsters/W08_bell_bat/vB/concept_v5_r2.png) | — | — |
 
+## Act 02: Environments (asset groups)
+
+| ID | Concept folder | Newest concept | 3D folder | GLB |
+| --- | --- | --- | --- | --- |
+| G01_pilgrim_road_crags | [G01_pilgrim_road_crags](art/act-02/environments/G01_pilgrim_road_crags/) | [turnaround_v4.png](art/act-02/environments/G01_pilgrim_road_crags/turnaround_v4.png) | — | — |
+| G02_pilgrim_road_faithful | [G02_pilgrim_road_faithful](art/act-02/environments/G02_pilgrim_road_faithful/) | [turnaround_v5.png](art/act-02/environments/G02_pilgrim_road_faithful/turnaround_v5.png) | — | — |
+| G03_lowcourse_tenements | [G03_lowcourse_tenements](art/act-02/environments/G03_lowcourse_tenements/) | [turnaround_v4.png](art/act-02/environments/G03_lowcourse_tenements/turnaround_v4.png) | — | — |
+| G04_lowcourse_market_gate | [G04_lowcourse_market_gate](art/act-02/environments/G04_lowcourse_market_gate/) | [turnaround_v4.png](art/act-02/environments/G04_lowcourse_market_gate/turnaround_v4.png) | — | — |
+| G05_stair_of_penitence_pyres | [G05_stair_of_penitence_pyres](art/act-02/environments/G05_stair_of_penitence_pyres/) | [turnaround_v4.png](art/act-02/environments/G05_stair_of_penitence_pyres/turnaround_v4.png) | — | — |
+| G06_stair_chapels_gates | [G06_stair_chapels_gates](art/act-02/environments/G06_stair_chapels_gates/) | [turnaround_v4.png](art/act-02/environments/G06_stair_chapels_gates/turnaround_v4.png) | — | — |
+| G07_chancery_marble_hall | [G07_chancery_marble_hall](art/act-02/environments/G07_chancery_marble_hall/) | [turnaround_v5.png](art/act-02/environments/G07_chancery_marble_hall/turnaround_v5.png) | — | — |
+| G08_chancery_archive_lodge | [G08_chancery_archive_lodge](art/act-02/environments/G08_chancery_archive_lodge/) | [turnaround_v4.png](art/act-02/environments/G08_chancery_archive_lodge/turnaround_v4.png) | — | — |
+| G09_bell_catacombs_bells | [G09_bell_catacombs_bells](art/act-02/environments/G09_bell_catacombs_bells/) | [turnaround_v4.png](art/act-02/environments/G09_bell_catacombs_bells/turnaround_v4.png) | — | — |
+| G10_bell_catacombs_ossuary | [G10_bell_catacombs_ossuary](art/act-02/environments/G10_bell_catacombs_ossuary/) | [turnaround_v4.png](art/act-02/environments/G10_bell_catacombs_ossuary/turnaround_v4.png) | — | — |
+| G11_scriptorium | [G11_scriptorium](art/act-02/environments/G11_scriptorium/) | [turnaround_v4.png](art/act-02/environments/G11_scriptorium/turnaround_v4.png) | — | — |
+| G12_cathedral_nave | [G12_cathedral_nave](art/act-02/environments/G12_cathedral_nave/) | [turnaround_v4.png](art/act-02/environments/G12_cathedral_nave/turnaround_v4.png) | — | — |
+| G13_cathedral_ablaze | [G13_cathedral_ablaze](art/act-02/environments/G13_cathedral_ablaze/) | [turnaround_v4.png](art/act-02/environments/G13_cathedral_ablaze/turnaround_v4.png) | — | — |
+| G14_kneeling_vault | [G14_kneeling_vault](art/act-02/environments/G14_kneeling_vault/) | [turnaround_v5.png](art/act-02/environments/G14_kneeling_vault/turnaround_v5.png) | — | — |
+
 ## Act 03: Monsters
 
 | ID | Concept folder | Newest concept | 3D folder | GLB |
@@ -144,57 +163,57 @@ One row per asset ID. `art/` and `3d/` use the same path for the same asset: `<a
 
 | ID | Concept folder | Newest concept | 3D folder | GLB |
 | --- | --- | --- | --- | --- |
-| N01_gennet-barrow | [N01_gennet-barrow](art/npcs/N01_gennet-barrow/) | [concept_B_r2.png](art/npcs/N01_gennet-barrow/concept_B_r2.png) | — | — |
-| N02_brannoc-the-mortsmith | [N02_brannoc-the-mortsmith](art/npcs/N02_brannoc-the-mortsmith/) | [concept_B.png](art/npcs/N02_brannoc-the-mortsmith/concept_B.png) | — | — |
-| N03_edda | [N03_edda](art/npcs/N03_edda/) | [concept_B_r2.png](art/npcs/N03_edda/concept_B_r2.png) | — | — |
-| N04_osric-dunmore | [N04_osric-dunmore](art/npcs/N04_osric-dunmore/) | [concept_B.png](art/npcs/N04_osric-dunmore/concept_B.png) | — | — |
-| N05_nell-coppercoin | [N05_nell-coppercoin](art/npcs/N05_nell-coppercoin/) | [concept_B.png](art/npcs/N05_nell-coppercoin/concept_B.png) | — | — |
-| N06_tamsin-reed | [N06_tamsin-reed](art/npcs/N06_tamsin-reed/) | [concept_B.png](art/npcs/N06_tamsin-reed/concept_B.png) | — | — |
-| N07_fen-reed | [N07_fen-reed](art/npcs/N07_fen-reed/) | [concept_B.png](art/npcs/N07_fen-reed/concept_B.png) | — | — |
-| N08_odo-pell | [N08_odo-pell](art/npcs/N08_odo-pell/) | [concept_B_r2.png](art/npcs/N08_odo-pell/concept_B_r2.png) | — | — |
-| N09_counting-child | [N09_counting-child](art/npcs/N09_counting-child/) | [concept_B.png](art/npcs/N09_counting-child/concept_B.png) | — | — |
-| N10_ferryman | [N10_ferryman](art/npcs/N10_ferryman/) | [concept_B_v2.png](art/npcs/N10_ferryman/concept_B_v2.png) | — | — |
-| N11_mother-hawise | [N11_mother-hawise](art/npcs/N11_mother-hawise/) | [concept_B.png](art/npcs/N11_mother-hawise/concept_B.png) | — | — |
-| N12_poppy-sister | [N12_poppy-sister](art/npcs/N12_poppy-sister/) | [concept_B.png](art/npcs/N12_poppy-sister/concept_B.png) | — | — |
-| N13_perpetua | [N13_perpetua](art/npcs/N13_perpetua/) | [concept_B_v2.png](art/npcs/N13_perpetua/concept_B_v2.png) | — | — |
-| N14_ignatia | [N14_ignatia](art/npcs/N14_ignatia/) | [concept_B.png](art/npcs/N14_ignatia/concept_B.png) | — | — |
-| N15_ansel | [N15_ansel](art/npcs/N15_ansel/) | [concept_B.png](art/npcs/N15_ansel/concept_B.png) | — | — |
-| N16_quint | [N16_quint](art/npcs/N16_quint/) | [concept_B.png](art/npcs/N16_quint/concept_B.png) | — | — |
-| N17_saint-in-the-box | [N17_saint-in-the-box](art/npcs/N17_saint-in-the-box/) | [concept_B.png](art/npcs/N17_saint-in-the-box/concept_B.png) | — | — |
-| N18_old-vellum | [N18_old-vellum](art/npcs/N18_old-vellum/) | [concept_A_v2.png](art/npcs/N18_old-vellum/concept_A_v2.png) | — | — |
-| N19_ser-hamon | [N19_ser-hamon](art/npcs/N19_ser-hamon/) | [concept_B_v2.png](art/npcs/N19_ser-hamon/concept_B_v2.png) | — | — |
-| N20_wystan | [N20_wystan](art/npcs/N20_wystan/) | [concept_B.png](art/npcs/N20_wystan/concept_B.png) | — | — |
-| N21_nareh | [N21_nareh](art/npcs/N21_nareh/) | [concept_B.png](art/npcs/N21_nareh/concept_B.png) | — | — |
-| N22_anoush | [N22_anoush](art/npcs/N22_anoush/) | [concept_B.png](art/npcs/N22_anoush/concept_B.png) | — | — |
-| N23_zabel | [N23_zabel](art/npcs/N23_zabel/) | [concept_B.png](art/npcs/N23_zabel/concept_B.png) | — | — |
-| N24_vardan | [N24_vardan](art/npcs/N24_vardan/) | [concept_B.png](art/npcs/N24_vardan/concept_B.png) | — | — |
-| N25_hovik | [N25_hovik](art/npcs/N25_hovik/) | [concept_B.png](art/npcs/N25_hovik/concept_B.png) | — | — |
-| N26_inkman | [N26_inkman](art/npcs/N26_inkman/) | [concept_B.png](art/npcs/N26_inkman/concept_B.png) | — | — |
-| N27_arsham | [N27_arsham](art/npcs/N27_arsham/) | [concept_B.png](art/npcs/N27_arsham/concept_B.png) | — | — |
-| N28_zorya | [N28_zorya](art/npcs/N28_zorya/) | [concept_B_v2.png](art/npcs/N28_zorya/concept_B_v2.png) | — | — |
-| N29_frostwife | [N29_frostwife](art/npcs/N29_frostwife/) | [concept_B.png](art/npcs/N29_frostwife/concept_B.png) | — | — |
-| N30_radomir | [N30_radomir](art/npcs/N30_radomir/) | [concept_B.png](art/npcs/N30_radomir/concept_B.png) | — | — |
-| N31a_ilka | [N31a_ilka](art/npcs/N31a_ilka/) | [concept_B.png](art/npcs/N31a_ilka/concept_B.png) | — | — |
-| N31b_yarik | [N31b_yarik](art/npcs/N31b_yarik/) | [concept_A.png](art/npcs/N31b_yarik/concept_A.png) | — | — |
-| N31c_mila | [N31c_mila](art/npcs/N31c_mila/) | [concept_B.png](art/npcs/N31c_mila/concept_B.png) | — | — |
-| N31d_bozhena | [N31d_bozhena](art/npcs/N31d_bozhena/) | [concept_B.png](art/npcs/N31d_bozhena/concept_B.png) | — | — |
-| N32_stanimir | [N32_stanimir](art/npcs/N32_stanimir/) | [concept_B.png](art/npcs/N32_stanimir/concept_B.png) | — | — |
-| N33_ilya | [N33_ilya](art/npcs/N33_ilya/) | [concept_B.png](art/npcs/N33_ilya/concept_B.png) | — | — |
-| N34_dragana | [N34_dragana](art/npcs/N34_dragana/) | [concept_B.png](art/npcs/N34_dragana/concept_B.png) | — | — |
-| N35_lev | [N35_lev](art/npcs/N35_lev/) | [concept_A_v2.png](art/npcs/N35_lev/concept_A_v2.png) | — | — |
-| N36_miron | [N36_miron](art/npcs/N36_miron/) | [concept_B.png](art/npcs/N36_miron/concept_B.png) | — | — |
-| N37_rozenn | [N37_rozenn](art/npcs/N37_rozenn/) | [concept_B.png](art/npcs/N37_rozenn/concept_B.png) | — | — |
-| N38_goulven | [N38_goulven](art/npcs/N38_goulven/) | [concept_B.png](art/npcs/N38_goulven/concept_B.png) | — | — |
-| N39_morvan | [N39_morvan](art/npcs/N39_morvan/) | [concept_B.png](art/npcs/N39_morvan/concept_B.png) | — | — |
-| N40_maelys | [N40_maelys](art/npcs/N40_maelys/) | [concept_B.png](art/npcs/N40_maelys/concept_B.png) | — | — |
-| N41_the_waiting | [N41_the_waiting](art/npcs/N41_the_waiting/) | [concept_B.png](art/npcs/N41_the_waiting/concept_B.png) | — | — |
-| S01_severin | [S01_severin](art/npcs/S01_severin/) | [concept_B.png](art/npcs/S01_severin/concept_B.png) | — | — |
-| S02a_plumb | [S02a_plumb](art/npcs/S02a_plumb/) | [concept_B.png](art/npcs/S02a_plumb/concept_B.png) | — | — |
-| S02b_square | [S02b_square](art/npcs/S02b_square/) | [concept_B.png](art/npcs/S02b_square/concept_B.png) | — | — |
-| S02c_trowel | [S02c_trowel](art/npcs/S02c_trowel/) | [concept_B_v3.png](art/npcs/S02c_trowel/concept_B_v3.png) | — | — |
-| S02d_level | [S02d_level](art/npcs/S02d_level/) | [concept_B_v2.png](art/npcs/S02d_level/concept_B_v2.png) | — | — |
-| S03_cassian | [S03_cassian](art/npcs/S03_cassian/) | [concept_B_v2.png](art/npcs/S03_cassian/concept_B_v2.png) | — | — |
-| S04_ignatias-mother | [S04_ignatias-mother](art/npcs/S04_ignatias-mother/) | [concept_B.png](art/npcs/S04_ignatias-mother/concept_B.png) | — | — |
+| N01_gennet-barrow | [N01_gennet-barrow](art/npcs/N01_gennet-barrow/) | [approved: N01_gennet-barrow.png](art/npcs_approved/N01_gennet-barrow.png) | — | — |
+| N02_brannoc-the-mortsmith | [N02_brannoc-the-mortsmith](art/npcs/N02_brannoc-the-mortsmith/) | [approved: N02_brannoc-the-mortsmith.png](art/npcs_approved/N02_brannoc-the-mortsmith.png) | — | — |
+| N03_edda | [N03_edda](art/npcs/N03_edda/) | [approved: N03_edda.png](art/npcs_approved/N03_edda.png) | — | — |
+| N04_osric-dunmore | [N04_osric-dunmore](art/npcs/N04_osric-dunmore/) | [approved: N04_osric-dunmore.png](art/npcs_approved/N04_osric-dunmore.png) | — | — |
+| N05_nell-coppercoin | [N05_nell-coppercoin](art/npcs/N05_nell-coppercoin/) | [approved: N05_nell-coppercoin.png](art/npcs_approved/N05_nell-coppercoin.png) | — | — |
+| N06_tamsin-reed | [N06_tamsin-reed](art/npcs/N06_tamsin-reed/) | [approved: N06_tamsin-reed.png](art/npcs_approved/N06_tamsin-reed.png) | — | — |
+| N07_fen-reed | [N07_fen-reed](art/npcs/N07_fen-reed/) | [approved: N07_fen-reed.png](art/npcs_approved/N07_fen-reed.png) | — | — |
+| N08_odo-pell | [N08_odo-pell](art/npcs/N08_odo-pell/) | [approved: N08_odo-pell.png](art/npcs_approved/N08_odo-pell.png) | — | — |
+| N09_counting-child | [N09_counting-child](art/npcs/N09_counting-child/) | [approved: N09_counting-child.png](art/npcs_approved/N09_counting-child.png) | — | — |
+| N10_ferryman | [N10_ferryman](art/npcs/N10_ferryman/) | [approved: N10_ferryman.png](art/npcs_approved/N10_ferryman.png) | — | — |
+| N11_mother-hawise | [N11_mother-hawise](art/npcs/N11_mother-hawise/) | [approved: N11_mother-hawise.png](art/npcs_approved/N11_mother-hawise.png) | — | — |
+| N12_poppy-sister | [N12_poppy-sister](art/npcs/N12_poppy-sister/) | [approved: N12_poppy-sister.png](art/npcs_approved/N12_poppy-sister.png) | — | — |
+| N13_perpetua | [N13_perpetua](art/npcs/N13_perpetua/) | [approved: N13_perpetua.png](art/npcs_approved/N13_perpetua.png) | — | — |
+| N14_ignatia | [N14_ignatia](art/npcs/N14_ignatia/) | [approved: N14_ignatia.png](art/npcs_approved/N14_ignatia.png) | — | — |
+| N15_ansel | [N15_ansel](art/npcs/N15_ansel/) | [approved: N15_ansel.png](art/npcs_approved/N15_ansel.png) | — | — |
+| N16_quint | [N16_quint](art/npcs/N16_quint/) | [approved: N16_quint.png](art/npcs_approved/N16_quint.png) | — | — |
+| N17_saint-in-the-box | [N17_saint-in-the-box](art/npcs/N17_saint-in-the-box/) | [approved: N17_saint-in-the-box.png](art/npcs_approved/N17_saint-in-the-box.png) | — | — |
+| N18_old-vellum | [N18_old-vellum](art/npcs/N18_old-vellum/) | [approved: N18_old-vellum.png](art/npcs_approved/N18_old-vellum.png) | — | — |
+| N19_ser-hamon | [N19_ser-hamon](art/npcs/N19_ser-hamon/) | [approved: N19_ser-hamon.png](art/npcs_approved/N19_ser-hamon.png) | — | — |
+| N20_wystan | [N20_wystan](art/npcs/N20_wystan/) | [approved: N20_wystan.png](art/npcs_approved/N20_wystan.png) | — | — |
+| N21_nareh | [N21_nareh](art/npcs/N21_nareh/) | [approved: N21_nareh.png](art/npcs_approved/N21_nareh.png) | — | — |
+| N22_anoush | [N22_anoush](art/npcs/N22_anoush/) | [approved: N22_anoush.png](art/npcs_approved/N22_anoush.png) | — | — |
+| N23_zabel | [N23_zabel](art/npcs/N23_zabel/) | [approved: N23_zabel.png](art/npcs_approved/N23_zabel.png) | — | — |
+| N24_vardan | [N24_vardan](art/npcs/N24_vardan/) | [approved: N24_vardan.png](art/npcs_approved/N24_vardan.png) | — | — |
+| N25_hovik | [N25_hovik](art/npcs/N25_hovik/) | [approved: N25_hovik.png](art/npcs_approved/N25_hovik.png) | — | — |
+| N26_inkman | [N26_inkman](art/npcs/N26_inkman/) | [approved: N26_inkman.png](art/npcs_approved/N26_inkman.png) | — | — |
+| N27_arsham | [N27_arsham](art/npcs/N27_arsham/) | [approved: N27_arsham.png](art/npcs_approved/N27_arsham.png) | — | — |
+| N28_zorya | [N28_zorya](art/npcs/N28_zorya/) | [approved: N28_zorya.png](art/npcs_approved/N28_zorya.png) | — | — |
+| N29_frostwife | [N29_frostwife](art/npcs/N29_frostwife/) | [approved: N29_frostwife.png](art/npcs_approved/N29_frostwife.png) | — | — |
+| N30_radomir | [N30_radomir](art/npcs/N30_radomir/) | [approved: N30_radomir.png](art/npcs_approved/N30_radomir.png) | — | — |
+| N31a_ilka | [N31a_ilka](art/npcs/N31a_ilka/) | [approved: N31a_ilka.png](art/npcs_approved/N31a_ilka.png) | — | — |
+| N31b_yarik | [N31b_yarik](art/npcs/N31b_yarik/) | [approved: N31b_yarik.png](art/npcs_approved/N31b_yarik.png) | — | — |
+| N31c_mila | [N31c_mila](art/npcs/N31c_mila/) | [approved: N31c_mila.png](art/npcs_approved/N31c_mila.png) | — | — |
+| N31d_bozhena | [N31d_bozhena](art/npcs/N31d_bozhena/) | [approved: N31d_bozhena.png](art/npcs_approved/N31d_bozhena.png) | — | — |
+| N32_stanimir | [N32_stanimir](art/npcs/N32_stanimir/) | [approved: N32_stanimir.png](art/npcs_approved/N32_stanimir.png) | — | — |
+| N33_ilya | [N33_ilya](art/npcs/N33_ilya/) | [approved: N33_ilya.png](art/npcs_approved/N33_ilya.png) | — | — |
+| N34_dragana | [N34_dragana](art/npcs/N34_dragana/) | [approved: N34_dragana.png](art/npcs_approved/N34_dragana.png) | — | — |
+| N35_lev | [N35_lev](art/npcs/N35_lev/) | [approved: N35_lev.png](art/npcs_approved/N35_lev.png) | — | — |
+| N36_miron | [N36_miron](art/npcs/N36_miron/) | [approved: N36_miron.png](art/npcs_approved/N36_miron.png) | — | — |
+| N37_rozenn | [N37_rozenn](art/npcs/N37_rozenn/) | [approved: N37_rozenn.png](art/npcs_approved/N37_rozenn.png) | — | — |
+| N38_goulven | [N38_goulven](art/npcs/N38_goulven/) | [approved: N38_goulven.png](art/npcs_approved/N38_goulven.png) | — | — |
+| N39_morvan | [N39_morvan](art/npcs/N39_morvan/) | [approved: N39_morvan.png](art/npcs_approved/N39_morvan.png) | — | — |
+| N40_maelys | [N40_maelys](art/npcs/N40_maelys/) | [approved: N40_maelys.png](art/npcs_approved/N40_maelys.png) | — | — |
+| N41_the_waiting | [N41_the_waiting](art/npcs/N41_the_waiting/) | [approved: N41_the_waiting.png](art/npcs_approved/N41_the_waiting.png) | — | — |
+| S01_severin | [S01_severin](art/npcs/S01_severin/) | [approved: S01_severin.png](art/npcs_approved/S01_severin.png) | — | — |
+| S02a_plumb | [S02a_plumb](art/npcs/S02a_plumb/) | [approved: S02a_plumb.png](art/npcs_approved/S02a_plumb.png) | — | — |
+| S02b_square | [S02b_square](art/npcs/S02b_square/) | [approved: S02b_square.png](art/npcs_approved/S02b_square.png) | — | — |
+| S02c_trowel | [S02c_trowel](art/npcs/S02c_trowel/) | [approved: S02c_trowel.png](art/npcs_approved/S02c_trowel.png) | — | — |
+| S02d_level | [S02d_level](art/npcs/S02d_level/) | [approved: S02d_level.png](art/npcs_approved/S02d_level.png) | — | — |
+| S03_cassian | [S03_cassian](art/npcs/S03_cassian/) | [approved: S03_cassian.png](art/npcs_approved/S03_cassian.png) | — | — |
+| S04_ignatias-mother | [S04_ignatias-mother](art/npcs/S04_ignatias-mother/) | [approved: S04_ignatias-mother.png](art/npcs_approved/S04_ignatias-mother.png) | — | — |
 
 ## Common 3D props (not act-bound)
 

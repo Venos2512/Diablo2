@@ -53,3 +53,16 @@ Cạnh mỗi ảnh có `*.prompt.txt` (prompt đã gửi), `*.task.txt` (prompt 
 ## 5. QA và điểm còn mở
 
 _(điền sau khi xem ảnh)_
+
+## 6. PC-B v2: vòm thấp (26/10/2026)
+
+Người dùng: "vòm lên giữa màn bị cao quá" (bản PC-B 20/10 vòm lên tới khoảng 31 % chiều cao màn hình). Bốn biến thể cùng họ Keystone Arch, cùng cảnh Night Fens; brief ở `_brief/v2/` (khung bố cục `guide_*.png` dựng bằng `make_guides.py`, lượt 3 dùng bản thu 0,72 `guide_*_s72.png` vì Codex vẽ HUD to hơn khung khoảng 1,5 lần).
+
+| ID | Dáng | Ảnh | Đỉnh HUD (r3) |
+|---|---|---|---|
+| PC-B2 | Vòm cầu rất thoải | `PC_B2_low_arch/mockup_r2.png`, `mockup_r3.png` | ~17 % (r3 có dấu chữ thập ở keystone, phải sửa) |
+| PC-B3 | Vòm phẳng (lanh tô) | `PC_B3_flat_arch/mockup_r2.png`, `mockup_r3.png` | ~17 % |
+| PC-B4 | Vòm lún, chỉ lộ đỉnh | `PC_B4_sunken_arch/mockup_r2.png`, `mockup_r3.png` | ~16 % |
+| PC-B5 | Vòm ngược, thấp nhất ở giữa | `PC_B5_inverted_arch/mockup_r2.png`, `mockup_r3.png` | ~13 % giữa, ~18 % hai đầu |
+
+Lượt 1 (gắn bản mockup cũ làm mờ) bị Codex chép gần y nguyên, nằm ở `_work/_rejected/mockup_r1.png`. QA từng lượt: `_work/qa_r*.txt`. Chưa duyệt.

@@ -8,4 +8,6 @@ Khi rig hoặc làm animation cho hero, quái, NPC của ASHLAR, đọc [ashlar/
 
 Mọi bước tạo hoặc chỉnh sửa ảnh (concept, sheet, texture, normal map, T-pose cho Tripo, key art) phải đọc và bám sát [ashlar/art-direction/artdirection.md](./ashlar/art-direction/artdirection.md): style đã chốt là stylized vừa phải như Diablo Immortal; dán nguyên văn các khối prompt ở §3 và QA từng ảnh theo §11.
 
+Khi cần tối ưu GLB cho map (khoảng 10% tam giác, texture 1024, bake theo góc camera game), dùng skill [optimize-model-assets](./.claude/skills/optimize-model-assets/SKILL.md); đầu ra ở `ashlar/Art_Final/Resource_3D_Optimized/`.
+
 Khi cần vẽ hoặc sửa concept art (quái, hero, NPC, prop, sheet môi trường, cảnh), dùng skill [concept-art](./.claude/skills/concept-art/SKILL.md): Claude dựng sẵn prompt, mỗi phiên Codex một ảnh, Claude tự QA, để tiết kiệm token Codex.
