@@ -1,0 +1,775 @@
+{
+ "asset": "B02_lullaby_man",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 4.686,
+ "k": 2.1999999999999997,
+ "glb_sha256": "bf19b2a36bef79ed7ee2f52c9431b27b768eb126048c10d38932aac8dce6cd31",
+ "bones": 69,
+ "deform": 59,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {
+  "robe_lullaby_F": [
+   "robe_lullaby_F_01",
+   "robe_lullaby_F_02",
+   "robe_lullaby_F_03",
+   "robe_lullaby_F_04"
+  ],
+  "robe_lullaby_L": [
+   "robe_lullaby_L_01",
+   "robe_lullaby_L_02",
+   "robe_lullaby_L_03",
+   "robe_lullaby_L_04"
+  ],
+  "robe_lullaby_B": [
+   "robe_lullaby_B_01",
+   "robe_lullaby_B_02",
+   "robe_lullaby_B_03",
+   "robe_lullaby_B_04"
+  ],
+  "robe_lullaby_R": [
+   "robe_lullaby_R_01",
+   "robe_lullaby_R_02",
+   "robe_lullaby_R_03",
+   "robe_lullaby_R_04"
+  ],
+  "sleeve_L": [
+   "sleeve_L_01",
+   "sleeve_L_02"
+  ],
+  "sleeve_R": [
+   "sleeve_R_01",
+   "sleeve_R_02"
+  ],
+  "cage": [
+   "cage_01"
+  ],
+  "lappet_L": [
+   "lappet_L_01",
+   "lappet_L_02",
+   "lappet_L_03"
+  ],
+  "lappet_R": [
+   "lappet_R_01",
+   "lappet_R_02",
+   "lappet_R_03"
+  ],
+  "ribbon_L": [
+   "ribbon_L_01",
+   "ribbon_L_02",
+   "ribbon_L_03"
+  ],
+  "ribbon_R": [
+   "ribbon_R_01",
+   "ribbon_R_02",
+   "ribbon_R_03"
+  ]
+ },
+ "items": {
+  "cage": {
+   "code": 1,
+   "mode": "rigid",
+   "bones": [
+    "cage_01"
+   ],
+   "parent": "chest"
+  },
+  "lappet_L": {
+   "code": 2,
+   "mode": "strand",
+   "bones": [
+    "lappet_L_01",
+    "lappet_L_02",
+    "lappet_L_03"
+   ],
+   "parent": "head"
+  },
+  "lappet_R": {
+   "code": 3,
+   "mode": "strand",
+   "bones": [
+    "lappet_R_01",
+    "lappet_R_02",
+    "lappet_R_03"
+   ],
+   "parent": "head"
+  },
+  "ribbon_L": {
+   "code": 4,
+   "mode": "strand",
+   "bones": [
+    "ribbon_L_01",
+    "ribbon_L_02",
+    "ribbon_L_03"
+   ],
+   "parent": "cage_01"
+  },
+  "ribbon_R": {
+   "code": 5,
+   "mode": "strand",
+   "bones": [
+    "ribbon_R_01",
+    "ribbon_R_02",
+    "ribbon_R_03"
+   ],
+   "parent": "cage_01"
+  }
+ },
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   0.0576,
+   2.1344
+  ],
+  "spine1": [
+   0.0,
+   0.0219,
+   2.4196
+  ],
+  "spine2": [
+   0.0,
+   -0.0132,
+   2.6849
+  ],
+  "chest": [
+   0.0,
+   0.0041,
+   2.9938
+  ],
+  "shoulder": [
+   0.4037,
+   0.0234,
+   3.28
+  ],
+  "elbow": [
+   0.9249,
+   0.0,
+   3.28
+  ],
+  "wrist": [
+   1.36,
+   0.0,
+   3.28
+  ],
+  "hand_end": [
+   1.7889,
+   0.0,
+   3.2425
+  ],
+  "head": [
+   0.0,
+   -0.25,
+   3.5
+  ],
+  "head_top": [
+   0.0,
+   -0.3226,
+   3.9601
+  ],
+  "neck": [
+   0.0,
+   0.0,
+   3.3
+  ],
+  "clav_in": [
+   0.0797,
+   0.0,
+   3.25
+  ],
+  "L_knee": [
+   0.257,
+   -0.3986,
+   1.0573
+  ],
+  "L_ankle": [
+   0.3075,
+   -0.745,
+   0.2099
+  ],
+  "L_ball": [
+   0.3075,
+   -1.144,
+   0.0673
+  ],
+  "L_toe": [
+   0.3075,
+   -1.3151,
+   0.0436
+  ],
+  "R_knee": [
+   -0.2574,
+   -0.3986,
+   1.0573
+  ],
+  "R_ankle": [
+   -0.3082,
+   -0.745,
+   0.2099
+  ],
+  "R_ball": [
+   -0.3082,
+   -1.144,
+   0.0673
+  ],
+  "R_toe": [
+   -0.3082,
+   -1.3151,
+   0.0436
+  ],
+  "L_hip": [
+   0.198,
+   0.0576,
+   2.0473
+  ],
+  "R_hip": [
+   -0.198,
+   0.0576,
+   2.0473
+  ],
+  "hip": [
+   0.198,
+   0.0576,
+   2.0473
+  ],
+  "knee": [
+   0.257,
+   -0.3986,
+   1.0573
+  ],
+  "ankle": [
+   0.3075,
+   -0.745,
+   0.2099
+  ],
+  "ball": [
+   0.3075,
+   -1.144,
+   0.0673
+  ],
+  "toe": [
+   0.3075,
+   -1.3151,
+   0.0436
+  ]
+ },
+ "parts": {
+  "Accessory": {
+   "faces": 3582,
+   "verts": 1921,
+   "islands": 24
+  },
+  "Head": {
+   "faces": 486,
+   "verts": 264,
+   "islands": 1
+  },
+  "Body": {
+   "faces": 5795,
+   "verts": 3008,
+   "islands": 16
+  }
+ },
+ "seam_pairs": {
+  "Body|Head": 42
+ },
+ "skeleton_notes": [
+  "wrist from proportion (hand is not its own island)",
+  "pelvis y -0.250 -> +0.058 (section)",
+  "spine1 y -0.015 -> +0.022 (section)",
+  "spine2 y -0.015 -> -0.013 (section)",
+  "chest y +0.008 -> +0.004 (section)",
+  "arms: torso half-width 0.310 -> shoulder x 0.404, elbow 0.925, wrist 1.360, hand end 1.789",
+  "legs: hips by proportion, feet from shoe islands 14/30 (no leg mesh)",
+  "neck/head set by hand (hunched, face sack forward of the shoulders)"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 1773,
+  "sleeve_flaps": 136
+ },
+ "health": {
+  "B02_lullaby_man_Body": {
+   "verts": 3230,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "B02_lullaby_man_Accessory": {
+   "verts": 1921,
+   "max_influences": 2,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.19,
+  "knee_r": 0.15,
+  "calf_r": 0.13,
+  "foot_r": 0.17,
+  "n": {
+   "foot": 253,
+   "thigh": 156,
+   "knee": 9,
+   "calf": 56
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.7,
+  "rounds": 6
+ },
+ "rest_push_deg": 0.0,
+ "layer_pairs": [],
+ "poses": {
+  "arms_down": {
+   "pen_nopush": 0,
+   "stretch": 7.76,
+   "bad_edges": 37,
+   "per_part": {
+    "Body": [
+     7.76,
+     37,
+     59.8,
+     151.7
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "pen_nopush": 0,
+   "stretch": 2.21,
+   "bad_edges": 4,
+   "per_part": {
+    "Body": [
+     2.21,
+     4,
+     68.6,
+     74.5
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "pen_nopush": 0,
+   "stretch": 2.09,
+   "bad_edges": 10,
+   "per_part": {
+    "Body": [
+     2.09,
+     10,
+     93.0,
+     94.9
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "pen_nopush": 0,
+   "stretch": 5.74,
+   "bad_edges": 35,
+   "per_part": {
+    "Body": [
+     5.74,
+     35,
+     56.7,
+     166.5
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "pen_nopush": 6,
+   "stretch": 4.23,
+   "bad_edges": 19,
+   "per_part": {
+    "Body": [
+     4.23,
+     19,
+     52.4,
+     131.4
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 4,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "pen_nopush": 0,
+   "stretch": 1.21,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.21,
+     0,
+     29.4,
+     30.1
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "pen_nopush": 0,
+   "stretch": 2.18,
+   "bad_edges": 14,
+   "per_part": {
+    "Body": [
+     2.18,
+     14,
+     38.4,
+     60.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "pen_nopush": 0,
+   "stretch": 1.55,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.55,
+     0,
+     26.6,
+     60.6
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "pen_nopush": 0,
+   "stretch": 2.09,
+   "bad_edges": 2,
+   "per_part": {
+    "Body": [
+     2.09,
+     2,
+     90.1,
+     90.1
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "pen_nopush": 0,
+   "stretch": 1.51,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.51,
+     0,
+     35.2,
+     48.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "pen_nopush": 0,
+   "stretch": 1.79,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.79,
+     0,
+     16.7,
+     52.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "pen_nopush": 0,
+   "stretch": 1.35,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.35,
+     0,
+     7.7,
+     9.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "pen_nopush": 6,
+   "stretch": 2.88,
+   "bad_edges": 4,
+   "per_part": {
+    "Body": [
+     2.88,
+     4,
+     136.7,
+     166.9
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 3,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "pen_nopush": 6,
+   "stretch": 1.57,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.57,
+     0,
+     126.2,
+     153.3
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 12,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "pen_nopush": 18,
+   "stretch": 1.54,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.54,
+     0,
+     101.2,
+     116.1
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 18,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "pen_nopush": 12,
+   "stretch": 2.13,
+   "bad_edges": 1,
+   "per_part": {
+    "Body": [
+     2.13,
+     1,
+     51.9,
+     103.6
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 2,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/B02_lullaby_man.py, run_stage.py)"
+ }
+}

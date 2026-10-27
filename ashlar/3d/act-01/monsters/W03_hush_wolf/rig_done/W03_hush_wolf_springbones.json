@@ -1,0 +1,140 @@
+{
+ "chains": [
+  {
+   "root": "robe_cape_L_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.057,
+   "endLength": 0.095,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_cape_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.057,
+   "endLength": 0.095,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_cape_R_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.057,
+   "endLength": 0.095,
+   "wind": 1.0
+  },
+  {
+   "enabled": true,
+   "collide": false,
+   "root": "ear_L_01",
+   "stiffness": 2.5,
+   "drag": 0.5,
+   "gravity": 0.0,
+   "hitRadius": 0.02,
+   "endLength": 0.02,
+   "wind": 0.2
+  },
+  {
+   "enabled": true,
+   "collide": false,
+   "root": "ear_R_01",
+   "stiffness": 2.5,
+   "drag": 0.5,
+   "gravity": 0.0,
+   "hitRadius": 0.02,
+   "endLength": 0.02,
+   "wind": 0.2
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.11
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.098
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.11
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.081
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.08
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.047
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.048
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.083,
+   "offset": [
+    -0.0,
+    0.0297,
+    0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.083,
+   "offset": [
+    0.0,
+    0.0297,
+    0.0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [
+  [
+   "robe_cape_L_01",
+   "robe_cape_B_01"
+  ],
+  [
+   "robe_cape_B_01",
+   "robe_cape_R_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "W03_hush_wolf_Rig",
+ "saved": "2026-10-28 00:32:58"
+}

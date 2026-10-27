@@ -1,0 +1,129 @@
+{
+ "asset_id": "P07_cradle_warden",
+ "rig": "P07_cradle_warden_Rig",
+ "exported": "2026-10-27T23:44:21",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\P07_cradle_warden\\rig\\P07_cradle_warden_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 40,
+  "deform": 30,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "P07_cradle_warden_Accessory": {
+   "role": "Accessory",
+   "verts": 842
+  },
+  "P07_cradle_warden_Body": {
+   "role": "Body",
+   "verts": 4950
+  }
+ },
+ "weight_health": {
+  "P07_cradle_warden_Accessory": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "P07_cradle_warden_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_shirt_F_01",
+   "robe_shirt_F_02",
+   "robe_shirt_F_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.512
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.4477
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.5052
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.4253
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.512
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.4477
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.5052
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.4253
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "P07_cradle_warden_rig.fbx",
+  "textures": [
+   "textures/P07_cradle_warden_basecolor.jpg.jpg",
+   "textures/P07_cradle_warden_normal.jpg.jpg",
+   "textures/P07_cradle_warden_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "P07_cradle_warden_rig.glb",
+  "blend": "P07_cradle_warden_rig.blend",
+  "springbones": "P07_cradle_warden_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 40,
+  "meshes": 2,
+  "verts": 5792,
+  "skinned": 2,
+  "ok": true
+ }
+}

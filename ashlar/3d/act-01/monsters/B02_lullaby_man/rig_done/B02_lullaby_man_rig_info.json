@@ -1,0 +1,148 @@
+{
+ "asset_id": "B02_lullaby_man",
+ "rig": "B02_lullaby_man_Rig",
+ "exported": "2026-10-28T00:43:16",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\B02_lullaby_man\\rig\\B02_lullaby_man_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 69,
+  "deform": 59,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "B02_lullaby_man_Accessory": {
+   "role": "Accessory",
+   "verts": 1921
+  },
+  "B02_lullaby_man_Body": {
+   "role": "Body",
+   "verts": 3230
+  }
+ },
+ "weight_health": {
+  "B02_lullaby_man_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "B02_lullaby_man_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_lullaby_F_01",
+   "robe_lullaby_F_02",
+   "robe_lullaby_F_03",
+   "robe_lullaby_F_04"
+  ],
+  [
+   "robe_lullaby_L_01",
+   "robe_lullaby_L_02",
+   "robe_lullaby_L_03",
+   "robe_lullaby_L_04"
+  ],
+  [
+   "robe_lullaby_B_01",
+   "robe_lullaby_B_02",
+   "robe_lullaby_B_03",
+   "robe_lullaby_B_04"
+  ],
+  [
+   "robe_lullaby_R_01",
+   "robe_lullaby_R_02",
+   "robe_lullaby_R_03",
+   "robe_lullaby_R_04"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.19
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.15
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.13
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.17
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.19
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.15
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.13
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.17
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "B02_lullaby_man_rig.fbx",
+  "textures": [
+   "textures/B02_lullaby_man_basecolor.jpg.jpg",
+   "textures/B02_lullaby_man_normal.jpg.jpg",
+   "textures/B02_lullaby_man_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "B02_lullaby_man_rig.glb",
+  "blend": "B02_lullaby_man_rig.blend",
+  "springbones": "B02_lullaby_man_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 69,
+  "meshes": 2,
+  "verts": 5151,
+  "skinned": 2,
+  "ok": true
+ }
+}

@@ -1,0 +1,691 @@
+{
+ "asset": "P07_cradle_warden",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 3.96,
+ "k": 2.1999999999999997,
+ "glb_sha256": "a982f9b2903ba5f97279b45f633277ae45569ba3a792b717f199f1f9f2ee2633",
+ "bones": 40,
+ "deform": 30,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {
+  "robe_shirt_F": [
+   "robe_shirt_F_01",
+   "robe_shirt_F_02",
+   "robe_shirt_F_03"
+  ],
+  "cage": [
+   "cage_01"
+  ]
+ },
+ "items": {
+  "cage": {
+   "code": 1,
+   "mode": "rigid",
+   "bones": [
+    "cage_01"
+   ],
+   "parent": "chest"
+  }
+ },
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   -0.05000000074505806,
+   1.100000023841858
+  ],
+  "spine1": [
+   0.0,
+   -0.05271731689572334,
+   1.5726081132888794
+  ],
+  "spine2": [
+   0.0,
+   -0.055434636771678925,
+   2.0452163219451904
+  ],
+  "chest": [
+   0.0,
+   -0.05815195292234421,
+   2.517824411392212
+  ],
+  "shoulder": [
+   1.15,
+   -0.1,
+   2.72
+  ],
+  "elbow": [
+   1.95,
+   -0.1,
+   2.72
+  ],
+  "wrist": [
+   2.65,
+   -0.1,
+   2.7
+  ],
+  "hand_end": [
+   3.08,
+   -0.1,
+   2.7
+  ],
+  "head": [
+   0.0,
+   -0.5243315696716309,
+   3.228137254714966
+  ],
+  "head_top": [
+   0.0,
+   -1.0662046670913696,
+   3.761029005050659
+  ],
+  "neck": [
+   0.0,
+   -0.11398513615131378,
+   3.0951547622680664
+  ],
+  "clav_in": [
+   0.0673,
+   0.0339,
+   2.8947
+  ],
+  "L_knee": [
+   1.0,
+   -0.2,
+   0.55
+  ],
+  "L_ankle": [
+   1.018,
+   -0.0741,
+   0.2099
+  ],
+  "L_ball": [
+   1.0679,
+   -0.3512,
+   0.0673
+  ],
+  "L_toe": [
+   1.0917,
+   -0.6547,
+   0.0436
+  ],
+  "R_knee": [
+   -1.0,
+   -0.2,
+   0.55
+  ],
+  "R_ankle": [
+   -1.018,
+   -0.0741,
+   0.2099
+  ],
+  "R_ball": [
+   -1.0679,
+   -0.3512,
+   0.0673
+  ],
+  "R_toe": [
+   -1.0917,
+   -0.6547,
+   0.0436
+  ],
+  "L_hip": [
+   0.9,
+   -0.05,
+   1.0
+  ],
+  "R_hip": [
+   -0.9,
+   -0.05,
+   1.0
+  ],
+  "hip": [
+   0.9,
+   -0.05,
+   1.0
+  ],
+  "knee": [
+   1.0,
+   -0.2,
+   0.55
+  ],
+  "ankle": [
+   1.018,
+   -0.0741,
+   0.2099
+  ],
+  "ball": [
+   1.0679,
+   -0.3512,
+   0.0673
+  ],
+  "toe": [
+   1.0917,
+   -0.6547,
+   0.0436
+  ]
+ },
+ "parts": {
+  "Accessory": {
+   "faces": 1475,
+   "verts": 842,
+   "islands": 4
+  },
+  "Head": {
+   "faces": 1579,
+   "verts": 908,
+   "islands": 3
+  },
+  "Body": {
+   "faces": 7887,
+   "verts": 4238,
+   "islands": 30
+  }
+ },
+ "seam_pairs": {
+  "Accessory|Body": 152,
+  "Accessory|Head": 48,
+  "Body|Head": 196
+ },
+ "skeleton_notes": [
+  "wrist from proportion (hand is not its own island)",
+  "4.5 heads tall: stylized (anime/chibi) - PRIOR flags off, trust measurements + X-ray; consider spine nearer the mesh centre",
+  "pelvis y +0.010 -> +0.132 (section)",
+  "spine1 y +0.265 -> +0.250 (section)",
+  "spine2 y +0.265 -> +0.335 (section)",
+  "chest y +0.384 -> +0.177 (section)",
+  "arms: torso half-width 0.000 -> shoulder x 0.079, elbow 1.460, wrist 2.614, hand end 3.096",
+  "spine/neck/head/arm/leg joints set by hand (fused mesh)",
+  "editor joints P07_cradle_warden_rig_P07_cradle_warden_Rig_joints.json: moved (cm) {'spine1': 2.28, 'spine2': 4.55, 'chest': 6.83, 'neck': 9.62, 'head': 32.55, 'head_top': 88.88, 'L_knee': 15.86, 'L_ankle': 12.97, 'L_ball': 8.45, 'R_knee': 15.86, 'R_ankle': 12.97, 'R_ball': 0.75}"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 1411,
+  "sleeve_flaps": 0
+ },
+ "health": {
+  "P07_cradle_warden_Body": {
+   "verts": 4950,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "P07_cradle_warden_Accessory": {
+   "verts": 842,
+   "max_influences": 1,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.512,
+  "knee_r": 0.4477,
+  "calf_r": 0.5052,
+  "foot_r": 0.4253,
+  "n": {
+   "thigh": 185,
+   "calf": 133,
+   "knee": 26,
+   "foot": 339
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.7,
+  "rounds": 6
+ },
+ "rest_push_deg": 0.0,
+ "layer_pairs": [],
+ "poses": {
+  "arms_down": {
+   "pen_nopush": 0,
+   "stretch": 3.11,
+   "bad_edges": 90,
+   "per_part": {
+    "Body": [
+     3.11,
+     90,
+     219.9,
+     219.9
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "pen_nopush": 0,
+   "stretch": 5.35,
+   "bad_edges": 64,
+   "per_part": {
+    "Body": [
+     5.35,
+     64,
+     93.9,
+     93.9
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "pen_nopush": 0,
+   "stretch": 3.42,
+   "bad_edges": 89,
+   "per_part": {
+    "Body": [
+     3.42,
+     89,
+     23.6,
+     249.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "pen_nopush": 0,
+   "stretch": 5.36,
+   "bad_edges": 255,
+   "per_part": {
+    "Body": [
+     5.36,
+     255,
+     189.5,
+     229.5
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "pen_nopush": 0,
+   "stretch": 11.01,
+   "bad_edges": 296,
+   "per_part": {
+    "Body": [
+     11.01,
+     296,
+     196.9,
+     790.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "pen_nopush": 0,
+   "stretch": 4.19,
+   "bad_edges": 50,
+   "per_part": {
+    "Body": [
+     4.19,
+     50,
+     123.7,
+     343.7
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "pen_nopush": 0,
+   "stretch": 6.97,
+   "bad_edges": 490,
+   "per_part": {
+    "Body": [
+     6.97,
+     490,
+     167.6,
+     343.7
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "pen_nopush": 0,
+   "stretch": 4.57,
+   "bad_edges": 235,
+   "per_part": {
+    "Body": [
+     4.57,
+     235,
+     10.8,
+     199.5
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "pen_nopush": 0,
+   "stretch": 5.16,
+   "bad_edges": 183,
+   "per_part": {
+    "Body": [
+     5.16,
+     183,
+     50.3,
+     405.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "pen_nopush": 0,
+   "stretch": 4.32,
+   "bad_edges": 386,
+   "per_part": {
+    "Body": [
+     4.32,
+     386,
+     183.9,
+     524.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "pen_nopush": 0,
+   "stretch": 3.55,
+   "bad_edges": 141,
+   "per_part": {
+    "Body": [
+     3.55,
+     141,
+     150.8,
+     190.7
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "pen_nopush": 0,
+   "stretch": 4.06,
+   "bad_edges": 58,
+   "per_part": {
+    "Body": [
+     4.06,
+     58,
+     88.4,
+     178.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "pen_nopush": 0,
+   "stretch": 10.14,
+   "bad_edges": 148,
+   "per_part": {
+    "Body": [
+     10.14,
+     148,
+     324.6,
+     806.7
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "pen_nopush": 2,
+   "stretch": 7.6,
+   "bad_edges": 123,
+   "per_part": {
+    "Body": [
+     7.6,
+     123,
+     1340.0,
+     1424.8
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "pen_nopush": 0,
+   "stretch": 11.05,
+   "bad_edges": 123,
+   "per_part": {
+    "Body": [
+     11.05,
+     123,
+     237.4,
+     453.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "pen_nopush": 2,
+   "stretch": 6.44,
+   "bad_edges": 267,
+   "per_part": {
+    "Body": [
+     6.44,
+     267,
+     885.2,
+     1337.4
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 194,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/P07_cradle_warden.py, run_stage.py)"
+ }
+}

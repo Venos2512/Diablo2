@@ -1,0 +1,150 @@
+{
+ "chains": [
+  {
+   "root": "robe_kiln_F_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.028,
+   "endLength": 0.047,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_kiln_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.028,
+   "endLength": 0.047,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_kiln_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.028,
+   "endLength": 0.047,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_kiln_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.028,
+   "endLength": 0.047,
+   "wind": 1.0
+  },
+  {
+   "root": "pot_01",
+   "enabled": false,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.019,
+   "endLength": 0.028,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.13
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.12
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.11
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.076
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.086
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.042
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.044
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.081,
+   "offset": [
+    0.0,
+    0.018,
+    0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.087,
+   "offset": [
+    0.0,
+    0.0179,
+    0.0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [
+  [
+   "robe_kiln_F_01",
+   "robe_kiln_L_01"
+  ],
+  [
+   "robe_kiln_L_01",
+   "robe_kiln_B_01"
+  ],
+  [
+   "robe_kiln_B_01",
+   "robe_kiln_R_01"
+  ],
+  [
+   "robe_kiln_R_01",
+   "robe_kiln_F_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "D02_kiln_shaman_Rig",
+ "saved": "2026-10-27 20:46:24"
+}

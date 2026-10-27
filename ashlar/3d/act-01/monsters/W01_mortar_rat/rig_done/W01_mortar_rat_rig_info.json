@@ -1,0 +1,65 @@
+{
+ "asset_id": "W01_mortar_rat",
+ "rig": "W01_mortar_rat_Rig",
+ "exported": "2026-10-28T00:32:07",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\W01_mortar_rat\\rig\\W01_mortar_rat_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 45,
+  "deform": 35,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "W01_mortar_rat_Body": {
+   "role": "Body",
+   "verts": 5466
+  }
+ },
+ "weight_health": {
+  "W01_mortar_rat_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "W01_mortar_rat_rig.fbx",
+  "textures": [
+   "textures/W01_mortar_rat_basecolor.jpg.jpg",
+   "textures/W01_mortar_rat_normal.jpg.jpg",
+   "textures/W01_mortar_rat_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "W01_mortar_rat_rig.glb",
+  "blend": "W01_mortar_rat_rig.blend",
+  "springbones": "W01_mortar_rat_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 45,
+  "meshes": 1,
+  "verts": 5466,
+  "skinned": 1,
+  "ok": true
+ }
+}

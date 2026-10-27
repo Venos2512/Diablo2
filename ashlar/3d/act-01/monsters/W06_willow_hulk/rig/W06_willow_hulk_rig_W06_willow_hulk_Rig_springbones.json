@@ -1,0 +1,72 @@
+{
+ "chains": [],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.293
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.283
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.3
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.27
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.237
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.227
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.247
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.283,
+   "offset": [
+    -0.0,
+    0.0663,
+    0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.291,
+   "offset": [
+    -0.0,
+    0.0663,
+    0.0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "W06_willow_hulk_Rig",
+ "saved": "2026-10-28 00:23:24"
+}

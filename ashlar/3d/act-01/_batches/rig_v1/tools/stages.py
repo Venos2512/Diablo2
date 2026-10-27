@@ -23,7 +23,8 @@ Asset module fields
 Hooks (optional): s2_labels(ob, lab, isl, info) -> per-face labels or None; s2_attrs(ob, lab, isl, info);
   landmarks_fix(L, parts); extra_chains(rig, parts, chains); is_arm(i, ...);
   arm_band(body, rig, band, ones, zeros, rep) -> (ones, zeros) for the shoulder blend (s4, before smooth_arm_blend);
-  body_weights_fix(body, rig, rep) (s4, after the head band); cloth_weights_fix(parts, rig, chains, rep) (s4)
+  body_weights_fix(body, rig, rep) (s4, after the head band); cloth_weights_fix(parts, rig, chains, rep) (s4);
+  acc_weights_fix(acc, body, rig, rep) (s4, after the accessory items)
 """
 import bpy, os, json, math, collections, glob, shutil
 import rigbatch as rb
@@ -685,6 +686,8 @@ def s4(ctx, A):
                                 d[n_] += gone * x
                         rc.set_weights(acc, i, dict(d))
         rc.finalize_weights(acc)
+    if acc is not None and P(A, 'acc_weights_fix'):     # optional asset rule after the items (B05: smooth long stoles)
+        A.acc_weights_fix(acc, body, rig, rep)
     if head is not None and (P(A, 'HEAD', {}) or {}).get('in_body'):
         rep['head_in_body'] = merge_head_into_body(body, head)
     meshes = ordered_parts()

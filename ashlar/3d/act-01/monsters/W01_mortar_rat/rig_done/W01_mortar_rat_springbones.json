@@ -1,0 +1,82 @@
+{
+ "chains": [
+  {
+   "enabled": true,
+   "collide": true,
+   "root": "tail_01",
+   "stiffness": 1.4,
+   "drag": 0.45,
+   "gravity": 0.1,
+   "hitRadius": 0.012,
+   "endLength": 0.0,
+   "wind": 0.3,
+   "layer": 0
+  },
+  {
+   "enabled": true,
+   "collide": false,
+   "root": "ear_L_01",
+   "stiffness": 2.2,
+   "drag": 0.5,
+   "gravity": 0.05,
+   "hitRadius": 0.006,
+   "endLength": 0.0,
+   "wind": 0.6,
+   "layer": 0
+  },
+  {
+   "enabled": true,
+   "collide": false,
+   "root": "ear_R_01",
+   "stiffness": 2.2,
+   "drag": 0.5,
+   "gravity": 0.05,
+   "hitRadius": 0.006,
+   "endLength": 0.0,
+   "wind": 0.6,
+   "layer": 0
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.02
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.02
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.012
+  },
+  {
+   "bone": "L_Foot",
+   "type": "capsule",
+   "radius": 0.013
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.012
+  },
+  {
+   "bone": "R_Foot",
+   "type": "capsule",
+   "radius": 0.013
+  }
+ ],
+ "links": [],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "W01_mortar_rat_Rig",
+ "saved": "2026-10-28 00:30:03"
+}

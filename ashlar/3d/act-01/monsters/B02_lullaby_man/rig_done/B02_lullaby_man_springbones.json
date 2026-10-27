@@ -1,0 +1,246 @@
+{
+ "chains": [
+  {
+   "root": "robe_lullaby_F_01",
+   "enabled": true,
+   "stiffness": 2.25,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.132,
+   "endLength": 0.22,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_lullaby_L_01",
+   "enabled": true,
+   "stiffness": 2.4,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.132,
+   "endLength": 0.22,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_lullaby_B_01",
+   "enabled": true,
+   "stiffness": 2.55,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.132,
+   "endLength": 0.22,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_lullaby_R_01",
+   "enabled": true,
+   "stiffness": 2.4,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.132,
+   "endLength": 0.22,
+   "wind": 1.0
+  },
+  {
+   "root": "sleeve_L_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.088,
+   "endLength": 0.11,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "sleeve_R_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.088,
+   "endLength": 0.11,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "cage_01",
+   "enabled": false,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.088,
+   "endLength": 0.132,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  },
+  {
+   "root": "lappet_L_01",
+   "enabled": true,
+   "stiffness": 1.0,
+   "drag": 0.35,
+   "gravity": 0.5,
+   "hitRadius": 0.088,
+   "endLength": 0.132,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "lappet_R_01",
+   "enabled": true,
+   "stiffness": 1.0,
+   "drag": 0.35,
+   "gravity": 0.5,
+   "hitRadius": 0.088,
+   "endLength": 0.132,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "ribbon_L_01",
+   "enabled": true,
+   "stiffness": 0.9,
+   "drag": 0.35,
+   "gravity": 0.6,
+   "hitRadius": 0.088,
+   "endLength": 0.132,
+   "collide": true,
+   "wind": 1.0
+  },
+  {
+   "root": "ribbon_R_01",
+   "enabled": true,
+   "stiffness": 0.9,
+   "drag": 0.35,
+   "gravity": 0.6,
+   "hitRadius": 0.088,
+   "endLength": 0.132,
+   "collide": true,
+   "wind": 1.0
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.3
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.26
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.24
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.19
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.19
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.13
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.13
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.15,
+   "offset": [
+    -0.0,
+    0.0917,
+    0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.15,
+   "offset": [
+    0.0,
+    0.0917,
+    -0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "chest",
+   "type": "capsule",
+   "radius": 0.22,
+   "tail": [
+    -0.0,
+    0.3062,
+    -0.0
+   ]
+  },
+  {
+   "bone": "L_UpperArm",
+   "type": "capsule",
+   "radius": 0.08,
+   "tail": [
+    0.0,
+    0.5217,
+    -0.0
+   ]
+  },
+  {
+   "bone": "R_UpperArm",
+   "type": "capsule",
+   "radius": 0.08,
+   "tail": [
+    -0.0,
+    0.5217,
+    -0.0
+   ]
+  }
+ ],
+ "links": [
+  [
+   "robe_lullaby_F_01",
+   "robe_lullaby_L_01"
+  ],
+  [
+   "robe_lullaby_L_01",
+   "robe_lullaby_B_01"
+  ],
+  [
+   "robe_lullaby_B_01",
+   "robe_lullaby_R_01"
+  ],
+  [
+   "robe_lullaby_R_01",
+   "robe_lullaby_F_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "B02_lullaby_man_Rig",
+ "saved": "2026-10-28 00:38:49"
+}

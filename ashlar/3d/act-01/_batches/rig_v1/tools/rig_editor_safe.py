@@ -120,7 +120,8 @@ if a.batch:
     TOOLS = os.path.dirname(os.path.abspath(__file__))
     ROOT = os.path.abspath(os.path.join(TOOLS, *['..'] * 6))
     BLENDER_EXE = r'C:\Program Files\Blender Foundation\Blender 5.1\blender.exe'
-    GUI_OPEN = os.path.join(TOOLS, 'gui_open.py'); LINK_PORT = 9899      # gui_open.py's batch link
+    GUI_OPEN = os.path.join(TOOLS, 'gui_open.py'); LINK_PORT = a.blender_port      # gui_open.py's batch link (default 9899)
+    os.environ['RB_LINK_PORT'] = str(LINK_PORT)          # inherited by the Blender window Start-Process opens
     RIG_JSON = os.path.abspath(a.file)
     ADIR = os.path.dirname(os.path.dirname(RIG_JSON)); AID = os.path.basename(ADIR)
     BLEND = os.path.join(ADIR, 'rig', AID + '_rig.blend')

@@ -1,0 +1,555 @@
+{
+ "asset": "W06_willow_hulk",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 3.15,
+ "k": 1.75,
+ "glb_sha256": "fa255c0d33574c9e1c179de40c11a2e9dca5670200b537f5e4646be1fddafa4e",
+ "bones": 36,
+ "deform": 26,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {},
+ "items": {},
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   -0.0846264436841011,
+   1.543265461921692
+  ],
+  "spine1": [
+   0.0,
+   -0.08239831775426865,
+   1.7603800296783447
+  ],
+  "spine2": [
+   0.0,
+   -0.0729435458779335,
+   1.9771794080734253
+  ],
+  "chest": [
+   0.0,
+   -0.05689243972301483,
+   2.1792104244232178
+  ],
+  "shoulder": [
+   0.42,
+   -0.05,
+   2.42
+  ],
+  "elbow": [
+   0.73,
+   -0.05,
+   2.42
+  ],
+  "wrist": [
+   1.0,
+   -0.07,
+   2.42
+  ],
+  "hand_end": [
+   1.57,
+   -0.04,
+   2.38
+  ],
+  "head": [
+   0.0,
+   -0.2568994164466858,
+   2.6917519569396973
+  ],
+  "head_top": [
+   0.0,
+   -0.3310665786266327,
+   2.9467673301696777
+  ],
+  "neck": [
+   0.0,
+   -0.05999999865889549,
+   2.440000057220459
+  ],
+  "clav_in": [
+   0.0536,
+   -0.05,
+   2.4
+  ],
+  "L_knee": [
+   0.3,
+   -0.06,
+   0.66
+  ],
+  "L_ankle": [
+   0.31,
+   -0.02,
+   0.22
+  ],
+  "L_ball": [
+   0.31,
+   -0.36,
+   0.06
+  ],
+  "L_toe": [
+   0.31,
+   -0.62,
+   0.03
+  ],
+  "R_knee": [
+   -0.3,
+   -0.06,
+   0.66
+  ],
+  "R_ankle": [
+   -0.31,
+   -0.02,
+   0.22
+  ],
+  "R_ball": [
+   -0.31,
+   -0.36,
+   0.06
+  ],
+  "R_toe": [
+   -0.31,
+   -0.62,
+   0.03
+  ],
+  "L_hip": [
+   0.25,
+   -0.02,
+   1.15
+  ],
+  "R_hip": [
+   -0.25,
+   -0.02,
+   1.15
+  ],
+  "hip": [
+   0.25,
+   -0.02,
+   1.15
+  ],
+  "knee": [
+   0.3,
+   -0.06,
+   0.66
+  ],
+  "ankle": [
+   0.31,
+   -0.02,
+   0.22
+  ],
+  "ball": [
+   0.31,
+   -0.36,
+   0.06
+  ],
+  "toe": [
+   0.31,
+   -0.62,
+   0.03
+  ],
+  "R_shoulder": [
+   -0.42,
+   -0.05,
+   2.42
+  ],
+  "R_elbow": [
+   -1.25,
+   -0.06,
+   2.38
+  ],
+  "R_wrist": [
+   -1.97,
+   -0.08,
+   2.39
+  ],
+  "R_hand_end": [
+   -2.62,
+   -0.06,
+   2.38
+  ],
+  "R_clav_in": [
+   -0.0536,
+   -0.05,
+   2.4
+  ]
+ },
+ "parts": {
+  "Head": {
+   "faces": 259,
+   "verts": 148,
+   "islands": 2
+  },
+  "Body": {
+   "faces": 8823,
+   "verts": 5392,
+   "islands": 76
+  }
+ },
+ "seam_pairs": {
+  "Body|Head": 18
+ },
+ "skeleton_notes": [
+  "wrist from proportion (hand is not its own island)",
+  "pelvis y +0.081 -> -0.045 (section)",
+  "spine1 y +0.062 -> +0.063 (section)",
+  "spine2 y +0.100 -> +0.099 (section)",
+  "chest y +0.111 -> +0.103 (section)",
+  "arms: torso half-width 0.000 -> shoulder x 0.063, elbow 0.646, wrist 1.132, hand end 1.569",
+  "neck/head x +0.008 (head piece axis)",
+  "spine/neck/head/legs set by hand (columnar root body); arms per side (R_* keys, not mirrored)",
+  "editor joints W06_willow_hulk_rig_W06_willow_hulk_Rig_joints.json: moved (cm) {'pelvis': 34.62, 'spine1': 26.24, 'spine2': 17.87, 'chest': 10.06, 'head': 10.99, 'head_top': 26.56, 'L_hip': 30.46, 'L_knee': 22.14, 'R_hip': 30.46, 'R_knee': 22.14}"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 1211,
+  "sleeve_flaps": 0
+ },
+ "health": {
+  "W06_willow_hulk_Body": {
+   "verts": 5522,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.298,
+  "knee_r": 0.3076,
+  "calf_r": 0.2838,
+  "foot_r": 0.3551,
+  "n": {
+   "calf": 601,
+   "foot": 575,
+   "knee": 146,
+   "thigh": 761
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.7,
+  "rounds": 6
+ },
+ "rest_push_deg": null,
+ "layer_pairs": null,
+ "poses": {
+  "arms_down": {
+   "stretch": 4.56,
+   "bad_edges": 27,
+   "per_part": {
+    "Body": [
+     4.56,
+     27,
+     60.3,
+     72.7
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "stretch": 2.6,
+   "bad_edges": 6,
+   "per_part": {
+    "Body": [
+     2.6,
+     6,
+     50.4,
+     57.8
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "stretch": 2.86,
+   "bad_edges": 26,
+   "per_part": {
+    "Body": [
+     2.86,
+     26,
+     43.7,
+     82.8
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "stretch": 6.1,
+   "bad_edges": 57,
+   "per_part": {
+    "Body": [
+     6.1,
+     57,
+     33.2,
+     150.0
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "stretch": 3.03,
+   "bad_edges": 20,
+   "per_part": {
+    "Body": [
+     3.03,
+     20,
+     51.8,
+     135.1
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "stretch": 7.4,
+   "bad_edges": 54,
+   "per_part": {
+    "Body": [
+     7.4,
+     54,
+     103.6,
+     104.8
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "stretch": 7.4,
+   "bad_edges": 70,
+   "per_part": {
+    "Body": [
+     7.4,
+     70,
+     34.2,
+     365.2
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "stretch": 3.08,
+   "bad_edges": 17,
+   "per_part": {
+    "Body": [
+     3.08,
+     17,
+     243.6,
+     266.6
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "stretch": 4.18,
+   "bad_edges": 15,
+   "per_part": {
+    "Body": [
+     4.18,
+     15,
+     40.6,
+     56.0
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "stretch": 2.06,
+   "bad_edges": 2,
+   "per_part": {
+    "Body": [
+     2.06,
+     2,
+     15.2,
+     56.0
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "stretch": 1.85,
+   "bad_edges": 6,
+   "per_part": {
+    "Body": [
+     1.85,
+     6,
+     42.1,
+     64.6
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "stretch": 3.2,
+   "bad_edges": 35,
+   "per_part": {
+    "Body": [
+     3.2,
+     35,
+     48.8,
+     115.3
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "stretch": 2.57,
+   "bad_edges": 15,
+   "per_part": {
+    "Body": [
+     2.57,
+     15,
+     117.7,
+     142.7
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "stretch": 11.79,
+   "bad_edges": 41,
+   "per_part": {
+    "Body": [
+     11.79,
+     41,
+     175.0,
+     175.0
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "stretch": 2.3,
+   "bad_edges": 9,
+   "per_part": {
+    "Body": [
+     2.3,
+     9,
+     141.3,
+     141.3
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "stretch": 10.33,
+   "bad_edges": 150,
+   "per_part": {
+    "Body": [
+     10.33,
+     150,
+     108.2,
+     205.8
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/W06_willow_hulk.py, run_stage.py)"
+ }
+}

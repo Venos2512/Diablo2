@@ -71,7 +71,7 @@ if rig:
     rig.show_in_front = True
 
 # ---------------------------------------------------------------- batch link
-LINK_PORT = 9899
+LINK_PORT = int(os.environ.get('RB_LINK_PORT', '9899'))   # parallel threads: one link port per editor (--blender-port)
 MODE_SET = {'POSE': 'POSE', 'PAINT_WEIGHT': 'WEIGHT_PAINT', 'EDIT_MESH': 'EDIT', 'EDIT_ARMATURE': 'EDIT',
             'PAINT_VERTEX': 'VERTEX_PAINT', 'PAINT_TEXTURE': 'TEXTURE_PAINT', 'SCULPT': 'SCULPT'}
 SHARED = ('materials', 'node_groups', 'images', 'textures')     # appended copies "<name>.001" -> the window's own

@@ -1,0 +1,545 @@
+{
+ "asset": "W01_mortar_rat",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 0.4,
+ "k": 0.22222222222222224,
+ "glb_sha256": "87ef749e0e65c905097201ad39f1d2234b9a8e0918bca93138d5cbb44453d244",
+ "bones": 45,
+ "deform": 35,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {
+  "tail": [
+   "tail_01",
+   "tail_02",
+   "tail_03",
+   "tail_04",
+   "tail_05"
+  ],
+  "ear_L": [
+   "ear_L_01",
+   "ear_L_02"
+  ],
+  "ear_R": [
+   "ear_R_01",
+   "ear_R_02"
+  ]
+ },
+ "items": {},
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   -0.029999999329447746,
+   0.12999999523162842
+  ],
+  "spine1": [
+   0.0,
+   -0.035999998450279236,
+   0.16500000655651093
+  ],
+  "spine2": [
+   0.0,
+   -0.041999999433755875,
+   0.20000000298023224
+  ],
+  "chest": [
+   0.0,
+   -0.04899999871850014,
+   0.2370000034570694
+  ],
+  "shoulder": [
+   0.036,
+   -0.058,
+   0.272
+  ],
+  "elbow": [
+   0.086,
+   -0.058,
+   0.271
+  ],
+  "wrist": [
+   0.128,
+   -0.058,
+   0.27
+  ],
+  "hand_end": [
+   0.176,
+   -0.058,
+   0.268
+  ],
+  "head": [
+   0.0,
+   -0.0924929603934288,
+   0.31993383169174194
+  ],
+  "head_top": [
+   0.0,
+   -0.11428733915090561,
+   0.34757259488105774
+  ],
+  "neck": [
+   0.0,
+   -0.0560000017285347,
+   0.28299999237060547
+  ],
+  "clav_in": [
+   0.007,
+   -0.053,
+   0.277
+  ],
+  "L_knee": [
+   0.034,
+   -0.066,
+   0.086
+  ],
+  "L_ankle": [
+   0.033,
+   -0.022,
+   0.046
+  ],
+  "L_ball": [
+   0.042,
+   -0.076,
+   0.011
+  ],
+  "L_toe": [
+   0.046,
+   -0.106,
+   0.006
+  ],
+  "R_knee": [
+   -0.034,
+   -0.066,
+   0.086
+  ],
+  "R_ankle": [
+   -0.033,
+   -0.022,
+   0.046
+  ],
+  "R_ball": [
+   -0.042,
+   -0.076,
+   0.011
+  ],
+  "R_toe": [
+   -0.046,
+   -0.106,
+   0.006
+  ],
+  "L_hip": [
+   0.028,
+   -0.03,
+   0.125
+  ],
+  "R_hip": [
+   -0.028,
+   -0.03,
+   0.125
+  ],
+  "hip": [
+   0.028,
+   -0.03,
+   0.125
+  ],
+  "knee": [
+   0.034,
+   -0.066,
+   0.086
+  ],
+  "ankle": [
+   0.033,
+   -0.022,
+   0.046
+  ],
+  "ball": [
+   0.042,
+   -0.076,
+   0.011
+  ],
+  "toe": [
+   0.046,
+   -0.106,
+   0.006
+  ]
+ },
+ "parts": {
+  "Head": {
+   "faces": 2146,
+   "verts": 1098,
+   "islands": 3
+  },
+  "Body": {
+   "faces": 8444,
+   "verts": 4384,
+   "islands": 65
+  }
+ },
+ "seam_pairs": {
+  "Body|Head": 16
+ },
+ "skeleton_notes": [
+  "pelvis y -0.016 -> -0.045 (section)",
+  "spine1 y -0.053 -> -0.050 (section)",
+  "spine2 y -0.048 -> -0.046 (section)",
+  "chest y -0.060 -> -0.056 (section)",
+  "arms: torso half-width 0.012 -> shoulder x 0.020, elbow 0.079, wrist 0.128, hand end 0.178",
+  "all joints set by hand (fused rat, digitigrade legs: ankle = heel)",
+  "tail 5 bones from 292 verts: (-0.008,0.112) (+0.015,0.073) (+0.042,0.038) (+0.085,0.024) (+0.129,0.021) (+0.162,0.045); ears 256 verts each",
+  "editor joints W01_mortar_rat_rig_W01_mortar_rat_Rig_joints.json: moved (cm) {'head': 2.45, 'head_top': 4.21}"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 748,
+  "sleeve_flaps": 0
+ },
+ "health": {
+  "W01_mortar_rat_Body": {
+   "verts": 5466,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.0476,
+  "knee_r": 0.015,
+  "calf_r": 0.0174,
+  "foot_r": 0.0312,
+  "n": {
+   "calf": 264,
+   "thigh": 925,
+   "foot": 822,
+   "knee": 52
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.7,
+  "rounds": 6
+ },
+ "rest_push_deg": null,
+ "layer_pairs": null,
+ "poses": {
+  "arms_down": {
+   "stretch": 2.97,
+   "bad_edges": 23,
+   "per_part": {
+    "Body": [
+     2.97,
+     23,
+     8.9,
+     8.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "stretch": 2.81,
+   "bad_edges": 5,
+   "per_part": {
+    "Body": [
+     2.81,
+     5,
+     3.2,
+     4.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "stretch": 5.01,
+   "bad_edges": 41,
+   "per_part": {
+    "Body": [
+     5.01,
+     41,
+     11.2,
+     11.2
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "stretch": 2.83,
+   "bad_edges": 29,
+   "per_part": {
+    "Body": [
+     2.83,
+     29,
+     8.3,
+     8.3
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "stretch": 2.94,
+   "bad_edges": 30,
+   "per_part": {
+    "Body": [
+     2.94,
+     30,
+     3.1,
+     11.8
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "stretch": 2.94,
+   "bad_edges": 22,
+   "per_part": {
+    "Body": [
+     2.94,
+     22,
+     3.1,
+     6.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "stretch": 2.38,
+   "bad_edges": 8,
+   "per_part": {
+    "Body": [
+     2.38,
+     8,
+     12.5,
+     12.5
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "stretch": 1.98,
+   "bad_edges": 8,
+   "per_part": {
+    "Body": [
+     1.98,
+     8,
+     7.1,
+     7.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "stretch": 4.24,
+   "bad_edges": 11,
+   "per_part": {
+    "Body": [
+     4.24,
+     11,
+     9.4,
+     13.6
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "stretch": 1.38,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.38,
+     0,
+     2.9,
+     6.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "stretch": 1.54,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.54,
+     0,
+     4.3,
+     5.6
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "stretch": 1.42,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.42,
+     0,
+     2.0,
+     2.7
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "stretch": 2.03,
+   "bad_edges": 5,
+   "per_part": {
+    "Body": [
+     2.03,
+     5,
+     9.4,
+     11.7
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "stretch": 5.33,
+   "bad_edges": 29,
+   "per_part": {
+    "Body": [
+     5.33,
+     29,
+     13.4,
+     16.4
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "stretch": 1.58,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.58,
+     0,
+     6.9,
+     6.9
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "stretch": 4.34,
+   "bad_edges": 102,
+   "per_part": {
+    "Body": [
+     4.34,
+     102,
+     12.7,
+     20.3
+    ]
+   },
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/W01_mortar_rat.py, run_stage.py)"
+ }
+}

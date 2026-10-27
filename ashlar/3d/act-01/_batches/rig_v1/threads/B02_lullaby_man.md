@@ -1,0 +1,30 @@
+Bạn rig MỘT quái Act I của ASHLAR: B02 Lullaby Man (`ashlar/3d/act-01/monsters/B02_lullaby_man/`). Đây là một phần của lô `rig_v1`; 5 con khác chạy song song, mỗi con một thread. Trả lời người dùng bằng tiếng Việt.
+
+## Đọc trước
+- `AGENTS.md` → `Agent.md`, `ashlar/3d/rig-anim/Agent.md`, brief lô `ashlar/3d/act-01/_batches/rig_v1/BRIEF.md` (dòng của B02_lullaby_man ở bảng §2: họ, chiều cao, cấu trúc mesh, xương ngoài bộ lõi).
+- Docstring đầu `tools/stages.py` (các trường cấu hình và hook), `tools/rig_editor_safe.py`, `tools/gui_open.py`, `tools/spring_layers.py` (thư mục `ashlar/3d/act-01/_batches/rig_v1/tools/`).
+- Cấu hình mẫu đã được duyệt trong `tools/assets/`: `D04_tithe_thief.py` (khớp đặt tay qua `landmarks_fix`, hook `is_arm`/`arm_band`, tách phụ kiện cứng qua `s2_labels`, mối nối phụ kiện `_sack_seam`, giới hạn cổ), `P07_cradle_warden.py` (lưới liền một khối, tách theo màu texture, vạt áo trong Body, `HEAD_MASK`/`CHIN`), `D02_kiln_shaman.py` (`rb.sleeve_flood`, `apply_user_skin`), `U03_charnel_bowman.py` (`DELETE_ISL`, `CLOTH_ISL`, `z_top`). Ghi chú `rig/rig.log` của các con này kể từng lỗi người dùng đã bắt và cách sửa.
+
+## Quy trình (người dùng duyệt từng bước, không tự qua cổng)
+1. Chiều cao: danh mục ghi "mũ 2,2H; lồng 2,55H". Đo mesh để biết đỉnh nào là mũ, đỉnh nào là lồng, rồi hỏi người dùng (AskUserQuestion) chọn 2,2H (đỉnh mũ) hay 2,55H (đỉnh lồng) trước khi dựng. Lưu ý: áo chuông chạm đất, không có chân (brief: áo F/L/B/R thay chân, lồng cứng, ruy băng chuỗi).
+2. Dựng: `blender -b --factory-startup -P tools/s0_intake.py -- B02_lullaby_man <H>`, rồi `blender -b --factory-startup tmp/rig_v1/B02_lullaby_man/s0_intake.blend -P tools/analyze.py -- B02_lullaby_man <H>`; xem ảnh `tmp/rig_v1/B02_lullaby_man/s0_isl_*.png`; viết `tools/assets/B02_lullaby_man.py`; chạy `blender -b --factory-startup -P tools/run_stage.py -- B02_lullaby_man s1` … `s6` (Blender: `C:\Program Files\Blender Foundation\Blender 5.1\blender.exe`). Đọc QA s5 (độ giãn, `RB_QA_TOP=4` để in đỉnh tệ nhất kèm weight), sửa đến khi hợp lý.
+3. Tự kiểm trước khi giao: ảnh hai tay lên 35°/xuống 50° (`tmp/rig_v1/_armpose.py -- <out> <cx> <cz> <size>`), ảnh ngửa/quay đầu (`tmp/rig_v1/_headpose2.py -- <out> <cx> <cz> <size> <cy>`). Tay áo đi trọn theo tay, vạt treo từ vai/thân thì không; đầu chỉ ảnh hưởng đầu/mũ/mặt, không lan xuống gáy và cổ áo.
+4. Xuất JSON editor: `blender -b --factory-startup <adir>/rig/B02_lullaby_man_rig.blend -P tools/editor_export.py -- <k>` (k = H/1,8; thử lại tối đa 3 lần nếu Errno 22), tờ G2: `python tools/g2_sheets.py <adir> B02_lullaby_man "B02 Lullaby Man"`, ghi chú vào `rig/rig.log`.
+5. Mở editor CỦA RIÊNG thread này (chạy nền, timeout 7200000): `python -E tools/rig_editor_safe.py <adir>/rig/B02_lullaby_man_rig_B02_lullaby_man_Rig_rig.json --port 8771 --blender-port 9901 --no-browser --batch --label "B02 Lullaby Man"`. Mở cửa sổ Blender kiểm tra với biến môi trường `RB_LINK_PORT=9901` (PowerShell: `$env:RB_LINK_PORT='9901'; Start-Process <blender.exe> -ArgumentList '"<blend>"','--python','"<tools>\gui_open.py"'`), hoặc để nút "Áp dụng vào Blender" tự mở. Gửi người dùng link http://127.0.0.1:8771/ và ảnh kiểm tra.
+6. Sửa theo ảnh chụp của người dùng. Người dùng hay sửa xương/mesh/weight thẳng trong cửa sổ Blender: TRƯỚC mỗi lần dựng lại, gửi `{"cmd":"pull","k":<k>}` tới 127.0.0.1:9901 và so JSON vừa kéo với bản đã xuất (khớp, xương thêm/bớt, mesh/weight). Có sửa thì đưa vào cấu hình (xương đã xoá → bỏ chuỗi; weight tự vẽ → `rig/B02_lullaby_man_user_skin.json` qua `stages.apply_user_skin`), không bao giờ ghi đè. Dựng lại với `RB_EDITOR_JOINTS=<đường dẫn đầy đủ tới *_joints.json>`, xuất JSON editor, rồi nạp lại cửa sổ: `{"cmd":"reload","file":"<blend>"}` tới cổng 9901.
+7. Người dùng "ok / làm tiếp" → thêm `SPRING` vào cấu hình, chạy `blender -b --factory-startup <blend> -P tools/spring_layers.py -- B02_lullaby_man`, xem collider (`tmp/rig_v1/_colview.py -- <out prefix>`); collider tự động hay phình theo áo/bụng: đặt tay `radius` sao cho không trùm lên chuỗi vải. Phụ kiện cứng: `enabled=False`. Lưu ý s6 viết lại .blend, nên sau mỗi lần dựng lại phải chạy lại spring_layers.
+8. Người dùng "done" → kéo cửa sổ kiểm lần cuối, `blender -b --factory-startup <blend> -P tools/export_done.py -- <k>` → `rig_done/`, thêm một dòng vào `ashlar/3d/rig-anim/ANIMATION_INVENTORY.md` (theo mẫu dòng D04/P07; file này 6 thread cùng sửa: đọc lại ngay trước khi chèn, chèn một dòng bằng script ngắn, không ghi đè cả file từ bản cũ), ghi chú rig.log, tắt editor của mình.
+
+## Sở thích người dùng đã chốt
+- Váy/áo dài nằm trong Body (`ROBE_CUTS ... in_body=True`), không tách part riêng; đầu cắt từ khối thân cũng nằm trong Body (`HEAD in_body=True`).
+- Phụ kiện như giáp, nồi, bao, lồng: phụ kiện cứng có xương riêng (thường con của `chest`), mép cắt chuyển dần sang xương phụ kiện để không hở.
+- Phần trước áo choàng đi theo thân, chỉ phần sau dùng chuỗi spring. Toàn bộ tay áo (cả phần rủ) đi theo tay; khăn/vạt từ vai hay thân thì không.
+- Chiều cao thật (G1), k = H/1,8. Canon khác sheet → hỏi người dùng.
+- Muốn nhanh: sửa gọn, báo kết quả để họ kiểm, không debug vòng vo.
+
+## Ràng buộc
+- Dùng cổng editor 8771 và cổng link 9901 của thread này. KHÔNG chạm Blender MCP 9876, editor 8765, các cổng 8767/8771–8776/9899/9901–9906 của thread khác, hay cửa sổ Blender của con khác. Không tắt/kill cửa sổ Blender nào có thay đổi chưa lưu.
+- Không sửa GLB gốc, không sửa `~/.claude/skills/blender-character-rigging`, không đọc/dùng skill `blender-mcp-rigging` và `blender-game-animation` (đã tắt).
+- Logic riêng của con này đặt trong `tools/assets/B02_lullaby_man.py`. Code dùng chung (`stages.py`, `rigbatch.py`, `spring_layers.py`, `gui_open.py`, `rig_editor_safe.py`) các thread khác đang dùng cùng lúc: chỉ sửa khi bắt buộc, sửa kiểu thêm vào có cờ bật (mặc định giữ hành vi cũ), đọc lại file ngay trước khi sửa, kiểm cú pháp sau khi sửa.
+- File hay bị khoá khi ghi (Errno 22): thử lại vài lần.
+- Không tunnel/remote. Không commit trừ khi được yêu cầu. Animation là bước riêng, không làm.

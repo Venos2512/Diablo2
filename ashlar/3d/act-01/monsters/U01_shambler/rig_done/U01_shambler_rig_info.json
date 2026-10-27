@@ -1,0 +1,203 @@
+{
+ "asset_id": "U01_shambler",
+ "rig": "U01_shambler_Rig",
+ "exported": "2026-10-27T23:49:53",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\U01_shambler\\rig\\U01_shambler_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 71,
+  "deform": 61,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "U01_shambler_Accessory": {
+   "role": "Accessory",
+   "verts": 223
+  },
+  "U01_shambler_Body": {
+   "role": "Body",
+   "verts": 3598
+  },
+  "U01_shambler_Cloth_Cape": {
+   "role": "Cloth",
+   "verts": 343
+  },
+  "U01_shambler_Cloth_Robe": {
+   "role": "Cloth",
+   "verts": 393
+  },
+  "U01_shambler_Head": {
+   "role": "Head",
+   "verts": 823
+  }
+ },
+ "weight_health": {
+  "U01_shambler_Accessory": {
+   "max_influences": 3,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U01_shambler_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U01_shambler_Cloth_Cape": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U01_shambler_Cloth_Robe": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U01_shambler_Head": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_cape_B_01",
+   "robe_cape_B_02",
+   "robe_cape_B_03"
+  ],
+  [
+   "robe_cape_L_01",
+   "robe_cape_L_02",
+   "robe_cape_L_03"
+  ],
+  [
+   "robe_cape_R_01",
+   "robe_cape_R_02",
+   "robe_cape_R_03"
+  ],
+  [
+   "flap_rope_L_01",
+   "flap_rope_L_02"
+  ],
+  [
+   "flap_rope_R_01",
+   "flap_rope_R_02"
+  ],
+  [
+   "robe_tunic_FL_01",
+   "robe_tunic_FL_02",
+   "robe_tunic_FL_03"
+  ],
+  [
+   "robe_tunic_FR_01",
+   "robe_tunic_FR_02",
+   "robe_tunic_FR_03"
+  ],
+  [
+   "robe_tunic_L_01",
+   "robe_tunic_L_02",
+   "robe_tunic_L_03"
+  ],
+  [
+   "robe_tunic_R_01",
+   "robe_tunic_R_02",
+   "robe_tunic_R_03"
+  ],
+  [
+   "robe_tunic_BL_01",
+   "robe_tunic_BL_02",
+   "robe_tunic_BL_03"
+  ],
+  [
+   "robe_tunic_BR_01",
+   "robe_tunic_BR_02",
+   "robe_tunic_BR_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.0795
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0611
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0782
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0884
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.0795
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0611
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0782
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0884
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "U01_shambler_rig.fbx",
+  "textures": [
+   "textures/U01_shambler_basecolor.jpg.jpg",
+   "textures/U01_shambler_normal.jpg.jpg",
+   "textures/U01_shambler_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "U01_shambler_rig.glb",
+  "blend": "U01_shambler_rig.blend"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 71,
+  "meshes": 5,
+  "verts": 5380,
+  "skinned": 5,
+  "ok": true
+ }
+}
