@@ -1,0 +1,606 @@
+{
+ "asset": "P05_wet_nurse",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 1.872,
+ "k": 1.04,
+ "glb_sha256": "a780b8fe5e1919500a338f4447347a59598c12a6e05db24e171f707745af9ee8",
+ "bones": 62,
+ "deform": 52,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {
+  "robe_nurse_FL": [
+   "robe_nurse_FL_01",
+   "robe_nurse_FL_02",
+   "robe_nurse_FL_03",
+   "robe_nurse_FL_04"
+  ],
+  "robe_nurse_FR": [
+   "robe_nurse_FR_01",
+   "robe_nurse_FR_02",
+   "robe_nurse_FR_03",
+   "robe_nurse_FR_04"
+  ],
+  "robe_nurse_L": [
+   "robe_nurse_L_01",
+   "robe_nurse_L_02",
+   "robe_nurse_L_03",
+   "robe_nurse_L_04"
+  ],
+  "robe_nurse_R": [
+   "robe_nurse_R_01",
+   "robe_nurse_R_02",
+   "robe_nurse_R_03",
+   "robe_nurse_R_04"
+  ],
+  "robe_nurse_BL": [
+   "robe_nurse_BL_01",
+   "robe_nurse_BL_02",
+   "robe_nurse_BL_03",
+   "robe_nurse_BL_04"
+  ],
+  "robe_nurse_BR": [
+   "robe_nurse_BR_01",
+   "robe_nurse_BR_02",
+   "robe_nurse_BR_03",
+   "robe_nurse_BR_04"
+  ],
+  "pouch_L": [
+   "pouch_L_01"
+  ],
+  "pouch_R": [
+   "pouch_R_01"
+  ]
+ },
+ "items": {},
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   -0.005240907426923513,
+   1.039946436882019
+  ],
+  "spine1": [
+   0.0,
+   -0.038194622844457626,
+   1.1881228685379028
+  ],
+  "spine2": [
+   0.0,
+   -0.09446484595537186,
+   1.3246886730194092
+  ],
+  "chest": [
+   0.0,
+   -0.08967806398868561,
+   1.4871954917907715
+  ],
+  "shoulder": [
+   0.2074,
+   -0.1019,
+   1.5384
+  ],
+  "elbow": [
+   0.5304,
+   -0.1002,
+   1.5479
+  ],
+  "wrist": [
+   0.8,
+   -0.1346,
+   1.5384
+  ],
+  "hand_end": [
+   0.977,
+   -0.1346,
+   1.5234
+  ],
+  "head": [
+   0.0,
+   -0.25331515073776245,
+   1.6461551189422607
+  ],
+  "head_top": [
+   0.0,
+   -0.36289575695991516,
+   1.8006455898284912
+  ],
+  "neck": [
+   0.0,
+   -0.10307323932647705,
+   1.6042271852493286
+  ],
+  "clav_in": [
+   0.0318,
+   0.0034,
+   1.4519
+  ],
+  "L_knee": [
+   0.1776,
+   -0.0086,
+   0.5
+  ],
+  "L_ankle": [
+   0.1733,
+   0.1064,
+   0.0992
+  ],
+  "L_ball": [
+   0.2525,
+   -0.1448,
+   0.0318
+  ],
+  "L_toe": [
+   0.2637,
+   -0.2309,
+   0.0206
+  ],
+  "R_knee": [
+   -0.1776,
+   -0.0086,
+   0.5
+  ],
+  "R_ankle": [
+   -0.1733,
+   0.1064,
+   0.0992
+  ],
+  "R_ball": [
+   -0.2525,
+   -0.1448,
+   0.0318
+  ],
+  "R_toe": [
+   -0.2637,
+   -0.2309,
+   0.0206
+  ],
+  "L_hip": [
+   0.0936,
+   -0.0086,
+   0.9678
+  ],
+  "R_hip": [
+   -0.0936,
+   -0.0086,
+   0.9678
+  ],
+  "hip": [
+   0.0936,
+   -0.0086,
+   0.9678
+  ],
+  "knee": [
+   0.1776,
+   -0.0086,
+   0.5
+  ],
+  "ankle": [
+   0.1733,
+   0.1064,
+   0.0992
+  ],
+  "ball": [
+   0.2525,
+   -0.1448,
+   0.0318
+  ],
+  "toe": [
+   0.2637,
+   -0.2309,
+   0.0206
+  ]
+ },
+ "parts": {
+  "Head": {
+   "faces": 573,
+   "verts": 317,
+   "islands": 2
+  },
+  "Body": {
+   "faces": 10140,
+   "verts": 5208,
+   "islands": 22
+  }
+ },
+ "seam_pairs": {
+  "Body|Head": 57
+ },
+ "skeleton_notes": [
+  "wrist from proportion (hand is not its own island)",
+  "thigh : shin = 1.22 (anatomy ~1.0) - knee may sit on a knee pad/boot top, check side X-ray",
+  "L knee moved 6.0 cm forward so it is pre-bent (was on/behind the hip-ankle line)",
+  "pelvis y +0.166 -> +0.063 (section)",
+  "spine1 y -0.301 -> +0.040 (section)",
+  "spine2 y -0.301 -> -0.005 (section)",
+  "chest y +0.007 -> +0.007 (section)",
+  "arms: torso half-width 0.170 -> shoulder x 0.207, elbow 0.530, wrist 0.800, hand end 0.977",
+  "knee z 0.5",
+  "editor joints P05_wet_nurse_rig_P05_wet_nurse_Rig_joints.json: moved (cm) {'pelvis': 7.47, 'spine1': 8.96, 'spine2': 10.54, 'chest': 12.04, 'neck': 16.29, 'head': 9.16, 'head_top': 8.66, 'L_clav_in': 14.09, 'L_shoulder': 2.75, 'L_ankle': 11.06, 'L_ball': 2.69, 'R_clav_in': 14.09, 'R_shoulder': 2.75, 'R_ankle': 11.06, 'b:pouch_L_01.tail': 8.04, 'b:pouch_R_01.tail': 7.16, 'b:robe_nurse_L_01.head': 9.75, 'b:robe_nurse_L_01.tail': 7.31, 'b:robe_nurse_L_02.tail': 4.87, 'b:robe_nurse_L_03.tail': 2.44, 'b:robe_nurse_R_01.head': 4.5, 'b:robe_nurse_R_01.tail': 3.38, 'b:robe_nurse_R_02.tail': 2.25, 'b:robe_nurse_R_03.tail': 1.13}"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 2757,
+  "sleeve_flaps": 0
+ },
+ "health": {
+  "P05_wet_nurse_Body": {
+   "verts": 5477,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.09,
+  "knee_r": 0.07,
+  "calf_r": 0.065,
+  "foot_r": 0.07,
+  "n": {
+   "thigh": 122,
+   "knee": 44,
+   "calf": 182,
+   "foot": 411
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.7,
+  "rounds": 6
+ },
+ "rest_push_deg": 0.0,
+ "layer_pairs": [],
+ "poses": {
+  "arms_down": {
+   "pen_nopush": 0,
+   "stretch": 9.38,
+   "bad_edges": 141,
+   "per_part": {
+    "Body": [
+     9.38,
+     141,
+     66.5,
+     235.5
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "pen_nopush": 0,
+   "stretch": 6.53,
+   "bad_edges": 104,
+   "per_part": {
+    "Body": [
+     6.53,
+     104,
+     7.3,
+     125.7
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "pen_nopush": 0,
+   "stretch": 10.08,
+   "bad_edges": 162,
+   "per_part": {
+    "Body": [
+     10.08,
+     162,
+     72.0,
+     172.4
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "pen_nopush": 0,
+   "stretch": 9.07,
+   "bad_edges": 219,
+   "per_part": {
+    "Body": [
+     9.07,
+     219,
+     112.4,
+     216.3
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "pen_nopush": 22,
+   "stretch": 8.65,
+   "bad_edges": 136,
+   "per_part": {
+    "Body": [
+     8.65,
+     136,
+     62.8,
+     207.8
+    ]
+   },
+   "pen": 12,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "pen_nopush": 19,
+   "stretch": 3.65,
+   "bad_edges": 24,
+   "per_part": {
+    "Body": [
+     3.65,
+     24,
+     26.7,
+     117.3
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "pen_nopush": 0,
+   "stretch": 3.95,
+   "bad_edges": 39,
+   "per_part": {
+    "Body": [
+     3.95,
+     39,
+     10.7,
+     50.9
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "pen_nopush": 0,
+   "stretch": 3.47,
+   "bad_edges": 18,
+   "per_part": {
+    "Body": [
+     3.47,
+     18,
+     11.6,
+     37.8
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "pen_nopush": 0,
+   "stretch": 3.07,
+   "bad_edges": 81,
+   "per_part": {
+    "Body": [
+     3.07,
+     81,
+     10.5,
+     105.8
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "pen_nopush": 0,
+   "stretch": 5.02,
+   "bad_edges": 100,
+   "per_part": {
+    "Body": [
+     5.02,
+     100,
+     31.9,
+     115.4
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "pen_nopush": 0,
+   "stretch": 5.0,
+   "bad_edges": 94,
+   "per_part": {
+    "Body": [
+     5.0,
+     94,
+     31.7,
+     99.6
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "pen_nopush": 0,
+   "stretch": 1.95,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.95,
+     0,
+     15.3,
+     15.3
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "pen_nopush": 17,
+   "stretch": 1.99,
+   "bad_edges": 10,
+   "per_part": {
+    "Body": [
+     1.99,
+     10,
+     42.3,
+     122.6
+    ]
+   },
+   "pen": 7,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "pen_nopush": 1,
+   "stretch": 3.01,
+   "bad_edges": 14,
+   "per_part": {
+    "Body": [
+     3.01,
+     14,
+     41.0,
+     74.9
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "pen_nopush": 56,
+   "stretch": 2.31,
+   "bad_edges": 7,
+   "per_part": {
+    "Body": [
+     2.31,
+     7,
+     30.9,
+     121.8
+    ]
+   },
+   "pen": 14,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "pen_nopush": 7,
+   "stretch": 4.97,
+   "bad_edges": 83,
+   "per_part": {
+    "Body": [
+     4.97,
+     83,
+     29.4,
+     164.4
+    ]
+   },
+   "pen": 2,
+   "seams": {
+    "n": 0,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/P05_wet_nurse.py, run_stage.py)"
+ }
+}

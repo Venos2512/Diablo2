@@ -1,0 +1,1480 @@
+{
+ "asset": "F02_poppy_nurse",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "height_m": 1.944,
+ "k": 1.0166666666666666,
+ "glb_sha256": "c87f017af539b28d76099b94e467598f070dd71e07837c325dffe077787f4d77",
+ "bones": 93,
+ "deform": 83,
+ "non_deform": [
+  "L_weapon_attach",
+  "R_weapon_attach",
+  "cog",
+  "fx_chest",
+  "fx_hand_L",
+  "fx_hand_R",
+  "fx_head",
+  "ground",
+  "hit_origin",
+  "root"
+ ],
+ "chains": {
+  "robe_skirt_FL": [
+   "robe_skirt_FL_01",
+   "robe_skirt_FL_02",
+   "robe_skirt_FL_03",
+   "robe_skirt_FL_04"
+  ],
+  "robe_skirt_FR": [
+   "robe_skirt_FR_01",
+   "robe_skirt_FR_02",
+   "robe_skirt_FR_03",
+   "robe_skirt_FR_04"
+  ],
+  "robe_skirt_L": [
+   "robe_skirt_L_01",
+   "robe_skirt_L_02",
+   "robe_skirt_L_03",
+   "robe_skirt_L_04"
+  ],
+  "robe_skirt_R": [
+   "robe_skirt_R_01",
+   "robe_skirt_R_02",
+   "robe_skirt_R_03",
+   "robe_skirt_R_04"
+  ],
+  "robe_skirt_BL": [
+   "robe_skirt_BL_01",
+   "robe_skirt_BL_02",
+   "robe_skirt_BL_03",
+   "robe_skirt_BL_04"
+  ],
+  "robe_skirt_BR": [
+   "robe_skirt_BR_01",
+   "robe_skirt_BR_02",
+   "robe_skirt_BR_03",
+   "robe_skirt_BR_04"
+  ],
+  "robe_skirt_F": [
+   "robe_skirt_F_01",
+   "robe_skirt_F_02",
+   "robe_skirt_F_03",
+   "robe_skirt_F_04"
+  ],
+  "robe_skirt_B": [
+   "robe_skirt_B_01",
+   "robe_skirt_B_02",
+   "robe_skirt_B_03",
+   "robe_skirt_B_04"
+  ],
+  "apron_front_FL": [
+   "apron_front_FL_01",
+   "apron_front_FL_02",
+   "apron_front_FL_03"
+  ],
+  "apron_front_FR": [
+   "apron_front_FR_01",
+   "apron_front_FR_02",
+   "apron_front_FR_03"
+  ],
+  "flap_panelL_A": [
+   "flap_panelL_A_01",
+   "flap_panelL_A_02",
+   "flap_panelL_A_03"
+  ],
+  "flap_panelL_B": [
+   "flap_panelL_B_01",
+   "flap_panelL_B_02",
+   "flap_panelL_B_03"
+  ],
+  "flap_panelR_A": [
+   "flap_panelR_A_01",
+   "flap_panelR_A_02",
+   "flap_panelR_A_03"
+  ],
+  "flap_panelR_B": [
+   "flap_panelR_B_01",
+   "flap_panelR_B_02",
+   "flap_panelR_B_03"
+  ],
+  "flap_strip_B": [
+   "flap_strip_B_01",
+   "flap_strip_B_02",
+   "flap_strip_B_03"
+  ],
+  "sleeve_L": [
+   "sleeve_L_01",
+   "sleeve_L_02"
+  ],
+  "sleeve_R": [
+   "sleeve_R_01",
+   "sleeve_R_02"
+  ]
+ },
+ "items": {
+  "sash": {
+   "code": 1,
+   "mode": "follow"
+  }
+ },
+ "landmarks": {
+  "pelvis": [
+   0.0,
+   -0.04120519757270813,
+   1.1237093210220337
+  ],
+  "spine1": [
+   0.0,
+   -0.03790779039263725,
+   1.2244243621826172
+  ],
+  "spine2": [
+   0.0,
+   -0.039692267775535583,
+   1.3186535835266113
+  ],
+  "chest": [
+   0.0,
+   -0.023413337767124176,
+   1.4266185760498047
+  ],
+  "shoulder": [
+   0.2001,
+   -0.0803,
+   1.49
+  ],
+  "elbow": [
+   0.4433,
+   -0.09,
+   1.49
+  ],
+  "wrist": [
+   0.6463,
+   -0.09,
+   1.49
+  ],
+  "hand_end": [
+   0.8286,
+   -0.09,
+   1.4744
+  ],
+  "head": [
+   0.0,
+   -0.02759999968111515,
+   1.6871000528335571
+  ],
+  "head_top": [
+   0.0,
+   -0.07259999960660934,
+   1.944000005722046
+  ],
+  "neck": [
+   0.0,
+   0.008100000210106373,
+   1.5555000305175781
+  ],
+  "clav_in": [
+   0.033,
+   -0.0043,
+   1.5283
+  ],
+  "L_knee": [
+   0.1228,
+   0.0061,
+   0.4886
+  ],
+  "L_ankle": [
+   0.1496,
+   0.0138,
+   0.097
+  ],
+  "L_ball": [
+   0.1524,
+   -0.1211,
+   0.0311
+  ],
+  "L_toe": [
+   0.1634,
+   -0.194,
+   0.0201
+  ],
+  "R_knee": [
+   -0.1223,
+   0.0061,
+   0.4886
+  ],
+  "R_ankle": [
+   -0.1486,
+   0.0138,
+   0.097
+  ],
+  "R_ball": [
+   -0.1515,
+   -0.1211,
+   0.0311
+  ],
+  "R_toe": [
+   -0.1625,
+   -0.194,
+   0.0201
+  ],
+  "L_hip": [
+   0.0915,
+   0.0209,
+   0.9461
+  ],
+  "R_hip": [
+   -0.0915,
+   0.0209,
+   0.9461
+  ],
+  "hip": [
+   0.0915,
+   0.0209,
+   0.9461
+  ],
+  "knee": [
+   0.1228,
+   0.0061,
+   0.4886
+  ],
+  "ankle": [
+   0.1496,
+   0.0138,
+   0.097
+  ],
+  "ball": [
+   0.1524,
+   -0.1211,
+   0.0311
+  ],
+  "toe": [
+   0.1634,
+   -0.194,
+   0.0201
+  ]
+ },
+ "parts": {
+  "Accessory": {
+   "faces": 418,
+   "verts": 232,
+   "islands": 1
+  },
+  "Cloth_Apron": {
+   "faces": 130,
+   "verts": 87,
+   "islands": 1
+  },
+  "Cloth_PanelL": {
+   "faces": 333,
+   "verts": 206,
+   "islands": 1
+  },
+  "Cloth_PanelR": {
+   "faces": 264,
+   "verts": 160,
+   "islands": 1
+  },
+  "Cloth_Skirt": {
+   "faces": 927,
+   "verts": 525,
+   "islands": 1
+  },
+  "Cloth_Strip": {
+   "faces": 87,
+   "verts": 61,
+   "islands": 1
+  },
+  "Head": {
+   "faces": 2780,
+   "verts": 1565,
+   "islands": 9
+  },
+  "Body": {
+   "faces": 5039,
+   "verts": 2610,
+   "islands": 6
+  }
+ },
+ "seam_pairs": {
+  "Body|Head": 47
+ },
+ "skeleton_notes": [
+  "wrist from proportion (hand is not its own island)",
+  "L knee moved 0.9 cm forward so it is pre-bent (was on/behind the hip-ankle line)",
+  "R knee moved 0.9 cm forward so it is pre-bent (was on/behind the hip-ankle line)",
+  "elbow in front of the shoulder-wrist line: for IK rigs pull it slightly back (+Y); Unity Humanoid does not care",
+  "pelvis y -0.002 -> -0.001 (section)",
+  "spine1 y -0.026 -> -0.010 (section)",
+  "spine2 y -0.026 -> -0.024 (section)",
+  "chest y -0.026 -> -0.017 (section)",
+  "arms: torso half-width 0.161 -> shoulder x 0.200, elbow 0.443, wrist 0.646, hand end 0.829",
+  "legs from the feet (no leg mesh): straight hip -> foot centre, knee pre-bent 0.006H",
+  "editor joints F02_poppy_nurse_rig_F02_poppy_nurse_Rig_joints.json: moved (cm) {'pelvis': 14.3, 'spine1': 11.0, 'spine2': 7.95, 'chest': 4.37, 'L_shoulder': 8.88, 'L_elbow': 6.29, 'L_hip': 11.55, 'L_knee': 8.86, 'L_hand_end': 4.12, 'R_shoulder': 8.88, 'R_elbow': 6.29, 'R_hip': 11.55, 'R_knee': 8.85, 'R_hand_end': 4.12, 'b:robe_skirt_FL_01.tail': 0.1, 'b:robe_skirt_FL_02.tail': 0.19, 'b:robe_skirt_FL_03.tail': 0.29, 'b:robe_skirt_FL_04.tail': 0.39, 'b:robe_skirt_FR_01.tail': 0.14, 'b:robe_skirt_FR_02.tail': 0.29, 'b:robe_skirt_FR_03.tail': 0.43, 'b:robe_skirt_FR_04.tail': 0.58, 'b:robe_skirt_L_01.head': 0.48, 'b:robe_skirt_L_01.tail': 0.96, 'b:robe_skirt_L_02.tail': 1.55, 'b:robe_skirt_L_03.tail': 2.15, 'b:robe_skirt_L_04.tail': 2.76, 'b:robe_skirt_R_01.head': 0.55, 'b:robe_skirt_R_01.tail': 1.19, 'b:robe_skirt_R_02.tail': 2.17, 'b:robe_skirt_R_03.tail': 3.19, 'b:robe_skirt_R_04.tail': 4.23, 'b:robe_skirt_BL_01.head': 0.74, 'b:robe_skirt_BL_01.tail': 0.38, 'b:robe_skirt_BL_02.tail': 0.2, 'b:robe_skirt_BL_03.tail': 0.49, 'b:robe_skirt_BL_04.tail': 0.87, 'b:robe_skirt_BR_01.head': 0.32, 'b:robe_skirt_BR_01.tail': 0.22, 'b:robe_skirt_BR_02.tail': 0.19, 'b:robe_skirt_BR_03.tail': 0.25, 'b:robe_skirt_BR_04.tail': 0.37}"
+ ],
+ "weights": {
+  "neck_skin": 0,
+  "arm_mask": 1867,
+  "sleeve_flaps": 231
+ },
+ "health": {
+  "F02_poppy_nurse_Body": {
+   "verts": 2610,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Head": {
+   "verts": 1565,
+   "max_influences": 1,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Accessory": {
+   "verts": 232,
+   "max_influences": 2,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Cloth_Apron": {
+   "verts": 87,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Cloth_PanelL": {
+   "verts": 206,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Cloth_PanelR": {
+   "verts": 160,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Cloth_Skirt": {
+   "verts": 525,
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  },
+  "F02_poppy_nurse_Cloth_Strip": {
+   "verts": 61,
+   "max_influences": 3,
+   "not_normalised": 0,
+   "empty": 0,
+   "on_non_deform": 0,
+   "unknown_groups": []
+  }
+ },
+ "leg_radii": {
+  "thigh_r": 0.085,
+  "knee_r": 0.07,
+  "calf_r": 0.06,
+  "foot_r": 0.085,
+  "n": {
+   "calf": 120,
+   "foot": 324,
+   "thigh": 0,
+   "knee": 0
+  }
+ },
+ "push_kw": {
+  "iters": 6,
+  "smooth": 0.85,
+  "rounds": 8
+ },
+ "rest_push_deg": 0.0,
+ "layer_pairs": [
+  [
+   "apron_front_FL_01",
+   "robe_skirt_FL_01"
+  ],
+  [
+   "apron_front_FR_01",
+   "robe_skirt_FR_01"
+  ],
+  [
+   "flap_panelL_A_01",
+   "robe_skirt_L_01"
+  ],
+  [
+   "flap_panelR_A_01",
+   "robe_skirt_R_01"
+  ],
+  [
+   "flap_panelL_A_01",
+   "robe_skirt_BL_01"
+  ],
+  [
+   "flap_panelL_B_01",
+   "robe_skirt_BL_01"
+  ],
+  [
+   "flap_panelL_B_01",
+   "robe_skirt_BR_01"
+  ],
+  [
+   "flap_panelR_A_01",
+   "robe_skirt_BR_01"
+  ],
+  [
+   "flap_panelR_B_01",
+   "robe_skirt_BR_01"
+  ],
+  [
+   "apron_front_FR_01",
+   "robe_skirt_F_01"
+  ],
+  [
+   "flap_panelL_B_01",
+   "robe_skirt_B_01"
+  ],
+  [
+   "flap_strip_B_01",
+   "robe_skirt_B_01"
+  ],
+  [
+   "flap_panelL_B_01",
+   "flap_panelR_B_01"
+  ],
+  [
+   "flap_strip_B_01",
+   "flap_panelL_B_01"
+  ],
+  [
+   "flap_strip_B_01",
+   "flap_panelR_B_01"
+  ]
+ ],
+ "poses": {
+  "arms_down": {
+   "pen_nopush": 0,
+   "stretch": 4.97,
+   "bad_edges": 106,
+   "per_part": {
+    "Body": [
+     4.97,
+     106,
+     33.3,
+     137.1
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_up": {
+   "pen_nopush": 0,
+   "stretch": 3.19,
+   "bad_edges": 32,
+   "per_part": {
+    "Body": [
+     3.19,
+     32,
+     59.1,
+     59.1
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "arms_fwd": {
+   "pen_nopush": 0,
+   "stretch": 6.62,
+   "bad_edges": 32,
+   "per_part": {
+    "Body": [
+     6.62,
+     32,
+     13.0,
+     29.4
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "elbows": {
+   "pen_nopush": 0,
+   "stretch": 7.67,
+   "bad_edges": 222,
+   "per_part": {
+    "Body": [
+     7.67,
+     222,
+     38.7,
+     185.4
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "walk": {
+   "pen_nopush": 35,
+   "stretch": 4.04,
+   "bad_edges": 117,
+   "per_part": {
+    "Body": [
+     4.04,
+     77,
+     31.4,
+     109.9
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.6,
+     1,
+     38.6,
+     42.7
+    ],
+    "PanelL": [
+     1.38,
+     0,
+     2.2,
+     45.8
+    ],
+    "PanelR": [
+     1.3,
+     0,
+     16.1,
+     16.1
+    ],
+    "Skirt": [
+     2.4,
+     39,
+     18.1,
+     62.4
+    ],
+    "Strip": [
+     1.2,
+     0,
+     7.4,
+     7.4
+    ]
+   },
+   "pen": 1,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "knees": {
+   "pen_nopush": 20,
+   "stretch": 1.51,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.51,
+     0,
+     7.5,
+     11.8
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.08,
+     0,
+     11.0,
+     11.0
+    ],
+    "PanelL": [
+     1.33,
+     0,
+     17.7,
+     37.2
+    ],
+    "PanelR": [
+     1.14,
+     0,
+     3.3,
+     11.7
+    ],
+    "Skirt": [
+     1.45,
+     0,
+     17.2,
+     30.6
+    ],
+    "Strip": [
+     1.09,
+     0,
+     10.7,
+     10.7
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_turn": {
+   "pen_nopush": 0,
+   "stretch": 2.37,
+   "bad_edges": 4,
+   "per_part": {
+    "Body": [
+     2.37,
+     4,
+     13.8,
+     37.4
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "head_nod": {
+   "pen_nopush": 0,
+   "stretch": 1.45,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.45,
+     0,
+     6.5,
+     20.6
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "bend": {
+   "pen_nopush": 0,
+   "stretch": 3.12,
+   "bad_edges": 66,
+   "per_part": {
+    "Body": [
+     1.91,
+     8,
+     43.0,
+     47.1
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.63,
+     2,
+     6.6,
+     8.9
+    ],
+    "Apron": [
+     3.12,
+     10,
+     11.8,
+     14.8
+    ],
+    "PanelL": [
+     2.08,
+     18,
+     27.1,
+     38.2
+    ],
+    "PanelR": [
+     1.99,
+     11,
+     29.1,
+     37.5
+    ],
+    "Skirt": [
+     2.2,
+     9,
+     14.1,
+     36.2
+    ],
+    "Strip": [
+     2.06,
+     8,
+     26.0,
+     26.1
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "twist": {
+   "pen_nopush": 0,
+   "stretch": 1.65,
+   "bad_edges": 1,
+   "per_part": {
+    "Body": [
+     1.52,
+     0,
+     11.2,
+     38.7
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.44,
+     0,
+     3.1,
+     7.8
+    ],
+    "Apron": [
+     1.65,
+     1,
+     11.2,
+     19.1
+    ],
+    "PanelL": [
+     1.65,
+     0,
+     3.2,
+     32.5
+    ],
+    "PanelR": [
+     1.62,
+     0,
+     18.0,
+     29.1
+    ],
+    "Skirt": [
+     1.53,
+     0,
+     16.6,
+     31.6
+    ],
+    "Strip": [
+     1.53,
+     0,
+     18.3,
+     19.2
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "shrug": {
+   "pen_nopush": 0,
+   "stretch": 2.32,
+   "bad_edges": 24,
+   "per_part": {
+    "Body": [
+     2.32,
+     24,
+     32.3,
+     32.3
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "wrist": {
+   "pen_nopush": 0,
+   "stretch": 1.59,
+   "bad_edges": 0,
+   "per_part": {
+    "Body": [
+     1.59,
+     0,
+     18.1,
+     22.5
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelL": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "PanelR": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Skirt": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Strip": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ]
+   },
+   "pen": 0,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "step_back": {
+   "pen_nopush": 35,
+   "stretch": 4.04,
+   "bad_edges": 76,
+   "per_part": {
+    "Body": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     2.11,
+     7,
+     73.7,
+     80.2
+    ],
+    "PanelL": [
+     1.48,
+     0,
+     25.6,
+     34.9
+    ],
+    "PanelR": [
+     1.22,
+     0,
+     4.1,
+     13.5
+    ],
+    "Skirt": [
+     4.04,
+     69,
+     26.4,
+     109.3
+    ],
+    "Strip": [
+     1.1,
+     0,
+     11.1,
+     11.1
+    ]
+   },
+   "pen": 4,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "kick": {
+   "pen_nopush": 10,
+   "stretch": 4.53,
+   "bad_edges": 78,
+   "per_part": {
+    "Body": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     3.21,
+     29,
+     144.4,
+     200.9
+    ],
+    "PanelL": [
+     1.26,
+     0,
+     4.6,
+     9.4
+    ],
+    "PanelR": [
+     1.18,
+     0,
+     10.0,
+     10.0
+    ],
+    "Skirt": [
+     4.53,
+     49,
+     225.6,
+     290.3
+    ],
+    "Strip": [
+     1.03,
+     0,
+     0.7,
+     1.0
+    ]
+   },
+   "pen": 2,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "side_step": {
+   "pen_nopush": 34,
+   "stretch": 2.95,
+   "bad_edges": 86,
+   "per_part": {
+    "Body": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     2.04,
+     8,
+     67.9,
+     91.7
+    ],
+    "PanelL": [
+     1.19,
+     0,
+     3.4,
+     6.0
+    ],
+    "PanelR": [
+     1.45,
+     0,
+     24.8,
+     24.8
+    ],
+    "Skirt": [
+     2.95,
+     78,
+     16.9,
+     84.3
+    ],
+    "Strip": [
+     1.01,
+     0,
+     1.0,
+     1.0
+    ]
+   },
+   "pen": 20,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  },
+  "sit": {
+   "pen_nopush": 17,
+   "stretch": 6.45,
+   "bad_edges": 172,
+   "per_part": {
+    "Body": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Head": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Accessory": [
+     1.0,
+     0,
+     0.0,
+     0.0
+    ],
+    "Apron": [
+     5.16,
+     47,
+     271.6,
+     377.4
+    ],
+    "PanelL": [
+     1.37,
+     0,
+     6.7,
+     13.7
+    ],
+    "PanelR": [
+     1.45,
+     0,
+     24.5,
+     24.5
+    ],
+    "Skirt": [
+     6.45,
+     125,
+     70.6,
+     294.6
+    ],
+    "Strip": [
+     1.01,
+     0,
+     0.3,
+     1.3
+    ]
+   },
+   "pen": 13,
+   "seams": {
+    "n": 47,
+    "max": 0.0,
+    "mean": 0.0,
+    "over2mm": 0
+   }
+  }
+ },
+ "reference_skill_rig": {
+  "arms_down": "4.3x/24",
+  "elbows": "4.1x/35",
+  "walk": "3.6x/18",
+  "knees": "3.1x/4",
+  "head_turn_neck_head": "1.8x/5",
+  "pen_after_push": {
+   "walk": 3,
+   "kick": 4,
+   "step_back": 5,
+   "sit": 8,
+   "knees": 4,
+   "side_step": 2
+  }
+ },
+ "tools": {
+  "skill": "~/.claude/skills/blender-character-rigging/scripts/rig_core.py (unmodified)",
+  "batch": "ashlar/3d/act-01/_batches/rig_v1/tools/ (rigbatch.py, stages.py, assets/F02_poppy_nurse.py, run_stage.py)"
+ }
+}

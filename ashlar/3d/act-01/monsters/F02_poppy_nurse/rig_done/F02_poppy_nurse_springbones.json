@@ -1,0 +1,350 @@
+{
+ "chains": [
+  {
+   "root": "robe_skirt_FL_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_FR_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_BL_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_BR_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_F_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "robe_skirt_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "apron_front_FL_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "apron_front_FR_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "flap_panelL_A_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "flap_panelL_B_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "flap_panelR_A_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "flap_panelR_B_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "flap_strip_B_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "collide": true,
+   "layer": 2,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.061,
+   "endLength": 0.102,
+   "wind": 1
+  },
+  {
+   "root": "sleeve_L_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.041,
+   "endLength": 0.051,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "sleeve_R_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.041,
+   "endLength": 0.051,
+   "collide": true,
+   "wind": 0.8
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.14
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.13
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.153
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.085
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.085
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.061
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.061
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.07,
+   "offset": [
+    0,
+    0.048,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.07,
+   "offset": [
+    0,
+    0.048,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "chest",
+   "type": "capsule",
+   "radius": 0.151,
+   "tail": [
+    0,
+    0.1327,
+    0
+   ]
+  },
+  {
+   "bone": "L_UpperArm",
+   "type": "capsule",
+   "radius": 0.06,
+   "tail": [
+    0,
+    0.2243,
+    0
+   ]
+  },
+  {
+   "bone": "R_UpperArm",
+   "type": "capsule",
+   "radius": 0.062,
+   "tail": [
+    0,
+    0.2243,
+    0
+   ]
+  }
+ ],
+ "links": [
+  [
+   "robe_skirt_F_01",
+   "robe_skirt_FL_01"
+  ],
+  [
+   "robe_skirt_FL_01",
+   "robe_skirt_L_01"
+  ],
+  [
+   "robe_skirt_L_01",
+   "robe_skirt_BL_01"
+  ],
+  [
+   "robe_skirt_BL_01",
+   "robe_skirt_B_01"
+  ],
+  [
+   "robe_skirt_B_01",
+   "robe_skirt_BR_01"
+  ],
+  [
+   "robe_skirt_BR_01",
+   "robe_skirt_R_01"
+  ],
+  [
+   "robe_skirt_R_01",
+   "robe_skirt_FR_01"
+  ],
+  [
+   "robe_skirt_FR_01",
+   "robe_skirt_F_01"
+  ],
+  [
+   "apron_front_FR_01",
+   "apron_front_FL_01"
+  ],
+  [
+   "flap_panelL_A_01",
+   "flap_panelL_B_01"
+  ],
+  [
+   "flap_panelR_B_01",
+   "flap_panelR_A_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "F02_poppy_nurse_Rig",
+ "saved": "2026-10-26 23:44:55"
+}

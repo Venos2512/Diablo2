@@ -1,0 +1,239 @@
+{
+ "chains": [
+  {
+   "root": "robe_poncho_FL_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_poncho_FR_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_poncho_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_poncho_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_poncho_BL_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_poncho_BR_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_shawl_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_shawl_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  },
+  {
+   "root": "robe_shawl_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 1,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.053,
+   "endLength": 0.089,
+   "wind": 1
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.22,
+   "offset": [
+    0,
+    -0.0242,
+    0.1175
+   ]
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.22,
+   "offset": [
+    0,
+    -0.0088,
+    0.1297
+   ],
+   "tail": [
+    0,
+    0.1047,
+    0.1297
+   ]
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.22,
+   "offset": [
+    0,
+    -0.0154,
+    0.1392
+   ],
+   "tail": [
+    0,
+    0.1162,
+    0.1392
+   ]
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.173
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.17
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.1
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.1
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.178,
+   "offset": [
+    0,
+    0.0346,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.178,
+   "offset": [
+    0,
+    0.0346,
+    0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [
+  [
+   "robe_poncho_FL_01",
+   "robe_poncho_L_01"
+  ],
+  [
+   "robe_poncho_L_01",
+   "robe_poncho_BL_01"
+  ],
+  [
+   "robe_poncho_BL_01",
+   "robe_poncho_BR_01"
+  ],
+  [
+   "robe_poncho_BR_01",
+   "robe_poncho_R_01"
+  ],
+  [
+   "robe_poncho_R_01",
+   "robe_poncho_FR_01"
+  ],
+  [
+   "robe_poncho_FR_01",
+   "robe_poncho_FL_01"
+  ],
+  [
+   "robe_shawl_L_01",
+   "robe_shawl_B_01"
+  ],
+  [
+   "robe_shawl_B_01",
+   "robe_shawl_R_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "B03_ember_pot_Rig",
+ "saved": "2026-10-27 13:40:57"
+}

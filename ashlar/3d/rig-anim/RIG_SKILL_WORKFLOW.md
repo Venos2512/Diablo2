@@ -1,5 +1,8 @@
 # Workflow tạo skill rig qua Blender MCP (`blender-mcp-rigging`)
 
+> **Đã tắt 2026-10-26** theo yêu cầu người dùng: skill `blender-mcp-rigging` (và `blender-game-animation`) đã dời sang
+> `.agents/skills-disabled/`. Tài liệu này chỉ còn giá trị lưu trữ; không dùng skill trừ khi người dùng bật lại.
+
 Trạng thái:
 - **P0 đã chốt 2026-10-22.** Người dùng duyệt 5 quyết định ở mục 8; ground truth thiết kế lại để gần như không tốn thời gian người dùng.
 - **P1 đã chạy một phần:** đã nối MCP và đo thật (mục 2). Còn bước khởi động lại phiên để nạp tool `blender`.

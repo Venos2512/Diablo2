@@ -1,0 +1,234 @@
+{
+ "chains": [
+  {
+   "root": "robe_smock_FL_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_smock_FR_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_smock_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_smock_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_smock_BL_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_smock_BR_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "sleeve_L_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.04,
+   "endLength": 0.05,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "sleeve_R_01",
+   "enabled": true,
+   "stiffness": 1.2,
+   "drag": 0.4,
+   "gravity": 0.5,
+   "hitRadius": 0.04,
+   "endLength": 0.05,
+   "collide": true,
+   "wind": 0.8
+  },
+  {
+   "root": "rope_coil_01",
+   "enabled": true,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.04,
+   "endLength": 0.06,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.154
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.165
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.188
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.094
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.094
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.061
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.061
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.104,
+   "offset": [
+    -0.0,
+    0.0421,
+    -0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.104,
+   "offset": [
+    -0.0,
+    0.0421,
+    -0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "chest",
+   "type": "capsule",
+   "radius": 0.155,
+   "tail": [
+    -0.0,
+    0.1223,
+    -0.0
+   ]
+  },
+  {
+   "bone": "L_UpperArm",
+   "type": "capsule",
+   "radius": 0.081,
+   "tail": [
+    -0.0,
+    0.2346,
+    0.0
+   ]
+  },
+  {
+   "bone": "R_UpperArm",
+   "type": "capsule",
+   "radius": 0.074,
+   "tail": [
+    0.0,
+    0.2346,
+    0.0
+   ]
+  }
+ ],
+ "links": [
+  [
+   "robe_smock_FL_01",
+   "robe_smock_L_01"
+  ],
+  [
+   "robe_smock_L_01",
+   "robe_smock_BL_01"
+  ],
+  [
+   "robe_smock_BL_01",
+   "robe_smock_BR_01"
+  ],
+  [
+   "robe_smock_BR_01",
+   "robe_smock_R_01"
+  ],
+  [
+   "robe_smock_R_01",
+   "robe_smock_FR_01"
+  ],
+  [
+   "robe_smock_FR_01",
+   "robe_smock_FL_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "F01_body_snatcher_Rig",
+ "saved": "2026-10-26 22:03:53"
+}

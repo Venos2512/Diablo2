@@ -66,7 +66,7 @@ Lô prop (Tripo một ảnh mỗi vật):
 
 | Asset | GLB | Tam giác | Kích thước thật | Bản trong lab | Ghi chú |
 | --- | --- | --- | --- | --- | --- |
-| [PS Pyre Singer A](heroes/PS_pyre_singer/vA/) | `PS_pyre_singer_vA.glb`, 19,8 MB | 9.883 | chưa chốt; GLB nguồn cao ~1 m | chưa | Concept v5b, Tripo 2026-10-21, variant 0, 3 map 4096². Mesh chưa rig; gậy tách riêng. Lông/gấu áo nhọn và ngón tay còn thô ở cự ly gần; chưa kiểm biến dạng. `_shots/final_views.png`, `glb_validation.json` |
+| [PS Pyre Singer A](heroes/PS_pyre_singer/vA/) | `PS_pyre_singer_vA.glb`, 19,9 MB | 9.858 | chưa chốt; GLB nguồn cao ~1 m | chưa | Concept v5b, Tripo 2026-10-26 (dựng lại từ cùng T-pose `_v2_fix`), variant 2, 3 map 4096²; bản 2026-10-21 ở `_work/_v3_prev_2026-10-21/`. Mesh chưa rig; gậy tách riêng. Lông/gấu áo nhọn và ngón tay còn thô ở cự ly gần; chưa kiểm biến dạng. `_shots/final_views.png`, `glb_validation.json` |
 | [FL Flagellant A](heroes/FL_flagellant/vA/) | `FL_flagellant_vA.glb`, 20,7 MB | 10.488 | cao ~1,8 m (H) | chưa | GLB 2026-10-20, variant 0. Còn tồn tại: ngón tay dính thành khối, góc RIGHT có 9/10 nút; roi xích và sắt nung chưa dựng. Bản thử rig (skeleton Sorceress D2R, 181 bone, **chờ duyệt G2**, nội bộ không phát hành): `FL_flagellant_vA_rig.glb` 20,8 MB và `rig/` (blend, validation, qa, scripts). Bản gốc thử nay ở `ashlar/3d/heroes/FL_flagellant/vA/rig_sorceress/` |
 
 ### Vũ khí

@@ -1,0 +1,62 @@
+{
+ "asset_id": "FL_flagellant_vA",
+ "rig": "FL_Rig",
+ "clips": [
+  {
+   "name": "Idle",
+   "file": "anim/FL_flagellant_vA@Idle.fbx",
+   "state": null,
+   "stance": null,
+   "status": "experiment",
+   "source": "Idle.fbx",
+   "license": null,
+   "derived_from": "Idle.fbx",
+   "description": "",
+   "frame_start": 1,
+   "frame_end": 500,
+   "fps": 30.0,
+   "sample_count": 500,
+   "duration_s": 16.6333,
+   "loop": false,
+   "root_displacement": null,
+   "contacts_s": [],
+   "events": [],
+   "bone_mapping": null,
+   "textures": null,
+   "tolerance": null,
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   }
+  },
+  {
+   "name": "Idle2",
+   "file": "anim/FL_flagellant_vA@Idle2.fbx",
+   "state": null,
+   "stance": null,
+   "status": "experiment",
+   "source": "Unarmed Idle 01.fbx",
+   "license": null,
+   "derived_from": "Unarmed Idle 01.fbx",
+   "description": "",
+   "frame_start": 1,
+   "frame_end": 349,
+   "fps": 30.0,
+   "sample_count": 349,
+   "duration_s": 11.6,
+   "loop": false,
+   "root_displacement": null,
+   "contacts_s": [],
+   "events": [],
+   "bone_mapping": null,
+   "textures": null,
+   "tolerance": null,
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   }
+  }
+ ]
+}

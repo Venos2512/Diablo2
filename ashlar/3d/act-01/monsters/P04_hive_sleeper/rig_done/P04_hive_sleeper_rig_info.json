@@ -1,0 +1,427 @@
+{
+ "asset_id": "P04_hive_sleeper",
+ "rig": "P04_hive_sleeper_rig",
+ "exported": "2026-10-27T20:28:11",
+ "source_blend": "D:/Claude/Diablo2/ashlar/3d/act-01/monsters/P04_hive_sleeper/rig/P04_hive_sleeper_rig.blend",
+ "source_sha256": "a85382ec535188eb7525532226f62e1fa3334a01488ffdd5fb5ea9cbf96b3fbc",
+ "family": "Qh",
+ "route": "M",
+ "units": "m",
+ "blender_axes": "Z up, faces -Y, its left = +X",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "glb_axes": "Y up, faces +Z",
+ "deform_only": false,
+ "size_m": {
+  "x": 0.8313,
+  "y": 1.7561,
+  "z": 1.0801
+ },
+ "scale_from_tripo": 1.756955,
+ "bones": {
+  "total": 54,
+  "deform": 46,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "fx_hand_R"
+  ]
+ },
+ "control_rig": {
+  "kept_in": "rig/P04_hive_sleeper_rig.blend (and the copy here)",
+  "object": "P04_hive_sleeper_ctl",
+  "bones": 62,
+  "not_exported": true,
+  "constraints_removed": 48,
+  "drive": "P04_hive_sleeper_rig copies P04_hive_sleeper_ctl bone by bone (Copy Transforms, world space)",
+  "switches": {
+   "ik_arm_L / ik_arm_R": "planted hands, 1 = IK (Hand_IK > Fingertip_roll > Palm_roll)",
+   "ik_leg_L / ik_leg_R": "knee contact, 1 = IK (Thigh aims at Knee_IK, Calf follows)"
+  },
+  "twist": "L/R_ForeArm_twist and L/R_UpperArm_twist are driven in the control rig: bake them at R8"
+ },
+ "parts": {
+  "P04_hive_sleeper": {
+   "role": "body (nightshirt, hood, face, hair and the three domes are one piece)",
+   "verts": 5528,
+   "tris": 8664
+  }
+ },
+ "weight_health": {
+  "P04_hive_sleeper": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "rigid_parts": {
+  "dome_01": "front larval dome, rigid, parent chest",
+  "dome_02": "middle dome, rigid, parent spine_02",
+  "dome_03": "rear dome, rigid, parent pelvis",
+  "grooves": "6 cm blend band between the domes"
+ },
+ "spring_chains": [
+  {
+   "chain": "shirt_front",
+   "bones": [
+    "shirt_front_01",
+    "shirt_front_02"
+   ]
+  },
+  {
+   "chain": "L_shirt_shoulder",
+   "bones": [
+    "L_shirt_shoulder_01",
+    "L_shirt_shoulder_02"
+   ]
+  },
+  {
+   "chain": "R_shirt_shoulder",
+   "bones": [
+    "R_shirt_shoulder_01",
+    "R_shirt_shoulder_02"
+   ]
+  },
+  {
+   "chain": "L_shirt_flank",
+   "bones": [
+    "L_shirt_flank_01",
+    "L_shirt_flank_02"
+   ]
+  },
+  {
+   "chain": "R_shirt_flank",
+   "bones": [
+    "R_shirt_flank_01",
+    "R_shirt_flank_02"
+   ]
+  },
+  {
+   "chain": "L_shirt_back",
+   "bones": [
+    "L_shirt_back_01",
+    "L_shirt_back_02"
+   ]
+  },
+  {
+   "chain": "R_shirt_back",
+   "bones": [
+    "R_shirt_back_01",
+    "R_shirt_back_02"
+   ]
+  }
+ ],
+ "leg_colliders": [],
+ "usable_ranges": {
+  "head (neck + neck_02 + head)": "keep within about +-30 deg in total: at 35-50 deg the hood stretches 3.5-4.4x where it meets the rigid front dome",
+  "spine twist / side bend with hands planted": "24 deg twist or 18 deg side bend pushes the shoulder drapes into the forearms",
+  "knee IK": "Thigh is a one-bone IK aiming at Knee_IK: past the thigh length the knee falls about 1.5 cm short; keep ctl_cog height consistent with the knee targets",
+  "domes": "+-12 deg rocks squeeze the grooves (1.9x)",
+  "forearm twist": "a 40 deg hand turn twists the forearm 23 deg (ideal 20)"
+ },
+ "notes": [
+  "Family Qh (H core names + L/R_Finger + neck_02), the layout shared with U04 Charnel Ghoul (U04 adds L/R_Calf_02 for its three-segment hind legs; P04 has none). The Qh clip set is made at R6 on the control rig and baked onto P04_hive_sleeper_rig at R8.",
+  "The control rig is not exported: P04_hive_sleeper_ctl (62 ctl_* bones: hand IK stack with heel and fingertip roll, elbow poles, knee-contact legs, IK/FK switches, twist drivers) stays in the source .blend.",
+  "Sockets carry no weights: root and ground = floor, cog = mid-trunk, hit_origin = hit reaction (in front of the head), fx_head / fx_chest / fx_hand_L / fx_hand_R = VFX points. No weapon sockets (G1).",
+  "The seven shirt chains (2 bones each) want spring bones with capsule colliders on the arms and thighs in the engine; in Blender they follow their parents.",
+  "Weights and the remaining limits: rig/qa_report.md."
+ ],
+ "files": {
+  "model_fbx": "P04_hive_sleeper_rig.fbx",
+  "model_glb": "P04_hive_sleeper_rig.glb",
+  "blend": "P04_hive_sleeper_rig.blend",
+  "clips": [],
+  "textures": [
+   "textures/P04_hive_sleeper_basecolor.jpg.jpg",
+   "textures/P04_hive_sleeper_normal.jpg.jpg",
+   "textures/P04_hive_sleeper_rm.png.png"
+  ]
+ },
+ "reimport_check": {
+  "glb": {
+   "file_mb": 20.99,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 56,
+   "joints": 54,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "images": [
+    {
+     "name": "P04_hive_sleeper_normal",
+     "mime": "image/jpeg",
+     "mb": 1.4
+    },
+    {
+     "name": "P04_hive_sleeper_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.56
+    },
+    {
+     "name": "P04_hive_sleeper_rm",
+     "mime": "image/png",
+     "mb": 16.66
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 54,
+   "skinned": true,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0022,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 6175,
+   "size_m": [
+    0.8313,
+    1.7561,
+    1.0801
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "crawl_contact": {
+     "max_mm": 0.002,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "crawl_lift": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.0021,
+     "skin_mat_err": 1.7e-06
+    },
+    "head_up": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "head_down": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "head_turn": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "reach_L": {
+     "max_mm": 0.0023,
+     "p999_mm": 0.0022,
+     "skin_mat_err": 1.6e-06
+    },
+    "twist": {
+     "max_mm": 0.002,
+     "p999_mm": 0.002,
+     "skin_mat_err": 2.5e-06
+    },
+    "arch_up": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.0021,
+     "skin_mat_err": 1.6e-06
+    },
+    "sag_down": {
+     "max_mm": 0.0022,
+     "p999_mm": 0.0022,
+     "skin_mat_err": 1.7e-06
+    },
+    "side_bend": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.0021,
+     "skin_mat_err": 2.2e-06
+    },
+    "knee_lift_L": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "palm_lift_L": {
+     "max_mm": 0.002,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    },
+    "pronate_L": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.0021,
+     "skin_mat_err": 1.6e-06
+    },
+    "domes": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 1.6e-06
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "fbx": {
+   "file_mb": 4.46,
+   "armatures": 1,
+   "bones": 54,
+   "meshes": 1,
+   "other_meshes": [],
+   "names_ok": true,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 5528,
+   "size_m": [
+    0.8313,
+    1.7561,
+    1.0801
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "crawl_contact": {
+     "max_mm": 0.0019,
+     "p999_mm": 0.0018,
+     "skin_mat_err": 3.4e-06
+    },
+    "crawl_lift": {
+     "max_mm": 0.0027,
+     "p999_mm": 0.0026,
+     "skin_mat_err": 4.2e-06
+    },
+    "head_up": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.0019,
+     "skin_mat_err": 8.2e-06
+    },
+    "head_down": {
+     "max_mm": 0.001,
+     "p999_mm": 0.001,
+     "skin_mat_err": 3.9e-06
+    },
+    "head_turn": {
+     "max_mm": 0.0008,
+     "p999_mm": 0.0007,
+     "skin_mat_err": 1.5e-06
+    },
+    "reach_L": {
+     "max_mm": 0.0033,
+     "p999_mm": 0.0032,
+     "skin_mat_err": 6.6e-06
+    },
+    "twist": {
+     "max_mm": 0.0022,
+     "p999_mm": 0.0021,
+     "skin_mat_err": 5.1e-06
+    },
+    "arch_up": {
+     "max_mm": 0.001,
+     "p999_mm": 0.001,
+     "skin_mat_err": 2e-06
+    },
+    "sag_down": {
+     "max_mm": 0.0015,
+     "p999_mm": 0.0015,
+     "skin_mat_err": 5e-06
+    },
+    "side_bend": {
+     "max_mm": 0.002,
+     "p999_mm": 0.0019,
+     "skin_mat_err": 3.3e-06
+    },
+    "knee_lift_L": {
+     "max_mm": 0.0021,
+     "p999_mm": 0.002,
+     "skin_mat_err": 2.9e-06
+    },
+    "palm_lift_L": {
+     "max_mm": 0.0012,
+     "p999_mm": 0.0011,
+     "skin_mat_err": 6.8e-06
+    },
+    "pronate_L": {
+     "max_mm": 0.0016,
+     "p999_mm": 0.0016,
+     "skin_mat_err": 2.9e-06
+    },
+    "domes": {
+     "max_mm": 0.0008,
+     "p999_mm": 0.0007,
+     "skin_mat_err": 2.9e-06
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "tolerance_m": {
+   "rest_match": 0.0001,
+   "pose": 0.001
+  },
+  "sample_poses": [
+   "crawl_contact",
+   "crawl_lift",
+   "head_up",
+   "head_down",
+   "head_turn",
+   "reach_L",
+   "twist",
+   "arch_up",
+   "sag_down",
+   "side_bend",
+   "knee_lift_L",
+   "palm_lift_L",
+   "pronate_L",
+   "domes"
+  ],
+  "strip_check_max_mm": {
+   "crawl_contact": 0.001,
+   "crawl_lift": 0.0017,
+   "head_up": 0.001,
+   "head_down": 0.001,
+   "head_turn": 0.001,
+   "reach_L": 0.001,
+   "twist": 0.0019,
+   "arch_up": 0.001,
+   "sag_down": 0.0011,
+   "side_bend": 0.0016,
+   "knee_lift_L": 0.001,
+   "palm_lift_L": 0.0011,
+   "pronate_L": 0.001,
+   "domes": 0.001
+  }
+ },
+ "approved": {
+  "G1": "2026-10-26",
+  "G2": "2026-10-27",
+  "G3": null,
+  "G4": null
+ }
+}

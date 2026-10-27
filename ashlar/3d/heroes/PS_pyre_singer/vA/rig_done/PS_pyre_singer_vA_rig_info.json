@@ -1,0 +1,215 @@
+{
+ "asset_id": "PS_pyre_singer_vA",
+ "rig": "PS_Rig",
+ "exported": "2026-10-26T18:07:20",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\heroes\\PS_pyre_singer\\vA\\rig_skill\\PS_pyre_singer_vA_skillrig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 74,
+  "deform": 64,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "PS_Accessory": {
+   "role": "Accessory",
+   "verts": 1106
+  },
+  "PS_Body": {
+   "role": "Body",
+   "verts": 2834
+  },
+  "PS_Cloth": {
+   "role": "Cloth",
+   "verts": 641
+  },
+  "PS_Cloth_Skirt": {
+   "role": "Skirt",
+   "verts": 878
+  },
+  "PS_Cloth_Veil": {
+   "role": "Veil",
+   "verts": 238
+  },
+  "PS_Hair_Braid": {
+   "role": "Hair",
+   "verts": 844
+  },
+  "PS_Head": {
+   "role": "Head",
+   "verts": 642
+  }
+ },
+ "weight_health": {
+  "PS_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Cloth": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Cloth_Skirt": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Cloth_Veil": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Hair_Braid": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PS_Head": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "cape_L_02"
+  ],
+  [
+   "cape_L_01"
+  ],
+  [
+   "lantern_01"
+  ],
+  [
+   "skirt_SF_01",
+   "skirt_SF_02",
+   "skirt_SF_03"
+  ],
+  [
+   "skirt_SL_01",
+   "skirt_SL_02",
+   "skirt_SL_03"
+  ],
+  [
+   "skirt_L_01",
+   "skirt_L_02",
+   "skirt_L_03"
+  ],
+  [
+   "skirt_B_01",
+   "skirt_B_02",
+   "skirt_B_03"
+  ],
+  [
+   "skirt_BR_01",
+   "skirt_BR_02",
+   "skirt_BR_03"
+  ],
+  [
+   "skirt_R_01",
+   "skirt_R_02",
+   "skirt_R_03"
+  ],
+  [
+   "skirt_F_01",
+   "skirt_F_02",
+   "skirt_F_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.075
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.07
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.06
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.05
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.075
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.07
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.06
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.05
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "PS_pyre_singer_vA_rig.fbx",
+  "textures": [
+   "textures/PS_pyre_singer_vA_basecolor.jpg.jpg",
+   "textures/PS_pyre_singer_vA_normal.jpg.jpg",
+   "textures/PS_pyre_singer_vA_rm.png.png"
+  ],
+  "clips": [
+   "anim/PS_pyre_singer_vA@Unarmed_Idle_01.fbx"
+  ],
+  "model_glb": "PS_pyre_singer_vA_rig.glb",
+  "blend": "PS_pyre_singer_vA_rig.blend",
+  "springbones": "PS_pyre_singer_vA_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 74,
+  "meshes": 7,
+  "verts": 7183,
+  "skinned": 7,
+  "ok": true
+ }
+}

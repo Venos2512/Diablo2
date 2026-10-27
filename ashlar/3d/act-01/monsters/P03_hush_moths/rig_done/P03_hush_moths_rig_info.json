@@ -1,0 +1,890 @@
+{
+ "asset_id": "P03_hush_moths",
+ "rig": "P03_hush_moths_rig",
+ "exported": "2026-10-27T20:28:45",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\P03_hush_moths\\rig\\P03_hush_moths_rig.blend",
+ "source_sha256": "46e5d9f281900a0f26eada7e30a9a0b5996a6aad5272948464ac984bee0c1ae1",
+ "family": "W (flying insect)",
+ "route": "M",
+ "units": "m",
+ "blender_axes": "Z up, faces -Y, its left = +X",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "glb_axes": "Y up, faces +Z",
+ "deform_only": false,
+ "size_m": {
+  "x": 1.2977,
+  "y": 0.5217,
+  "z": 0.594
+ },
+ "height_m": 0.594,
+ "scale_from_tripo": 1.298305,
+ "bones": {
+  "total": 43,
+  "deform": 35,
+  "non_deform": [
+   "root",
+   "cog"
+  ],
+  "sockets": [
+   "ground",
+   "hit_origin",
+   "fx_thorax",
+   "fx_head",
+   "fx_wing_L",
+   "fx_wing_R"
+  ]
+ },
+ "variant_B": {
+  "use": "swarm instances (fewer bones); A for close-ups",
+  "files": [
+   "P03_hush_moths_B_rig.glb",
+   "P03_hush_moths_B_rig.fbx"
+  ],
+  "bones": {
+   "total": 24,
+   "deform": 20,
+   "sockets": [
+    "ground",
+    "fx_thorax"
+   ]
+  },
+  "collapsed_into": {
+   "abdomen_03": "abdomen_02",
+   "L_antenna_02": "L_antenna_01",
+   "L_Leg1_02": "L_Leg1_01",
+   "L_Leg1_03": "L_Leg1_01",
+   "L_Leg2_02": "L_Leg2_01",
+   "L_Leg2_03": "L_Leg2_01",
+   "L_Leg3_02": "L_Leg3_01",
+   "L_Leg3_03": "L_Leg3_01",
+   "R_antenna_02": "R_antenna_01",
+   "R_Leg1_02": "R_Leg1_01",
+   "R_Leg1_03": "R_Leg1_01",
+   "R_Leg2_02": "R_Leg2_01",
+   "R_Leg2_03": "R_Leg2_01",
+   "R_Leg3_02": "R_Leg3_01",
+   "R_Leg3_03": "R_Leg3_01"
+  },
+  "dropped_sockets": [
+   "hit_origin",
+   "fx_head",
+   "fx_wing_L",
+   "fx_wing_R"
+  ],
+  "same_bind_as_A": {
+   "max_matrix_diff": 0.0,
+   "rest_mesh_diff_m": 5.960464477539063e-08
+  },
+  "weights": {
+   "max_influences": 3,
+   "empty_verts": 0,
+   "sum_max_dev": 6.146728992462158e-08
+  },
+  "unweighted_deform": [],
+  "motion": "antennae one rigid piece, legs one rigid piece each (turn at the hip), abdomen 2 segments; the 8 wing bones are kept"
+ },
+ "control_rig": {
+  "kept_in": "rig/P03_hush_moths_rig.blend (and the copy here)",
+  "object": "P03_hush_moths_ctl",
+  "bones": 53,
+  "not_exported": true,
+  "constraints_removed": 37,
+  "drive": "P03_hush_moths_rig copies P03_hush_moths_ctl bone by bone (Copy Transforms, world space)",
+  "main_controls": {
+   "ctl_wings": "X = flap both sides",
+   "ctl_L_Wing / ctl_R_Wing": "one side, shared hinge of fore and hind wing",
+   "ctl_abdomen_curl": "X = curl all 3 segments",
+   "ctl_<side>_Leg<n>_IK / _pole": "leg IK, 6 legs"
+  },
+  "switches": {
+   "ik_leg_L1 .. ik_leg_R3": "custom props on P03_hush_moths_ctl, 1 = IK, 0 = FK"
+  }
+ },
+ "parts": {
+  "P03_hush_moths": {
+   "role": "whole moth, one mesh (body + 36 separate islands: head, eyes, legs, wings, antennae)",
+   "verts": 5348,
+   "tris": 10378
+  }
+ },
+ "weight_health": {
+  "P03_hush_moths": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "P03_hush_moths (B)": {
+   "max_influences": 3,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "weights_A": {
+  "max_influences": 4,
+  "empty_verts": 0,
+  "sum_max_dev": 4.0978193283081055e-08
+ },
+ "rigid_parts": {
+  "head + eyes": "rigid on head",
+  "wings": "own bones only, no thorax weight"
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "usable_ranges": {
+  "wing flap (ctl_wings, ctl_L/R_Wing)": "fore and hind wing share one hinge: any common angle keeps the two layers together (tested -45..+65 deg)",
+  "hind wing alone (ctl_*_WingB_01)": "<= 2-3 deg against the fore wing (10 deg separates the layers by 5-6 cm)",
+  "wing flex (*_02)": "<= 10 deg, hind wing no more than fore wing (30 deg separated them by 46 mm)",
+  "wings down while standing": "past ~30 deg the hind wing touches the middle / hind legs; legs are tucked in flight",
+  "abdomen curl": "<= 10 deg per segment looks clean; 15 deg per segment (45 at the tip) stretches 2.5-2.7x near the waist",
+  "head": "+-15 deg",
+  "antennae": "+-25 deg per segment",
+  "legs": "strong folds (flight tuck, IK lift) flatten the inner side of the knee / ankle knobs"
+ },
+ "notes": [
+  "Family W, flying-insect group (first one). Clips are made at R6 on the control rig and baked onto P03_hush_moths_rig at R8; variant B takes the same clips.",
+  "The control rig is not exported: P03_hush_moths_ctl (53 ctl_* bones) stays in the source .blend.",
+  "Sockets carry no weights: root and ground = floor, cog = body centre, hit_origin = hit reaction, fx_thorax / fx_head / fx_wing_L / fx_wing_R = VFX points (B keeps ground and fx_thorax).",
+  "Legs have 3 segments (_01 hip-knee, _02 knee-ankle, _03 ankle-tip), as approved at G1; W04 / W07 use 4 (_02 there is the femur), so retargeting between them needs a map.",
+  "Weights and the remaining limits: rig/qa_report.md sections 5 and 6."
+ ],
+ "files": {
+  "model_fbx": "P03_hush_moths_rig.fbx",
+  "model_glb": "P03_hush_moths_rig.glb",
+  "model_B_fbx": "P03_hush_moths_B_rig.fbx",
+  "model_B_glb": "P03_hush_moths_B_rig.glb",
+  "blend": "P03_hush_moths_rig.blend",
+  "clips": [],
+  "textures": [
+   "textures/P03_hush_moths_basecolor.jpg.jpg",
+   "textures/P03_hush_moths_normal.jpg.jpg",
+   "textures/P03_hush_moths_rm.png.png"
+  ]
+ },
+ "reimport_check": {
+  "glb": {
+   "file_mb": 11.36,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 45,
+   "joints": 43,
+   "joints_ok": true,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "bind_err": 3.343380297060605e-07,
+   "images": [
+    {
+     "name": "P03_hush_moths_normal",
+     "mime": "image/jpeg",
+     "mb": 1.6
+    },
+    {
+     "name": "P03_hush_moths_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.37
+    },
+    {
+     "name": "P03_hush_moths_rm",
+     "mime": "image/png",
+     "mb": 6.99
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 43,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0003,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 6547,
+   "size_m": [
+    1.2977,
+    0.5217,
+    0.594
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "wings_up_65": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wings_mid_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_down_45": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lag_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lead_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wing_flex_30": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 6e-07
+    },
+    "wing_twist_25": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 6e-07
+    },
+    "wing_sweep_20": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_down_45": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 1.3e-06
+    },
+    "abdomen_up_30": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 1.8e-06
+    },
+    "abdomen_side_36": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 1.2e-06
+    },
+    "antenna_fwd": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_back": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_side": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "head_nod_15": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "head_down_15": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "head_turn_15": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "legs_tuck": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "leg_step_IK": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 6e-07
+    },
+    "crouch_IK": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 7e-07
+    },
+    "flight_combo": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 1.4e-06
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "fbx": {
+   "file_mb": 4.41,
+   "armatures": 1,
+   "bones": 43,
+   "meshes": 1,
+   "other_meshes": [],
+   "names_ok": true,
+   "parents_ok": true,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 5348,
+   "size_m": [
+    1.2977,
+    0.5217,
+    0.594
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wings_up_65": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_mid_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_down_45": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lag_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lead_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wing_flex_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wing_twist_25": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wing_sweep_20": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_down_45": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_up_30": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_side_36": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_fwd": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_back": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_side": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "head_nod_15": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "head_down_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "head_turn_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "legs_tuck": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 7e-07
+    },
+    "leg_step_IK": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "crouch_IK": {
+     "max_mm": 0.0002,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 7e-07
+    },
+    "flight_combo": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "glb_B": {
+   "file_mb": 11.36,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 26,
+   "joints": 24,
+   "joints_ok": true,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "bind_err": 3.343380297060605e-07,
+   "images": [
+    {
+     "name": "P03_hush_moths_normal",
+     "mime": "image/jpeg",
+     "mb": 1.6
+    },
+    {
+     "name": "P03_hush_moths_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.37
+    },
+    {
+     "name": "P03_hush_moths_rm",
+     "mime": "image/png",
+     "mb": 6.99
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 24,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0002,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 6547,
+   "size_m": [
+    1.2977,
+    0.5217,
+    0.594
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 3,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wings_up_65": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wings_mid_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wings_down_45": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 5e-07
+    },
+    "wingB_lag_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wingB_lead_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wing_flex_30": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "wing_twist_25": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 5e-07
+    },
+    "wing_sweep_20": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 5e-07
+    },
+    "abdomen_down_45": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 1.3e-06
+    },
+    "abdomen_up_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 1.4e-06
+    },
+    "abdomen_side_36": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 7e-07
+    },
+    "antenna_fwd": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "antenna_back": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "antenna_side": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "head_nod_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "head_down_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "head_turn_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "legs_tuck": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 2e-07
+    },
+    "leg_step_IK": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 5e-07
+    },
+    "crouch_IK": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "flight_combo": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 1.4e-06
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "fbx_B": {
+   "file_mb": 4.36,
+   "armatures": 1,
+   "bones": 24,
+   "meshes": 1,
+   "other_meshes": [],
+   "names_ok": true,
+   "parents_ok": true,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 5348,
+   "size_m": [
+    1.2977,
+    0.5217,
+    0.594
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 3,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_up_65": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_mid_30": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wings_down_45": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lag_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wingB_lead_10": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "wing_flex_30": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 6e-07
+    },
+    "wing_twist_25": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0002,
+     "skin_mat_err": 6e-07
+    },
+    "wing_sweep_20": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_down_45": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_up_30": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "abdomen_side_36": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_fwd": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_back": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "antenna_side": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "head_nod_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "head_down_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "head_turn_15": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "legs_tuck": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 4e-07
+    },
+    "leg_step_IK": {
+     "max_mm": 0.0003,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "crouch_IK": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0003,
+     "skin_mat_err": 6e-07
+    },
+    "flight_combo": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 5e-07
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "tolerance_m": {
+   "rest_match": 0.0001,
+   "pose": 0.001
+  },
+  "bind_tolerance": 1e-05,
+  "sample_poses": [
+   "rest",
+   "wings_up_65",
+   "wings_mid_30",
+   "wings_down_45",
+   "wingB_lag_10",
+   "wingB_lead_10",
+   "wing_flex_30",
+   "wing_twist_25",
+   "wing_sweep_20",
+   "abdomen_down_45",
+   "abdomen_up_30",
+   "abdomen_side_36",
+   "antenna_fwd",
+   "antenna_back",
+   "antenna_side",
+   "head_nod_15",
+   "head_down_15",
+   "head_turn_15",
+   "legs_tuck",
+   "leg_step_IK",
+   "crouch_IK",
+   "flight_combo"
+  ],
+  "pose_max_move_mm": {
+   "rest": 0.0,
+   "wings_up_65": 709.9,
+   "wings_mid_30": 341.9,
+   "wings_down_45": 505.6,
+   "wingB_lag_10": 451.9,
+   "wingB_lead_10": 451.9,
+   "wing_flex_30": 347.3,
+   "wing_twist_25": 159.4,
+   "wing_sweep_20": 234.4,
+   "abdomen_down_45": 111.5,
+   "abdomen_up_30": 77.9,
+   "abdomen_side_36": 87.7,
+   "antenna_fwd": 201.1,
+   "antenna_back": 201.3,
+   "antenna_side": 112.0,
+   "head_nod_15": 83.1,
+   "head_down_15": 83.1,
+   "head_turn_15": 59.3,
+   "legs_tuck": 265.4,
+   "leg_step_IK": 59.5,
+   "crouch_IK": 37.4,
+   "flight_combo": 589.0
+  },
+  "strip_check_max_mm": {
+   "rest": 0.0001,
+   "wings_up_65": 0.0002,
+   "wings_mid_30": 0.0002,
+   "wings_down_45": 0.0002,
+   "wingB_lag_10": 0.0002,
+   "wingB_lead_10": 0.0002,
+   "wing_flex_30": 0.0002,
+   "wing_twist_25": 0.0002,
+   "wing_sweep_20": 0.0002,
+   "abdomen_down_45": 0.0001,
+   "abdomen_up_30": 0.0001,
+   "abdomen_side_36": 0.0001,
+   "antenna_fwd": 0.0001,
+   "antenna_back": 0.0001,
+   "antenna_side": 0.0001,
+   "head_nod_15": 0.0001,
+   "head_down_15": 0.0001,
+   "head_turn_15": 0.0001,
+   "legs_tuck": 0.0001,
+   "leg_step_IK": 0.0001,
+   "crouch_IK": 0.0001,
+   "flight_combo": 0.0002
+  }
+ },
+ "approved": {
+  "G1": "2026-10-26",
+  "G2": "2026-10-27",
+  "G3": null,
+  "G4": null
+ }
+}

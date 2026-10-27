@@ -1,0 +1,362 @@
+{
+ "asset_id": "B01_sextons_dog",
+ "rig": "B01_runtime",
+ "exported": "2026-10-27T19:27:24",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\B01_sextons_dog\\rig\\B01_sextons_dog_rig.blend",
+ "source_sha256": "fb19b5f5c851d8b1fce3ba48452ee69a11985a9d618ccec90a9891abcacb7db9",
+ "family": "Q",
+ "route": "M",
+ "units": "m",
+ "blender_axes": "Z up, faces -Y, its left = +X",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "glb_axes": "Y up, faces +Z",
+ "deform_only": false,
+ "size_m": {
+  "x": 0.7967,
+  "y": 2.16,
+  "z": 1.2863
+ },
+ "scale_from_tripo": 2.161055,
+ "bones": {
+  "total": 41,
+  "deform": 34,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_head",
+   "fx_mouth",
+   "fx_chest"
+  ]
+ },
+ "control_rig": {
+  "kept_in": "rig/B01_sextons_dog_rig.blend (and the copy here)",
+  "object": "B01_control",
+  "bones": 57,
+  "not_exported": true,
+  "constraints_removed": 36,
+  "drive": "B01_runtime copies B01_control bone by bone (Copy Transforms, world space)",
+  "switches": {
+   "ik_arm_L / ik_arm_R": "front legs, 1 = IK",
+   "ik_leg_L / ik_leg_R": "hind legs, 1 = IK"
+  }
+ },
+ "parts": {
+  "B01_sextons_dog": {
+   "role": "body",
+   "verts": 5716,
+   "tris": 11184
+  }
+ },
+ "weight_health": {
+  "B01_sextons_dog": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "rigid_parts": {
+  "collar": "collar + rivets, one bone (follows half way between neck_01 and neck_02)",
+  "collar_ring": "chain + ring, one swing bone"
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "usable_ranges": {
+  "jaw": "open 0..15 deg (closed-mouth mesh, no mouth interior)",
+  "L_ear / R_ear": "<= 15-20 deg (ear flap fused to the cheek at the top)",
+  "hip flexion": "sitting (~90 deg) flattens the thigh (8.1x, crease 19 cm): limit it in clips",
+  "carpus / elbow / stifle": "strong flexion (pounce, reach) collapses the inner side",
+  "long stride": "flank and groin skin stretch 10-12 cm on a few long edges",
+  "neck turn / head down": "deep look-back or sniff sinks the collar slightly into the ruff"
+ },
+ "notes": [
+  "Family Q (first quadruped). Clip set Q (idle, walk, run, attack, hit, death) is made at R6 on the control rig and baked onto B01_runtime at R8.",
+  "The control rig is not exported: B01_control (57 ctl_* bones, IK on four legs with poles, paw roll at the ball joint) stays in the source .blend.",
+  "Sockets carry no weights: root and ground = floor, cog = body centre, hit_origin = hit reaction, fx_head / fx_mouth / fx_chest = VFX points.",
+  "Bone names follow the approved Q table (SKELETON_STANDARD.md section 3): neck_01 / neck_02, where Qh and H use neck / neck_02; retargeting between those families needs that one-line map.",
+  "Weights and the remaining limits: rig/qa_report.md sections 5 and 6."
+ ],
+ "files": {
+  "model_fbx": "B01_sextons_dog_rig.fbx",
+  "model_glb": "B01_sextons_dog_rig.glb",
+  "blend": "B01_sextons_dog_rig.blend",
+  "clips": [],
+  "textures": [
+   "textures/B01_sextons_dog_basecolor.jpg.jpg",
+   "textures/B01_sextons_dog_normal.jpg.jpg",
+   "textures/B01_sextons_dog_rm.png.png"
+  ]
+ },
+ "reimport_check": {
+  "glb": {
+   "file_mb": 16.2,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 43,
+   "joints": 41,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "images": [
+    {
+     "name": "B01_sextons_dog_normal",
+     "mime": "image/jpeg",
+     "mb": 1.26
+    },
+    {
+     "name": "B01_sextons_dog_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.43
+    },
+    {
+     "name": "B01_sextons_dog_rm",
+     "mime": "image/png",
+     "mb": 12.05
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 41,
+   "skinned": true,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0008,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 7674,
+   "size_m": [
+    0.7967,
+    2.16,
+    1.2863
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "step_diag": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 5e-07
+    },
+    "sit": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "sniff": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "look_back": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 5e-07
+    },
+    "tail_wag": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "jaw_open": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "reach_front": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "kick_back": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "bend_side": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "arch": {
+     "max_mm": 0.0006,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "pounce": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "ears_ring": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "fbx": {
+   "file_mb": 4.18,
+   "armatures": 1,
+   "bones": 41,
+   "meshes": 1,
+   "other_meshes": [],
+   "names_ok": true,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 5716,
+   "size_m": [
+    0.7967,
+    2.16,
+    1.2863
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "step_diag": {
+     "max_mm": 0.0008,
+     "p999_mm": 0.0008,
+     "skin_mat_err": 7e-07
+    },
+    "sit": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    },
+    "sniff": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "look_back": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "tail_wag": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "jaw_open": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "reach_front": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 8e-07
+    },
+    "kick_back": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "bend_side": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 5e-07
+    },
+    "arch": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    },
+    "pounce": {
+     "max_mm": 0.0007,
+     "p999_mm": 0.0006,
+     "skin_mat_err": 5e-07
+    },
+    "ears_ring": {
+     "max_mm": 0.0004,
+     "p999_mm": 0.0004,
+     "skin_mat_err": 4e-07
+    }
+   },
+   "pose_ok": true,
+   "ok": true
+  },
+  "tolerance_m": {
+   "rest_match": 0.0001,
+   "pose": 0.001
+  },
+  "sample_poses": [
+   "rest",
+   "step_diag",
+   "sit",
+   "sniff",
+   "look_back",
+   "tail_wag",
+   "jaw_open",
+   "reach_front",
+   "kick_back",
+   "bend_side",
+   "arch",
+   "pounce",
+   "ears_ring"
+  ],
+  "strip_check_max_mm": {
+   "rest": 0.0003,
+   "step_diag": 0.0004,
+   "sit": 0.0005,
+   "sniff": 0.0003,
+   "look_back": 0.0004,
+   "tail_wag": 0.0003,
+   "jaw_open": 0.0003,
+   "reach_front": 0.0003,
+   "kick_back": 0.0003,
+   "bend_side": 0.0003,
+   "arch": 0.0003,
+   "pounce": 0.0003,
+   "ears_ring": 0.0003
+  }
+ },
+ "approved": {
+  "G1": "2026-10-26",
+  "G2": "2026-10-27",
+  "G3": null,
+  "G4": null
+ }
+}

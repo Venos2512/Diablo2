@@ -1,0 +1,404 @@
+{
+ "asset": "P06_poppy_mound",
+ "date": "2026-10-26",
+ "stage": "R4",
+ "family": "O",
+ "route": "M",
+ "result": "PASS",
+ "passed": 14,
+ "total": 14,
+ "checks": [
+  {
+   "id": "A1.1",
+   "check": "Một skin, một mesh thân",
+   "threshold": "1 mesh có Armature modifier, 1 armature",
+   "value": {
+    "skinned_meshes": [
+     "P06_poppy_mound"
+    ],
+    "armature_modifiers": 1,
+    "armatures": [
+     "P06_poppy_mound_Rig"
+    ]
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.2",
+   "check": "Tên bone đúng chuẩn (họ O, SKELETON_STANDARD §3), không trùng",
+   "threshold": "khớp bảng G1 2026-10-26",
+   "value": {
+    "runtime": [
+     "root",
+     "body",
+     "crown",
+     "bloom_center",
+     "bloom_main",
+     "fx_spawn_main",
+     "L_bloom",
+     "fx_spawn_L",
+     "R_bloom",
+     "fx_spawn_R",
+     "fx_body",
+     "flank_front",
+     "L_flank",
+     "R_flank",
+     "flank_back"
+    ],
+    "control": [
+     "ctl_breath",
+     "ctl_sway"
+    ],
+    "missing": [],
+    "extra": [],
+    "bad_chars": []
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.3",
+   "check": "Phân cấp một cây, root là gốc duy nhất",
+   "threshold": "roots == ['root']",
+   "value": {
+    "roots": [
+     "root"
+    ],
+    "all_under_root": true
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.4",
+   "check": "Mọi đỉnh có ít nhất một trọng số",
+   "threshold": "0 đỉnh trống",
+   "value": 0,
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.5",
+   "check": "Tổng trọng số mỗi đỉnh",
+   "threshold": "1 ± 1e-6",
+   "value": {
+    "max_abs_dev": 4.470348358154297e-08
+   },
+   "note": "trọng số lưu float32 trong Blender",
+   "pass": true
+  },
+  {
+   "id": "A1.6",
+   "check": "Số ảnh hưởng mỗi đỉnh",
+   "threshold": "≤ 4",
+   "value": {
+    "max": 4,
+    "hist": {
+     "1": 987,
+     "2": 2139,
+     "3": 1625,
+     "4": 972
+    }
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.7",
+   "check": "Chỉ số joint nằm trong khoảng (mọi vertex group là bone deform có thật)",
+   "threshold": "đúng",
+   "value": {
+    "groups": [
+     "body",
+     "crown",
+     "flank_front",
+     "L_flank",
+     "R_flank",
+     "flank_back",
+     "bloom_center",
+     "bloom_main",
+     "L_bloom",
+     "R_bloom"
+    ],
+    "unknown": [],
+    "weights_on_non_deform": 0
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.8",
+   "check": "Ma trận bind khớp phân cấp (pose nghỉ = bind; mesh skin ở pose nghỉ = mesh gốc)",
+   "threshold": "sai số ≤ 1e-5",
+   "value": {
+    "max_matrix_dev": 2.980232238769531e-07,
+    "rest_skin_dev_m": 5.230286352272107e-07
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.9",
+   "check": "Mesh skin ở pose nghỉ khớp GLB đầu vào đã scale (nạp lại GLB, cùng scale)",
+   "threshold": "khoảng cách đỉnh ≤ 1e-4 m",
+   "value": {
+    "verts": 5723,
+    "ref_verts": 5723,
+    "max_dist_m": 5.230286352272107e-07
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.10",
+   "check": "Texture không đổi so với GLB gốc",
+   "threshold": "byte giống nhau (sha256)",
+   "value": {
+    "glb": {
+     "P06_poppy_mound_basecolor.jpg": "ec7c8829464f2b5eee88d8864235533a80552df6d07e482debc26b9bff24b3b0",
+     "P06_poppy_mound_rm.png": "b206d40feb36b454b0be19d3535de205f41dcfcad87faf09ea16bd516fb222fd",
+     "P06_poppy_mound_normal.jpg": "22b3f9dda415268eadbbebcb75dacbf9babc9447985dc0db062f5f51829ce50b"
+    },
+    "blend": {
+     "P06_poppy_mound_basecolor.jpg": "ec7c8829464f2b5eee88d8864235533a80552df6d07e482debc26b9bff24b3b0",
+     "P06_poppy_mound_normal.jpg": "22b3f9dda415268eadbbebcb75dacbf9babc9447985dc0db062f5f51829ce50b",
+     "P06_poppy_mound_rm.png": "b206d40feb36b454b0be19d3535de205f41dcfcad87faf09ea16bd516fb222fd"
+    },
+    "size": [
+     [
+      4096,
+      4096
+     ],
+     [
+      4096,
+      4096
+     ],
+     [
+      4096,
+      4096
+     ]
+    ]
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.11",
+   "check": "Kích thước bounds theo danh mục (danh mục cho CHIỀU RỘNG 2,5H = 4,50 m)",
+   "threshold": "4,50 m ± 2 %",
+   "value": {
+    "width_m": 4.5,
+    "depth_m": 4.4253,
+    "height_m": 1.6993,
+    "height_H": 0.944
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.12",
+   "check": "Đế chạm đất",
+   "threshold": "z thấp nhất = 0 ± 0,01 m",
+   "value": {
+    "z_min": -0.0
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.13",
+   "check": "Bone runtime không trọng số chỉ là socket (và tổ tiên cấu trúc)",
+   "threshold": "root + fx_*",
+   "value": {
+    "unweighted_runtime": [
+     "root",
+     "fx_spawn_main",
+     "fx_spawn_L",
+     "fx_spawn_R",
+     "fx_body"
+    ],
+    "control_bones_not_exported": [
+     "ctl_breath",
+     "ctl_sway"
+    ]
+   },
+   "note": "",
+   "pass": true
+  },
+  {
+   "id": "A1.14",
+   "check": "Scale object = 1, không scale âm, xoay đã áp dụng",
+   "threshold": "matrix_world = I cho mesh và armature",
+   "value": {
+    "mesh": [
+     [
+      1.0,
+      1.0,
+      1.0
+     ]
+    ],
+    "rig": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   "note": "",
+   "pass": true
+  }
+ ],
+ "extra": {
+  "deform_bones": 10,
+  "deform_max_family_O": 10,
+  "runtime_bones": 15,
+  "control_bones": [
+   "ctl_breath",
+   "ctl_sway"
+  ],
+  "constraints": {
+   "crown": [
+    [
+     "TRANSFORM",
+     "ctl_breath",
+     "breath"
+    ]
+   ],
+   "bloom_center": [
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_loc"
+    ],
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_rot"
+    ]
+   ],
+   "bloom_main": [
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_loc"
+    ],
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_rot"
+    ]
+   ],
+   "L_bloom": [
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_loc"
+    ],
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_rot"
+    ]
+   ],
+   "R_bloom": [
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_loc"
+    ],
+    [
+     "TRANSFORM",
+     "ctl_sway",
+     "sway_rot"
+    ]
+   ],
+   "flank_front": [
+    [
+     "TRANSFORM",
+     "ctl_breath",
+     "breath"
+    ]
+   ],
+   "L_flank": [
+    [
+     "TRANSFORM",
+     "ctl_breath",
+     "breath"
+    ]
+   ],
+   "R_flank": [
+    [
+     "TRANSFORM",
+     "ctl_breath",
+     "breath"
+    ]
+   ],
+   "flank_back": [
+    [
+     "TRANSFORM",
+     "ctl_breath",
+     "breath"
+    ]
+   ]
+  },
+  "packed_images": [
+   "P06_poppy_mound_basecolor.jpg",
+   "P06_poppy_mound_normal.jpg",
+   "P06_poppy_mound_rm.png"
+  ],
+  "verts": 5723,
+  "tris": 8948,
+  "blend": "ashlar/3d/act-01/monsters/P06_poppy_mound/rig/P06_poppy_mound_rig.blend",
+  "glb_sha256": "76737dd98af611f559ced9f9970e1320c0f9ec3664c81d44c36215f36f55b75b",
+  "scale": 4.502198
+ },
+ "pose_metrics": {
+  "poses": [
+   "rest",
+   "swell",
+   "deflate",
+   "swell_ctl",
+   "sway",
+   "tilt_x+",
+   "tilt_x-",
+   "tilt_z+",
+   "tilt_z-",
+   "hit",
+   "stir",
+   "stir8",
+   "collapse"
+  ],
+  "ctl_breath_equals_direct_swell_mm": 0.0,
+  "worst": {
+   "rest": 1.0,
+   "swell": 1.213,
+   "deflate": 1.221,
+   "swell_ctl": 1.213,
+   "sway": 1.328,
+   "tilt_x+": 3.687,
+   "tilt_x-": 3.168,
+   "tilt_z+": 2.9,
+   "tilt_z-": 2.14,
+   "hit": 1.548,
+   "stir": 1.427,
+   "stir8": 1.789,
+   "collapse": 3.504
+  },
+  "floor_max_move_mm": 0.0,
+  "flora_gap_open_mm": {
+   "rest": 0.0,
+   "swell": 11.6,
+   "deflate": 3.3,
+   "swell_ctl": 11.6,
+   "sway": 1.5,
+   "tilt_x+": 7.5,
+   "tilt_x-": 10.0,
+   "tilt_z+": 6.3,
+   "tilt_z-": 4.3,
+   "hit": 5.5,
+   "stir": 3.3,
+   "stir8": 6.9,
+   "collapse": 14.7
+  }
+ }
+}

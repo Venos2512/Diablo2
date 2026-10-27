@@ -1,0 +1,827 @@
+{
+ "asset": "B01_sextons_dog",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "family": "Q",
+ "route": "M",
+ "glb_sha256": "cbb68b646b1dd01fbdc86166fb579fd0ad94650aca4a0b06118ad4dc5c098ac4",
+ "scale": 2.161055202735711,
+ "length_m": 2.16,
+ "A1": {
+  "A1.1": {
+   "measured": {
+    "mesh_objects": [
+     "B01_sextons_dog"
+    ],
+    "armature_modifiers": [
+     [
+      "Armature",
+      "B01_runtime"
+     ]
+    ],
+    "polygons": 11184,
+    "triangles": 11184
+   },
+   "threshold": "1 mesh, 1 Armature modifier -> B01_runtime",
+   "note": ".blend (no export this pass): one mesh object = one glTF mesh + one skin",
+   "pass": true
+  },
+  "A1.2": {
+   "measured": {
+    "count": 41,
+    "unique": 41,
+    "missing": [],
+    "extra": [],
+    "bad_chars": [],
+    "suffix_side": []
+   },
+   "threshold": "names of SKELETON_STANDARD.md §3 Họ Q (B01 table), unique, [A-Za-z0-9_], L_/R_ prefix",
+   "note": "",
+   "pass": true
+  },
+  "A1.3": {
+   "measured": {
+    "roots": [
+     "root"
+    ],
+    "bones": 41
+   },
+   "threshold": "one root named root",
+   "note": "",
+   "pass": true
+  },
+  "A1.4": {
+   "measured": {
+    "vertices": 5716,
+    "empty": 0
+   },
+   "threshold": "0 empty vertices",
+   "note": "",
+   "pass": true
+  },
+  "A1.5": {
+   "measured": {
+    "max_abs_sum_minus_1": 2.9802322387695312e-08,
+    "min_sum": 0.9999999701976776,
+    "max_sum": 1.0000000298023224
+   },
+   "threshold": "1 +- 1e-6",
+   "note": "",
+   "pass": true
+  },
+  "A1.6": {
+   "measured": {
+    "max_influences": 4,
+    "histogram": {
+     "1": 3088,
+     "2": 2175,
+     "3": 436,
+     "4": 17
+    }
+   },
+   "threshold": "<= 4",
+   "note": "",
+   "pass": true
+  },
+  "A1.7": {
+   "measured": {
+    "vertex_groups": 34,
+    "unknown_groups": [],
+    "groups_on_non_deform": [],
+    "bones_with_weight": 34
+   },
+   "threshold": "every vertex group = a deform bone of B01_runtime",
+   "note": ".blend equivalent of joint index range: group name -> bone",
+   "pass": true
+  },
+  "A1.8": {
+   "measured": {
+    "bind_vertex_dev_m": 1.3657139822709083e-07,
+    "runtime_bones": 41
+   },
+   "threshold": "<= 1e-5",
+   "note": ".blend: armature in REST position deforms the mesh to exactly the stored mesh (bind = rest). The IK-at-rest residual of the control rig is a separate function test",
+   "pass": true
+  },
+  "A1.10": {
+   "measured": {
+    "glb": {
+     "B01_sextons_dog_basecolor.jpg": "b6d3bf753bd15920265efae80362d2bc067ca755d0126865798bf68630502d9b",
+     "B01_sextons_dog_rm.png": "97b3f40ed53b86c1751acde0ea3ce2735dc5a20693078b07b840e35226dfdbf3",
+     "B01_sextons_dog_normal.jpg": "71af563ef762311e1b50ab8b30410fb79901d4dc853043adbc7b5baec861a314"
+    },
+    "blend_packed": {
+     "B01_sextons_dog_basecolor.jpg": "b6d3bf753bd15920265efae80362d2bc067ca755d0126865798bf68630502d9b",
+     "B01_sextons_dog_normal.jpg": "71af563ef762311e1b50ab8b30410fb79901d4dc853043adbc7b5baec861a314",
+     "B01_sextons_dog_rm.png": "97b3f40ed53b86c1751acde0ea3ce2735dc5a20693078b07b840e35226dfdbf3"
+    },
+    "sizes": {
+     "B01_sextons_dog_basecolor.jpg": [
+      4096,
+      4096
+     ],
+     "B01_sextons_dog_normal.jpg": [
+      4096,
+      4096
+     ],
+     "B01_sextons_dog_rm.png": [
+      4096,
+      4096
+     ]
+    }
+   },
+   "threshold": "byte-identical (sha256) to the GLB",
+   "note": "images packed in the .blend",
+   "pass": true
+  },
+  "A1.9": {
+   "measured": {
+    "same_polygons_and_order": true,
+    "max_vertex_dist_m": 1.346313204238281e-07,
+    "max_uv_diff": 0.0,
+    "scale": 2.161055202735711,
+    "offset": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "threshold": "vertex distance <= 1e-4 m (and same topology, UV)",
+   "note": "GLB re-imported with the rig's importer settings, scaled by the stored factor; compared vertex by vertex with the rig mesh",
+   "pass": true
+  },
+  "A1.11": {
+   "measured": {
+    "length_y_m": 2.16,
+    "height_z_m": 1.2863,
+    "length_err_pct": -0.0,
+    "height_err_pct_vs_0_72H": -0.75
+   },
+   "threshold": "G1 (family Q): length 1.2H = 2.16 m +- 2 % and height 0.72H = 1.296 m +- 2 %",
+   "note": "",
+   "pass": true
+  },
+  "A1.12": {
+   "measured": {
+    "lowest_z_m": 0.0
+   },
+   "threshold": "0 +- 0.01 m",
+   "note": "",
+   "pass": true
+  },
+  "A1.13": {
+   "measured": {
+    "unweighted": [
+     "cog",
+     "fx_chest",
+     "fx_head",
+     "fx_mouth",
+     "ground",
+     "hit_origin",
+     "root"
+    ],
+    "expected": [
+     "cog",
+     "fx_chest",
+     "fx_head",
+     "fx_mouth",
+     "ground",
+     "hit_origin",
+     "root"
+    ]
+   },
+   "threshold": "only sockets + structural ancestors (root, cog)",
+   "note": "SKELETON_STANDARD §7 keeps root/cog as structural ancestors",
+   "pass": true
+  },
+  "A1.14": {
+   "measured": {
+    "B01_sextons_dog": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "parent": "B01_runtime",
+     "parent_inverse_identity": true
+    },
+    "B01_runtime": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "parent": null,
+     "parent_inverse_identity": true
+    },
+    "B01_control": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "parent": null,
+     "parent_inverse_identity": true
+    }
+   },
+   "threshold": "scale 1, no negative scale, rotation applied (identity object transforms)",
+   "note": "",
+   "pass": true
+  }
+ },
+ "A1_summary": "14/14",
+ "rig_function_tests": [
+  {
+   "test": "ctl_L_Hand_IK move (0.0, -0.06, 0.05)",
+   "paw_mean_move": [
+    0.0,
+    -0.06,
+    0.05
+   ],
+   "other_paws_max_m": 1.9912715535080804e-06,
+   "torso_max_m": 1.228781230931777e-07,
+   "pass": true
+  },
+  {
+   "test": "ctl_R_Hand_IK move (0.0, -0.06, 0.05)",
+   "paw_mean_move": [
+    0.0,
+    -0.06,
+    0.05
+   ],
+   "other_paws_max_m": 1.9912715535080804e-06,
+   "torso_max_m": 1.228781230931777e-07,
+   "pass": true
+  },
+  {
+   "test": "ctl_L_Foot_IK move (0.0, -0.06, 0.05)",
+   "paw_mean_move": [
+    0.0,
+    -0.06,
+    0.05
+   ],
+   "other_paws_max_m": 1.9739267173631778e-06,
+   "torso_max_m": 1.228781230931777e-07,
+   "pass": true
+  },
+  {
+   "test": "ctl_R_Foot_IK move (0.0, -0.06, 0.05)",
+   "paw_mean_move": [
+    -0.0,
+    -0.06,
+    0.05
+   ],
+   "other_paws_max_m": 1.9912715535080804e-06,
+   "torso_max_m": 1.228781230931777e-07,
+   "pass": true
+  },
+  {
+   "test": "ik_arm_L = 0 (FK): moved ctl_L_Hand_IK has no effect",
+   "paw_dev_m": 7.451162650797371e-08,
+   "pass": true
+  },
+  {
+   "test": "ik_leg_L = 0 (FK): moved ctl_L_Foot_IK has no effect",
+   "paw_dev_m": 3.396774870313124e-08,
+   "pass": true
+  },
+  {
+   "test": "ctl_body down 8 cm: torso follows, paws stay (IK)",
+   "torso_mean_dz": -0.08,
+   "paws_max_m": 1.994241748838528e-06,
+   "pass": true
+  },
+  {
+   "test": "ctl_root move: whole dog follows",
+   "max_dev_m": 2.0384788513294616e-06,
+   "pass": true
+  },
+  {
+   "test": "elbow pole moved +X: elbow follows +X",
+   "elbow_dx_m": 0.0922,
+   "pass": true
+  },
+  {
+   "test": "knee pole moved +X: knee follows +X",
+   "knee_dx_m": 0.0854,
+   "pass": true
+  },
+  {
+   "test": "ctl_L_Foot_roll +25 (digitigrade heel lift): metatarsal pad lifts, toes stay",
+   "pad_mean_lift_m": 0.0321,
+   "toes_max_dev_m": 2.384185791015625e-07,
+   "pass": true
+  },
+  {
+   "test": "IK on at rest: runtime pose == bind (control rig residual)",
+   "max_matrix_diff": 1.0026225936599076e-05,
+   "max_vertex_dev_m": 1.9912715535080804e-06,
+   "pass": true
+  },
+  {
+   "test": "runtime bones == control bones (step_diag)",
+   "max_matrix_diff": 8.940696716308594e-08,
+   "pass": true
+  },
+  {
+   "test": "sockets follow their parent (step_diag)",
+   "max_local_diff": 1.1920928955078125e-07,
+   "pass": true
+  }
+ ],
+ "rig_function_summary": "14/14",
+ "bones": {
+  "runtime": 41,
+  "deform": 34,
+  "weighted": 34,
+  "control": 57
+ },
+ "poles": {
+  "ctl_L_ForeArm": {
+   "angle_deg": 88.23838,
+   "rest_err_m": 5.231006068886845e-07
+  },
+  "ctl_L_Calf": {
+   "angle_deg": -90.48823,
+   "rest_err_m": 9.475907091971413e-08
+  },
+  "ctl_R_ForeArm": {
+   "angle_deg": 91.76162,
+   "rest_err_m": 2.818173537240942e-07
+  },
+  "ctl_R_Calf": {
+   "angle_deg": -89.51173,
+   "rest_err_m": 1.8842270140728933e-07
+  }
+ },
+ "skin": {
+  "welded": 5711,
+  "islands": 18,
+  "labels": {
+   "pelvis": 195,
+   "spine_01": 115,
+   "spine_02": 90,
+   "chest": 217,
+   "neck_01": 87,
+   "neck_02": 69,
+   "head": 647,
+   "jaw": 120,
+   "L_ear": 113,
+   "R_ear": 114,
+   "collar": 434,
+   "collar_ring": 436,
+   "L_Scapula": 112,
+   "L_UpperArm": 203,
+   "L_ForeArm": 191,
+   "L_Hand": 190,
+   "L_Finger": 137,
+   "R_Scapula": 105,
+   "R_UpperArm": 204,
+   "R_ForeArm": 193,
+   "R_Hand": 190,
+   "R_Finger": 143,
+   "tail_01": 53,
+   "tail_02": 48,
+   "tail_03": 51,
+   "tail_04": 42,
+   "L_Thigh": 97,
+   "L_Calf": 102,
+   "L_Foot": 260,
+   "L_Toe": 147,
+   "R_Thigh": 98,
+   "R_Calf": 102,
+   "R_Foot": 259,
+   "R_Toe": 147
+  },
+  "limb_vertices": 2880,
+  "masks": {
+   "ear": 227,
+   "ear_inner": 18,
+   "jaw": 120,
+   "tail": 194,
+   "collar": 434,
+   "ring": 436
+  },
+  "influences": {
+   "1": 3088,
+   "2": 2174,
+   "3": 432,
+   "4": 17
+  }
+ },
+ "poses": {
+  "rest": {
+   "stretch": 1.0,
+   "bad_edges": 0,
+   "worst_dlen_mm": 0.0,
+   "max_dlen_mm": 0.0,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.0
+  },
+  "step_diag": {
+   "stretch": 5.27,
+   "bad_edges": 196,
+   "worst_dlen_mm": 36.2,
+   "max_dlen_mm": 96.3,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 25.2,
+     "planted": false
+    },
+    "L_hind": {
+     "min_z_mm": -0.5,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": -6.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": 33.9,
+     "planted": false
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.417
+  },
+  "sit": {
+   "stretch": 8.08,
+   "bad_edges": 674,
+   "worst_dlen_mm": 64.5,
+   "max_dlen_mm": 187.2,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": -7.5,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -8.4,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 16,
+   "collar_inside_delta": -1,
+   "collar_samples": 61,
+   "max_move_m": 0.729
+  },
+  "sniff": {
+   "stretch": 3.91,
+   "bad_edges": 77,
+   "worst_dlen_mm": 49.2,
+   "max_dlen_mm": 83.8,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 32,
+   "collar_inside_delta": 15,
+   "collar_samples": 61,
+   "max_move_m": 0.601
+  },
+  "look_back": {
+   "stretch": 6.2,
+   "bad_edges": 37,
+   "worst_dlen_mm": 51.8,
+   "max_dlen_mm": 60.3,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 25,
+   "collar_inside_delta": 8,
+   "collar_samples": 61,
+   "max_move_m": 0.687
+  },
+  "tail_wag": {
+   "stretch": 2.3,
+   "bad_edges": 1,
+   "worst_dlen_mm": 29.0,
+   "max_dlen_mm": 30.6,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.31
+  },
+  "jaw_open": {
+   "stretch": 2.44,
+   "bad_edges": 33,
+   "worst_dlen_mm": 15.1,
+   "max_dlen_mm": 29.6,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.05
+  },
+  "reach_front": {
+   "stretch": 8.22,
+   "bad_edges": 197,
+   "worst_dlen_mm": 29.2,
+   "max_dlen_mm": 61.8,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 153.6,
+     "planted": false
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 19,
+   "collar_inside_delta": 2,
+   "collar_samples": 61,
+   "max_move_m": 0.537
+  },
+  "kick_back": {
+   "stretch": 3.21,
+   "bad_edges": 140,
+   "worst_dlen_mm": 40.0,
+   "max_dlen_mm": 124.7,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 108.7,
+     "planted": false
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.38
+  },
+  "bend_side": {
+   "stretch": 3.43,
+   "bad_edges": 29,
+   "worst_dlen_mm": 25.1,
+   "max_dlen_mm": 36.9,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.367
+  },
+  "arch": {
+   "stretch": 2.16,
+   "bad_edges": 3,
+   "worst_dlen_mm": 22.2,
+   "max_dlen_mm": 41.7,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.085
+  },
+  "pounce": {
+   "stretch": 32.9,
+   "bad_edges": 483,
+   "worst_dlen_mm": 31.9,
+   "max_dlen_mm": 66.0,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 164.0,
+     "planted": false
+    },
+    "L_hind": {
+     "min_z_mm": -0.5,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 112.9,
+     "planted": false
+    },
+    "R_hind": {
+     "min_z_mm": -0.5,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 16,
+   "collar_inside_delta": -1,
+   "collar_samples": 61,
+   "max_move_m": 0.635
+  },
+  "ears_ring": {
+   "stretch": 3.01,
+   "bad_edges": 9,
+   "worst_dlen_mm": 47.0,
+   "max_dlen_mm": 47.0,
+   "contact": {
+    "L_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "L_hind": {
+     "min_z_mm": 0.0,
+     "planted": true
+    },
+    "R_front": {
+     "min_z_mm": 1.1,
+     "planted": true
+    },
+    "R_hind": {
+     "min_z_mm": -0.0,
+     "planted": true
+    }
+   },
+   "contact_ok": true,
+   "collar_inside": 17,
+   "collar_inside_delta": 0,
+   "collar_samples": 61,
+   "max_move_m": 0.136
+  }
+ },
+ "rest_collar_inside_samples": 17,
+ "tools": {
+  "scripts": "rig/scripts/ (b01_common, b01_skel, b01_skin, b01_poses, b01_r2_build, b01_r5_qa, b01_r4_validate, b01_g2_sheets)",
+  "imported_unmodified": "ashlar/3d/act-01/_batches/rig_v1/tools/rigbatch.py, compose.py"
+ },
+ "seconds": 1.3
+}

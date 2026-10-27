@@ -1,0 +1,194 @@
+{
+ "chains": [
+  {
+   "root": "robe_nurse_FL_01",
+   "enabled": true,
+   "stiffness": 2.25,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "root": "robe_nurse_FR_01",
+   "enabled": true,
+   "stiffness": 2.25,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "root": "robe_nurse_L_01",
+   "enabled": true,
+   "stiffness": 2.4,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "root": "robe_nurse_R_01",
+   "enabled": true,
+   "stiffness": 2.4,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "root": "robe_nurse_BL_01",
+   "enabled": true,
+   "stiffness": 2.55,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "root": "robe_nurse_BR_01",
+   "enabled": true,
+   "stiffness": 2.55,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.25,
+   "hitRadius": 0.062,
+   "endLength": 0.104,
+   "wind": 1
+  },
+  {
+   "enabled": true,
+   "collide": true,
+   "root": "pouch_L_01",
+   "stiffness": 2.5,
+   "drag": 0.5,
+   "gravity": 0.15,
+   "hitRadius": 0.08,
+   "endLength": 0,
+   "wind": 0.1,
+   "layer": 2
+  },
+  {
+   "enabled": true,
+   "collide": true,
+   "root": "pouch_R_01",
+   "stiffness": 2.5,
+   "drag": 0.5,
+   "gravity": 0.15,
+   "hitRadius": 0.08,
+   "endLength": 0,
+   "wind": 0.1,
+   "layer": 2
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.15
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.15
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.16
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.099
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.099
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.064
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.064
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.07,
+   "offset": [
+    0,
+    0.0383,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.07,
+   "offset": [
+    0,
+    0.0383,
+    0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [
+  [
+   "robe_nurse_FL_01",
+   "robe_nurse_L_01"
+  ],
+  [
+   "robe_nurse_L_01",
+   "robe_nurse_BL_01"
+  ],
+  [
+   "robe_nurse_BL_01",
+   "robe_nurse_BR_01"
+  ],
+  [
+   "robe_nurse_BR_01",
+   "robe_nurse_R_01"
+  ],
+  [
+   "robe_nurse_R_01",
+   "robe_nurse_FR_01"
+  ],
+  [
+   "robe_nurse_FR_01",
+   "robe_nurse_FL_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.45,
+  "dir": 100,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "P05_wet_nurse_Rig",
+ "saved": "2026-10-27 12:30:59"
+}

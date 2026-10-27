@@ -1,0 +1,172 @@
+{
+ "asset_id": "F01_body_snatcher",
+ "rig": "F01_body_snatcher_Rig",
+ "exported": "2026-10-26T22:11:06",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\F01_body_snatcher\\rig\\F01_body_snatcher_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 59,
+  "deform": 49,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "F01_body_snatcher_Accessory": {
+   "role": "Accessory",
+   "verts": 971
+  },
+  "F01_body_snatcher_Body": {
+   "role": "Body",
+   "verts": 3473
+  },
+  "F01_body_snatcher_Cloth_Robe": {
+   "role": "Cloth",
+   "verts": 747
+  },
+  "F01_body_snatcher_Head": {
+   "role": "Head",
+   "verts": 346
+  }
+ },
+ "weight_health": {
+  "F01_body_snatcher_Accessory": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F01_body_snatcher_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F01_body_snatcher_Cloth_Robe": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F01_body_snatcher_Head": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_smock_FL_01",
+   "robe_smock_FL_02",
+   "robe_smock_FL_03"
+  ],
+  [
+   "robe_smock_FR_01",
+   "robe_smock_FR_02",
+   "robe_smock_FR_03"
+  ],
+  [
+   "robe_smock_L_01",
+   "robe_smock_L_02",
+   "robe_smock_L_03"
+  ],
+  [
+   "robe_smock_R_01",
+   "robe_smock_R_02",
+   "robe_smock_R_03"
+  ],
+  [
+   "robe_smock_BL_01",
+   "robe_smock_BL_02",
+   "robe_smock_BL_03"
+  ],
+  [
+   "robe_smock_BR_01",
+   "robe_smock_BR_02",
+   "robe_smock_BR_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1303
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0948
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0832
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0927
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1303
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0948
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0832
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0927
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "F01_body_snatcher_rig.fbx",
+  "textures": [
+   "textures/F01_body_snatcher_basecolor.jpg.jpg",
+   "textures/F01_body_snatcher_normal.jpg.jpg",
+   "textures/F01_body_snatcher_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "F01_body_snatcher_rig.glb",
+  "blend": "F01_body_snatcher_rig.blend",
+  "springbones": "F01_body_snatcher_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 59,
+  "meshes": 4,
+  "verts": 5537,
+  "skinned": 4,
+  "ok": true
+ }
+}

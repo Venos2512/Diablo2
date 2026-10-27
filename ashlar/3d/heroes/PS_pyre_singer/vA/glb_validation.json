@@ -1,9 +1,9 @@
 {
   "file": "ashlar\\3d\\heroes\\PS_pyre_singer\\vA\\PS_pyre_singer_vA.glb",
-  "bytes": 19818448,
+  "bytes": 19945116,
   "valid_header": true,
   "meshes": 1,
-  "triangles": 9883,
+  "triangles": 9858,
   "materials": [
     {
       "name": "Material_tripo_673a3b8a_c938_49dd_a9b7_e45eae801a8f",
@@ -37,42 +37,37 @@
     }
   ],
   "images": [
-    {
-      "mime": "image/jpeg",
-      "size": [
-        4096,
-        4096
-      ]
-    },
-    {
-      "mime": "image/png",
-      "size": [
-        4096,
-        4096
-      ]
-    },
-    {
-      "mime": "image/jpeg",
-      "size": [
-        4096,
-        4096
-      ]
-    }
+    [
+      "jpeg",
+      4096,
+      4096
+    ],
+    [
+      "png",
+      4096,
+      4096
+    ],
+    [
+      "jpeg",
+      4096,
+      4096
+    ]
   ],
   "skins": 0,
   "animations": 0,
   "bounds": [
     {
       "min": [
-        -0.467041015625,
+        -0.4626,
         0.0,
-        -0.152587890625
+        -0.1462
       ],
       "max": [
-        0.467041015625,
-        0.99951171875,
-        0.152587890625
+        0.4626,
+        0.9995,
+        0.1462
       ]
     }
-  ]
+  ],
+  "source": "Tripo 2026-10-26 regen, variant 2 dd1e52e4-f19a-4102-bf82-eb8656110644 (5836 quad faces)"
 }

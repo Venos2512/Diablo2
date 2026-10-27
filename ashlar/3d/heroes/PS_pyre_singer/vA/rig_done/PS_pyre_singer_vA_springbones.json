@@ -1,0 +1,302 @@
+{
+ "chains": [
+  {
+   "root": "skirt_SF_01",
+   "enabled": true,
+   "stiffness": 1.3,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_SL_01",
+   "enabled": true,
+   "stiffness": 1.3,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_F_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_BR_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "skirt_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "collide": true,
+   "wind": 1,
+   "layer": 0
+  },
+  {
+   "root": "lantern_01",
+   "enabled": true,
+   "stiffness": 0.5,
+   "drag": 0.2,
+   "gravity": 1,
+   "hitRadius": 0.05,
+   "endLength": 0.02,
+   "collide": true,
+   "wind": 0.5,
+   "layer": 1
+  },
+  {
+   "root": "pendant_R_01",
+   "enabled": true,
+   "stiffness": 0.7,
+   "drag": 0.25,
+   "gravity": 1,
+   "hitRadius": 0.015,
+   "endLength": 0.02,
+   "collide": true,
+   "wind": 0.8,
+   "layer": 1
+  },
+  {
+   "root": "veil_R_01",
+   "stiffness": 1,
+   "drag": 0.35,
+   "gravity": 0.5,
+   "hitRadius": 0.04,
+   "endLength": 0.08,
+   "wind": 1.2,
+   "enabled": true,
+   "collide": true
+  },
+  {
+   "root": "veil_B_01",
+   "stiffness": 1,
+   "drag": 0.35,
+   "gravity": 0.5,
+   "hitRadius": 0.04,
+   "endLength": 0.08,
+   "wind": 1.2,
+   "enabled": true,
+   "collide": true
+  },
+  {
+   "root": "braid_F_01",
+   "stiffness": 0.9,
+   "drag": 0.3,
+   "gravity": 0.7,
+   "hitRadius": 0.02,
+   "endLength": 0.06,
+   "wind": 0.6,
+   "enabled": true,
+   "collide": true
+  },
+  {
+   "root": "braid_B_01",
+   "stiffness": 0.9,
+   "drag": 0.3,
+   "gravity": 0.7,
+   "hitRadius": 0.02,
+   "endLength": 0.06,
+   "wind": 0.6,
+   "enabled": true,
+   "collide": true
+  },
+  {
+   "root": "cape_L_01",
+   "stiffness": 2.5,
+   "drag": 0.5,
+   "gravity": 0.2,
+   "hitRadius": 0.03,
+   "endLength": 0.05,
+   "wind": 0.4,
+   "enabled": true,
+   "collide": true
+  },
+  {
+   "root": "cape_L_02",
+   "stiffness": 2,
+   "drag": 0.5,
+   "gravity": 0.3,
+   "hitRadius": 0.04,
+   "endLength": 0.05,
+   "wind": 0.6,
+   "enabled": true,
+   "collide": true
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.166
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.13
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.08
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.075
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.068,
+   "offset": [
+    0,
+    0.0508,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.08
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.075
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.068,
+   "offset": [
+    0,
+    0.0508,
+    0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "head",
+   "type": "sphere",
+   "radius": 0.091,
+   "offset": [
+    0,
+    0.0724,
+    0
+   ]
+  },
+  {
+   "bone": "neck",
+   "type": "capsule",
+   "radius": 0.053
+  },
+  {
+   "bone": "chest",
+   "type": "capsule",
+   "radius": 0.136
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.111
+  },
+  {
+   "bone": "L_UpperArm",
+   "type": "capsule",
+   "radius": 0.038
+  },
+  {
+   "bone": "R_UpperArm",
+   "type": "capsule",
+   "radius": 0.038
+  }
+ ],
+ "links": [
+  [
+   "skirt_SF_01",
+   "skirt_F_01"
+  ],
+  [
+   "skirt_F_01",
+   "skirt_R_01"
+  ],
+  [
+   "skirt_R_01",
+   "skirt_BR_01"
+  ],
+  [
+   "skirt_BR_01",
+   "skirt_B_01"
+  ],
+  [
+   "skirt_B_01",
+   "skirt_L_01"
+  ],
+  [
+   "skirt_L_01",
+   "skirt_SL_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": -35,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "PS_Rig",
+ "saved": "2026-10-26 18:06:47"
+}

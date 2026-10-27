@@ -1,0 +1,4240 @@
+{
+ "asset": "P03_hush_moths",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "file": "rig/P03_hush_moths_rig.blend",
+ "height_catalog_m": 0.594,
+ "scale_glb_to_m": 1.2983052294557096,
+ "A1": {
+  "A1.1_one_skin_one_mesh": {
+   "pass_": true,
+   "value": {
+    "skinned_meshes": [
+     "P03_hush_moths"
+    ],
+    "armature_modifiers": 1
+   },
+   "threshold": "1 / 1"
+  },
+  "A1.2_bone_names": {
+   "pass_": true,
+   "value": {
+    "count": 43,
+    "missing": [],
+    "extra": [],
+    "bad": []
+   },
+   "threshold": "bảng G1 (SKELETON_STANDARD §3, họ W côn trùng bay), không trùng"
+  },
+  "A1.3_single_tree_root": {
+   "pass_": true,
+   "value": {
+    "roots": [
+     "root"
+    ]
+   },
+   "threshold": "một gốc 'root'"
+  },
+  "A1.4_no_empty_vertex": {
+   "pass_": true,
+   "value": 0,
+   "threshold": "0"
+  },
+  "A1.5_weight_sum": {
+   "pass_": true,
+   "value": 4.0978193283081055e-08,
+   "threshold": "1 ± 1e-6"
+  },
+  "A1.6_max_influences": {
+   "pass_": true,
+   "value": {
+    "max": 4,
+    "histogram": {
+     "1": 4137,
+     "2": 942,
+     "3": 204,
+     "4": 65
+    }
+   },
+   "threshold": "≤ 4"
+  },
+  "A1.7_groups_map_to_deform_bones": {
+   "pass_": true,
+   "value": {
+    "groups": 35,
+    "unknown_or_non_deform": []
+   },
+   "threshold": "mọi group là bone deform"
+  },
+  "A1.8_bind_hierarchy (Blender)": {
+   "pass_": true,
+   "value": 2.205371856689453e-06,
+   "threshold": "≤ 1e-5 (kiểm lại trên GLB ở R8)"
+  },
+  "A1.9_mesh_matches_scaled_input": {
+   "pass_": true,
+   "value": {
+    "max_m": 0.0,
+    "verts": 5348,
+    "reimport_verts": 5348
+   },
+   "threshold": "≤ 1e-4 m"
+  },
+  "A1.10_textures_unchanged": {
+   "pass_": true,
+   "value": {
+    "glb": {
+     "P03_hush_moths_basecolor.jpg": "883bcb53ec33cb32bb4812640c61ac2a46073e5556a11ae09ea2f30ce05f31f1",
+     "P03_hush_moths_rm.png": "eab4b9a5f06b31ad0d971ad6964a666e6dccb4ed700a378a2b4ff8620bade599",
+     "P03_hush_moths_normal.jpg": "403a440618e31a1b858456b1368bc18954b797114f2a4083fd82e67a832d5776"
+    },
+    "blend": {
+     "P03_hush_moths_basecolor.jpg": "883bcb53ec33cb32bb4812640c61ac2a46073e5556a11ae09ea2f30ce05f31f1",
+     "P03_hush_moths_normal.jpg": "403a440618e31a1b858456b1368bc18954b797114f2a4083fd82e67a832d5776",
+     "P03_hush_moths_rm.png": "eab4b9a5f06b31ad0d971ad6964a666e6dccb4ed700a378a2b4ff8620bade599"
+    }
+   },
+   "threshold": "byte giống nhau (sha256)"
+  },
+  "A1.11_height": {
+   "pass_": true,
+   "value": {
+    "height_m": 0.594,
+    "catalog_m": 0.594
+   },
+   "threshold": "±2 %"
+  },
+  "A1.12_feet_on_ground": {
+   "pass_": true,
+   "value": 0.0,
+   "threshold": "0 ± 0.01 m"
+  },
+  "A1.13_unweighted_bones": {
+   "pass_": true,
+   "value": {
+    "unweighted": [
+     "cog",
+     "fx_head",
+     "fx_thorax",
+     "fx_wing_L",
+     "fx_wing_R",
+     "ground",
+     "hit_origin",
+     "root"
+    ],
+    "note": "root, cog = tổ tiên cấu trúc (giữ), còn lại là socket"
+   },
+   "threshold": "chỉ socket (+ root, cog)"
+  },
+  "A1.14_transforms": {
+   "pass_": true,
+   "value": {
+    "P03_hush_moths": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "world_identity": true
+    },
+    "P03_hush_moths_rig": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "world_identity": true
+    },
+    "P03_hush_moths_ctl": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "world_identity": true
+    }
+   },
+   "threshold": "scale 1, không âm, xoay đã áp dụng"
+  }
+ },
+ "notes": [],
+ "variant_B": {
+  "bones_runtime": 24,
+  "deform": 20,
+  "max_influences": 3,
+  "sum_max_dev": 4.0978193283081055e-08,
+  "empty": 0,
+  "collapse": {
+   "abdomen_03": "abdomen_02",
+   "L_antenna_02": "L_antenna_01",
+   "L_Leg1_02": "L_Leg1_01",
+   "L_Leg1_03": "L_Leg1_01",
+   "L_Leg2_02": "L_Leg2_01",
+   "L_Leg2_03": "L_Leg2_01",
+   "L_Leg3_02": "L_Leg3_01",
+   "L_Leg3_03": "L_Leg3_01",
+   "R_antenna_02": "R_antenna_01",
+   "R_Leg1_02": "R_Leg1_01",
+   "R_Leg1_03": "R_Leg1_01",
+   "R_Leg2_02": "R_Leg2_01",
+   "R_Leg2_03": "R_Leg2_01",
+   "R_Leg3_02": "R_Leg3_01",
+   "R_Leg3_03": "R_Leg3_01"
+  },
+  "dropped_sockets": [
+   "hit_origin",
+   "fx_head",
+   "fx_wing_L",
+   "fx_wing_R"
+  ]
+ },
+ "weights_per_bone": {
+  "thorax": {
+   "verts": 1453,
+   "dominant": 1282
+  },
+  "head": {
+   "verts": 352,
+   "dominant": 352
+  },
+  "abdomen_01": {
+   "verts": 405,
+   "dominant": 36
+  },
+  "abdomen_02": {
+   "verts": 328,
+   "dominant": 100
+  },
+  "abdomen_03": {
+   "verts": 178,
+   "dominant": 71
+  },
+  "L_antenna_01": {
+   "verts": 201,
+   "dominant": 145
+  },
+  "L_antenna_02": {
+   "verts": 221,
+   "dominant": 195
+  },
+  "L_WingF_01": {
+   "verts": 92,
+   "dominant": 81
+  },
+  "L_WingF_02": {
+   "verts": 107,
+   "dominant": 87
+  },
+  "L_WingB_01": {
+   "verts": 55,
+   "dominant": 49
+  },
+  "L_WingB_02": {
+   "verts": 65,
+   "dominant": 60
+  },
+  "L_Leg1_01": {
+   "verts": 151,
+   "dominant": 125
+  },
+  "L_Leg1_02": {
+   "verts": 140,
+   "dominant": 92
+  },
+  "L_Leg1_03": {
+   "verts": 238,
+   "dominant": 217
+  },
+  "L_Leg2_01": {
+   "verts": 129,
+   "dominant": 86
+  },
+  "L_Leg2_02": {
+   "verts": 113,
+   "dominant": 70
+  },
+  "L_Leg2_03": {
+   "verts": 246,
+   "dominant": 236
+  },
+  "L_Leg3_01": {
+   "verts": 120,
+   "dominant": 103
+  },
+  "L_Leg3_02": {
+   "verts": 50,
+   "dominant": 22
+  },
+  "L_Leg3_03": {
+   "verts": 163,
+   "dominant": 163
+  },
+  "R_antenna_01": {
+   "verts": 200,
+   "dominant": 148
+  },
+  "R_antenna_02": {
+   "verts": 217,
+   "dominant": 188
+  },
+  "R_WingF_01": {
+   "verts": 92,
+   "dominant": 81
+  },
+  "R_WingF_02": {
+   "verts": 107,
+   "dominant": 87
+  },
+  "R_WingB_01": {
+   "verts": 55,
+   "dominant": 49
+  },
+  "R_WingB_02": {
+   "verts": 65,
+   "dominant": 60
+  },
+  "R_Leg1_01": {
+   "verts": 151,
+   "dominant": 125
+  },
+  "R_Leg1_02": {
+   "verts": 140,
+   "dominant": 92
+  },
+  "R_Leg1_03": {
+   "verts": 238,
+   "dominant": 217
+  },
+  "R_Leg2_01": {
+   "verts": 129,
+   "dominant": 86
+  },
+  "R_Leg2_02": {
+   "verts": 113,
+   "dominant": 70
+  },
+  "R_Leg2_03": {
+   "verts": 246,
+   "dominant": 236
+  },
+  "R_Leg3_01": {
+   "verts": 120,
+   "dominant": 103
+  },
+  "R_Leg3_02": {
+   "verts": 50,
+   "dominant": 22
+  },
+  "R_Leg3_03": {
+   "verts": 163,
+   "dominant": 163
+  }
+ },
+ "islands": {
+  "count": 37,
+  "open_islands": {
+   "body#0": {
+    "verts": 1498,
+    "boundary_edges": 22,
+    "nonmanifold": 0
+   },
+   "head/eye#1": {
+    "verts": 236,
+    "boundary_edges": 30,
+    "nonmanifold": 0
+   },
+   "head/eye#3": {
+    "verts": 58,
+    "boundary_edges": 17,
+    "nonmanifold": 0
+   },
+   "L_Leg1#9": {
+    "verts": 434,
+    "boundary_edges": 10,
+    "nonmanifold": 0
+   },
+   "L_antenna#11": {
+    "verts": 5,
+    "boundary_edges": 5,
+    "nonmanifold": 0
+   },
+   "L_Leg3#12": {
+    "verts": 300,
+    "boundary_edges": 8,
+    "nonmanifold": 0
+   },
+   "L_Leg2#13": {
+    "verts": 400,
+    "boundary_edges": 8,
+    "nonmanifold": 0
+   },
+   "L_antenna#14": {
+    "verts": 33,
+    "boundary_edges": 6,
+    "nonmanifold": 0
+   },
+   "L_antenna#15": {
+    "verts": 6,
+    "boundary_edges": 7,
+    "nonmanifold": 0
+   },
+   "L_antenna#16": {
+    "verts": 8,
+    "boundary_edges": 10,
+    "nonmanifold": 0
+   },
+   "L_antenna#17": {
+    "verts": 3,
+    "boundary_edges": 3,
+    "nonmanifold": 0
+   },
+   "L_antenna#18": {
+    "verts": 23,
+    "boundary_edges": 14,
+    "nonmanifold": 0
+   },
+   "head/eye#20": {
+    "verts": 58,
+    "boundary_edges": 17,
+    "nonmanifold": 0
+   },
+   "R_Leg1#26": {
+    "verts": 434,
+    "boundary_edges": 10,
+    "nonmanifold": 0
+   },
+   "R_antenna#28": {
+    "verts": 4,
+    "boundary_edges": 4,
+    "nonmanifold": 0
+   },
+   "R_Leg3#29": {
+    "verts": 300,
+    "boundary_edges": 8,
+    "nonmanifold": 0
+   },
+   "R_antenna#30": {
+    "verts": 3,
+    "boundary_edges": 3,
+    "nonmanifold": 0
+   },
+   "R_Leg2#31": {
+    "verts": 400,
+    "boundary_edges": 8,
+    "nonmanifold": 0
+   },
+   "R_antenna#32": {
+    "verts": 34,
+    "boundary_edges": 6,
+    "nonmanifold": 0
+   },
+   "R_antenna#33": {
+    "verts": 4,
+    "boundary_edges": 4,
+    "nonmanifold": 0
+   },
+   "R_antenna#34": {
+    "verts": 3,
+    "boundary_edges": 3,
+    "nonmanifold": 0
+   },
+   "R_antenna#35": {
+    "verts": 3,
+    "boundary_edges": 3,
+    "nonmanifold": 0
+   },
+   "R_antenna#36": {
+    "verts": 23,
+    "boundary_edges": 14,
+    "nonmanifold": 0
+   }
+  }
+ },
+ "weights_symmetry": {
+  "max_abs_diff": 0.0276,
+  "at": [
+   0.0777,
+   -0.0884,
+   0.168
+  ],
+  "mean_abs_diff": 1e-05,
+  "verts_without_mirror_2mm": 8,
+  "note": "mirror partner among the same kind of part"
+ },
+ "coincident_cross_island": {
+  "L_antenna | L_antenna": 32,
+  "R_antenna | R_antenna": 21,
+  "R_Leg1 | body": 1
+ },
+ "poses": {
+  "rest": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.101,
+     -0.258,
+     0.001
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   },
+   "rest_max_dev_m": 8.940696716308594e-08
+  },
+  "wings_up_65": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 108.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 61.2,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 107.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 133.1,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 102.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 108.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 61.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 107.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 133.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 102.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.101,
+     -0.258,
+     0.001
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     5.7,
+     5.7
+    ]
+   }
+  },
+  "wings_mid_30": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 117.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 58.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 106.0,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 96.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 94.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 117.3,
+     "antenna_inside": 0,
+     "antenna_min_mm": 58.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 105.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 96.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 94.0,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.101,
+     -0.258,
+     0.001
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   }
+  },
+  "wings_down_45": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": -0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 146,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 29.3,
+     "antenna_inside": 0,
+     "antenna_min_mm": 55.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 58.0,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 10,
+     "legs_min_mm": 0.1,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 24.0,
+     "legs_inside_vs_rest": 10,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 27.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 54.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 57.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 10,
+     "legs_min_mm": 0.2,
+     "antenna_inside": 0,
+     "antenna_min_mm": 85.2,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 23.8,
+     "legs_inside_vs_rest": 10,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 36,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   }
+  },
+  "wingB_lag_10": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 13,
+     "new_inside_n": 4,
+     "new_inside_depth_mm": 1.65,
+     "gap_open_mm": 56.68,
+     "gap_mean_mm": 20.02
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 13,
+     "new_inside_n": 3,
+     "new_inside_depth_mm": 2.31,
+     "gap_open_mm": 56.77,
+     "gap_mean_mm": 19.34
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 115.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 106.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 118.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 111.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 114.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 106.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 118.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 111.3,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   }
+  },
+  "wingB_lead_10": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 3,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 50.35,
+     "gap_mean_mm": 21.03
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 3,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 50.02,
+     "gap_mean_mm": 21.2
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 115.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 106.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 113.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 79.3,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 114.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 106.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 113.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 79.1,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.59,
+     0.227,
+     0.549
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.4,
+     3.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.2,
+     3.2
+    ]
+   }
+  },
+  "wing_flex_30": {
+   "stretch": {
+    "worst": 1.1,
+    "bad": 0,
+    "worst_dlen_mm": 4.55,
+    "worst_at": [
+     -0.286,
+     0.134,
+     0.334
+    ],
+    "stretch_max": 1.057,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     54.2,
+     57.3
+    ],
+    "compress_min": 0.909,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     50.0,
+     45.5
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.1,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 46.16,
+     "gap_mean_mm": 10.72
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 45.76,
+     "gap_mean_mm": 11.07
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 120.2,
+     "antenna_inside": 0,
+     "antenna_min_mm": 57.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 103.0,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 75.3,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 90.1,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 120.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 57.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 102.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 75.3,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 90.0,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.1,
+    "bad": 0,
+    "worst_dlen_mm": 4.55,
+    "worst_at": [
+     -0.286,
+     0.134,
+     0.334
+    ],
+    "stretch_max": 1.057,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     54.2,
+     57.3
+    ],
+    "compress_min": 0.909,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     50.0,
+     45.5
+    ]
+   }
+  },
+  "wing_twist_25": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 108,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 120.1,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 105.1,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 91.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 81.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 57.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 119.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 104.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 91.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 81.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 57.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": -2,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.101,
+     -0.258,
+     0.001
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   }
+  },
+  "wing_sweep_20": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.4,
+     2.4
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 124,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 117.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 51.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 59.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 61.0,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 26.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 117.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 51.8,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 59.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 60.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.8,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 26.1,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 14,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.101,
+     -0.258,
+     0.001
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.9,
+     1.9
+    ]
+   }
+  },
+  "abdomen_down_45": {
+   "stretch": {
+    "worst": 2.721,
+    "bad": 8,
+    "worst_dlen_mm": 10.15,
+    "worst_at": [
+     0.0,
+     0.152,
+     0.065
+    ],
+    "stretch_max": 2.529,
+    "stretch_bad": 2,
+    "stretch_at_mm": [
+     2.8,
+     7.2
+    ],
+    "compress_min": 0.368,
+    "compress_bad": 6,
+    "compress_at_mm": [
+     16.1,
+     5.9
+    ]
+   },
+   "stretch_by_region": {
+    "body": 2.721,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 29,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 74,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 108.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 74.5,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 107.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 74.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": -4,
+   "variant_B_stretch": {
+    "worst": 2.64,
+    "bad": 6,
+    "worst_dlen_mm": 9.97,
+    "worst_at": [
+     0.0,
+     0.152,
+     0.065
+    ],
+    "stretch_max": 2.423,
+    "stretch_bad": 2,
+    "stretch_at_mm": [
+     2.8,
+     6.9
+    ],
+    "compress_min": 0.379,
+    "compress_bad": 4,
+    "compress_at_mm": [
+     16.1,
+     6.1
+    ]
+   }
+  },
+  "abdomen_up_30": {
+   "stretch": {
+    "worst": 2.686,
+    "bad": 8,
+    "worst_dlen_mm": 4.78,
+    "worst_at": [
+     0.0,
+     0.153,
+     0.067
+    ],
+    "stretch_max": 2.686,
+    "stretch_bad": 8,
+    "stretch_at_mm": [
+     2.8,
+     7.6
+    ],
+    "compress_min": 0.771,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     12.5,
+     9.6
+    ]
+   },
+   "stretch_by_region": {
+    "body": 2.686,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 8,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 80,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 90.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 69.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 90.3,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 69.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 2,
+   "variant_B_stretch": {
+    "worst": 2.623,
+    "bad": 5,
+    "worst_dlen_mm": 4.6,
+    "worst_at": [
+     0.0,
+     0.153,
+     0.067
+    ],
+    "stretch_max": 2.623,
+    "stretch_bad": 5,
+    "stretch_at_mm": [
+     2.8,
+     7.4
+    ],
+    "compress_min": 0.772,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     12.5,
+     9.7
+    ]
+   }
+  },
+  "abdomen_side_36": {
+   "stretch": {
+    "worst": 2.085,
+    "bad": 3,
+    "worst_dlen_mm": 3.08,
+    "worst_at": [
+     0.0,
+     0.153,
+     0.067
+    ],
+    "stretch_max": 2.085,
+    "stretch_bad": 3,
+    "stretch_at_mm": [
+     2.8,
+     5.9
+    ],
+    "compress_min": 0.564,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     11.0,
+     6.2
+    ]
+   },
+   "stretch_by_region": {
+    "body": 2.085,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 5,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 100,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 103.3,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 81.1,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 93.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 64.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 22,
+   "variant_B_stretch": {
+    "worst": 2.049,
+    "bad": 3,
+    "worst_dlen_mm": 2.97,
+    "worst_at": [
+     0.0,
+     0.153,
+     0.067
+    ],
+    "stretch_max": 2.049,
+    "stretch_bad": 3,
+    "stretch_at_mm": [
+     2.8,
+     5.8
+    ],
+    "compress_min": 0.564,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     11.0,
+     6.2
+    ]
+   }
+  },
+  "antenna_fwd": {
+   "stretch": {
+    "worst": 1.185,
+    "bad": 0,
+    "worst_dlen_mm": 1.77,
+    "worst_at": [
+     0.126,
+     -0.085,
+     0.453
+    ],
+    "stretch_max": 1.185,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     9.6,
+     11.4
+    ],
+    "compress_min": 0.923,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     22.4,
+     20.7
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.185
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 55.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 55.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.4,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.152,
+     -0.084,
+     0.505
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     1.4,
+     1.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     1.4,
+     1.4
+    ]
+   }
+  },
+  "antenna_back": {
+   "stretch": {
+    "worst": 1.206,
+    "bad": 0,
+    "worst_dlen_mm": 1.98,
+    "worst_at": [
+     0.126,
+     -0.085,
+     0.453
+    ],
+    "stretch_max": 1.206,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     9.6,
+     11.6
+    ],
+    "compress_min": 0.923,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     22.2,
+     20.5
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.206
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 86.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 59.1,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 86.8,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.188,
+     -0.092,
+     0.578
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.9,
+     2.9
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     2.6,
+     2.6
+    ]
+   }
+  },
+  "antenna_side": {
+   "stretch": {
+    "worst": 2.939,
+    "bad": 2,
+    "worst_dlen_mm": 7.59,
+    "worst_at": [
+     0.11,
+     -0.086,
+     0.432
+    ],
+    "stretch_max": 1.05,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     22.2,
+     23.2
+    ],
+    "compress_min": 0.34,
+    "compress_bad": 2,
+    "compress_at_mm": [
+     11.5,
+     3.9
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 2.939
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 2
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 57.8,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 86.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 57.9,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 86.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.143,
+     -0.097,
+     0.562
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.1,
+     2.1
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.5,
+     3.5
+    ]
+   }
+  },
+  "head_nod_15": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.5,
+     3.5
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 34,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 45.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 73.2,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 45.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 73.2,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": -1,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.201,
+     -0.085,
+     0.588
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     2.4,
+     2.4
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.5,
+     3.5
+    ]
+   }
+  },
+  "head_down_15": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.198,
+     -0.08,
+     0.59
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.1,
+     3.1
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.7,
+     3.7
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 66.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 93.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 66.0,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 94.1,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.206,
+     -0.081,
+     0.594
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.1,
+     3.1
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.1,
+     3.1
+    ]
+   }
+  },
+  "head_turn_15": {
+   "stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     0.165,
+     -0.089,
+     0.571
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.6,
+     3.6
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     3.1,
+     3.1
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.0,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 34,
+   "leg_verts_inside_body": 78,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 50.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 78.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 61.7,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 90.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": -1,
+   "leg_verts_inside_body_vs_rest": 0,
+   "variant_B_stretch": {
+    "worst": 1.0,
+    "bad": 0,
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.087,
+     -0.114,
+     0.521
+    ],
+    "stretch_max": 1.0,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     3.9,
+     3.9
+    ],
+    "compress_min": 1.0,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     4.1,
+     4.1
+    ]
+   }
+  },
+  "legs_tuck": {
+   "stretch": {
+    "worst": 7.408,
+    "bad": 62,
+    "worst_dlen_mm": 4.1,
+    "worst_at": [
+     -0.079,
+     -0.126,
+     0.086
+    ],
+    "stretch_max": 2.087,
+    "stretch_bad": 32,
+    "stretch_at_mm": [
+     7.0,
+     14.6
+    ],
+    "compress_min": 0.135,
+    "compress_bad": 30,
+    "compress_at_mm": [
+     4.7,
+     0.6
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 7.408,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 84,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 239,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 77.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 16.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 77.4,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 16.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 264.8,
+    "L_Leg2": 212.4,
+    "L_Leg3": 116.0,
+    "R_Leg1": 264.7,
+    "R_Leg2": 207.9,
+    "R_Leg3": 116.3
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 161,
+   "variant_B_stretch": {
+    "worst": 1.981,
+    "bad": 0,
+    "worst_dlen_mm": 3.57,
+    "worst_at": [
+     -0.059,
+     0.019,
+     0.139
+    ],
+    "stretch_max": 1.251,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     16.2,
+     20.3
+    ],
+    "compress_min": 0.505,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     7.2,
+     3.6
+    ]
+   }
+  },
+  "leg_step_IK": {
+   "stretch": {
+    "worst": 17.888,
+    "bad": 9,
+    "worst_dlen_mm": 5.68,
+    "worst_at": [
+     0.071,
+     -0.125,
+     0.084
+    ],
+    "stretch_max": 1.806,
+    "stretch_bad": 3,
+    "stretch_at_mm": [
+     7.4,
+     13.4
+    ],
+    "compress_min": 0.056,
+    "compress_bad": 6,
+    "compress_at_mm": [
+     6.0,
+     0.3
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 17.888,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 18,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 91,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 105.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 34.5,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 82.9,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 19.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 58.3,
+    "L_Leg2": 0.0,
+    "L_Leg3": 44.7,
+    "R_Leg1": 0.0,
+    "R_Leg2": 40.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 13,
+   "variant_B_stretch": {
+    "worst": 1.622,
+    "bad": 0,
+    "worst_dlen_mm": 2.76,
+    "worst_at": [
+     -0.059,
+     0.019,
+     0.139
+    ],
+    "stretch_max": 1.197,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     16.2,
+     19.4
+    ],
+    "compress_min": 0.617,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     7.2,
+     4.4
+    ]
+   }
+  },
+  "crouch_IK": {
+   "stretch": {
+    "worst": 1.529,
+    "bad": 0,
+    "worst_dlen_mm": 2.49,
+    "worst_at": [
+     -0.059,
+     0.019,
+     0.139
+    ],
+    "stretch_max": 1.323,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     7.0,
+     9.3
+    ],
+    "compress_min": 0.654,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     7.2,
+     4.7
+    ]
+   },
+   "stretch_by_region": {
+    "body": 1.0,
+    "legs": 1.529,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 0,
+    "legs": 0,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 110,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 159,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 84.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.9,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 20.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.8,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 84.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 56.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 97.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 20.8,
+     "antenna_inside": 0,
+     "antenna_min_mm": 84.3,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 71.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 0.0,
+    "L_Leg2": 0.0,
+    "L_Leg3": 0.0,
+    "R_Leg1": 0.0,
+    "R_Leg2": 0.0,
+    "R_Leg3": 0.0
+   },
+   "wing_verts_inside_body_vs_rest": 0,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 81,
+   "variant_B_stretch": {
+    "worst": 1.529,
+    "bad": 0,
+    "worst_dlen_mm": 2.49,
+    "worst_at": [
+     -0.059,
+     0.019,
+     0.139
+    ],
+    "stretch_max": 1.178,
+    "stretch_bad": 0,
+    "stretch_at_mm": [
+     16.2,
+     19.1
+    ],
+    "compress_min": 0.654,
+    "compress_bad": 0,
+    "compress_at_mm": [
+     7.2,
+     4.7
+    ]
+   }
+  },
+  "flight_combo": {
+   "stretch": {
+    "worst": 7.407,
+    "bad": 70,
+    "worst_dlen_mm": 4.1,
+    "worst_at": [
+     -0.079,
+     -0.126,
+     0.086
+    ],
+    "stretch_max": 2.529,
+    "stretch_bad": 34,
+    "stretch_at_mm": [
+     2.8,
+     7.2
+    ],
+    "compress_min": 0.135,
+    "compress_bad": 36,
+    "compress_at_mm": [
+     4.7,
+     0.6
+    ]
+   },
+   "stretch_by_region": {
+    "body": 2.721,
+    "legs": 7.407,
+    "wings": 1.0,
+    "antennae": 1.0
+   },
+   "bad_edges_by_region": {
+    "body": 29,
+    "legs": 84,
+    "wings": 0,
+    "antennae": 0
+   },
+   "wing_layers": {
+    "L": {
+     "zone_verts": 41,
+     "inside_n": 10,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 5.9
+    },
+    "R": {
+     "zone_verts": 41,
+     "inside_n": 12,
+     "new_inside_n": 0,
+     "new_inside_depth_mm": 0.0,
+     "gap_open_mm": 0.0,
+     "gap_mean_mm": 6.0
+    }
+   },
+   "wing_verts_inside_body": 106,
+   "head_verts_inside_body": 35,
+   "leg_verts_inside_body": 231,
+   "wing_contacts": {
+    "L_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 68.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 60.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 125.7,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "L_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 86.7,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 112.4,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingF": {
+     "legs_inside": 0,
+     "legs_min_mm": 68.4,
+     "antenna_inside": 0,
+     "antenna_min_mm": 60.6,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 125.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    },
+    "R_WingB": {
+     "legs_inside": 0,
+     "legs_min_mm": 86.6,
+     "antenna_inside": 0,
+     "antenna_min_mm": 83.5,
+     "abdomen_inside": 0,
+     "abdomen_min_mm": 112.2,
+     "legs_inside_vs_rest": 0,
+     "antenna_inside_vs_rest": 0,
+     "abdomen_inside_vs_rest": 0
+    }
+   },
+   "foot_tip_move_mm": {
+    "L_Leg1": 225.1,
+    "L_Leg2": 215.9,
+    "L_Leg3": 138.6,
+    "R_Leg1": 225.0,
+    "R_Leg2": 211.3,
+    "R_Leg3": 139.1
+   },
+   "wing_verts_inside_body_vs_rest": -4,
+   "head_verts_inside_body_vs_rest": 0,
+   "leg_verts_inside_body_vs_rest": 153,
+   "variant_B_stretch": {
+    "worst": 2.64,
+    "bad": 6,
+    "worst_dlen_mm": 9.97,
+    "worst_at": [
+     0.0,
+     0.152,
+     0.065
+    ],
+    "stretch_max": 2.423,
+    "stretch_bad": 2,
+    "stretch_at_mm": [
+     2.8,
+     6.9
+    ],
+    "compress_min": 0.379,
+    "compress_bad": 4,
+    "compress_at_mm": [
+     16.1,
+     6.1
+    ]
+   }
+  }
+ },
+ "pose_defs": {
+  "rest": {},
+  "wings_up_65": {
+   "bones": {
+    "ctl_wings": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wings_mid_30": {
+   "bones": {
+    "ctl_wings": [
+     [
+      30,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wings_down_45": {
+   "bones": {
+    "ctl_wings": [
+     [
+      -45,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wingB_lag_10": {
+   "bones": {
+    "ctl_L_Wing": [
+     [
+      40,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Wing": [
+     [
+      40,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_WingB_01": [
+     [
+      -10,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_WingB_01": [
+     [
+      -10,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wingB_lead_10": {
+   "bones": {
+    "ctl_L_Wing": [
+     [
+      40,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Wing": [
+     [
+      40,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_WingB_01": [
+     [
+      10,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_WingB_01": [
+     [
+      10,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wing_flex_30": {
+   "bones": {
+    "ctl_L_Wing": [
+     [
+      20,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Wing": [
+     [
+      20,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_WingF_02": [
+     [
+      30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_WingF_02": [
+     [
+      30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_WingB_02": [
+     [
+      30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_WingB_02": [
+     [
+      30,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wing_twist_25": {
+   "bones": {
+    "ctl_L_Wing": [
+     [
+      0,
+      25,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Wing": [
+     [
+      0,
+      -25,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "wing_sweep_20": {
+   "bones": {
+    "ctl_L_Wing": [
+     [
+      0,
+      0,
+      20
+     ],
+     null
+    ],
+    "ctl_R_Wing": [
+     [
+      0,
+      0,
+      -20
+     ],
+     null
+    ]
+   }
+  },
+  "abdomen_down_45": {
+   "bones": {
+    "ctl_abdomen_curl": [
+     [
+      -15,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "abdomen_up_30": {
+   "bones": {
+    "ctl_abdomen_curl": [
+     [
+      10,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "abdomen_side_36": {
+   "bones": {
+    "ctl_abdomen_curl": [
+     [
+      0,
+      0,
+      12
+     ],
+     null
+    ]
+   }
+  },
+  "antenna_fwd": {
+   "bones": {
+    "ctl_L_antenna_01": [
+     [
+      25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_antenna_01": [
+     [
+      25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_antenna_02": [
+     [
+      25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_antenna_02": [
+     [
+      25,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "antenna_back": {
+   "bones": {
+    "ctl_L_antenna_01": [
+     [
+      -25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_antenna_01": [
+     [
+      -25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_antenna_02": [
+     [
+      -25,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_antenna_02": [
+     [
+      -25,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "antenna_side": {
+   "bones": {
+    "ctl_L_antenna_01": [
+     [
+      0,
+      0,
+      -15
+     ],
+     null
+    ],
+    "ctl_R_antenna_01": [
+     [
+      0,
+      0,
+      15
+     ],
+     null
+    ],
+    "ctl_L_antenna_02": [
+     [
+      0,
+      0,
+      -10
+     ],
+     null
+    ],
+    "ctl_R_antenna_02": [
+     [
+      0,
+      0,
+      10
+     ],
+     null
+    ]
+   }
+  },
+  "head_nod_15": {
+   "bones": {
+    "ctl_head": [
+     [
+      15,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "head_down_15": {
+   "bones": {
+    "ctl_head": [
+     [
+      -15,
+      0,
+      0
+     ],
+     null
+    ]
+   }
+  },
+  "head_turn_15": {
+   "bones": {
+    "ctl_head": [
+     [
+      0,
+      0,
+      15
+     ],
+     null
+    ]
+   }
+  },
+  "legs_tuck": {
+   "bones": {
+    "ctl_L_Leg1_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg1_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg1_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ]
+   },
+   "props": {
+    "ik_leg_L1": 0.0,
+    "ik_leg_L2": 0.0,
+    "ik_leg_L3": 0.0,
+    "ik_leg_R1": 0.0,
+    "ik_leg_R2": 0.0,
+    "ik_leg_R3": 0.0
+   }
+  },
+  "leg_step_IK": {
+   "bones": {
+    "ctl_L_Leg1_IK": [
+     null,
+     [
+      0,
+      -0.03,
+      0.05
+     ]
+    ],
+    "ctl_R_Leg2_IK": [
+     null,
+     [
+      0,
+      0,
+      0.04
+     ]
+    ],
+    "ctl_L_Leg3_IK": [
+     null,
+     [
+      0,
+      0.02,
+      0.04
+     ]
+    ]
+   }
+  },
+  "crouch_IK": {
+   "bones": {
+    "ctl_cog": [
+     null,
+     [
+      0,
+      0,
+      -0.035
+     ]
+    ]
+   }
+  },
+  "flight_combo": {
+   "bones": {
+    "ctl_L_Leg1_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg1_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg1_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg2_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_L_Leg3_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg1_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg2_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_01": [
+     [
+      -30,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_02": [
+     [
+      65,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_R_Leg3_03": [
+     [
+      45,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_wings": [
+     [
+      55,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_abdomen_curl": [
+     [
+      -15,
+      0,
+      0
+     ],
+     null
+    ],
+    "ctl_cog": [
+     [
+      -10,
+      0,
+      0
+     ],
+     null
+    ]
+   },
+   "props": {
+    "ik_leg_L1": 0.0,
+    "ik_leg_L2": 0.0,
+    "ik_leg_L3": 0.0,
+    "ik_leg_R1": 0.0,
+    "ik_leg_R2": 0.0,
+    "ik_leg_R3": 0.0
+   }
+  }
+ },
+ "A1_pass": true,
+ "seconds": 7.1
+}

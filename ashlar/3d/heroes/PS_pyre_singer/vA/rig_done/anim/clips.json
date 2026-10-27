@@ -1,0 +1,34 @@
+{
+ "asset_id": "PS_pyre_singer_vA",
+ "rig": "PS_Rig",
+ "clips": [
+  {
+   "name": "Unarmed_Idle_01",
+   "file": "anim/PS_pyre_singer_vA@Unarmed_Idle_01.fbx",
+   "state": null,
+   "stance": null,
+   "status": "experiment",
+   "source": "Unarmed Idle 01.fbx",
+   "license": null,
+   "derived_from": "Unarmed Idle 01.fbx",
+   "description": "",
+   "frame_start": 1,
+   "frame_end": 349,
+   "fps": 30.0,
+   "sample_count": 349,
+   "duration_s": 11.6,
+   "loop": false,
+   "root_displacement": null,
+   "contacts_s": [],
+   "events": [],
+   "bone_mapping": null,
+   "textures": null,
+   "tolerance": null,
+   "approved": {
+    "source": null,
+    "export": null,
+    "engine": null
+   }
+  }
+ ]
+}

@@ -1,0 +1,261 @@
+{
+ "asset_id": "F02_poppy_nurse",
+ "rig": "F02_poppy_nurse_Rig",
+ "exported": "2026-10-26T23:46:20",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\F02_poppy_nurse\\rig\\F02_poppy_nurse_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 93,
+  "deform": 83,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "F02_poppy_nurse_Accessory": {
+   "role": "Accessory",
+   "verts": 232
+  },
+  "F02_poppy_nurse_Body": {
+   "role": "Body",
+   "verts": 2610
+  },
+  "F02_poppy_nurse_Cloth_Apron": {
+   "role": "Cloth",
+   "verts": 87
+  },
+  "F02_poppy_nurse_Cloth_PanelL": {
+   "role": "Cloth",
+   "verts": 206
+  },
+  "F02_poppy_nurse_Cloth_PanelR": {
+   "role": "Cloth",
+   "verts": 160
+  },
+  "F02_poppy_nurse_Cloth_Skirt": {
+   "role": "Cloth",
+   "verts": 525
+  },
+  "F02_poppy_nurse_Cloth_Strip": {
+   "role": "Cloth",
+   "verts": 61
+  },
+  "F02_poppy_nurse_Head": {
+   "role": "Head",
+   "verts": 1565
+  }
+ },
+ "weight_health": {
+  "F02_poppy_nurse_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Cloth_Apron": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Cloth_PanelL": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Cloth_PanelR": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Cloth_Skirt": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Cloth_Strip": {
+   "max_influences": 3,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "F02_poppy_nurse_Head": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_skirt_FL_01",
+   "robe_skirt_FL_02",
+   "robe_skirt_FL_03",
+   "robe_skirt_FL_04"
+  ],
+  [
+   "robe_skirt_FR_01",
+   "robe_skirt_FR_02",
+   "robe_skirt_FR_03",
+   "robe_skirt_FR_04"
+  ],
+  [
+   "robe_skirt_L_01",
+   "robe_skirt_L_02",
+   "robe_skirt_L_03",
+   "robe_skirt_L_04"
+  ],
+  [
+   "robe_skirt_R_01",
+   "robe_skirt_R_02",
+   "robe_skirt_R_03",
+   "robe_skirt_R_04"
+  ],
+  [
+   "robe_skirt_BL_01",
+   "robe_skirt_BL_02",
+   "robe_skirt_BL_03",
+   "robe_skirt_BL_04"
+  ],
+  [
+   "robe_skirt_BR_01",
+   "robe_skirt_BR_02",
+   "robe_skirt_BR_03",
+   "robe_skirt_BR_04"
+  ],
+  [
+   "robe_skirt_F_01",
+   "robe_skirt_F_02",
+   "robe_skirt_F_03",
+   "robe_skirt_F_04"
+  ],
+  [
+   "robe_skirt_B_01",
+   "robe_skirt_B_02",
+   "robe_skirt_B_03",
+   "robe_skirt_B_04"
+  ],
+  [
+   "apron_front_FL_01",
+   "apron_front_FL_02",
+   "apron_front_FL_03"
+  ],
+  [
+   "apron_front_FR_01",
+   "apron_front_FR_02",
+   "apron_front_FR_03"
+  ],
+  [
+   "flap_panelL_A_01",
+   "flap_panelL_A_02",
+   "flap_panelL_A_03"
+  ],
+  [
+   "flap_panelL_B_01",
+   "flap_panelL_B_02",
+   "flap_panelL_B_03"
+  ],
+  [
+   "flap_panelR_A_01",
+   "flap_panelR_A_02",
+   "flap_panelR_A_03"
+  ],
+  [
+   "flap_panelR_B_01",
+   "flap_panelR_B_02",
+   "flap_panelR_B_03"
+  ],
+  [
+   "flap_strip_B_01",
+   "flap_strip_B_02",
+   "flap_strip_B_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.085
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.07
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.06
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.085
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.085
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.07
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.06
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.085
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "F02_poppy_nurse_rig.fbx",
+  "textures": [
+   "textures/F02_poppy_nurse_basecolor.jpg.jpg",
+   "textures/F02_poppy_nurse_normal.jpg.jpg",
+   "textures/F02_poppy_nurse_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "F02_poppy_nurse_rig.glb",
+  "blend": "F02_poppy_nurse_rig.blend",
+  "springbones": "F02_poppy_nurse_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 93,
+  "meshes": 8,
+  "verts": 5446,
+  "skinned": 8,
+  "ok": true
+ }
+}

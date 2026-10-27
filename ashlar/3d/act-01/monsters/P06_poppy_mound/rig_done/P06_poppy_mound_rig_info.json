@@ -1,0 +1,204 @@
+{
+ "asset_id": "P06_poppy_mound",
+ "rig": "P06_poppy_mound_Rig",
+ "exported": "2026-10-27T19:17:15",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\P06_poppy_mound\\rig\\P06_poppy_mound_rig.blend",
+ "source_sha256": "1c3906e6033653ce2e83206c116937cc47997fcc5b73db352566386d4d21f429",
+ "family": "O",
+ "route": "M",
+ "units": "m",
+ "blender_axes": "Z up, faces -Y, its left = +X",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "glb_axes": "Y up, faces +Z",
+ "deform_only": false,
+ "size_m": {
+  "x": 4.5,
+  "y": 4.4253,
+  "z": 1.6993
+ },
+ "bones": {
+  "total": 15,
+  "deform": 10,
+  "sockets": [
+   "root",
+   "fx_spawn_main",
+   "fx_spawn_L",
+   "fx_spawn_R",
+   "fx_body"
+  ]
+ },
+ "control_rig": {
+  "kept_in": "rig/P06_poppy_mound_rig.blend (and the copy here)",
+  "not_exported": [
+   "ctl_breath",
+   "ctl_sway"
+  ],
+  "constraints_removed": 13,
+  "ctl_breath": "local Y -> crown loc Y x1.0, flank_* loc Y x0.75",
+  "ctl_sway": "local loc/rot X,Z -> bloom_center x1.0, L_bloom/R_bloom x0.9, bloom_main x0.4"
+ },
+ "parts": {
+  "P06_poppy_mound": {
+   "role": "body",
+   "verts": 5723,
+   "tris": 8948
+  }
+ },
+ "weight_health": {
+  "P06_poppy_mound": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "usable_ranges": {
+  "bloom_main": "+-30 deg",
+  "bloom_center": "X +-30 deg, Z +-20 deg",
+  "L_bloom": "+-15 deg",
+  "R_bloom": "+-15 deg",
+  "ctl_sway": "translate <= 0.10 m",
+  "death_collapse": "crown -0.25 m + flank sag 0.10 m (body stretch 1.82x)"
+ },
+ "notes": [
+  "Family O (object / nest): no locomotion. Clips (idle breath, cast = moth release at fx_spawn_*, hit, death) are made at R6 on the control rig and baked onto these bones at R8.",
+  "The control rig is not exported: ctl_breath / ctl_sway drive the runtime bones through Transformation constraints in the source .blend only.",
+  "One bone per flower cluster: keep L_bloom / R_bloom within +-15 deg; beyond that the outer stems stretch past 1.6x (qa_report.md section 5).",
+  "Sockets carry no weights: fx_spawn_main / fx_spawn_L / fx_spawn_R = Hush-Moth release points, fx_body = hit / death VFX, root = ground."
+ ],
+ "files": {
+  "model_fbx": "P06_poppy_mound_rig.fbx",
+  "model_glb": "P06_poppy_mound_rig.glb",
+  "blend": "P06_poppy_mound_rig.blend",
+  "clips": [],
+  "textures": [
+   "textures/P06_poppy_mound_basecolor.jpg.jpg",
+   "textures/P06_poppy_mound_normal.jpg.jpg",
+   "textures/P06_poppy_mound_rm.png.png"
+  ]
+ },
+ "reimport_check": {
+  "glb": {
+   "file_mb": 13.49,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 17,
+   "joints": 15,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "images": [
+    {
+     "name": "P06_poppy_mound_normal",
+     "mime": "image/jpeg",
+     "mb": 1.31
+    },
+    {
+     "name": "P06_poppy_mound_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.61
+    },
+    {
+     "name": "P06_poppy_mound_rm",
+     "mime": "image/png",
+     "mb": 9.19
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 15,
+   "skinned": true,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0005,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 6525,
+   "size_m": [
+    4.5,
+    4.4253,
+    1.6993
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 4,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0006,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 3e-07
+    },
+    "swell": {
+     "max_mm": 0.0005,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 3e-07
+    },
+    "sway": {
+     "max_mm": 0.0007,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 3e-07
+    },
+    "hit": {
+     "max_mm": 0.0006,
+     "p999_mm": 0.0005,
+     "skin_mat_err": 4e-07
+    }
+   },
+   "ok": true
+  },
+  "fbx": {
+   "file_mb": 4.35,
+   "armatures": 1,
+   "bones": 15,
+   "meshes": 1,
+   "other_meshes": [],
+   "verts": 5723,
+   "names_ok": true,
+   "size_m": [
+    4.5,
+    4.4253,
+    1.6993
+   ],
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "ok": true
+  },
+  "tolerance_m": {
+   "rest_match": 0.0001,
+   "pose": 0.001
+  }
+ },
+ "approved": {
+  "G1": "2026-10-26",
+  "G2": "2026-10-27",
+  "G3": null,
+  "G4": null
+ }
+}

@@ -1,0 +1,6 @@
+{
+ "asset_id": "P03_hush_moths",
+ "rig": "P03_hush_moths_rig",
+ "clips": [],
+ "variant_B": "P03_hush_moths_B_rig.glb / .fbx: subset of the runtime skeleton with the same bind; a clip made on A plays on B (tracks of the missing bones are skipped)"
+}

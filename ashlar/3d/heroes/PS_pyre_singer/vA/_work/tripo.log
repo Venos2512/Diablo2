@@ -6,3 +6,14 @@ Smart UV 20 completed; utilization 74.5%; Save clicked. Shared balance 6540 incl
 [18:26:57] PS_pyre_singer_vA: pbr done (credits 6475 -> 6470)
 [18:27:10] PS_pyre_singer_vA: exported /e/Diablo2/ashlar/3d/heroes/PS_pyre_singer_vA/PS_pyre_singer_vA.glb (19356 KB)
 FINAL: verified GLB header, one mesh, 3 embedded 4096x4096 PBR maps, 0 skins/animations; four-view QA complete. Per asset 100+20+20+5=145 credits, pair total 290; account 6760 -> 6470. See glb_validation.json. Concurrent-tab per-step balances may be stale.
+[12:03:45] multi-view slots filled from /d/Claude/Diablo2/ashlar/3d/heroes/PS_pyre_singer/vA/views (Generate 100), credits ?
+[12:04:46] multi-view slots filled from /d/Claude/Diablo2/ashlar/3d/heroes/PS_pyre_singer/vA/views (Generate 100), credits 4038
+[12:04:52] Generate 100 pressed (credits 4038 -> 3938)
+/workspace/generate/dd1e52e4-f19a-4102-bf82-eb8656110644
+[12:06:37] variants (index uuid faces) in _shots/variants.txt
+[12:08:22] 2026-10-26 regen from existing views (_v2_fix T-pose), new machine/profile. Selected variant 2: dd1e52e4-f19a-4102-bf82-eb8656110644, 5836 faces (clearest face, braid, lantern, slit on correct side, separated boots). Previous GLB kept in _work/_v3_prev_2026-10-21/.
+[12:08:46] PS_pyre_singer_vA: smart uv saved (credits 3938 -> 3918)
+[12:10:54] PS_pyre_singer_vA: texture 4K done, 4 views re-uploaded on Texture page (credits 3918 -> 3898)
+[12:11:37] PS_pyre_singer_vA: pbr done (credits 3898 -> 3893)
+[12:12:36] PS_pyre_singer_vA: exported /d/Claude/Diablo2/ashlar/3d/heroes/PS_pyre_singer/vA/PS_pyre_singer_vA.glb (19480 KB); export dialog now defaults to FBX, GLB picked by hand
+FINAL 2026-10-26: one mesh, 9858 triangles, 3 embedded 4096x4096 maps (base JPEG, MR PNG, normal JPEG), 0 skins/animations, bbox height ~1 m. 145 credits (4038 -> 3893). _shots/final_views.png. Old GLB in _work/_v3_prev_2026-10-21/.
