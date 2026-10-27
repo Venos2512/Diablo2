@@ -1,0 +1,50 @@
+{
+ "asset": "U01_shambler",
+ "verts": 5280,
+ "islands": 17,
+ "scale": 1.8008793356130923,
+ "H0": 0.99951171875,
+ "notes": [
+  "wrist from proportion (hand is not its own island)",
+  "no Head object: chin from the body mesh",
+  "neck ring not found: neck y = between chest and head",
+  "L knee moved 0.5 cm forward so it is pre-bent (was on/behind the hip-ankle line)",
+  "R knee moved 6.7 cm forward so it is pre-bent (was on/behind the hip-ankle line)"
+ ],
+ "heads": 10.946517586059905,
+ "health": {
+  "max_influences": 4,
+  "not_normalised": 0,
+  "on_non_deform": 0
+ },
+ "stretch": {
+  "arms_down": [
+   5.76,
+   6
+  ],
+  "arms_up": [
+   2.0,
+   8
+  ],
+  "arms_fwd": [
+   4.02,
+   11
+  ],
+  "elbows": [
+   4.74,
+   6
+  ],
+  "walk": [
+   30.94,
+   137
+  ],
+  "head": [
+   2.91,
+   34
+  ],
+  "knees": [
+   9.7,
+   65
+  ]
+ }
+}

@@ -1,0 +1,206 @@
+{
+ "asset_id": "W07_shroud_spinner",
+ "rig": "W07_shroud_spinner_Rig",
+ "exported": "2026-10-27T20:25:26",
+ "source_blend": "D:/Claude/Diablo2/ashlar/3d/act-01/monsters/W07_shroud_spinner/rig\\W07_shroud_spinner_rig.blend",
+ "source_sha256": "57a013ad5b57014bb579f272a4af0d1057117a6e5c5a582816daaab4bf6ae1f7",
+ "family": "A",
+ "route": "M",
+ "units": "m",
+ "blender_axes": "Z up, faces -Y, its left = +X",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "glb_axes": "Y up, faces +Z",
+ "deform_only": false,
+ "size_m": {
+  "x": 2.8262,
+  "y": 2.423,
+  "z": 1.44
+ },
+ "bones": {
+  "total": 48,
+  "deform": 41,
+  "sockets": [
+   "root",
+   "cog",
+   "ground",
+   "hit_origin",
+   "fx_head",
+   "fx_abdomen",
+   "fx_spinneret"
+  ]
+ },
+ "roll_convention": "legs and palps: local X = hinge axis, +X rotation = more flexion on both sides (R = X-mirror of L); body bones local X ~ world +X; root, cog and ground point up (+Z)",
+ "control_rig": {
+  "kept_in": "rig/W07_shroud_spinner_rig.blend (and the copy here)",
+  "not_exported": "W07_shroud_spinner_Control (67 ctl_* bones)",
+  "constraints_removed": 43,
+  "legs": "ctl_<S>_Leg<n>_IK at the foot tip (child of ctl_root) carries the ankle target; 2-bone IK on _02 femur + _03 tibia with ctl_<S>_Leg<n>_pole (child of ctl_cog); _04 tarsus Damped Track to the IK control",
+  "switches": "ik_leg_L1 .. ik_leg_R4 on the control object (1 = IK, 0 = FK)",
+  "body": "ctl_cog raises, lowers and tilts the body with the feet planted"
+ },
+ "parts": {
+  "W07_shroud_spinner": {
+   "role": "body",
+   "verts": 6139,
+   "tris": 9994,
+   "removed_from_tripo_glb": "two loose rear-leg fragments, 286 verts / 452 tris (G1)"
+  }
+ },
+ "weight_health": {
+  "W07_shroud_spinner": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "usable_ranges": {
+  "abdomen_01": "pitch/yaw +-10 deg (the Tripo abdomen already overlaps the head plate at rest); 15 deg tested at 1.87x",
+  "abdomen_02": "curl <= ~12 deg (spinneret cap); big abdomen swings go on abdomen_01",
+  "leg lift (IK control)": "0.35 m tested, stretch 1.52-2.68x",
+  "ctl_cog": "-0.30 m (body to the ground) tested, 1.62x; turn +-20 deg <= 1.48x",
+  "fangs / palps": "fang X -25 deg, Y -+30 deg with Palp_01 X -20, Palp_02 X -45 tested, 2.69x at the palp apex",
+  "<S>_Leg<n>_01 coxa": "FK only, small rotations: big coxa lifts push into the sternum; lift legs with the IK control"
+ },
+ "notes": [
+  "Family A (multi-leg): 8 legs x 4 segments (_01 coxa, _02 femur, _03 tibia, _04 tarsus), 2 palps x 2, 2 fangs. Clips are made at R6 on the control rig and baked onto these bones at R8.",
+  "The control rig is not exported: it drives the runtime bones through FollowControl (Copy Transforms) constraints in the source .blend only.",
+  "Sockets carry no weights: root = ground origin, cog = body, ground, hit_origin, fx_head, fx_abdomen, fx_spinneret (silk).",
+  "Leg1 and Leg2 of each side are fused in the Tripo mesh: their shared knob is rigid to the cephalothorax."
+ ],
+ "files": {
+  "model_fbx": "W07_shroud_spinner_rig.fbx",
+  "model_glb": "W07_shroud_spinner_rig.glb",
+  "blend": "W07_shroud_spinner_rig.blend",
+  "clips": [],
+  "textures": [
+   "textures/W07_shroud_spinner_basecolor.jpg.jpg",
+   "textures/W07_shroud_spinner_normal.jpg.jpg",
+   "textures/W07_shroud_spinner_rm.png.png"
+  ]
+ },
+ "reimport_check": {
+  "glb": {
+   "file_mb": 12.89,
+   "skins": 1,
+   "meshes_in_file": 1,
+   "nodes_in_file": 50,
+   "joints": 48,
+   "ctl_in_file": [],
+   "animations": 0,
+   "weights_component_type": [
+    5126
+   ],
+   "images": [
+    {
+     "name": "W07_shroud_spinner_normal",
+     "mime": "image/jpeg",
+     "mb": 1.14
+    },
+    {
+     "name": "W07_shroud_spinner_basecolor",
+     "mime": "image/jpeg",
+     "mb": 2.1
+    },
+    {
+     "name": "W07_shroud_spinner_rm",
+     "mime": "image/png",
+     "mb": 9.26
+    }
+   ],
+   "images_same_bytes_as_tripo": true,
+   "armatures": 1,
+   "meshes": 1,
+   "other_meshes": [],
+   "bones": 48,
+   "skinned": true,
+   "names_ok": true,
+   "deform_groups_ok": true,
+   "parents_ok": true,
+   "head_err_mm": 0.0008,
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "verts": 6139,
+   "size_m": [
+    2.8262,
+    2.423,
+    1.44
+   ],
+   "unmatched_verts": 0,
+   "source_verts_not_covered": 0,
+   "max_influences": 2,
+   "weight_sum_off": 0,
+   "poses": {
+    "rest": {
+     "max_mm": 0.0012,
+     "p999_mm": 0.0011,
+     "skin_mat_err": 3e-07
+    },
+    "legs": {
+     "max_mm": 0.0013,
+     "p999_mm": 0.0012,
+     "skin_mat_err": 3e-07
+    },
+    "head": {
+     "max_mm": 0.0014,
+     "p999_mm": 0.0013,
+     "skin_mat_err": 4e-07
+    },
+    "abdomen": {
+     "max_mm": 0.0014,
+     "p999_mm": 0.0013,
+     "skin_mat_err": 3e-07
+    }
+   },
+   "ok": true
+  },
+  "fbx": {
+   "file_mb": 3.71,
+   "armatures": 1,
+   "bones": 48,
+   "meshes": 1,
+   "other_meshes": [],
+   "verts": 6139,
+   "names_ok": true,
+   "size_m": [
+    2.8262,
+    2.423,
+    1.44
+   ],
+   "images_loaded": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ],
+   "ok": true
+  },
+  "tolerance_m": {
+   "rest_match": 0.0001,
+   "pose": 0.001
+  }
+ },
+ "approved": {
+  "G1": "2026-10-26",
+  "G2": "2026-10-27",
+  "G3": null,
+  "G4": null
+ }
+}

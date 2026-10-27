@@ -1,0 +1,242 @@
+{
+ "chains": [
+  {
+   "root": "smock_back_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.198,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "root": "L_smock_flank_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.129,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "root": "R_smock_flank_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.129,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "root": "L_smock_shoulder_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.148,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "root": "R_smock_shoulder_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.148,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "root": "smock_front_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "endLength": 0.133,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.045,
+   "wind": 1.0
+  },
+  {
+   "enabled": true,
+   "collide": true,
+   "endLength": 0.079,
+   "root": "tie_01",
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.02,
+   "wind": 0.3,
+   "layer": 1
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.158
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.175,
+   "tail": [
+    0.0,
+    0.1085,
+    -0.0
+   ]
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.17,
+   "tail": [
+    -0.0,
+    0.1095,
+    -0.0
+   ]
+  },
+  {
+   "bone": "chest",
+   "type": "capsule",
+   "radius": 0.156,
+   "tail": [
+    -0.0,
+    0.1164,
+    0.0
+   ]
+  },
+  {
+   "bone": "neck",
+   "type": "capsule",
+   "radius": 0.094,
+   "tail": [
+    -0.0,
+    0.1203,
+    0.0
+   ]
+  },
+  {
+   "bone": "L_UpperArm",
+   "type": "capsule",
+   "radius": 0.053,
+   "tail": [
+    0.0,
+    0.3174,
+    0.0
+   ]
+  },
+  {
+   "bone": "L_ForeArm",
+   "type": "capsule",
+   "radius": 0.055,
+   "tail": [
+    -0.0,
+    0.3664,
+    0.0
+   ]
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.057,
+   "tail": [
+    0.0,
+    0.2735,
+    -0.0
+   ]
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.049,
+   "tail": [
+    -0.0,
+    0.1848,
+    -0.0
+   ]
+  },
+  {
+   "bone": "R_UpperArm",
+   "type": "capsule",
+   "radius": 0.055,
+   "tail": [
+    0.0,
+    0.3174,
+    0.0
+   ]
+  },
+  {
+   "bone": "R_ForeArm",
+   "type": "capsule",
+   "radius": 0.054,
+   "tail": [
+    0.0,
+    0.3664,
+    0.0
+   ]
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.058,
+   "tail": [
+    -0.0,
+    0.2735,
+    -0.0
+   ]
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.049,
+   "tail": [
+    0.0,
+    0.1848,
+    0.0
+   ]
+  }
+ ],
+ "links": [
+  [
+   "smock_back_01",
+   "L_smock_flank_01"
+  ],
+  [
+   "smock_back_01",
+   "R_smock_flank_01"
+  ],
+  [
+   "L_smock_flank_01",
+   "L_smock_shoulder_01"
+  ],
+  [
+   "R_smock_flank_01",
+   "R_smock_shoulder_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "U04_runtime",
+ "saved": "2026-10-27 11:18:21"
+}

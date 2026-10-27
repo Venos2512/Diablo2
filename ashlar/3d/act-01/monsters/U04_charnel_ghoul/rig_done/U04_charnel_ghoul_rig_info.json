@@ -1,0 +1,64 @@
+{
+ "asset_id": "U04_charnel_ghoul",
+ "rig": "U04_runtime",
+ "exported": "2026-10-27T17:14:45",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\U04_charnel_ghoul\\rig\\_work\\export_build\\U04_charnel_ghoul_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 55,
+  "deform": 46,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_mouth",
+   "fx_hand_L",
+   "fx_hand_R"
+  ]
+ },
+ "parts": {
+  "U04_charnel_ghoul": {
+   "role": "",
+   "verts": 5545
+  }
+ },
+ "weight_health": {
+  "U04_charnel_ghoul": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [],
+ "leg_colliders": [],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "U04_charnel_ghoul_rig.fbx",
+  "textures": [
+   "textures/U04_charnel_ghoul_basecolor.jpg.jpg",
+   "textures/U04_charnel_ghoul_normal.jpg.jpg",
+   "textures/U04_charnel_ghoul_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "U04_charnel_ghoul_rig.glb",
+  "blend": "U04_charnel_ghoul_rig.blend",
+  "springbones": "U04_charnel_ghoul_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 55,
+  "meshes": 1,
+  "verts": 5545,
+  "skinned": 1,
+  "ok": true
+ }
+}

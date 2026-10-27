@@ -1,0 +1,6 @@
+{
+ "w_elbow": 0.07, "w_wrist": 0.08, "smooth_iters": 16,
+ "leg_back_side": 0.03, "leg_back_out": 0.06, "leg_back_in": 0.04,
+ "fold":   {"Wing_01": [45, 0, -35], "Wing_02": [0, 0, 0], "Wing_03": [50, 0, 0]},
+ "flight": {"Wing_01": [0, 90, 0], "Wing_02": [0, 0, 0], "Wing_03": [0, 0, 0]}
+}

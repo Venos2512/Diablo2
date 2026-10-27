@@ -1,0 +1,5 @@
+{
+ "cu_fold_legs": {"fold": 1.0, "frame": [0, 0.05, 0.22, 0.75]},
+ "cu_fold_tight_legs": {"rot": {"ctl_L_Wing_01": [50, 0, -85], "ctl_L_Wing_02": [30, 0, 0], "ctl_L_Wing_03": [40, 0, 0]}, "frame": [0, 0.05, 0.22, 0.75]},
+ "cu_step_fold": {"mirror": false, "wloc": {"ctl_L_Foot_IK": [0, -0.13, 0.05], "ctl_R_Foot_IK": [0, 0.04, 0.0], "ctl_cog": [0, -0.03, -0.015]}, "rot": {"ctl_L_Toe": [35, 0, 0]}, "fold": 1.0, "frame": [0, 0.05, 0.22, 0.75]}
+}

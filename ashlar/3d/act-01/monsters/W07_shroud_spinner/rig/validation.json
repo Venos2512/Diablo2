@@ -1,0 +1,701 @@
+{
+ "A1": {
+  "A1.1": {
+   "pass": true,
+   "measured": {
+    "mesh_objects": 1,
+    "skinned": 1,
+    "armature_modifiers": 1,
+    "target": "W07_shroud_spinner_Rig"
+   },
+   "threshold": "một mesh, một skin (Armature modifier) trỏ vào skeleton runtime",
+   "note": ""
+  },
+  "A1.2": {
+   "pass": true,
+   "measured": {
+    "count": 48,
+    "unique": 48,
+    "missing": [],
+    "extra": [],
+    "bad_chars": [],
+    "bad_side": []
+   },
+   "threshold": "tên đúng bảng G1 (SKELETON_STANDARD §3 Họ A), không trùng, [A-Za-z0-9_], tiền tố L_/R_",
+   "note": ""
+  },
+  "A1.3": {
+   "pass": true,
+   "measured": {
+    "roots": [
+     "root"
+    ]
+   },
+   "threshold": "một cây, gốc duy nhất root",
+   "note": ""
+  },
+  "A1.4": {
+   "pass": true,
+   "measured": {
+    "vertices": 6139,
+    "empty": 0
+   },
+   "threshold": "0 đỉnh trống",
+   "note": ""
+  },
+  "A1.5": {
+   "pass": true,
+   "measured": {
+    "max_abs_sum_minus_1": 2.98e-08
+   },
+   "threshold": "1 ± 1e-6",
+   "note": "trọng số float32 của Blender; đo trên vertex group"
+  },
+  "A1.6": {
+   "pass": true,
+   "measured": {
+    "max_influences": 2,
+    "histogram": {
+     "1": 4256,
+     "2": 1883
+    }
+   },
+   "threshold": "<= 4",
+   "note": ""
+  },
+  "A1.7": {
+   "pass": true,
+   "measured": {
+    "vertex_groups": 41,
+    "deform_bones": 41,
+    "groups_not_deform": []
+   },
+   "threshold": "mọi vertex group là bone deform của skeleton runtime (tương đương chỉ số joint hợp lệ)",
+   "note": ""
+  },
+  "A1.8": {
+   "pass": true,
+   "measured": {
+    "rest_deform_max_m": 2.12e-06,
+    "hierarchy_max": 1.19e-07,
+    "rest_pose_vs_bind_max": 6.4e-06,
+    "objects_identity": true
+   },
+   "threshold": "<= 1e-5",
+   "note": "đo trong Blender: tư thế nghỉ qua rig điều khiển = bind; ma trận bind nghịch đảo của file glTF kiểm ở R8 (lượt này không export)"
+  },
+  "A1.9": {
+   "pass": true,
+   "measured": {
+    "glb_vertices": 6425,
+    "rig_vertices": 6139,
+    "removed_orphan_vertices": 286,
+    "max_dist_m": 1.15e-07
+   },
+   "threshold": "<= 1e-4 m",
+   "note": "so từng đỉnh qua src_index với POSITION của GLB đã scale; 286 đỉnh của 2 đoạn chân rời xoá theo G1 (không so)"
+  },
+  "A1.10": {
+   "pass": true,
+   "measured": {
+    "glb": {
+     "W07_shroud_spinner_basecolor.jpg": "bb1fe9ea4c323f24",
+     "W07_shroud_spinner_rm.png": "029b6d21b65f29b7",
+     "W07_shroud_spinner_normal.jpg": "243ab3fad831454e"
+    },
+    "blend": {
+     "W07_shroud_spinner_basecolor.jpg": "bb1fe9ea4c323f24",
+     "W07_shroud_spinner_normal.jpg": "243ab3fad831454e",
+     "W07_shroud_spinner_rm.png": "029b6d21b65f29b7"
+    }
+   },
+   "threshold": "byte giống nhau (sha256 ảnh nhúng GLB = ảnh đóng gói trong .blend)",
+   "note": ""
+  },
+  "A1.11": {
+   "pass": true,
+   "measured": {
+    "height_m": 1.44,
+    "target_m": 1.4400000000000002
+   },
+   "threshold": "± 2 %",
+   "note": ""
+  },
+  "A1.12": {
+   "pass": true,
+   "measured": {
+    "min_z_m": 0.0
+   },
+   "threshold": "0 ± 0,01 m",
+   "note": ""
+  },
+  "A1.13": {
+   "pass": true,
+   "measured": {
+    "unweighted": [
+     "cog",
+     "fx_abdomen",
+     "fx_head",
+     "fx_spinneret",
+     "ground",
+     "hit_origin",
+     "root"
+    ]
+   },
+   "threshold": "chỉ root, cog (tổ tiên cấu trúc, SKELETON_STANDARD §7) và socket",
+   "note": ""
+  },
+  "A1.14": {
+   "pass": true,
+   "measured": {
+    "W07_shroud_spinner": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "W07_shroud_spinner_Rig": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    "W07_shroud_spinner_Control": {
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "threshold": "scale 1, không âm, xoay đã áp dụng",
+   "note": ""
+  }
+ },
+ "A1_summary": "14/14",
+ "weights": {
+  "by_group": {
+   "cephalothorax": 1460,
+   "abdomen_01": 1708,
+   "abdomen_02": 290,
+   "L_fang": 78,
+   "L_Palp_01": 141,
+   "L_Palp_02": 225,
+   "L_Leg1_01": 67,
+   "L_Leg1_02": 86,
+   "L_Leg1_03": 152,
+   "L_Leg1_04": 106,
+   "L_Leg2_01": 65,
+   "L_Leg2_02": 102,
+   "L_Leg2_03": 135,
+   "L_Leg2_04": 91,
+   "L_Leg3_01": 85,
+   "L_Leg3_02": 133,
+   "L_Leg3_03": 164,
+   "L_Leg3_04": 88,
+   "L_Leg4_01": 87,
+   "L_Leg4_02": 156,
+   "L_Leg4_03": 188,
+   "L_Leg4_04": 127,
+   "R_fang": 79,
+   "R_Palp_01": 138,
+   "R_Palp_02": 225,
+   "R_Leg1_01": 65,
+   "R_Leg1_02": 86,
+   "R_Leg1_03": 152,
+   "R_Leg1_04": 106,
+   "R_Leg2_01": 71,
+   "R_Leg2_02": 109,
+   "R_Leg2_03": 135,
+   "R_Leg2_04": 91,
+   "R_Leg3_01": 85,
+   "R_Leg3_02": 133,
+   "R_Leg3_03": 166,
+   "R_Leg3_04": 89,
+   "R_Leg4_01": 87,
+   "R_Leg4_02": 156,
+   "R_Leg4_03": 188,
+   "R_Leg4_04": 127
+  },
+  "influences_hist": {
+   "1": 4256,
+   "2": 1883
+  },
+  "build": {
+   "leg_bands_m": [
+    0.05,
+    0.045,
+    0.035
+   ],
+   "palp_band_m": 0.06,
+   "knob_m": [
+    0.06,
+    0.16
+   ],
+   "parts": {
+    "L_fused12": {
+     "verts": 409,
+     "blended_verts": 282
+    },
+    "L_leg3": {
+     "verts": 246,
+     "blended_verts": 158
+    },
+    "L_leg4": {
+     "verts": 318,
+     "blended_verts": 145
+    },
+    "L_palp": {
+     "verts": 211,
+     "blended_verts": 71
+    },
+    "R_fused12": {
+     "verts": 409,
+     "blended_verts": 282
+    },
+    "R_leg3": {
+     "verts": 248,
+     "blended_verts": 159
+    },
+    "R_leg4": {
+     "verts": 318,
+     "blended_verts": 145
+    },
+    "R_palp": {
+     "verts": 211,
+     "blended_verts": 70
+    },
+    "abdomen": {
+     "verts": 1400,
+     "cap_full": 36,
+     "blend": 184,
+     "cap_cone_deg": [
+      15.0,
+      45.0
+     ]
+    }
+   }
+  },
+  "pruned_over4_at_build": 0,
+  "colocated_groups": 929,
+  "colocated_weight_diff_max": 0.0
+ },
+ "control_rig": {
+  "rest_runtime_max_dev": 6.4e-06,
+  "foot_follow_error_mm": {
+   "L1": 0.0,
+   "L2": 0.0,
+   "L3": 0.0,
+   "L4": 0.001,
+   "R1": 0.0,
+   "R2": 0.0,
+   "R3": 0.0,
+   "R4": 0.0
+  },
+  "cog_down_0.30_tip_error_mm_max": 0.001,
+  "cog_down_0.30_knee_dz_m": {
+   "L1": -0.163,
+   "L2": -0.262,
+   "L3": -0.124,
+   "L4": -0.199,
+   "R1": -0.163,
+   "R2": -0.262,
+   "R3": -0.124,
+   "R4": -0.199
+  },
+  "fk_switch_L1_tip_moves_with_body_m": 0.1
+ },
+ "penetration_rest": {
+  "legs_in_ceph": 58,
+  "legs_in_abdomen": 0,
+  "abdomen_in_ceph": 21
+ },
+ "poses": {
+  "gait_A": {
+   "stretch": 1.62,
+   "bad_edges": 0,
+   "worst_edge_mm": 5.3,
+   "worst_at": [
+    -1.095,
+    -0.714,
+    0.869
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "gait_B": {
+   "stretch": 1.455,
+   "bad_edges": 0,
+   "worst_edge_mm": 4.7,
+   "worst_at": [
+    1.078,
+    -0.743,
+    0.855
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "body_low": {
+   "stretch": 1.615,
+   "bad_edges": 0,
+   "worst_edge_mm": 5.3,
+   "worst_at": [
+    -1.092,
+    -0.566,
+    0.648
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "rear_up": {
+   "stretch": 2.314,
+   "bad_edges": 2,
+   "worst_edge_mm": 11.4,
+   "worst_at": [
+    -0.863,
+    -0.945,
+    0.477
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "fangs": {
+   "stretch": 2.691,
+   "bad_edges": 3,
+   "worst_edge_mm": 7.5,
+   "worst_at": [
+    0.129,
+    -0.616,
+    0.994
+   ],
+   "worst_role": "other",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "turn_L": {
+   "stretch": 1.431,
+   "bad_edges": 0,
+   "worst_edge_mm": 2.4,
+   "worst_at": [
+    0.409,
+    -0.345,
+    0.62
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "turn_R": {
+   "stretch": 1.476,
+   "bad_edges": 0,
+   "worst_edge_mm": 3.0,
+   "worst_at": [
+    -0.382,
+    -0.268,
+    0.67
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.001,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "abdomen": {
+   "stretch": 1.4,
+   "bad_edges": 0,
+   "worst_edge_mm": 27.8,
+   "worst_at": [
+    0.074,
+    0.695,
+    0.582
+   ],
+   "worst_role": "abdomen",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 39,
+   "abdomen_in_ceph_depth_mm": 87.5
+  },
+  "abdomen_max": {
+   "stretch": 1.869,
+   "bad_edges": 0,
+   "worst_edge_mm": 42.7,
+   "worst_at": [
+    0.056,
+    0.699,
+    0.651
+   ],
+   "worst_role": "abdomen",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 58,
+   "abdomen_in_ceph_depth_mm": 96.1
+  },
+  "rest": {
+   "stretch": 1.0,
+   "bad_edges": 0,
+   "worst_edge_mm": 0.0,
+   "worst_at": [
+    -0.162,
+    -1.014,
+    0.409
+   ],
+   "worst_role": "other",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {},
+   "legs_in_ceph": 58,
+   "legs_in_abdomen": 0,
+   "abdomen_in_ceph": 21,
+   "abdomen_in_ceph_depth_mm": 70.4
+  },
+  "lift_L1": {
+   "stretch": 1.641,
+   "bad_edges": 0,
+   "worst_edge_mm": 10.7,
+   "worst_at": [
+    0.361,
+    -0.644,
+    0.695
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_L2": {
+   "stretch": 2.677,
+   "bad_edges": 3,
+   "worst_edge_mm": 3.9,
+   "worst_at": [
+    0.367,
+    -0.456,
+    0.673
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_L3": {
+   "stretch": 1.76,
+   "bad_edges": 0,
+   "worst_edge_mm": 6.4,
+   "worst_at": [
+    0.368,
+    -0.327,
+    0.708
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_L4": {
+   "stretch": 1.548,
+   "bad_edges": 0,
+   "worst_edge_mm": 23.1,
+   "worst_at": [
+    0.589,
+    -0.054,
+    1.078
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_R1": {
+   "stretch": 1.518,
+   "bad_edges": 0,
+   "worst_edge_mm": 9.4,
+   "worst_at": [
+    -0.361,
+    -0.644,
+    0.695
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_R2": {
+   "stretch": 2.109,
+   "bad_edges": 1,
+   "worst_edge_mm": 3.9,
+   "worst_at": [
+    -0.366,
+    -0.456,
+    0.673
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_R3": {
+   "stretch": 1.903,
+   "bad_edges": 0,
+   "worst_edge_mm": 7.1,
+   "worst_at": [
+    -0.368,
+    -0.326,
+    0.708
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  },
+  "lift_R4": {
+   "stretch": 1.546,
+   "bad_edges": 0,
+   "worst_edge_mm": 23.1,
+   "worst_at": [
+    -0.589,
+    -0.054,
+    1.078
+   ],
+   "worst_role": "leg",
+   "seam_gap_mm": 0.0,
+   "tip_error_mm_max": 0.0,
+   "tip_error_over1mm": {}
+  }
+ },
+ "asset": "W07_shroud_spinner",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "inputs": {
+  "glb": "D:/Claude/Diablo2/ashlar/3d/act-01/monsters/W07_shroud_spinner/W07_shroud_spinner.glb",
+  "glb_sha256": "f06c10637ec66a98ece9b05af34d4f92a37b4183218b213070c75307392396b3",
+  "blend": "rig/W07_shroud_spinner_rig.blend",
+  "blend_sha256": "57a013ad5b57014bb579f272a4af0d1057117a6e5c5a582816daaab4bf6ae1f7",
+  "scale": 2.827535953978907,
+  "height_m": 1.4400000000000002,
+  "k": 0.8
+ },
+ "mesh": {
+  "glb_verts": 6425,
+  "glb_tris": 10446,
+  "orphan_verts": 286,
+  "orphan_tris": 452,
+  "rig_verts": 6139,
+  "rig_tris": 9994,
+  "scale": 2.827535953978907,
+  "height_m": 1.4400000000000002
+ },
+ "bones": {
+  "runtime": 48,
+  "deform": 41,
+  "control": 67
+ },
+ "pole_angles": {
+  "L1": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 2.67e-07
+  },
+  "L2": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 1.54e-06
+  },
+  "L3": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 7.73e-07
+  },
+  "L4": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 8.57e-07
+  },
+  "R1": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 2.67e-07
+  },
+  "R2": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 1.35e-06
+  },
+  "R3": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 7.34e-07
+  },
+  "R4": {
+   "pole_angle_deg": -90.0,
+   "rest_dev": 9.41e-07
+  }
+ },
+ "stretch_measure": "edge length posed/rest, max(q, 1/q), edges >= 3.2 mm; bad = q > 1.6 or q < 0.5"
+}

@@ -1,0 +1,307 @@
+{
+ "asset": "U04_charnel_ghoul",
+ "date": "2026-10-27",
+ "blender": "5.1.1",
+ "scale": 1.1821764170960898,
+ "checks": {
+  "A1.1_one_skin_one_mesh": {
+   "ok": true,
+   "meshes": [
+    "U04_charnel_ghoul"
+   ]
+  },
+  "A1.2_names": {
+   "ok": true,
+   "bones": 55,
+   "bad": [],
+   "core_missing": [],
+   "names": [
+    "root",
+    "ground",
+    "hit_origin",
+    "cog",
+    "pelvis",
+    "spine_01",
+    "spine_02",
+    "chest",
+    "fx_chest",
+    "neck",
+    "neck_02",
+    "head",
+    "fx_head",
+    "fx_mouth",
+    "jaw",
+    "tie_01",
+    "tie_02",
+    "L_Clavicle",
+    "L_UpperArm",
+    "L_UpperArm_twist",
+    "L_ForeArm",
+    "L_ForeArm_twist",
+    "L_Hand",
+    "L_Finger",
+    "fx_hand_L",
+    "L_smock_shoulder_01",
+    "L_smock_shoulder_02",
+    "R_Clavicle",
+    "R_UpperArm",
+    "R_UpperArm_twist",
+    "R_ForeArm",
+    "R_ForeArm_twist",
+    "R_Hand",
+    "R_Finger",
+    "fx_hand_R",
+    "R_smock_shoulder_01",
+    "R_smock_shoulder_02",
+    "smock_front_01",
+    "smock_front_02",
+    "L_smock_flank_01",
+    "L_smock_flank_02",
+    "R_smock_flank_01",
+    "R_smock_flank_02",
+    "L_Thigh",
+    "L_Calf",
+    "L_Calf_02",
+    "L_Foot",
+    "L_Toe",
+    "R_Thigh",
+    "R_Calf",
+    "R_Calf_02",
+    "R_Foot",
+    "R_Toe",
+    "smock_back_01",
+    "smock_back_02"
+   ]
+  },
+  "A1.3_single_tree": {
+   "ok": true,
+   "roots": [
+    "root"
+   ]
+  },
+  "A1.4_no_empty_vertex": {
+   "ok": true,
+   "empty": 0
+  },
+  "A1.5_weight_sum": {
+   "ok": true,
+   "max_abs_err": 4.470348358154297e-08,
+   "verts_over_1em6": 0
+  },
+  "A1.6_max_4_influences": {
+   "ok": true,
+   "max_influences": 4
+  },
+  "A1.7_groups_are_deform_bones": {
+   "ok": true,
+   "bad": []
+  },
+  "A1.8_bind_matrices_rest": {
+   "ok": true,
+   "orthonormal_err": 5.103647708892822e-07,
+   "connected_head_gap_m": 0.0,
+   "control_vs_runtime_rest": 0.0,
+   "rest_mesh_dev_ik_off_m": 1.1920928955078125e-07,
+   "rest_mesh_dev_ik_on_m": 6.781518459320068e-05,
+   "note": "IK bật ở rest lệch trong dung sai hội tụ của bộ giải IK (≤ 0,2 mm); IK tắt = 0"
+  },
+  "A1.10_textures_unchanged": {
+   "ok": true,
+   "glb": 3,
+   "packed": 3,
+   "sizes": [
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ],
+    [
+     4096,
+     4096
+    ]
+   ]
+  },
+  "A1.9_mesh_matches_scaled_glb": {
+   "ok": true,
+   "max_vertex_dist_m": 1.1107891961792404e-07,
+   "verts": 5545
+  },
+  "A1.11_height": {
+   "ok": true,
+   "height_m": 1.1701,
+   "catalogue_m": 1.1700000000000002
+  },
+  "A1.12_on_ground": {
+   "ok": true,
+   "z_min_m": 0.0,
+   "hind_feet_lowest_m": 0.0693,
+   "note": "chỉ móng tay chạm đất; bàn chân sau lơ lửng ở rest (lỗi mesh, đã ghi ở brief)"
+  },
+  "A1.13_unweighted_bones": {
+   "ok": true,
+   "unweighted_deform": [],
+   "non_deform": [
+    "cog",
+    "fx_chest",
+    "fx_hand_L",
+    "fx_hand_R",
+    "fx_head",
+    "fx_mouth",
+    "ground",
+    "hit_origin",
+    "root"
+   ],
+   "note": "root, cog giữ làm tổ tiên cấu trúc (SKELETON_STANDARD §7)"
+  },
+  "A1.14_transforms": {
+   "ok": true,
+   "objects": {
+    "U04_charnel_ghoul": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "U04_runtime": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "U04_control": {
+     "scale": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "rot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "loc": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "X1_colocated_vertices_same_weights": {
+   "ok": true,
+   "differing": 0
+  },
+  "X2_control_rig_functions": {
+   "ok": true,
+   "tests": {
+    "L_Foot_IK_up5cm": {
+     "ankle_follow_m": 0.0591,
+     "still_m": 0.0,
+     "ok": true
+    },
+    "L_Hand_IK_move6cm": {
+     "wrist_follow_m": 0.0709,
+     "ok": true
+    },
+    "L_Palm_roll_+30": {
+     "fingertip_moved_m": 1e-05,
+     "wrist_lift_m": 0.0344,
+     "ok": true
+    },
+    "L_Ball_roll_+30": {
+     "toe_tip_moved_m": 0.0,
+     "ankle_lift_m": 0.0324,
+     "ok": true
+    },
+    "L_Knee_pole_x10cm": {
+     "knee_moved_m": 0.0194,
+     "ankle_moved_m": 0.0,
+     "ok": true
+    },
+    "L_Hock_roll_+20": {
+     "hock_moved_m": 0.0815,
+     "hock_dy_m": -0.0772,
+     "ankle_moved_m": 0.0,
+     "ok": true
+    },
+    "R_Foot_IK_up5cm": {
+     "ankle_follow_m": 0.0591,
+     "still_m": 0.0,
+     "ok": true
+    },
+    "R_Hand_IK_move6cm": {
+     "wrist_follow_m": 0.0709,
+     "ok": true
+    },
+    "R_Palm_roll_+30": {
+     "fingertip_moved_m": 1e-05,
+     "wrist_lift_m": 0.0344,
+     "ok": true
+    },
+    "R_Ball_roll_+30": {
+     "toe_tip_moved_m": 0.0,
+     "ankle_lift_m": 0.0324,
+     "ok": true
+    },
+    "R_Knee_pole_x10cm": {
+     "knee_moved_m": 0.0218,
+     "ankle_moved_m": 0.0,
+     "ok": true
+    },
+    "R_Hock_roll_+20": {
+     "hock_moved_m": 0.0815,
+     "hock_dy_m": -0.0772,
+     "ankle_moved_m": 0.0,
+     "ok": true
+    },
+    "root_moves_all": {
+     "ok": true
+    },
+    "cog_down5cm_feet_hands_planted": {
+     "feet_m": 0.0,
+     "hands_m": 1e-05,
+     "pelvis_dz_m": -0.0591,
+     "ok": true
+    },
+    "L_leg_FK_switch": {
+     "knee_moved_m": 0.1416,
+     "ok": true
+    },
+    "L_forearm_twist_follows_hand": {
+     "twist_deg": 21.95,
+     "ok": true
+    }
+   }
+  }
+ },
+ "summary": {
+  "passed": 16,
+  "total": 16,
+  "failed": []
+ }
+}

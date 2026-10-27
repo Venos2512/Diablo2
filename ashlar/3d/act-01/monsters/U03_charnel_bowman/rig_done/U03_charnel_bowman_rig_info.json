@@ -1,0 +1,186 @@
+{
+ "asset_id": "U03_charnel_bowman",
+ "rig": "U03_charnel_bowman_Rig",
+ "exported": "2026-10-27T19:20:08",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\U03_charnel_bowman\\rig\\U03_charnel_bowman_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 65,
+  "deform": 55,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "U03_charnel_bowman_Accessory": {
+   "role": "Accessory",
+   "verts": 403
+  },
+  "U03_charnel_bowman_Body": {
+   "role": "Body",
+   "verts": 4284
+  },
+  "U03_charnel_bowman_Cloth_Cape": {
+   "role": "Cloth",
+   "verts": 554
+  },
+  "U03_charnel_bowman_Head": {
+   "role": "Head",
+   "verts": 482
+  }
+ },
+ "weight_health": {
+  "U03_charnel_bowman_Accessory": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U03_charnel_bowman_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U03_charnel_bowman_Cloth_Cape": {
+   "max_influences": 6,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "U03_charnel_bowman_Head": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_cloak_L_01",
+   "robe_cloak_L_02",
+   "robe_cloak_L_03"
+  ],
+  [
+   "robe_cloak_R_01",
+   "robe_cloak_R_02",
+   "robe_cloak_R_03"
+  ],
+  [
+   "robe_cloak_BL_01",
+   "robe_cloak_BL_02",
+   "robe_cloak_BL_03"
+  ],
+  [
+   "robe_cloak_BR_01",
+   "robe_cloak_BR_02",
+   "robe_cloak_BR_03"
+  ],
+  [
+   "robe_loin_L_01",
+   "robe_loin_L_02",
+   "robe_loin_L_03",
+   "robe_loin_L_04"
+  ],
+  [
+   "robe_loin_C_01",
+   "robe_loin_C_02",
+   "robe_loin_C_03",
+   "robe_loin_C_04"
+  ],
+  [
+   "robe_loin_R_01",
+   "robe_loin_R_02",
+   "robe_loin_R_03",
+   "robe_loin_R_04"
+  ],
+  [
+   "robe_front_F_01",
+   "robe_front_F_02",
+   "robe_front_F_03",
+   "robe_front_F_04"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1487
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.058
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0591
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.071
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1487
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.058
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0591
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.071
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "U03_charnel_bowman_rig.fbx",
+  "textures": [
+   "textures/U03_charnel_bowman_basecolor.jpg.jpg",
+   "textures/U03_charnel_bowman_normal.jpg.jpg",
+   "textures/U03_charnel_bowman_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "U03_charnel_bowman_rig.glb",
+  "blend": "U03_charnel_bowman_rig.blend",
+  "springbones": "U03_charnel_bowman_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 65,
+  "meshes": 4,
+  "verts": 5723,
+  "skinned": 4,
+  "ok": true
+ }
+}

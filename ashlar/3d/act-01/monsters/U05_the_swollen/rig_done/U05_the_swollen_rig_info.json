@@ -1,0 +1,160 @@
+{
+ "asset_id": "U05_the_swollen",
+ "rig": "U05_the_swollen_Rig",
+ "exported": "2026-10-27T16:20:09",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\act-01\\monsters\\U05_the_swollen\\rig\\U05_the_swollen_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 72,
+  "deform": 62,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "U05_the_swollen_Accessory": {
+   "role": "Accessory",
+   "verts": 866
+  },
+  "U05_the_swollen_Body": {
+   "role": "Body",
+   "verts": 4703
+  }
+ },
+ "weight_health": {
+  "U05_the_swollen_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 481,
+   "on_non_deform": 0
+  },
+  "U05_the_swollen_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_rags_F_01",
+   "robe_rags_F_02",
+   "robe_rags_F_03",
+   "robe_rags_F_04"
+  ],
+  [
+   "robe_rags_L_01",
+   "robe_rags_L_02",
+   "robe_rags_L_03",
+   "robe_rags_L_04"
+  ],
+  [
+   "robe_rags_R_01",
+   "robe_rags_R_02",
+   "robe_rags_R_03",
+   "robe_rags_R_04"
+  ],
+  [
+   "robe_rags_BL_01",
+   "robe_rags_BL_02",
+   "robe_rags_BL_03",
+   "robe_rags_BL_04"
+  ],
+  [
+   "robe_rags_BR_01",
+   "robe_rags_BR_02",
+   "robe_rags_BR_03",
+   "robe_rags_BR_04"
+  ],
+  [
+   "robe_rags_B_01",
+   "robe_rags_B_02",
+   "robe_rags_B_03",
+   "robe_rags_B_04"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1711
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1312
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1141
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0912
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1711
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1312
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1141
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0912
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "U05_the_swollen_rig.fbx",
+  "textures": [
+   "textures/U05_the_swollen_basecolor.jpg.jpg",
+   "textures/U05_the_swollen_normal.jpg.jpg",
+   "textures/U05_the_swollen_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "U05_the_swollen_rig.glb",
+  "blend": "U05_the_swollen_rig.blend",
+  "springbones": "U05_the_swollen_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 72,
+  "meshes": 2,
+  "verts": 5569,
+  "skinned": 2,
+  "ok": true
+ }
+}

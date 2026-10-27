@@ -1,0 +1,170 @@
+{
+ "peck_nofold": {
+  "rot": {
+   "ctl_cog": [
+    25,
+    0,
+    0
+   ],
+   "ctl_neck_01": [
+    10,
+    0,
+    0
+   ],
+   "ctl_neck_02": [
+    10,
+    0,
+    0
+   ],
+   "ctl_neck_03": [
+    10,
+    0,
+    0
+   ],
+   "ctl_head": [
+    15,
+    0,
+    0
+   ],
+   "ctl_beak": [
+    25,
+    0,
+    0
+   ]
+  },
+  "wloc": {
+   "ctl_cog": [
+    0,
+    -0.02,
+    -0.03
+   ]
+  }
+ },
+ "head_turn_nofold": {
+  "mirror": false,
+  "rot": {
+   "ctl_neck_01": [
+    0,
+    0,
+    15
+   ],
+   "ctl_neck_02": [
+    0,
+    0,
+    15
+   ],
+   "ctl_neck_03": [
+    0,
+    0,
+    15
+   ],
+   "ctl_head": [
+    0,
+    0,
+    15
+   ]
+  }
+ },
+ "beak_open_nofold": {
+  "rot": {
+   "ctl_beak": [
+    30,
+    0,
+    0
+   ],
+   "ctl_head": [
+    -8,
+    0,
+    0
+   ]
+  }
+ },
+ "step_nofold": {
+  "mirror": false,
+  "wloc": {
+   "ctl_L_Foot_IK": [
+    0,
+    -0.13,
+    0.05
+   ],
+   "ctl_R_Foot_IK": [
+    0,
+    0.04,
+    0.0
+   ],
+   "ctl_cog": [
+    0,
+    -0.03,
+    -0.015
+   ]
+  },
+  "rot": {
+   "ctl_L_Toe": [
+    35,
+    0,
+    0
+   ]
+  }
+ },
+ "crouch_nofold": {
+  "wloc": {
+   "ctl_cog": [
+    0,
+    0.0,
+    -0.09
+   ]
+  },
+  "rot": {
+   "ctl_cog": [
+    12,
+    0,
+    0
+   ]
+  }
+ },
+ "tail_up_nofold": {
+  "rot": {
+   "ctl_tail_01": [
+    25,
+    0,
+    0
+   ],
+   "ctl_tail_02": [
+    12,
+    0,
+    0
+   ]
+  }
+ },
+ "flight_tuck_strong": {
+  "flight": 1.0,
+  "feet_follow_body": 1.0,
+  "rot": {
+   "ctl_L_Toe": [
+    50,
+    0,
+    0
+   ],
+   "ctl_cog": [
+    15,
+    0,
+    0
+   ]
+  },
+  "wloc": {
+   "ctl_cog": [
+    0,
+    0,
+    0.25
+   ],
+   "ctl_L_Foot_IK": [
+    0,
+    0.1,
+    0.1
+   ]
+  }
+ },
+ "wing_twist90_only": {
+  "flight": 1.0
+ }
+}

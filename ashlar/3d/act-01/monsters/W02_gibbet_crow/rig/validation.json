@@ -1,0 +1,1371 @@
+{
+ "asset": "W02_gibbet_crow",
+ "date": "2026-10-26",
+ "blender": "5.1.1",
+ "scope": "R4 trên file nguồn .blend (không export GLB ở lượt này)",
+ "intake": {
+  "glb": "D:/Claude/Diablo2/ashlar/3d/act-01/monsters/W02_gibbet_crow/W02_gibbet_crow.glb",
+  "sha256": "9b659d3d67e146d3c7750f6271b496d561a63f0df9764f6de5a78b9aec578f5b",
+  "scale": 1.6028,
+  "shift": [
+   0.0,
+   0.14499999582767487,
+   0.0
+  ],
+  "verts": 6076,
+  "faces": 9105,
+  "tris": 9105,
+  "bbox_min": [
+   -0.80101,
+   -0.28192,
+   0.0
+  ],
+  "bbox_max": [
+   0.80101,
+   0.57192,
+   0.7521
+  ]
+ },
+ "bones": 32,
+ "deform": 24,
+ "sockets": [
+  "fx_wing_L",
+  "fx_wing_R",
+  "ground",
+  "hit_origin",
+  "fx_head",
+  "fx_chest"
+ ],
+ "weighted_vertex_counts": {
+  "pelvis": 1121,
+  "spine_01": 954,
+  "chest": 1084,
+  "neck_01": 1119,
+  "neck_02": 318,
+  "neck_03": 779,
+  "head": 1056,
+  "beak": 159,
+  "tail_01": 621,
+  "tail_02": 291,
+  "L_Thigh": 482,
+  "L_Calf": 492,
+  "L_Foot": 180,
+  "L_Toe": 291,
+  "L_Wing_01": 605,
+  "L_Wing_02": 749,
+  "L_Wing_03": 727,
+  "R_Thigh": 475,
+  "R_Calf": 471,
+  "R_Foot": 180,
+  "R_Toe": 291,
+  "R_Wing_01": 549,
+  "R_Wing_02": 751,
+  "R_Wing_03": 729
+ },
+ "A1": {
+  "A1.1": {
+   "pass": true,
+   "measured": {
+    "skinned_meshes": [
+     "W02_gibbet_crow"
+    ],
+    "armature_modifiers": 1,
+    "target": "W02_gibbet_crow_rig",
+    "materials": 1
+   },
+   "threshold": "1 mesh có skin, 1 Armature modifier tới skeleton runtime",
+   "note": "kiểm trên .blend; glTF ở R8"
+  },
+  "A1.2": {
+   "pass": true,
+   "measured": {
+    "count": 32,
+    "unique": 32,
+    "missing": [],
+    "extra": [],
+    "bad_chars": []
+   },
+   "threshold": "đúng bảng họ W chim (SKELETON_STANDARD §3, G1 2026-10-26), không trùng, chỉ [A-Za-z0-9_]",
+   "note": ""
+  },
+  "A1.3": {
+   "pass": true,
+   "measured": {
+    "roots": [
+     "root"
+    ],
+    "bones": 32
+   },
+   "threshold": "một cây, gốc duy nhất root",
+   "note": ""
+  },
+  "A1.4": {
+   "pass": true,
+   "measured": {
+    "vertices": 6076,
+    "empty": 0
+   },
+   "threshold": "0 đỉnh trống",
+   "note": ""
+  },
+  "A1.5": {
+   "pass": true,
+   "measured": {
+    "max_abs_sum_minus_1": 4.470348358154297e-08
+   },
+   "threshold": "1 ± 1e-6",
+   "note": "trọng số float32 của Blender"
+  },
+  "A1.6": {
+   "pass": true,
+   "measured": {
+    "max_influences": 4,
+    "histogram": {
+     "1": 1810,
+     "2": 1685,
+     "4": 1551,
+     "3": 1030
+    }
+   },
+   "threshold": "≤ 4",
+   "note": ""
+  },
+  "A1.7": {
+   "pass": true,
+   "measured": {
+    "groups": 24,
+    "unknown_groups": [],
+    "groups_on_non_deform": []
+   },
+   "threshold": "mọi vertex group là bone deform có thật",
+   "note": "tương đương chỉ số joint trong khoảng; kiểm lại trên glTF ở R8"
+  },
+  "A1.8": {
+   "pass": true,
+   "measured": {
+    "rest_pose_max_abs": 1.79e-06,
+    "hierarchy_max_abs": 1.1920928955078125e-07
+   },
+   "threshold": "ma trận rest khớp phân cấp ≤ 1e-5; skeleton runtime theo rig điều khiển ở rest ≤ 1e-4",
+   "note": "rig điều khiển giữ đúng rest (IK chân lệch < 0,1 mm); IBM glTF kiểm ở R8"
+  },
+  "A1.10": {
+   "pass": true,
+   "measured": {
+    "glb": {
+     "W02_gibbet_crow_basecolor.jpg": "e4691ddd3988a7c610823f97dad47fc785a92827bd8c6d4b7b0cdb09ccfc7e4e",
+     "W02_gibbet_crow_rm.png": "b4afaec0aa5d56c5c64407bb258420bc7b860fc9b0bfbc1d483c7349b2475526",
+     "W02_gibbet_crow_normal.jpg": "8a603617669f0f8433987b05cc73655057a24f061fe5865d9ca499879f8a536f"
+    },
+    "blend_packed": {
+     "W02_gibbet_crow_basecolor.jpg": "e4691ddd3988a7c610823f97dad47fc785a92827bd8c6d4b7b0cdb09ccfc7e4e",
+     "W02_gibbet_crow_normal.jpg": "8a603617669f0f8433987b05cc73655057a24f061fe5865d9ca499879f8a536f",
+     "W02_gibbet_crow_rm.png": "b4afaec0aa5d56c5c64407bb258420bc7b860fc9b0bfbc1d483c7349b2475526"
+    }
+   },
+   "threshold": "byte giống nhau",
+   "note": "sha256 ảnh nhúng trong GLB và ảnh đóng gói trong .blend"
+  },
+  "A1.9": {
+   "pass": true,
+   "measured": {
+    "verts_source": 6076,
+    "verts_rig": 6076,
+    "max_abs_m": 0.0
+   },
+   "threshold": "≤ 1e-4 m sau scale ×1.6028 và dời Y +0.145 m",
+   "note": "so theo chỉ số đỉnh: cùng file, cùng tuỳ chọn importer"
+  },
+  "A1.11": {
+   "pass": true,
+   "measured": {
+    "wingspan_m": 1.602,
+    "target_m": 1.602,
+    "deviation_pct": 0.001,
+    "height_rest_m": 0.7521,
+    "head_top_m": 0.5658,
+    "head_top_H": 0.314
+   },
+   "threshold": "sải cánh 0,89H ± 2 %",
+   "note": "G1: rest dang cánh nên đo bằng sải; \"đứng 0,36H\" đo ở tư thế gập (qa_report)"
+  },
+  "A1.12": {
+   "pass": true,
+   "measured": {
+    "lowest_z_m": 0.0
+   },
+   "threshold": "0 ± 0,01 m",
+   "note": ""
+  },
+  "A1.13": {
+   "pass": true,
+   "measured": {
+    "unweighted": [
+     "cog",
+     "fx_chest",
+     "fx_head",
+     "fx_wing_L",
+     "fx_wing_R",
+     "ground",
+     "hit_origin",
+     "root"
+    ],
+    "weighted_bones": 24
+   },
+   "threshold": "chỉ socket (+ tổ tiên cấu trúc root, cog: ngoại lệ D01 G1, SKELETON_STANDARD §7)",
+   "note": ""
+  },
+  "A1.14": {
+   "pass": true,
+   "measured": {
+    "objects": [
+     "W02_gibbet_crow",
+     "W02_gibbet_crow_rig",
+     "W02_gibbet_crow_ctl"
+    ],
+    "not_identity": []
+   },
+   "threshold": "scale 1, không scale âm, không xoay, gốc 0",
+   "note": ""
+  }
+ },
+ "A1_summary": {
+  "checks": 14,
+  "passed": 14,
+  "failed": []
+ },
+ "build": {
+  "intake": {
+   "glb": "D:/Claude/Diablo2/ashlar/3d/act-01/monsters/W02_gibbet_crow/W02_gibbet_crow.glb",
+   "sha256": "9b659d3d67e146d3c7750f6271b496d561a63f0df9764f6de5a78b9aec578f5b",
+   "scale": 1.6028,
+   "shift": [
+    0.0,
+    0.14499999582767487,
+    0.0
+   ],
+   "verts": 6076,
+   "faces": 9105,
+   "tris": 9105,
+   "bbox_min": [
+    -0.80101,
+    -0.28192,
+    0.0
+   ],
+   "bbox_max": [
+    0.80101,
+    0.57192,
+    0.7521
+   ]
+  },
+  "ik_rest_err_m": {
+   "L": 3.2086714831076693e-07,
+   "R": 2.553148199982064e-07
+  },
+  "weld": {
+   "welded_verts": 5677,
+   "islands": 92,
+   "main_verts": 2755
+  },
+  "bill_components": [
+   [
+    143,
+    0.4851,
+    -0.4269
+   ],
+   [
+    48,
+    0.4574,
+    -0.4097
+   ]
+  ],
+  "bill_components_z": [
+   [
+    143,
+    0.4164,
+    0.5298,
+    -0.4269,
+    -0.3526,
+    true
+   ],
+   [
+    48,
+    0.421,
+    0.4774,
+    -0.4097,
+    -0.3526,
+    false
+   ]
+  ],
+  "beak_rule": "component",
+  "beak_verts": 48,
+  "neck_field": {
+   "head_fixed": 332,
+   "chest_fixed": 2107,
+   "free": 316
+  },
+  "leg_zone_verts": 880,
+  "wing_field": {
+   "fixed_body": 1021,
+   "fixed_wing": 836
+  },
+  "pieces": {
+   "legs": 2,
+   "ruff": 47,
+   "wing_feathers": 36,
+   "tail": 3,
+   "eyes": 2,
+   "other": 1
+  },
+  "health": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "empty": 0
+  },
+  "plus_x_15deg_tail_move": {
+   "L_Thigh": [
+    -0.0005,
+    -0.0165,
+    0.0369
+   ],
+   "L_Calf": [
+    -0.006,
+    0.0277,
+    0.0259
+   ],
+   "L_Foot": [
+    0.0023,
+    -0.0308,
+    0.0185
+   ],
+   "L_Toe": [
+    0.0014,
+    0.01,
+    -0.0344
+   ],
+   "L_Wing_01": [
+    0.012,
+    0.0002,
+    -0.049
+   ],
+   "L_Wing_02": [
+    -0.0233,
+    0.0,
+    0.047
+   ],
+   "L_Wing_03": [
+    0.0017,
+    -0.0002,
+    -0.0871
+   ],
+   "R_Thigh": [
+    0.0005,
+    -0.0165,
+    0.0369
+   ],
+   "R_Calf": [
+    0.006,
+    0.0277,
+    0.0259
+   ],
+   "R_Foot": [
+    -0.0023,
+    -0.0308,
+    0.0185
+   ],
+   "R_Toe": [
+    -0.0014,
+    0.01,
+    -0.0344
+   ],
+   "R_Wing_01": [
+    -0.012,
+    0.0002,
+    -0.049
+   ],
+   "R_Wing_02": [
+    0.0233,
+    0.0,
+    0.047
+   ],
+   "R_Wing_03": [
+    -0.0017,
+    -0.0002,
+    -0.0871
+   ],
+   "neck_01": [
+    0.0,
+    -0.0042,
+    -0.0084
+   ],
+   "head": [
+    0.0,
+    0.0068,
+    -0.0215
+   ],
+   "beak": [
+    0.0,
+    0.0108,
+    -0.0183
+   ],
+   "tail_01": [
+    0.0,
+    0.0203,
+    0.0461
+   ],
+   "pelvis": [
+    0.0,
+    -0.0111,
+    -0.0159
+   ]
+  },
+  "rest_deviation_runtime": 2e-07
+ },
+ "roll_test": {
+  "rule": "+X 15° trên bone runtime (constraint tắt): chân +X gập thêm; cánh +X gập (vai/cổ tay về mép sau, khuỷu về mép trước); cổ/đầu +X cúi; mỏ +X há; đuôi +X nhấc",
+  "results": {
+   "L_Thigh": {
+    "tail_move_m": [
+     -0.0005,
+     -0.0165,
+     0.0369
+    ],
+    "flexion_ok": true
+   },
+   "L_Calf": {
+    "tail_move_m": [
+     -0.006,
+     0.0277,
+     0.0259
+    ],
+    "flexion_ok": true
+   },
+   "L_Foot": {
+    "tail_move_m": [
+     0.0023,
+     -0.0308,
+     0.0185
+    ],
+    "flexion_ok": true
+   },
+   "L_Toe": {
+    "tail_move_m": [
+     0.0014,
+     0.01,
+     -0.0344
+    ],
+    "flexion_ok": true
+   },
+   "L_Wing_01": {
+    "tail_move_m": [
+     0.012,
+     0.0002,
+     -0.049
+    ],
+    "flexion_ok": true
+   },
+   "L_Wing_02": {
+    "tail_move_m": [
+     -0.0233,
+     0.0,
+     0.047
+    ],
+    "flexion_ok": true
+   },
+   "L_Wing_03": {
+    "tail_move_m": [
+     0.0017,
+     -0.0002,
+     -0.0871
+    ],
+    "flexion_ok": true
+   },
+   "R_Thigh": {
+    "tail_move_m": [
+     0.0005,
+     -0.0165,
+     0.0369
+    ],
+    "flexion_ok": true
+   },
+   "R_Calf": {
+    "tail_move_m": [
+     0.006,
+     0.0277,
+     0.0259
+    ],
+    "flexion_ok": true
+   },
+   "R_Foot": {
+    "tail_move_m": [
+     -0.0023,
+     -0.0308,
+     0.0185
+    ],
+    "flexion_ok": true
+   },
+   "R_Toe": {
+    "tail_move_m": [
+     -0.0014,
+     0.01,
+     -0.0344
+    ],
+    "flexion_ok": true
+   },
+   "R_Wing_01": {
+    "tail_move_m": [
+     -0.012,
+     0.0002,
+     -0.049
+    ],
+    "flexion_ok": true
+   },
+   "R_Wing_02": {
+    "tail_move_m": [
+     0.0233,
+     0.0,
+     0.047
+    ],
+    "flexion_ok": true
+   },
+   "R_Wing_03": {
+    "tail_move_m": [
+     -0.0017,
+     -0.0002,
+     -0.0871
+    ],
+    "flexion_ok": true
+   },
+   "neck_01": {
+    "tail_move_m": [
+     0.0,
+     -0.0042,
+     -0.0084
+    ],
+    "flexion_ok": true
+   },
+   "head": {
+    "tail_move_m": [
+     0.0,
+     0.0068,
+     -0.0215
+    ],
+    "flexion_ok": true
+   },
+   "beak": {
+    "tail_move_m": [
+     0.0,
+     0.0108,
+     -0.0183
+    ],
+    "flexion_ok": true
+   },
+   "tail_01": {
+    "tail_move_m": [
+     0.0,
+     0.0203,
+     0.0461
+    ],
+    "flexion_ok": true
+   },
+   "pelvis": {
+    "tail_move_m": [
+     0.0,
+     -0.0111,
+     -0.0159
+    ],
+    "flexion_ok": true
+   }
+  },
+  "all_ok": true
+ },
+ "poses": {
+  "metric": "tỉ lệ dài cạnh max(q,1/q), cạnh >= 3 mm; bad = q > 1,6 hoặc < 0,5",
+  "qa_set": {
+   "rest": {
+    "worst": 1.0,
+    "bad_edges": 0,
+    "worst_bone": "R_Wing_02",
+    "worst_dlen_mm": 0.0,
+    "worst_at": [
+     -0.519,
+     0.02,
+     0.296
+    ],
+    "top_bones": {},
+    "bbox": [
+     [
+      -0.801,
+      -0.282,
+      -0.0
+     ],
+     [
+      0.801,
+      0.572,
+      0.752
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.752
+    ]
+   },
+   "fold": {
+    "worst": 3.01,
+    "bad_edges": 45,
+    "worst_bone": "L_Wing_02",
+    "worst_dlen_mm": 16.1,
+    "worst_at": [
+     0.281,
+     0.091,
+     0.249
+    ],
+    "top_bones": {
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "R_Wing_02": 2.69,
+     "R_Wing_01": 2.33,
+     "L_Wing_01": 2.26
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.282,
+      -0.008
+     ],
+     [
+      0.509,
+      0.572,
+      0.615
+     ]
+    ],
+    "z_range": [
+     -0.008,
+     0.615
+    ]
+   },
+   "fold_tight": {
+    "worst": 4.62,
+    "bad_edges": 49,
+    "worst_bone": "R_Wing_03",
+    "worst_dlen_mm": 17.8,
+    "worst_at": [
+     -0.171,
+     0.167,
+     0.158
+    ],
+    "top_bones": {
+     "R_Wing_03": 4.62,
+     "L_Wing_03": 4.6,
+     "R_Wing_02": 2.87,
+     "R_Wing_01": 2.48,
+     "spine_01": 2.32,
+     "L_Wing_02": 2.22
+    },
+    "bbox": [
+     [
+      -0.336,
+      -0.282,
+      -0.039
+     ],
+     [
+      0.336,
+      0.572,
+      0.615
+     ]
+    ],
+    "z_range": [
+     -0.039,
+     0.615
+    ]
+   },
+   "display": {
+    "worst": 1.58,
+    "bad_edges": 0,
+    "worst_bone": "R_Wing_03",
+    "worst_dlen_mm": 4.9,
+    "worst_at": [
+     -0.502,
+     -0.223,
+     0.648
+    ],
+    "top_bones": {
+     "R_Wing_03": 1.58,
+     "L_Wing_03": 1.53,
+     "R_Wing_01": 1.4,
+     "L_Wing_01": 1.35,
+     "chest": 1.29
+    },
+    "bbox": [
+     [
+      -0.646,
+      -0.428,
+      -0.0
+     ],
+     [
+      0.648,
+      0.641,
+      0.97
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.97
+    ]
+   },
+   "peck": {
+    "worst": 3.26,
+    "bad_edges": 12,
+    "worst_bone": "R_Wing_03",
+    "worst_dlen_mm": 15.7,
+    "worst_at": [
+     -0.378,
+     0.127,
+     0.274
+    ],
+    "top_bones": {
+     "R_Wing_03": 3.26,
+     "L_Wing_03": 3.14,
+     "neck_01": 2.72,
+     "R_Wing_02": 2.38,
+     "chest": 2.22,
+     "head": 2.19
+    },
+    "bbox": [
+     [
+      -0.696,
+      -0.244,
+      -0.0
+     ],
+     [
+      0.696,
+      0.604,
+      0.548
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.548
+    ]
+   },
+   "head_turn": {
+    "worst": 3.01,
+    "bad_edges": 54,
+    "worst_bone": "L_Wing_02",
+    "worst_dlen_mm": 16.1,
+    "worst_at": [
+     0.281,
+     0.091,
+     0.249
+    ],
+    "top_bones": {
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "R_Wing_02": 2.69,
+     "L_Wing_01": 2.38,
+     "R_Wing_01": 2.22
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.212,
+      -0.008
+     ],
+     [
+      0.509,
+      0.572,
+      0.618
+     ]
+    ],
+    "z_range": [
+     -0.008,
+     0.618
+    ]
+   },
+   "beak_open": {
+    "worst": 3.01,
+    "bad_edges": 45,
+    "worst_bone": "L_Wing_02",
+    "worst_dlen_mm": 16.1,
+    "worst_at": [
+     0.281,
+     0.091,
+     0.249
+    ],
+    "top_bones": {
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "R_Wing_02": 2.69,
+     "R_Wing_01": 2.33,
+     "L_Wing_01": 2.26
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.289,
+      -0.008
+     ],
+     [
+      0.509,
+      0.572,
+      0.615
+     ]
+    ],
+    "z_range": [
+     -0.008,
+     0.615
+    ]
+   },
+   "step": {
+    "worst": 3.01,
+    "bad_edges": 55,
+    "worst_bone": "L_Wing_02",
+    "worst_dlen_mm": 16.1,
+    "worst_at": [
+     0.281,
+     0.061,
+     0.234
+    ],
+    "top_bones": {
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "R_Wing_02": 2.69,
+     "L_Calf": 2.42,
+     "R_Wing_01": 2.33
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.312,
+      -0.027
+     ],
+     [
+      0.509,
+      0.542,
+      0.6
+     ]
+    ],
+    "z_range": [
+     -0.027,
+     0.6
+    ]
+   },
+   "crouch": {
+    "worst": 3.38,
+    "bad_edges": 68,
+    "worst_bone": "pelvis",
+    "worst_dlen_mm": 19.6,
+    "worst_at": [
+     -0.032,
+     0.097,
+     0.171
+    ],
+    "top_bones": {
+     "pelvis": 3.38,
+     "R_Calf": 3.19,
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "chest": 2.82
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.293,
+      -0.097
+     ],
+     [
+      0.509,
+      0.61,
+      0.512
+     ]
+    ],
+    "z_range": [
+     -0.097,
+     0.512
+    ]
+   },
+   "tail_up": {
+    "worst": 3.01,
+    "bad_edges": 45,
+    "worst_bone": "L_Wing_02",
+    "worst_dlen_mm": 16.1,
+    "worst_at": [
+     0.281,
+     0.091,
+     0.249
+    ],
+    "top_bones": {
+     "L_Wing_02": 3.01,
+     "R_Wing_03": 2.95,
+     "L_Wing_03": 2.87,
+     "R_Wing_02": 2.69,
+     "R_Wing_01": 2.33,
+     "L_Wing_01": 2.26
+    },
+    "bbox": [
+     [
+      -0.509,
+      -0.282,
+      -0.008
+     ],
+     [
+      0.509,
+      0.642,
+      0.615
+     ]
+    ],
+    "z_range": [
+     -0.008,
+     0.615
+    ]
+   },
+   "flap_up": {
+    "worst": 1.4,
+    "bad_edges": 0,
+    "worst_bone": "L_Wing_01",
+    "worst_dlen_mm": 7.6,
+    "worst_at": [
+     0.059,
+     -0.049,
+     0.528
+    ],
+    "top_bones": {
+     "L_Wing_01": 1.4,
+     "chest": 1.32,
+     "R_Wing_01": 1.27
+    },
+    "bbox": [
+     [
+      -0.606,
+      -0.282,
+      -0.0
+     ],
+     [
+      0.608,
+      0.572,
+      1.143
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     1.143
+    ]
+   },
+   "flap_down": {
+    "worst": 1.91,
+    "bad_edges": 0,
+    "worst_bone": "R_Wing_01",
+    "worst_dlen_mm": 4.3,
+    "worst_at": [
+     -0.09,
+     0.029,
+     0.477
+    ],
+    "top_bones": {
+     "R_Wing_01": 1.91,
+     "L_Wing_01": 1.78
+    },
+    "bbox": [
+     [
+      -0.618,
+      -0.282,
+      -0.107
+     ],
+     [
+      0.618,
+      0.572,
+      0.615
+     ]
+    ],
+    "z_range": [
+     -0.107,
+     0.615
+    ]
+   },
+   "fly_up": {
+    "worst": 2.73,
+    "bad_edges": 34,
+    "worst_bone": "L_Foot",
+    "worst_dlen_mm": 23.9,
+    "worst_at": [
+     0.133,
+     0.172,
+     0.324
+    ],
+    "top_bones": {
+     "L_Foot": 2.73,
+     "R_Foot": 2.73,
+     "pelvis": 2.46,
+     "L_Wing_01": 2.4,
+     "R_Toe": 2.34,
+     "L_Toe": 2.34
+    },
+    "bbox": [
+     [
+      -0.274,
+      -0.293,
+      0.2
+     ],
+     [
+      0.274,
+      0.616,
+      1.423
+     ]
+    ],
+    "z_range": [
+     0.2,
+     1.423
+    ]
+   },
+   "fly_down": {
+    "worst": 2.73,
+    "bad_edges": 30,
+    "worst_bone": "L_Foot",
+    "worst_dlen_mm": 23.9,
+    "worst_at": [
+     0.133,
+     0.172,
+     0.324
+    ],
+    "top_bones": {
+     "L_Foot": 2.73,
+     "R_Foot": 2.73,
+     "pelvis": 2.46,
+     "R_Toe": 2.34,
+     "L_Toe": 2.34,
+     "R_Wing_01": 2.2
+    },
+    "bbox": [
+     [
+      -0.706,
+      -0.293,
+      0.2
+     ],
+     [
+      0.706,
+      0.616,
+      0.854
+     ]
+    ],
+    "z_range": [
+     0.2,
+     0.854
+    ]
+   }
+  },
+  "extra": {
+   "peck_nofold": {
+    "worst": 2.72,
+    "bad_edges": 6,
+    "worst_bone": "neck_01",
+    "worst_dlen_mm": 14.9,
+    "worst_at": [
+     0.0,
+     -0.132,
+     0.31
+    ],
+    "top_bones": {
+     "neck_01": 2.72,
+     "chest": 2.22,
+     "head": 2.19,
+     "spine_01": 1.79,
+     "pelvis": 1.71,
+     "R_Calf": 1.52
+    },
+    "bbox": [
+     [
+      -0.801,
+      -0.244,
+      -0.0
+     ],
+     [
+      0.801,
+      0.604,
+      0.648
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.648
+    ]
+   },
+   "head_turn_nofold": {
+    "worst": 3.35,
+    "bad_edges": 8,
+    "worst_bone": "head",
+    "worst_dlen_mm": 20.5,
+    "worst_at": [
+     -0.062,
+     -0.057,
+     0.506
+    ],
+    "top_bones": {
+     "head": 3.35,
+     "neck_01": 1.73,
+     "chest": 1.55,
+     "L_Wing_01": 1.43,
+     "R_Wing_01": 1.39
+    },
+    "bbox": [
+     [
+      -0.801,
+      -0.213,
+      -0.0
+     ],
+     [
+      0.801,
+      0.572,
+      0.752
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.752
+    ]
+   },
+   "beak_open_nofold": {
+    "worst": 1.23,
+    "bad_edges": 0,
+    "worst_bone": "beak",
+    "worst_dlen_mm": 7.2,
+    "worst_at": [
+     0.0,
+     -0.184,
+     0.494
+    ],
+    "top_bones": {},
+    "bbox": [
+     [
+      -0.801,
+      -0.289,
+      -0.0
+     ],
+     [
+      0.801,
+      0.572,
+      0.752
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.752
+    ]
+   },
+   "step_nofold": {
+    "worst": 2.42,
+    "bad_edges": 10,
+    "worst_bone": "L_Calf",
+    "worst_dlen_mm": 6.1,
+    "worst_at": [
+     0.085,
+     -0.018,
+     0.168
+    ],
+    "top_bones": {
+     "L_Calf": 2.42,
+     "chest": 2.28,
+     "spine_01": 2.15,
+     "L_Foot": 1.87,
+     "L_Toe": 1.87,
+     "R_Foot": 1.74
+    },
+    "bbox": [
+     [
+      -0.801,
+      -0.312,
+      -0.027
+     ],
+     [
+      0.801,
+      0.542,
+      0.737
+     ]
+    ],
+    "z_range": [
+     -0.027,
+     0.737
+    ]
+   },
+   "crouch_nofold": {
+    "worst": 3.38,
+    "bad_edges": 23,
+    "worst_bone": "pelvis",
+    "worst_dlen_mm": 19.6,
+    "worst_at": [
+     -0.032,
+     0.097,
+     0.171
+    ],
+    "top_bones": {
+     "pelvis": 3.38,
+     "R_Calf": 3.19,
+     "chest": 2.82,
+     "spine_01": 2.43,
+     "L_Calf": 2.18,
+     "L_Thigh": 1.53
+    },
+    "bbox": [
+     [
+      -0.801,
+      -0.293,
+      -0.0
+     ],
+     [
+      0.801,
+      0.61,
+      0.635
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.635
+    ]
+   },
+   "tail_up_nofold": {
+    "worst": 1.4,
+    "bad_edges": 0,
+    "worst_bone": "tail_02",
+    "worst_dlen_mm": 7.1,
+    "worst_at": [
+     0.0,
+     0.417,
+     0.445
+    ],
+    "top_bones": {
+     "tail_02": 1.4,
+     "tail_01": 1.33,
+     "pelvis": 1.31
+    },
+    "bbox": [
+     [
+      -0.801,
+      -0.282,
+      -0.0
+     ],
+     [
+      0.801,
+      0.642,
+      0.752
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.752
+    ]
+   },
+   "flight_tuck_strong": {
+    "worst": 10.58,
+    "bad_edges": 86,
+    "worst_bone": "pelvis",
+    "worst_dlen_mm": 33.1,
+    "worst_at": [
+     -0.085,
+     0.195,
+     0.558
+    ],
+    "top_bones": {
+     "pelvis": 10.58,
+     "L_Calf": 5.13,
+     "R_Calf": 3.1,
+     "L_Wing_01": 3.05,
+     "L_Foot": 2.81,
+     "R_Foot": 2.81
+    },
+    "bbox": [
+     [
+      -0.767,
+      -0.293,
+      0.259
+     ],
+     [
+      0.767,
+      0.616,
+      1.05
+     ]
+    ],
+    "z_range": [
+     0.259,
+     1.05
+    ]
+   },
+   "wing_twist90_only": {
+    "worst": 3.05,
+    "bad_edges": 4,
+    "worst_bone": "L_Wing_01",
+    "worst_dlen_mm": 14.1,
+    "worst_at": [
+     0.043,
+     0.058,
+     0.503
+    ],
+    "top_bones": {
+     "L_Wing_01": 3.05,
+     "R_Wing_01": 2.35,
+     "spine_01": 2.0,
+     "chest": 1.68,
+     "head": 1.46,
+     "neck_01": 1.42
+    },
+    "bbox": [
+     [
+      -0.767,
+      -0.282,
+      -0.0
+     ],
+     [
+      0.767,
+      0.572,
+      0.782
+     ]
+    ],
+    "z_range": [
+     -0.0,
+     0.782
+    ]
+   }
+  },
+  "files": "qa/raw/poses/*.png, qa/raw/extra, qa/raw/cu; preset trong scripts/w02_presets.json, tư thế trong scripts/w02_qa_poses*.json"
+ },
+ "control_rig": {
+  "object": "W02_gibbet_crow_ctl",
+  "fold_preset": {
+   "Wing_01": [
+    45,
+    0,
+    -35
+   ],
+   "Wing_02": [
+    0,
+    0,
+    0
+   ],
+   "Wing_03": [
+    50,
+    0,
+    0
+   ]
+  },
+  "flight_preset": {
+   "Wing_01": [
+    0,
+    90,
+    0
+   ],
+   "Wing_02": [
+    0,
+    0,
+    0
+   ],
+   "Wing_03": [
+    0,
+    0,
+    0
+   ]
+  }
+ }
+}

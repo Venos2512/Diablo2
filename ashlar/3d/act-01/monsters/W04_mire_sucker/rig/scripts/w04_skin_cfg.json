@@ -1,0 +1,10 @@
+{
+ "pro_cut": 0.0, "neck_cut": 0.0, "wing_cut": 0.0, "wing_cap": 0.24, "wing_xmin": 0.12, "wing_seed_r": 0.05,
+ "coxa_cut": 0.45, "leg_cap": 0.075, "leg_seed_r": 0.045, "foot_sphere": 0.16,
+ "head_seed_r": 0.10,
+ "abd_cut": 0.15, "abd_plane_y": 0.17, "abd_cap": 0.24, "abd_zmax": 0.97,
+ "plate_y0": 0.12, "plate_y1": 0.45, "plate_follow": 0.6, "iters": 2000, "core": [0.3, 0.7],
+ "band": {"lobes_LR_abdomen_02": 0.07, "lobes_LR_abdomen_03": 0.09,
+          "proboscis_01": 0.025, "proboscis": 0.04, "WingF_02": 0.10, "WingB_02": 0.10, "Wing": 0.04,
+          "abdomen_03": 0.12, "abdomen_02": 0.08, "abdomen_01": 0.06, "head": 0.05, "Leg": 0.035}
+}

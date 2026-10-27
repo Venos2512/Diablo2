@@ -1,0 +1,133 @@
+{
+ "chains": [
+  {
+   "root": "robe_loin_F_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.057,
+   "endLength": 0.095,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_loin_B_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.057,
+   "endLength": 0.095,
+   "wind": 1.0
+  },
+  {
+   "root": "pauldron_01",
+   "enabled": false,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.038,
+   "endLength": 0.057,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  },
+  {
+   "root": "chest_plate_01",
+   "enabled": false,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.038,
+   "endLength": 0.057,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  },
+  {
+   "root": "back_plate_01",
+   "enabled": false,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.038,
+   "endLength": 0.057,
+   "collide": true,
+   "wind": 0.3,
+   "layer": 2
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.132
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.093
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.126
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.046
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.048
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.042
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.042
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.068,
+   "offset": [
+    -0.0,
+    0.0428,
+    -0.0
+   ],
+   "fit": 0.8
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.068,
+   "offset": [
+    -0.0,
+    0.0428,
+    0.0
+   ],
+   "fit": 0.8
+  }
+ ],
+ "links": [],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "U02_charnel_dead_Rig",
+ "saved": "2026-10-27 17:03:20"
+}
