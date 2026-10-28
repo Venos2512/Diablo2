@@ -1,0 +1,12 @@
+Saved all four 1024×1024 views:
+
+- [front.png](/E:/Diablo2/ashlar/3d/heroes/PB_pallbearer/vA/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/heroes/PB_pallbearer/vA/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/heroes/PB_pallbearer/vA/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/heroes/PB_pallbearer/vA/views/right.png)
+
+**Completed with QA deviations:** arms slope, stance remains wide, and frame/lantern/cape details differ across views. One retry per sheet was used. Existing `design.txt` was preserved as required.
+
+Selected heights: front/back **702/699 px**, sides **836 px**; side normalization **0.838×**.
+
+[Full report and source image paths](/E:/Diablo2/ashlar/3d/heroes/PB_pallbearer/vA/_work/tpose.log), including session `01a17b50-61cc-7d11-9b9c-4753bed3f3e3`.

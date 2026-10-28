@@ -1,0 +1,78 @@
+PB PALLBEARER vA - T-pose generation report
+Date: 2026-10-27
+Status: steps 1-5 completed; BEST AVAILABLE OUTPUT, QA NOT PASSED.
+Generation mode: built-in image_gen only, 2 calls per sheet (4 total).
+No art was painted or repaired with code. Existing tpose_tools.py performed measurement, cropping, whole-figure scaling and QA montage construction.
+
+DESIGN INPUT
+concept.png visually inspected. Existing design.txt was read and preserved unchanged, as required by step 1. No brief.md present.
+The pre-existing notes request a frame above the helmet and extending to 68% of total height; concept projections themselves are inconsistent about frame height. Generated sheets follow the shorter concept frame more closely than those notes. This is a reported design deviation, not an approved change to design.txt.
+Prompts include verbatim STYLE CORE, T-POSE RULES and CONTENT blocks from artdirection.md, filled sheet templates, humanoid blocks and VIEWS landmarks.
+Prompt files: front_back.prompt.txt, front_back_retry.prompt.txt, sides.prompt.txt, sides_retry.prompt.txt. sides_retry_correction.txt records the targeted correction separately.
+
+SOURCE SESSION
+C:\Users\HLC_2021\.codex\generated_images\01a17b50-61cc-7d11-9b9c-4753bed3f3e3
+Front/back attempt 1: exec-bd77e9a6-8bc5-4274-82e2-282d815714cf.png
+Front/back attempt 2 SELECTED: exec-82cd418c-e8fd-435f-89ee-3f0eb848ce92.png
+Sides attempt 1 SELECTED: exec-6071a579-0beb-4e74-84d7-5cc1738c2c0f.png
+Sides attempt 2: exec-f0fd23ca-5bfb-4adc-9225-ca87fc7295e1.png
+Original generated sources left intact.
+
+SHEET 1 QA AND RETRY
+Attempt 1: 1536x1024. FRONT bbox (19,92,802,880), height 788 (77.0%); BACK bbox (802,93,1513,877), height 784 (76.6%).
+Rejected: inner hands crowd/contact with the other figure, front lantern obscured, frame below requested height, arms slope and stance too wide.
+Numeric warnings: front arm angles +7.8/+7.6 degrees, feet separation 0.31H; back +4.7/+7.8 degrees, feet separation 0.30H.
+Preserved in _rejected/front_back_attempt1.png.
+Attempt 2 retained as tpose_front_back.png: 1536x1024.
+FRONT bbox (33,141,766,843), height 702px (68.6%), width 733px.
+BACK bbox (780,142,1499,841), height 699px (68.3%), width 719px.
+Margins pass >=12px. Both full figures intact; true back; hands empty; cape/lantern left and bell right correctly placed. Front lantern restored. No text or extra anatomy. Plate/purple/wood material identity and broad cloth shading retained.
+Residual numeric FAIL: front arm angles +7.4/+8.0 degrees; back +8.5/+8.0 degrees. Front feet gap 0.29H, back 0.27H, above 0.22H limit. Span/height 1.04/1.03 passes.
+Visual confirmation: wrists/arms slightly droop; shoulder armour sits above the hand line; feet splay outward and stance is broad. Frame too short and helmet above frame instead of 13% below frame top. The retry did not correct these; two-attempt limit reached.
+
+SHEET 2 QA AND RETRY
+Attempt 1: 1536x1024; LEFT bbox (326,65,606,901), RIGHT (937,65,1209,901); both height 836px (81.6%), widths 280/272.
+Numeric humanoid sides: OK, sole span 0.21H both sides. Margins pass.
+Visual: correct opposite 90-degree profiles, foreshortened near hands, far arms hidden, no stride, far legs overlap, empty hands. Anatomical left cape/lantern and right bell retained. Hand fingers are foreshortened but slightly curled rather than perfectly flat/spread.
+Retry triggered by 19.34% excess height vs mean front/back height (700.5px), beyond 12% tolerance, plus frame/prop landmark discrepancies.
+Attempt 2: both heights 874px (85.4%), widths 289/288; sides numeric OK (sole span 0.22H). Scale excess became 24.77%; frame/prop coherence did not materially improve.
+Retained attempt 1 as tpose_sides.png because closer scale and no worse pose/identity. Attempt 2 preserved in _rejected/sides_attempt2.png. Original attempt 1 copy retained under _work/sides_attempt1_selected.png (initially held in rejection staging before comparison).
+The retained side sheet remains beyond pre-split scale tolerance; whole-figure split normalization corrects output height, not landmark differences.
+
+SPLIT AND VISUAL QA
+Commands run: measure and humanoid on all four generation attempts; split; guides; strip 0-60; strip 40-100.
+Selected mean front/back height = (702+699)/2 = 700.5px.
+Side rescale factor = 700.5/836 = 0.8379186603 (tool prints 0.838).
+views/front.png, back.png, left.png, right.png: 1024x1024 each.
+Shared placement soles row = 952 (guide detects visible soles row 951). Head/highest-point guide row 250; hand guide row 420.
+Viewed _contact.png, _guides.png, _strip_0-60.png and _strip_40-100.png after splitting.
+Contact: correct order FRONT BACK LEFT RIGHT, aligned soles, near-equal total height (front/back original 3px difference retained), nothing cut. LEFT faces screen-left; RIGHT faces screen-right.
+Guides: hands approximately at shared red line; front/back shoulder/arm slope remains visible. Side legs overlap, front/back straight but wide/splayed. Knees around 66-72% down from top; tabard hides crotch. No new retry permitted for either sheet.
+These QA images are required skill deliverables in views/; prompts, logs and attempt sidecars are in _work/.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages visually measured against 10% strip ticks, approximate +/-2 percentage points; 0%=highest figure point, 100%=soles. Occluded = not directly measurable.
+Feature | LEFT | RIGHT | FRONT | BACK | verdict
+Helmet crest | ~1% | ~1% | 0% | 0% | near aligned, but fails original design helmet=13%
+Frame top | 0% | 0% | ~3% | ~3% | mismatch: side top above helmet; front/back below helmet
+Frame base main beam | ~45% | ~45%, extra lower bracket ~49% | occluded | ~44% | roughly aligned beam; side bracket/depth differs; all fail requested 68%
+Brick panel | ~22-41% | ~22-41% | occluded by torso | ~24-41% | top differs ~2%; original 38-68% not met
+Brick rows/segments | ~7 visible staggered courses | ~7 | occluded | ~6 courses | FAIL discrete course consistency; back brass joints ~3 levels, sides additional lower support
+Shoulder/hand | hand ~24%, armour ~14-25% | same | hand ~24%, armour ~14-25% | same | heights near consistent, FRONT/BACK arm slope FAIL
+Collar | ~13-19% | ~13-19% | ~14-19% | hidden behind frame top beam | plausible occlusion, near aligned
+Brown shoulder straps | ~20-33% | ~20-33% | ~18-37% | mostly hidden by frame/cape | broadly consistent; short strap terminals differ
+Belt | ~37-42% | ~37-42% | ~37-42% | centre hidden by frame, edges ~39-43% | cross-view approximately consistent; original 47-51% not met
+Bell body, anatomical RIGHT | hidden on far hip | ~44-57% | ~46-58%, screen-left | ~47-58%, screen-right | side and height approximately consistent; short chains vary
+Lantern body, anatomical LEFT | ~50-65% | hidden far side | ~48-61%, screen-right | ~49-63%, screen-left | FAIL bottom varies ~4%; front suspension appears belt-mounted instead of frame-mounted
+Tabard point | ~82% | ~82% | ~84% | ~84% | near aligned; side profile shape/projection differs slightly
+Cape, anatomical LEFT | hem ~83% | near side absent; far cloth partly visible behind | hem ~78%, screen-right | hem ~78%, screen-left | FAIL side hem ~5% too low; left placement retained
+Soles | 100% | 100% | 100% | 100% | PASS shared placement
+
+ART-DIRECTION QA
+Moderately stylized concept identity retained, clean silver plates and purple cloth, broad form shading, no micro-grunge, no text, no background scenery, no wounds or forbidden symbols. Angular armour belongs to the concept design. Lantern has a bright painted orange core with no large external bloom; illumination is brighter than the no-glow intention. Background has a slight generated tonal gradient rather than mathematically flat grey. Cloth has large dark fold planes. Cross-view geometric and pose failures above prevent an overall QA PASS.
+
+FINAL VERDICT
+All requested production steps and file outputs exist. Not a clean strict T-pose / cross-view QA pass. Main remaining issues: arm slope, stance/feet alignment, shortened frame relative to design.txt, brick-course mismatch, lantern attachment/height, and cape length. No further generation beyond the explicit two-attempt-per-sheet cap. No Tripo upload, rigging or animation performed.
+
+TOOL NOTE
+One transient PowerShell here-string formatting command failed with: 'White space is not allowed before the string terminator.' It did not write a file; prompt saving was completed with apply_patch and a subsequent valid PowerShell write. No image_gen failures occurred.
