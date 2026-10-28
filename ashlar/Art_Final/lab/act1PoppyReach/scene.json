@@ -1,0 +1,13848 @@
+{
+ "scene": "act1PoppyReach",
+ "mapId": "poppyReach",
+ "label": "The Poppy Reach",
+ "biome": "BIO-02",
+ "seed": 1106,
+ "generator": {
+  "note": "hand-authored plan (no generator); seeds: plan.seed and scatters[].seed; the procedural cards (grass/reed) rng(9091) in outdoorBuild (render time only)"
+ },
+ "units": "metres",
+ "coordinateSystem": "three.js right-handed, Y up. x = east, z = south (toward the default camera, which looks north), y = height above the ground datum (water level = 0 unless the plan says otherwise).",
+ "bounds": {
+  "x0": -100,
+  "z0": -128,
+  "x1": 100,
+  "z1": 128
+ },
+ "heightfield": {
+  "file": "terrain/heightmap.json",
+  "cell": 0.5,
+  "edge": null
+ },
+ "heightOps": [
+  {
+   "kind": "base",
+   "y": 0
+  },
+  {
+   "kind": "tilt",
+   "area": {
+    "rect": [
+     -140,
+     -170,
+     140,
+     170
+    ]
+   },
+   "from": [
+    0,
+    104,
+    0.6
+   ],
+   "to": [
+    0,
+    -106,
+    31.6
+   ],
+   "soft": 0
+  },
+  {
+   "kind": "hill",
+   "x": 0,
+   "z": 0,
+   "rx": 150,
+   "rz": 125,
+   "h": -3.2
+  },
+  {
+   "kind": "raise",
+   "area": {
+    "rect": [
+     -140,
+     107,
+     140,
+     170
+    ]
+   },
+   "dy": -1.6,
+   "soft": 7
+  },
+  {
+   "kind": "noise",
+   "amp": 0.55,
+   "scale": 26,
+   "seed": 2.7,
+   "area": {
+    "rect": [
+     -90,
+     -100,
+     90,
+     100
+    ]
+   },
+   "soft": 12
+  },
+  {
+   "kind": "noise",
+   "amp": 0.1,
+   "scale": 5,
+   "seed": 6.1
+  },
+  {
+   "kind": "hill",
+   "x": 86,
+   "z": -36,
+   "rx": 15,
+   "rz": 12,
+   "rot": -15,
+   "h": 5.5,
+   "power": 1.2
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "circle": [
+     0,
+     -99,
+     10
+    ]
+   },
+   "y": 30.2,
+   "soft": 6
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "rect": [
+     -46,
+     -128,
+     46,
+     -105.5
+    ]
+   },
+   "y": 32.2,
+   "soft": 0.5
+  },
+  {
+   "kind": "tilt",
+   "area": {
+    "rect": [
+     -2.2,
+     -106.05,
+     2.2,
+     -100.4
+    ]
+   },
+   "from": [
+    0,
+    -101.2,
+    30.2
+   ],
+   "to": [
+    0,
+    -104.6,
+    31.7
+   ],
+   "soft": 0.35
+  }
+ ],
+ "water": [
+  {
+   "id": "fen",
+   "label": "The fen at the foot (toward Rook's Weir)",
+   "levelY": 0,
+   "tint": "fen",
+   "wobble": 1.4,
+   "shelf": [
+    2.4,
+    0.3
+   ],
+   "drop": [
+    1.6,
+    1.3
+   ],
+   "bank": [
+    6,
+    0.3
+   ],
+   "area": {
+    "poly": [
+     [
+      -102,
+      130
+     ],
+     [
+      -102,
+      99
+     ],
+     [
+      -80,
+      100.5
+     ],
+     [
+      -55,
+      104.5
+     ],
+     [
+      -32,
+      108
+     ],
+     [
+      -10,
+      109.5
+     ],
+     [
+      15,
+      108.5
+     ],
+     [
+      40,
+      106
+     ],
+     [
+      65,
+      102
+     ],
+     [
+      102,
+      97
+     ],
+     [
+      102,
+      130
+     ]
+    ]
+   }
+  }
+ ],
+ "waterNormalMap": {
+  "id": "biome-darkwood-water-n",
+  "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+  "ashlarSource": null,
+  "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+  "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+ },
+ "paths": [
+  {
+   "id": "dike",
+   "kind": "dike",
+   "label": "Causeway from Rook's Weir",
+   "widthM": 3.2,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 0.95,
+    "bank": 2.4
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -27,
+     128
+    ],
+    [
+     -25.8,
+     119
+    ],
+    [
+     -23.8,
+     110
+    ],
+    [
+     -22,
+     103
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -27,
+     128
+    ],
+    [
+     -26.7,
+     125.75
+    ],
+    [
+     -26.1,
+     121.25
+    ],
+    [
+     -25.3,
+     116.75
+    ],
+    [
+     -24.3,
+     112.25
+    ],
+    [
+     -23.35,
+     108.25
+    ],
+    [
+     -22.45,
+     104.75
+    ],
+    [
+     -22,
+     103
+    ]
+   ]
+  },
+  {
+   "id": "reach",
+   "kind": "track",
+   "label": "The Reach road (foot → hospice steps)",
+   "widthM": 2.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -22,
+     103
+    ],
+    [
+     -20.2,
+     97.5
+    ],
+    [
+     -18.7,
+     93.2
+    ],
+    [
+     -15.5,
+     88
+    ],
+    [
+     -4,
+     79
+    ],
+    [
+     12,
+     69.5
+    ],
+    [
+     26,
+     61
+    ],
+    [
+     33.5,
+     53.5
+    ],
+    [
+     36.4,
+     47.5
+    ],
+    [
+     33,
+     41.5
+    ],
+    [
+     30,
+     39
+    ],
+    [
+     -12,
+     20.5
+    ],
+    [
+     -24,
+     14
+    ],
+    [
+     -29.5,
+     6.5
+    ],
+    [
+     -30,
+     -3
+    ],
+    [
+     -28.6,
+     -11.5
+    ],
+    [
+     -27.6,
+     -15.5
+    ],
+    [
+     -20,
+     -24
+    ],
+    [
+     -6,
+     -35
+    ],
+    [
+     8,
+     -45
+    ],
+    [
+     15.5,
+     -54
+    ],
+    [
+     18,
+     -60
+    ],
+    [
+     18,
+     -63.5
+    ],
+    [
+     17,
+     -66.5
+    ],
+    [
+     9.5,
+     -80
+    ],
+    [
+     5,
+     -89
+    ],
+    [
+     2,
+     -95
+    ],
+    [
+     0,
+     -99
+    ],
+    [
+     0,
+     -101.2
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -22,
+     103
+    ],
+    [
+     -21.887,
+     102.656
+    ],
+    [
+     -21.662,
+     101.969
+    ],
+    [
+     -21.325,
+     100.938
+    ],
+    [
+     -20.875,
+     99.563
+    ],
+    [
+     -20.444,
+     98.263
+    ],
+    [
+     -20.031,
+     97.038
+    ],
+    [
+     -19.637,
+     95.887
+    ],
+    [
+     -19.262,
+     94.813
+    ],
+    [
+     -18.781,
+     93.681
+    ],
+    [
+     -18.194,
+     92.494
+    ],
+    [
+     -17.5,
+     91.25
+    ],
+    [
+     -16.7,
+     89.95
+    ],
+    [
+     -15.381,
+     88.413
+    ],
+    [
+     -13.544,
+     86.638
+    ],
+    [
+     -11.187,
+     84.625
+    ],
+    [
+     -8.312,
+     82.375
+    ],
+    [
+     -5.156,
+     80.094
+    ],
+    [
+     -1.719,
+     77.781
+    ],
+    [
+     2,
+     75.438
+    ],
+    [
+     6,
+     73.063
+    ],
+    [
+     9.875,
+     70.75
+    ],
+    [
+     13.625,
+     68.5
+    ],
+    [
+     17.25,
+     66.313
+    ],
+    [
+     20.75,
+     64.188
+    ],
+    [
+     23.844,
+     62.125
+    ],
+    [
+     26.531,
+     60.125
+    ],
+    [
+     28.813,
+     58.188
+    ],
+    [
+     30.688,
+     56.313
+    ],
+    [
+     32.275,
+     54.531
+    ],
+    [
+     33.575,
+     52.844
+    ],
+    [
+     34.588,
+     51.25
+    ],
+    [
+     35.313,
+     49.75
+    ],
+    [
+     35.644,
+     48.25
+    ],
+    [
+     35.581,
+     46.75
+    ],
+    [
+     35.125,
+     45.25
+    ],
+    [
+     34.275,
+     43.75
+    ],
+    [
+     33.45,
+     42.469
+    ],
+    [
+     32.65,
+     41.406
+    ],
+    [
+     31.875,
+     40.563
+    ],
+    [
+     31.125,
+     39.938
+    ],
+    [
+     27.938,
+     38.313
+    ],
+    [
+     22.313,
+     35.688
+    ],
+    [
+     14.25,
+     32.063
+    ],
+    [
+     3.75,
+     27.438
+    ],
+    [
+     -4.875,
+     23.563
+    ],
+    [
+     -11.625,
+     20.438
+    ],
+    [
+     -16.5,
+     18.063
+    ],
+    [
+     -19.5,
+     16.438
+    ],
+    [
+     -22.094,
+     14.75
+    ],
+    [
+     -24.281,
+     13
+    ],
+    [
+     -26.062,
+     11.188
+    ],
+    [
+     -27.437,
+     9.313
+    ],
+    [
+     -28.5,
+     7.313
+    ],
+    [
+     -29.25,
+     5.188
+    ],
+    [
+     -29.687,
+     2.938
+    ],
+    [
+     -29.812,
+     0.563
+    ],
+    [
+     -29.819,
+     -1.75
+    ],
+    [
+     -29.706,
+     -4
+    ],
+    [
+     -29.475,
+     -6.187
+    ],
+    [
+     -29.125,
+     -8.312
+    ],
+    [
+     -28.8,
+     -10.156
+    ],
+    [
+     -28.5,
+     -11.719
+    ],
+    [
+     -28.225,
+     -13
+    ],
+    [
+     -27.975,
+     -14
+    ],
+    [
+     -27.313,
+     -15.281
+    ],
+    [
+     -26.238,
+     -16.844
+    ],
+    [
+     -24.75,
+     -18.687
+    ],
+    [
+     -22.85,
+     -20.812
+    ],
+    [
+     -20.55,
+     -23.094
+    ],
+    [
+     -17.85,
+     -25.531
+    ],
+    [
+     -14.75,
+     -28.125
+    ],
+    [
+     -11.25,
+     -30.875
+    ],
+    [
+     -7.75,
+     -33.562
+    ],
+    [
+     -4.25,
+     -36.187
+    ],
+    [
+     -0.75,
+     -38.75
+    ],
+    [
+     2.75,
+     -41.25
+    ],
+    [
+     5.844,
+     -43.687
+    ],
+    [
+     8.531,
+     -46.062
+    ],
+    [
+     10.813,
+     -48.375
+    ],
+    [
+     12.688,
+     -50.625
+    ],
+    [
+     14.25,
+     -52.687
+    ],
+    [
+     15.5,
+     -54.562
+    ],
+    [
+     16.438,
+     -56.25
+    ],
+    [
+     17.063,
+     -57.75
+    ],
+    [
+     17.531,
+     -59.094
+    ],
+    [
+     17.844,
+     -60.281
+    ],
+    [
+     18,
+     -61.312
+    ],
+    [
+     18,
+     -62.187
+    ],
+    [
+     17.938,
+     -63.031
+    ],
+    [
+     17.813,
+     -63.844
+    ],
+    [
+     17.625,
+     -64.625
+    ],
+    [
+     17.375,
+     -65.375
+    ],
+    [
+     16.719,
+     -66.781
+    ],
+    [
+     15.656,
+     -68.844
+    ],
+    [
+     14.188,
+     -71.562
+    ],
+    [
+     12.313,
+     -74.937
+    ],
+    [
+     10.625,
+     -78.031
+    ],
+    [
+     9.125,
+     -80.844
+    ],
+    [
+     7.813,
+     -83.375
+    ],
+    [
+     6.688,
+     -85.625
+    ],
+    [
+     5.656,
+     -87.687
+    ],
+    [
+     4.719,
+     -89.562
+    ],
+    [
+     3.875,
+     -91.25
+    ],
+    [
+     3.125,
+     -92.75
+    ],
+    [
+     2.438,
+     -94.125
+    ],
+    [
+     1.813,
+     -95.375
+    ],
+    [
+     1.25,
+     -96.5
+    ],
+    [
+     0.75,
+     -97.5
+    ],
+    [
+     0.375,
+     -98.387
+    ],
+    [
+     0.125,
+     -99.162
+    ],
+    [
+     0,
+     -99.825
+    ],
+    [
+     0,
+     -100.375
+    ],
+    [
+     0,
+     -100.788
+    ],
+    [
+     0,
+     -101.062
+    ],
+    [
+     0,
+     -101.2
+    ]
+   ]
+  },
+  {
+   "id": "eastTrack",
+   "kind": "track",
+   "label": "Field track east (G3, the fold, the mine)",
+   "widthM": 2,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     33,
+     41.5
+    ],
+    [
+     40,
+     33
+    ],
+    [
+     45,
+     18
+    ],
+    [
+     45.5,
+     2
+    ],
+    [
+     44.8,
+     -8
+    ],
+    [
+     44.6,
+     -16
+    ],
+    [
+     45.5,
+     -27
+    ],
+    [
+     40,
+     -41
+    ],
+    [
+     28,
+     -51.5
+    ],
+    [
+     17,
+     -57.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     33,
+     41.5
+    ],
+    [
+     33.438,
+     40.969
+    ],
+    [
+     34.313,
+     39.906
+    ],
+    [
+     35.625,
+     38.313
+    ],
+    [
+     37.375,
+     36.188
+    ],
+    [
+     39,
+     33.656
+    ],
+    [
+     40.5,
+     30.719
+    ],
+    [
+     41.875,
+     27.375
+    ],
+    [
+     43.125,
+     23.625
+    ],
+    [
+     44.094,
+     19.813
+    ],
+    [
+     44.781,
+     15.938
+    ],
+    [
+     45.188,
+     12
+    ],
+    [
+     45.313,
+     8
+    ],
+    [
+     45.363,
+     4.375
+    ],
+    [
+     45.338,
+     1.125
+    ],
+    [
+     45.238,
+     -1.75
+    ],
+    [
+     45.063,
+     -4.25
+    ],
+    [
+     44.919,
+     -6.625
+    ],
+    [
+     44.806,
+     -8.875
+    ],
+    [
+     44.725,
+     -11
+    ],
+    [
+     44.675,
+     -13
+    ],
+    [
+     44.694,
+     -15.187
+    ],
+    [
+     44.781,
+     -17.562
+    ],
+    [
+     44.938,
+     -20.125
+    ],
+    [
+     45.162,
+     -22.875
+    ],
+    [
+     44.988,
+     -25.812
+    ],
+    [
+     44.413,
+     -28.937
+    ],
+    [
+     43.438,
+     -32.25
+    ],
+    [
+     42.063,
+     -35.75
+    ],
+    [
+     40.281,
+     -39.031
+    ],
+    [
+     38.094,
+     -42.094
+    ],
+    [
+     35.5,
+     -44.937
+    ],
+    [
+     32.5,
+     -47.562
+    ],
+    [
+     29.563,
+     -49.906
+    ],
+    [
+     26.688,
+     -51.969
+    ],
+    [
+     23.875,
+     -53.75
+    ],
+    [
+     21.125,
+     -55.25
+    ],
+    [
+     19.063,
+     -56.375
+    ],
+    [
+     17.688,
+     -57.125
+    ],
+    [
+     17,
+     -57.5
+    ]
+   ]
+  },
+  {
+   "id": "mineTrack",
+   "kind": "track",
+   "label": "Track to the Flint Delvings",
+   "widthM": 1.8,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     45.5,
+     -27
+    ],
+    [
+     55,
+     -30.5
+    ],
+    [
+     65,
+     -33.5
+    ],
+    [
+     71.5,
+     -34.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     45.5,
+     -27
+    ],
+    [
+     46.094,
+     -27.219
+    ],
+    [
+     47.281,
+     -27.656
+    ],
+    [
+     49.063,
+     -28.312
+    ],
+    [
+     51.438,
+     -29.187
+    ],
+    [
+     53.844,
+     -30.031
+    ],
+    [
+     56.281,
+     -30.844
+    ],
+    [
+     58.75,
+     -31.625
+    ],
+    [
+     61.25,
+     -32.375
+    ],
+    [
+     63.531,
+     -33
+    ],
+    [
+     65.594,
+     -33.5
+    ],
+    [
+     67.438,
+     -33.875
+    ],
+    [
+     69.063,
+     -34.125
+    ],
+    [
+     70.281,
+     -34.312
+    ],
+    [
+     71.094,
+     -34.437
+    ],
+    [
+     71.5,
+     -34.5
+    ]
+   ]
+  },
+  {
+   "id": "farmTrack",
+   "kind": "track",
+   "label": "Into the farmyard",
+   "widthM": 2,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -24,
+     14
+    ],
+    [
+     -33,
+     15.5
+    ],
+    [
+     -40,
+     15.5
+    ],
+    [
+     -43.8,
+     14
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -24,
+     14
+    ],
+    [
+     -24.562,
+     14.094
+    ],
+    [
+     -25.687,
+     14.281
+    ],
+    [
+     -27.375,
+     14.563
+    ],
+    [
+     -29.625,
+     14.938
+    ],
+    [
+     -31.75,
+     15.219
+    ],
+    [
+     -33.75,
+     15.406
+    ],
+    [
+     -35.625,
+     15.5
+    ],
+    [
+     -37.375,
+     15.5
+    ],
+    [
+     -38.925,
+     15.406
+    ],
+    [
+     -40.275,
+     15.219
+    ],
+    [
+     -41.425,
+     14.938
+    ],
+    [
+     -42.375,
+     14.563
+    ],
+    [
+     -43.087,
+     14.281
+    ],
+    [
+     -43.562,
+     14.094
+    ],
+    [
+     -43.8,
+     14
+    ]
+   ]
+  },
+  {
+   "id": "westTrack",
+   "kind": "track",
+   "label": "Field path to the reaping",
+   "widthM": 1.5,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -15.5,
+     88
+    ],
+    [
+     -30,
+     81
+    ],
+    [
+     -44,
+     73
+    ],
+    [
+     -49.5,
+     70
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -15.5,
+     88
+    ],
+    [
+     -16.406,
+     87.563
+    ],
+    [
+     -18.219,
+     86.688
+    ],
+    [
+     -20.937,
+     85.375
+    ],
+    [
+     -24.562,
+     83.625
+    ],
+    [
+     -28.156,
+     81.813
+    ],
+    [
+     -31.719,
+     79.938
+    ],
+    [
+     -35.25,
+     78
+    ],
+    [
+     -38.75,
+     76
+    ],
+    [
+     -41.719,
+     74.313
+    ],
+    [
+     -44.156,
+     72.938
+    ],
+    [
+     -46.062,
+     71.875
+    ],
+    [
+     -47.437,
+     71.125
+    ],
+    [
+     -48.469,
+     70.563
+    ],
+    [
+     -49.156,
+     70.188
+    ],
+    [
+     -49.5,
+     70
+    ]
+   ]
+  },
+  {
+   "id": "foldTrack",
+   "kind": "track",
+   "label": "Field path to the sheepfold",
+   "widthM": 1.4,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     45.4,
+     6
+    ],
+    [
+     52,
+     6
+    ],
+    [
+     57.2,
+     6
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     45.4,
+     6
+    ],
+    [
+     47.05,
+     6
+    ],
+    [
+     50.35,
+     6
+    ],
+    [
+     53.3,
+     6
+    ],
+    [
+     55.9,
+     6
+    ],
+    [
+     57.2,
+     6
+    ]
+   ]
+  },
+  {
+   "id": "thornTrack",
+   "kind": "track",
+   "label": "Field path to the ribbon thorn",
+   "widthM": 1.4,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     5.5,
+     -88
+    ],
+    [
+     -8,
+     -87
+    ],
+    [
+     -24,
+     -84.5
+    ],
+    [
+     -38,
+     -81.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     5.5,
+     -88
+    ],
+    [
+     4.656,
+     -87.937
+    ],
+    [
+     2.969,
+     -87.812
+    ],
+    [
+     0.438,
+     -87.625
+    ],
+    [
+     -2.937,
+     -87.375
+    ],
+    [
+     -6.469,
+     -87.031
+    ],
+    [
+     -10.156,
+     -86.594
+    ],
+    [
+     -14,
+     -86.062
+    ],
+    [
+     -18,
+     -85.437
+    ],
+    [
+     -21.875,
+     -84.781
+    ],
+    [
+     -25.625,
+     -84.094
+    ],
+    [
+     -29.25,
+     -83.375
+    ],
+    [
+     -32.75,
+     -82.625
+    ],
+    [
+     -35.375,
+     -82.062
+    ],
+    [
+     -37.125,
+     -81.687
+    ],
+    [
+     -38,
+     -81.5
+    ]
+   ]
+  },
+  {
+   "id": "steps",
+   "kind": "walkway",
+   "label": "Up the A18.6 steps (hidden ramp through the step edges; the GLB treads are what you see)",
+   "widthM": 2.96,
+   "surface": "stone",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": true,
+   "caps": false,
+   "pointsXZ": [
+    [
+     0,
+     -100.62,
+     30.2
+    ],
+    [
+     0,
+     -101.4,
+     30.7
+    ],
+    [
+     0,
+     -104.52,
+     32
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     0,
+     -100.62,
+     30.2
+    ],
+    [
+     0,
+     -101.4,
+     30.7
+    ],
+    [
+     0,
+     -104.52,
+     32
+    ]
+   ]
+  },
+  {
+   "id": "stepsLanding",
+   "kind": "walkway",
+   "label": "The A18.6 landing (hidden deck between the pillars and flower pots)",
+   "widthM": 2.4,
+   "surface": "stone",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": true,
+   "caps": false,
+   "pointsXZ": [
+    [
+     0,
+     -104.52,
+     32
+    ],
+    [
+     0,
+     -106.19,
+     32
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     0,
+     -104.52,
+     32
+    ],
+    [
+     0,
+     -106.19,
+     32
+    ]
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "ax": 0,
+   "az": -100.62,
+   "bx": 0,
+   "bz": -101.4,
+   "ya": 30.2,
+   "yb": 30.7,
+   "w": 2.96,
+   "kind": "deck",
+   "path": "steps",
+   "cap": false
+  },
+  {
+   "ax": 0,
+   "az": -101.4,
+   "bx": 0,
+   "bz": -104.52,
+   "ya": 30.7,
+   "yb": 32,
+   "w": 2.96,
+   "kind": "deck",
+   "path": "steps",
+   "cap": false
+  },
+  {
+   "ax": 0,
+   "az": -104.52,
+   "bx": 0,
+   "bz": -106.19,
+   "ya": 32,
+   "yb": 32,
+   "w": 2.4,
+   "kind": "deck",
+   "path": "stepsLanding",
+   "cap": false
+  }
+ ],
+ "groundLayers": {
+  "note": "layer 0 = base everywhere; layers 1..6 are painted over the ones below by masks (terrain/splat0.png = layers 1..4 in R,G,B,A; terrain/splat1.png = layers 5..7 in R,G,B and wetness in A). Row 0 = z = originZ, column 0 = x = originX. Coverage = value / 255. Unblurred. Painters (plan order) are in paintRules.",
+  "splat": {
+   "size": 896,
+   "originX": -128,
+   "originZ": -128,
+   "extent": 256,
+   "smoothSlider": 0.8,
+   "files": [
+    "terrain/splat0.png",
+    "terrain/splat1.png"
+   ]
+  },
+  "layers": [
+   {
+    "layer": "BIO02_meadow",
+    "tile": 4,
+    "textureId": "biome-BIO02_meadow",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO02_meadow",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO02_meadow.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO02_meadow-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO02_meadow.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO02_meadow-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO02_meadow.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO02_meadow-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_sparse",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass-sparse",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass-sparse",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-sparse-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-sparse-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-sparse-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass-dense",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass-dense",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-dense-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-dense-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-dense-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "tile": 3,
+    "textureId": "biome-darkwood-dirt",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-dirt",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-dirt-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-dirt-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-dirt-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "tile": 3.5,
+    "textureId": "biome-BIO03_flint",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO03_flint",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO03_flint.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO03_flint-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO03_flint.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO03_flint-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO03_flint.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO03_flint-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "BIO06_flint_spoil",
+    "tile": 3.5,
+    "textureId": "biome-BIO06_flint_spoil",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO06_flint_spoil",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO06_flint_spoil.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO06_flint_spoil-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO06_flint_spoil.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO06_flint_spoil-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO06_flint_spoil.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO06_flint_spoil-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "BIO05_lime",
+    "tile": 3.5,
+    "textureId": "biome-BIO05_lime",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO05_lime",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO05_lime.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO05_lime-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO05_lime.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO05_lime-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO05_lime.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO05_lime-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-mud",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-mud",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-mud-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-mud-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-mud-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   }
+  ],
+  "paintRules": [
+   {
+    "layer": "DW_sparse",
+    "kind": "path",
+    "pathKind": [
+     "track"
+    ],
+    "extra": 0.3,
+    "soft": 1.2,
+    "value": 0.4,
+    "edge": {
+     "amp": 0.5,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_sparse",
+    "kind": "height",
+    "range": [
+     24,
+     40
+    ],
+    "soft": 3,
+    "value": 0.4,
+    "patchy": {
+     "scale": 12,
+     "cover": 0.45
+    }
+   },
+   {
+    "layer": "DW_sparse",
+    "kind": "area",
+    "area": {
+     "circle": [
+      0,
+      -99,
+      12
+     ]
+    },
+    "soft": 4,
+    "value": 0.6
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "structures",
+    "assets": [
+     "A08.2",
+     "A08.2-stile",
+     "A08.5"
+    ],
+    "margin": 1.3,
+    "soft": 1.2,
+    "value": 0.75,
+    "edge": {
+     "amp": 0.6,
+     "scale": 2.5
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "water",
+    "band": [
+     0.6,
+     8
+    ],
+    "soft": 2.2,
+    "value": 0.85,
+    "patchy": {
+     "scale": 6,
+     "cover": 0.65
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "fill",
+    "value": 0.4,
+    "patchy": {
+     "scale": 15,
+     "cover": 0.32
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "path",
+    "pathKind": [
+     "track",
+     "dike"
+    ],
+    "extra": 0,
+    "soft": 0.8,
+    "value": 0.6,
+    "edge": {
+     "amp": 0.4,
+     "scale": 2.2
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "path",
+    "pathKind": [
+     "track"
+    ],
+    "extra": -0.3,
+    "soft": 0.9,
+    "value": 0.8,
+    "patchy": {
+     "scale": 2.5,
+     "cover": 0.8
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "area",
+    "area": {
+     "circle": [
+      -38,
+      13,
+      12
+     ]
+    },
+    "soft": 3,
+    "value": 0.6,
+    "patchy": {
+     "scale": 4,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "area",
+    "area": {
+     "circle": [
+      0,
+      -99,
+      7
+     ]
+    },
+    "soft": 2.5,
+    "value": 0.55
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "area",
+    "area": {
+     "obb": [
+      -41,
+      15,
+      16,
+      9,
+      20
+     ]
+    },
+    "soft": 2,
+    "value": 0.85,
+    "edge": {
+     "amp": 0.8,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "structures",
+    "assets": [
+     "A08.3"
+    ],
+    "margin": 1.4,
+    "soft": 1.2,
+    "value": 0.8
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "structures",
+    "assets": [
+     "A08.5",
+     "A08.2-stile"
+    ],
+    "margin": 0.7,
+    "soft": 0.9,
+    "value": 0.65
+   },
+   {
+    "layer": "BIO06_flint_spoil",
+    "kind": "area",
+    "area": {
+     "ellipse": [
+      74.5,
+      -34.5,
+      8,
+      6.5,
+      0
+     ]
+    },
+    "soft": 3,
+    "value": 0.95,
+    "edge": {
+     "amp": 1.4,
+     "scale": 3.5
+    }
+   },
+   {
+    "layer": "BIO06_flint_spoil",
+    "kind": "structures",
+    "assets": [
+     "A18.3"
+    ],
+    "margin": 1.6,
+    "soft": 1.5,
+    "value": 0.9
+   },
+   {
+    "layer": "BIO05_lime",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -46,
+      -128,
+      46,
+      -105.6
+     ]
+    },
+    "soft": 0.8,
+    "value": 0.92
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "water",
+    "band": [
+     -6,
+     1.8
+    ],
+    "soft": 1.6,
+    "value": 0.9,
+    "edge": {
+     "amp": 0.9,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "path",
+    "paths": [
+     "dike"
+    ],
+    "extra": 0.6,
+    "soft": 1.2,
+    "value": 0.7
+   },
+   {
+    "layer": "wet",
+    "kind": "fill",
+    "value": 0.14
+   },
+   {
+    "layer": "wet",
+    "kind": "water",
+    "band": [
+     -8,
+     3
+    ],
+    "soft": 1.6,
+    "value": 1
+   },
+   {
+    "layer": "wet",
+    "kind": "height",
+    "range": [
+     -3,
+     1.2
+    ],
+    "soft": 1.2,
+    "value": 0.6
+   },
+   {
+    "layer": "DW_sparse",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "BIO06_flint_spoil",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "BIO05_lime",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -95,
+      -123,
+      95,
+      123
+     ]
+    },
+    "soft": 6,
+    "op": "mul"
+   }
+  ]
+ },
+ "cards": {
+  "grassCards": {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  "shorePlants": {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  "shoreAtlas": "2 x 2: 0 cattail, 1 tall reeds, 2 sedge, 3 horsetail"
+ },
+ "scatters": [
+  {
+   "asset": "A03.1",
+   "count": 320,
+   "seed": 31,
+   "area": {
+    "rect": [
+     -96,
+     -100,
+     96,
+     100
+    ]
+   },
+   "spacing": 1.6,
+   "band": null,
+   "scale": [
+    0.8,
+    1.3
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.2",
+   "count": 200,
+   "seed": 41,
+   "area": {
+    "rect": [
+     -100,
+     92,
+     100,
+     128
+    ]
+   },
+   "spacing": 0.8,
+   "band": {
+    "water": [
+     -1.6,
+     0.9
+    ]
+   },
+   "scale": [
+    0.75,
+    1.3
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.3",
+   "count": 140,
+   "seed": 43,
+   "area": {
+    "rect": [
+     -100,
+     88,
+     100,
+     128
+    ]
+   },
+   "spacing": 0.9,
+   "band": {
+    "water": [
+     -0.5,
+     2.8
+    ]
+   },
+   "scale": [
+    0.7,
+    1.2
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  }
+ ],
+ "lights": [
+  {
+   "id": "ghWindow",
+   "kind": "perfection",
+   "label": "The hospice window (warm, still: the act image)",
+   "x": 2.2,
+   "z": -113.25,
+   "yAbs": 38,
+   "color": "#f6b468",
+   "intensity": 9,
+   "range": 14,
+   "flicker": 0,
+   "real": true,
+   "glow": 3.2,
+   "flag": "gentleHouse",
+   "yWorld": 38,
+   "position": [
+    2.2,
+    38,
+    -113.25
+   ]
+  },
+  {
+   "id": "nicheReal",
+   "kind": "perfection",
+   "label": "Niche candles by the steps (still)",
+   "x": -5.2,
+   "z": -104.7,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 2.2,
+   "range": 6,
+   "flicker": 0,
+   "real": true,
+   "glow": 0,
+   "yWorld": 32.26780322382006,
+   "position": [
+    -5.2,
+    32.268,
+    -104.7
+   ]
+  },
+  {
+   "id": "niche1",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -42.4,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.90687213897706,
+   "position": [
+    -42.4,
+    32.907,
+    -105
+   ]
+  },
+  {
+   "id": "niche2",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -36.2,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.90687213897706,
+   "position": [
+    -36.2,
+    32.907,
+    -105
+   ]
+  },
+  {
+   "id": "niche3",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -30,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.90339294433594,
+   "position": [
+    -30,
+    32.903,
+    -105
+   ]
+  },
+  {
+   "id": "niche4",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -23.8,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.90339294433594,
+   "position": [
+    -23.8,
+    32.903,
+    -105
+   ]
+  },
+  {
+   "id": "niche5",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -17.6,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.94676322937012,
+   "position": [
+    -17.6,
+    32.947,
+    -105
+   ]
+  },
+  {
+   "id": "niche6",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -11.4,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.26780322382006,
+   "position": [
+    -11.4,
+    32.268,
+    -105
+   ]
+  },
+  {
+   "id": "niche7",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": -5.2,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.26780322382006,
+   "position": [
+    -5.2,
+    32.268,
+    -105
+   ]
+  },
+  {
+   "id": "niche8",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 5.2,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.26859692007809,
+   "position": [
+    5.2,
+    32.269,
+    -105
+   ]
+  },
+  {
+   "id": "niche9",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 11.4,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.26859692007809,
+   "position": [
+    11.4,
+    32.269,
+    -105
+   ]
+  },
+  {
+   "id": "niche10",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 17.6,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.97226964950562,
+   "position": [
+    17.6,
+    32.972,
+    -105
+   ]
+  },
+  {
+   "id": "niche11",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 23.8,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.87118461608887,
+   "position": [
+    23.8,
+    32.871,
+    -105
+   ]
+  },
+  {
+   "id": "niche12",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 30,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.81539785385132,
+   "position": [
+    30,
+    32.815,
+    -105
+   ]
+  },
+  {
+   "id": "niche13",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 36.2,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.81539785385132,
+   "position": [
+    36.2,
+    32.815,
+    -105
+   ]
+  },
+  {
+   "id": "niche14",
+   "kind": "perfection",
+   "label": "Niche candle (still)",
+   "x": 42.4,
+   "z": -105,
+   "yOn": {
+    "asset": "A18.5",
+    "ly": 1.5
+   },
+   "color": "#f2c27a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 0.3,
+   "yWorld": 32.846204128265384,
+   "position": [
+    42.4,
+    32.846,
+    -105
+   ]
+  }
+ ],
+ "blockers": [
+  {
+   "uid": 0,
+   "asset": "A18.4",
+   "polyXZ": [
+    [
+     -15,
+     -122.77
+    ],
+    [
+     15,
+     -122.77
+    ],
+    [
+     15,
+     -112.23
+    ],
+    [
+     -15,
+     -112.23
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 45.64
+  },
+  {
+   "uid": 1,
+   "asset": "A18.6",
+   "polyXZ": [
+    [
+     -2.6,
+     -106.239
+    ],
+    [
+     -1.768,
+     -106.239
+    ],
+    [
+     -1.768,
+     -100.961
+    ],
+    [
+     -2.6,
+     -100.961
+    ]
+   ],
+   "y0": 30.2,
+   "y1": 33.593
+  },
+  {
+   "uid": 1,
+   "asset": "A18.6",
+   "polyXZ": [
+    [
+     1.768,
+     -106.239
+    ],
+    [
+     2.6,
+     -106.239
+    ],
+    [
+     2.6,
+     -100.961
+    ],
+    [
+     1.768,
+     -100.961
+    ]
+   ],
+   "y0": 30.2,
+   "y1": 33.593
+  },
+  {
+   "uid": 1,
+   "asset": "A18.6",
+   "polyXZ": [
+    [
+     -1.768,
+     -106.187
+    ],
+    [
+     -1.196,
+     -106.187
+    ],
+    [
+     -1.196,
+     -104.042
+    ],
+    [
+     -1.768,
+     -104.042
+    ]
+   ],
+   "y0": 30.2,
+   "y1": 33.593
+  },
+  {
+   "uid": 1,
+   "asset": "A18.6",
+   "polyXZ": [
+    [
+     1.196,
+     -106.187
+    ],
+    [
+     1.768,
+     -106.187
+    ],
+    [
+     1.768,
+     -104.042
+    ],
+    [
+     1.196,
+     -104.042
+    ]
+   ],
+   "y0": 30.2,
+   "y1": 33.593
+  },
+  {
+   "uid": 2,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     -20.881,
+     92.785
+    ],
+    [
+     -20.282,
+     92.817
+    ],
+    [
+     -20.314,
+     93.416
+    ],
+    [
+     -20.913,
+     93.384
+    ]
+   ],
+   "y0": 1.59,
+   "y1": 3.19
+  },
+  {
+   "uid": 2,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     -17.086,
+     92.984
+    ],
+    [
+     -16.487,
+     93.016
+    ],
+    [
+     -16.519,
+     93.615
+    ],
+    [
+     -17.118,
+     93.583
+    ]
+   ],
+   "y0": 1.59,
+   "y1": 3.19
+  },
+  {
+   "uid": 3,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     34.181,
+     47.132
+    ],
+    [
+     34.777,
+     47.069
+    ],
+    [
+     34.84,
+     47.666
+    ],
+    [
+     34.243,
+     47.728
+    ]
+   ],
+   "y0": 6.893,
+   "y1": 8.493
+  },
+  {
+   "uid": 3,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     37.96,
+     46.734
+    ],
+    [
+     38.557,
+     46.672
+    ],
+    [
+     38.619,
+     47.268
+    ],
+    [
+     38.023,
+     47.331
+    ]
+   ],
+   "y0": 6.893,
+   "y1": 8.493
+  },
+  {
+   "uid": 4,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     42.383,
+     -15.886
+    ],
+    [
+     42.972,
+     -15.998
+    ],
+    [
+     43.084,
+     -15.408
+    ],
+    [
+     42.494,
+     -15.297
+    ]
+   ],
+   "y0": 15.805,
+   "y1": 17.405
+  },
+  {
+   "uid": 4,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     46.116,
+     -16.592
+    ],
+    [
+     46.706,
+     -16.703
+    ],
+    [
+     46.817,
+     -16.114
+    ],
+    [
+     46.228,
+     -16.002
+    ]
+   ],
+   "y0": 15.805,
+   "y1": 17.405
+  },
+  {
+   "uid": 5,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     15.8,
+     -63.5
+    ],
+    [
+     16.4,
+     -63.5
+    ],
+    [
+     16.4,
+     -62.9
+    ],
+    [
+     15.8,
+     -62.9
+    ]
+   ],
+   "y0": 23.84,
+   "y1": 25.44
+  },
+  {
+   "uid": 5,
+   "asset": "A08.5",
+   "polyXZ": [
+    [
+     19.6,
+     -63.5
+    ],
+    [
+     20.2,
+     -63.5
+    ],
+    [
+     20.2,
+     -62.9
+    ],
+    [
+     19.6,
+     -62.9
+    ]
+   ],
+   "y0": 23.84,
+   "y1": 25.44
+  },
+  {
+   "uid": 6,
+   "asset": "A08.2-stile",
+   "polyXZ": [
+    [
+     -29.968,
+     -13.472
+    ],
+    [
+     -29.27,
+     -13.418
+    ],
+    [
+     -29.324,
+     -12.72
+    ],
+    [
+     -30.022,
+     -12.774
+    ]
+   ],
+   "y0": 15.138,
+   "y1": 16.438
+  },
+  {
+   "uid": 6,
+   "asset": "A08.2-stile",
+   "polyXZ": [
+    [
+     -27.476,
+     -13.28
+    ],
+    [
+     -26.778,
+     -13.226
+    ],
+    [
+     -26.832,
+     -12.528
+    ],
+    [
+     -27.53,
+     -12.582
+    ]
+   ],
+   "y0": 15.138,
+   "y1": 16.438
+  },
+  {
+   "uid": 7,
+   "asset": "A08.3",
+   "polyXZ": [
+    [
+     -48.682,
+     8.831
+    ],
+    [
+     -41.165,
+     6.095
+    ],
+    [
+     -40.994,
+     6.565
+    ],
+    [
+     -48.511,
+     9.301
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 18.423
+  },
+  {
+   "uid": 7,
+   "asset": "A08.3",
+   "polyXZ": [
+    [
+     -48.682,
+     8.831
+    ],
+    [
+     -48.212,
+     8.66
+    ],
+    [
+     -46.365,
+     13.734
+    ],
+    [
+     -46.835,
+     13.905
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 18.423
+  },
+  {
+   "uid": 7,
+   "asset": "A08.3",
+   "polyXZ": [
+    [
+     -41.635,
+     6.266
+    ],
+    [
+     -41.165,
+     6.095
+    ],
+    [
+     -39.318,
+     11.169
+    ],
+    [
+     -39.788,
+     11.34
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 18.423
+  },
+  {
+   "uid": 7,
+   "asset": "A08.3",
+   "polyXZ": [
+    [
+     -47.006,
+     13.435
+    ],
+    [
+     -45.221,
+     12.786
+    ],
+    [
+     -45.05,
+     13.255
+    ],
+    [
+     -46.835,
+     13.905
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 18.423
+  },
+  {
+   "uid": 7,
+   "asset": "A08.3",
+   "polyXZ": [
+    [
+     -43.905,
+     12.307
+    ],
+    [
+     -39.489,
+     10.699
+    ],
+    [
+     -39.318,
+     11.169
+    ],
+    [
+     -43.734,
+     12.777
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 18.423
+  },
+  {
+   "uid": 8,
+   "asset": "A18.2",
+   "polyXZ": [
+    [
+     -45.218,
+     8.129
+    ],
+    [
+     -43.964,
+     7.673
+    ],
+    [
+     -43.382,
+     9.271
+    ],
+    [
+     -44.636,
+     9.727
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 12.856
+  },
+  {
+   "uid": 9,
+   "asset": "A18.2",
+   "polyXZ": [
+    [
+     -43.918,
+     7.729
+    ],
+    [
+     -42.664,
+     7.273
+    ],
+    [
+     -42.082,
+     8.871
+    ],
+    [
+     -43.336,
+     9.327
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 12.856
+  },
+  {
+   "uid": 10,
+   "asset": "A18.2",
+   "polyXZ": [
+    [
+     -42.718,
+     7.229
+    ],
+    [
+     -41.464,
+     6.773
+    ],
+    [
+     -40.882,
+     8.371
+    ],
+    [
+     -42.136,
+     8.827
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 12.856
+  },
+  {
+   "uid": 11,
+   "asset": "A08.6",
+   "polyXZ": [
+    [
+     -35.774,
+     21.637
+    ],
+    [
+     -32.645,
+     20.798
+    ],
+    [
+     -32.226,
+     22.363
+    ],
+    [
+     -35.355,
+     23.202
+    ]
+   ],
+   "y0": 10.127,
+   "y1": 12.764
+  },
+  {
+   "uid": 12,
+   "asset": "A08.6",
+   "polyXZ": [
+    [
+     -30.793,
+     1.201
+    ],
+    [
+     -29.685,
+     4.245
+    ],
+    [
+     -31.207,
+     4.799
+    ],
+    [
+     -32.315,
+     1.755
+    ]
+   ],
+   "y0": 12.48,
+   "y1": 15.117
+  },
+  {
+   "uid": 13,
+   "asset": "A08.6",
+   "polyXZ": [
+    [
+     -57.762,
+     16.421
+    ],
+    [
+     -55.28,
+     14.338
+    ],
+    [
+     -54.238,
+     15.579
+    ],
+    [
+     -56.72,
+     17.662
+    ]
+   ],
+   "y0": 11.529,
+   "y1": 14.166
+  },
+  {
+   "uid": 14,
+   "asset": "A08.6",
+   "polyXZ": [
+    [
+     6.192,
+     62.109
+    ],
+    [
+     8.998,
+     60.489
+    ],
+    [
+     9.808,
+     61.891
+    ],
+    [
+     7.002,
+     63.511
+    ]
+   ],
+   "y0": 4.986,
+   "y1": 7.623
+  },
+  {
+   "uid": 15,
+   "asset": "N-PR02",
+   "polyXZ": [
+    [
+     -34.453,
+     23.408
+    ],
+    [
+     -33.294,
+     23.098
+    ],
+    [
+     -32.947,
+     24.392
+    ],
+    [
+     -34.106,
+     24.702
+    ]
+   ],
+   "y0": 9.895,
+   "y1": 11.215
+  },
+  {
+   "uid": 16,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     -57.495,
+     0.18
+    ],
+    [
+     -54.505,
+     0.18
+    ],
+    [
+     -54.505,
+     3.82
+    ],
+    [
+     -57.495,
+     3.82
+    ]
+   ],
+   "y0": 13.498,
+   "y1": 16.698
+  },
+  {
+   "uid": 17,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     -52.815,
+     -4.933
+    ],
+    [
+     -50.525,
+     -6.855
+    ],
+    [
+     -48.185,
+     -4.067
+    ],
+    [
+     -50.475,
+     -2.145
+    ]
+   ],
+   "y0": 14.329,
+   "y1": 17.529
+  },
+  {
+   "uid": 18,
+   "asset": "N-PR06",
+   "polyXZ": [
+    [
+     -38.863,
+     6.411
+    ],
+    [
+     -36.513,
+     5.556
+    ],
+    [
+     -36.137,
+     6.589
+    ],
+    [
+     -38.487,
+     7.444
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 13.023
+  },
+  {
+   "uid": 19,
+   "asset": "N-PR07",
+   "polyXZ": [
+    [
+     -50.892,
+     13.879
+    ],
+    [
+     -49.021,
+     13.549
+    ],
+    [
+     -48.708,
+     15.321
+    ],
+    [
+     -50.579,
+     15.651
+    ]
+   ],
+   "y0": 12.023,
+   "y1": 13.323
+  },
+  {
+   "uid": 22,
+   "asset": "A18.1",
+   "polyXZ": [
+    [
+     17.676,
+     71.892
+    ],
+    [
+     16.699,
+     69.798
+    ],
+    [
+     20.324,
+     68.108
+    ],
+    [
+     21.301,
+     70.202
+    ]
+   ],
+   "y0": 4.232,
+   "y1": 6.082
+  },
+  {
+   "uid": 23,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     54.212,
+     70.467
+    ],
+    [
+     57.156,
+     69.948
+    ],
+    [
+     57.788,
+     73.533
+    ],
+    [
+     54.844,
+     74.052
+    ]
+   ],
+   "y0": 4.571,
+   "y1": 7.771
+  },
+  {
+   "uid": 24,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     63.645,
+     60.975
+    ],
+    [
+     65.567,
+     58.685
+    ],
+    [
+     68.355,
+     61.025
+    ],
+    [
+     66.433,
+     63.315
+    ]
+   ],
+   "y0": 6.241,
+   "y1": 9.441
+  },
+  {
+   "uid": 25,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     44.948,
+     81.156
+    ],
+    [
+     45.467,
+     78.212
+    ],
+    [
+     49.052,
+     78.844
+    ],
+    [
+     48.533,
+     81.788
+    ]
+   ],
+   "y0": 3.538,
+   "y1": 6.738
+  },
+  {
+   "uid": 26,
+   "asset": "N-PR01",
+   "polyXZ": [
+    [
+     -53.539,
+     67.734
+    ],
+    [
+     -51.461,
+     66.534
+    ],
+    [
+     -50.461,
+     68.266
+    ],
+    [
+     -52.539,
+     69.466
+    ]
+   ],
+   "y0": 5.088,
+   "y1": 6.188
+  },
+  {
+   "uid": 27,
+   "asset": "N-PR03",
+   "polyXZ": [
+    [
+     61.304,
+     7.001
+    ],
+    [
+     61.564,
+     6.851
+    ],
+    [
+     61.714,
+     7.111
+    ],
+    [
+     61.454,
+     7.261
+    ]
+   ],
+   "y0": 13.141,
+   "y1": 14.741
+  },
+  {
+   "uid": 28,
+   "asset": "N-PR04",
+   "polyXZ": [
+    [
+     -42.616,
+     -80.321
+    ],
+    [
+     -43.179,
+     -80.115
+    ],
+    [
+     -43.385,
+     -80.679
+    ],
+    [
+     -42.821,
+     -80.884
+    ]
+   ],
+   "y0": 26.913,
+   "y1": 32.413
+  },
+  {
+   "uid": 28,
+   "asset": "N-PR04",
+   "polyXZ": [
+    [
+     -42.395,
+     -79.188
+    ],
+    [
+     -43.335,
+     -78.846
+    ],
+    [
+     -43.677,
+     -79.785
+    ],
+    [
+     -42.737,
+     -80.127
+    ]
+   ],
+   "y0": 26.913,
+   "y1": 32.413
+  },
+  {
+   "uid": 30,
+   "asset": "A18.2",
+   "polyXZ": [
+    [
+     35.08,
+     -90.329
+    ],
+    [
+     33.604,
+     -89.792
+    ],
+    [
+     32.92,
+     -91.671
+    ],
+    [
+     34.396,
+     -92.208
+    ]
+   ],
+   "y0": 28.755,
+   "y1": 29.735
+  },
+  {
+   "uid": 32,
+   "asset": "A08.4",
+   "polyXZ": [
+    [
+     51.973,
+     -87.199
+    ],
+    [
+     54.782,
+     -88.222
+    ],
+    [
+     56.027,
+     -84.801
+    ],
+    [
+     53.218,
+     -83.778
+    ]
+   ],
+   "y0": 28.09,
+   "y1": 31.29
+  },
+  {
+   "uid": 33,
+   "asset": "A18.3",
+   "polyXZ": [
+    [
+     79.242,
+     -37.046
+    ],
+    [
+     79.242,
+     -31.954
+    ],
+    [
+     75.758,
+     -31.954
+    ],
+    [
+     75.758,
+     -37.046
+    ]
+   ],
+   "y0": 20.8,
+   "y1": 24.405
+  },
+  {
+   "uid": 33,
+   "asset": "A18.3",
+   "polyXZ": [
+    [
+     79.912,
+     -36.242
+    ],
+    [
+     79.912,
+     -32.758
+    ],
+    [
+     75.088,
+     -32.758
+    ],
+    [
+     75.088,
+     -36.242
+    ]
+   ],
+   "y0": 20.8,
+   "y1": 24.405
+  },
+  {
+   "uid": 34,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     80,
+     -31.16
+    ],
+    [
+     81.6,
+     -31.16
+    ],
+    [
+     81.6,
+     -29.64
+    ],
+    [
+     80,
+     -29.64
+    ]
+   ],
+   "y0": 20.798,
+   "y1": 21.742
+  },
+  {
+   "uid": 35,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     71.208,
+     -38.996
+    ],
+    [
+     72.068,
+     -41.021
+    ],
+    [
+     73.992,
+     -40.204
+    ],
+    [
+     73.132,
+     -38.179
+    ]
+   ],
+   "y0": 20.799,
+   "y1": 22.097
+  },
+  {
+   "uid": 36,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     -62.989,
+     88.779
+    ],
+    [
+     -64.378,
+     87.341
+    ],
+    [
+     -63.011,
+     86.021
+    ],
+    [
+     -61.622,
+     87.459
+    ]
+   ],
+   "y0": 2.835,
+   "y1": 4.015
+  },
+  {
+   "uid": 37,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     -50.853,
+     -15.424
+    ],
+    [
+     -52.534,
+     -14.779
+    ],
+    [
+     -53.147,
+     -16.376
+    ],
+    [
+     -51.466,
+     -17.021
+    ]
+   ],
+   "y0": 15.957,
+   "y1": 17.019
+  },
+  {
+   "uid": 38,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     62.787,
+     -68.373
+    ],
+    [
+     62.732,
+     -66.774
+    ],
+    [
+     61.213,
+     -66.827
+    ],
+    [
+     61.268,
+     -68.426
+    ]
+   ],
+   "y0": 25.279,
+   "y1": 26.223
+  },
+  {
+   "uid": 39,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     -30.555,
+     -65.612
+    ],
+    [
+     -28.561,
+     -64.682
+    ],
+    [
+     -29.445,
+     -62.788
+    ],
+    [
+     -31.439,
+     -63.718
+    ]
+   ],
+   "y0": 23.815,
+   "y1": 25.113
+  },
+  {
+   "uid": 40,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     86.621,
+     61.963
+    ],
+    [
+     88.107,
+     60.625
+    ],
+    [
+     89.379,
+     62.037
+    ],
+    [
+     87.893,
+     63.375
+    ]
+   ],
+   "y0": 6.464,
+   "y1": 7.644
+  },
+  {
+   "uid": 42,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -58.344,
+     101.279
+    ],
+    [
+     -57.452,
+     101.279
+    ],
+    [
+     -57.452,
+     102.639
+    ],
+    [
+     -58.344,
+     102.639
+    ]
+   ],
+   "y0": 0.716,
+   "y1": 5.816
+  },
+  {
+   "uid": 43,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -8.348,
+     104.265
+    ],
+    [
+     -8.022,
+     103.368
+    ],
+    [
+     -6.653,
+     103.866
+    ],
+    [
+     -6.98,
+     104.763
+    ]
+   ],
+   "y0": -0.739,
+   "y1": 4.721
+  },
+  {
+   "uid": 44,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     24.139,
+     102.946
+    ],
+    [
+     23.359,
+     102.291
+    ],
+    [
+     24.356,
+     101.102
+    ],
+    [
+     25.136,
+     101.757
+    ]
+   ],
+   "y0": 0.141,
+   "y1": 5.961
+  },
+  {
+   "uid": 45,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     58.495,
+     97.523
+    ],
+    [
+     57.559,
+     98.064
+    ],
+    [
+     56.735,
+     96.637
+    ],
+    [
+     57.671,
+     96.096
+    ]
+   ],
+   "y0": 1.359,
+   "y1": 7.539
+  },
+  {
+   "uid": 46,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -83.798,
+     95.516
+    ],
+    [
+     -83.599,
+     96.643
+    ],
+    [
+     -85.316,
+     96.946
+    ],
+    [
+     -85.515,
+     95.819
+    ]
+   ],
+   "y0": 1.302,
+   "y1": 7.842
+  },
+  {
+   "uid": 71,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -100.176,
+     81.59
+    ],
+    [
+     -96.367,
+     82.225
+    ],
+    [
+     -96.49,
+     82.965
+    ],
+    [
+     -100.3,
+     82.33
+    ]
+   ],
+   "y0": 3.699,
+   "y1": 4.749
+  },
+  {
+   "uid": 72,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -96.843,
+     82.146
+    ],
+    [
+     -93.034,
+     82.781
+    ],
+    [
+     -93.157,
+     83.521
+    ],
+    [
+     -96.966,
+     82.886
+    ]
+   ],
+   "y0": 3.672,
+   "y1": 4.722
+  },
+  {
+   "uid": 73,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -93.51,
+     82.702
+    ],
+    [
+     -89.7,
+     83.336
+    ],
+    [
+     -89.824,
+     84.076
+    ],
+    [
+     -93.633,
+     83.441
+    ]
+   ],
+   "y0": 3.633,
+   "y1": 4.683
+  },
+  {
+   "uid": 74,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -90.176,
+     83.257
+    ],
+    [
+     -86.367,
+     83.892
+    ],
+    [
+     -86.49,
+     84.632
+    ],
+    [
+     -90.3,
+     83.997
+    ]
+   ],
+   "y0": 3.55,
+   "y1": 4.6
+  },
+  {
+   "uid": 75,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -86.843,
+     83.813
+    ],
+    [
+     -83.034,
+     84.448
+    ],
+    [
+     -83.157,
+     85.187
+    ],
+    [
+     -86.966,
+     84.552
+    ]
+   ],
+   "y0": 3.458,
+   "y1": 4.508
+  },
+  {
+   "uid": 76,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -83.51,
+     84.368
+    ],
+    [
+     -79.7,
+     85.003
+    ],
+    [
+     -79.824,
+     85.743
+    ],
+    [
+     -83.633,
+     85.108
+    ]
+   ],
+   "y0": 3.32,
+   "y1": 4.37
+  },
+  {
+   "uid": 77,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -80.176,
+     84.924
+    ],
+    [
+     -76.367,
+     85.559
+    ],
+    [
+     -76.49,
+     86.298
+    ],
+    [
+     -80.3,
+     85.664
+    ]
+   ],
+   "y0": 3.103,
+   "y1": 4.153
+  },
+  {
+   "uid": 78,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -76.843,
+     85.479
+    ],
+    [
+     -73.034,
+     86.114
+    ],
+    [
+     -73.157,
+     86.854
+    ],
+    [
+     -76.966,
+     86.219
+    ]
+   ],
+   "y0": 2.939,
+   "y1": 3.989
+  },
+  {
+   "uid": 79,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -73.51,
+     86.035
+    ],
+    [
+     -69.7,
+     86.67
+    ],
+    [
+     -69.824,
+     87.41
+    ],
+    [
+     -73.633,
+     86.775
+    ]
+   ],
+   "y0": 2.844,
+   "y1": 3.894
+  },
+  {
+   "uid": 80,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -70.196,
+     86.589
+    ],
+    [
+     -66.114,
+     87.242
+    ],
+    [
+     -66.233,
+     87.983
+    ],
+    [
+     -70.314,
+     87.329
+    ]
+   ],
+   "y0": 2.762,
+   "y1": 3.812
+  },
+  {
+   "uid": 81,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -66.624,
+     87.16
+    ],
+    [
+     -62.543,
+     87.813
+    ],
+    [
+     -62.661,
+     88.554
+    ],
+    [
+     -66.743,
+     87.901
+    ]
+   ],
+   "y0": 2.679,
+   "y1": 3.729
+  },
+  {
+   "uid": 82,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.053,
+     87.732
+    ],
+    [
+     -58.971,
+     88.385
+    ],
+    [
+     -59.09,
+     89.125
+    ],
+    [
+     -63.171,
+     88.472
+    ]
+   ],
+   "y0": 2.569,
+   "y1": 3.619
+  },
+  {
+   "uid": 83,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -59.482,
+     88.303
+    ],
+    [
+     -55.4,
+     88.956
+    ],
+    [
+     -55.518,
+     89.697
+    ],
+    [
+     -59.6,
+     89.044
+    ]
+   ],
+   "y0": 2.469,
+   "y1": 3.519
+  },
+  {
+   "uid": 84,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -55.91,
+     88.875
+    ],
+    [
+     -51.829,
+     89.528
+    ],
+    [
+     -51.947,
+     90.268
+    ],
+    [
+     -56.029,
+     89.615
+    ]
+   ],
+   "y0": 2.428,
+   "y1": 3.478
+  },
+  {
+   "uid": 85,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -52.339,
+     89.446
+    ],
+    [
+     -48.257,
+     90.099
+    ],
+    [
+     -48.376,
+     90.84
+    ],
+    [
+     -52.457,
+     90.187
+    ]
+   ],
+   "y0": 2.378,
+   "y1": 3.428
+  },
+  {
+   "uid": 86,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -48.767,
+     90.017
+    ],
+    [
+     -44.686,
+     90.671
+    ],
+    [
+     -44.804,
+     91.411
+    ],
+    [
+     -48.886,
+     90.758
+    ]
+   ],
+   "y0": 2.19,
+   "y1": 3.24
+  },
+  {
+   "uid": 87,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -45.21,
+     90.603
+    ],
+    [
+     -41.276,
+     90.979
+    ],
+    [
+     -41.347,
+     91.725
+    ],
+    [
+     -45.282,
+     91.35
+    ]
+   ],
+   "y0": 2.044,
+   "y1": 3.094
+  },
+  {
+   "uid": 88,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -41.767,
+     90.932
+    ],
+    [
+     -37.833,
+     91.307
+    ],
+    [
+     -37.904,
+     92.054
+    ],
+    [
+     -41.839,
+     91.678
+    ]
+   ],
+   "y0": 1.978,
+   "y1": 3.028
+  },
+  {
+   "uid": 89,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -38.325,
+     91.26
+    ],
+    [
+     -34.39,
+     91.636
+    ],
+    [
+     -34.461,
+     92.382
+    ],
+    [
+     -38.396,
+     92.007
+    ]
+   ],
+   "y0": 1.827,
+   "y1": 2.877
+  },
+  {
+   "uid": 90,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -34.882,
+     91.589
+    ],
+    [
+     -30.947,
+     91.964
+    ],
+    [
+     -31.018,
+     92.711
+    ],
+    [
+     -34.953,
+     92.336
+    ]
+   ],
+   "y0": 1.699,
+   "y1": 2.749
+  },
+  {
+   "uid": 91,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -31.439,
+     91.918
+    ],
+    [
+     -27.504,
+     92.293
+    ],
+    [
+     -27.575,
+     93.04
+    ],
+    [
+     -31.51,
+     92.664
+    ]
+   ],
+   "y0": 1.673,
+   "y1": 2.723
+  },
+  {
+   "uid": 92,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -27.996,
+     92.246
+    ],
+    [
+     -24.061,
+     92.622
+    ],
+    [
+     -24.133,
+     93.368
+    ],
+    [
+     -28.067,
+     92.993
+    ]
+   ],
+   "y0": 1.594,
+   "y1": 2.644
+  },
+  {
+   "uid": 93,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -24.553,
+     92.575
+    ],
+    [
+     -20.618,
+     92.95
+    ],
+    [
+     -20.69,
+     93.697
+    ],
+    [
+     -24.624,
+     93.321
+    ]
+   ],
+   "y0": 1.514,
+   "y1": 2.564
+  },
+  {
+   "uid": 94,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -16.745,
+     92.73
+    ],
+    [
+     -12.959,
+     92.645
+    ],
+    [
+     -12.942,
+     93.395
+    ],
+    [
+     -16.728,
+     93.48
+    ]
+   ],
+   "y0": 1.558,
+   "y1": 2.608
+  },
+  {
+   "uid": 95,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -13.433,
+     92.655
+    ],
+    [
+     -9.647,
+     92.57
+    ],
+    [
+     -9.63,
+     93.32
+    ],
+    [
+     -13.416,
+     93.405
+    ]
+   ],
+   "y0": 1.572,
+   "y1": 2.622
+  },
+  {
+   "uid": 96,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -10.12,
+     92.58
+    ],
+    [
+     -6.334,
+     92.495
+    ],
+    [
+     -6.317,
+     93.245
+    ],
+    [
+     -10.103,
+     93.33
+    ]
+   ],
+   "y0": 1.559,
+   "y1": 2.609
+  },
+  {
+   "uid": 97,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -6.808,
+     92.505
+    ],
+    [
+     -3.022,
+     92.42
+    ],
+    [
+     -3.005,
+     93.17
+    ],
+    [
+     -6.791,
+     93.255
+    ]
+   ],
+   "y0": 1.552,
+   "y1": 2.602
+  },
+  {
+   "uid": 98,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -3.495,
+     92.43
+    ],
+    [
+     0.291,
+     92.345
+    ],
+    [
+     0.308,
+     93.095
+    ],
+    [
+     -3.478,
+     93.18
+    ]
+   ],
+   "y0": 1.586,
+   "y1": 2.636
+  },
+  {
+   "uid": 99,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -0.183,
+     92.355
+    ],
+    [
+     3.603,
+     92.27
+    ],
+    [
+     3.62,
+     93.02
+    ],
+    [
+     -0.166,
+     93.105
+    ]
+   ],
+   "y0": 1.592,
+   "y1": 2.642
+  },
+  {
+   "uid": 100,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     3.13,
+     92.28
+    ],
+    [
+     6.916,
+     92.195
+    ],
+    [
+     6.933,
+     92.945
+    ],
+    [
+     3.147,
+     93.03
+    ]
+   ],
+   "y0": 1.597,
+   "y1": 2.647
+  },
+  {
+   "uid": 101,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     6.442,
+     92.205
+    ],
+    [
+     10.228,
+     92.12
+    ],
+    [
+     10.245,
+     92.87
+    ],
+    [
+     6.459,
+     92.955
+    ]
+   ],
+   "y0": 1.654,
+   "y1": 2.704
+  },
+  {
+   "uid": 102,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     9.725,
+     92.151
+    ],
+    [
+     13.534,
+     91.77
+    ],
+    [
+     13.609,
+     92.516
+    ],
+    [
+     9.799,
+     92.897
+    ]
+   ],
+   "y0": 1.681,
+   "y1": 2.731
+  },
+  {
+   "uid": 103,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     13.058,
+     91.817
+    ],
+    [
+     16.867,
+     91.436
+    ],
+    [
+     16.942,
+     92.183
+    ],
+    [
+     13.133,
+     92.564
+    ]
+   ],
+   "y0": 1.692,
+   "y1": 2.742
+  },
+  {
+   "uid": 104,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     16.391,
+     91.484
+    ],
+    [
+     20.201,
+     91.103
+    ],
+    [
+     20.275,
+     91.849
+    ],
+    [
+     16.466,
+     92.23
+    ]
+   ],
+   "y0": 1.807,
+   "y1": 2.857
+  },
+  {
+   "uid": 105,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     19.725,
+     91.151
+    ],
+    [
+     23.534,
+     90.77
+    ],
+    [
+     23.609,
+     91.516
+    ],
+    [
+     19.799,
+     91.897
+    ]
+   ],
+   "y0": 1.9,
+   "y1": 2.95
+  },
+  {
+   "uid": 106,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     23.058,
+     90.817
+    ],
+    [
+     26.867,
+     90.436
+    ],
+    [
+     26.942,
+     91.183
+    ],
+    [
+     23.133,
+     91.564
+    ]
+   ],
+   "y0": 1.974,
+   "y1": 3.024
+  },
+  {
+   "uid": 107,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     26.391,
+     90.484
+    ],
+    [
+     30.201,
+     90.103
+    ],
+    [
+     30.275,
+     90.849
+    ],
+    [
+     26.466,
+     91.23
+    ]
+   ],
+   "y0": 2.065,
+   "y1": 3.115
+  },
+  {
+   "uid": 108,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     29.725,
+     90.151
+    ],
+    [
+     33.534,
+     89.77
+    ],
+    [
+     33.609,
+     90.516
+    ],
+    [
+     29.799,
+     90.897
+    ]
+   ],
+   "y0": 2.111,
+   "y1": 3.161
+  },
+  {
+   "uid": 109,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     33.058,
+     89.817
+    ],
+    [
+     36.867,
+     89.436
+    ],
+    [
+     36.942,
+     90.183
+    ],
+    [
+     33.133,
+     90.564
+    ]
+   ],
+   "y0": 2.147,
+   "y1": 3.197
+  },
+  {
+   "uid": 110,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     36.391,
+     89.484
+    ],
+    [
+     40.201,
+     89.103
+    ],
+    [
+     40.275,
+     89.849
+    ],
+    [
+     36.466,
+     90.23
+    ]
+   ],
+   "y0": 2.251,
+   "y1": 3.301
+  },
+  {
+   "uid": 111,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     39.7,
+     89.17
+    ],
+    [
+     43.51,
+     88.535
+    ],
+    [
+     43.633,
+     89.275
+    ],
+    [
+     39.824,
+     89.91
+    ]
+   ],
+   "y0": 2.333,
+   "y1": 3.383
+  },
+  {
+   "uid": 112,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     43.034,
+     88.614
+    ],
+    [
+     46.843,
+     87.979
+    ],
+    [
+     46.966,
+     88.719
+    ],
+    [
+     43.157,
+     89.354
+    ]
+   ],
+   "y0": 2.351,
+   "y1": 3.401
+  },
+  {
+   "uid": 113,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     46.367,
+     88.059
+    ],
+    [
+     50.176,
+     87.424
+    ],
+    [
+     50.3,
+     88.164
+    ],
+    [
+     46.49,
+     88.798
+    ]
+   ],
+   "y0": 2.502,
+   "y1": 3.552
+  },
+  {
+   "uid": 114,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     49.7,
+     87.503
+    ],
+    [
+     53.51,
+     86.868
+    ],
+    [
+     53.633,
+     87.608
+    ],
+    [
+     49.824,
+     88.243
+    ]
+   ],
+   "y0": 2.604,
+   "y1": 3.654
+  },
+  {
+   "uid": 115,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     53.034,
+     86.948
+    ],
+    [
+     56.843,
+     86.313
+    ],
+    [
+     56.966,
+     87.052
+    ],
+    [
+     53.157,
+     87.687
+    ]
+   ],
+   "y0": 2.796,
+   "y1": 3.846
+  },
+  {
+   "uid": 116,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     56.367,
+     86.392
+    ],
+    [
+     60.176,
+     85.757
+    ],
+    [
+     60.3,
+     86.497
+    ],
+    [
+     56.49,
+     87.132
+    ]
+   ],
+   "y0": 2.832,
+   "y1": 3.882
+  },
+  {
+   "uid": 117,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     59.7,
+     85.836
+    ],
+    [
+     63.51,
+     85.202
+    ],
+    [
+     63.633,
+     85.941
+    ],
+    [
+     59.824,
+     86.576
+    ]
+   ],
+   "y0": 2.945,
+   "y1": 3.995
+  },
+  {
+   "uid": 118,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     63.034,
+     85.281
+    ],
+    [
+     66.843,
+     84.646
+    ],
+    [
+     66.966,
+     85.386
+    ],
+    [
+     63.157,
+     86.021
+    ]
+   ],
+   "y0": 3.039,
+   "y1": 4.089
+  },
+  {
+   "uid": 119,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     66.367,
+     84.725
+    ],
+    [
+     70.176,
+     84.09
+    ],
+    [
+     70.3,
+     84.83
+    ],
+    [
+     66.49,
+     85.465
+    ]
+   ],
+   "y0": 3.061,
+   "y1": 4.111
+  },
+  {
+   "uid": 120,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     69.682,
+     84.185
+    ],
+    [
+     73.492,
+     83.36
+    ],
+    [
+     73.651,
+     84.093
+    ],
+    [
+     69.841,
+     84.918
+    ]
+   ],
+   "y0": 3.103,
+   "y1": 4.153
+  },
+  {
+   "uid": 121,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     73.016,
+     83.463
+    ],
+    [
+     76.825,
+     82.637
+    ],
+    [
+     76.984,
+     83.37
+    ],
+    [
+     73.175,
+     84.196
+    ]
+   ],
+   "y0": 3.14,
+   "y1": 4.19
+  },
+  {
+   "uid": 122,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     76.349,
+     82.741
+    ],
+    [
+     80.159,
+     81.915
+    ],
+    [
+     80.318,
+     82.648
+    ],
+    [
+     76.508,
+     83.474
+    ]
+   ],
+   "y0": 3.298,
+   "y1": 4.348
+  },
+  {
+   "uid": 123,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     79.682,
+     82.018
+    ],
+    [
+     83.492,
+     81.193
+    ],
+    [
+     83.651,
+     81.926
+    ],
+    [
+     79.841,
+     82.751
+    ]
+   ],
+   "y0": 3.439,
+   "y1": 4.489
+  },
+  {
+   "uid": 124,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     83.016,
+     81.296
+    ],
+    [
+     86.825,
+     80.471
+    ],
+    [
+     86.984,
+     81.204
+    ],
+    [
+     83.175,
+     82.029
+    ]
+   ],
+   "y0": 3.519,
+   "y1": 4.569
+  },
+  {
+   "uid": 125,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     86.349,
+     80.574
+    ],
+    [
+     90.159,
+     79.749
+    ],
+    [
+     90.318,
+     80.482
+    ],
+    [
+     86.508,
+     81.307
+    ]
+   ],
+   "y0": 3.632,
+   "y1": 4.682
+  },
+  {
+   "uid": 126,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     89.682,
+     79.852
+    ],
+    [
+     93.492,
+     79.026
+    ],
+    [
+     93.651,
+     79.759
+    ],
+    [
+     89.841,
+     80.585
+    ]
+   ],
+   "y0": 3.748,
+   "y1": 4.801
+  },
+  {
+   "uid": 127,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     93.016,
+     79.13
+    ],
+    [
+     96.825,
+     78.304
+    ],
+    [
+     96.984,
+     79.037
+    ],
+    [
+     93.175,
+     79.863
+    ]
+   ],
+   "y0": 3.932,
+   "y1": 4.982
+  },
+  {
+   "uid": 128,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     96.349,
+     78.407
+    ],
+    [
+     100.159,
+     77.582
+    ],
+    [
+     100.318,
+     78.315
+    ],
+    [
+     96.508,
+     79.14
+    ]
+   ],
+   "y0": 4.09,
+   "y1": 5.14
+  },
+  {
+   "uid": 129,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -100.153,
+     32.579
+    ],
+    [
+     -96.343,
+     33.468
+    ],
+    [
+     -96.514,
+     34.199
+    ],
+    [
+     -100.323,
+     33.31
+    ]
+   ],
+   "y0": 10.299,
+   "y1": 11.349
+  },
+  {
+   "uid": 130,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -96.82,
+     33.357
+    ],
+    [
+     -93.01,
+     34.246
+    ],
+    [
+     -93.18,
+     34.976
+    ],
+    [
+     -96.99,
+     34.087
+    ]
+   ],
+   "y0": 10.066,
+   "y1": 11.116
+  },
+  {
+   "uid": 131,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -93.486,
+     34.135
+    ],
+    [
+     -89.677,
+     35.024
+    ],
+    [
+     -89.847,
+     35.754
+    ],
+    [
+     -93.657,
+     34.865
+    ]
+   ],
+   "y0": 9.807,
+   "y1": 10.918
+  },
+  {
+   "uid": 132,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -90.153,
+     34.913
+    ],
+    [
+     -86.343,
+     35.801
+    ],
+    [
+     -86.514,
+     36.532
+    ],
+    [
+     -90.323,
+     35.643
+    ]
+   ],
+   "y0": 9.564,
+   "y1": 10.622
+  },
+  {
+   "uid": 133,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -86.82,
+     35.69
+    ],
+    [
+     -83.01,
+     36.579
+    ],
+    [
+     -83.18,
+     37.31
+    ],
+    [
+     -86.99,
+     36.421
+    ]
+   ],
+   "y0": 9.434,
+   "y1": 10.484
+  },
+  {
+   "uid": 134,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -83.486,
+     36.468
+    ],
+    [
+     -79.677,
+     37.357
+    ],
+    [
+     -79.847,
+     38.087
+    ],
+    [
+     -83.657,
+     37.199
+    ]
+   ],
+   "y0": 9.263,
+   "y1": 10.313
+  },
+  {
+   "uid": 135,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -80.153,
+     37.246
+    ],
+    [
+     -76.343,
+     38.135
+    ],
+    [
+     -76.514,
+     38.865
+    ],
+    [
+     -80.323,
+     37.976
+    ]
+   ],
+   "y0": 9.049,
+   "y1": 10.099
+  },
+  {
+   "uid": 136,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -76.82,
+     38.024
+    ],
+    [
+     -73.01,
+     38.913
+    ],
+    [
+     -73.18,
+     39.643
+    ],
+    [
+     -76.99,
+     38.754
+    ]
+   ],
+   "y0": 8.843,
+   "y1": 9.893
+  },
+  {
+   "uid": 137,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -73.486,
+     38.801
+    ],
+    [
+     -69.677,
+     39.69
+    ],
+    [
+     -69.847,
+     40.421
+    ],
+    [
+     -73.657,
+     39.532
+    ]
+   ],
+   "y0": 8.566,
+   "y1": 9.631
+  },
+  {
+   "uid": 138,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -70.176,
+     39.59
+    ],
+    [
+     -66.367,
+     40.225
+    ],
+    [
+     -66.49,
+     40.965
+    ],
+    [
+     -70.3,
+     40.33
+    ]
+   ],
+   "y0": 8.47,
+   "y1": 9.52
+  },
+  {
+   "uid": 139,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -66.843,
+     40.146
+    ],
+    [
+     -63.034,
+     40.781
+    ],
+    [
+     -63.157,
+     41.521
+    ],
+    [
+     -66.966,
+     40.886
+    ]
+   ],
+   "y0": 8.475,
+   "y1": 9.525
+  },
+  {
+   "uid": 140,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.51,
+     40.702
+    ],
+    [
+     -59.7,
+     41.336
+    ],
+    [
+     -59.824,
+     42.076
+    ],
+    [
+     -63.633,
+     41.441
+    ]
+   ],
+   "y0": 8.439,
+   "y1": 9.489
+  },
+  {
+   "uid": 141,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -60.176,
+     41.257
+    ],
+    [
+     -56.367,
+     41.892
+    ],
+    [
+     -56.49,
+     42.632
+    ],
+    [
+     -60.3,
+     41.997
+    ]
+   ],
+   "y0": 8.255,
+   "y1": 9.305
+  },
+  {
+   "uid": 142,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -56.843,
+     41.813
+    ],
+    [
+     -53.034,
+     42.448
+    ],
+    [
+     -53.157,
+     43.187
+    ],
+    [
+     -56.966,
+     42.552
+    ]
+   ],
+   "y0": 8.093,
+   "y1": 9.143
+  },
+  {
+   "uid": 143,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -53.51,
+     42.368
+    ],
+    [
+     -49.7,
+     43.003
+    ],
+    [
+     -49.824,
+     43.743
+    ],
+    [
+     -53.633,
+     43.108
+    ]
+   ],
+   "y0": 7.925,
+   "y1": 8.975
+  },
+  {
+   "uid": 144,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -50.176,
+     42.924
+    ],
+    [
+     -46.367,
+     43.559
+    ],
+    [
+     -46.49,
+     44.298
+    ],
+    [
+     -50.3,
+     43.664
+    ]
+   ],
+   "y0": 7.754,
+   "y1": 8.804
+  },
+  {
+   "uid": 145,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -46.843,
+     43.479
+    ],
+    [
+     -43.034,
+     44.114
+    ],
+    [
+     -43.157,
+     44.854
+    ],
+    [
+     -46.966,
+     44.219
+    ]
+   ],
+   "y0": 7.621,
+   "y1": 8.671
+  },
+  {
+   "uid": 146,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -43.51,
+     44.035
+    ],
+    [
+     -39.7,
+     44.67
+    ],
+    [
+     -39.824,
+     45.41
+    ],
+    [
+     -43.633,
+     44.775
+    ]
+   ],
+   "y0": 7.542,
+   "y1": 8.592
+  },
+  {
+   "uid": 147,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -40.195,
+     44.6
+    ],
+    [
+     -36.385,
+     45.044
+    ],
+    [
+     -36.472,
+     45.789
+    ],
+    [
+     -40.282,
+     45.345
+    ]
+   ],
+   "y0": 7.522,
+   "y1": 8.572
+  },
+  {
+   "uid": 148,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -36.861,
+     44.989
+    ],
+    [
+     -33.052,
+     45.433
+    ],
+    [
+     -33.139,
+     46.178
+    ],
+    [
+     -36.948,
+     45.734
+    ]
+   ],
+   "y0": 7.41,
+   "y1": 8.46
+  },
+  {
+   "uid": 149,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -33.528,
+     45.378
+    ],
+    [
+     -29.718,
+     45.822
+    ],
+    [
+     -29.805,
+     46.567
+    ],
+    [
+     -33.615,
+     46.122
+    ]
+   ],
+   "y0": 7.298,
+   "y1": 8.348
+  },
+  {
+   "uid": 150,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -30.195,
+     45.766
+    ],
+    [
+     -26.385,
+     46.211
+    ],
+    [
+     -26.472,
+     46.956
+    ],
+    [
+     -30.282,
+     46.511
+    ]
+   ],
+   "y0": 7.16,
+   "y1": 8.21
+  },
+  {
+   "uid": 151,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -26.861,
+     46.155
+    ],
+    [
+     -23.052,
+     46.6
+    ],
+    [
+     -23.139,
+     47.345
+    ],
+    [
+     -26.948,
+     46.9
+    ]
+   ],
+   "y0": 7.049,
+   "y1": 8.099
+  },
+  {
+   "uid": 152,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -23.528,
+     46.544
+    ],
+    [
+     -19.718,
+     46.989
+    ],
+    [
+     -19.805,
+     47.734
+    ],
+    [
+     -23.615,
+     47.289
+    ]
+   ],
+   "y0": 6.963,
+   "y1": 8.013
+  },
+  {
+   "uid": 153,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -20.195,
+     46.933
+    ],
+    [
+     -16.385,
+     47.378
+    ],
+    [
+     -16.472,
+     48.122
+    ],
+    [
+     -20.282,
+     47.678
+    ]
+   ],
+   "y0": 6.847,
+   "y1": 7.897
+  },
+  {
+   "uid": 154,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -16.861,
+     47.322
+    ],
+    [
+     -13.052,
+     47.766
+    ],
+    [
+     -13.139,
+     48.511
+    ],
+    [
+     -16.948,
+     48.067
+    ]
+   ],
+   "y0": 6.756,
+   "y1": 7.806
+  },
+  {
+   "uid": 155,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -13.528,
+     47.711
+    ],
+    [
+     -9.718,
+     48.155
+    ],
+    [
+     -9.805,
+     48.9
+    ],
+    [
+     -13.615,
+     48.456
+    ]
+   ],
+   "y0": 6.597,
+   "y1": 7.647
+  },
+  {
+   "uid": 156,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -10.232,
+     48.121
+    ],
+    [
+     -6.422,
+     48.185
+    ],
+    [
+     -6.435,
+     48.934
+    ],
+    [
+     -10.244,
+     48.871
+    ]
+   ],
+   "y0": 6.467,
+   "y1": 7.517
+  },
+  {
+   "uid": 157,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -6.899,
+     48.177
+    ],
+    [
+     -3.089,
+     48.24
+    ],
+    [
+     -3.101,
+     48.99
+    ],
+    [
+     -6.911,
+     48.927
+    ]
+   ],
+   "y0": 6.34,
+   "y1": 7.39
+  },
+  {
+   "uid": 158,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -3.565,
+     48.232
+    ],
+    [
+     0.244,
+     48.296
+    ],
+    [
+     0.232,
+     49.046
+    ],
+    [
+     -3.578,
+     48.982
+    ]
+   ],
+   "y0": 6.343,
+   "y1": 7.393
+  },
+  {
+   "uid": 159,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -0.232,
+     48.288
+    ],
+    [
+     3.578,
+     48.351
+    ],
+    [
+     3.565,
+     49.101
+    ],
+    [
+     -0.244,
+     49.038
+    ]
+   ],
+   "y0": 6.203,
+   "y1": 7.253
+  },
+  {
+   "uid": 160,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     3.101,
+     48.343
+    ],
+    [
+     6.911,
+     48.407
+    ],
+    [
+     6.899,
+     49.157
+    ],
+    [
+     3.089,
+     49.093
+    ]
+   ],
+   "y0": 6.212,
+   "y1": 7.262
+  },
+  {
+   "uid": 161,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     6.435,
+     48.399
+    ],
+    [
+     10.244,
+     48.462
+    ],
+    [
+     10.232,
+     49.212
+    ],
+    [
+     6.422,
+     49.149
+    ]
+   ],
+   "y0": 6.231,
+   "y1": 7.281
+  },
+  {
+   "uid": 162,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     9.768,
+     48.454
+    ],
+    [
+     13.578,
+     48.518
+    ],
+    [
+     13.565,
+     49.268
+    ],
+    [
+     9.756,
+     49.204
+    ]
+   ],
+   "y0": 6.292,
+   "y1": 7.342
+  },
+  {
+   "uid": 163,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     13.101,
+     48.51
+    ],
+    [
+     16.911,
+     48.573
+    ],
+    [
+     16.899,
+     49.323
+    ],
+    [
+     13.089,
+     49.26
+    ]
+   ],
+   "y0": 6.435,
+   "y1": 7.485
+  },
+  {
+   "uid": 164,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     16.435,
+     48.566
+    ],
+    [
+     20.244,
+     48.629
+    ],
+    [
+     20.232,
+     49.379
+    ],
+    [
+     16.422,
+     49.315
+    ]
+   ],
+   "y0": 6.589,
+   "y1": 7.639
+  },
+  {
+   "uid": 165,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     19.704,
+     48.656
+    ],
+    [
+     23.762,
+     48.199
+    ],
+    [
+     23.846,
+     48.944
+    ],
+    [
+     19.788,
+     49.401
+    ]
+   ],
+   "y0": 6.601,
+   "y1": 7.651
+  },
+  {
+   "uid": 166,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     23.254,
+     48.256
+    ],
+    [
+     27.312,
+     47.799
+    ],
+    [
+     27.396,
+     48.544
+    ],
+    [
+     23.338,
+     49.001
+    ]
+   ],
+   "y0": 6.564,
+   "y1": 7.614
+  },
+  {
+   "uid": 167,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     26.804,
+     47.856
+    ],
+    [
+     30.862,
+     47.399
+    ],
+    [
+     30.946,
+     48.144
+    ],
+    [
+     26.888,
+     48.601
+    ]
+   ],
+   "y0": 6.57,
+   "y1": 7.62
+  },
+  {
+   "uid": 168,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     30.354,
+     47.456
+    ],
+    [
+     34.412,
+     46.999
+    ],
+    [
+     34.496,
+     47.744
+    ],
+    [
+     30.438,
+     48.201
+    ]
+   ],
+   "y0": 6.673,
+   "y1": 7.723
+  },
+  {
+   "uid": 169,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     38.302,
+     46.657
+    ],
+    [
+     42.378,
+     46.181
+    ],
+    [
+     42.465,
+     46.926
+    ],
+    [
+     38.389,
+     47.402
+    ]
+   ],
+   "y0": 6.906,
+   "y1": 7.956
+  },
+  {
+   "uid": 170,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     41.868,
+     46.241
+    ],
+    [
+     45.945,
+     45.764
+    ],
+    [
+     46.032,
+     46.509
+    ],
+    [
+     41.955,
+     46.986
+    ]
+   ],
+   "y0": 7.044,
+   "y1": 8.094
+  },
+  {
+   "uid": 171,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     45.435,
+     45.824
+    ],
+    [
+     49.511,
+     45.348
+    ],
+    [
+     49.598,
+     46.093
+    ],
+    [
+     45.522,
+     46.569
+    ]
+   ],
+   "y0": 7.211,
+   "y1": 8.261
+  },
+  {
+   "uid": 172,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     49.002,
+     45.407
+    ],
+    [
+     53.078,
+     44.931
+    ],
+    [
+     53.165,
+     45.676
+    ],
+    [
+     49.089,
+     46.152
+    ]
+   ],
+   "y0": 7.335,
+   "y1": 8.385
+  },
+  {
+   "uid": 173,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     52.568,
+     44.991
+    ],
+    [
+     56.645,
+     44.514
+    ],
+    [
+     56.732,
+     45.259
+    ],
+    [
+     52.655,
+     45.736
+    ]
+   ],
+   "y0": 7.497,
+   "y1": 8.547
+  },
+  {
+   "uid": 174,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     56.135,
+     44.574
+    ],
+    [
+     60.211,
+     44.098
+    ],
+    [
+     60.298,
+     44.843
+    ],
+    [
+     56.222,
+     45.319
+    ]
+   ],
+   "y0": 7.642,
+   "y1": 8.692
+  },
+  {
+   "uid": 175,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     59.68,
+     44.188
+    ],
+    [
+     63.489,
+     43.331
+    ],
+    [
+     63.654,
+     44.062
+    ],
+    [
+     59.844,
+     44.919
+    ]
+   ],
+   "y0": 7.81,
+   "y1": 8.86
+  },
+  {
+   "uid": 176,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     63.013,
+     43.438
+    ],
+    [
+     66.822,
+     42.581
+    ],
+    [
+     66.987,
+     43.312
+    ],
+    [
+     63.178,
+     44.169
+    ]
+   ],
+   "y0": 7.927,
+   "y1": 8.977
+  },
+  {
+   "uid": 177,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     66.346,
+     42.688
+    ],
+    [
+     70.156,
+     41.831
+    ],
+    [
+     70.32,
+     42.562
+    ],
+    [
+     66.511,
+     43.419
+    ]
+   ],
+   "y0": 8.066,
+   "y1": 9.116
+  },
+  {
+   "uid": 178,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     69.68,
+     41.938
+    ],
+    [
+     73.489,
+     41.081
+    ],
+    [
+     73.654,
+     41.812
+    ],
+    [
+     69.844,
+     42.669
+    ]
+   ],
+   "y0": 8.282,
+   "y1": 9.332
+  },
+  {
+   "uid": 179,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     73.013,
+     41.188
+    ],
+    [
+     76.822,
+     40.331
+    ],
+    [
+     76.987,
+     41.062
+    ],
+    [
+     73.178,
+     41.919
+    ]
+   ],
+   "y0": 8.541,
+   "y1": 9.629
+  },
+  {
+   "uid": 180,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     76.346,
+     40.438
+    ],
+    [
+     80.156,
+     39.581
+    ],
+    [
+     80.32,
+     40.312
+    ],
+    [
+     76.511,
+     41.169
+    ]
+   ],
+   "y0": 8.829,
+   "y1": 9.905
+  },
+  {
+   "uid": 181,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     79.671,
+     39.696
+    ],
+    [
+     83.48,
+     38.743
+    ],
+    [
+     83.662,
+     39.471
+    ],
+    [
+     79.853,
+     40.423
+    ]
+   ],
+   "y0": 9.061,
+   "y1": 10.111
+  },
+  {
+   "uid": 182,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     83.004,
+     38.862
+    ],
+    [
+     86.814,
+     37.91
+    ],
+    [
+     86.996,
+     38.638
+    ],
+    [
+     83.186,
+     39.59
+    ]
+   ],
+   "y0": 9.259,
+   "y1": 10.315
+  },
+  {
+   "uid": 183,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     86.338,
+     38.029
+    ],
+    [
+     90.147,
+     37.077
+    ],
+    [
+     90.329,
+     37.804
+    ],
+    [
+     86.52,
+     38.757
+    ]
+   ],
+   "y0": 9.474,
+   "y1": 10.524
+  },
+  {
+   "uid": 184,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     89.671,
+     37.196
+    ],
+    [
+     93.48,
+     36.243
+    ],
+    [
+     93.662,
+     36.971
+    ],
+    [
+     89.853,
+     37.923
+    ]
+   ],
+   "y0": 9.647,
+   "y1": 10.697
+  },
+  {
+   "uid": 185,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     93.004,
+     36.362
+    ],
+    [
+     96.814,
+     35.41
+    ],
+    [
+     96.996,
+     36.138
+    ],
+    [
+     93.186,
+     37.09
+    ]
+   ],
+   "y0": 9.87,
+   "y1": 10.92
+  },
+  {
+   "uid": 186,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     96.338,
+     35.529
+    ],
+    [
+     100.147,
+     34.577
+    ],
+    [
+     100.329,
+     35.304
+    ],
+    [
+     96.52,
+     36.257
+    ]
+   ],
+   "y0": 9.973,
+   "y1": 11.023
+  },
+  {
+   "uid": 187,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -100.17,
+     -24.413
+    ],
+    [
+     -96.361,
+     -23.714
+    ],
+    [
+     -96.496,
+     -22.976
+    ],
+    [
+     -100.306,
+     -23.675
+    ]
+   ],
+   "y0": 18.607,
+   "y1": 19.657
+  },
+  {
+   "uid": 188,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -96.837,
+     -23.801
+    ],
+    [
+     -93.028,
+     -23.103
+    ],
+    [
+     -93.163,
+     -22.365
+    ],
+    [
+     -96.972,
+     -23.064
+    ]
+   ],
+   "y0": 18.472,
+   "y1": 19.522
+  },
+  {
+   "uid": 189,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -93.504,
+     -23.19
+    ],
+    [
+     -89.694,
+     -22.492
+    ],
+    [
+     -89.83,
+     -21.754
+    ],
+    [
+     -93.639,
+     -22.453
+    ]
+   ],
+   "y0": 18.324,
+   "y1": 19.374
+  },
+  {
+   "uid": 190,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -90.17,
+     -22.579
+    ],
+    [
+     -86.361,
+     -21.881
+    ],
+    [
+     -86.496,
+     -21.143
+    ],
+    [
+     -90.306,
+     -21.841
+    ]
+   ],
+   "y0": 18.12,
+   "y1": 19.17
+  },
+  {
+   "uid": 191,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -86.837,
+     -21.968
+    ],
+    [
+     -83.028,
+     -21.27
+    ],
+    [
+     -83.163,
+     -20.532
+    ],
+    [
+     -86.972,
+     -21.23
+    ]
+   ],
+   "y0": 17.844,
+   "y1": 18.92
+  },
+  {
+   "uid": 192,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -83.504,
+     -21.357
+    ],
+    [
+     -79.694,
+     -20.659
+    ],
+    [
+     -79.83,
+     -19.921
+    ],
+    [
+     -83.639,
+     -20.619
+    ]
+   ],
+   "y0": 17.551,
+   "y1": 18.722
+  },
+  {
+   "uid": 193,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -80.17,
+     -20.746
+    ],
+    [
+     -76.361,
+     -20.047
+    ],
+    [
+     -76.496,
+     -19.31
+    ],
+    [
+     -80.306,
+     -20.008
+    ]
+   ],
+   "y0": 17.239,
+   "y1": 18.424
+  },
+  {
+   "uid": 194,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -76.837,
+     -20.135
+    ],
+    [
+     -73.028,
+     -19.436
+    ],
+    [
+     -73.163,
+     -18.699
+    ],
+    [
+     -76.972,
+     -19.397
+    ]
+   ],
+   "y0": 16.924,
+   "y1": 18.078
+  },
+  {
+   "uid": 195,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -73.504,
+     -19.524
+    ],
+    [
+     -69.694,
+     -18.825
+    ],
+    [
+     -69.83,
+     -18.087
+    ],
+    [
+     -73.639,
+     -18.786
+    ]
+   ],
+   "y0": 16.634,
+   "y1": 17.804
+  },
+  {
+   "uid": 196,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -70.196,
+     -18.911
+    ],
+    [
+     -66.114,
+     -18.258
+    ],
+    [
+     -66.233,
+     -17.517
+    ],
+    [
+     -70.314,
+     -18.171
+    ]
+   ],
+   "y0": 16.369,
+   "y1": 17.465
+  },
+  {
+   "uid": 197,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -66.624,
+     -18.34
+    ],
+    [
+     -62.543,
+     -17.687
+    ],
+    [
+     -62.661,
+     -16.946
+    ],
+    [
+     -66.743,
+     -17.599
+    ]
+   ],
+   "y0": 16.21,
+   "y1": 17.26
+  },
+  {
+   "uid": 198,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.053,
+     -17.768
+    ],
+    [
+     -58.971,
+     -17.115
+    ],
+    [
+     -59.09,
+     -16.375
+    ],
+    [
+     -63.171,
+     -17.028
+    ]
+   ],
+   "y0": 16.01,
+   "y1": 17.06
+  },
+  {
+   "uid": 199,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -59.482,
+     -17.197
+    ],
+    [
+     -55.4,
+     -16.544
+    ],
+    [
+     -55.518,
+     -15.803
+    ],
+    [
+     -59.6,
+     -16.456
+    ]
+   ],
+   "y0": 15.953,
+   "y1": 17.003
+  },
+  {
+   "uid": 200,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -55.91,
+     -16.625
+    ],
+    [
+     -51.829,
+     -15.972
+    ],
+    [
+     -51.947,
+     -15.232
+    ],
+    [
+     -56.029,
+     -15.885
+    ]
+   ],
+   "y0": 15.846,
+   "y1": 16.896
+  },
+  {
+   "uid": 201,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -52.339,
+     -16.054
+    ],
+    [
+     -48.257,
+     -15.401
+    ],
+    [
+     -48.376,
+     -14.66
+    ],
+    [
+     -52.457,
+     -15.313
+    ]
+   ],
+   "y0": 15.835,
+   "y1": 16.885
+  },
+  {
+   "uid": 202,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -48.767,
+     -15.483
+    ],
+    [
+     -44.686,
+     -14.829
+    ],
+    [
+     -44.804,
+     -14.089
+    ],
+    [
+     -48.886,
+     -14.742
+    ]
+   ],
+   "y0": 15.657,
+   "y1": 16.707
+  },
+  {
+   "uid": 203,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -45.233,
+     -14.898
+    ],
+    [
+     -40.947,
+     -14.498
+    ],
+    [
+     -41.017,
+     -13.752
+    ],
+    [
+     -45.303,
+     -14.152
+    ]
+   ],
+   "y0": 15.531,
+   "y1": 16.581
+  },
+  {
+   "uid": 204,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -41.483,
+     -14.548
+    ],
+    [
+     -37.197,
+     -14.148
+    ],
+    [
+     -37.267,
+     -13.402
+    ],
+    [
+     -41.553,
+     -13.802
+    ]
+   ],
+   "y0": 15.423,
+   "y1": 16.473
+  },
+  {
+   "uid": 205,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -37.733,
+     -14.198
+    ],
+    [
+     -33.447,
+     -13.798
+    ],
+    [
+     -33.517,
+     -13.052
+    ],
+    [
+     -37.803,
+     -13.452
+    ]
+   ],
+   "y0": 15.298,
+   "y1": 16.348
+  },
+  {
+   "uid": 206,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -33.983,
+     -13.848
+    ],
+    [
+     -29.697,
+     -13.448
+    ],
+    [
+     -29.767,
+     -12.702
+    ],
+    [
+     -34.053,
+     -13.102
+    ]
+   ],
+   "y0": 15.123,
+   "y1": 16.173
+  },
+  {
+   "uid": 207,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -27.013,
+     -13.291
+    ],
+    [
+     -23.184,
+     -13.02
+    ],
+    [
+     -23.237,
+     -12.271
+    ],
+    [
+     -27.066,
+     -12.543
+    ]
+   ],
+   "y0": 14.887,
+   "y1": 15.937
+  },
+  {
+   "uid": 208,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -23.663,
+     -13.054
+    ],
+    [
+     -19.834,
+     -12.782
+    ],
+    [
+     -19.887,
+     -12.034
+    ],
+    [
+     -23.716,
+     -12.305
+    ]
+   ],
+   "y0": 14.731,
+   "y1": 15.781
+  },
+  {
+   "uid": 209,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -20.313,
+     -12.816
+    ],
+    [
+     -16.484,
+     -12.545
+    ],
+    [
+     -16.537,
+     -11.796
+    ],
+    [
+     -20.366,
+     -12.068
+    ]
+   ],
+   "y0": 14.657,
+   "y1": 15.707
+  },
+  {
+   "uid": 210,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -16.963,
+     -12.579
+    ],
+    [
+     -13.134,
+     -12.307
+    ],
+    [
+     -13.187,
+     -11.559
+    ],
+    [
+     -17.016,
+     -11.83
+    ]
+   ],
+   "y0": 14.614,
+   "y1": 15.664
+  },
+  {
+   "uid": 211,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -13.613,
+     -12.341
+    ],
+    [
+     -9.784,
+     -12.07
+    ],
+    [
+     -9.837,
+     -11.321
+    ],
+    [
+     -13.666,
+     -11.593
+    ]
+   ],
+   "y0": 14.607,
+   "y1": 15.657
+  },
+  {
+   "uid": 212,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -10.263,
+     -12.104
+    ],
+    [
+     -6.434,
+     -11.832
+    ],
+    [
+     -6.487,
+     -11.084
+    ],
+    [
+     -10.316,
+     -11.355
+    ]
+   ],
+   "y0": 14.579,
+   "y1": 15.629
+  },
+  {
+   "uid": 213,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -6.913,
+     -11.866
+    ],
+    [
+     -3.084,
+     -11.595
+    ],
+    [
+     -3.137,
+     -10.846
+    ],
+    [
+     -6.966,
+     -11.118
+    ]
+   ],
+   "y0": 14.496,
+   "y1": 15.546
+  },
+  {
+   "uid": 214,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -3.563,
+     -11.629
+    ],
+    [
+     0.266,
+     -11.357
+    ],
+    [
+     0.213,
+     -10.609
+    ],
+    [
+     -3.616,
+     -10.88
+    ]
+   ],
+   "y0": 14.35,
+   "y1": 15.4
+  },
+  {
+   "uid": 215,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -0.278,
+     -11.359
+    ],
+    [
+     3.804,
+     -11.604
+    ],
+    [
+     3.849,
+     -10.855
+    ],
+    [
+     -0.233,
+     -10.61
+    ]
+   ],
+   "y0": 14.351,
+   "y1": 15.401
+  },
+  {
+   "uid": 216,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     3.294,
+     -11.573
+    ],
+    [
+     7.375,
+     -11.818
+    ],
+    [
+     7.42,
+     -11.07
+    ],
+    [
+     3.339,
+     -10.825
+    ]
+   ],
+   "y0": 14.396,
+   "y1": 15.446
+  },
+  {
+   "uid": 217,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     6.865,
+     -11.788
+    ],
+    [
+     10.947,
+     -12.032
+    ],
+    [
+     10.992,
+     -11.284
+    ],
+    [
+     6.91,
+     -11.039
+    ]
+   ],
+   "y0": 14.507,
+   "y1": 15.557
+  },
+  {
+   "uid": 218,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     10.437,
+     -12.002
+    ],
+    [
+     14.518,
+     -12.247
+    ],
+    [
+     14.563,
+     -11.498
+    ],
+    [
+     10.482,
+     -11.253
+    ]
+   ],
+   "y0": 14.575,
+   "y1": 15.625
+  },
+  {
+   "uid": 219,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     14.008,
+     -12.216
+    ],
+    [
+     18.09,
+     -12.461
+    ],
+    [
+     18.135,
+     -11.712
+    ],
+    [
+     14.053,
+     -11.468
+    ]
+   ],
+   "y0": 14.593,
+   "y1": 15.643
+  },
+  {
+   "uid": 220,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     17.58,
+     -12.43
+    ],
+    [
+     21.661,
+     -12.675
+    ],
+    [
+     21.706,
+     -11.927
+    ],
+    [
+     17.625,
+     -11.682
+    ]
+   ],
+   "y0": 14.628,
+   "y1": 15.678
+  },
+  {
+   "uid": 221,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     21.151,
+     -12.645
+    ],
+    [
+     25.233,
+     -12.89
+    ],
+    [
+     25.278,
+     -12.141
+    ],
+    [
+     21.196,
+     -11.896
+    ]
+   ],
+   "y0": 14.729,
+   "y1": 15.779
+  },
+  {
+   "uid": 222,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     24.686,
+     -12.825
+    ],
+    [
+     28.663,
+     -13.533
+    ],
+    [
+     28.794,
+     -12.795
+    ],
+    [
+     24.817,
+     -12.087
+    ]
+   ],
+   "y0": 14.884,
+   "y1": 15.934
+  },
+  {
+   "uid": 223,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     28.166,
+     -13.445
+    ],
+    [
+     32.143,
+     -14.153
+    ],
+    [
+     32.274,
+     -13.415
+    ],
+    [
+     28.297,
+     -12.707
+    ]
+   ],
+   "y0": 14.96,
+   "y1": 16.012
+  },
+  {
+   "uid": 224,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     31.646,
+     -14.065
+    ],
+    [
+     35.623,
+     -14.773
+    ],
+    [
+     35.754,
+     -14.035
+    ],
+    [
+     31.777,
+     -13.327
+    ]
+   ],
+   "y0": 15.153,
+   "y1": 16.203
+  },
+  {
+   "uid": 225,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     35.126,
+     -14.685
+    ],
+    [
+     39.103,
+     -15.393
+    ],
+    [
+     39.234,
+     -14.655
+    ],
+    [
+     35.257,
+     -13.947
+    ]
+   ],
+   "y0": 15.31,
+   "y1": 16.36
+  },
+  {
+   "uid": 226,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     38.606,
+     -15.305
+    ],
+    [
+     42.583,
+     -16.013
+    ],
+    [
+     42.714,
+     -15.275
+    ],
+    [
+     38.737,
+     -14.567
+    ]
+   ],
+   "y0": 15.512,
+   "y1": 16.562
+  },
+  {
+   "uid": 227,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     46.49,
+     -16.721
+    ],
+    [
+     50.278,
+     -17.472
+    ],
+    [
+     50.424,
+     -16.736
+    ],
+    [
+     46.636,
+     -15.985
+    ]
+   ],
+   "y0": 15.827,
+   "y1": 16.877
+  },
+  {
+   "uid": 228,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     49.805,
+     -17.378
+    ],
+    [
+     53.592,
+     -18.129
+    ],
+    [
+     53.738,
+     -17.393
+    ],
+    [
+     49.95,
+     -16.642
+    ]
+   ],
+   "y0": 16.014,
+   "y1": 17.064
+  },
+  {
+   "uid": 229,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     53.119,
+     -18.035
+    ],
+    [
+     56.907,
+     -18.786
+    ],
+    [
+     57.053,
+     -18.051
+    ],
+    [
+     53.265,
+     -17.3
+    ]
+   ],
+   "y0": 16.201,
+   "y1": 17.262
+  },
+  {
+   "uid": 230,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     56.433,
+     -18.692
+    ],
+    [
+     60.221,
+     -19.443
+    ],
+    [
+     60.367,
+     -18.708
+    ],
+    [
+     56.579,
+     -17.957
+    ]
+   ],
+   "y0": 16.376,
+   "y1": 17.435
+  },
+  {
+   "uid": 231,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     59.747,
+     -19.349
+    ],
+    [
+     63.535,
+     -20.1
+    ],
+    [
+     63.681,
+     -19.365
+    ],
+    [
+     59.893,
+     -18.614
+    ]
+   ],
+   "y0": 16.601,
+   "y1": 17.651
+  },
+  {
+   "uid": 232,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     63.062,
+     -20.007
+    ],
+    [
+     66.85,
+     -20.758
+    ],
+    [
+     66.995,
+     -20.022
+    ],
+    [
+     63.208,
+     -19.271
+    ]
+   ],
+   "y0": 16.756,
+   "y1": 17.806
+  },
+  {
+   "uid": 233,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     66.376,
+     -20.664
+    ],
+    [
+     70.164,
+     -21.415
+    ],
+    [
+     70.31,
+     -20.679
+    ],
+    [
+     66.522,
+     -19.928
+    ]
+   ],
+   "y0": 16.92,
+   "y1": 17.97
+  },
+  {
+   "uid": 234,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     69.677,
+     -21.31
+    ],
+    [
+     73.486,
+     -22.199
+    ],
+    [
+     73.657,
+     -21.468
+    ],
+    [
+     69.847,
+     -20.579
+    ]
+   ],
+   "y0": 17.11,
+   "y1": 18.269
+  },
+  {
+   "uid": 235,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     73.01,
+     -22.087
+    ],
+    [
+     76.82,
+     -22.976
+    ],
+    [
+     76.99,
+     -22.246
+    ],
+    [
+     73.18,
+     -21.357
+    ]
+   ],
+   "y0": 17.379,
+   "y1": 18.65
+  },
+  {
+   "uid": 236,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     76.343,
+     -22.865
+    ],
+    [
+     80.153,
+     -23.754
+    ],
+    [
+     80.323,
+     -23.024
+    ],
+    [
+     76.514,
+     -22.135
+    ]
+   ],
+   "y0": 17.767,
+   "y1": 18.952
+  },
+  {
+   "uid": 237,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     79.677,
+     -23.643
+    ],
+    [
+     83.486,
+     -24.532
+    ],
+    [
+     83.657,
+     -23.801
+    ],
+    [
+     79.847,
+     -22.913
+    ]
+   ],
+   "y0": 18.115,
+   "y1": 19.175
+  },
+  {
+   "uid": 238,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     83.01,
+     -24.421
+    ],
+    [
+     86.82,
+     -25.31
+    ],
+    [
+     86.99,
+     -24.579
+    ],
+    [
+     83.18,
+     -23.69
+    ]
+   ],
+   "y0": 18.308,
+   "y1": 19.433
+  },
+  {
+   "uid": 239,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     86.343,
+     -25.199
+    ],
+    [
+     90.153,
+     -26.087
+    ],
+    [
+     90.323,
+     -25.357
+    ],
+    [
+     86.514,
+     -24.468
+    ]
+   ],
+   "y0": 18.472,
+   "y1": 19.755
+  },
+  {
+   "uid": 240,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     89.677,
+     -25.976
+    ],
+    [
+     93.486,
+     -26.865
+    ],
+    [
+     93.657,
+     -26.135
+    ],
+    [
+     89.847,
+     -25.246
+    ]
+   ],
+   "y0": 18.688,
+   "y1": 19.943
+  },
+  {
+   "uid": 241,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     93.01,
+     -26.754
+    ],
+    [
+     96.82,
+     -27.643
+    ],
+    [
+     96.99,
+     -26.913
+    ],
+    [
+     93.18,
+     -26.024
+    ]
+   ],
+   "y0": 18.948,
+   "y1": 19.998
+  },
+  {
+   "uid": 242,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     96.343,
+     -27.532
+    ],
+    [
+     100.153,
+     -28.421
+    ],
+    [
+     100.323,
+     -27.69
+    ],
+    [
+     96.514,
+     -26.801
+    ]
+   ],
+   "y0": 19.136,
+   "y1": 20.186
+  },
+  {
+   "uid": 243,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -100.165,
+     -78.415
+    ],
+    [
+     -96.355,
+     -77.653
+    ],
+    [
+     -96.502,
+     -76.918
+    ],
+    [
+     -100.312,
+     -77.68
+    ]
+   ],
+   "y0": 27.274,
+   "y1": 28.324
+  },
+  {
+   "uid": 244,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -96.831,
+     -77.749
+    ],
+    [
+     -93.022,
+     -76.987
+    ],
+    [
+     -93.169,
+     -76.251
+    ],
+    [
+     -96.978,
+     -77.013
+    ]
+   ],
+   "y0": 27.148,
+   "y1": 28.198
+  },
+  {
+   "uid": 245,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -93.498,
+     -77.082
+    ],
+    [
+     -89.688,
+     -76.32
+    ],
+    [
+     -89.835,
+     -75.585
+    ],
+    [
+     -93.645,
+     -76.347
+    ]
+   ],
+   "y0": 27,
+   "y1": 28.05
+  },
+  {
+   "uid": 246,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -90.165,
+     -76.415
+    ],
+    [
+     -86.355,
+     -75.653
+    ],
+    [
+     -86.502,
+     -74.918
+    ],
+    [
+     -90.312,
+     -75.68
+    ]
+   ],
+   "y0": 26.792,
+   "y1": 27.842
+  },
+  {
+   "uid": 247,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -86.831,
+     -75.749
+    ],
+    [
+     -83.022,
+     -74.987
+    ],
+    [
+     -83.169,
+     -74.251
+    ],
+    [
+     -86.978,
+     -75.013
+    ]
+   ],
+   "y0": 26.518,
+   "y1": 27.629
+  },
+  {
+   "uid": 248,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -83.498,
+     -75.082
+    ],
+    [
+     -79.688,
+     -74.32
+    ],
+    [
+     -79.835,
+     -73.585
+    ],
+    [
+     -83.645,
+     -74.347
+    ]
+   ],
+   "y0": 26.308,
+   "y1": 27.377
+  },
+  {
+   "uid": 249,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -80.165,
+     -74.415
+    ],
+    [
+     -76.355,
+     -73.653
+    ],
+    [
+     -76.502,
+     -72.918
+    ],
+    [
+     -80.312,
+     -73.68
+    ]
+   ],
+   "y0": 26.106,
+   "y1": 27.156
+  },
+  {
+   "uid": 250,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -76.831,
+     -73.749
+    ],
+    [
+     -73.022,
+     -72.987
+    ],
+    [
+     -73.169,
+     -72.251
+    ],
+    [
+     -76.978,
+     -73.013
+    ]
+   ],
+   "y0": 25.904,
+   "y1": 27.01
+  },
+  {
+   "uid": 251,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -73.498,
+     -73.082
+    ],
+    [
+     -69.688,
+     -72.32
+    ],
+    [
+     -69.835,
+     -71.585
+    ],
+    [
+     -73.645,
+     -72.347
+    ]
+   ],
+   "y0": 25.753,
+   "y1": 26.803
+  },
+  {
+   "uid": 252,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -70.165,
+     -72.415
+    ],
+    [
+     -66.355,
+     -71.653
+    ],
+    [
+     -66.502,
+     -70.918
+    ],
+    [
+     -70.312,
+     -71.68
+    ]
+   ],
+   "y0": 25.636,
+   "y1": 26.686
+  },
+  {
+   "uid": 253,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -66.831,
+     -71.749
+    ],
+    [
+     -63.022,
+     -70.987
+    ],
+    [
+     -63.169,
+     -70.251
+    ],
+    [
+     -66.978,
+     -71.013
+    ]
+   ],
+   "y0": 25.482,
+   "y1": 26.532
+  },
+  {
+   "uid": 254,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.498,
+     -71.082
+    ],
+    [
+     -59.688,
+     -70.32
+    ],
+    [
+     -59.835,
+     -69.585
+    ],
+    [
+     -63.645,
+     -70.347
+    ]
+   ],
+   "y0": 25.351,
+   "y1": 26.401
+  },
+  {
+   "uid": 255,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -60.197,
+     -70.407
+    ],
+    [
+     -56.197,
+     -69.836
+    ],
+    [
+     -56.303,
+     -69.093
+    ],
+    [
+     -60.303,
+     -69.664
+    ]
+   ],
+   "y0": 25.169,
+   "y1": 26.219
+  },
+  {
+   "uid": 256,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -56.697,
+     -69.907
+    ],
+    [
+     -52.697,
+     -69.336
+    ],
+    [
+     -52.803,
+     -68.593
+    ],
+    [
+     -56.803,
+     -69.164
+    ]
+   ],
+   "y0": 25.008,
+   "y1": 26.058
+  },
+  {
+   "uid": 257,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -53.197,
+     -69.407
+    ],
+    [
+     -49.197,
+     -68.836
+    ],
+    [
+     -49.303,
+     -68.093
+    ],
+    [
+     -53.303,
+     -68.664
+    ]
+   ],
+   "y0": 24.865,
+   "y1": 25.915
+  },
+  {
+   "uid": 258,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -49.697,
+     -68.907
+    ],
+    [
+     -45.697,
+     -68.336
+    ],
+    [
+     -45.803,
+     -67.593
+    ],
+    [
+     -49.803,
+     -68.164
+    ]
+   ],
+   "y0": 24.661,
+   "y1": 25.73
+  },
+  {
+   "uid": 259,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -46.197,
+     -68.407
+    ],
+    [
+     -42.197,
+     -67.836
+    ],
+    [
+     -42.303,
+     -67.093
+    ],
+    [
+     -46.303,
+     -67.664
+    ]
+   ],
+   "y0": 24.553,
+   "y1": 25.603
+  },
+  {
+   "uid": 260,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -42.697,
+     -67.907
+    ],
+    [
+     -38.697,
+     -67.336
+    ],
+    [
+     -38.803,
+     -66.593
+    ],
+    [
+     -42.803,
+     -67.164
+    ]
+   ],
+   "y0": 24.475,
+   "y1": 25.525
+  },
+  {
+   "uid": 261,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -39.197,
+     -67.407
+    ],
+    [
+     -35.197,
+     -66.836
+    ],
+    [
+     -35.303,
+     -66.093
+    ],
+    [
+     -39.303,
+     -66.664
+    ]
+   ],
+   "y0": 24.243,
+   "y1": 25.32
+  },
+  {
+   "uid": 262,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -35.697,
+     -66.907
+    ],
+    [
+     -31.697,
+     -66.336
+    ],
+    [
+     -31.803,
+     -65.593
+    ],
+    [
+     -35.803,
+     -66.164
+    ]
+   ],
+   "y0": 24.02,
+   "y1": 25.114
+  },
+  {
+   "uid": 263,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -32.197,
+     -66.407
+    ],
+    [
+     -28.197,
+     -65.836
+    ],
+    [
+     -28.303,
+     -65.093
+    ],
+    [
+     -32.303,
+     -65.664
+    ]
+   ],
+   "y0": 23.947,
+   "y1": 24.997
+  },
+  {
+   "uid": 264,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -28.697,
+     -65.907
+    ],
+    [
+     -24.697,
+     -65.336
+    ],
+    [
+     -24.803,
+     -64.593
+    ],
+    [
+     -28.803,
+     -65.164
+    ]
+   ],
+   "y0": 23.909,
+   "y1": 24.959
+  },
+  {
+   "uid": 265,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -25.226,
+     -65.385
+    ],
+    [
+     -21.341,
+     -65.214
+    ],
+    [
+     -21.374,
+     -64.465
+    ],
+    [
+     -25.259,
+     -64.636
+    ]
+   ],
+   "y0": 23.905,
+   "y1": 24.955
+  },
+  {
+   "uid": 266,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -21.826,
+     -65.235
+    ],
+    [
+     -17.941,
+     -65.064
+    ],
+    [
+     -17.974,
+     -64.315
+    ],
+    [
+     -21.859,
+     -64.486
+    ]
+   ],
+   "y0": 23.747,
+   "y1": 24.797
+  },
+  {
+   "uid": 267,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -18.426,
+     -65.085
+    ],
+    [
+     -14.541,
+     -64.914
+    ],
+    [
+     -14.574,
+     -64.165
+    ],
+    [
+     -18.459,
+     -64.336
+    ]
+   ],
+   "y0": 23.658,
+   "y1": 24.708
+  },
+  {
+   "uid": 268,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -15.026,
+     -64.935
+    ],
+    [
+     -11.141,
+     -64.764
+    ],
+    [
+     -11.174,
+     -64.015
+    ],
+    [
+     -15.059,
+     -64.186
+    ]
+   ],
+   "y0": 23.599,
+   "y1": 24.649
+  },
+  {
+   "uid": 269,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -11.626,
+     -64.785
+    ],
+    [
+     -7.741,
+     -64.614
+    ],
+    [
+     -7.774,
+     -63.865
+    ],
+    [
+     -11.659,
+     -64.036
+    ]
+   ],
+   "y0": 23.603,
+   "y1": 24.653
+  },
+  {
+   "uid": 270,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -8.226,
+     -64.635
+    ],
+    [
+     -4.341,
+     -64.464
+    ],
+    [
+     -4.374,
+     -63.715
+    ],
+    [
+     -8.259,
+     -63.886
+    ]
+   ],
+   "y0": 23.655,
+   "y1": 24.705
+  },
+  {
+   "uid": 271,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -4.826,
+     -64.485
+    ],
+    [
+     -0.941,
+     -64.314
+    ],
+    [
+     -0.974,
+     -63.565
+    ],
+    [
+     -4.859,
+     -63.736
+    ]
+   ],
+   "y0": 23.705,
+   "y1": 24.755
+  },
+  {
+   "uid": 272,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -1.426,
+     -64.335
+    ],
+    [
+     2.459,
+     -64.164
+    ],
+    [
+     2.426,
+     -63.415
+    ],
+    [
+     -1.459,
+     -63.586
+    ]
+   ],
+   "y0": 23.718,
+   "y1": 24.768
+  },
+  {
+   "uid": 273,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     1.974,
+     -64.185
+    ],
+    [
+     5.859,
+     -64.014
+    ],
+    [
+     5.826,
+     -63.265
+    ],
+    [
+     1.941,
+     -63.436
+    ]
+   ],
+   "y0": 23.715,
+   "y1": 24.765
+  },
+  {
+   "uid": 274,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     5.374,
+     -64.035
+    ],
+    [
+     9.259,
+     -63.864
+    ],
+    [
+     9.226,
+     -63.115
+    ],
+    [
+     5.341,
+     -63.286
+    ]
+   ],
+   "y0": 23.727,
+   "y1": 24.777
+  },
+  {
+   "uid": 275,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     8.774,
+     -63.885
+    ],
+    [
+     12.659,
+     -63.714
+    ],
+    [
+     12.626,
+     -62.965
+    ],
+    [
+     8.741,
+     -63.136
+    ]
+   ],
+   "y0": 23.722,
+   "y1": 24.772
+  },
+  {
+   "uid": 276,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     12.174,
+     -63.735
+    ],
+    [
+     16.059,
+     -63.564
+    ],
+    [
+     16.026,
+     -62.815
+    ],
+    [
+     12.141,
+     -62.986
+    ]
+   ],
+   "y0": 23.715,
+   "y1": 24.765
+  },
+  {
+   "uid": 277,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     19.927,
+     -63.561
+    ],
+    [
+     23.976,
+     -63.773
+    ],
+    [
+     24.016,
+     -63.024
+    ],
+    [
+     19.967,
+     -62.812
+    ]
+   ],
+   "y0": 23.71,
+   "y1": 24.76
+  },
+  {
+   "uid": 278,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     23.47,
+     -63.747
+    ],
+    [
+     27.519,
+     -63.959
+    ],
+    [
+     27.558,
+     -63.21
+    ],
+    [
+     23.509,
+     -62.998
+    ]
+   ],
+   "y0": 23.646,
+   "y1": 24.696
+  },
+  {
+   "uid": 279,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     27.013,
+     -63.933
+    ],
+    [
+     31.062,
+     -64.145
+    ],
+    [
+     31.101,
+     -63.396
+    ],
+    [
+     27.052,
+     -63.184
+    ]
+   ],
+   "y0": 23.651,
+   "y1": 24.701
+  },
+  {
+   "uid": 280,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     30.556,
+     -64.118
+    ],
+    [
+     34.605,
+     -64.331
+    ],
+    [
+     34.644,
+     -63.582
+    ],
+    [
+     30.595,
+     -63.369
+    ]
+   ],
+   "y0": 23.678,
+   "y1": 24.728
+  },
+  {
+   "uid": 281,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     34.099,
+     -64.304
+    ],
+    [
+     38.148,
+     -64.516
+    ],
+    [
+     38.187,
+     -63.767
+    ],
+    [
+     34.138,
+     -63.555
+    ]
+   ],
+   "y0": 23.841,
+   "y1": 24.891
+  },
+  {
+   "uid": 282,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     37.642,
+     -64.49
+    ],
+    [
+     41.691,
+     -64.702
+    ],
+    [
+     41.73,
+     -63.953
+    ],
+    [
+     37.681,
+     -63.741
+    ]
+   ],
+   "y0": 23.963,
+   "y1": 25.013
+  },
+  {
+   "uid": 283,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     41.184,
+     -64.676
+    ],
+    [
+     45.233,
+     -64.888
+    ],
+    [
+     45.273,
+     -64.139
+    ],
+    [
+     41.224,
+     -63.927
+    ]
+   ],
+   "y0": 24.154,
+   "y1": 25.204
+  },
+  {
+   "uid": 284,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     44.694,
+     -64.825
+    ],
+    [
+     48.504,
+     -65.524
+    ],
+    [
+     48.639,
+     -64.786
+    ],
+    [
+     44.83,
+     -64.087
+    ]
+   ],
+   "y0": 24.261,
+   "y1": 25.311
+  },
+  {
+   "uid": 285,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     48.028,
+     -65.436
+    ],
+    [
+     51.837,
+     -66.135
+    ],
+    [
+     51.972,
+     -65.397
+    ],
+    [
+     48.163,
+     -64.699
+    ]
+   ],
+   "y0": 24.392,
+   "y1": 25.442
+  },
+  {
+   "uid": 286,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     51.361,
+     -66.047
+    ],
+    [
+     55.17,
+     -66.746
+    ],
+    [
+     55.306,
+     -66.008
+    ],
+    [
+     51.496,
+     -65.31
+    ]
+   ],
+   "y0": 24.494,
+   "y1": 25.66
+  },
+  {
+   "uid": 287,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     54.694,
+     -66.659
+    ],
+    [
+     58.504,
+     -67.357
+    ],
+    [
+     58.639,
+     -66.619
+    ],
+    [
+     54.83,
+     -65.921
+    ]
+   ],
+   "y0": 24.755,
+   "y1": 25.905
+  },
+  {
+   "uid": 288,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     58.028,
+     -67.27
+    ],
+    [
+     61.837,
+     -67.968
+    ],
+    [
+     61.972,
+     -67.23
+    ],
+    [
+     58.163,
+     -66.532
+    ]
+   ],
+   "y0": 25.022,
+   "y1": 26.072
+  },
+  {
+   "uid": 289,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     61.361,
+     -67.881
+    ],
+    [
+     65.17,
+     -68.579
+    ],
+    [
+     65.306,
+     -67.841
+    ],
+    [
+     61.496,
+     -67.143
+    ]
+   ],
+   "y0": 25.147,
+   "y1": 26.197
+  },
+  {
+   "uid": 290,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     64.694,
+     -68.492
+    ],
+    [
+     68.504,
+     -69.19
+    ],
+    [
+     68.639,
+     -68.453
+    ],
+    [
+     64.83,
+     -67.754
+    ]
+   ],
+   "y0": 25.264,
+   "y1": 26.314
+  },
+  {
+   "uid": 291,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     68.028,
+     -69.103
+    ],
+    [
+     71.837,
+     -69.801
+    ],
+    [
+     71.972,
+     -69.064
+    ],
+    [
+     68.163,
+     -68.365
+    ]
+   ],
+   "y0": 25.332,
+   "y1": 26.382
+  },
+  {
+   "uid": 292,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     71.361,
+     -69.714
+    ],
+    [
+     75.17,
+     -70.413
+    ],
+    [
+     75.306,
+     -69.675
+    ],
+    [
+     71.496,
+     -68.976
+    ]
+   ],
+   "y0": 25.543,
+   "y1": 26.593
+  },
+  {
+   "uid": 293,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     74.657,
+     -70.303
+    ],
+    [
+     78.739,
+     -71.283
+    ],
+    [
+     78.914,
+     -70.554
+    ],
+    [
+     74.832,
+     -69.574
+    ]
+   ],
+   "y0": 25.592,
+   "y1": 26.885
+  },
+  {
+   "uid": 294,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     78.229,
+     -71.161
+    ],
+    [
+     82.31,
+     -72.14
+    ],
+    [
+     82.485,
+     -71.411
+    ],
+    [
+     78.404,
+     -70.431
+    ]
+   ],
+   "y0": 26.009,
+   "y1": 27.184
+  },
+  {
+   "uid": 295,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     81.8,
+     -72.018
+    ],
+    [
+     85.882,
+     -72.997
+    ],
+    [
+     86.057,
+     -72.268
+    ],
+    [
+     81.975,
+     -71.288
+    ]
+   ],
+   "y0": 26.351,
+   "y1": 27.401
+  },
+  {
+   "uid": 296,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     85.372,
+     -72.875
+    ],
+    [
+     89.453,
+     -73.854
+    ],
+    [
+     89.628,
+     -73.125
+    ],
+    [
+     85.547,
+     -72.146
+    ]
+   ],
+   "y0": 26.517,
+   "y1": 27.567
+  },
+  {
+   "uid": 297,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     88.943,
+     -73.732
+    ],
+    [
+     93.025,
+     -74.712
+    ],
+    [
+     93.2,
+     -73.982
+    ],
+    [
+     89.118,
+     -73.003
+    ]
+   ],
+   "y0": 26.623,
+   "y1": 27.673
+  },
+  {
+   "uid": 298,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     92.515,
+     -74.589
+    ],
+    [
+     96.596,
+     -75.569
+    ],
+    [
+     96.771,
+     -74.839
+    ],
+    [
+     92.69,
+     -73.86
+    ]
+   ],
+   "y0": 26.792,
+   "y1": 27.842
+  },
+  {
+   "uid": 299,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     96.086,
+     -75.446
+    ],
+    [
+     100.168,
+     -76.426
+    ],
+    [
+     100.343,
+     -75.697
+    ],
+    [
+     96.261,
+     -74.717
+    ]
+   ],
+   "y0": 26.884,
+   "y1": 27.934
+  },
+  {
+   "uid": 300,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     31.18,
+     36.845
+    ],
+    [
+     27.487,
+     35.218
+    ],
+    [
+     27.79,
+     34.532
+    ],
+    [
+     31.482,
+     36.158
+    ]
+   ],
+   "y0": 8.102,
+   "y1": 9.152
+  },
+  {
+   "uid": 301,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     27.949,
+     35.422
+    ],
+    [
+     24.257,
+     33.795
+    ],
+    [
+     24.559,
+     33.109
+    ],
+    [
+     28.251,
+     34.735
+    ]
+   ],
+   "y0": 8.174,
+   "y1": 9.224
+  },
+  {
+   "uid": 302,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     24.718,
+     33.999
+    ],
+    [
+     21.026,
+     32.372
+    ],
+    [
+     21.328,
+     31.686
+    ],
+    [
+     25.02,
+     33.312
+    ]
+   ],
+   "y0": 8.254,
+   "y1": 9.304
+  },
+  {
+   "uid": 303,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     21.487,
+     32.576
+    ],
+    [
+     17.795,
+     30.949
+    ],
+    [
+     18.097,
+     30.263
+    ],
+    [
+     21.79,
+     31.889
+    ]
+   ],
+   "y0": 8.439,
+   "y1": 9.489
+  },
+  {
+   "uid": 304,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     18.257,
+     31.153
+    ],
+    [
+     14.564,
+     29.526
+    ],
+    [
+     14.867,
+     28.84
+    ],
+    [
+     18.559,
+     30.466
+    ]
+   ],
+   "y0": 8.603,
+   "y1": 9.653
+  },
+  {
+   "uid": 305,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     15.026,
+     29.729
+    ],
+    [
+     11.333,
+     28.103
+    ],
+    [
+     11.636,
+     27.417
+    ],
+    [
+     15.328,
+     29.043
+    ]
+   ],
+   "y0": 8.751,
+   "y1": 9.801
+  },
+  {
+   "uid": 306,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     11.795,
+     28.306
+    ],
+    [
+     8.103,
+     26.68
+    ],
+    [
+     8.405,
+     25.994
+    ],
+    [
+     12.097,
+     27.62
+    ]
+   ],
+   "y0": 8.943,
+   "y1": 9.993
+  },
+  {
+   "uid": 307,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     8.564,
+     26.883
+    ],
+    [
+     4.872,
+     25.257
+    ],
+    [
+     5.174,
+     24.571
+    ],
+    [
+     8.867,
+     26.197
+    ]
+   ],
+   "y0": 9.02,
+   "y1": 10.07
+  },
+  {
+   "uid": 308,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     5.333,
+     25.46
+    ],
+    [
+     1.641,
+     23.834
+    ],
+    [
+     1.943,
+     23.147
+    ],
+    [
+     5.636,
+     24.774
+    ]
+   ],
+   "y0": 9.247,
+   "y1": 10.297
+  },
+  {
+   "uid": 309,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     2.103,
+     24.037
+    ],
+    [
+     -1.59,
+     22.411
+    ],
+    [
+     -1.287,
+     21.724
+    ],
+    [
+     2.405,
+     23.351
+    ]
+   ],
+   "y0": 9.414,
+   "y1": 10.464
+  },
+  {
+   "uid": 310,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -1.128,
+     22.614
+    ],
+    [
+     -4.82,
+     20.988
+    ],
+    [
+     -4.518,
+     20.301
+    ],
+    [
+     -0.826,
+     21.928
+    ]
+   ],
+   "y0": 9.565,
+   "y1": 10.615
+  },
+  {
+   "uid": 311,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -4.359,
+     21.191
+    ],
+    [
+     -8.051,
+     19.565
+    ],
+    [
+     -7.749,
+     18.878
+    ],
+    [
+     -4.057,
+     20.505
+    ]
+   ],
+   "y0": 9.859,
+   "y1": 10.909
+  },
+  {
+   "uid": 312,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -7.59,
+     19.768
+    ],
+    [
+     -11.282,
+     18.142
+    ],
+    [
+     -10.98,
+     17.455
+    ],
+    [
+     -7.287,
+     19.082
+    ]
+   ],
+   "y0": 10.009,
+   "y1": 11.059
+  },
+  {
+   "uid": 313,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     28.98,
+     42.045
+    ],
+    [
+     25.287,
+     40.418
+    ],
+    [
+     25.59,
+     39.732
+    ],
+    [
+     29.282,
+     41.358
+    ]
+   ],
+   "y0": 7.292,
+   "y1": 8.342
+  },
+  {
+   "uid": 314,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     25.749,
+     40.622
+    ],
+    [
+     22.057,
+     38.995
+    ],
+    [
+     22.359,
+     38.309
+    ],
+    [
+     26.051,
+     39.935
+    ]
+   ],
+   "y0": 7.442,
+   "y1": 8.492
+  },
+  {
+   "uid": 315,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     22.518,
+     39.199
+    ],
+    [
+     18.826,
+     37.572
+    ],
+    [
+     19.128,
+     36.886
+    ],
+    [
+     22.82,
+     38.512
+    ]
+   ],
+   "y0": 7.644,
+   "y1": 8.694
+  },
+  {
+   "uid": 316,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     19.287,
+     37.776
+    ],
+    [
+     15.595,
+     36.149
+    ],
+    [
+     15.897,
+     35.463
+    ],
+    [
+     19.59,
+     37.089
+    ]
+   ],
+   "y0": 7.815,
+   "y1": 8.865
+  },
+  {
+   "uid": 317,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     16.057,
+     36.353
+    ],
+    [
+     12.364,
+     34.726
+    ],
+    [
+     12.667,
+     34.04
+    ],
+    [
+     16.359,
+     35.666
+    ]
+   ],
+   "y0": 7.935,
+   "y1": 8.985
+  },
+  {
+   "uid": 318,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     12.826,
+     34.929
+    ],
+    [
+     9.133,
+     33.303
+    ],
+    [
+     9.436,
+     32.617
+    ],
+    [
+     13.128,
+     34.243
+    ]
+   ],
+   "y0": 8.138,
+   "y1": 9.188
+  },
+  {
+   "uid": 319,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     9.595,
+     33.506
+    ],
+    [
+     5.903,
+     31.88
+    ],
+    [
+     6.205,
+     31.194
+    ],
+    [
+     9.897,
+     32.82
+    ]
+   ],
+   "y0": 8.273,
+   "y1": 9.323
+  },
+  {
+   "uid": 320,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     6.364,
+     32.083
+    ],
+    [
+     2.672,
+     30.457
+    ],
+    [
+     2.974,
+     29.771
+    ],
+    [
+     6.667,
+     31.397
+    ]
+   ],
+   "y0": 8.507,
+   "y1": 9.557
+  },
+  {
+   "uid": 321,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     3.133,
+     30.66
+    ],
+    [
+     -0.559,
+     29.034
+    ],
+    [
+     -0.257,
+     28.347
+    ],
+    [
+     3.436,
+     29.974
+    ]
+   ],
+   "y0": 8.629,
+   "y1": 9.679
+  },
+  {
+   "uid": 322,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -0.097,
+     29.237
+    ],
+    [
+     -3.79,
+     27.611
+    ],
+    [
+     -3.487,
+     26.924
+    ],
+    [
+     0.205,
+     28.551
+    ]
+   ],
+   "y0": 8.873,
+   "y1": 9.923
+  },
+  {
+   "uid": 323,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -3.328,
+     27.814
+    ],
+    [
+     -7.02,
+     26.188
+    ],
+    [
+     -6.718,
+     25.501
+    ],
+    [
+     -3.026,
+     27.128
+    ]
+   ],
+   "y0": 9.053,
+   "y1": 10.103
+  },
+  {
+   "uid": 324,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -6.559,
+     26.391
+    ],
+    [
+     -10.251,
+     24.765
+    ],
+    [
+     -9.949,
+     24.078
+    ],
+    [
+     -6.257,
+     25.705
+    ]
+   ],
+   "y0": 9.254,
+   "y1": 10.304
+  },
+  {
+   "uid": 325,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -9.79,
+     24.968
+    ],
+    [
+     -13.482,
+     23.342
+    ],
+    [
+     -13.18,
+     22.655
+    ],
+    [
+     -9.487,
+     24.282
+    ]
+   ],
+   "y0": 9.467,
+   "y1": 10.517
+  },
+  {
+   "uid": 326,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     19.206,
+     -67.377
+    ],
+    [
+     17.063,
+     -71.234
+    ],
+    [
+     17.719,
+     -71.598
+    ],
+    [
+     19.862,
+     -67.741
+    ]
+   ],
+   "y0": 24.587,
+   "y1": 26.095
+  },
+  {
+   "uid": 327,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     17.331,
+     -70.752
+    ],
+    [
+     15.188,
+     -74.609
+    ],
+    [
+     15.844,
+     -74.973
+    ],
+    [
+     17.987,
+     -71.116
+    ]
+   ],
+   "y0": 25.242,
+   "y1": 26.672
+  },
+  {
+   "uid": 328,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     15.456,
+     -74.127
+    ],
+    [
+     13.313,
+     -77.984
+    ],
+    [
+     13.969,
+     -78.348
+    ],
+    [
+     16.112,
+     -74.491
+    ]
+   ],
+   "y0": 25.845,
+   "y1": 27.304
+  },
+  {
+   "uid": 329,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     13.581,
+     -77.502
+    ],
+    [
+     11.438,
+     -81.359
+    ],
+    [
+     12.094,
+     -81.723
+    ],
+    [
+     14.237,
+     -77.866
+    ]
+   ],
+   "y0": 26.493,
+   "y1": 27.964
+  },
+  {
+   "uid": 330,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     14.406,
+     -64.777
+    ],
+    [
+     12.263,
+     -68.634
+    ],
+    [
+     12.919,
+     -68.998
+    ],
+    [
+     15.062,
+     -65.141
+    ]
+   ],
+   "y0": 24.117,
+   "y1": 25.483
+  },
+  {
+   "uid": 331,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     12.531,
+     -68.152
+    ],
+    [
+     10.388,
+     -72.009
+    ],
+    [
+     11.044,
+     -72.373
+    ],
+    [
+     13.187,
+     -68.516
+    ]
+   ],
+   "y0": 24.666,
+   "y1": 26.232
+  },
+  {
+   "uid": 332,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     10.656,
+     -71.527
+    ],
+    [
+     8.513,
+     -75.384
+    ],
+    [
+     9.169,
+     -75.748
+    ],
+    [
+     11.312,
+     -71.891
+    ]
+   ],
+   "y0": 25.407,
+   "y1": 26.855
+  },
+  {
+   "uid": 333,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     8.781,
+     -74.902
+    ],
+    [
+     6.638,
+     -78.759
+    ],
+    [
+     7.294,
+     -79.123
+    ],
+    [
+     9.437,
+     -75.266
+    ]
+   ],
+   "y0": 26.023,
+   "y1": 27.463
+  },
+  {
+   "uid": 334,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -62.35,
+     88.296
+    ],
+    [
+     -62.731,
+     84.105
+    ],
+    [
+     -61.984,
+     84.037
+    ],
+    [
+     -61.603,
+     88.228
+    ]
+   ],
+   "y0": 2.725,
+   "y1": 3.806
+  },
+  {
+   "uid": 335,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -62.683,
+     84.629
+    ],
+    [
+     -63.064,
+     80.439
+    ],
+    [
+     -62.317,
+     80.371
+    ],
+    [
+     -61.936,
+     84.561
+    ]
+   ],
+   "y0": 3.087,
+   "y1": 4.269
+  },
+  {
+   "uid": 336,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.016,
+     80.963
+    ],
+    [
+     -63.397,
+     76.772
+    ],
+    [
+     -62.65,
+     76.704
+    ],
+    [
+     -62.269,
+     80.895
+    ]
+   ],
+   "y0": 3.565,
+   "y1": 4.815
+  },
+  {
+   "uid": 337,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.35,
+     77.296
+    ],
+    [
+     -63.731,
+     73.105
+    ],
+    [
+     -62.984,
+     73.037
+    ],
+    [
+     -62.603,
+     77.228
+    ]
+   ],
+   "y0": 4.08,
+   "y1": 5.324
+  },
+  {
+   "uid": 338,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -63.683,
+     73.629
+    ],
+    [
+     -64.064,
+     69.439
+    ],
+    [
+     -63.317,
+     69.371
+    ],
+    [
+     -62.936,
+     73.561
+    ]
+   ],
+   "y0": 4.622,
+   "y1": 5.793
+  },
+  {
+   "uid": 339,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -64.016,
+     69.963
+    ],
+    [
+     -64.397,
+     65.772
+    ],
+    [
+     -63.65,
+     65.704
+    ],
+    [
+     -63.269,
+     69.895
+    ]
+   ],
+   "y0": 5.09,
+   "y1": 6.164
+  },
+  {
+   "uid": 340,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -64.353,
+     66.28
+    ],
+    [
+     -64.68,
+     62.296
+    ],
+    [
+     -63.932,
+     62.235
+    ],
+    [
+     -63.606,
+     66.218
+    ]
+   ],
+   "y0": 5.471,
+   "y1": 6.525
+  },
+  {
+   "uid": 341,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -64.639,
+     62.794
+    ],
+    [
+     -64.966,
+     58.81
+    ],
+    [
+     -64.218,
+     58.749
+    ],
+    [
+     -63.892,
+     62.733
+    ]
+   ],
+   "y0": 5.84,
+   "y1": 6.89
+  },
+  {
+   "uid": 342,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -64.925,
+     59.308
+    ],
+    [
+     -65.251,
+     55.325
+    ],
+    [
+     -64.504,
+     55.263
+    ],
+    [
+     -64.177,
+     59.247
+    ]
+   ],
+   "y0": 6.183,
+   "y1": 7.315
+  },
+  {
+   "uid": 343,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -65.21,
+     55.822
+    ],
+    [
+     -65.537,
+     51.839
+    ],
+    [
+     -64.79,
+     51.778
+    ],
+    [
+     -64.463,
+     55.761
+    ]
+   ],
+   "y0": 6.594,
+   "y1": 7.803
+  },
+  {
+   "uid": 344,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -65.496,
+     52.337
+    ],
+    [
+     -65.823,
+     48.353
+    ],
+    [
+     -65.075,
+     48.292
+    ],
+    [
+     -64.749,
+     52.275
+    ]
+   ],
+   "y0": 7.068,
+   "y1": 8.289
+  },
+  {
+   "uid": 345,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -65.782,
+     48.851
+    ],
+    [
+     -66.108,
+     44.867
+    ],
+    [
+     -65.361,
+     44.806
+    ],
+    [
+     -65.034,
+     48.79
+    ]
+   ],
+   "y0": 7.558,
+   "y1": 8.682
+  },
+  {
+   "uid": 346,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -66.068,
+     45.365
+    ],
+    [
+     -66.394,
+     41.382
+    ],
+    [
+     -65.647,
+     41.32
+    ],
+    [
+     -65.32,
+     45.304
+    ]
+   ],
+   "y0": 8.002,
+   "y1": 9.078
+  },
+  {
+   "uid": 347,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -50.353,
+     -14.917
+    ],
+    [
+     -50.68,
+     -18.966
+    ],
+    [
+     -49.932,
+     -19.026
+    ],
+    [
+     -49.606,
+     -14.977
+    ]
+   ],
+   "y0": 15.874,
+   "y1": 17.104
+  },
+  {
+   "uid": 348,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -50.639,
+     -18.46
+    ],
+    [
+     -50.966,
+     -22.509
+    ],
+    [
+     -50.218,
+     -22.569
+    ],
+    [
+     -49.892,
+     -18.52
+    ]
+   ],
+   "y0": 16.396,
+   "y1": 17.683
+  },
+  {
+   "uid": 349,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -50.925,
+     -22.003
+    ],
+    [
+     -51.251,
+     -26.051
+    ],
+    [
+     -50.504,
+     -26.112
+    ],
+    [
+     -50.177,
+     -22.063
+    ]
+   ],
+   "y0": 16.937,
+   "y1": 18.293
+  },
+  {
+   "uid": 350,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -51.211,
+     -25.545
+    ],
+    [
+     -51.537,
+     -29.594
+    ],
+    [
+     -50.789,
+     -29.655
+    ],
+    [
+     -50.463,
+     -25.606
+    ]
+   ],
+   "y0": 17.558,
+   "y1": 18.822
+  },
+  {
+   "uid": 351,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -51.496,
+     -29.088
+    ],
+    [
+     -51.823,
+     -33.137
+    ],
+    [
+     -51.075,
+     -33.197
+    ],
+    [
+     -50.749,
+     -29.149
+    ]
+   ],
+   "y0": 18.092,
+   "y1": 19.315
+  },
+  {
+   "uid": 352,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -51.782,
+     -32.631
+    ],
+    [
+     -52.108,
+     -36.68
+    ],
+    [
+     -51.361,
+     -36.74
+    ],
+    [
+     -51.034,
+     -32.691
+    ]
+   ],
+   "y0": 18.603,
+   "y1": 19.928
+  },
+  {
+   "uid": 353,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -52.068,
+     -36.174
+    ],
+    [
+     -52.394,
+     -40.223
+    ],
+    [
+     -51.647,
+     -40.283
+    ],
+    [
+     -51.32,
+     -36.234
+    ]
+   ],
+   "y0": 19.2,
+   "y1": 20.596
+  },
+  {
+   "uid": 354,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -52.346,
+     -39.706
+    ],
+    [
+     -52.775,
+     -43.791
+    ],
+    [
+     -52.029,
+     -43.869
+    ],
+    [
+     -51.6,
+     -39.784
+    ]
+   ],
+   "y0": 19.842,
+   "y1": 21.264
+  },
+  {
+   "uid": 355,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -52.721,
+     -43.281
+    ],
+    [
+     -53.15,
+     -47.366
+    ],
+    [
+     -52.404,
+     -47.444
+    ],
+    [
+     -51.975,
+     -43.359
+    ]
+   ],
+   "y0": 20.489,
+   "y1": 21.915
+  },
+  {
+   "uid": 356,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -53.096,
+     -46.856
+    ],
+    [
+     -53.525,
+     -50.941
+    ],
+    [
+     -52.779,
+     -51.019
+    ],
+    [
+     -52.35,
+     -46.934
+    ]
+   ],
+   "y0": 21.127,
+   "y1": 22.565
+  },
+  {
+   "uid": 357,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -53.471,
+     -50.431
+    ],
+    [
+     -53.9,
+     -54.516
+    ],
+    [
+     -53.154,
+     -54.594
+    ],
+    [
+     -52.725,
+     -50.509
+    ]
+   ],
+   "y0": 21.788,
+   "y1": 23.255
+  },
+  {
+   "uid": 358,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -53.846,
+     -54.006
+    ],
+    [
+     -54.275,
+     -58.091
+    ],
+    [
+     -53.529,
+     -58.169
+    ],
+    [
+     -53.1,
+     -54.084
+    ]
+   ],
+   "y0": 22.508,
+   "y1": 23.847
+  },
+  {
+   "uid": 359,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -54.221,
+     -57.581
+    ],
+    [
+     -54.65,
+     -61.666
+    ],
+    [
+     -53.904,
+     -61.744
+    ],
+    [
+     -53.475,
+     -57.659
+    ]
+   ],
+   "y0": 23.139,
+   "y1": 24.483
+  },
+  {
+   "uid": 360,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -54.596,
+     -61.156
+    ],
+    [
+     -55.025,
+     -65.241
+    ],
+    [
+     -54.279,
+     -65.319
+    ],
+    [
+     -53.85,
+     -61.234
+    ]
+   ],
+   "y0": 23.716,
+   "y1": 25.111
+  },
+  {
+   "uid": 361,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     -54.971,
+     -64.731
+    ],
+    [
+     -55.4,
+     -68.816
+    ],
+    [
+     -54.654,
+     -68.894
+    ],
+    [
+     -54.225,
+     -64.809
+    ]
+   ],
+   "y0": 24.363,
+   "y1": 25.76
+  },
+  {
+   "uid": 362,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     57.369,
+     4.431
+    ],
+    [
+     59.655,
+     1.689
+    ],
+    [
+     60.231,
+     2.169
+    ],
+    [
+     57.945,
+     4.911
+    ]
+   ],
+   "y0": 13.276,
+   "y1": 14.379
+  },
+  {
+   "uid": 363,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     59.524,
+     1.766
+    ],
+    [
+     62.953,
+     1.194
+    ],
+    [
+     63.076,
+     1.934
+    ],
+    [
+     59.647,
+     2.506
+    ]
+   ],
+   "y0": 13.623,
+   "y1": 14.673
+  },
+  {
+   "uid": 364,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     62.802,
+     1.168
+    ],
+    [
+     65.773,
+     2.882
+    ],
+    [
+     65.398,
+     3.532
+    ],
+    [
+     62.427,
+     1.818
+    ]
+   ],
+   "y0": 13.672,
+   "y1": 14.722
+  },
+  {
+   "uid": 365,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     65.672,
+     2.76
+    ],
+    [
+     66.929,
+     6.074
+    ],
+    [
+     66.228,
+     6.34
+    ],
+    [
+     64.971,
+     3.026
+    ]
+   ],
+   "y0": 13.35,
+   "y1": 14.439
+  },
+  {
+   "uid": 366,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     66.929,
+     5.926
+    ],
+    [
+     65.672,
+     9.24
+    ],
+    [
+     64.971,
+     8.974
+    ],
+    [
+     66.228,
+     5.66
+    ]
+   ],
+   "y0": 12.953,
+   "y1": 14.08
+  },
+  {
+   "uid": 367,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     65.773,
+     9.118
+    ],
+    [
+     62.802,
+     10.832
+    ],
+    [
+     62.427,
+     10.182
+    ],
+    [
+     65.398,
+     8.468
+    ]
+   ],
+   "y0": 12.65,
+   "y1": 13.731
+  },
+  {
+   "uid": 368,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     62.953,
+     10.806
+    ],
+    [
+     59.524,
+     10.234
+    ],
+    [
+     59.647,
+     9.494
+    ],
+    [
+     63.076,
+     10.066
+    ]
+   ],
+   "y0": 12.639,
+   "y1": 13.689
+  },
+  {
+   "uid": 369,
+   "asset": "A08.2",
+   "polyXZ": [
+    [
+     59.655,
+     10.311
+    ],
+    [
+     57.369,
+     7.569
+    ],
+    [
+     57.945,
+     7.089
+    ],
+    [
+     60.231,
+     9.831
+    ]
+   ],
+   "y0": 12.639,
+   "y1": 13.689
+  },
+  {
+   "uid": 370,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -45.5,
+     -105.925
+    ],
+    [
+     -39.3,
+     -105.925
+    ],
+    [
+     -39.3,
+     -105.075
+    ],
+    [
+     -45.5,
+     -105.075
+    ]
+   ],
+   "y0": 31.407,
+   "y1": 34.357
+  },
+  {
+   "uid": 371,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -39.3,
+     -105.925
+    ],
+    [
+     -33.1,
+     -105.925
+    ],
+    [
+     -33.1,
+     -105.075
+    ],
+    [
+     -39.3,
+     -105.075
+    ]
+   ],
+   "y0": 31.407,
+   "y1": 34.357
+  },
+  {
+   "uid": 372,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -33.1,
+     -105.925
+    ],
+    [
+     -26.9,
+     -105.925
+    ],
+    [
+     -26.9,
+     -105.075
+    ],
+    [
+     -33.1,
+     -105.075
+    ]
+   ],
+   "y0": 31.403,
+   "y1": 34.353
+  },
+  {
+   "uid": 373,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -26.9,
+     -105.925
+    ],
+    [
+     -20.7,
+     -105.925
+    ],
+    [
+     -20.7,
+     -105.075
+    ],
+    [
+     -26.9,
+     -105.075
+    ]
+   ],
+   "y0": 31.403,
+   "y1": 34.353
+  },
+  {
+   "uid": 374,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -20.7,
+     -105.925
+    ],
+    [
+     -14.5,
+     -105.925
+    ],
+    [
+     -14.5,
+     -105.075
+    ],
+    [
+     -20.7,
+     -105.075
+    ]
+   ],
+   "y0": 31.447,
+   "y1": 34.397
+  },
+  {
+   "uid": 375,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -14.5,
+     -105.925
+    ],
+    [
+     -8.3,
+     -105.925
+    ],
+    [
+     -8.3,
+     -105.075
+    ],
+    [
+     -14.5,
+     -105.075
+    ]
+   ],
+   "y0": 30.507,
+   "y1": 33.97
+  },
+  {
+   "uid": 376,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -8.3,
+     -105.925
+    ],
+    [
+     -2.1,
+     -105.925
+    ],
+    [
+     -2.1,
+     -105.075
+    ],
+    [
+     -8.3,
+     -105.075
+    ]
+   ],
+   "y0": 30.507,
+   "y1": 33.97
+  },
+  {
+   "uid": 377,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     2.1,
+     -105.925
+    ],
+    [
+     8.3,
+     -105.925
+    ],
+    [
+     8.3,
+     -105.075
+    ],
+    [
+     2.1,
+     -105.075
+    ]
+   ],
+   "y0": 30.509,
+   "y1": 33.97
+  },
+  {
+   "uid": 378,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     8.3,
+     -105.925
+    ],
+    [
+     14.5,
+     -105.925
+    ],
+    [
+     14.5,
+     -105.075
+    ],
+    [
+     8.3,
+     -105.075
+    ]
+   ],
+   "y0": 30.509,
+   "y1": 33.97
+  },
+  {
+   "uid": 379,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     14.5,
+     -105.925
+    ],
+    [
+     20.7,
+     -105.925
+    ],
+    [
+     20.7,
+     -105.075
+    ],
+    [
+     14.5,
+     -105.075
+    ]
+   ],
+   "y0": 31.472,
+   "y1": 34.422
+  },
+  {
+   "uid": 380,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     20.7,
+     -105.925
+    ],
+    [
+     26.9,
+     -105.925
+    ],
+    [
+     26.9,
+     -105.075
+    ],
+    [
+     20.7,
+     -105.075
+    ]
+   ],
+   "y0": 31.371,
+   "y1": 34.321
+  },
+  {
+   "uid": 381,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     26.9,
+     -105.925
+    ],
+    [
+     33.1,
+     -105.925
+    ],
+    [
+     33.1,
+     -105.075
+    ],
+    [
+     26.9,
+     -105.075
+    ]
+   ],
+   "y0": 31.315,
+   "y1": 34.265
+  },
+  {
+   "uid": 382,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     33.1,
+     -105.925
+    ],
+    [
+     39.3,
+     -105.925
+    ],
+    [
+     39.3,
+     -105.075
+    ],
+    [
+     33.1,
+     -105.075
+    ]
+   ],
+   "y0": 31.315,
+   "y1": 34.265
+  },
+  {
+   "uid": 383,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     39.3,
+     -105.925
+    ],
+    [
+     45.5,
+     -105.925
+    ],
+    [
+     45.5,
+     -105.075
+    ],
+    [
+     39.3,
+     -105.075
+    ]
+   ],
+   "y0": 31.346,
+   "y1": 34.296
+  },
+  {
+   "uid": 384,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -45.075,
+     -114.933
+    ],
+    [
+     -45.075,
+     -108.7
+    ],
+    [
+     -45.925,
+     -108.7
+    ],
+    [
+     -45.925,
+     -114.933
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  },
+  {
+   "uid": 385,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -45.075,
+     -121.167
+    ],
+    [
+     -45.075,
+     -114.933
+    ],
+    [
+     -45.925,
+     -114.933
+    ],
+    [
+     -45.925,
+     -121.167
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  },
+  {
+   "uid": 386,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     -45.075,
+     -127.4
+    ],
+    [
+     -45.075,
+     -121.167
+    ],
+    [
+     -45.925,
+     -121.167
+    ],
+    [
+     -45.925,
+     -127.4
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  },
+  {
+   "uid": 387,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     45.075,
+     -108.7
+    ],
+    [
+     45.075,
+     -114.933
+    ],
+    [
+     45.925,
+     -114.933
+    ],
+    [
+     45.925,
+     -108.7
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  },
+  {
+   "uid": 388,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     45.075,
+     -114.933
+    ],
+    [
+     45.075,
+     -121.167
+    ],
+    [
+     45.925,
+     -121.167
+    ],
+    [
+     45.925,
+     -114.933
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  },
+  {
+   "uid": 389,
+   "asset": "A18.5",
+   "polyXZ": [
+    [
+     45.075,
+     -121.167
+    ],
+    [
+     45.075,
+     -127.4
+    ],
+    [
+     45.925,
+     -127.4
+    ],
+    [
+     45.925,
+     -121.167
+    ]
+   ],
+   "y0": 32.2,
+   "y1": 35.15
+  }
+ ],
+ "markers": [
+  {
+   "kind": "encounter",
+   "id": "E1",
+   "x": 2,
+   "z": 76,
+   "r": 7,
+   "segment": "landing",
+   "label": "E1 · W03 ×4 (Hush-Wolf pack)",
+   "monsters": [
+    {
+     "id": "W03",
+     "count": 4,
+     "standIn": "spider"
+    }
+   ],
+   "note": "the first fight past the gate, by the ox cart",
+   "y": 3.5529513359069824
+  },
+  {
+   "kind": "encounter",
+   "id": "E2",
+   "x": 54,
+   "z": 66,
+   "r": 6,
+   "segment": "landing",
+   "label": "E2 · P04 ×2 + P03 ×6",
+   "monsters": [
+    {
+     "id": "P04",
+     "count": 2,
+     "standIn": "zombie"
+    },
+    {
+     "id": "P03",
+     "count": 6,
+     "standIn": "bat"
+    }
+   ],
+   "note": "Hive-Sleepers among the ricks burst into Hush-Moths",
+   "y": 5.2890472412109375
+  },
+  {
+   "kind": "encounter",
+   "id": "E3",
+   "x": -16,
+   "z": 19,
+   "r": 5,
+   "segment": "farm",
+   "label": "E3 · F02 ×1 + W03 ×3",
+   "monsters": [
+    {
+     "id": "F02",
+     "count": 1,
+     "standIn": "imp_shaman",
+     "single": true
+    },
+    {
+     "id": "W03",
+     "count": 3,
+     "standIn": "spider"
+    }
+   ],
+   "note": "the Poppy Nurse sings and heals the wolves (she must not look evil)",
+   "y": 10.059062957763672
+  },
+  {
+   "kind": "encounter",
+   "id": "E4",
+   "x": -4,
+   "z": -36,
+   "r": 7,
+   "segment": "middle",
+   "label": "E4 · P02 ×1 + P03 ×5 (in the smoke)",
+   "monsters": [
+    {
+     "id": "P02",
+     "count": 1,
+     "standIn": "wraith",
+     "single": true
+    },
+    {
+     "id": "P03",
+     "count": 5,
+     "standIn": "bat"
+    }
+   ],
+   "note": "the Hush-Herald's censer feeds the smoke banks",
+   "y": 18.833398818969727
+  },
+  {
+   "kind": "encounter",
+   "id": "E5",
+   "x": 28,
+   "z": -34,
+   "r": 6,
+   "segment": "east",
+   "label": "E5 · W03 ×4 + F02 ×1",
+   "monsters": [
+    {
+     "id": "W03",
+     "count": 4,
+     "standIn": "spider"
+    },
+    {
+     "id": "F02",
+     "count": 1,
+     "standIn": "imp_shaman",
+     "single": true
+    }
+   ],
+   "y": 18.746463775634766
+  },
+  {
+   "kind": "encounter",
+   "id": "E6",
+   "x": 62,
+   "z": -40,
+   "r": 5,
+   "segment": "mine",
+   "label": "E6 · P04 ×2 + P03 ×4 (the Delvings path)",
+   "monsters": [
+    {
+     "id": "P04",
+     "count": 2,
+     "standIn": "zombie"
+    },
+    {
+     "id": "P03",
+     "count": 4,
+     "standIn": "bat"
+    }
+   ],
+   "y": 20.352052688598633
+  },
+  {
+   "kind": "encounter",
+   "id": "E7",
+   "x": -30,
+   "z": -92,
+   "r": 7,
+   "segment": "top",
+   "label": "E7 · W03 ×5",
+   "monsters": [
+    {
+     "id": "W03",
+     "count": 5,
+     "standIn": "spider"
+    }
+   ],
+   "note": "the pack hunts the upper field by scent",
+   "y": 28.95039176940918
+  },
+  {
+   "kind": "encounter",
+   "id": "E8",
+   "x": 8,
+   "z": -94,
+   "r": 6,
+   "segment": "top",
+   "label": "E8 · P02 ×1 + F02 ×1 + P03 ×6 (below the steps)",
+   "monsters": [
+    {
+     "id": "P02",
+     "count": 1,
+     "standIn": "wraith",
+     "single": true
+    },
+    {
+     "id": "F02",
+     "count": 1,
+     "standIn": "imp_shaman",
+     "single": true
+    },
+    {
+     "id": "P03",
+     "count": 6,
+     "standIn": "bat"
+    }
+   ],
+   "note": "the sweet last trap under the warm window",
+   "y": 30.200000762939453
+  },
+  {
+   "kind": "rite",
+   "id": "R1",
+   "x": -52,
+   "z": 68,
+   "label": "Rite 1 · ruộng gặt bỏ dở (lõm hình người trong hoa)",
+   "note": "sheaves, a scythe, a straw hat; a body-shaped hollow pressed into the poppies",
+   "y": 5.087675094604492
+  },
+  {
+   "kind": "rite",
+   "id": "R2",
+   "x": -33.7,
+   "z": 23.9,
+   "label": "Rite 2 · mộ đá người phơi hoa (dưới giá phơi)",
+   "note": "a cairn with ribbons and a name slate under the drying rack",
+   "y": 9.895321006774902
+  },
+  {
+   "kind": "rite",
+   "id": "R3",
+   "x": 61.5,
+   "z": 7.2,
+   "label": "Rite 3 · chuồng cừu bỏ trống (gậy + áo gấp)",
+   "note": "a round drystone fold, the gate gap open, the crook leaning, a coat folded",
+   "y": 13.14113292694092
+  },
+  {
+   "kind": "rite",
+   "id": "R4",
+   "x": -43,
+   "z": -80.5,
+   "label": "Rite 4 · cây táo gai buộc ruy băng (đôi giày)",
+   "note": "a lone wind-bent thorn; ribbons; a sleeper's shoes left beneath",
+   "y": 27.01353645324707
+  },
+  {
+   "kind": "landmark",
+   "id": "L1",
+   "x": 2.2,
+   "z": -113.55,
+   "label": "Cửa sổ ấm Gentle House (A18.4) — đích của act",
+   "y": 32.20000076293945
+  },
+  {
+   "kind": "landmark",
+   "id": "L2",
+   "x": -43,
+   "z": -80.5,
+   "label": "Cây táo gai ruy băng",
+   "y": 27.01353645324707
+  },
+  {
+   "kind": "landmark",
+   "id": "L3",
+   "x": -44,
+   "z": 10,
+   "label": "Nhà trại mái sập",
+   "y": 12.022896766662598
+  },
+  {
+   "kind": "landmark",
+   "id": "L4",
+   "x": 77.5,
+   "z": -34.5,
+   "label": "Miệng mỏ Flint Delvings",
+   "y": 20.799999237060547
+  },
+  {
+   "kind": "sightline",
+   "id": "S1",
+   "from": [
+    -24,
+    86,
+    1.7
+   ],
+   "target": [
+    2.2,
+    38,
+    -113.55
+   ],
+   "label": "Chân dốc → cửa sổ ấm trên đỉnh",
+   "y": 0,
+   "fromP": [
+    -24,
+    4.211263132095337,
+    86
+   ],
+   "toP": [
+    2.2,
+    38,
+    -113.55
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S2",
+   "from": [
+    -36,
+    12.5,
+    1.7
+   ],
+   "target": [
+    2.2,
+    38,
+    -113.55
+   ],
+   "label": "Sân trại → cửa sổ ấm",
+   "y": 0,
+   "fromP": [
+    -36,
+    13.722896766662597,
+    12.5
+   ],
+   "toP": [
+    2.2,
+    38,
+    -113.55
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S3",
+   "from": [
+    71.5,
+    -34.5,
+    1.7
+   ],
+   "target": [
+    2.2,
+    38,
+    -113.55
+   ],
+   "label": "Miệng mỏ → cửa sổ ấm",
+   "y": 0,
+   "fromP": [
+    71.5,
+    21.573117446899413,
+    -34.5
+   ],
+   "toP": [
+    2.2,
+    38,
+    -113.55
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S4",
+   "from": [
+    -40,
+    -79,
+    1.7
+   ],
+   "target": [
+    2.2,
+    38,
+    -113.55
+   ],
+   "label": "Cây gai → cửa sổ ấm",
+   "y": 0,
+   "fromP": [
+    -40,
+    28.36441535949707,
+    -79
+   ],
+   "toP": [
+    2.2,
+    38,
+    -113.55
+   ]
+  },
+  {
+   "kind": "vignette",
+   "id": "V1",
+   "x": -45.1,
+   "z": 10.6,
+   "label": "Nhà trại: giường trống, mỗi giường một gối sạch",
+   "y": 12.022896766662598
+  },
+  {
+   "kind": "vignette",
+   "id": "V2",
+   "x": 19,
+   "z": 70,
+   "label": "Xe bò bỏ lại còn chăn đệm và một chiếc gối sạch",
+   "y": 4.231564044952393
+  },
+  {
+   "kind": "vignette",
+   "id": "V3",
+   "x": 34,
+   "z": -91,
+   "unmarked": true,
+   "label": "Chiếc giường kéo ra giữa đồng anh túc (không đánh dấu)",
+   "y": 28.75486946105957
+  },
+  {
+   "kind": "vignette",
+   "id": "V4",
+   "x": -28.1,
+   "z": -12.35,
+   "unmarked": true,
+   "label": "Búp bê rơm trên bậc stile (không đánh dấu)",
+   "y": 15.022163467407225
+  },
+  {
+   "kind": "vignette",
+   "id": "V5",
+   "x": -24,
+   "z": 86,
+   "remember": true,
+   "label": "REMEMBER: anh túc đỏ tới chân trời, cửa sổ ấm trên đỉnh dốc",
+   "y": 2.511263132095337
+  },
+  {
+   "kind": "vignette",
+   "id": "K1",
+   "x": -16,
+   "z": -28,
+   "label": "Khói ngủ: đứng trong → chậm dần → ngủ thiếp (đề xuất LD)",
+   "y": 17.538206100463867
+  },
+  {
+   "kind": "exit",
+   "id": "X1",
+   "x": -26.8,
+   "z": 126.5,
+   "label": "← Rook's Weir (11.5) · đê",
+   "to": "fens",
+   "y": 0.949999988079071
+  },
+  {
+   "kind": "exit",
+   "id": "X2",
+   "x": 74.2,
+   "z": -34.5,
+   "label": "→ The Flint Delvings (11.8, BIO-06)",
+   "to": "flintDelvings",
+   "y": 20.799999237060547
+  },
+  {
+   "kind": "exit",
+   "id": "X3",
+   "x": 0,
+   "z": -108.6,
+   "label": "→ The Gentle House (11.9) · cổng",
+   "to": "gentleHouse",
+   "y": 32.20000076293945
+  },
+  {
+   "kind": "beat",
+   "id": "B1",
+   "x": -18.7,
+   "z": 93.2,
+   "beat": "choke",
+   "label": "Cổng G1 (vào Reach)",
+   "y": 1.589566550254823
+  },
+  {
+   "kind": "beat",
+   "id": "B2",
+   "x": 8,
+   "z": 72,
+   "beat": "open",
+   "label": "Ruộng dưới · anh túc tới chân trời",
+   "y": 3.8989243507385254
+  },
+  {
+   "kind": "beat",
+   "id": "B3",
+   "x": 10,
+   "z": 29.6,
+   "beat": "choke",
+   "label": "Hẻm tường đá (G2 → trại)",
+   "y": 8.81160011291504
+  },
+  {
+   "kind": "beat",
+   "id": "B4",
+   "x": -30,
+   "z": 8,
+   "beat": "open",
+   "label": "Sân trại bỏ hoang",
+   "y": 11.690427780151367
+  },
+  {
+   "kind": "beat",
+   "id": "B5",
+   "x": -28.4,
+   "z": -13,
+   "beat": "choke",
+   "label": "Stile S1",
+   "y": 15.138290977478027
+  },
+  {
+   "kind": "beat",
+   "id": "B6",
+   "x": -4,
+   "z": -36,
+   "beat": "open",
+   "label": "Ruộng giữa · khói ngủ trôi ngang lối",
+   "y": 18.833398818969727
+  },
+  {
+   "kind": "beat",
+   "id": "B7",
+   "x": 14,
+   "z": -72,
+   "beat": "choke",
+   "label": "Cổng G4 + hẻm trên",
+   "y": 25.42781639099121
+  },
+  {
+   "kind": "beat",
+   "id": "B8",
+   "x": 4,
+   "z": -88,
+   "beat": "open",
+   "label": "Ruộng trên dưới chân hospice",
+   "y": 29.87833023071289
+  },
+  {
+   "kind": "beat",
+   "id": "B9",
+   "x": 0,
+   "z": -103.6,
+   "beat": "choke",
+   "label": "Bậc lên đồi A18.6",
+   "y": 31.616666666666664
+  }
+ ],
+ "segments": [
+  {
+   "id": "landing",
+   "kind": "wild",
+   "label": "Chân dốc · bến đê từ Rook's Weir",
+   "spawn": [
+    -21.5,
+    100
+   ],
+   "view": "landing",
+   "route": [
+    [
+     -24.6,
+     114
+    ],
+    [
+     -23.3,
+     108
+    ],
+    [
+     -22,
+     103
+    ],
+    [
+     -21.5,
+     100
+    ],
+    [
+     -20.2,
+     97.5
+    ],
+    [
+     -18.7,
+     93.2
+    ],
+    [
+     -15.5,
+     88
+    ],
+    [
+     -30,
+     81
+    ],
+    [
+     -44,
+     73
+    ],
+    [
+     -49.5,
+     70.2
+    ],
+    [
+     -44,
+     73
+    ],
+    [
+     -30,
+     81
+    ],
+    [
+     -15.5,
+     88
+    ],
+    [
+     -4,
+     79
+    ],
+    [
+     12,
+     69.5
+    ],
+    [
+     26,
+     61
+    ],
+    [
+     33.5,
+     53.5
+    ],
+    [
+     36.4,
+     47.5
+    ],
+    [
+     33,
+     41.5
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "spawnY": 0.7856059670448303
+  },
+  {
+   "id": "farm",
+   "kind": "wild",
+   "label": "Hẻm tường đá · nhà trại",
+   "spawn": [
+    2,
+    27.5
+   ],
+   "view": "farmyard",
+   "route": [
+    [
+     2,
+     27.5
+    ],
+    [
+     -12,
+     20.5
+    ],
+    [
+     -24,
+     14
+    ],
+    [
+     -33,
+     15.5
+    ],
+    [
+     -40,
+     15.5
+    ],
+    [
+     -43.8,
+     14
+    ],
+    [
+     -44.6,
+     11.9
+    ],
+    [
+     -45.1,
+     10.6
+    ],
+    [
+     -44.6,
+     11.9
+    ],
+    [
+     -43.8,
+     14
+    ],
+    [
+     -40,
+     15.5
+    ],
+    [
+     -33,
+     15.5
+    ],
+    [
+     -29.5,
+     6.5
+    ],
+    [
+     -30,
+     -3
+    ],
+    [
+     -28.6,
+     -11.5
+    ],
+    [
+     -27.6,
+     -15.5
+    ],
+    [
+     -20,
+     -24
+    ]
+   ],
+   "spawnY": 9.035844802856445
+  },
+  {
+   "id": "middle",
+   "kind": "wild",
+   "label": "Ruộng giữa · khói ngủ",
+   "spawn": [
+    -8,
+    -34
+   ],
+   "view": "smoke",
+   "route": [
+    [
+     -8,
+     -34
+    ],
+    [
+     -20,
+     -24
+    ],
+    [
+     -27.6,
+     -15.5
+    ],
+    [
+     -20,
+     -24
+    ],
+    [
+     -6,
+     -35
+    ],
+    [
+     8,
+     -45
+    ],
+    [
+     15.5,
+     -54
+    ],
+    [
+     18,
+     -60
+    ],
+    [
+     18,
+     -63.5
+    ],
+    [
+     17,
+     -66.5
+    ],
+    [
+     9.5,
+     -80
+    ]
+   ],
+   "spawnY": 18.441762924194336
+  },
+  {
+   "id": "east",
+   "kind": "wild",
+   "label": "Lối đông · chuồng cừu (cổng G3)",
+   "spawn": [
+    45.2,
+    -24
+   ],
+   "view": "fold",
+   "route": [
+    [
+     45.2,
+     -24
+    ],
+    [
+     44.6,
+     -16
+    ],
+    [
+     44.8,
+     -8
+    ],
+    [
+     45.5,
+     2
+    ],
+    [
+     52,
+     6
+    ],
+    [
+     57.2,
+     6
+    ],
+    [
+     60.5,
+     6
+    ],
+    [
+     57.2,
+     6
+    ],
+    [
+     52,
+     6
+    ],
+    [
+     45.5,
+     2
+    ],
+    [
+     45,
+     18
+    ],
+    [
+     40,
+     33
+    ],
+    [
+     33,
+     41.5
+    ]
+   ],
+   "spawnY": 17.201479721069337
+  },
+  {
+   "id": "mine",
+   "kind": "wild",
+   "label": "Miệng mỏ Flint Delvings",
+   "spawn": [
+    62,
+    -36
+   ],
+   "view": "mine",
+   "route": [
+    [
+     62,
+     -36
+    ],
+    [
+     65,
+     -33.5
+    ],
+    [
+     71.5,
+     -34.5
+    ],
+    [
+     74.2,
+     -34.5
+    ],
+    [
+     71.5,
+     -34.5
+    ],
+    [
+     65,
+     -33.5
+    ],
+    [
+     55,
+     -30.5
+    ],
+    [
+     45.5,
+     -27
+    ],
+    [
+     40,
+     -41
+    ],
+    [
+     28,
+     -51.5
+    ],
+    [
+     17,
+     -57.5
+    ]
+   ],
+   "spawnY": 19.635297775268555
+  },
+  {
+   "id": "top",
+   "kind": "wild",
+   "label": "Ruộng trên · bậc lên Gentle House",
+   "spawn": [
+    4,
+    -90
+   ],
+   "view": "steps",
+   "route": [
+    [
+     4,
+     -90
+    ],
+    [
+     2,
+     -95
+    ],
+    [
+     0,
+     -99
+    ],
+    [
+     0,
+     -101.5
+    ],
+    [
+     0,
+     -104
+    ],
+    [
+     0,
+     -106.5
+    ],
+    [
+     0,
+     -109.5
+    ],
+    [
+     0,
+     -106.5
+    ],
+    [
+     0,
+     -101.5
+    ],
+    [
+     2,
+     -95
+    ],
+    [
+     5.5,
+     -88
+    ],
+    [
+     -8,
+     -87
+    ],
+    [
+     -24,
+     -84.5
+    ],
+    [
+     -38,
+     -81.5
+    ],
+    [
+     -24,
+     -84.5
+    ],
+    [
+     -8,
+     -87
+    ],
+    [
+     5.5,
+     -88
+    ],
+    [
+     20,
+     -90
+    ],
+    [
+     31.5,
+     -90.5
+    ]
+   ],
+   "spawnY": 30.200000762939453
+  }
+ ],
+ "spawns": [
+  {
+   "id": "landing",
+   "label": "Chân dốc · bến đê từ Rook's Weir",
+   "x": -21.5,
+   "z": 100,
+   "y": 0.7856059670448303
+  },
+  {
+   "id": "farm",
+   "label": "Hẻm tường đá · nhà trại",
+   "x": 2,
+   "z": 27.5,
+   "y": 9.035844802856445
+  },
+  {
+   "id": "middle",
+   "label": "Ruộng giữa · khói ngủ",
+   "x": -8,
+   "z": -34,
+   "y": 18.441762924194336
+  },
+  {
+   "id": "east",
+   "label": "Lối đông · chuồng cừu (cổng G3)",
+   "x": 45.2,
+   "z": -24,
+   "y": 17.201479721069337
+  },
+  {
+   "id": "mine",
+   "label": "Miệng mỏ Flint Delvings",
+   "x": 62,
+   "z": -36,
+   "y": 19.635297775268555
+  },
+  {
+   "id": "top",
+   "label": "Ruộng trên · bậc lên Gentle House",
+   "x": 4,
+   "z": -90,
+   "y": 30.200000762939453
+  }
+ ],
+ "views": {
+  "overview": {
+   "label": "Toàn cảnh (base map)",
+   "target": [
+    0,
+    13.519510269165039,
+    -2
+   ],
+   "fit": [
+    200,
+    256
+   ],
+   "id": "overview"
+  },
+  "remember": {
+   "label": "REMEMBER · từ chân dốc: anh túc tới chân trời, cửa sổ ấm trên đỉnh",
+   "eye": [
+    -24,
+    5.111263132095337,
+    86
+   ],
+   "eyeLift": 2.6,
+   "look": [
+    2.2,
+    29,
+    -113.55
+   ],
+   "fov": 30,
+   "id": "remember"
+  },
+  "landing": {
+   "label": "Bến đê từ Rook's Weir · cổng ruộng G1",
+   "target": [
+    -18,
+    1.6581993103027344,
+    97
+   ],
+   "dist": 34,
+   "pitch": 48,
+   "id": "landing"
+  },
+  "lowerField": {
+   "label": "Ruộng dưới (xe bò, sói, đống rơm)",
+   "target": [
+    18,
+    4.959293365478516,
+    68
+   ],
+   "dist": 62,
+   "pitch": 52,
+   "id": "lowerField"
+  },
+  "oxcart": {
+   "label": "Xe bò bỏ lại còn chăn đệm (vignette)",
+   "target": [
+    19,
+    5.031564044952392,
+    70
+   ],
+   "dist": 13,
+   "pitch": 42,
+   "lift": 0.8,
+   "id": "oxcart"
+  },
+  "lane": {
+   "label": "Hẻm tường đá (G2 → trại) · Poppy Nurse",
+   "target": [
+    8,
+    9.446802139282227,
+    28
+   ],
+   "dist": 40,
+   "pitch": 55,
+   "id": "lane"
+  },
+  "farmhouse": {
+   "label": "Nhà trại: giường trống, mỗi giường một gối sạch",
+   "target": [
+    -43.4,
+    13.022896766662598,
+    9.5
+   ],
+   "dist": 17,
+   "pitch": 64,
+   "lift": 1,
+   "id": "farmhouse"
+  },
+  "farmyard": {
+   "label": "Sân trại (giá phơi anh túc, rite 2)",
+   "target": [
+    -38,
+    12.522896766662598,
+    12
+   ],
+   "dist": 34,
+   "pitch": 50,
+   "id": "farmyard"
+  },
+  "smoke": {
+   "label": "Ruộng giữa · khói ngủ trôi ngang lối (Hush-Herald)",
+   "target": [
+    4,
+    19.65032958984375,
+    -38
+   ],
+   "dist": 70,
+   "pitch": 55,
+   "id": "smoke"
+  },
+  "fold": {
+   "label": "Chuồng cừu bỏ trống (rite 3)",
+   "target": [
+    60,
+    13.8607177734375,
+    5
+   ],
+   "dist": 20,
+   "pitch": 50,
+   "id": "fold"
+  },
+  "mine": {
+   "label": "Miệng mỏ Flint Delvings (lối phụ, BIO-06)",
+   "target": [
+    75,
+    22.299999237060547,
+    -34.5
+   ],
+   "dist": 22,
+   "pitch": 38,
+   "yaw": -62,
+   "lift": 1.5,
+   "id": "mine"
+  },
+  "thorn": {
+   "label": "Cây táo gai buộc ruy băng (rite 4)",
+   "target": [
+    -43,
+    28.51353645324707,
+    -80.5
+   ],
+   "dist": 22,
+   "pitch": 45,
+   "lift": 1.5,
+   "id": "thorn"
+  },
+  "upper": {
+   "label": "Ruộng trên · hẻm G4 · lối lên hospice",
+   "target": [
+    4,
+    28.21528434753418,
+    -84
+   ],
+   "dist": 60,
+   "pitch": 52,
+   "id": "upper"
+  },
+  "bed": {
+   "label": "Chiếc giường giữa đồng anh túc (vignette không đánh dấu)",
+   "target": [
+    34,
+    29.25486946105957,
+    -91
+   ],
+   "dist": 12,
+   "pitch": 48,
+   "lift": 0.5,
+   "id": "bed"
+  },
+  "steps": {
+   "label": "Bậc lên đồi A18.6 · tường vôi A18.5 · dãy ward A18.4",
+   "target": [
+    0,
+    35,
+    -106
+   ],
+   "dist": 34,
+   "pitch": 30,
+   "lift": 3,
+   "id": "steps"
+  },
+  "lookBack": {
+   "label": "Từ sân hospice nhìn xuống cả Reach",
+   "eye": [
+    14,
+    37.20000076293945,
+    -110
+   ],
+   "eyeLift": 5,
+   "look": [
+    -6,
+    10.032751083374023,
+    20
+   ],
+   "id": "lookBack"
+  }
+ },
+ "rain": null,
+ "lighting": {
+  "default": "day",
+  "defaultNote": "scene setting mood = null opens PLAN.defaultMood (Play uses the same preset; there is no Play-only mood)",
+  "sceneDefaults": {
+   "look": 2,
+   "mood": null,
+   "spawn": null,
+   "smooth": 0.8,
+   "antiTiling": true,
+   "variationScale": 0.18,
+   "macro": 0.1,
+   "showWeights": false,
+   "puddles": 0.24,
+   "wetDarken": 0.5,
+   "blendContrast": 0.65,
+   "rain": 1,
+   "mist": 1,
+   "ritesDone": false,
+   "flicker": true,
+   "labels": false,
+   "encounters": false,
+   "rites": false,
+   "landmarks": false,
+   "vignettes": false,
+   "npcs": false,
+   "exits": false,
+   "legend": true,
+   "blockouts": true,
+   "props": true,
+   "cards": true,
+   "grassDensity": 1,
+   "monsters": true,
+   "subject": false,
+   "waterOpacity": 0.92,
+   "waterFlow": 1,
+   "smoke": true,
+   "smokeSpeed": 1,
+   "smokeInfo": false
+  },
+  "hemisphereBuildColors": {
+   "sky": "#a9b1a6",
+   "ground": "#4a3526",
+   "note": "initial THREE.HemisphereLight(0xa9b1a6, 0x4a3526, 1), replaced by the mood on apply"
+  },
+  "moods": {
+   "day": {
+    "label": "Poppy Reach · ngày u ám",
+    "raw": {
+     "label": "Poppy Reach · ngày u ám",
+     "sky": "#b2b9ae",
+     "ground": "#4d4232",
+     "hemi": 2.6,
+     "sun": {
+      "elev": 66,
+      "az": -160,
+      "intensity": 0.36,
+      "kelvin": 6600
+     },
+     "env": "hdri-overcast",
+     "envI": 0.48,
+     "toneMapping": "aces",
+     "exposure": 0.8,
+     "background": "#9ba398",
+     "fog": {
+      "enabled": true,
+      "color": "#a2a99f",
+      "density": 0.0072,
+      "falloff": 0.075,
+      "height": 0,
+      "start": 20,
+      "inscatter": 0
+     },
+     "grade": {
+      "vignette": 0.28,
+      "contrast": 1.06,
+      "saturation": 0.96,
+      "lift": 0,
+      "temperature": 0.005,
+      "tint": 0
+     },
+     "rain": 0,
+     "mist": 0.35,
+     "human": 0.7,
+     "perfection": 1,
+     "windows": 0.5,
+     "flags": {
+      "accent": true,
+      "gentleHouse": true
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#b2b9ae",
+      "groundColor": "#4d4232",
+      "intensity": 2.6
+     },
+     "sun": {
+      "kelvin": 6600,
+      "color": "#fffffd",
+      "intensity": 0.36,
+      "elevDeg": 66,
+      "azDeg": -160,
+      "direction": [
+       -0.13911,
+       0.91355,
+       -0.38221
+      ],
+      "lightPosition": [
+       -16.693,
+       109.625,
+       -45.865
+      ],
+      "lightTarget": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.48
+     },
+     "background": "#9ba398",
+     "skyTint": "#8b9188",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.8,
+      "fog": {
+       "enabled": true,
+       "height": 0,
+       "color": "#a2a99f",
+       "density": 0.0072,
+       "falloff": 0.075,
+       "start": 20,
+       "inscatter": 0
+      },
+      "grade": {
+       "vignette": 0.28,
+       "contrast": 1.06,
+       "saturation": 0.96,
+       "lift": 0,
+       "temperature": 0.005,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "gentleHouse": true
+     },
+     "levels": {
+      "human": 0.7,
+      "perfection": 1,
+      "windows": 0.5
+     },
+     "rain": 0,
+     "mist": 0.35,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "ghWindow",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        2.2,
+        38,
+        -113.25
+       ],
+       "color": "#f6b468",
+       "intensity": 9,
+       "range": 14,
+       "real": true,
+       "flicker": 0,
+       "glow": 3.2,
+       "levelScale": 1
+      },
+      {
+       "id": "nicheReal",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -5.2,
+        32.2678,
+        -104.7
+       ],
+       "color": "#f2c27a",
+       "intensity": 2.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "niche1",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -42.4,
+        32.9069,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche2",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -36.2,
+        32.9069,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche3",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -30,
+        32.9034,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche4",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -23.8,
+        32.9034,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche5",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -17.6,
+        32.9468,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche6",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -11.4,
+        32.2678,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche7",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -5.2,
+        32.2678,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche8",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        5.2,
+        32.2686,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche9",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        11.4,
+        32.2686,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche10",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        17.6,
+        32.9723,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche11",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        23.8,
+        32.8712,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche12",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        30,
+        32.8154,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche13",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        36.2,
+        32.8154,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche14",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        42.4,
+        32.8462,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      }
+     ]
+    }
+   },
+   "lookdev": {
+    "label": "Soi texture · sáng đều",
+    "raw": {
+     "label": "Soi texture · sáng đều",
+     "sky": "#c9d4e4",
+     "ground": "#3b352e",
+     "hemi": 2.4,
+     "sun": {
+      "elev": 50,
+      "az": -135,
+      "intensity": 1.1,
+      "kelvin": 5600
+     },
+     "env": "hdri-overcast",
+     "envI": 0.25,
+     "toneMapping": "aces",
+     "exposure": 0.2,
+     "background": "#30353a",
+     "fog": {
+      "enabled": false
+     },
+     "grade": {
+      "vignette": 0.2,
+      "contrast": 1.04,
+      "saturation": 1,
+      "lift": 0,
+      "temperature": 0,
+      "tint": 0
+     },
+     "rain": 0,
+     "mist": 0,
+     "human": 0.5,
+     "perfection": 1,
+     "windows": 0.4,
+     "flags": {
+      "accent": true,
+      "gentleHouse": true
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#c9d4e4",
+      "groundColor": "#3b352e",
+      "intensity": 2.4
+     },
+     "sun": {
+      "kelvin": 5600,
+      "color": "#ffefe1",
+      "intensity": 1.1,
+      "elevDeg": 50,
+      "azDeg": -135,
+      "direction": [
+       -0.45452,
+       0.76604,
+       -0.45452
+      ],
+      "lightPosition": [
+       -54.542,
+       91.925,
+       -54.542
+      ],
+      "lightTarget": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.25
+     },
+     "background": "#30353a",
+     "skyTint": "#98a0ac",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.2,
+      "fog": {
+       "enabled": false,
+       "height": 0
+      },
+      "grade": {
+       "vignette": 0.2,
+       "contrast": 1.04,
+       "saturation": 1,
+       "lift": 0,
+       "temperature": 0,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "gentleHouse": true
+     },
+     "levels": {
+      "human": 0.5,
+      "perfection": 1,
+      "windows": 0.4
+     },
+     "rain": 0,
+     "mist": 0,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "ghWindow",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        2.2,
+        38,
+        -113.25
+       ],
+       "color": "#f6b468",
+       "intensity": 9,
+       "range": 14,
+       "real": true,
+       "flicker": 0,
+       "glow": 3.2,
+       "levelScale": 1
+      },
+      {
+       "id": "nicheReal",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -5.2,
+        32.2678,
+        -104.7
+       ],
+       "color": "#f2c27a",
+       "intensity": 2.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "niche1",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -42.4,
+        32.9069,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche2",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -36.2,
+        32.9069,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche3",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -30,
+        32.9034,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche4",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -23.8,
+        32.9034,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche5",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -17.6,
+        32.9468,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche6",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -11.4,
+        32.2678,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche7",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -5.2,
+        32.2678,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche8",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        5.2,
+        32.2686,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche9",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        11.4,
+        32.2686,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche10",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        17.6,
+        32.9723,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche11",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        23.8,
+        32.8712,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche12",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        30,
+        32.8154,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche13",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        36.2,
+        32.8154,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      },
+      {
+       "id": "niche14",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        42.4,
+        32.8462,
+        -105
+       ],
+       "color": "#f2c27a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 0.3,
+       "levelScale": 1
+      }
+     ]
+    }
+   }
+  },
+  "port": "resolved values are ported from scenes/act1Outdoor.js applyTime() and env/act1/outdoorBuild.js applyMood()/lightOn() by the export script (those files need THREE/DOM); raw = PLAN.moods as in the map file, read by node"
+ },
+ "environmentMaps": [
+  {
+   "id": "hdri-overcast",
+   "labFile": "lookdev-lab/assets/samples/quarry_01_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/quarry_01)"
+  }
+ ],
+ "commonTextures": [
+  {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  {
+   "id": "biome-darkwood-water-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  }
+ ],
+ "notes": {
+  "reach": "Poppy Reach (11.6, wild, 28 phút, D3 C3, BIO-02): ngày u ám mềm (không nắng, trời phủ mây), anh túc đỏ tới chân trời trong cỏ xám-xanh — accent mạnh nhất của act; leo dần từ bến đê (Rook's Weir, nước đen dưới chân) lên đỉnh đồi Gentle House. Tường đá khô làm lối (cổng ruộng giữa hai trụ đá, stile, hẻm tường), nhà trại bỏ hoang mái sập một nửa (ba giường trống, mỗi giường một gối sạch), đống rơm, giá phơi anh túc, xe bò bỏ lại còn chăn đệm, miệng mỏ Flint Delvings trên gò phấn phía đông. Trên đỉnh: bậc lên đồi, tường vôi có hốc nến đứng yên, dãy ward với một cửa sổ ấm đứng yên (ảnh của act).",
+  "smoke": "Khói ngủ là địa hình (đề xuất LD): 5 vùng có viền rõ, tint ấm nhẹ, thở qua lại theo gió và đóng / mở lối (Z1, Z2 trên đường chính ở ruộng giữa, Z3 trên lối đông, Z4 ở ruộng dưới, Z5 trên đoạn cuối đường chính và lối cây gai). Đứng trong khói → chậm dần → ngủ thiếp (base map: chỉ đánh dấu). Bật/tắt, tốc độ trôi và nhãn ở mục \"Khói ngủ\".",
+  "beats": "Nhịp mở / hẹp dọc đường chính: cổng G1 → ruộng dưới (mở) → hẻm tường đá (hẹp) → sân trại (mở nhỏ) → stile S1 (hẹp) → ruộng giữa có khói (mở) → cổng G4 + hẻm trên (hẹp) → ruộng trên (mở) → bậc lên đồi (hẹp). Lát cắt nén nhịp còn 10–20 s mỗi đoạn; bản đầy đủ đề xuất 40–60 s (xem target)."
+ }
+}
