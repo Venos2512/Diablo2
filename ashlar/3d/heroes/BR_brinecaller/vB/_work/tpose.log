@@ -1,0 +1,45 @@
+BR BRINECALLER vB — T-pose report — 2026-10-27
+Status: all steps 1-5 executed; four views delivered WITH RESIDUAL QA DEVIATIONS. Not an unconditional QA pass.
+Existing design.txt read and preserved verbatim, as required by step 1. No brief.md present. HUMANOID yes. Concept visually inspected. Built-in image_gen only; four calls total, two per sheet. No artwork drawn by code. Existing tpose_tools.py used for measurement/crop/rescale/contact/guides/strips only.
+
+Source session: 01a17b50-4f08-7470-8f65-705fd9155268
+Source directory: C:\Users\HLC_2021\.codex\generated_images\01a17b50-4f08-7470-8f65-705fd9155268\
+Front/back attempt 1: exec-8313f28f-112b-4dd3-bcaf-aa38e825a27c.png
+Rejected copy: _work/_rejected/front_back_attempt1.png. Inner fingertips touch/overlap; arms sag 5.8-9.4 degrees; loose kelp; stance warnings. Heights 895/897 px. Retry requested smaller separated figures, level arms, shorter kelp.
+Front/back selected attempt 2: exec-1391c01e-5015-4182-8b5a-173b8337046e.png -> tpose_front_back.png
+Sides attempt 1: exec-e854a408-2e44-439a-8424-12c059c721aa.png
+Rejected copy: _work/_rejected/sides_attempt1.png. Heights 875/874 px, 22.6% larger than front/back; flask/jar high by about 3-4% H. Retry requested 714px height, matched accessories, straighter fingers and stronger far-rope occlusion.
+Sides selected attempt 2: exec-14ce622a-e4e3-4f9f-bb8a-25e5a52433ff.png -> tpose_sides.png
+Prompts: _work/front_back.prompt.txt, front_back_retry.prompt.txt, sides.prompt.txt, sides_retry.prompt.txt; correction also in sides_retry_correction.txt. STYLE CORE, T-POSE RULES and CONTENT copied verbatim from artdirection.md, template and humanoid block filled with existing design.
+
+Final numeric QA (full stdout in _work/numeric_qa.txt):
+Both sheets 1536x1024. Front 714px (69.7%), back 713px (69.6%); mean 713.5px.
+Left 872px (85.2%), right 871px (85.1%); mean 871.5px. Still 22.14% larger after retry. Whole side figure rescale factor 713.5/871.5 = 0.818703 (reported 0.819). No part-only rescaling.
+measure: no edge warnings. humanoid fb and sides: RESULT OK.
+FB span/height 0.96; foot centre gap 0.21 H; front arm deviations +2.3/+3.6 degrees; back +3.9/+2.4 degrees. Slight sag remains, below numeric 4-degree threshold; not mathematically horizontal.
+Sides sole span 0.15 H. Profiles face correct directions, upright with overlapping legs and foreshortened near arms at shoulder height. Side fingertips look somewhat curled rather than perfectly flat/open; unresolved.
+split wrote all four 1024x1024 images, common soles placement row 952 (foreground guides detect row 951), common top about row 238. Contact, guides and both strips visually inspected BEFORE and AFTER retry. Nothing cropped, correct order FRONT/BACK/LEFT/RIGHT, common scale and floor. Shoulder/hand line matches approximately 23% H; head tops, knees and soles aligned. No handheld props.
+
+Cross-view landmark table: visual estimates from final 0-60 and 40-100 strips, percentage from bun top, uncertainty about 1-2% H. LEFT and RIGHT are anatomical side views. Not automatic landmark extraction.
+Feature | LEFT | RIGHT | FRONT | BACK | Verdict
+Bun and crystal pin | 0-11 | 0-11 | 0-11 | 0-11 | Overall height consistent; crystal pin appears on both side profiles, exact occlusion uncertain.
+Shoulder/near hand | 21-24 | 21-24 | 21-24 | 21-24 | Height consistent; FB slight sag and side finger curl remain.
+Right shoulder rope | rear sliver/mass 18-35 | 16-36 | image-left 17-36 | image-right 17-36 | Correct side and band; LEFT exposes more rear coil than design's minimal sliver. Coil strand/crystal topology not identical.
+Corset | 30-37 | 30-37 | 30-38 | 30-38 | Consistent across views; higher than design.txt 33-42 estimate.
+Hip belt | 37-43 | 37-43 | 38-43 | 38-44 | Consistent within about 1-2%; above design.txt 43-46 estimate.
+Net flask body | partial behind hip 42-51 | full rear hip 41-53 | hidden | image-right 43-55 | Correct occlusion/side; sides remain about 2-3% H high. Rope-net crossings/red beads differ; strict topology FAIL.
+Cream salt jar | hidden | front hip 39-48 | image-left 42-50 | hidden | Correct side/occlusion; RIGHT top about 3% H high, bottom about 2% high. Residual FAIL.
+Teal longest point | 43-69 | far cloth to 70 | anatomical left to 70 | image-left to 70 | Overall hem height consistent, fold/point shapes not identical. BACK cloth coverage broader than concept.
+Boot tops | plain 73 | salted 72 | 73-75 | 73-75 | Close within 2%; straight overlapping side legs and even FB stance.
+Right salt crystals | hidden by plain near leg | 70-98 | image-left 70-98 | image-right 71-98 | Correct side and height; individual crystal shapes/count differ between views, unresolved strict detail mismatch.
+Bracer and bronze bands | end-on | end-on | paired bands and crystals | paired bands and crystals | Material and placement retained; tiny stud count not reliably measurable at output size.
+Kelp and cords | rear leaves to ~60 | rear leaves to ~62 | leaves to ~61 | leaves to ~61 | Shorter than first FB attempt but some narrow loose leaves still remain; not fully compliant with simplified attached shapes.
+
+Art QA: moderately stylized, broad clean painted shading, teal/bronze/brown/salt palette retained, no glow, no text, no environment, no added muscle or handheld props. Cloth retains substantial dark fold shadows. Flat-ish neutral grey background with faint contact shadows. Added/emphasized small left-hip pouch and altered small strap/rivet details versus concept are residual fidelity risks. Dark hair retains some fine strands. No claims of exact design equivalence.
+Retry allowance exhausted (one retry per sheet); kept best available sheets and logged deviations per skill. Four generated outputs retained in original source directory; rejected attempts also copied under _work/_rejected/. No Tripo upload/generation or rigging performed.
+
+Final views:
+E:\Diablo2\ashlar\3d\heroes\BR_brinecaller\vB\views\front.png
+E:\Diablo2\ashlar\3d\heroes\BR_brinecaller\vB\views\back.png
+E:\Diablo2\ashlar\3d\heroes\BR_brinecaller\vB\views\left.png
+E:\Diablo2\ashlar\3d\heroes\BR_brinecaller\vB\views\right.png

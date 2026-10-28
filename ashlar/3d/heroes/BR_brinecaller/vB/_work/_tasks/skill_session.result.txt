@@ -1,0 +1,16 @@
+Đã thực hiện đủ bước 1–5; giữ nguyên `design.txt` có sẵn theo skill.
+
+Bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/views/right.png)
+
+Đã xem contact, guides và hai strip. FRONT/BACK cao **714/713 px**; LEFT/RIGHT **872/871 px**, thu đồng đều **0,819×** khi tách.
+
+Mỗi sheet sửa một lần: sheet 1 vì tay chạm/xệ; sheet 2 vì sai tỷ lệ và độ cao phụ kiện. **QA còn sai lệch:** tay hơi xệ, ngón góc bên hơi cong, bình/hũ lệch khoảng 2–3% chiều cao; chi tiết dây và tinh thể chưa khớp hoàn toàn.
+
+[Contact sheet](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/views/_contact.png) · [Log đầy đủ, prompt và đường dẫn ảnh nguồn](/E:/Diablo2/ashlar/3d/heroes/BR_brinecaller/vB/_work/tpose.log)
+
+Session ảnh: `01a17b50-4f08-7470-8f65-705fd9155268`.
