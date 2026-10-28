@@ -1,0 +1,1724 @@
+{
+ "scene": "choiceHands",
+ "label": "ASHLAR · Màn chọn nghề (sáu bàn tay)",
+ "units": "metres",
+ "coordinateSystem": "three.js right-handed, Y up. x = right, y = up, z = toward the viewer. The wall is the plane z = 0 (skull tops z = 0, recesses -0.05); the ledge top is y = 0 (below), the candle stands on it. Arm frame of a hand model: origin at the sleeve end, +z along the forearm toward the fingertips, +y the back of the hand, x across.",
+ "rotation": "quaternions are [x, y, z, w]; Euler angles in degrees with the stated order (three.js \"YXZ\"). Hands: root group at the wall hole (entry), see atRest.",
+ "transform": "hand model world matrix at rest = T(entry) * R(qIdle) * S(rootScale) * T(0,0,-back) * T(0,0,wristZ) * T(0,0,-wristZ) * S(mirrorX ? -1 : 1, 1, 1) (the wrist group only matters when it pitches); atRest.modelWorldMatrixColumnMajor is the product, ready to use as a 4x4 column-major matrix (three.js Matrix4.elements).",
+ "assets": {
+  "fl": {
+   "kind": "hand-static",
+   "file": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/choice_hands_H2_FL_hand.glb",
+   "fileNote": "ASHLAR source GLB (Tripo, one mesh, no skin, raw frame: forearm tilted, about 1 m long). The lab does NOT use it raw: lookdev-lab/scripts/prepare-choice-hands.py levels it on its forearm axis, rolls it back-of-hand up, scales it uniformly to 0.45 m, re-pivots it at the centre of the sleeve end (+z fingers, +y back of the hand, x across) and adds a sleeve extension (0.6 m cloth tube, second primitive \"sleeve_ext\", vertex colours). All numbers in this scene refer to that PREPARED frame.",
+   "preparedLabFile": "lookdev-lab/assets/choice-hands/choice-hand-fl.glb",
+   "preparedFrame": {
+    "originAtSleeveEnd": true,
+    "plusZ": "toward the fingertips",
+    "plusY": "back of the hand",
+    "lengthM": 0.45,
+    "wristAtZ": 0.27,
+    "sleeveEllipseRadiiM": [
+     0.045,
+     0.046
+    ],
+    "longestFingertipZYX": [
+     0.087,
+     -0.068,
+     0.447
+    ],
+    "labBbox": {
+     "min": [
+      -0.052,
+      -0.084,
+      -0.6
+     ],
+     "max": [
+      0.159,
+      0.05,
+      0.45
+     ],
+     "size": [
+      0.21,
+      0.134,
+      1.05
+     ]
+    }
+   },
+   "sourceBbox": {
+    "min": [
+     -0.192,
+     0,
+     -0.5
+    ],
+    "max": [
+     0.192,
+     0.333,
+     0.5
+    ]
+   },
+   "optimized": null,
+   "optimizedNote": "not in Resource_3D_Optimized (it only has map/)",
+   "rigged": {
+    "file": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/H2_FL_hand_rig.glb",
+    "fileNote": "Blender rig of the Flagellant hand (22 bones, names in scene.json fingerRig.bones: hand_root, forearm, wrist, thumb/index/middle/ring/pinky _01.._03; sockets fx_palm / fx_thumb / fx_tip_index). The lab uses a re-encoded copy (2048 px JPEG, skin kept, wrapped into the lab frame if needed) and adds the sleeve extension from the static hand.",
+    "preparedLabFile": "lookdev-lab/assets/choice-hands/choice-hand-fl-rig.glb",
+    "preparedBbox": {
+     "min": [
+      -0.052,
+      -0.084,
+      0
+     ],
+     "max": [
+      0.159,
+      0.05,
+      0.45
+     ],
+     "size": [
+      0.21,
+      0.134,
+      0.45
+     ]
+    }
+   }
+  },
+  "os": {
+   "kind": "hand-static",
+   "file": "ashlar/3d/heroes/_hands_v1/H3_OS_hand/choice_hands_H3_OS_hand.glb",
+   "fileNote": "ASHLAR source GLB (Tripo, one mesh, no skin, raw frame: forearm tilted, about 1 m long). The lab does NOT use it raw: lookdev-lab/scripts/prepare-choice-hands.py levels it on its forearm axis, rolls it back-of-hand up, scales it uniformly to 0.45 m, re-pivots it at the centre of the sleeve end (+z fingers, +y back of the hand, x across) and adds a sleeve extension (0.6 m cloth tube, second primitive \"sleeve_ext\", vertex colours). All numbers in this scene refer to that PREPARED frame.",
+   "preparedLabFile": "lookdev-lab/assets/choice-hands/choice-hand-os.glb",
+   "preparedFrame": {
+    "originAtSleeveEnd": true,
+    "plusZ": "toward the fingertips",
+    "plusY": "back of the hand",
+    "lengthM": 0.45,
+    "wristAtZ": 0.27,
+    "sleeveEllipseRadiiM": [
+     0.039,
+     0.041
+    ],
+    "longestFingertipZYX": [
+     -0.058,
+     -0.02,
+     0.447
+    ],
+    "labBbox": {
+     "min": [
+      -0.123,
+      -0.044,
+      -0.6
+     ],
+     "max": [
+      0.042,
+      0.044,
+      0.45
+     ],
+     "size": [
+      0.166,
+      0.089,
+      1.05
+     ]
+    }
+   },
+   "sourceBbox": {
+    "min": [
+     -0.168,
+     0,
+     -0.5
+    ],
+    "max": [
+     0.168,
+     0.206,
+     0.5
+    ]
+   },
+   "optimized": null,
+   "optimizedNote": "not in Resource_3D_Optimized (it only has map/)"
+  },
+  "br": {
+   "kind": "hand-static",
+   "file": "ashlar/3d/heroes/_hands_v1/H4_BR_hand/choice_hands_H4_BR_hand.glb",
+   "fileNote": "ASHLAR source GLB (Tripo, one mesh, no skin, raw frame: forearm tilted, about 1 m long). The lab does NOT use it raw: lookdev-lab/scripts/prepare-choice-hands.py levels it on its forearm axis, rolls it back-of-hand up, scales it uniformly to 0.45 m, re-pivots it at the centre of the sleeve end (+z fingers, +y back of the hand, x across) and adds a sleeve extension (0.6 m cloth tube, second primitive \"sleeve_ext\", vertex colours). All numbers in this scene refer to that PREPARED frame.",
+   "preparedLabFile": "lookdev-lab/assets/choice-hands/choice-hand-br.glb",
+   "preparedFrame": {
+    "originAtSleeveEnd": true,
+    "plusZ": "toward the fingertips",
+    "plusY": "back of the hand",
+    "lengthM": 0.45,
+    "wristAtZ": 0.261,
+    "sleeveEllipseRadiiM": [
+     0.043,
+     0.043
+    ],
+    "longestFingertipZYX": [
+     0.022,
+     -0.024,
+     0.448
+    ],
+    "labBbox": {
+     "min": [
+      -0.061,
+      -0.05,
+      -0.6
+     ],
+     "max": [
+      0.117,
+      0.067,
+      0.45
+     ],
+     "size": [
+      0.178,
+      0.116,
+      1.05
+     ]
+    }
+   },
+   "sourceBbox": {
+    "min": [
+     -0.209,
+     0,
+     -0.5
+    ],
+    "max": [
+     0.209,
+     0.457,
+     0.5
+    ]
+   },
+   "optimized": null,
+   "optimizedNote": "not in Resource_3D_Optimized (it only has map/)"
+  }
+ },
+ "hands": [
+  {
+   "id": "PB",
+   "name": "Pallbearer",
+   "quote": "Lift with the legs. And with the heart.",
+   "slotIndex": 0,
+   "modelKey": "os",
+   "standIn": true,
+   "ownModel": null,
+   "file": null,
+   "riggedFile": null,
+   "standInOf": {
+    "donorModel": "os",
+    "donorFile": "ashlar/3d/heroes/_hands_v1/H3_OS_hand/choice_hands_H3_OS_hand.glb",
+    "conceptOnly": "ashlar/3d/heroes/_hands_v1/H1_PB_gauntlet/concept.png",
+    "note": "no GLB of its own yet (only the concept): the lab draws a tinted clone of the donor hand with the same pose"
+   },
+   "pose": "back",
+   "mirrorX": false,
+   "tint": {
+    "mono": [
+     0.78,
+     0.84,
+     0.94
+    ],
+    "metalness": 0.4,
+    "roughness": 0.4
+   },
+   "rings": null,
+   "authored": {
+    "entryXY": [
+     -0.727,
+     0.781
+    ],
+    "inPlaneAngleDeg": 22.5,
+    "leanOutOfWallDeg": 15,
+    "extraRollDeg": 13.6,
+    "visibleArmM": 0.264,
+    "slotScaleK": 0.93
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     -0.727,
+     0.781,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     0.6034,
+     0.08058,
+     0.20391,
+     0.7667
+    ],
+    "rootEulerYXZDeg": {
+     "y": 55.001,
+     "x": 63.176,
+     "z": 65.288
+    },
+    "rootScale": 1.488,
+    "slideLocalZ": -0.186,
+    "wristPivotLocalZ": 0.27,
+    "modelWorldPosition": [
+     -0.8293,
+     1.028,
+     -0.0716
+    ],
+    "modelWorldQuaternionXYZW": [
+     0.6034,
+     0.08058,
+     0.20391,
+     0.7667
+    ],
+    "modelWorldScale": [
+     1.488,
+     1.488,
+     1.488
+    ],
+    "modelWorldMatrixColumnMajor": [
+     1.344938,
+     0.609962,
+     0.182296,
+     0,
+     -0.32055,
+     0.280711,
+     1.42569,
+     0,
+     0.55003,
+     -1.32789,
+     0.385123,
+     0,
+     -0.829306,
+     1.027988,
+     -0.071633,
+     1
+    ],
+    "armDirection": [
+     0.36964,
+     -0.8924,
+     0.25882
+    ],
+    "tipWorld": [
+     -0.5818,
+     0.4304,
+     0.1017
+    ],
+    "wristWorld": [
+     -0.6808,
+     0.6695,
+     0.0324
+    ],
+    "handCentreWorld": [
+     -0.6368,
+     0.5632,
+     0.0632
+    ],
+    "sleeveEndWorld": [
+     -0.8293,
+     1.028,
+     -0.0716
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     0.15413,
+     -0.15684,
+     0.96748,
+     0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": 16,
+     "x": 20,
+     "z": 168.113
+    },
+    "armDirection": [
+     0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     -0.5636,
+     0.5652,
+     0.5699
+    ],
+    "tipWorld": [
+     -0.525,
+     0.5143,
+     0.7043
+    ],
+    "palmNormalWorld": [
+     0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": -1
+   },
+   "ringsLocal": null
+  },
+  {
+   "id": "FL",
+   "name": "Flagellant",
+   "quote": "Pain is the only prayer that never lies.",
+   "slotIndex": 1,
+   "modelKey": "fl",
+   "standIn": false,
+   "ownModel": "choice-hand-fl",
+   "file": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/choice_hands_H2_FL_hand.glb",
+   "riggedFile": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/H2_FL_hand_rig.glb",
+   "standInOf": null,
+   "pose": "palm",
+   "mirrorX": false,
+   "tint": null,
+   "rings": null,
+   "authored": {
+    "entryXY": [
+     -0.453,
+     0.726
+    ],
+    "inPlaneAngleDeg": 17.5,
+    "leanOutOfWallDeg": 20.6,
+    "extraRollDeg": -42.7,
+    "visibleArmM": 0.335,
+    "slotScaleK": 0.85
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     -0.453,
+     0.726,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     0.32079,
+     -0.47029,
+     0.78706,
+     0.23759
+    ],
+    "rootEulerYXZDeg": {
+     "y": 38.66,
+     "x": 63.219,
+     "z": 170.769
+    },
+    "rootScale": 1.36,
+    "slideLocalZ": -0.115,
+    "wristPivotLocalZ": 0.27,
+    "modelWorldPosition": [
+     -0.497,
+     0.8656,
+     -0.055
+    ],
+    "modelWorldQuaternionXYZW": [
+     0.32079,
+     -0.47029,
+     0.78706,
+     0.23759
+    ],
+    "modelWorldScale": [
+     1.36,
+     1.36,
+     1.36
+    ],
+    "modelWorldMatrixColumnMajor": [
+     -0.926556,
+     0.098298,
+     0.990673,
+     0,
+     -0.918994,
+     -0.604854,
+     -0.799501,
+     0,
+     0.382811,
+     -1.214121,
+     0.478505,
+     0,
+     -0.497023,
+     0.865624,
+     -0.055028,
+     1
+    ],
+    "armDirection": [
+     0.28148,
+     -0.89274,
+     0.35184
+    ],
+    "tipWorld": [
+     -0.3248,
+     0.3193,
+     0.1603
+    ],
+    "wristWorld": [
+     -0.3937,
+     0.5378,
+     0.0742
+    ],
+    "handCentreWorld": [
+     -0.363,
+     0.4407,
+     0.1124
+    ],
+    "sleeveEndWorld": [
+     -0.497,
+     0.8656,
+     -0.055
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     0.15413,
+     -0.15684,
+     0.96748,
+     0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": 16,
+     "x": 20,
+     "z": 168.113
+    },
+    "armDirection": [
+     0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     -0.2786,
+     0.4958,
+     0.6081
+    ],
+    "tipWorld": [
+     -0.2434,
+     0.4492,
+     0.7309
+    ],
+    "palmNormalWorld": [
+     0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": -1
+   },
+   "ringsLocal": null
+  },
+  {
+   "id": "OS",
+   "name": "Ossuarist",
+   "quote": "Only borrowing, love. We'll put them back.",
+   "slotIndex": 2,
+   "modelKey": "os",
+   "standIn": false,
+   "ownModel": "choice-hand-os",
+   "file": "ashlar/3d/heroes/_hands_v1/H3_OS_hand/choice_hands_H3_OS_hand.glb",
+   "riggedFile": null,
+   "standInOf": null,
+   "pose": "back",
+   "mirrorX": false,
+   "tint": null,
+   "rings": null,
+   "authored": {
+    "entryXY": [
+     -0.171,
+     0.641
+    ],
+    "inPlaneAngleDeg": 19.4,
+    "leanOutOfWallDeg": 15,
+    "extraRollDeg": 7.4,
+    "visibleArmM": 0.286,
+    "slotScaleK": 0.985
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     -0.171,
+     0.641,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     0.60169,
+     0.09249,
+     0.14677,
+     0.77966
+    ],
+    "rootEulerYXZDeg": {
+     "y": 51.107,
+     "x": 65.655,
+     "z": 55.608
+    },
+    "rootScale": 1.576,
+    "slideLocalZ": -0.164,
+    "wristPivotLocalZ": 0.27,
+    "modelWorldPosition": [
+     -0.2539,
+     0.8765,
+     -0.0669
+    ],
+    "modelWorldQuaternionXYZW": [
+     0.60169,
+     0.09249,
+     0.14677,
+     0.77966
+    ],
+    "modelWorldScale": [
+     1.576,
+     1.576,
+     1.576
+    ],
+    "modelWorldMatrixColumnMajor": [
+     1.481137,
+     0.536098,
+     0.051069,
+     0,
+     -0.185281,
+     0.366961,
+     1.521442,
+     0,
+     0.505649,
+     -1.435867,
+     0.407899,
+     0,
+     -0.253926,
+     0.876482,
+     -0.066895,
+     1
+    ],
+    "armDirection": [
+     0.32084,
+     -0.91108,
+     0.25882
+    ],
+    "tipWorld": [
+     -0.0264,
+     0.2303,
+     0.1167
+    ],
+    "wristWorld": [
+     -0.1174,
+     0.4888,
+     0.0432
+    ],
+    "handCentreWorld": [
+     -0.0769,
+     0.3739,
+     0.0759
+    ],
+    "sleeveEndWorld": [
+     -0.2539,
+     0.8765,
+     -0.0669
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     0.15413,
+     -0.15684,
+     0.96748,
+     0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": 16,
+     "x": 20,
+     "z": 168.113
+    },
+    "armDirection": [
+     0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     0.0111,
+     0.4006,
+     0.6349
+    ],
+    "tipWorld": [
+     0.0519,
+     0.3467,
+     0.7773
+    ],
+    "palmNormalWorld": [
+     0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": -1
+   },
+   "ringsLocal": null
+  },
+  {
+   "id": "BR",
+   "name": "Brinecaller",
+   "quote": "Salt keeps. Salt cleans. Salt kills. Mind which you ask for.",
+   "slotIndex": 3,
+   "modelKey": "br",
+   "standIn": false,
+   "ownModel": "choice-hand-br",
+   "file": "ashlar/3d/heroes/_hands_v1/H4_BR_hand/choice_hands_H4_BR_hand.glb",
+   "riggedFile": null,
+   "standInOf": null,
+   "pose": "back",
+   "mirrorX": true,
+   "tint": null,
+   "rings": null,
+   "authored": {
+    "entryXY": [
+     0.159,
+     0.645
+    ],
+    "inPlaneAngleDeg": 0.4,
+    "leanOutOfWallDeg": 21.2,
+    "extraRollDeg": 0.5,
+    "visibleArmM": 0.307,
+    "slotScaleK": 1.01
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     0.159,
+     0.645,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     0.56497,
+     0.00008,
+     0.00565,
+     0.82509
+    ],
+    "rootEulerYXZDeg": {
+     "y": 1.031,
+     "x": 68.796,
+     "z": 1.491
+    },
+    "rootScale": 1.616,
+    "slideLocalZ": -0.143,
+    "wristPivotLocalZ": 0.261,
+    "modelWorldPosition": [
+     0.1575,
+     0.8604,
+     -0.0836
+    ],
+    "modelWorldQuaternionXYZW": [
+     0.56497,
+     0.00008,
+     0.00565,
+     0.82509
+    ],
+    "modelWorldScale": [
+     -1.616,
+     1.616,
+     1.616
+    ],
+    "modelWorldMatrixColumnMajor": [
+     -1.615897,
+     -0.015205,
+     -0.010116,
+     0,
+     -0.01493,
+     0.584282,
+     1.506601,
+     0,
+     0.010518,
+     -1.506599,
+     0.584385,
+     0,
+     0.157496,
+     0.860444,
+     -0.083567,
+     1
+    ],
+    "armDirection": [
+     0.00651,
+     -0.9323,
+     0.36162
+    ],
+    "tipWorld": [
+     0.1622,
+     0.1825,
+     0.1794
+    ],
+    "wristWorld": [
+     0.1602,
+     0.4672,
+     0.069
+    ],
+    "handCentreWorld": [
+     0.1612,
+     0.3331,
+     0.121
+    ],
+    "sleeveEndWorld": [
+     0.1575,
+     0.8604,
+     -0.0836
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     0.15413,
+     0.15684,
+     -0.96748,
+     0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": -16,
+     "x": 20,
+     "z": -168.113
+    },
+    "armDirection": [
+     -0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     -0.0365,
+     0.3869,
+     0.6817
+    ],
+    "tipWorld": [
+     -0.0783,
+     0.3316,
+     0.8277
+    ],
+    "palmNormalWorld": [
+     -0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": 1
+   },
+   "ringsLocal": null
+  },
+  {
+   "id": "EX",
+   "name": "Exhumer",
+   "quote": "Keep your light low. The things worth killing see better than you.",
+   "slotIndex": 4,
+   "modelKey": "fl",
+   "standIn": true,
+   "ownModel": null,
+   "file": null,
+   "riggedFile": null,
+   "standInOf": {
+    "donorModel": "fl",
+    "donorFile": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/choice_hands_H2_FL_hand.glb",
+    "conceptOnly": "ashlar/3d/heroes/_hands_v1/H5_EX_glove/concept.png",
+    "note": "no GLB of its own yet (only the concept): the lab draws a tinted clone of the donor hand with the same pose"
+   },
+   "pose": "palm",
+   "mirrorX": true,
+   "tint": {
+    "mono": [
+     1,
+     0.64,
+     0.38
+    ],
+    "metalness": 0,
+    "roughness": 0.6
+   },
+   "rings": null,
+   "authored": {
+    "entryXY": [
+     0.5,
+     0.687
+    ],
+    "inPlaneAngleDeg": -23.3,
+    "leanOutOfWallDeg": 16.2,
+    "extraRollDeg": 39.9,
+    "visibleArmM": 0.322,
+    "slotScaleK": 0.85
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     0.5,
+     0.687,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     -0.36291,
+     -0.47833,
+     0.77631,
+     -0.19194
+    ],
+    "rootEulerYXZDeg": {
+     "y": -53.703,
+     "x": 61.882,
+     "z": 174.011
+    },
+    "rootScale": 1.36,
+    "slideLocalZ": -0.128,
+    "wristPivotLocalZ": 0.27,
+    "modelWorldPosition": [
+     0.5661,
+     0.8405,
+     -0.0486
+    ],
+    "modelWorldQuaternionXYZW": [
+     -0.36291,
+     -0.47833,
+     0.77631,
+     -0.19194
+    ],
+    "modelWorldScale": [
+     -1.36,
+     1.36,
+     1.36
+    ],
+    "modelWorldMatrixColumnMajor": [
+     0.901562,
+     -0.06688,
+     1.016028,
+     0,
+     0.877456,
+     -0.637456,
+     -0.820562,
+     0,
+     -0.516582,
+     -1.19949,
+     0.379428,
+     0,
+     0.566123,
+     0.840535,
+     -0.048567,
+     1
+    ],
+    "armDirection": [
+     -0.37984,
+     -0.88198,
+     0.27899
+    ],
+    "tipWorld": [
+     0.3337,
+     0.3008,
+     0.1222
+    ],
+    "wristWorld": [
+     0.4266,
+     0.5167,
+     0.0539
+    ],
+    "handCentreWorld": [
+     0.3853,
+     0.4207,
+     0.0842
+    ],
+    "sleeveEndWorld": [
+     0.5661,
+     0.8405,
+     -0.0486
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     -0.15413,
+     -0.15684,
+     0.96748,
+     -0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": -16,
+     "x": 20,
+     "z": -168.113
+    },
+    "armDirection": [
+     -0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     0.3302,
+     0.4628,
+     0.5921
+    ],
+    "tipWorld": [
+     0.295,
+     0.4163,
+     0.715
+    ],
+    "palmNormalWorld": [
+     -0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": 1
+   },
+   "ringsLocal": null
+  },
+  {
+   "id": "PS",
+   "name": "Pyre-Singer",
+   "quote": "Sing, so they don't go frightened.",
+   "slotIndex": 5,
+   "modelKey": "fl",
+   "standIn": true,
+   "ownModel": null,
+   "file": null,
+   "riggedFile": null,
+   "standInOf": {
+    "donorModel": "fl",
+    "donorFile": "ashlar/3d/heroes/_hands_v1/H2_FL_hand/choice_hands_H2_FL_hand.glb",
+    "conceptOnly": "ashlar/3d/heroes/_hands_v1/H6_PS_hand/concept.png",
+    "note": "no GLB of its own yet (only the concept): the lab draws a tinted clone of the donor hand with the same pose"
+   },
+   "pose": "palm",
+   "mirrorX": true,
+   "tint": {
+    "color": [
+     1,
+     0.86,
+     0.8
+    ],
+    "metalness": 0,
+    "roughness": 0.78
+   },
+   "rings": {
+    "color": [
+     0.62,
+     0.05,
+     0.04
+    ],
+    "count": 2
+   },
+   "authored": {
+    "entryXY": [
+     0.736,
+     0.771
+    ],
+    "inPlaneAngleDeg": -15.6,
+    "leanOutOfWallDeg": 21.1,
+    "extraRollDeg": 20.9,
+    "visibleArmM": 0.335,
+    "slotScaleK": 0.85
+   },
+   "atRest": {
+    "note": "hand model root (sleeve end origin) in world space with the arm sliding 0; the nested groups of the lab are root > slide(z=-back) > wrist(z=wristZ) > arm(z=-wristZ, scale.x = mirror ? -1 : 1) > model",
+    "rootPosition": [
+     0.736,
+     0.771,
+     0
+    ],
+    "rootQuaternionXYZW": [
+     -0.2119,
+     -0.5245,
+     0.81948,
+     -0.09191
+    ],
+    "rootEulerYXZDeg": {
+     "y": -34.873,
+     "x": 63.973,
+     "z": 170.602
+    },
+    "rootScale": 1.36,
+    "slideLocalZ": -0.115,
+    "wristPivotLocalZ": 0.27,
+    "modelWorldPosition": [
+     0.7752,
+     0.9115,
+     -0.0563
+    ],
+    "modelWorldQuaternionXYZW": [
+     -0.2119,
+     -0.5245,
+     0.81948,
+     -0.09191
+    ],
+    "modelWorldScale": [
+     -1.36,
+     1.36,
+     1.36
+    ],
+    "modelWorldMatrixColumnMajor": [
+     1.214886,
+     -0.097443,
+     0.603454,
+     0,
+     0.507176,
+     -0.588756,
+     -1.116127,
+     0,
+     -0.34121,
+     -1.222077,
+     0.489596,
+     0,
+     0.775239,
+     0.911539,
+     -0.056304,
+     1
+    ],
+    "armDirection": [
+     -0.25089,
+     -0.89859,
+     0.36
+    ],
+    "tipWorld": [
+     0.6217,
+     0.3616,
+     0.164
+    ],
+    "wristWorld": [
+     0.6831,
+     0.5816,
+     0.0759
+    ],
+    "handCentreWorld": [
+     0.6558,
+     0.4838,
+     0.1151
+    ],
+    "sleeveEndWorld": [
+     0.7752,
+     0.9115,
+     -0.0563
+    ]
+   },
+   "offered": {
+    "note": "when this hand is chosen: root quaternion slerps qIdle -> qReach, the arm slides ARM.slide metres along its own +z (slide.z = -back + slide), the wrist pitches wristPitchDeg; the camera then orbits per showcase",
+    "rootQuaternionXYZW": [
+     -0.15413,
+     -0.15684,
+     0.96748,
+     -0.12502
+    ],
+    "rootEulerYXZDeg": {
+     "y": -16,
+     "x": 20,
+     "z": -168.113
+    },
+    "armDirection": [
+     -0.25901,
+     -0.34202,
+     0.90329
+    ],
+    "slideM": 0.26,
+    "wristPitchDeg": 8,
+    "handCentreWorld": [
+     0.5616,
+     0.5408,
+     0.6081
+    ],
+    "tipWorld": [
+     0.5264,
+     0.4942,
+     0.7309
+    ],
+    "palmNormalWorld": [
+     -0.2903,
+     0.9195,
+     0.2649
+    ],
+    "rollSign": -1
+   },
+   "ringsLocal": [
+    {
+     "z": 0.235,
+     "torus": {
+      "radius": 0.037,
+      "tube": 0.0055
+     },
+     "frame": "arm group (mirrored with the hand)"
+    },
+    {
+     "z": 0.221,
+     "torus": {
+      "radius": 0.037,
+      "tube": 0.0055
+     },
+     "frame": "arm group (mirrored with the hand)"
+    }
+   ]
+  }
+ ],
+ "wall": {
+  "kind": "procedural plane",
+  "widthM": 3.8,
+  "heightM": 2.3,
+  "centreY": 1.05,
+  "segmentsX": 380,
+  "segmentsY": 230,
+  "reliefM": 0.05,
+  "position": [
+   0,
+   1.05,
+   0
+  ],
+  "material": {
+   "type": "MeshStandardMaterial",
+   "color": [
+    0.8,
+    0.64,
+    0.4
+   ],
+   "roughness": 0.92,
+   "metalness": 0,
+   "vertexColors": "wallTone (wall/wall-tone.png)",
+   "normalScale": [
+    1.1,
+    1.1
+   ],
+   "displacementScale": 0.05,
+   "displacementBias": -0.05
+  },
+  "textures": "see scene.json wall.tiles; the lab bakes ONE 2304 x 1408 albedo/normal/height texture from tile A (lit middle) and tile B (dim ring) with env/choiceHands.js composeWallRows"
+ },
+ "ledge": {
+  "kind": "procedural box",
+  "sizeM": [
+   4.4,
+   0.5,
+   0.18
+  ],
+  "position": [
+   0,
+   -0.25,
+   0.07
+  ],
+  "material": "procedural stone (256 px value-noise map + normal, scenes/choiceHands.js stoneTextures), roughness 0.93, normalScale 0.9",
+  "lip": {
+   "sizeM": [
+    4.4,
+    0.03,
+    0.05
+   ],
+   "position": [
+    0,
+    -0.012,
+    0.135
+   ]
+  }
+ },
+ "candle": {
+  "group": {
+   "position": [
+    0,
+    0,
+    0.06
+   ],
+   "uniformScale": 1.12
+  },
+  "parts": [
+   {
+    "name": "Dish",
+    "geometry": "LatheGeometry(profile, 40)",
+    "profileRadiusY": [
+     [
+      0,
+      0.002
+     ],
+     [
+      0.046,
+      0.002
+     ],
+     [
+      0.074,
+      0.011
+     ],
+     [
+      0.082,
+      0.024
+     ],
+     [
+      0.076,
+      0.026
+     ],
+     [
+      0.07,
+      0.016
+     ],
+     [
+      0.046,
+      0.011
+     ],
+     [
+      0,
+      0.011
+     ]
+    ],
+    "material": {
+     "type": "MeshStandardMaterial",
+     "color": [
+      0.34,
+      0.27,
+      0.17
+     ],
+     "roughness": 0.5,
+     "metalness": 0.75
+    }
+   },
+   {
+    "name": "Ring handle",
+    "geometry": "TorusGeometry(0.03, 0.006, 10, 32)",
+    "position": [
+     0.108,
+     0.036,
+     0
+    ],
+    "rotationYDeg": 0,
+    "material": "brass (as the dish)"
+   },
+   {
+    "name": "Stem",
+    "geometry": "CylinderGeometry(0.0055, 0.0055, 0.04, 8)",
+    "rotationZDeg": 90,
+    "position": [
+     0.082,
+     0.02,
+     0
+    ],
+    "material": "brass"
+   },
+   {
+    "name": "Wax",
+    "geometry": "LatheGeometry(profile, 32)",
+    "profileRadiusY": [
+     [
+      0,
+      0.011
+     ],
+     [
+      0.029,
+      0.011
+     ],
+     [
+      0.031,
+      0.04
+     ],
+     [
+      0.033,
+      0.085
+     ],
+     [
+      0.031,
+      0.118
+     ],
+     [
+      0.026,
+      0.132
+     ],
+     [
+      0.02,
+      0.1355
+     ],
+     [
+      0.012,
+      0.128
+     ],
+     [
+      0,
+      0.128
+     ]
+    ],
+    "material": "MeshBasicMaterial with painted vertex colours (golden cream gradient, see scenes/choiceHands.js paintWax)"
+   },
+   {
+    "name": "Wax drip",
+    "geometry": "CapsuleGeometry(0.0065, 0.05, 4, 8)",
+    "position": [
+     0.0295,
+     0.095,
+     0.01
+    ]
+   },
+   {
+    "name": "Wax drip",
+    "geometry": "CapsuleGeometry(0.0055, 0.034, 4, 8)",
+    "position": [
+     -0.011,
+     0.103,
+     0.0295
+    ]
+   },
+   {
+    "name": "Wick",
+    "geometry": "CylinderGeometry(0.0016, 0.0016, 0.022, 6)",
+    "position": [
+     0,
+     0.138,
+     0
+    ],
+    "material": {
+     "color": "#0b0a08",
+     "roughness": 1
+    }
+   }
+  ],
+  "flame": {
+   "basePosition": [
+    0,
+    0.1658,
+    0.06
+   ],
+   "widthM": 0.0515,
+   "heightM": 0.0952,
+   "note": "billboard flame (env/flames.js FlameField)"
+  },
+  "glowSprite": {
+   "position": [
+    0,
+    0.2016,
+    0.03
+   ],
+   "size": 0.8,
+   "colour": [
+    1,
+    0.5,
+    0.15
+   ],
+   "additive": true,
+   "note": "wall glow, colour x settings.glow (0.15) x flicker"
+  },
+  "ledgeGlowSprite": {
+   "position": [
+    0,
+    0.0035,
+    0.09
+   ],
+   "rotationXDeg": -90,
+   "scale": [
+    0.5,
+    0.2,
+    1
+   ],
+   "additive": true
+  },
+  "soot": {
+   "position": [
+    0,
+    0.62,
+    0.004
+   ],
+   "size": [
+    0.62,
+    1.1
+   ],
+   "color": "#000000",
+   "note": "soft vertical black smudge texture above the flame (canvas 128 x 256)"
+  }
+ },
+ "dustMotes": {
+  "count": 40,
+  "note": "additive warm sprites drifting round the candle; hash01(i, 1..6) of env/choiceHands.js",
+  "items": [
+   {
+    "x": 0.7663,
+    "y": 0.3034,
+    "z": 0.3987,
+    "phase": 0.998,
+    "speed": 0.02255,
+    "size": 0.0102
+   },
+   {
+    "x": -0.9488,
+    "y": 0.7795,
+    "z": 0.2613,
+    "phase": 2.813,
+    "speed": 0.01412,
+    "size": 0.01022
+   },
+   {
+    "x": 0.7203,
+    "y": 1.136,
+    "z": 0.479,
+    "phase": 0.7278,
+    "speed": 0.0208,
+    "size": 0.00768
+   },
+   {
+    "x": 0.3113,
+    "y": 1.0864,
+    "z": 0.3545,
+    "phase": 2.5662,
+    "speed": 0.02204,
+    "size": 0.00619
+   },
+   {
+    "x": 0.6684,
+    "y": 0.8416,
+    "z": 0.128,
+    "phase": 2.1645,
+    "speed": 0.01044,
+    "size": 0.00847
+   },
+   {
+    "x": 0.1497,
+    "y": 1.2278,
+    "z": 0.1538,
+    "phase": 4.2652,
+    "speed": 0.01203,
+    "size": 0.01043
+   },
+   {
+    "x": 1.1567,
+    "y": 0.961,
+    "z": 0.4319,
+    "phase": 5.9045,
+    "speed": 0.01111,
+    "size": 0.00623
+   },
+   {
+    "x": 1.0029,
+    "y": 1.0779,
+    "z": 0.2517,
+    "phase": 0.4191,
+    "speed": 0.01361,
+    "size": 0.01081
+   },
+   {
+    "x": 0.7735,
+    "y": 0.9178,
+    "z": 0.3091,
+    "phase": 4.6401,
+    "speed": 0.0283,
+    "size": 0.01045
+   },
+   {
+    "x": 1.077,
+    "y": 1.1509,
+    "z": 0.4102,
+    "phase": 5.2062,
+    "speed": 0.01714,
+    "size": 0.00772
+   },
+   {
+    "x": 0.5992,
+    "y": 0.2959,
+    "z": 0.3392,
+    "phase": 2.2479,
+    "speed": 0.01375,
+    "size": 0.00601
+   },
+   {
+    "x": 0.3589,
+    "y": 1.2199,
+    "z": 0.2729,
+    "phase": 5.6515,
+    "speed": 0.01469,
+    "size": 0.01065
+   },
+   {
+    "x": -0.7063,
+    "y": 0.7535,
+    "z": 0.5972,
+    "phase": 4.0983,
+    "speed": 0.01347,
+    "size": 0.00739
+   },
+   {
+    "x": 1.0459,
+    "y": 1.1268,
+    "z": 0.5342,
+    "phase": 1.5666,
+    "speed": 0.02063,
+    "size": 0.01007
+   },
+   {
+    "x": -0.9104,
+    "y": 0.4456,
+    "z": 0.1,
+    "phase": 5.5241,
+    "speed": 0.02196,
+    "size": 0.01057
+   },
+   {
+    "x": 0.7928,
+    "y": 0.2112,
+    "z": 0.3887,
+    "phase": 4.9383,
+    "speed": 0.02656,
+    "size": 0.01008
+   },
+   {
+    "x": -0.784,
+    "y": 0.9468,
+    "z": 0.4588,
+    "phase": 4.4196,
+    "speed": 0.01617,
+    "size": 0.00749
+   },
+   {
+    "x": -1.0385,
+    "y": 0.2632,
+    "z": 0.1459,
+    "phase": 5.5831,
+    "speed": 0.01146,
+    "size": 0.01083
+   },
+   {
+    "x": 1.0685,
+    "y": 0.8352,
+    "z": 0.4117,
+    "phase": 2.5881,
+    "speed": 0.01976,
+    "size": 0.00763
+   },
+   {
+    "x": -0.7222,
+    "y": 1.3543,
+    "z": 0.422,
+    "phase": 2.5246,
+    "speed": 0.0135,
+    "size": 0.00721
+   },
+   {
+    "x": 0.5476,
+    "y": 0.7603,
+    "z": 0.5731,
+    "phase": 3.1976,
+    "speed": 0.01222,
+    "size": 0.00878
+   },
+   {
+    "x": -0.9436,
+    "y": 1.2075,
+    "z": 0.4837,
+    "phase": 1.4108,
+    "speed": 0.01844,
+    "size": 0.00738
+   },
+   {
+    "x": -0.2556,
+    "y": 0.6277,
+    "z": 0.5398,
+    "phase": 0.6727,
+    "speed": 0.01274,
+    "size": 0.00534
+   },
+   {
+    "x": 0.8421,
+    "y": 1.0355,
+    "z": 0.5315,
+    "phase": 2.2803,
+    "speed": 0.02036,
+    "size": 0.00586
+   },
+   {
+    "x": -0.6535,
+    "y": 0.7073,
+    "z": 0.2748,
+    "phase": 0.3149,
+    "speed": 0.02947,
+    "size": 0.00548
+   },
+   {
+    "x": 0.0786,
+    "y": 0.5988,
+    "z": 0.5714,
+    "phase": 0.4366,
+    "speed": 0.01273,
+    "size": 0.00982
+   },
+   {
+    "x": 0.2005,
+    "y": 0.3238,
+    "z": 0.5448,
+    "phase": 1.6594,
+    "speed": 0.01702,
+    "size": 0.00596
+   },
+   {
+    "x": -0.0244,
+    "y": 1.1817,
+    "z": 0.4274,
+    "phase": 4.4144,
+    "speed": 0.02038,
+    "size": 0.00935
+   },
+   {
+    "x": -1.0702,
+    "y": 0.6657,
+    "z": 0.2483,
+    "phase": 2.6025,
+    "speed": 0.0254,
+    "size": 0.00777
+   },
+   {
+    "x": -1.0633,
+    "y": 0.5929,
+    "z": 0.2749,
+    "phase": 3.7117,
+    "speed": 0.01981,
+    "size": 0.00978
+   },
+   {
+    "x": -0.5019,
+    "y": 0.6795,
+    "z": 0.3266,
+    "phase": 4.2962,
+    "speed": 0.01937,
+    "size": 0.00838
+   },
+   {
+    "x": 0.3206,
+    "y": 1.3145,
+    "z": 0.5578,
+    "phase": 2.824,
+    "speed": 0.026,
+    "size": 0.00791
+   },
+   {
+    "x": -1.1043,
+    "y": 0.8647,
+    "z": 0.3043,
+    "phase": 5.025,
+    "speed": 0.02403,
+    "size": 0.00599
+   },
+   {
+    "x": -0.336,
+    "y": 0.9128,
+    "z": 0.5244,
+    "phase": 5.2636,
+    "speed": 0.02555,
+    "size": 0.00948
+   },
+   {
+    "x": 0.5876,
+    "y": 0.7977,
+    "z": 0.4025,
+    "phase": 1.6401,
+    "speed": 0.02554,
+    "size": 0.00878
+   },
+   {
+    "x": -1.108,
+    "y": 0.9282,
+    "z": 0.2886,
+    "phase": 2.6077,
+    "speed": 0.01055,
+    "size": 0.00766
+   },
+   {
+    "x": 1.1722,
+    "y": 0.4871,
+    "z": 0.1778,
+    "phase": 3.8463,
+    "speed": 0.01618,
+    "size": 0.00836
+   },
+   {
+    "x": -1.0769,
+    "y": 0.3097,
+    "z": 0.118,
+    "phase": 4.2107,
+    "speed": 0.01781,
+    "size": 0.00554
+   },
+   {
+    "x": -0.4639,
+    "y": 0.583,
+    "z": 0.5751,
+    "phase": 0.6817,
+    "speed": 0.01275,
+    "size": 0.00577
+   },
+   {
+    "x": 0.9249,
+    "y": 0.81,
+    "z": 0.3878,
+    "phase": 4.6683,
+    "speed": 0.02612,
+    "size": 0.00749
+   }
+  ]
+ }
+}

@@ -1,0 +1,1629 @@
+{
+ "title": "ASHLAR approved concepts (Art_Final)",
+ "updated": "2026-10-27",
+ "rule": "copies of approved concepts; the source files stay where they are in ashlar/art",
+ "counts": {
+  "monsters": 74,
+  "npcs": 51,
+  "environments": 50,
+  "items": 49,
+  "heroes": 6
+ },
+ "files": [
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/B01_sextons_dog.png",
+   "source": "ashlar/art/act-01/monsters/B01_sextons_dog/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "6659963b9f3cce37f209736b277c3a3a92ad7e11f79920b0ba1267aa8f11540f"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/B02_lullaby_man.png",
+   "source": "ashlar/art/act-01/monsters/B02_lullaby_man/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "7f4d6bc82ad23758eeb22c2a95f9f94fbcb7a5e1955235c8e540ddf5e3a9a842"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/B03_ember_pot.png",
+   "source": "ashlar/art/act-01/monsters/B03_ember_pot/vA/concept.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "66d730449edb2118d09a8a0832afc2bb3b6464c47f92a5819703e867593b64ee"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/B04_willow_bride.png",
+   "source": "ashlar/art/act-01/monsters/B04_willow_bride/vA/concept.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "136922403aa4db1c0bf83ebdc72b95c71519025708d3a781018628ae95dc3d8c"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/B05_hospice_mother.png",
+   "source": "ashlar/art/act-01/monsters/B05_hospice_mother/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "7806f28b4e8ae8ae343da2e680585b5ce77e333cbd7d4f876ec3db1bd197a256"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/D01_hodling.png",
+   "source": "ashlar/art/act-01/monsters/D01_hodling/vB/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "d8ff04208b87a289e5db47c35467f7989927ff22f57a031614903af5e82a9057"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/D02_kiln_shaman.png",
+   "source": "ashlar/art/act-01/monsters/D02_kiln_shaman/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "ddc2e5d3aa03176b25128ec35130404123f2f9dd0eb77bf8795b789aa1352a41"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/D04_tithe_thief.png",
+   "source": "ashlar/art/act-01/monsters/D04_tithe_thief/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "24eede79f1cec3c6dd9c1d7836c25a84cd08eeb5b3ffb6a92d6b100491ebadc1"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/F01_body_snatcher.png",
+   "source": "ashlar/art/act-01/monsters/F01_body_snatcher/vA/concept_r2b.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "900a696d89791c58d2f08c7ffe4eeab5ee71a8dfe00f9693fa385638bb92ba51"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/F02_poppy_nurse.png",
+   "source": "ashlar/art/act-01/monsters/F02_poppy_nurse/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "31d056a4fbfac17a66d7a24a2ad3ff4cb2a8ff64673ca20fa43e97a8609f5dcd"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P01_the_soothed.png",
+   "source": "ashlar/art/act-01/monsters/P01_the_soothed/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "566333c91864423a6327879843a34b7148be5c09b569195d92ec4451983d5226"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P02_hush_herald.png",
+   "source": "ashlar/art/act-01/monsters/P02_hush_herald/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "475692f09058a29b489453c997e43555feda22b7c1886519348acb7e2f83ab45"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P03_hush_moths.png",
+   "source": "ashlar/art/act-01/monsters/P03_hush_moths/vA/concept_r2b.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "7ccfa5026c4449eec2587a588b37aa29a2cdbc92ba014323225b2dd00f6ca7ab"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P04_hive_sleeper.png",
+   "source": "ashlar/art/act-01/monsters/P04_hive_sleeper/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "c7b3336a1e24539de8fc60a35d8ac9d67a5ae1c6cf752076bef6eeed39178a5f"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P05_wet_nurse.png",
+   "source": "ashlar/art/act-01/monsters/P05_wet_nurse/vB/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "f63cd4c6cd1331176a81b8aebbc57f288f4a7671f726c79ab215429d9d3bc6a6"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P06_poppy_mound.png",
+   "source": "ashlar/art/act-01/monsters/P06_poppy_mound/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "2b64463a116959c0f22773691ba7a98676292d6c3e9e318d2a4c253f2f2b1b5a"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/P07_cradle_warden.png",
+   "source": "ashlar/art/act-01/monsters/P07_cradle_warden/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "93b35beec0115b8a7b9c5f040f8fa046b780404d45fd7f1591aee1f124a938fd"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/U01_shambler.png",
+   "source": "ashlar/art/act-01/monsters/U01_shambler/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "7d87a1d6433a1c74cc73571c443f77f14570997c7686f9fd00267419181ba3ca"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/U02_charnel_dead.png",
+   "source": "ashlar/art/act-01/monsters/U02_charnel_dead/vA/concept_r2b.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "9583d7a88620906b71e20f34b5f43a2f57632282b62d84bcd38bdb1f3c105249"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/U03_charnel_bowman.png",
+   "source": "ashlar/art/act-01/monsters/U03_charnel_bowman/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "e7e95bc61b5b595132909a5d6612081cf952adffbf80dfbedeee4fe4659e7897"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/U04_charnel_ghoul.png",
+   "source": "ashlar/art/act-01/monsters/U04_charnel_ghoul/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "42173664cb3bc9710dfca2567dc73909b1f42a02bfe0f0236cec01f84f8d0416"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/U05_the_swollen.png",
+   "source": "ashlar/art/act-01/monsters/U05_the_swollen/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "818cc17fe18d0bd2ae9ab3c0f99b0712d4f5158ceed1b3f52e385cdde1d58c85"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W01_mortar_rat.png",
+   "source": "ashlar/art/act-01/monsters/W01_mortar_rat/vB/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "3c92966e0bfff5b13ae59f8318ca5509c1a304cbc3de9443462b969b4d2cab4a"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W02_gibbet_crow.png",
+   "source": "ashlar/art/act-01/monsters/W02_gibbet_crow/vB/concept_r2b.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "d38f511c6a9f5180b3e89bc94c47eb109e493ee8e5e7d230ce8465fd407627ca"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W03_hush_wolf.png",
+   "source": "ashlar/art/act-01/monsters/W03_hush_wolf/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "c63683e99e8c7e29f1c4eb6cfb1d00fe83201ea9bffb9a7cb79a640d4f184089"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W04_mire_sucker.png",
+   "source": "ashlar/art/act-01/monsters/W04_mire_sucker/vB/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "089e9dbbc85ef93146352937ab320cea3e9dd1c1891b3deb77fc6059d99fb945"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W06_willow_hulk.png",
+   "source": "ashlar/art/act-01/monsters/W06_willow_hulk/vB/concept.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "4cdffc2b65720bd269172452792a5703d0435a0dad3b1b9c93a1efe4d20a9a54"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W07_shroud_spinner.png",
+   "source": "ashlar/art/act-01/monsters/W07_shroud_spinner/vA/concept_r2.png",
+   "note": "approved 2026-10-21 (Book of Cain group ashlar-chot)",
+   "sha256": "2450656b5858bf46f94e03c9caaf7728cc63fe382dbe3d7d1749495c5ad505aa"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/D03_kiln_bull.png",
+   "source": "ashlar/art/act-01/monsters/D03_kiln_bull/vE/concept_r3_kiln.png",
+   "note": "approved 2026-10-26 (vE r3: D2 Hell Bovine + kiln on the back; replaces vC/concept_r6b)",
+   "sha256": "1645abe7c297231f54d161b22e29dfa2626fef71d3f720930b7651bc1ca8bc1f"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-01/W05_corpse_candle.png",
+   "source": "ashlar/art/act-01/monsters/W05_corpse_candle/vC/concept.png",
+   "note": "approved 2026-10-26; Ash Cantor design (from legacy/art-output/dying-gods-act1/32_ash_cantor) repainted low-detail; not the Act I rev 2 sheet format (no H, no T-pose views)",
+   "sha256": "9e5ba45a515e7b4b6129b42f52438766a066d84f265da83aa201c55181bf9257"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N01_gennet-barrow.png",
+   "source": "ashlar/art/npcs_approved/N01_gennet-barrow.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N01_gennet-barrow/concept_B_r1_REJECTED.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "0cb93877199c6f3255773646f1f93ff036e6f060a2d0dcd49144ae7e7ea266e5"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N02_brannoc-the-mortsmith.png",
+   "source": "ashlar/art/npcs_approved/N02_brannoc-the-mortsmith.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N02_brannoc-the-mortsmith/concept_B.png",
+   "sha256": "4beb14a9e25a86e53d68646878ca313ecc6b5e4329fb0f2bd9cef5f2a786d18a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N03_edda.png",
+   "source": "ashlar/art/npcs_approved/N03_edda.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N03_edda/concept_A_r2.png",
+   "sha256": "a527a237b45f2308606f1a28272eb22981c8ea4b1d3eb568d3752f69a3e34bb5"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N04_osric-dunmore.png",
+   "source": "ashlar/art/npcs_approved/N04_osric-dunmore.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N04_osric-dunmore/concept_A.png",
+   "sha256": "908ac0f12fc449ebbe0b8f122a742cb1e7b421d30738e5004f6f5f718260e18e"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N05_nell-coppercoin.png",
+   "source": "ashlar/art/npcs_approved/N05_nell-coppercoin.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N05_nell-coppercoin/concept_A.png",
+   "sha256": "fb2b0457d60ee26d2b2beab71ec679795ce9ad938829713036dd629d908a45c3"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N06_tamsin-reed.png",
+   "source": "ashlar/art/npcs_approved/N06_tamsin-reed.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N06_tamsin-reed/concept_A.png",
+   "sha256": "7dea388e25fc9006b59627eb68574dac926e9c3dfe16e7d9bc1dd4cc147cf9ec"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N07_fen-reed.png",
+   "source": "ashlar/art/npcs_approved/N07_fen-reed.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N07_fen-reed/concept_B.png",
+   "sha256": "15112a0acfc8e9512bf98e403c22fd579f34f39cdd95722443c77514f0fe3082"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N08_odo-pell.png",
+   "source": "ashlar/art/npcs_approved/N08_odo-pell.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N08_odo-pell/concept_B_r2.png",
+   "sha256": "8d9960d6d2f0130809a65cba14d220a192e39c9a953878a5c5d2dd736fb614e6"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N09_counting-child.png",
+   "source": "ashlar/art/npcs_approved/N09_counting-child.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N09_counting-child/concept_A.png",
+   "sha256": "dae1b883abfbd545fd9d605a99bdf0799bd2e52127bc264bc8b4c9422ab6b69d"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N10_ferryman.png",
+   "source": "ashlar/art/npcs_approved/N10_ferryman.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N10_ferryman/concept_A_r1_REJECTED.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "f268eb5b0c3dfb6b8990ad6882947138a89ca3433e8ee92853cc03eb7b17ef35"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N11_mother-hawise.png",
+   "source": "ashlar/art/npcs_approved/N11_mother-hawise.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N11_mother-hawise/concept_A.png",
+   "sha256": "9674f02ec842b352ed0895eb33b768afea42d4a6361bae652977831c82b87699"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N12_poppy-sister.png",
+   "source": "ashlar/art/npcs_approved/N12_poppy-sister.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N12_poppy-sister/concept_A.png",
+   "sha256": "63c3db35e6d854a7672673a7872f1b805f391a91f56d90315b8af9f27a8da64a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N13_perpetua.png",
+   "source": "ashlar/art/npcs_approved/N13_perpetua.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N13_perpetua/concept_A.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "1e9f1e2f6d8cf2bd824e5ce738fa354f87e4eae2b5a667e51dc99d65a73ffd55"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N14_ignatia.png",
+   "source": "ashlar/art/npcs_approved/N14_ignatia.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N14_ignatia/concept_A.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "b693c4e7bd053afb6e9d8803accd571575f9541f81fac80d70a7cbd5d90901f0"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N15_ansel.png",
+   "source": "ashlar/art/npcs_approved/N15_ansel.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N15_ansel/concept_A.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "371e02806b824fde116385919226afb45e26b7e8f628e1f72834a16e88ea23ed"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N16_quint.png",
+   "source": "ashlar/art/npcs_approved/N16_quint.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N16_quint/concept_A.png",
+   "sha256": "99f80921ff385cd01acd2def1c85f739b6c2d5bef043efbed24967840d62eecb"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N17_saint-in-the-box.png",
+   "source": "ashlar/art/npcs_approved/N17_saint-in-the-box.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N17_saint-in-the-box/concept_B.png",
+   "sha256": "754508ca96e3e5eba4bfaf9b259737f154f23e3da584fc5e88620e15092eb05a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N18_old-vellum.png",
+   "source": "ashlar/art/npcs_approved/N18_old-vellum.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N18_old-vellum/concept_A.png; earlier QA-FAIL/superseded version kept by user choice",
+   "sha256": "a61532a943d0a0d2d52d4f4d8a510a69613800ed72c2eeb336150f1fdd8a11a5"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N19_ser-hamon.png",
+   "source": "ashlar/art/npcs_approved/N19_ser-hamon.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N19_ser-hamon/concept_A_v2.png",
+   "sha256": "43bfe4a4a4046b6ab2ac2e0e0eead815c1f7d7c57809a5ff391499d62a8c6c57"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N20_wystan.png",
+   "source": "ashlar/art/npcs_approved/N20_wystan.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N20_wystan/concept_B.png",
+   "sha256": "88c1c70d146f966e401cb327a601aa0d9eb8850f3bb3dbf1ecce90d52668c4bd"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N21_nareh.png",
+   "source": "ashlar/art/npcs_approved/N21_nareh.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N21_nareh/concept_B.png",
+   "sha256": "cfedd399455d7471513453928120f95aa6254a9192fc0f3be953ff36eaf70803"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N22_anoush.png",
+   "source": "ashlar/art/npcs_approved/N22_anoush.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N22_anoush/concept_A.png",
+   "sha256": "3c62293ec96e69182e747ad9fb90a19c2871bc2335eebd3d63d5efe452aeaab3"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N23_zabel.png",
+   "source": "ashlar/art/npcs_approved/N23_zabel.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N23_zabel/concept_A.png",
+   "sha256": "2875564e0bb05b7fcc7e1d9a41b3069a014e374fcebd62e97c2ae2ebbc91c11e"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N24_vardan.png",
+   "source": "ashlar/art/npcs_approved/N24_vardan.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N24_vardan/concept_A.png",
+   "sha256": "d50d5338f4946fcfd31b523499af12b24f7a96c1a995955e02fca30083e8d9b1"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N25_hovik.png",
+   "source": "ashlar/art/npcs_approved/N25_hovik.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N25_hovik/concept_A.png",
+   "sha256": "cf0f0b8a44f3be357d5ddf190159208327f74f597b8325da88a3a6a5c66bb8be"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N26_inkman.png",
+   "source": "ashlar/art/npcs_approved/N26_inkman.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N26_inkman/concept_A.png",
+   "sha256": "1ec7e008af98d875a406caf3a8b91f269950694f0df963561880023c0d5f358b"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N27_arsham.png",
+   "source": "ashlar/art/npcs_approved/N27_arsham.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N27_arsham/concept_B.png",
+   "sha256": "b77b2464cfd332f7aed38beba0529a90e5709235038655bae13898b07f7c8ad9"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N28_zorya.png",
+   "source": "ashlar/art/npcs_approved/N28_zorya.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N28_zorya/concept_B_v2.png",
+   "sha256": "d4c32769b0191a6429528462e3e7033539c7420a350fbde947aa43533210d5ef"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N29_frostwife.png",
+   "source": "ashlar/art/npcs_approved/N29_frostwife.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N29_frostwife/concept_A.png",
+   "sha256": "7930ecaf8f0d1f8665170cc07fe93b474aee39f4ff01f1256395bd3810f92d34"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N30_radomir.png",
+   "source": "ashlar/art/npcs_approved/N30_radomir.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N30_radomir/concept_A.png",
+   "sha256": "c62d0b6000394da8f4650283796e90caf4c1ee0a8394f151ec59cca279f533dd"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N31a_ilka.png",
+   "source": "ashlar/art/npcs_approved/N31a_ilka.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N31a_ilka/concept_A.png",
+   "sha256": "fc9a851079fae2bb3b627dc1cb7ad09a0f51ae88b37e2d08a229f8539b32f3fb"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N31b_yarik.png",
+   "source": "ashlar/art/npcs_approved/N31b_yarik.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N31b_yarik/concept_A.png",
+   "sha256": "992e8f2e2d8207d67a2bc93f2e24d15ca73bd51902fa0d7402c5b9f7c2761eb6"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N31c_mila.png",
+   "source": "ashlar/art/npcs_approved/N31c_mila.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N31c_mila/concept_A.png",
+   "sha256": "d3cbe5df80858be0e4eaefeab80910cea92f8b33c9146253f210b909d896417c"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N31d_bozhena.png",
+   "source": "ashlar/art/npcs_approved/N31d_bozhena.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N31d_bozhena/concept_B.png",
+   "sha256": "e5ce6d5f3bbe947edb6b00f8afec70814530807ae384db11c833ca05a92faa5c"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N32_stanimir.png",
+   "source": "ashlar/art/npcs_approved/N32_stanimir.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N32_stanimir/concept_A.png",
+   "sha256": "366c994ff0bbd3cb8703684cff396bb768663491b8bc8485a885b2c67cb51a5b"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N33_ilya.png",
+   "source": "ashlar/art/npcs_approved/N33_ilya.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N33_ilya/concept_A.png",
+   "sha256": "0e2c51ec807612635c1b04483c6b0e9fa8c72894e7afcd9af8fa439c9328300e"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N34_dragana.png",
+   "source": "ashlar/art/npcs_approved/N34_dragana.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N34_dragana/concept_B.png",
+   "sha256": "1543641a71279306a750042dc39e3bace078e4ec2a6bb00eeee4a97143dde07e"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N35_lev.png",
+   "source": "ashlar/art/npcs_approved/N35_lev.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N35_lev/concept_A_v2.png",
+   "sha256": "b510fa2f0d7fa85bc15f6387b57261a13122867c84da1b2abdd8d430ee9b2bdb"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N36_miron.png",
+   "source": "ashlar/art/npcs_approved/N36_miron.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N36_miron/concept_A.png",
+   "sha256": "0b56afb693604a4479a15755063389d579b28f5d25afb0cffe16c356ae512d30"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N37_rozenn.png",
+   "source": "ashlar/art/npcs_approved/N37_rozenn.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N37_rozenn/concept_A.png",
+   "sha256": "2ead699f58f02afed01e842658072b784b3d881f256b947ff0cd31c6353e7cfe"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N38_goulven.png",
+   "source": "ashlar/art/npcs_approved/N38_goulven.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N38_goulven/concept_A.png",
+   "sha256": "ea1e7a1d8473fc50bf8a6243a20cb0645a83c4df0a590484a18b55fdd3dd937b"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N39_morvan.png",
+   "source": "ashlar/art/npcs_approved/N39_morvan.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N39_morvan/concept_B.png",
+   "sha256": "656ecfa849415e103e092eadfec50edf5bdd013373dd13ea4c8dc0d6955af21d"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N40_maelys.png",
+   "source": "ashlar/art/npcs_approved/N40_maelys.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N40_maelys/concept_A.png",
+   "sha256": "4acbfc6590b95bca639ab75ba5a837faa52c777c8db594913908d05bbc0d298a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/N41_the_waiting.png",
+   "source": "ashlar/art/npcs_approved/N41_the_waiting.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/N41_the_waiting/concept_B.png",
+   "sha256": "5a1eba34bc447e2a987cadb80cd9648f62d6509a16ea947fa84fd6be649f87cd"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S01_severin.png",
+   "source": "ashlar/art/npcs_approved/S01_severin.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S01_severin/concept_A.png",
+   "sha256": "caaf396934204a3d8edb0b0ff8b5da5eccd7238d705c0df99dc1a1de2efa9900"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S02a_plumb.png",
+   "source": "ashlar/art/npcs_approved/S02a_plumb.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S02a_plumb/concept_B.png",
+   "sha256": "a2c2857e784f3abc9aac0f017fd138738edf1fb12d60f195d74e3a2d6da685dd"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S02b_square.png",
+   "source": "ashlar/art/npcs_approved/S02b_square.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S02b_square/concept_A.png",
+   "sha256": "d17e4ff6d8fe7e01ebe01290e29df2931c42f35059eee7ba56f18e23e4040e8e"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S02c_trowel.png",
+   "source": "ashlar/art/npcs_approved/S02c_trowel.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S02c_trowel/concept_A_v3.png",
+   "sha256": "dca7abbb3fc7f98d110bf4683dd998004612d2c66246acc6d33cb603e24d3f9a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S02d_level.png",
+   "source": "ashlar/art/npcs_approved/S02d_level.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S02d_level/concept_B_v2.png",
+   "sha256": "ad535c554b609f5d1351a5930dd60f7c5eb84934a34849c036c38cd109f350fc"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S03_cassian.png",
+   "source": "ashlar/art/npcs_approved/S03_cassian.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S03_cassian/concept_B_v2.png",
+   "sha256": "0762263fd77d271a59c20b9ab3473b0bdee4b5afb3ebee7ccdb544c50a6d764a"
+  },
+  {
+   "kind": "npcs",
+   "file": "Concept_Art/npcs/S04_ignatias-mother.png",
+   "source": "ashlar/art/npcs_approved/S04_ignatias-mother.png",
+   "note": "approved 2026-10-26; originally ashlar/art/npcs/S04_ignatias-mother/concept_A.png",
+   "sha256": "78fdcd898ddc9cf33abb71036bd72eaad271fe772d04b0893a50e2560139acb4"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A01_lychgate_village_perspective.png",
+   "source": "ashlar/art/act-01/environments/E03_village/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "3c9e3657bb72604ac484de41d65efefc387670ccbcb33bf03f5eb311e5b395b1"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A01_lychgate_village_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A01_lychgate_village/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "ca28cb7e60a6cb6c8d3563319786f874e6170242ce4823477136962f26249a84"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A02_churchyard_burial_perspective.png",
+   "source": "ashlar/art/act-01/environments/E04_burial/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "0587bc8bf204d3c1a481c87177f48e54dca655abdc28d0c47dc9b85808bb553f"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A02_churchyard_burial_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A02_churchyard_burial/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "8862779960077629c1bee696f0df5cf60eb3b82a55b41280cfa648618ece00cd"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A03_fen_wetland_perspective.png",
+   "source": "ashlar/art/act-01/environments/E01_wetland/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "8294f7ba097da9a3a1c621eddd865ac78901a34efcb1a667b57cbff30c1205e5"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A03_fen_wetland_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A03_fen_wetland/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "bccadeafb493e68602b43cb97ccfa0f943dee958e7f7f18000d3dfe90a33fd59"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A04_willow_trees_perspective.png",
+   "source": "ashlar/art/act-01/environments/E02_trees/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "d8ba463b18d0a077d5c1247abb80e85adf34b4725fb8821b6c974a4180417d97"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A04_willow_trees_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A04_willow_trees/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "b812d3cbbb742ab8609eba9d1b6b519cb1730a3d88d82d1e00eae73b44ee8dc1"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A05_quiet_surfaces_perspective.png",
+   "source": "ashlar/art/act-01/environments/A05_quiet_surfaces/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "c45657f20016bf3273139b3840ffd6679ef03ad679629809a2ff97224156f031"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A05_quiet_surfaces_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A05_quiet_surfaces/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "bf2eebcd074e4a7a43c2a18fb275c8e554f1a00df4bb3c62f03838170fc43921"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A06_night_fens_perspective.png",
+   "source": "ashlar/art/act-01/environments/A06_night_fens/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "e594c44c7669e274c43c10d2632358222463d61a7935e27cdf1b044a5660aa61"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A06_night_fens_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A06_night_fens/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "fbba9d7ffb7e38c3d175547291149166ffd9dacb5c6918d23f8be36cb6b5cab7"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A07_rooks_weir_perspective.png",
+   "source": "ashlar/art/act-01/environments/A07_rooks_weir/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "a7bf23e23b86f4c0481655cfe8294ddc2dfb05154c179350793471917b292ec8"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A07_rooks_weir_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A07_rooks_weir/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "88590303bfcd00dc6751f1b323ba63a61098701b04f0e960ce52900d3594e450"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A08_poppy_reach_perspective.png",
+   "source": "ashlar/art/act-01/environments/A08_poppy_reach/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "b68af8eb692997994a5e6f0425bfc3c70e7dc2e389d777686365c7f7329d7ea9"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A08_poppy_reach_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A08_poppy_reach/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "8f44097ff511b3dc5ff1d340d835924e8098f5278f42d447ff4f63737cd47e87"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A09_willow_mere_perspective.png",
+   "source": "ashlar/art/act-01/environments/A09_willow_mere/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "03047d20092b7f0020cebe5e6fe8da20a2fd87a07ab71479b7895e27f51a541b"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A09_willow_mere_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A09_willow_mere/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "d4818f5a01765b8e7f4729bea72848b29968331d235f48cbd553f3811e7e1439"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A10_flint_delvings_perspective.png",
+   "source": "ashlar/art/act-01/environments/A10_flint_delvings/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "82aa443dd682a6ed6aba5080f5ee0d1061ac3dabdfc4f5280e6e34437c2adc53"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A10_flint_delvings_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A10_flint_delvings/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "1f1e7a9bfd468406c4f9a9868f86fc6c975aec4f42b85bd9863f18e42ef8d6d1"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A11_gentle_house_perspective.png",
+   "source": "ashlar/art/act-01/environments/A11_gentle_house/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "87415ce4b252458b601375ad9ccc21e5880174e8754beed42e713fb0023dfde5"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A11_gentle_house_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A11_gentle_house/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "47d5fe00d67a8f6e0aabb0409a1c9eb87fbf9cb68c1b41fa7f429ffafb1aa49a"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A12_eddas_dream_perspective.png",
+   "source": "ashlar/art/act-01/environments/A12_eddas_dream/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "4ca12e26580d7a36a96c3904a59b53c74a9098a365408c707a81cfd27f2b6be1"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A12_eddas_dream_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A12_eddas_dream/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "b61c88f6b1b69ceb4bed4d4caf7d7a72613b95337a8c1c020b8104707551bd11"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A13_garden_of_hush_perspective.png",
+   "source": "ashlar/art/act-01/environments/A13_garden_of_hush/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "4149937f4c1673f43e7a2a4959b998e759c80ac296da13be6b9ec48914ca7808"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A13_garden_of_hush_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A13_garden_of_hush/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "591b28d3729125ff1b14f8a4d8e02606de2ed8015542b83c87b51be2e7973c01"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A14_the_cradle_perspective.png",
+   "source": "ashlar/art/act-01/environments/A14_the_cradle/perspective_scale_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "4d490c1d893a0f637736a875b6999da42f1c95c2f6826dd01415c3bdd5ca9c8b"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A14_the_cradle_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A14_the_cradle/turnaround_scale_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "0c9efc68d557dac4e9d4afb05caf4932ce50f177a2daae25fc9f588e9c5d34dd"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A15_lychgate_village_extras_perspective.png",
+   "source": "ashlar/art/act-01/environments/A15_lychgate_village_extras/perspective_v2e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "86001ebf5af6adbf23af66b95aea6f29dfa4a63feb02abb09a2069aa8208482c"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A15_lychgate_village_extras_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A15_lychgate_village_extras/turnaround_v1f.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "797763445b58dfe201ab188e8ba87d8309e56915c899706e1db44ba1e406c38f"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A16_churchyard_extras_perspective.png",
+   "source": "ashlar/art/act-01/environments/A16_churchyard_extras/perspective_v2e3.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "99013f7c120df351aca4d05f7fd3a30bc41e0f0dea8d8a7763de461cdd0002ed"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A16_churchyard_extras_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A16_churchyard_extras/turnaround_v1e2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit); manifest names a missing turnaround_v1e3.png, batch README pick v1e2 used",
+   "sha256": "57a5083c017b6d2ad4f2de53c097c98a943b77bce09d11cce1e09749044770c4"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A17_fens_drowned_village_extras_perspective.png",
+   "source": "ashlar/art/act-01/environments/A17_fens_drowned_village_extras/perspective_v2e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "950ebd9256c22754dca5b9f259cacb0c2902626fa5cc108c1c34bff4c6caa98d"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A17_fens_drowned_village_extras_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A17_fens_drowned_village_extras/turnaround_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "e781dac230996992d6dadb2bde40a5b29740d53283d2e4e71c2f83a412efa1c7"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A18_poppy_reach_gentle_house_exterior_perspective.png",
+   "source": "ashlar/art/act-01/environments/A18_poppy_reach_gentle_house_exterior/perspective_v1e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "bd158ee684e9cde75889a7b88d674e45adf5371672905e313dc75fec6bc743da"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A18_poppy_reach_gentle_house_exterior_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A18_poppy_reach_gentle_house_exterior/turnaround_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "6f1de77a8b405e8a4618d8c44bce9084c880f37b65a070663718c3b4fb925d45"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A19_gentle_house_interior_props_perspective.png",
+   "source": "ashlar/art/act-01/environments/A19_gentle_house_interior_props/perspective_v2e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "05f636c84b49597f9b13cb98bef2d0baf999966b9f3c144a85dba93d6781b1df"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A19_gentle_house_interior_props_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A19_gentle_house_interior_props/turnaround_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "b0b8dc3f7e13da04cfa66562aaefb77a49506d8cdaad3aee0792f671a81ef2ad"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A20_garden_of_hush_sleepers_harvest_perspective.png",
+   "source": "ashlar/art/act-01/environments/A20_garden_of_hush_sleepers_harvest/perspective_v1e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "6e082f17a118f33f23aa8e6d5d66d4472cf517eae18fe709b1f5b173de368445"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A20_garden_of_hush_sleepers_harvest_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A20_garden_of_hush_sleepers_harvest/turnaround_v2.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "ba1c06ad9fc17321c05d69ea3cd2f45b527ee4f9b4dbb69654d58fe9a5571c5c"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A21_barrow_terrace_fen_stones_perspective.png",
+   "source": "ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/perspective_v2g.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "89c14bd73c891364c03760f3d47a7c0613b8fa13920879f257717c682ee84778"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A21_barrow_terrace_fen_stones_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A21_barrow_terrace_fen_stones/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "085e58becb80a0b07a0f03d6013af01633152b9227559f7164edcf6e03bed4ae"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A22_things_left_behind_perspective.png",
+   "source": "ashlar/art/act-01/environments/A22_things_left_behind/perspective_v2e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "e794ca56bd49b880a2fd797253b8a5bb3c31c081cddcf1c289a483aee0fcbbea"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A22_things_left_behind_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A22_things_left_behind/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "0370cf0ea22bec35c0e439c53d21948f7d76b4cc5a1e6da0041dcb7d65d3f67a"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A23_poppy_reach_to_the_garth_perspective.png",
+   "source": "ashlar/art/act-01/environments/A23_poppy_reach_to_the_garth/perspective_v2e.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "e7b336eee013883a5944757fdeeaa628ad84aa7fa319faaabc8b6d45038a0075"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A23_poppy_reach_to_the_garth_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A23_poppy_reach_to_the_garth/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "ce38e55e88088b737366e2c781e7b24d771cef78d21d251a1a26feec6be44889"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A24_mercy_linen_and_bread_perspective.png",
+   "source": "ashlar/art/act-01/environments/A24_mercy_linen_and_bread/perspective.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "2bb8203e41351056d32f79bb8b60e1be8612a9709339cd48d8031f9eb041c6ae"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A24_mercy_linen_and_bread_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A24_mercy_linen_and_bread/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "731a6d9278559bd60a99ad85221d90dd1917bbb3ee0e0dca0998a36d1dcb400f"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A25_garden_roots_and_tending_perspective.png",
+   "source": "ashlar/art/act-01/environments/A25_garden_roots_and_tending/perspective_v2f.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "b2afd67adddfccdbfb3ec4f514cefb45b0dad46a119ec24232961fd7f04b5937"
+  },
+  {
+   "kind": "environments",
+   "file": "Concept_Art/environments/act-01/A25_garden_roots_and_tending_turnaround.png",
+   "source": "ashlar/art/act-01/environments/A25_garden_roots_and_tending/turnaround.png",
+   "note": "approved 2026-10-26 (picked sheet of the batch, used for the Act I kit)",
+   "sha256": "d0c29d8e8c41406724fc4f1d4ea1c685e75f706c2a069b98769047732e2e82bc"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-01_prologue_weapons.png",
+   "source": "ashlar/art/items/IT-01_prologue_weapons/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "27ac2de5d5edd2203d3252b15e3581d4ce9ec786dc3f2b0478334387409bddf4"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-02_class_offhands.png",
+   "source": "ashlar/art/items/IT-02_class_offhands/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "cf7ee270962372aa44a8c531633cabc4ed99732390a15e398fe9b07f8a53cda8"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-03_starting_armour.png",
+   "source": "ashlar/art/items/IT-03_starting_armour/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "156dfcad178129fd57607d5c4acd28b40b6d78de8ebba583826c38700b09bdfe"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-04_relics_act1.png",
+   "source": "ashlar/art/items/IT-04_relics_act1/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "171c5c1cd4bfd56c10fc57aa53c3416c27cf172ed03c38788f6dfe49d9cacb20"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-05_consumables_coin.png",
+   "source": "ashlar/art/items/IT-05_consumables_coin/sheet_d2_r2.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "1580d65a3adb37c5e92138430ab5c7a7e8ea0e31938225a50ff2956d69a5eec3"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-06_brannoc_weapons.png",
+   "source": "ashlar/art/items/IT-06_brannoc_weapons/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "8b7a4b0ee6674892aeea02a90ba69b0fb3919dd9b33db38ec39e4ce98820c2f4"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-07_shields_heavy.png",
+   "source": "ashlar/art/items/IT-07_shields_heavy/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "57e3df04795b4d4b51fda20c5821f486d53598ffe25e0352199539aacfe724ed"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-08_lychgate_armour.png",
+   "source": "ashlar/art/items/IT-08_lychgate_armour/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "5b78c3d4cfb8e58205ae307ee747ebc481e20563d5acf3f5583d9c31b2ab2721"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-09_small_goods.png",
+   "source": "ashlar/art/items/IT-09_small_goods/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "8a8547df51833b8dc523cfc84ed1de914a8d93d720291de61f2e88a27c5fd74f"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-10_act1_quest.png",
+   "source": "ashlar/art/items/IT-10_act1_quest/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "bc17d423d052482e4719ca09008d622bc242faa8594a6cb635e738a95982bfb1"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-11_keys.png",
+   "source": "ashlar/art/items/IT-11_keys/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "c5f1e27faccabce25eaea41b59636686f0606ce0668f2ab046d00ade77c08126"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-12_ansel_crane_weapons.png",
+   "source": "ashlar/art/items/IT-12_ansel_crane_weapons/sheet_d2_v2.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "85e669e60905876958b10e6601e4eb628e42ca8d9897ceabac8d8f73f6779ffa"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-13_pall_exhumer_armour.png",
+   "source": "ashlar/art/items/IT-13_pall_exhumer_armour/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "1ad2d0a4b59afeef077edfc6cea44440308c0cf564b687bd11524992b3a30bf1"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-14_sepulcra_small_goods.png",
+   "source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "0818218ed4e945fc2180845360ab55a972a3d514d26f15a9bc98aadac5fb90c4"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-15_act2_relics_quest.png",
+   "source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "28fe3717b015f7006d2d9dda67471b5ca4f267631e6112a9d3aeab8e91e51789"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-16_late_class_gear.png",
+   "source": "ashlar/art/items/IT-16_late_class_gear/sheet_d2_v2.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "8b0b9c1840e4b0c1f86e0b68b8690c88cf4bc639f54239cf6feeb6f53abc7094"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-17_rings_materials.png",
+   "source": "ashlar/art/items/IT-17_rings_materials/sheet_d2_v3.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "b294ad3ecc942ec77ab9df714cdb1229299e032b480bbd9020fe02f21510926d"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-18_act3_quest.png",
+   "source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "578116eb63bb0b65e5b4501f788191d2184f471d49304ab82467b48914deabf2"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-19_act4_5_epilogue.png",
+   "source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+   "note": "approved 2026-10-26 (newest D2-grid sheet)",
+   "sha256": "d67e7947fe16fb4baca61f07231278893e4f7e16f8ef07c5fda1563957f2932d"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/B06_choir_of_nails.png",
+   "source": "ashlar/art/act-02/monsters/B06_choir_of_nails/vA/concept_v5_r3.png",
+   "note": "approved 2026-10-26 (vA/concept_v5_r3.png)",
+   "sha256": "8aa2899ec89bd21d2fdffdd09c79bad6858e9e99c4b25cf5e308612ae587e5bd"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/B07_brother_cassian.png",
+   "source": "ashlar/art/act-02/monsters/B07_brother_cassian/vA/concept_v5_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_v5_r2.png)",
+   "sha256": "4a384ae9b6bde5f932cf01ed3f4a1bcea9e9f43d3def0cecaacb3e59f2211e1e"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/D05_cinder_clan.png",
+   "source": "ashlar/art/act-02/monsters/D05_cinder_clan/vA/concept_v2_r3.png",
+   "note": "approved 2026-10-26 (vA/concept_v2_r3.png)",
+   "sha256": "ada9f2bac4824b7fac2f9506c53ad83c2dfba229d6abade72f2dc4c6de963d38"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F03_exhumer.png",
+   "source": "ashlar/art/act-02/monsters/F03_exhumer/vA/concept_r6.png",
+   "note": "approved 2026-10-26 (vA/concept_r6.png)",
+   "sha256": "332a4606252a1a1b575e051a8fa76078d1c9b614e2c94bbb3bef015a6e48fcf9"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F04_kneeler.png",
+   "source": "ashlar/art/act-02/monsters/F04_kneeler/vA/concept_v2.png",
+   "note": "approved 2026-10-26 (vA/concept_v2.png)",
+   "sha256": "515f9b259e849a5134a84740cd1b83ff1c308a372bba786ffa97fcf0473916a9"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F05_bell_head.png",
+   "source": "ashlar/art/act-02/monsters/F05_bell_head/vA/concept_v5_r3.png",
+   "note": "approved 2026-10-26 (vA/concept_v5_r3.png); v5 QA: bell 1.07H, squat (size fail list)",
+   "sha256": "ff7e21a253e6bdfb7f7d441f14cfa2b3ed9204900cdde8cdd2ae505945f6901f"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F06_censer_bearer.png",
+   "source": "ashlar/art/act-02/monsters/F06_censer_bearer/vA/concept_v5.png",
+   "note": "approved 2026-10-26 (vA/concept_v5.png)",
+   "sha256": "3deaa6169c73e038a1384a93b7788f02ac43989cfa9137b097a384cab5da1a63"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F07_turned_exhumer.png",
+   "source": "ashlar/art/act-02/monsters/F07_turned_exhumer/vA/concept_v2_r3.png",
+   "note": "approved 2026-10-26 (vA/concept_v2_r3.png)",
+   "sha256": "7c9f398e3c5ce635c0b53df87dfff697ff29aff4df8eee46e85ae16be88452e1"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F08_halo_knight.png",
+   "source": "ashlar/art/act-02/monsters/F08_halo_knight/vA/concept_r3.png",
+   "note": "approved 2026-10-26 (vA/concept_r3.png)",
+   "sha256": "19ceba90964d767da14374be62f93f24cc62640dcb62928dcc766553d66a6508"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/F09_chancery_guard.png",
+   "source": "ashlar/art/act-02/monsters/F09_chancery_guard/vB/concept_v2_r2.png",
+   "note": "approved 2026-10-26 (vB/concept_v2_r2.png)",
+   "sha256": "d2e84a8b4aeb85d8067442fd5fdbf43c815dbe2ca51f0dc6f91db5619fe1295c"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/L01_saint_statue.png",
+   "source": "ashlar/art/act-02/monsters/L01_saint_statue/vB/concept_r5.png",
+   "note": "approved 2026-10-26 (vB/concept_r5.png)",
+   "sha256": "110af12cc9b86c4a0877ac25cb2725463407ad8455c900960bc90d8de8159e79"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/P08_kneeler.png",
+   "source": "ashlar/art/act-02/monsters/P08_kneeler/vA/concept_r5.png",
+   "note": "approved 2026-10-26 (vA/concept_r5.png)",
+   "sha256": "67cedd83f27203f4e5661bf16fabc22f07248c96063e9fe4262f0612b99c6d06"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/P09_chain_hung.png",
+   "source": "ashlar/art/act-02/monsters/P09_chain_hung/vA/concept_r4.png",
+   "note": "approved 2026-10-26 (vA/concept_r4.png)",
+   "sha256": "8d59a2969c89eef9d9bda0f1c70e0d31043578fd2674abead186d8d3d4e9d58a"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U06_pall_wight.png",
+   "source": "ashlar/art/act-02/monsters/U06_pall_wight/vB/concept_v2.png",
+   "note": "approved 2026-10-26 (vB/concept_v2.png)",
+   "sha256": "61f3b61798747b89e37570ccbda5d0de0abfd64b5d6652e8e226a21919985832"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U07_pyre_risen.png",
+   "source": "ashlar/art/act-02/monsters/U07_pyre_risen/vA/concept_v4_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_v4_r2.png)",
+   "sha256": "d9625c10d4b0a7b2c8ec36ada7515c6ecfb219f9824149e006f7771d2fa5b228"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U08_charnel_chanter.png",
+   "source": "ashlar/art/act-02/monsters/U08_charnel_chanter/vB/concept_v2_r2.png",
+   "note": "approved 2026-10-26 (vB/concept_v2_r2.png)",
+   "sha256": "df7f0918f5357e41ca53f0e959bf87b3f3792a41e8d7cd81b1b69631d3442671"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U09_ossuary_glutton.png",
+   "source": "ashlar/art/act-02/monsters/U09_ossuary_glutton/vB/concept_v5_r2.png",
+   "note": "approved 2026-10-26 (vB/concept_v5_r2.png)",
+   "sha256": "c8c9ae5a38da0075426a5db640f9eb1eac3683f4ca8f42a122b51b2a12e83d00"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U10_wallshade.png",
+   "source": "ashlar/art/act-02/monsters/U10_wallshade/vA/concept_v4_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_v4_r2.png)",
+   "sha256": "3e89a143fc27b13c52b74413f89973f27e9c6a413f07cc1c6bd717ce1d10db55"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U11_scribe_shade.png",
+   "source": "ashlar/art/act-02/monsters/U11_scribe_shade/vA/concept_v2.png",
+   "note": "approved 2026-10-26 (vA/concept_v2.png)",
+   "sha256": "2b14ae36deb79d8947432e76e5cf0549254c0b5cafd8150545725be6c9fd2344"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/U12_the_pressed.png",
+   "source": "ashlar/art/act-02/monsters/U12_the_pressed/vA/concept_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_r2.png)",
+   "sha256": "5ef67e96862babbf77e6ee21a218f193998479c0004778e3329b83fb2a16af93"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-02/W08_bell_bat.png",
+   "source": "ashlar/art/act-02/monsters/W08_bell_bat/vA/concept_r4.png",
+   "note": "approved 2026-10-26 (vA/concept_r4.png)",
+   "sha256": "b20a537974f880c455608e1a5119bebf4652af950b033ec56beb3ebdfa580537"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/B08_pillar_maker.png",
+   "source": "ashlar/art/act-03/monsters/B08_pillar_maker/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "0ac8aae89747b82c4b3f22359ac4d5289697704fa3fda488e7150a5d77081b94"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/B09_the_chisel.png",
+   "source": "ashlar/art/act-03/monsters/B09_the_chisel/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "9f8ce90ac3d4a4a5d5c5b9baecd26153ed851c47b1e6bfcd3d5e77282a789100"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/B10_kathara.png",
+   "source": "ashlar/art/act-03/monsters/B10_kathara/vB/concept_r3.png",
+   "note": "approved 2026-10-26 (vB/concept_r3.png)",
+   "sha256": "1486878a55365418e452ae3eb988508d87a7b2e8405df1ec6919725b65ba08b7"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/D06_salt_clan.png",
+   "source": "ashlar/art/act-03/monsters/D06_salt_clan/vB/concept_r2.png",
+   "note": "approved 2026-10-26 (vB/concept_r2.png)",
+   "sha256": "071239df15c7a6630af5f06d71246b93059eedea620bcd8c86ae59bc76be5b5b"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/F10_salt_reaver.png",
+   "source": "ashlar/art/act-03/monsters/F10_salt_reaver/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "d0a8b8a2cc1128dc1b9d2768eded4fdc78cad808e7474e8bf1fa89a7da32bd08"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/F11_salt_dervish.png",
+   "source": "ashlar/art/act-03/monsters/F11_salt_dervish/vA/concept_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_r2.png)",
+   "sha256": "3d10db8c491fc4d43ad1e667eb3c612e18c6642de3a2842e98a0eedbcf2427b3"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/F12_white_watch.png",
+   "source": "ashlar/art/act-03/monsters/F12_white_watch/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "073ae4f58b28178f102e51167a70dd03cb6984222946e2b271ca83c6b667818c"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/F13_lye_priest.png",
+   "source": "ashlar/art/act-03/monsters/F13_lye_priest/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "7100571e64a4fff063fb5c000eaf1dcfd16ea4797dd1f3d2609379d459134692"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P10_the_blanched.png",
+   "source": "ashlar/art/act-03/monsters/P10_the_blanched/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "f0426fcbd652c1103017f3fa2ab6111d2270961cec301529a10087eeff0044a3"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P11_brine_leech.png",
+   "source": "ashlar/art/act-03/monsters/P11_brine_leech/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "9b6594b62797d09f1599fd43d2a629372248b16878e045c206dc220bb3bd4e27"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P12_salt_pillar.png",
+   "source": "ashlar/art/act-03/monsters/P12_salt_pillar/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "aa6543b152609950a3a95c075aeeecaae8d04fa453a59bc311077a0bc63e9fb6"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P13_glass_folk.png",
+   "source": "ashlar/art/act-03/monsters/P13_glass_folk/vA/concept_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_r2.png)",
+   "sha256": "8e9a7c2740be4663311af4dd6afd39c1da224ffcf724287f57a4b4d34efd207e"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P14_halcyon_sentinel.png",
+   "source": "ashlar/art/act-03/monsters/P14_halcyon_sentinel/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "3fea9a23fa7831e020d3a6f8b33c4ede634d1445bc098d6d3011dd2b59d3e021"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/P15_crystal_sworn.png",
+   "source": "ashlar/art/act-03/monsters/P15_crystal_sworn/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "8bec9d2561be5377bab5d4db3e56b48d0511113675969ec8d258dc709b72525b"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/U13_salted_dead.png",
+   "source": "ashlar/art/act-03/monsters/U13_salted_dead/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "9a4d782b266b349f5cabb44f44e7d56660124d3fed876e0804c2db73b914e42f"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/U14_brine_embalmer.png",
+   "source": "ashlar/art/act-03/monsters/U14_brine_embalmer/vA/concept_r2.png",
+   "note": "approved 2026-10-26 (vA/concept_r2.png); QA size FAIL 1.29H kept by user (scale at the 3D stage)",
+   "sha256": "a6050b82c2b0bc00bd6ac36a38938a7cb9c2f9763506b702b97fa2c2e9e37add"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W09_brine_worm.png",
+   "source": "ashlar/art/act-03/monsters/W09_brine_worm/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "d0042832c44ad79362587dd7050da6bab7bd5af8862862ac0106646d87d1a0be"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W10_salt_kite.png",
+   "source": "ashlar/art/act-03/monsters/W10_salt_kite/vB/concept_r2.png",
+   "note": "approved 2026-10-26 (vB/concept_r2.png)",
+   "sha256": "eff46b03ca35ce4926e2d4fc710dfd4b232b8d6cb20cc512d06d61d3c819dab7"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W11_pillar_crab.png",
+   "source": "ashlar/art/act-03/monsters/W11_pillar_crab/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "5b85ae45c7d6cc1725e870e2e3a4943e8f2a91dc185ad080ffc698f651793bdb"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W12_glass_wasp.png",
+   "source": "ashlar/art/act-03/monsters/W12_glass_wasp/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "2b2fffbed3597aec7d4429a156d023976d5d9db795788615237c2603f6a7c5bf"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W13_coilborn.png",
+   "source": "ashlar/art/act-03/monsters/W13_coilborn/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "b22bc731348a03abdb6b3eae35dea611f89cf8ea3051baa283f76108d3460825"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W14_static_scarab.png",
+   "source": "ashlar/art/act-03/monsters/W14_static_scarab/vA/concept.png",
+   "note": "approved 2026-10-26 (vA/concept.png)",
+   "sha256": "12e4cb4865f166428f382e4fec287c197838cf230366a8b428a89fcc6ec61102"
+  },
+  {
+   "kind": "monsters",
+   "file": "Concept_Art/monsters/act-03/W15_salt_burrower.png",
+   "source": "ashlar/art/act-03/monsters/W15_salt_burrower/vB/concept.png",
+   "note": "approved 2026-10-26 (vB/concept.png)",
+   "sha256": "1dfc3000260b168020695b93e360955b7d708414f2708de413e2724a7e08489d"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/BR_brinecaller.png",
+   "source": "ashlar/art/heroes/BR_brinecaller/vB/concept_v5b.png",
+   "note": "approved 2026-10-26 (vB/concept_v5b.png)",
+   "sha256": "0d5429c2ae7b491dc999c3c7ca2d61f2eb45dc4ecc29a4ed0507780a309a5d6f"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/EX_exhumer.png",
+   "source": "ashlar/art/heroes/EX_exhumer/vA/concept_v5.png",
+   "note": "approved 2026-10-26 (vA/concept_v5.png)",
+   "sha256": "0b572971238736043d75821000c94e54de4ccbc313aae20cad3ba6f9309f5d05"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/FL_flagellant.png",
+   "source": "ashlar/art/heroes/FL_flagellant/vA/concept_v5b.png",
+   "note": "approved 2026-10-26 (vA/concept_v5b.png)",
+   "sha256": "84c27df29af71438996238e423d10c7e572d4b9bfcb86589dc0afffc390a1bf7"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/OS_ossuarist.png",
+   "source": "ashlar/art/heroes/OS_ossuarist/vA/concept_v5.png",
+   "note": "approved 2026-10-26 (vA/concept_v5.png)",
+   "sha256": "c2cc0c26fee583697aba556517a7804d5d739f450e1daa55f2412f615fc19caf"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/PB_pallbearer.png",
+   "source": "ashlar/art/heroes/PB_pallbearer/vA/concept_v5b.png",
+   "note": "approved 2026-10-26 (vA/concept_v5b.png)",
+   "sha256": "3a58a04bfee70d2d9bd274cd2f9deff4b6177fde5b5cee821abe6f634da04d84"
+  },
+  {
+   "kind": "heroes",
+   "file": "Concept_Art/heroes/PS_pyre_singer.png",
+   "source": "ashlar/art/heroes/PS_pyre_singer/vA/concept_v5b.png",
+   "note": "approved 2026-10-26 (vA/concept_v5b.png)",
+   "sha256": "aa5a08931ef7479cb195b0b0dfc7063dc5933f6717904e55692c96de24d79304"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-20_starting_kit.png",
+   "source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "97fccb6dd18f7e14e3f351bd3c9b9f107b8dd77f930aa4af40a57b642b2aa9a2"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-21_draughts.png",
+   "source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+   "note": "approved 2026-10-27 (item v2, batch 5); v4 27/10 healing draughts red (user request)",
+   "sha256": "23a3c37487578ee4a3f6f45c950fd049aeb37f3bdf541e7d76f61eb1dce435b7"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-22_rubbings_keys_ammo.png",
+   "source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "8e60b67207a54e67da6d2272e0c6b364217b3c820877276723958cb718148ba6"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-23_words_lead.png",
+   "source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "266bb84c52a5281dfdb2b7f1ae80cef401b2a1aa46446063917ec4050a249cd1"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-24_stones_crumbled.png",
+   "source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "6b6b74cd35df3c81594401a063951781bedd7407efd1775354c1cde6cfe778f3"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-25_stones_rough.png",
+   "source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "4a26fc8a1e3e944d60d1c66eccb28a4cf4fa6c9db42170a59d794cce85ddb364"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-26_votives.png",
+   "source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "889731a22d05e859411d7c125966dec945fee162075302ba4daf5631a7ecab3e"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-27_hallowed.png",
+   "source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "8bc65aca4ea2575ce374cf04b3a1d068a5b30a3aafd920679491a031beefc4cd"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-28_dolmoor_jewellery.png",
+   "source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 5)",
+   "sha256": "553eea703cba4fcb78743498b436d2ff5576868df6edd98abd01f796439c971a"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-29_axes_clubs.png",
+   "source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "63345d363424b86b93cb89e42eaf0a22818ba115b69fea02c7dd90d9a31f9fe4"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-30_maces_swords.png",
+   "source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "4b16e377e870ad6fda2afb79a034c2c46b64b43f99732a1758b197c553307f38"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-31_long_swords_knives.png",
+   "source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "0798327ec2e7884a8b7519d1d752c810f8651bfacb1788eca2ec1f5918fbb36f"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-32_poles_staves_wands.png",
+   "source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "39cc8b5e2dd6f346fcc118d294a8f11db1f60613f515bb303e57d5cc4d5a8b72"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-33_bows_crossbows.png",
+   "source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "9fe0885dc209926a3edc9f8c8cba0caca46f4e38f4e954abb82cc724be51b568"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-34_spears_tin_votives.png",
+   "source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "be0e5fc8a8fdc800ca473808749b3d3bc5aa6922c7e2b67b5b2128e2bbfc4737"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-35_claws_brine_flasks.png",
+   "source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "e40351a1f34c73285d4232c3290c590cf7773a038f53a39a6b5bf9b2689c6179"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-36_body_armour.png",
+   "source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "13dfc5f91a3691ee2d770b78a1b192d3e5340bdb462fbe02120a38a8e83c8bb1"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-37_helms_veils.png",
+   "source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "cf58b03ce7a1ec587c371b451aa282387ae645b99dbed67349524ae64c3a11b8"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-38_lids_reliquary_shields.png",
+   "source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "b334481abe0f5dc984b6231bf411a515d681afbf13306a3f43ffd8f75fb8ecbe"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-39_shields_gloves_boots.png",
+   "source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "81dfabe364f67b34e7fea0c6a95884f20bea555d180535096268bfb3b3b9996f"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-40_hallowed_small_weapons.png",
+   "source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "ad13cfd7e936dfb0f0935c5440d077daf64691fd68ea9fa553ac4ff3f9380579"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-41_hallowed_blades_wands.png",
+   "source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "1ac3cc2d44493d917986e8e0e622e2e318aaaa54216f7f6b9420aa309b3c5d0b"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-42_hallowed_armour.png",
+   "source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "bd4ecea80de29927c1ce079e47129bf1c7792bd0d0842b1a9c83531cec6397a7"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-43_hallowed_axes_bows.png",
+   "source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "86aad5ca4ec5fb124c26d4e6ba4b8e7e829bcb034464c7f5bffdb0b2c8d44a58"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-44_hallowed_poles_shields.png",
+   "source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "f6546cced51c46c5161465b1e26ee4c98a2cb2a93557243318d2b3cf16836c56"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-45_hallowed_heads_hands_feet.png",
+   "source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "2ea5d44ddd5d2033a1624711d2b778a540a70d250a81fa328e4a27722238d9c4"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-46_coursed_fowlers_wrights_diggers.png",
+   "source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "7caf1523ec84102f85d240167325330803a9959c3a08ca101092ac2b2c7527af"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-47_coursed_watch_clerks_sisters_knights.png",
+   "source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "0b6632f120f4b12b40e5b0941916a91b7d8966e8f0f13e9138c84eb4acae95dc"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-48_coursed_ringers_choir.png",
+   "source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "dc1c54d394d50d1fb0d1532bd045e50d16e0a00a101b6993fdf229cff46c05d5"
+  },
+  {
+   "kind": "items",
+   "file": "Item/IT-49_coursed_saints_decoymen.png",
+   "source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+   "note": "approved 2026-10-27 (item v2, batch 6, Act I bases/Hallowed/Coursed)",
+   "sha256": "57c341f0cae343fff9496e052036f4bf3f4bd4a68dc59bd9e8202fbdf1bef6fa"
+  }
+ ],
+ "layout": {
+  "Concept_Art": "monsters/, heroes/, npcs/, environments/ (approved concept copies)",
+  "Item": "item sheets IT-##",
+  "Resource_3D": "monster/, npc/, hero/, map/ (2048 copies of approved GLBs, see Resource_3D/manifest.json)"
+ }
+}

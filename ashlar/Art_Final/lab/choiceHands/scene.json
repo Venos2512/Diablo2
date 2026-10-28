@@ -1,0 +1,1918 @@
+{
+ "scene": "choiceHands",
+ "units": "metres",
+ "camera": {
+  "idle": {
+   "fovDeg": 16,
+   "position": [
+    0,
+    0.486,
+    3.6
+   ],
+   "target": [
+    0,
+    0.392,
+    0
+   ],
+   "aspectOfFrame": 1.77683,
+   "note": "long lens straight on the wall; fovForAspect(aspect): wider viewports keep fov 16, narrower ones grow it so the whole key-art frame (1672 x 941) stays visible: fov = 2 atan(tan(8 deg) * keyartAspect / aspect)"
+  },
+  "near": 0.1,
+  "far": 100,
+  "offerCameraNote": "on choosing a hand the camera dollies to a fitted pose (env/choiceHands.js fitOfferCamera: OFFER_FIT) and then orbits per SHOWCASE[id].cam",
+  "OFFER_FIT": {
+   "height": 0.34,
+   "centreY": 0.4,
+   "margin": 0.06,
+   "floor": 0.68,
+   "gap": 0.015,
+   "fov": 30,
+   "aspect": 1.92
+  },
+  "showcaseFit": {
+   "fill": 0.9,
+   "centreY": 0.38
+  }
+ },
+ "keyArt": {
+  "width": 1672,
+  "height": 941,
+  "aspect": 1.7768331562167907,
+  "frameWidthM": 1.8,
+  "ledgeY": 0.893,
+  "candle": {
+   "flameTip": [
+    0.5,
+    0.672
+   ],
+   "waxTop": [
+    0.5,
+    0.75
+   ],
+   "dishBase": [
+    0.505,
+    0.885
+   ]
+  },
+  "hands": {
+   "PB": {
+    "sleeve": [
+     0.12,
+     0.1
+    ],
+    "wrist": [
+     0.095,
+     0.235
+    ],
+    "tip": [
+     0.137,
+     0.5
+    ]
+   },
+   "FL": {
+    "sleeve": [
+     0.266,
+     0.16
+    ],
+    "wrist": [
+     0.257,
+     0.365
+    ],
+    "tip": [
+     0.3,
+     0.525
+    ]
+   },
+   "OS": {
+    "sleeve": [
+     0.42,
+     0.245
+    ],
+    "wrist": [
+     0.419,
+     0.41
+    ],
+    "tip": [
+     0.443,
+     0.7
+    ]
+   },
+   "BR": {
+    "sleeve": [
+     0.59,
+     0.25
+    ],
+    "wrist": [
+     0.59,
+     0.425
+    ],
+    "tip": [
+     0.574,
+     0.73
+    ]
+   },
+   "EX": {
+    "sleeve": [
+     0.76,
+     0.195
+    ],
+    "wrist": [
+     0.76,
+     0.39
+    ],
+    "tip": [
+     0.705,
+     0.555
+    ]
+   },
+   "PS": {
+    "sleeve": [
+     0.9,
+     0.12
+    ],
+    "wrist": [
+     0.9,
+     0.315
+    ],
+    "tip": [
+     0.915,
+     0.5
+    ]
+   }
+  },
+  "image": {
+   "id": "choice-keyart",
+   "labFile": "lookdev-lab/assets/choice-hands/choice-keyart.webp",
+   "ashlarSource": "ashlar/art/heroes/_shared/choice_hands/keyart.png",
+   "note": "same image, the lab file is a WebP re-encode"
+  },
+  "note": "KEYART is the measured key-art geometry (normalised x, y of sleeve / wrist / tip per hand, origin top-left) that the slot table is calibrated to; the image is used only as a calibration overlay"
+ },
+ "background": "#020202",
+ "environment": {
+  "map": {
+   "id": "hdri-night",
+   "labFile": "lookdev-lab/assets/samples/moonless_golf_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/moonless_golf)"
+  },
+  "intensity": 0.035,
+  "note": "a trace of cold night env so the steel stand-in and the ring metals reflect something; the candle does the work"
+ },
+ "wall": {
+  "width": 3.8,
+  "height": 2.3,
+  "cy": 1.05,
+  "tile": 0.92,
+  "relief": 0.05,
+  "segX": 380,
+  "segY": 230,
+  "offsets": {
+   "a": [
+    0.21,
+    0.37
+   ],
+   "b": [
+    0.37,
+    0.61
+   ]
+  },
+  "tiles": {
+   "a": {
+    "albedo": {
+     "id": "choice-wall-a",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-a.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/albedo1024/W_skull_wall_a.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    },
+    "normal": {
+     "id": "choice-wall-a-n",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-a-n.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/normal1024/W_skull_wall_a.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    },
+    "height": {
+     "id": "choice-wall-a-h",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-a-h.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/height1024/W_skull_wall_a.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    }
+   },
+   "b": {
+    "albedo": {
+     "id": "choice-wall-b",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-b.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/albedo1024/W_skull_wall_b.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    },
+    "normal": {
+     "id": "choice-wall-b-n",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-b-n.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/normal1024/W_skull_wall_b.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    },
+    "height": {
+     "id": "choice-wall-b-h",
+     "labFile": "lookdev-lab/assets/choice-hands/choice-wall-b-h.webp",
+     "ashlarSource": "ashlar/art/textures/wall-ossuary-v1/height1024/W_skull_wall_b.png",
+     "note": "same image, the lab file is a WebP re-encode"
+    }
+   }
+  },
+  "tileSizeM": 0.92,
+  "composition": "for a wall point (x, y) (world, y up): uv = (x / tileM + offset[0], y / tileM + offset[1]) per tile (offsets above, periodic tiles, v up, image row 0 = top); result = mix(tileA, tileB, blend(x, y)); normals blended as vectors. blend = wall/wall-blend.png (8-bit grey, 380 x 230 cells over the 3.8 x 2.3 m wall, PNG row 0 = TOP of the wall, value / 255 = share of tile B), computed by env/choiceHands.js wallBlend()",
+  "blendMask": {
+   "file": "wall/wall-blend.png",
+   "size": [
+    380,
+    230
+   ]
+  },
+  "toneMask": {
+   "file": "wall/wall-tone.png",
+   "size": [
+    381,
+    231
+   ],
+   "mapping": "vertex colour brightness = 0.76 + 0.32 * value / 255 (wallTone), one value per plane vertex, row 0 = top",
+   "range": [
+    0.76,
+    1.08
+   ]
+  },
+  "albedoMultiplier": [
+   0.8,
+   0.64,
+   0.4
+  ]
+ },
+ "lights": [
+  {
+   "name": "Cold ambient (very low)",
+   "type": "HemisphereLight",
+   "skyColor": "#7c7064",
+   "groundColor": "#382c20",
+   "baseIntensity": 0.5
+  },
+  {
+   "name": "Gennet's candle (shadowed spot)",
+   "type": "SpotLight",
+   "color": "#ffb87b",
+   "kelvin": 3200,
+   "baseIntensity": 0.64,
+   "position": [
+    0,
+    0.2352,
+    0.09
+   ],
+   "target": [
+    0,
+    0.15,
+    -0.1
+   ],
+   "angleRad": 1.22,
+   "penumbra": 1,
+   "decay": 1.05,
+   "distance": 0,
+   "castShadow": true,
+   "shadow": {
+    "mapSize": 2048,
+    "near": 0.03,
+    "far": 6,
+    "bias": -0.0004,
+    "normalBias": 0.01,
+    "radius": 2
+   },
+   "flicker": {
+    "candleLevelSeed": 3.1,
+    "amount": 1
+   },
+   "note": "intensity = baseIntensity * settings.candle * candleLevel(t, 3.1) * boost; the position leans toward the hovered / chosen hand (settings.lean)"
+  },
+  {
+   "name": "Gennet's candle (near, no shadow)",
+   "type": "PointLight",
+   "color": "#ffb87b",
+   "kelvin": 3200,
+   "baseIntensity": 0.42,
+   "positionRelativeToSpot": [
+    0,
+    0.06,
+    0.266
+   ],
+   "distance": 2.2,
+   "decay": 1.15,
+   "castShadow": false,
+   "flicker": {
+    "candleLevelSeed": 3.1,
+    "amount": 1
+   }
+  },
+  {
+   "name": "Cool fill (weak)",
+   "type": "DirectionalLight",
+   "color": "#fffefa",
+   "kelvin": 6500,
+   "baseIntensity": 0.6,
+   "position": [
+    -2.2,
+    2.4,
+    3.2
+   ],
+   "target": [
+    0,
+    0.6,
+    0
+   ],
+   "castShadow": false
+  },
+  {
+   "name": "Class light (showcase, driven)",
+   "type": "PointLight",
+   "color": "#ffffff (set per class from SHOWCASE[id].light.colour)",
+   "baseIntensity": 0,
+   "distance": 1.2,
+   "decay": 2,
+   "note": "intensity = SHOWCASE value * CLASS_LIGHT_SCALE (0.2)"
+  }
+ ],
+ "lightingNote": "all lights are driven per frame: candle flicker candleLevel(t, seed), lean toward the hovered / chosen hand, class light from SHOWCASE; the values here are the build-time bases. The scene keeps its own lighting under every Act I mood.",
+ "settingsDefaults": {
+  "duration": 1.8,
+  "reach": 0.26,
+  "handScale": 1.6,
+  "glow": 0.15,
+  "wallTint": 1,
+  "handLight": 0.6,
+  "handOuter": 0.2,
+  "rigAlways": false,
+  "flRig": true,
+  "offerLight": true,
+  "showcase": true,
+  "overlay": 0,
+  "candle": 1,
+  "lean": 1,
+  "showStandIns": true,
+  "lockCamera": true,
+  "dust": true,
+  "quote": true
+ },
+ "arm": {
+  "visible": 0.32,
+  "slide": 0.26,
+  "retract": 0.32,
+  "hoverSlide": 0.035,
+  "hoverTurn": 0.1,
+  "reachYaw": 16,
+  "reachPitch": -20,
+  "wristBack": 8,
+  "wristPalm": 8
+ },
+ "timesSeconds": {
+  "reach": 1.8,
+  "back": 1.4,
+  "tremble": 0.55,
+  "crumble": 1.9,
+  "fadeAt": 1.5,
+  "endAt": 2.9
+ },
+ "dissolve": {
+  "slabs": 40,
+  "slabZ0": -0.02,
+  "slabZ1": 0.47
+ },
+ "grabAt": 0.85,
+ "classLightScale": 0.2,
+ "showcase": {
+  "PB": {
+   "dur": 3.8,
+   "note": "Găng sắt, đinh quan tài bạc trên khớp, vết dây hằn trong lòng tay",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.35,
+     0
+    ],
+    [
+     0.85,
+     170
+    ],
+    [
+     1.35,
+     170
+    ],
+    [
+     2.1,
+     0
+    ],
+    [
+     3.8,
+     0
+    ]
+   ],
+   "squeeze": [
+    [
+     2.15,
+     0
+    ],
+    [
+     2.45,
+     0.05
+    ],
+    [
+     2.75,
+     0.05
+    ],
+    [
+     3.15,
+     0
+    ]
+   ],
+   "tremor": [
+    [
+     2.15,
+     0
+    ],
+    [
+     2.4,
+     0.003
+    ],
+    [
+     2.8,
+     0
+    ]
+   ],
+   "grip": [
+    [
+     2.15,
+     0
+    ],
+    [
+     2.5,
+     1
+    ],
+    [
+     2.85,
+     1
+    ],
+    [
+     3.4,
+     0
+    ]
+   ],
+   "offer": {
+    "colour": "#ffcf9a",
+    "anchor": "palm",
+    "dist": 1.5,
+    "intensity": 1.5
+   },
+   "cam": {
+    "dist": 0.95,
+    "elev": 44,
+    "yaw": [
+     [
+      0,
+      -34
+     ],
+     [
+      2.1,
+      4
+     ],
+     [
+      3.8,
+      14
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#b6c4dc",
+    "anchor": "knuckles",
+    "dist": 0.7,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      1.7,
+      0.9
+     ],
+     [
+      2.2,
+      0.15
+     ],
+     [
+      3.8,
+      0
+     ]
+    ],
+    "offset": [
+     [
+      0.45,
+      0.075
+     ],
+     [
+      1.75,
+      -0.075
+     ]
+    ]
+   },
+   "fx": [
+    {
+     "kind": "dust",
+     "at": "knuckles",
+     "from": 2.3,
+     "to": 3,
+     "rate": 85
+    },
+    {
+     "kind": "dust",
+     "at": "wrist",
+     "from": 2.35,
+     "to": 2.8,
+     "rate": 40
+    }
+   ]
+  },
+  "FL": {
+   "dur": 3.6,
+   "note": "Dây thắt nút quấn hai vòng cổ tay, cổ tay áo đen của nữ tu",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.4,
+     26
+    ],
+    [
+     0.9,
+     26
+    ],
+    [
+     2.5,
+     0
+    ],
+    [
+     3.6,
+     0
+    ]
+   ],
+   "squeeze": [
+    [
+     0.5,
+     0
+    ],
+    [
+     0.95,
+     0.07
+    ],
+    [
+     1.35,
+     0.07
+    ],
+    [
+     1.8,
+     0
+    ]
+   ],
+   "tremor": [
+    [
+     0.7,
+     0
+    ],
+    [
+     1.1,
+     0.004
+    ],
+    [
+     2,
+     0.0035
+    ],
+    [
+     2.4,
+     0
+    ]
+   ],
+   "grip": [
+    [
+     0.7,
+     0
+    ],
+    [
+     1.1,
+     0.8
+    ],
+    [
+     1.9,
+     0.8
+    ],
+    [
+     2.6,
+     0
+    ]
+   ],
+   "cam": {
+    "dist": 0.9,
+    "elev": 40,
+    "yaw": [
+     [
+      0,
+      24
+     ],
+     [
+      1.6,
+      -8
+     ],
+     [
+      3.6,
+      6
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#ffb870",
+    "anchor": "wrist",
+    "dist": 0.55,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      3.6,
+      0
+     ]
+    ]
+   },
+   "shake": [
+    [
+     0,
+     1
+    ],
+    [
+     0.85,
+     1
+    ],
+    [
+     1.05,
+     3.2
+    ],
+    [
+     1.6,
+     3.2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3.6,
+     1
+    ]
+   ],
+   "fx": [
+    {
+     "kind": "flake",
+     "at": "wrist",
+     "from": 1,
+     "to": 1.7,
+     "rate": 30
+    },
+    {
+     "kind": "dust",
+     "at": "palm",
+     "from": 1.2,
+     "to": 2.2,
+     "rate": 22
+    }
+   ]
+  },
+  "OS": {
+   "dur": 3.8,
+   "note": "Bàn tay già: mực và vữa trong nếp tay, nhẫn đốt xương",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.4,
+     0
+    ],
+    [
+     0.95,
+     160
+    ],
+    [
+     1.7,
+     160
+    ],
+    [
+     2.5,
+     0
+    ],
+    [
+     3.8,
+     0
+    ]
+   ],
+   "squeeze": [],
+   "tremor": [],
+   "grip": [],
+   "cam": {
+    "dist": 0.9,
+    "elev": 42,
+    "yaw": [
+     [
+      0,
+      -26
+     ],
+     [
+      2.4,
+      10
+     ],
+     [
+      3.8,
+      18
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#8ec0ff",
+    "anchor": "palm",
+    "dist": 0.5,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      0.8,
+      0.22
+     ],
+     [
+      2.6,
+      0.22
+     ],
+     [
+      3.8,
+      0
+     ]
+    ]
+   },
+   "fx": [
+    {
+     "kind": "soul",
+     "at": "tip",
+     "from": 0.8,
+     "to": 2.8,
+     "rate": 3.2,
+     "spread": 0.09,
+     "lift": 0.025
+    },
+    {
+     "kind": "flake",
+     "at": "palm",
+     "from": 0.6,
+     "to": 2.6,
+     "rate": 8,
+     "lift": 0.02
+    },
+    {
+     "kind": "dust",
+     "at": "palm",
+     "from": 1.8,
+     "to": 2.8,
+     "rate": 10,
+     "lift": 0.02
+    }
+   ]
+  },
+  "BR": {
+   "dur": 3.6,
+   "note": "Muối nứt trắng ngả xanh, tay áo ố vệt triều, vòng vỏ sò",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.4,
+     0
+    ],
+    [
+     0.9,
+     160
+    ],
+    [
+     1.7,
+     160
+    ],
+    [
+     2.4,
+     0
+    ],
+    [
+     3.6,
+     0
+    ]
+   ],
+   "squeeze": [],
+   "tremor": [],
+   "grip": [],
+   "offer": {
+    "colour": "#ffd6a8",
+    "anchor": "palm",
+    "dist": 1.4,
+    "intensity": 0.8
+   },
+   "cam": {
+    "dist": 0.92,
+    "elev": 44,
+    "yaw": [
+     [
+      0,
+      30
+     ],
+     [
+      2.2,
+      -6
+     ],
+     [
+      3.6,
+      -14
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#bfe0ee",
+    "anchor": "palm",
+    "dist": 0.55,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      0
+     ],
+     [
+      1.3,
+      0.8
+     ],
+     [
+      2,
+      0.15
+     ],
+     [
+      3.6,
+      0
+     ]
+    ]
+   },
+   "fx": [
+    {
+     "kind": "salt",
+     "at": "thumb",
+     "from": 0.6,
+     "to": 3,
+     "rate": 32,
+     "spread": 0.05,
+     "lift": 0.07
+    },
+    {
+     "kind": "salt",
+     "at": "tip",
+     "from": 1.2,
+     "to": 3,
+     "rate": 14,
+     "spread": 0.05,
+     "lift": 0.07
+    }
+   ]
+  },
+  "EX": {
+   "dur": 3.8,
+   "note": "Găng tẩm dầu đèn, chai ngón cái",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.35,
+     50
+    ],
+    [
+     0.8,
+     50
+    ],
+    [
+     1.25,
+     0
+    ],
+    [
+     3.8,
+     0
+    ]
+   ],
+   "squeeze": [
+    [
+     1,
+     0
+    ],
+    [
+     1.2,
+     0.04
+    ],
+    [
+     1.45,
+     0
+    ]
+   ],
+   "tremor": [],
+   "grip": [
+    [
+     0.9,
+     0
+    ],
+    [
+     1.25,
+     0.6
+    ],
+    [
+     1.6,
+     0.3
+    ],
+    [
+     2.2,
+     0
+    ]
+   ],
+   "cam": {
+    "dist": 0.85,
+    "elev": 40,
+    "yaw": [
+     [
+      0,
+      -22
+     ],
+     [
+      2,
+      6
+     ],
+     [
+      3.8,
+      12
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#ffa24a",
+    "anchor": "palm",
+    "dist": 0.6,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      1.1,
+      0
+     ],
+     [
+      1.3,
+      1
+     ],
+     [
+      2.3,
+      0.9
+     ],
+     [
+      2.55,
+      0
+     ],
+     [
+      3.8,
+      0
+     ]
+    ]
+   },
+   "flame": {
+    "anchor": "palm",
+    "lift": 0.02,
+    "strength": [
+     [
+      0,
+      0
+     ],
+     [
+      1.1,
+      0
+     ],
+     [
+      1.3,
+      1
+     ],
+     [
+      2.3,
+      0.9
+     ],
+     [
+      2.55,
+      0
+     ],
+     [
+      3.8,
+      0
+     ]
+    ]
+   },
+   "fx": [
+    {
+     "kind": "smoke",
+     "at": "palm",
+     "from": 2.5,
+     "to": 3.5,
+     "rate": 9,
+     "lift": 0.03
+    },
+    {
+     "kind": "ember",
+     "at": "palm",
+     "from": 1.3,
+     "to": 1.7,
+     "rate": 14,
+     "lift": 0.02
+    }
+   ]
+  },
+  "PS": {
+   "dur": 3.8,
+   "note": "Sẹo bỏng, tro dưới móng, bím chỉ đỏ",
+   "roll": [
+    [
+     0,
+     0
+    ],
+    [
+     0.4,
+     38
+    ],
+    [
+     0.9,
+     38
+    ],
+    [
+     2.2,
+     0
+    ],
+    [
+     3.8,
+     0
+    ]
+   ],
+   "squeeze": [],
+   "tremor": [
+    [
+     1,
+     0
+    ],
+    [
+     1.6,
+     0.0018
+    ],
+    [
+     2.6,
+     0.001
+    ],
+    [
+     3.2,
+     0
+    ]
+   ],
+   "grip": [
+    [
+     1,
+     0
+    ],
+    [
+     1.6,
+     0.35
+    ],
+    [
+     2.8,
+     0.2
+    ],
+    [
+     3.3,
+     0
+    ]
+   ],
+   "cam": {
+    "dist": 0.9,
+    "elev": 42,
+    "yaw": [
+     [
+      0,
+      28
+     ],
+     [
+      2.2,
+      -4
+     ],
+     [
+      3.8,
+      -12
+     ]
+    ]
+   },
+   "light": {
+    "colour": "#ff7a2a",
+    "anchor": "palm",
+    "dist": 0.55,
+    "intensity": [
+     [
+      0,
+      0
+     ],
+     [
+      0.7,
+      0.2
+     ],
+     [
+      1.8,
+      1.1
+     ],
+     [
+      3,
+      0.5
+     ],
+     [
+      3.8,
+      0
+     ]
+    ]
+   },
+   "fx": [
+    {
+     "kind": "ember",
+     "at": "palm",
+     "from": 0.8,
+     "to": 2.9,
+     "rate": 24,
+     "spread": 0.05,
+     "lift": 0.02
+    },
+    {
+     "kind": "dust",
+     "at": "tip",
+     "from": 1.5,
+     "to": 2.6,
+     "rate": 10
+    }
+   ]
+  }
+ },
+ "showcaseOrder": [
+  "PB",
+  "FL",
+  "OS",
+  "BR",
+  "EX",
+  "PS"
+ ],
+ "fxPresets": {
+  "dust": {
+   "pool": "alpha",
+   "sprite": "shard",
+   "size": [
+    0.017,
+    0.0408
+   ],
+   "life": [
+    0.9,
+    1.8
+   ],
+   "mean": [
+    0,
+    0,
+    0
+   ],
+   "spread": [
+    0.05,
+    0.03,
+    0.05
+   ],
+   "gravity": 0.55,
+   "drag": 1.2,
+   "spin": 4,
+   "aspect": 0.85,
+   "colour": "#6e695f"
+  },
+  "flake": {
+   "pool": "alpha",
+   "sprite": "shardB",
+   "size": [
+    0.0272,
+    0.0578
+   ],
+   "life": [
+    1.2,
+    2.3
+   ],
+   "mean": [
+    0,
+    -0.02,
+    0
+   ],
+   "spread": [
+    0.05,
+    0.02,
+    0.05
+   ],
+   "gravity": 0.4,
+   "drag": 1.4,
+   "spin": 3,
+   "colour": "#a39d8f"
+  },
+  "soul": {
+   "pool": "add",
+   "sprite": "point",
+   "size": [
+    0.0272,
+    0.051
+   ],
+   "life": [
+    1.6,
+    2.6
+   ],
+   "mean": [
+    0,
+    0.07,
+    0
+   ],
+   "spread": [
+    0.015,
+    0.02,
+    0.015
+   ],
+   "gravity": -0.01,
+   "drag": 0.8,
+   "colour": "#9fd0ff",
+   "fade": "bell"
+  },
+  "salt": {
+   "pool": "add",
+   "sprite": "crystal",
+   "size": [
+    0.018,
+    0.038
+   ],
+   "life": [
+    1,
+    1.9
+   ],
+   "mean": [
+    0,
+    -0.02,
+    0
+   ],
+   "spread": [
+    0.03,
+    0.01,
+    0.03
+   ],
+   "gravity": 0.3,
+   "drag": 1.1,
+   "spin": 1.5,
+   "colour": [
+    "#f2f8f4",
+    "#9fb9c4"
+   ],
+   "twinkle": 18
+  },
+  "ember": {
+   "pool": "add",
+   "sprite": "streak",
+   "streak": 4.5,
+   "size": [
+    0.0136,
+    0.0272
+   ],
+   "life": [
+    0.9,
+    1.9
+   ],
+   "mean": [
+    0,
+    0.2,
+    0
+   ],
+   "spread": [
+    0.06,
+    0.05,
+    0.06
+   ],
+   "gravity": -0.06,
+   "drag": 0.5,
+   "colour": [
+    "#ffb060",
+    "#c8401a"
+   ],
+   "sway": 0.05
+  },
+  "smoke": {
+   "pool": "alpha",
+   "sprite": "puff",
+   "size": [
+    0.051,
+    0.102
+   ],
+   "life": [
+    1.6,
+    2.6
+   ],
+   "mean": [
+    0,
+    0.07,
+    0
+   ],
+   "spread": [
+    0.012,
+    0.01,
+    0.012
+   ],
+   "gravity": -0.05,
+   "drag": 0.7,
+   "spin": 0.3,
+   "colour": "#5c5853",
+   "grow": 2.4,
+   "sway": 0.03
+  }
+ },
+ "handModels": {
+  "fl": {
+   "file": "choice-hand-fl",
+   "wrist": 0.27,
+   "sleeve": [
+    0.045,
+    0.046
+   ],
+   "tip": [
+    0.087,
+    -0.068,
+    0.447
+   ]
+  },
+  "os": {
+   "file": "choice-hand-os",
+   "wrist": 0.27,
+   "sleeve": [
+    0.039,
+    0.041
+   ],
+   "tip": [
+    -0.058,
+    -0.02,
+    0.447
+   ]
+  },
+  "br": {
+   "file": "choice-hand-br",
+   "wrist": 0.261,
+   "sleeve": [
+    0.043,
+    0.043
+   ],
+   "tip": [
+    0.022,
+    -0.024,
+    0.448
+   ]
+  }
+ },
+ "fingerRig": {
+  "bones": {
+   "root": "hand_root",
+   "forearm": "forearm",
+   "twist": "forearm_twist",
+   "wrist": "wrist",
+   "fingers": {
+    "thumb": [
+     "thumb_01",
+     "thumb_02",
+     "thumb_03"
+    ],
+    "index": [
+     "index_01",
+     "index_02",
+     "index_03"
+    ],
+    "middle": [
+     "middle_01",
+     "middle_02",
+     "middle_03"
+    ],
+    "ring": [
+     "ring_01",
+     "ring_02",
+     "ring_03"
+    ],
+    "pinky": [
+     "pinky_01",
+     "pinky_02",
+     "pinky_03"
+    ]
+   }
+  },
+  "poses": {
+   "thumb": {
+    "relaxed": [
+     8,
+     12,
+     8
+    ],
+    "open": [
+     3,
+     5,
+     3
+    ],
+    "grip": [
+     30,
+     38,
+     28
+    ],
+    "spread": {
+     "relaxed": 6,
+     "open": 14,
+     "grip": -6
+    }
+   },
+   "index": {
+    "relaxed": [
+     16,
+     22,
+     14
+    ],
+    "open": [
+     7,
+     10,
+     6
+    ],
+    "grip": [
+     72,
+     88,
+     62
+    ],
+    "spread": {
+     "relaxed": 2,
+     "open": 5,
+     "grip": 0
+    }
+   },
+   "middle": {
+    "relaxed": [
+     20,
+     26,
+     16
+    ],
+    "open": [
+     9,
+     12,
+     7
+    ],
+    "grip": [
+     76,
+     92,
+     64
+    ],
+    "spread": {
+     "relaxed": 0,
+     "open": 1,
+     "grip": 0
+    }
+   },
+   "ring": {
+    "relaxed": [
+     24,
+     30,
+     18
+    ],
+    "open": [
+     11,
+     14,
+     8
+    ],
+    "grip": [
+     76,
+     92,
+     62
+    ],
+    "spread": {
+     "relaxed": -2,
+     "open": -4,
+     "grip": 0
+    }
+   },
+   "pinky": {
+    "relaxed": [
+     28,
+     32,
+     20
+    ],
+    "open": [
+     13,
+     16,
+     9
+    ],
+    "grip": [
+     74,
+     86,
+     58
+    ],
+    "spread": {
+     "relaxed": -4,
+     "open": -10,
+     "grip": -2
+    }
+   }
+  },
+  "profiles": {
+   "default": {
+    "poses": {
+     "thumb": {
+      "relaxed": [
+       8,
+       12,
+       8
+      ],
+      "open": [
+       3,
+       5,
+       3
+      ],
+      "grip": [
+       30,
+       38,
+       28
+      ],
+      "spread": {
+       "relaxed": 6,
+       "open": 14,
+       "grip": -6
+      }
+     },
+     "index": {
+      "relaxed": [
+       16,
+       22,
+       14
+      ],
+      "open": [
+       7,
+       10,
+       6
+      ],
+      "grip": [
+       72,
+       88,
+       62
+      ],
+      "spread": {
+       "relaxed": 2,
+       "open": 5,
+       "grip": 0
+      }
+     },
+     "middle": {
+      "relaxed": [
+       20,
+       26,
+       16
+      ],
+      "open": [
+       9,
+       12,
+       7
+      ],
+      "grip": [
+       76,
+       92,
+       64
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": 1,
+       "grip": 0
+      }
+     },
+     "ring": {
+      "relaxed": [
+       24,
+       30,
+       18
+      ],
+      "open": [
+       11,
+       14,
+       8
+      ],
+      "grip": [
+       76,
+       92,
+       62
+      ],
+      "spread": {
+       "relaxed": -2,
+       "open": -4,
+       "grip": 0
+      }
+     },
+     "pinky": {
+      "relaxed": [
+       28,
+       32,
+       20
+      ],
+      "open": [
+       13,
+       16,
+       9
+      ],
+      "grip": [
+       74,
+       86,
+       58
+      ],
+      "spread": {
+       "relaxed": -4,
+       "open": -10,
+       "grip": -2
+      }
+     }
+    },
+    "axes": {}
+   },
+   "flRig": {
+    "axes": {
+     "thumb": {
+      "curl": [
+       -0.007,
+       -0.954,
+       -0.299
+      ],
+      "spread": [
+       0.226,
+       0.29,
+       -0.93
+      ]
+     }
+    },
+    "poses": {
+     "thumb": {
+      "relaxed": [
+       0,
+       0,
+       0
+      ],
+      "open": [
+       -4,
+       -8,
+       -4
+      ],
+      "grip": [
+       20,
+       40,
+       58
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": 6,
+       "grip": -20
+      }
+     },
+     "index": {
+      "relaxed": [
+       0,
+       0,
+       0
+      ],
+      "open": [
+       -4,
+       -12,
+       -7
+      ],
+      "grip": [
+       52.7,
+       64.8,
+       45.4
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": 3,
+       "grip": 0
+      }
+     },
+     "middle": {
+      "relaxed": [
+       0,
+       0,
+       0
+      ],
+      "open": [
+       -4,
+       -12,
+       -7
+      ],
+      "grip": [
+       42.5,
+       52,
+       35.5
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": 1,
+       "grip": 0
+      }
+     },
+     "ring": {
+      "relaxed": [
+       0,
+       0,
+       0
+      ],
+      "open": [
+       -3,
+       -10,
+       -6
+      ],
+      "grip": [
+       48.5,
+       59,
+       39.2
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": -3,
+       "grip": 0
+      }
+     },
+     "pinky": {
+      "relaxed": [
+       0,
+       0,
+       0
+      ],
+      "open": [
+       -3,
+       -8,
+       -5
+      ],
+      "grip": [
+       60.2,
+       70.1,
+       46.9
+      ],
+      "spread": {
+       "relaxed": 0,
+       "open": -7,
+       "grip": -2
+      }
+     }
+    }
+   }
+  },
+  "limits": {
+   "thumb": {
+    "curl": [
+     [
+      -25,
+      55
+     ],
+     [
+      -25,
+      75
+     ],
+     [
+      -20,
+      65
+     ]
+    ],
+    "spread": [
+     -30,
+     45
+    ]
+   },
+   "index": {
+    "curl": [
+     [
+      -30,
+      90
+     ],
+     [
+      -50,
+      110
+     ],
+     [
+      -35,
+      80
+     ]
+    ],
+    "spread": [
+     -20,
+     20
+    ]
+   },
+   "middle": {
+    "curl": [
+     [
+      -30,
+      90
+     ],
+     [
+      -50,
+      110
+     ],
+     [
+      -35,
+      80
+     ]
+    ],
+    "spread": [
+     -14,
+     14
+    ]
+   },
+   "ring": {
+    "curl": [
+     [
+      -30,
+      90
+     ],
+     [
+      -50,
+      110
+     ],
+     [
+      -35,
+      80
+     ]
+    ],
+    "spread": [
+     -16,
+     16
+    ]
+   },
+   "pinky": {
+    "curl": [
+     [
+      -30,
+      90
+     ],
+     [
+      -50,
+      110
+     ],
+     [
+      -35,
+      80
+     ]
+    ],
+    "spread": [
+     -24,
+     24
+    ]
+   }
+  },
+  "wristLimits": {
+   "flex": [
+    -70,
+    80
+   ],
+   "dev": [
+    -20,
+    35
+   ],
+   "roll": [
+    -90,
+    90
+   ]
+  },
+  "note": "finger rig drive data (only the rigged Flagellant hand has bones): relaxed -> open (offered) -> grip, degrees per segment"
+ },
+ "trail": "The stranger's hand crumbles on the ossuary floor when the Keystone lets go of the Wall",
+ "seeds": {
+  "note": "no generator seed: the set is hand-authored. hash01(i, seed) of env/choiceHands.js drives the dust motes, wallBlend / wallTone use seeds 11, 12, 21, 22; the ledge stone texture seeds 11..15."
+ }
+}

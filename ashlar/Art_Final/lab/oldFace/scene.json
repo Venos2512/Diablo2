@@ -1,0 +1,1961 @@
+{
+ "scene": "oldFace",
+ "units": "metres",
+ "coordinateSystem": "three.js right-handed, Y up. x = east, z = south (toward the default camera, which looks north), y = height; the dry floor is y = 0, the flooded basin -0.4, the water surface -0.18, the stair landing +1.8.",
+ "seeds": {
+  "decalScatter": 9917,
+  "coping": 6606,
+  "sheen": 4747,
+  "hole": 5521,
+  "plaque": 9001,
+  "shelf": 2207,
+  "warmWall": 3303,
+  "props": 7301,
+  "atmosphere": 6011,
+  "pinpoints": 4417,
+  "note": "all via env/kit.js rng (mulberry32) / env/oldFace.js rng; the whole map is hand-authored data (no generator seed)"
+ },
+ "layout": {
+  "MODULE": {
+   "width": 4,
+   "height": 2.283,
+   "half": 0.3486
+  },
+  "FACE": {
+   "cx": -23.5,
+   "cz": -2.5,
+   "R": 6,
+   "W": 6.211657082460498,
+   "drop": 3,
+   "verts": [
+    [
+     -29.711657082460498,
+     -2.5
+    ],
+    [
+     -28.879452833008322,
+     -5.605828541230249
+    ],
+    [
+     -26.60582854123025,
+     -7.879452833008321
+    ],
+    [
+     -23.5,
+     -8.711657082460498
+    ],
+    [
+     -20.39417145876975,
+     -7.879452833008321
+    ],
+    [
+     -18.12054716699168,
+     -5.605828541230251
+    ],
+    [
+     -17.288342917539502,
+     -2.500000000000001
+    ]
+   ],
+   "apex": {
+    "x": -23.5,
+    "z": -8.711657082460498
+   },
+   "south": 0.5
+  },
+  "SPAWN": {
+   "x": -23.5,
+   "z": -7.111657082460498
+  },
+  "HOLE": {
+   "x": -23.5,
+   "z": -8.711657082460498,
+   "pull": 0.6,
+   "width": 1.16,
+   "height": 2.3
+  },
+  "DOOR": {
+   "x": 13.7,
+   "z": -6,
+   "width": 1.4,
+   "height": 2.6
+  },
+  "FLOOD": {
+   "x0": 6,
+   "x1": 10.6,
+   "z0": 1.5,
+   "z1": 4.9,
+   "ramp": 0.6
+  },
+  "LEVEL": {
+   "dry": 0,
+   "basin": -0.4,
+   "water": -0.18
+  },
+  "STAIR": {
+   "x0": 12,
+   "x1": 15.4,
+   "z0": 1.5,
+   "rise": 0.18,
+   "run": 0.42,
+   "count": 10,
+   "top": 1.8,
+   "zTop": -2.28
+  },
+  "COLLAPSE": {
+   "x": -5,
+   "z": 1.75,
+   "lean": 0.47123889803846897,
+   "yaw": 0.14,
+   "sink": 0.3,
+   "sx": 1,
+   "sy": 1
+  },
+  "ROOMS": [
+   {
+    "name": "face",
+    "kind": "poly",
+    "pts": [
+     [
+      -29.711657082460498,
+      0.5
+     ],
+     [
+      -29.711657082460498,
+      -2.5
+     ],
+     [
+      -28.879452833008322,
+      -5.605828541230249
+     ],
+     [
+      -26.60582854123025,
+      -7.879452833008321
+     ],
+     [
+      -23.5,
+      -8.711657082460498
+     ],
+     [
+      -20.39417145876975,
+      -7.879452833008321
+     ],
+     [
+      -18.12054716699168,
+      -5.605828541230251
+     ],
+     [
+      -17.288342917539502,
+      -2.500000000000001
+     ],
+     [
+      -17.288342917539502,
+      0.5
+     ]
+    ]
+   },
+   {
+    "name": "neck",
+    "kind": "rect",
+    "x0": -24.8,
+    "x1": -22.2,
+    "z0": 0.5,
+    "z1": 2.9
+   },
+   {
+    "name": "passage",
+    "kind": "rect",
+    "x0": -24.8,
+    "x1": -7,
+    "z0": 2.9,
+    "z1": 5.5
+   },
+   {
+    "name": "squeeze",
+    "kind": "rect",
+    "x0": -7,
+    "x1": -3,
+    "z0": 1.75,
+    "z1": 4.9
+   },
+   {
+    "name": "bay",
+    "kind": "rect",
+    "x0": -3,
+    "x1": 4,
+    "z0": -1.5,
+    "z1": 4.9
+   },
+   {
+    "name": "flood",
+    "kind": "rect",
+    "x0": 4,
+    "x1": 12,
+    "z0": 1.5,
+    "z1": 4.9
+   },
+   {
+    "name": "foyer",
+    "kind": "rect",
+    "x0": 12,
+    "x1": 15.4,
+    "z0": 1.5,
+    "z1": 4.9
+   },
+   {
+    "name": "stair",
+    "kind": "rect",
+    "x0": 12,
+    "x1": 15.4,
+    "z0": -2.28,
+    "z1": 1.5
+   },
+   {
+    "name": "landing",
+    "kind": "rect",
+    "x0": 12,
+    "x1": 15.4,
+    "z0": -6,
+    "z1": -2.28
+   }
+  ],
+  "BONE_RUNS": [
+   {
+    "id": "face0",
+    "a": [
+     -29.711657082460498,
+     -2.5
+    ],
+    "b": [
+     -28.879452833008322,
+     -5.605828541230249
+    ],
+    "in": [
+     0.9659258262890683,
+     0.25881904510252074
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.803847577293368,
+    "shift": 0
+   },
+   {
+    "id": "face1",
+    "a": [
+     -28.879452833008322,
+     -5.605828541230249
+    ],
+    "b": [
+     -26.60582854123025,
+     -7.879452833008321
+    ],
+    "in": [
+     0.7071067811865475,
+     0.7071067811865476
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.8038475772933683,
+    "shift": 0
+   },
+   {
+    "id": "face2",
+    "a": [
+     -26.60582854123025,
+     -7.879452833008321
+    ],
+    "b": [
+     -23.5,
+     -8.711657082460498
+    ],
+    "in": [
+     0.258819045102521,
+     0.9659258262890682
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.803847577293368,
+    "shift": -0.6
+   },
+   {
+    "id": "face3",
+    "a": [
+     -23.5,
+     -8.711657082460498
+    ],
+    "b": [
+     -20.39417145876975,
+     -7.879452833008321
+    ],
+    "in": [
+     -0.258819045102521,
+     0.9659258262890682
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.803847577293368,
+    "shift": 0.6
+   },
+   {
+    "id": "face4",
+    "a": [
+     -20.39417145876975,
+     -7.879452833008321
+    ],
+    "b": [
+     -18.12054716699168,
+     -5.605828541230251
+    ],
+    "in": [
+     -0.7071067811865475,
+     0.7071067811865477
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.8038475772933674,
+    "shift": 0
+   },
+   {
+    "id": "face5",
+    "a": [
+     -18.12054716699168,
+     -5.605828541230251
+    ],
+    "b": [
+     -17.288342917539502,
+     -2.500000000000001
+    ],
+    "in": [
+     -0.9659258262890682,
+     0.258819045102521
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.8038475772933684,
+    "shift": 0
+   },
+   {
+    "id": "faceW",
+    "a": [
+     -29.711657082460498,
+     0.5
+    ],
+    "b": [
+     -29.711657082460498,
+     -2.5
+    ],
+    "in": [
+     1,
+     0
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.8
+   },
+   {
+    "id": "faceE",
+    "a": [
+     -17.288342917539502,
+     -2.500000000000001
+    ],
+    "b": [
+     -17.288342917539502,
+     0.5
+    ],
+    "in": [
+     -1,
+     0
+    ],
+    "sy": 1.2,
+    "n": 1,
+    "sx": 0.8
+   },
+   {
+    "id": "closeW",
+    "a": [
+     -29.711657082460498,
+     0.5
+    ],
+    "b": [
+     -24.8,
+     0.5
+    ],
+    "in": [
+     0,
+     -1
+    ],
+    "sy": 1.2
+   },
+   {
+    "id": "closeE",
+    "a": [
+     -22.2,
+     0.5
+    ],
+    "b": [
+     -17.288342917539502,
+     0.5
+    ],
+    "in": [
+     0,
+     -1
+    ],
+    "sy": 1.2
+   },
+   {
+    "id": "neckE",
+    "a": [
+     -22.2,
+     0.5
+    ],
+    "b": [
+     -22.2,
+     2.9
+    ],
+    "in": [
+     -1,
+     0
+    ],
+    "sy": 1
+   },
+   {
+    "id": "passW",
+    "a": [
+     -24.8,
+     0.5
+    ],
+    "b": [
+     -24.8,
+     5.5
+    ],
+    "in": [
+     1,
+     0
+    ],
+    "sy": 1
+   },
+   {
+    "id": "passN",
+    "a": [
+     -22.2,
+     2.9
+    ],
+    "b": [
+     -7,
+     2.9
+    ],
+    "in": [
+     0,
+     1
+    ],
+    "sy": 1,
+    "warm": 1
+   },
+   {
+    "id": "passS",
+    "a": [
+     -24.8,
+     5.5
+    ],
+    "b": [
+     -7,
+     5.5
+    ],
+    "in": [
+     0,
+     -1
+    ],
+    "sy": 1
+   },
+   {
+    "id": "collapse",
+    "a": [
+     -7,
+     1.75
+    ],
+    "b": [
+     -3,
+     1.75
+    ],
+    "in": [
+     0,
+     1
+    ],
+    "sy": 1,
+    "n": 1,
+    "lean": true
+   },
+   {
+    "id": "bayW",
+    "a": [
+     -3,
+     1.75
+    ],
+    "b": [
+     -3,
+     -1.5
+    ],
+    "in": [
+     1,
+     0
+    ],
+    "sy": 1
+   },
+   {
+    "id": "bayN",
+    "a": [
+     -3,
+     -1.5
+    ],
+    "b": [
+     4,
+     -1.5
+    ],
+    "in": [
+     0,
+     1
+    ],
+    "sy": 1,
+    "niches": 1
+   },
+   {
+    "id": "bayE",
+    "a": [
+     4,
+     -1.5
+    ],
+    "b": [
+     4,
+     1.5
+    ],
+    "in": [
+     -1,
+     0
+    ],
+    "sy": 1
+   },
+   {
+    "id": "floodN",
+    "a": [
+     4,
+     1.5
+    ],
+    "b": [
+     12,
+     1.5
+    ],
+    "in": [
+     0,
+     1
+    ],
+    "sy": 1
+   },
+   {
+    "id": "southS",
+    "a": [
+     -7,
+     4.9
+    ],
+    "b": [
+     12,
+     4.9
+    ],
+    "in": [
+     0,
+     -1
+    ],
+    "sy": 1
+   }
+  ],
+  "STONE_RUNS": [
+   {
+    "id": "jogN",
+    "a": [
+     -7,
+     2.9
+    ],
+    "b": [
+     -7,
+     1.75
+    ],
+    "in": [
+     1,
+     0
+    ],
+    "h": 2.6
+   },
+   {
+    "id": "jogS",
+    "a": [
+     -7,
+     4.9
+    ],
+    "b": [
+     -7,
+     5.5
+    ],
+    "in": [
+     -1,
+     0
+    ],
+    "h": 2.6
+   },
+   {
+    "id": "foyerS",
+    "a": [
+     12,
+     4.9
+    ],
+    "b": [
+     15.4,
+     4.9
+    ],
+    "in": [
+     0,
+     -1
+    ],
+    "h": 3.4
+   },
+   {
+    "id": "stairE",
+    "a": [
+     15.4,
+     4.9
+    ],
+    "b": [
+     15.4,
+     -6
+    ],
+    "in": [
+     -1,
+     0
+    ],
+    "h": 4.4
+   },
+   {
+    "id": "stairW",
+    "a": [
+     12,
+     1.5
+    ],
+    "b": [
+     12,
+     -6
+    ],
+    "in": [
+     1,
+     0
+    ],
+    "h": 4.4
+   },
+   {
+    "id": "door",
+    "a": [
+     12,
+     -6
+    ],
+    "b": [
+     15.4,
+     -6
+    ],
+    "in": [
+     0,
+     1
+    ],
+    "h": 4.4,
+    "door": true
+   }
+  ],
+  "CHAIR": {
+   "x": -21.8,
+   "z": -6.3,
+   "yaw": -2.4075793135966888
+  },
+  "WAX_SHELF": {
+   "x": -25.396247835888374,
+   "z": -8.001680151004978,
+   "yaw": 0.2617993877991497,
+   "len": 2.4,
+   "depth": 0.35,
+   "h": 0.8
+  },
+  "STATUE": {
+   "x": 14.85,
+   "z": -5.2,
+   "yaw": -1,
+   "head": 0.8
+  },
+  "GENNET": {
+   "x": 12.55,
+   "z": -5.8,
+   "y": 3.05
+  },
+  "OBSTACLES": [
+   {
+    "id": "chair",
+    "x": -21.8,
+    "z": -6.3,
+    "r": 0.42
+   },
+   {
+    "id": "statue",
+    "x": 14.85,
+    "z": -5.2,
+    "r": 0.5
+   },
+   {
+    "id": "shelf",
+    "x": -25.396247835888374,
+    "z": -8.001680151004978,
+    "r": 1.2
+   },
+   {
+    "id": "pile west",
+    "x": -24.25,
+    "z": -8.211657082460498,
+    "r": 0.38
+   },
+   {
+    "id": "pile east",
+    "x": -22.8,
+    "z": -8.211657082460498,
+    "r": 0.38
+   }
+  ],
+  "BLOCKERS": [
+   {
+    "id": "collapse slab",
+    "pts": [
+     [
+      -6.987617039016034,
+      1.629500209047755
+     ],
+     [
+      -4.0169690503781235,
+      1.2108708651150455
+     ],
+     [
+      -3.026753054165486,
+      1.071327750470809
+     ],
+     [
+      -3.0207267666659496,
+      1.114091066274894
+     ],
+     [
+      -3.0026479041673406,
+      1.2423810136871485
+     ],
+     [
+      -2.9604638916705865,
+      1.5417242243157419
+     ],
+     [
+      -2.8556994859960216,
+      2.2851460018584495
+     ],
+     [
+      -2.8315943359978766,
+      2.4561992650747886
+     ],
+     [
+      -3.326702334104195,
+      2.525970822396907
+     ],
+     [
+      -3.821810332210514,
+      2.5957423797190255
+     ],
+     [
+      -5.802242324635788,
+      2.8748286090074986
+     ],
+     [
+      -6.792458320848425,
+      3.0143717236517347
+     ],
+     [
+      -6.822589758346107,
+      2.8005551446313106
+     ],
+     [
+      -6.876826345841933,
+      2.415685302394548
+     ],
+     [
+      -6.939406739019744,
+      1.9716067354804336
+     ],
+     [
+      -6.963511889017889,
+      1.8005534722640946
+     ]
+    ]
+   }
+  ],
+  "KNOCK": [
+   {
+    "x": -0.95,
+    "z": -1.3
+   },
+   {
+    "x": 1.75,
+    "z": -1.3
+   }
+  ],
+  "RAT_HOLES": [
+   {
+    "x": -17.4,
+    "z": 3
+   },
+   {
+    "x": -16.4,
+    "z": 3
+   },
+   {
+    "x": -15.5,
+    "z": 3
+   }
+  ],
+  "WARM_WALL": {
+   "x": -16.5,
+   "z": 2.9,
+   "width": 3.6
+  },
+  "sconces": [
+   {
+    "x": -29.28589569947152,
+    "y": 1.7,
+    "z": -4.0503260801640995,
+    "yaw": 1.3089969389957472,
+    "nx": 0.9659258262890683,
+    "nz": 0.25881904510252074,
+    "run": "face0"
+   },
+   {
+    "x": -27.73556961930742,
+    "y": 1.7,
+    "z": -6.7355696193074195,
+    "yaw": 0.7853981633974483,
+    "nx": 0.7071067811865475,
+    "nz": 0.7071067811865476,
+    "run": "face1"
+   },
+   {
+    "x": -19.26443038069258,
+    "y": 1.7,
+    "z": -6.73556961930742,
+    "yaw": -0.7853981633974482,
+    "nx": -0.7071067811865475,
+    "nz": 0.7071067811865477,
+    "run": "face4"
+   },
+   {
+    "x": -17.71410430052848,
+    "y": 1.7,
+    "z": -4.050326080164101,
+    "yaw": -1.308996938995747,
+    "nx": -0.9659258262890682,
+    "nz": 0.258819045102521,
+    "run": "face5"
+   },
+   {
+    "x": -29.701657082460496,
+    "y": 1.6,
+    "z": -1,
+    "yaw": 1.5707963267948966,
+    "nx": 1,
+    "nz": 0,
+    "run": "faceW"
+   },
+   {
+    "x": -17.298342917539504,
+    "y": 1.6,
+    "z": -1.0000000000000007,
+    "yaw": -1.5707963267948966,
+    "nx": -1,
+    "nz": 0,
+    "run": "faceE"
+   },
+   {
+    "x": -20.2,
+    "y": 1.45,
+    "z": 2.9099999999999997,
+    "yaw": 0,
+    "nx": 0,
+    "nz": 1,
+    "run": "passN"
+   },
+   {
+    "x": -12.4,
+    "y": 1.45,
+    "z": 2.9099999999999997,
+    "yaw": 0,
+    "nx": 0,
+    "nz": 1,
+    "run": "passN"
+   },
+   {
+    "x": -16.2,
+    "y": 1.45,
+    "z": 5.49,
+    "yaw": 3.141592653589793,
+    "nx": 0,
+    "nz": -1,
+    "run": "passS"
+   },
+   {
+    "x": -8.400000000000002,
+    "y": 1.45,
+    "z": 5.49,
+    "yaw": 3.141592653589793,
+    "nx": 0,
+    "nz": -1,
+    "run": "passS"
+   },
+   {
+    "x": 0.6000000000000001,
+    "y": 1.5,
+    "z": -1.49,
+    "yaw": 0,
+    "nx": 0,
+    "nz": 1,
+    "run": "bayN"
+   },
+   {
+    "x": 7.6,
+    "y": 1.45,
+    "z": 1.51,
+    "yaw": 0,
+    "nx": 0,
+    "nz": 1,
+    "run": "floodN"
+   },
+   {
+    "x": 8.6,
+    "y": 1.45,
+    "z": 4.890000000000001,
+    "yaw": 3.141592653589793,
+    "nx": 0,
+    "nz": -1,
+    "run": "southS"
+   },
+   {
+    "x": 1,
+    "y": 1.45,
+    "z": 4.890000000000001,
+    "yaw": 3.141592653589793,
+    "nx": 0,
+    "nz": -1,
+    "run": "southS"
+   }
+  ],
+  "pinpoints": [
+   {
+    "x": -28.797261807796612,
+    "y": 1.100299648672808,
+    "z": -4.540954949916038,
+    "nx": 0.9659258262890683,
+    "nz": 0.25881904510252074
+   },
+   {
+    "x": -27.010081180427466,
+    "y": 1.380504083086271,
+    "z": -6.973154379168654,
+    "nx": 0.7071067811865475,
+    "nz": 0.7071067811865476
+   },
+   {
+    "x": -18.75845586028541,
+    "y": 1.4735762608703227,
+    "z": -5.741691419881527,
+    "nx": -0.7071067811865475,
+    "nz": 0.7071067811865477
+   },
+   {
+    "x": -17.945323691518098,
+    "y": 0.6257151391357183,
+    "z": -3.5802709547535607,
+    "nx": -0.9659258262890682,
+    "nz": 0.258819045102521
+   },
+   {
+    "x": -29.356657082460497,
+    "y": 1.8163075730437412,
+    "z": -0.9504718510434031,
+    "nx": 1,
+    "nz": 0
+   },
+   {
+    "x": -17.643342917539503,
+    "y": 0.45320106063736604,
+    "z": -0.9290462117642169,
+    "nx": -1,
+    "nz": 0
+   },
+   {
+    "x": -29.094634972442456,
+    "y": 0.8493253941880539,
+    "z": -3.4311431906502072,
+    "nx": 0.9659258262890683,
+    "nz": 0.25881904510252074
+   },
+   {
+    "x": -26.92068894866465,
+    "y": 2.025273283279967,
+    "z": -7.06254661093147,
+    "nx": 0.7071067811865475,
+    "nz": 0.7071067811865476
+   },
+   {
+    "x": -18.95518252614453,
+    "y": 0.9391268211533316,
+    "z": -5.938418085740649,
+    "nx": -0.7071067811865475,
+    "nz": 0.7071067811865477
+   }
+  ],
+  "PATH": [
+   [
+    -23.5,
+    -7.111657082460498
+   ],
+   [
+    -23.5,
+    -2.5
+   ],
+   [
+    -23.5,
+    1.5
+   ],
+   [
+    -23.3,
+    3.4
+   ],
+   [
+    -22,
+    4.2
+   ],
+   [
+    -15,
+    4.2
+   ],
+   [
+    -8,
+    4
+   ],
+   [
+    -5,
+    3.95
+   ],
+   [
+    -3,
+    3.8
+   ],
+   [
+    -1,
+    3.4
+   ],
+   [
+    2,
+    3.3
+   ],
+   [
+    4.5,
+    3.2
+   ],
+   [
+    8.5,
+    3.2
+   ],
+   [
+    11.5,
+    3.2
+   ],
+   [
+    13.7,
+    3.3
+   ],
+   [
+    13.7,
+    1.5
+   ],
+   [
+    13.7,
+    -4.4
+   ]
+  ]
+ },
+ "water": {
+  "level": -0.18,
+  "basinFloor": -0.4,
+  "rect": {
+   "x0": 6,
+   "x1": 10.6,
+   "z0": 1.5,
+   "z1": 4.9
+  },
+  "rampM": 0.6,
+  "normalMap": {
+   "id": "biome-darkwood-water-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  "note": "the shore is a noisy curve x = shoreX0(z) / shoreX1(z) (env/oldFace.js); depth = water level - floor height (floor-heightmap.json)"
+ },
+ "terrain": {
+  "floorHeightmap": "terrain/floor-heightmap.json",
+  "layers": [
+   {
+    "layer": "BIO08_nave",
+    "tile": 4,
+    "textureId": "biome-BIO08_nave",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO08_nave",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO08_nave.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO08_nave-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO08_nave.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO08_nave-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO08_nave.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO08_nave-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "BIO27_vault",
+    "tile": 4,
+    "textureId": "biome-BIO27_vault",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO27_vault",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO27_vault.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO27_vault-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO27_vault.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO27_vault-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO27_vault.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO27_vault-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "BIO27_cradle",
+    "tile": 3.5,
+    "textureId": "biome-BIO27_cradle",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO27_cradle",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO27_cradle.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO27_cradle-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO27_cradle.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO27_cradle-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO27_cradle.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO27_cradle-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DG_crypt_rubble",
+    "tile": 3.5,
+    "textureId": "dungeon-crypt-rubble",
+    "maps": {
+     "albedo": {
+      "id": "dungeon-crypt-rubble",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/albedo1024/crypt_rubble_a.png",
+      "note": "albedo: same image (seam-fixed 1024), the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "dungeon-crypt-rubble-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/height1024/crypt_rubble_a.png",
+      "note": "height: same map"
+     },
+     "normal": {
+      "id": "dungeon-crypt-rubble-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/normal1024/crypt_rubble_a.png",
+      "note": "OpenGL normal: same map, lab file is a WebP re-encode"
+     },
+     "roughness": {
+      "id": "dungeon-crypt-rubble-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-r.webp",
+      "ashlarSource": null,
+      "note": "roughness / derived: use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dungeon-v1"
+     }
+    }
+   },
+   {
+    "layer": "DG_crypt_dust",
+    "tile": 3.5,
+    "textureId": "dungeon-crypt-dust",
+    "maps": {
+     "albedo": {
+      "id": "dungeon-crypt-dust",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/albedo1024/crypt_dust_a.png",
+      "note": "albedo: same image (seam-fixed 1024), the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "dungeon-crypt-dust-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/height1024/crypt_dust_a.png",
+      "note": "height: same map"
+     },
+     "normal": {
+      "id": "dungeon-crypt-dust-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/normal1024/crypt_dust_a.png",
+      "note": "OpenGL normal: same map, lab file is a WebP re-encode"
+     },
+     "roughness": {
+      "id": "dungeon-crypt-dust-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-r.webp",
+      "ashlarSource": null,
+      "note": "roughness / derived: use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dungeon-v1"
+     }
+    }
+   },
+   {
+    "layer": "DG_crypt_damp",
+    "tile": 3.5,
+    "textureId": "dungeon-crypt-damp",
+    "maps": {
+     "albedo": {
+      "id": "dungeon-crypt-damp",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/albedo1024/crypt_damp_a.png",
+      "note": "albedo: same image (seam-fixed 1024), the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "dungeon-crypt-damp-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/height1024/crypt_damp_a.png",
+      "note": "height: same map"
+     },
+     "normal": {
+      "id": "dungeon-crypt-damp-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-dungeon-v1/normal1024/crypt_damp_a.png",
+      "note": "OpenGL normal: same map, lab file is a WebP re-encode"
+     },
+     "roughness": {
+      "id": "dungeon-crypt-damp-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-r.webp",
+      "ashlarSource": null,
+      "note": "roughness / derived: use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dungeon-v1"
+     }
+    }
+   },
+   {
+    "layer": "BIO07_limestone",
+    "tile": 4,
+    "textureId": "biome-BIO07_limestone",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO07_limestone",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO07_limestone.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO07_limestone-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO07_limestone.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO07_limestone-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO07_limestone.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO07_limestone-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   }
+  ],
+  "splat": {
+   "size": 576,
+   "originX": -33,
+   "originZ": -28,
+   "extent": 52,
+   "smoothSlider": 0.8,
+   "blurMetres": 0.778,
+   "blurWetMetres": 0.25,
+   "files": [
+    "terrain/splat0.png",
+    "terrain/splat1.png"
+   ],
+   "note": "coverage = value / 255 of layer i over the layers below it; splat0 R,G,B,A = layers 1..4, splat1 R,G = layers 5,6 (B unused), A = wetness. Row 0 = z = originZ, column 0 = x = originX. UNBLURRED (the scene blurs by blurMetres at upload). Layer 0 (BIO08_nave) covers everything."
+  }
+ },
+ "lights": [
+  {
+   "name": "Light · the hole (shadowed spot)",
+   "type": "SpotLight",
+   "color": "#dce6f2",
+   "intensity": 130,
+   "position": [
+    -23.5,
+    2,
+    -8.412
+   ],
+   "castShadow": true,
+   "distance": 22,
+   "decay": 2,
+   "angleDeg": 57.296,
+   "penumbra": 0.9,
+   "target": [
+    -23.3,
+    0.2,
+    2
+   ],
+   "shadow": {
+    "mapSize": [
+     2048,
+     2048
+    ],
+    "near": 0.4,
+    "far": 24,
+    "bias": -0.0006,
+    "normalBias": 0.03
+   }
+  },
+  {
+   "name": "The hole (cold lift)",
+   "type": "PointLight",
+   "color": "#dce6f2",
+   "intensity": 2.5,
+   "position": [
+    -23.5,
+    1.5,
+    -7.812
+   ],
+   "castShadow": false,
+   "distance": 5,
+   "decay": 2
+  },
+  {
+   "name": "Gennet's lantern",
+   "type": "PointLight",
+   "color": "#ef9e48",
+   "intensity": 18,
+   "position": [
+    12.55,
+    3.17,
+    -5.35
+   ],
+   "castShadow": false,
+   "distance": 11,
+   "decay": 2
+  },
+  {
+   "name": "Lantern bounce (stair foot)",
+   "type": "PointLight",
+   "color": "#f0993f",
+   "intensity": 9,
+   "position": [
+    13.7,
+    0.6,
+    2.9
+   ],
+   "castShadow": false,
+   "distance": 6,
+   "decay": 2
+  },
+  {
+   "name": "Lantern spill (stair)",
+   "type": "PointLight",
+   "color": "#f0993f",
+   "intensity": 6,
+   "position": [
+    13.7,
+    2.2,
+    -0.4
+   ],
+   "castShadow": false,
+   "distance": 7,
+   "decay": 2
+  }
+ ],
+ "lightSources": [
+  {
+   "name": "The hole (shadowed spot)",
+   "baseIntensity": 130,
+   "steady": true,
+   "shimmer": true,
+   "kelvin": 8500
+  },
+  {
+   "name": "The hole (cold lift)",
+   "baseIntensity": 2.5,
+   "steady": true,
+   "shimmer": true,
+   "kelvin": 2300
+  },
+  {
+   "name": "Gennet's lantern",
+   "baseIntensity": 18,
+   "steady": false,
+   "shimmer": false,
+   "kelvin": 2300
+  },
+  {
+   "name": "Lantern bounce (stair foot)",
+   "baseIntensity": 9,
+   "steady": false,
+   "shimmer": false,
+   "kelvin": 2300
+  },
+  {
+   "name": "Lantern spill (stair)",
+   "baseIntensity": 6,
+   "steady": false,
+   "shimmer": false,
+   "kelvin": 2300
+  }
+ ],
+ "flames": [
+  {
+   "position": [
+    12.55,
+    2.95,
+    -5.7
+   ],
+   "widthM": 0.16,
+   "heightM": 0.3,
+   "strength": 0,
+   "note": "billboard flame (env/flames.js FlameField), base at position"
+  }
+ ],
+ "lightsNote": "LIGHTS (env/oldFace.js): cold #dce6f2 (the Wall, ~8500 K) and warm #e0a050 (Gennet's lantern). Intensities listed are the build-time values; the scene multiplies them per time preset (TIMES.lights) and flickers them (1/f, shimmer = 1 +/- 0.06 sin over 5.3 s).",
+ "moods": {
+  "night": {
+   "label": "Prologue · đêm (mặc định)",
+   "hemi": 0.9,
+   "sky": "#4a5870",
+   "ground": "#1f2a24",
+   "env": "hdri-night",
+   "envI": 0.03,
+   "toneMapping": "aces",
+   "exposure": 0.85,
+   "lights": 1,
+   "fog": {
+    "enabled": true,
+    "color": "#070908",
+    "density": 0.075,
+    "falloff": 0.35,
+    "height": 0,
+    "start": 5,
+    "inscatter": 0.1
+   },
+   "grade": {
+    "vignette": 0.6,
+    "contrast": 1.12,
+    "saturation": 0.85,
+    "lift": 0,
+    "temperature": -0.04,
+    "tint": 0
+   }
+  },
+  "lookdev": {
+   "label": "Soi texture · sáng đều",
+   "hemi": 2.4,
+   "sky": "#c9d4e4",
+   "ground": "#3b352e",
+   "env": "hdri-overcast",
+   "envI": 0.25,
+   "toneMapping": "aces",
+   "exposure": 0.2,
+   "lights": 0.35,
+   "fog": {
+    "enabled": false
+   },
+   "grade": {
+    "vignette": 0.2,
+    "contrast": 1.04,
+    "saturation": 1,
+    "lift": 0,
+    "temperature": 0,
+    "tint": 0
+   }
+  }
+ },
+ "defaultMood": "night",
+ "sceneDefaults": {
+  "look": 1,
+  "time": "night",
+  "smooth": 0.8,
+  "antiTiling": true,
+  "variationScale": 0.18,
+  "macro": 0.1,
+  "showWeights": false,
+  "puddles": 0.2,
+  "wetDarken": 0.55,
+  "blendContrast": 0.65,
+  "floorTone": 0.34,
+  "lantern": true,
+  "lanternRadius": 4.4,
+  "lanternStrength": 0.4,
+  "lanternDim": 0.5,
+  "gennet": "near",
+  "wallFade": true,
+  "flicker": true,
+  "wallShimmer": true,
+  "dust": true,
+  "decals": 1,
+  "props": true,
+  "subject": false,
+  "encounters": true,
+  "waterOpacity": 0.9,
+  "waterFlow": 1
+ },
+ "hemisphere": {
+  "skyColor": "#53627a",
+  "groundColor": "#1f2a24",
+  "intensityBase": 1,
+  "note": "THREE.HemisphereLight(0x53627a, 0x1f2a24, 1) x TIMES[mood].hemi"
+ },
+ "environmentMaps": [
+  {
+   "id": "hdri-night",
+   "labFile": "lookdev-lab/assets/samples/moonless_golf_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/moonless_golf)"
+  },
+  {
+   "id": "hdri-overcast",
+   "labFile": "lookdev-lab/assets/samples/quarry_01_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/quarry_01)"
+  }
+ ],
+ "textures": [
+  {
+   "id": "biome-BIO27_vault",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault.webp",
+   "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO27_vault.png",
+   "note": "albedo: same image, the lab file is a WebP re-encode"
+  },
+  {
+   "id": "biome-BIO27_vault-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-n.webp",
+   "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO27_vault.png",
+   "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+  },
+  {
+   "id": "biome-darkwood-water-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "dungeon-decals-crypt",
+   "labFile": "lookdev-lab/assets/terrain-biomes/dungeon-decals-crypt.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dungeon-v1",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dungeon-v1"
+  }
+ ],
+ "views": {
+  "overview": {
+   "label": "Toàn cảnh",
+   "target": [
+    -7.5,
+    0.2,
+    -1.6
+   ],
+   "w": 50,
+   "d": 18,
+   "camera": {
+    "position": [
+     -7.5,
+     41.579,
+     27.514
+    ],
+    "target": [
+     -7.5,
+     0.2,
+     -1.6
+    ],
+    "dist": 50.758
+   }
+  },
+  "face": {
+   "label": "Mặt Tường (hốc sáng · bảng chữ · ghế)",
+   "target": [
+    -23.3,
+    1,
+    -6.3
+   ],
+   "dist": 9.5,
+   "pitch": 34,
+   "camera": {
+    "position": [
+     -23.3,
+     6.312,
+     1.576
+    ],
+    "target": [
+     -23.3,
+     1,
+     -6.3
+    ],
+    "dist": 9.5
+   }
+  },
+  "passage": {
+   "label": "Hành lang sọ",
+   "target": [
+    -15.5,
+    0.5,
+    4
+   ],
+   "dist": 13,
+   "pitch": 46,
+   "camera": {
+    "position": [
+     -15.5,
+     9.851,
+     13.031
+    ],
+    "target": [
+     -15.5,
+     0.5,
+     4
+    ],
+    "dist": 13
+   }
+  },
+  "collapse": {
+   "label": "Hốc sập + hốc gõ",
+   "target": [
+    -2.2,
+    0.4,
+    2.4
+   ],
+   "dist": 14,
+   "pitch": 48,
+   "camera": {
+    "position": [
+     -2.2,
+     10.804,
+     11.768
+    ],
+    "target": [
+     -2.2,
+     0.4,
+     2.4
+    ],
+    "dist": 14
+   }
+  },
+  "flood": {
+   "label": "Bậc ngập nước",
+   "target": [
+    8.7,
+    -0.1,
+    3.2
+   ],
+   "dist": 11,
+   "pitch": 46,
+   "camera": {
+    "position": [
+     8.7,
+     7.813,
+     10.841
+    ],
+    "target": [
+     8.7,
+     -0.1,
+     3.2
+    ],
+    "dist": 11
+   }
+  },
+  "stair": {
+   "label": "Cầu thang · đèn Gennet",
+   "target": [
+    13.7,
+    2.4,
+    -3.4
+   ],
+   "dist": 13,
+   "pitch": 38,
+   "camera": {
+    "position": [
+     13.7,
+     10.404,
+     6.844
+    ],
+    "target": [
+     13.7,
+     2.4,
+     -3.4
+    ],
+    "dist": 13
+   }
+  }
+ },
+ "segments": [
+  {
+   "id": "A",
+   "label": "A · Mặt Tường",
+   "x": -23.5,
+   "z": -4.5
+  },
+  {
+   "id": "B",
+   "label": "B · Hành lang sọ",
+   "x": -15.5,
+   "z": 4.2
+  },
+  {
+   "id": "C",
+   "label": "C · Hốc sập",
+   "x": -5,
+   "z": 3.9
+  },
+  {
+   "id": "D1",
+   "label": "D1 · Hốc gõ",
+   "x": 0.5,
+   "z": 0.5
+  },
+  {
+   "id": "D2",
+   "label": "D2 · Bậc ngập nước",
+   "x": 8.5,
+   "z": 3.2
+  },
+  {
+   "id": "E",
+   "label": "E · Cầu thang → nhà thờ",
+   "x": 13.7,
+   "z": -2.4
+  }
+ ],
+ "encounters": [
+  {
+   "id": "E1",
+   "label": "E1 · Chuột vữa (Mortar-Rat) từ bức tường ấm",
+   "trigger": {
+    "x": -16.5,
+    "z": 3.8,
+    "r": 7,
+    "rooms": [
+     "neck",
+     "passage"
+    ]
+   },
+   "cues": [
+    {
+     "x": -17.4,
+     "z": 3.15,
+     "delay": 0
+    },
+    {
+     "x": -16.4,
+     "z": 3.15,
+     "delay": 0.35
+    },
+    {
+     "x": -15.5,
+     "z": 3.15,
+     "delay": 0.7
+    }
+   ],
+   "spawnAfter": 1.4,
+   "spawn": [
+    {
+     "type": "spider",
+     "name": "Mortar-Rat",
+     "mlvl": 1,
+     "at": [
+      [
+       -17.3,
+       3.9
+      ],
+      [
+       -16.3,
+       4
+      ],
+      [
+       -15.4,
+       3.9
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E2",
+   "label": "E2 · Hốc gõ — Shambler vỡ ra",
+   "trigger": {
+    "x": 0.5,
+    "z": 2,
+    "r": 4.4,
+    "rooms": [
+     "bay"
+    ]
+   },
+   "cues": [
+    {
+     "x": -0.95,
+     "z": -1.3,
+     "delay": 0
+    },
+    {
+     "x": 1.75,
+     "z": -1.3,
+     "delay": 0.5
+    },
+    {
+     "x": -0.95,
+     "z": -1.3,
+     "delay": 1
+    }
+   ],
+   "spawnAfter": 1.7,
+   "spawn": [
+    {
+     "type": "zombie",
+     "name": "Shambler",
+     "mlvl": 1,
+     "rise": true,
+     "at": [
+      [
+       -0.95,
+       -0.2
+      ],
+      [
+       1.75,
+       -0.2
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "E3",
+   "label": "E3 · Bậc ngập nước",
+   "trigger": {
+    "x": 9.6,
+    "z": 3.2,
+    "r": 2.6,
+    "rooms": [
+     "flood"
+    ]
+   },
+   "cues": [
+    {
+     "x": 13.3,
+     "z": 4.6,
+     "delay": 0
+    },
+    {
+     "x": 14.6,
+     "z": 4.6,
+     "delay": 0.4
+    }
+   ],
+   "spawnAfter": 1.3,
+   "spawn": [
+    {
+     "type": "spider",
+     "name": "Mortar-Rat",
+     "mlvl": 1,
+     "at": [
+      [
+       12.9,
+       3
+      ],
+      [
+       13.2,
+       4.2
+      ]
+     ]
+    },
+    {
+     "type": "zombie",
+     "name": "Shambler",
+     "mlvl": 1,
+     "rise": true,
+     "at": [
+      [
+       14.7,
+       4.2
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "decorCounts": {
+  "props": 17,
+  "decals": 52,
+  "walls": 36,
+  "lights": 5,
+  "flames": 1
+ }
+}
