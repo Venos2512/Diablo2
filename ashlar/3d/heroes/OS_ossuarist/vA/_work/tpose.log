@@ -1,0 +1,65 @@
+OS OSSUARIST vA - T-pose report - 2026-10-27
+Status: DELIVERED WITH QA DEVIATIONS; not an unconditional PASS.
+Skill: .agents/skills/generate-tpose-for-tripo/SKILL.md, steps 1-5.
+Existing design.txt was read and preserved verbatim as required. No brief.md present.
+Concept inspected visually. All four generations used built-in image_gen only.
+No art was painted or repaired with code. Existing python -I tpose_tools.py used for measurement, crop, uniform scaling and QA composites.
+
+Prompts: front_back.prompt.txt, front_back_retry.prompt.txt, sides.prompt.txt, sides_retry.prompt.txt in this _work folder.
+Templates filled with fill_prompt.py and humanoid blocks. Verbatim art-direction 3.1 STYLE CORE, 3.6 T-POSE RULES and 3.8 CONTENT prepended; VIEWS appended.
+
+Generation session/source directory:
+C:\Users\HLC_2021\.codex\generated_images\01a17b50-5b7b-7011-9bad-4b95e568d0be\
+FB attempt 1: exec-64aac617-63d6-4e6b-b75a-43dbe8d0fd58.png
+FB selected attempt 2: exec-5c67f26b-48de-4e99-a181-9a8b9f7d4b41.png
+Sides attempt 1: exec-73506f91-a4d6-4c5e-9ae5-1619a7ad8aef.png
+Sides selected attempt 2: exec-95264f06-78a8-4605-8b54-35c9a0a541d3.png
+Sources left intact; selected outputs copied into asset folder.
+Rejected images retained in _work/_rejected/. front_back_attempt1_locked.png is an extra identical original retained after a Windows mapped-file overwrite error; rename then copy succeeded.
+
+Sheet 1 attempt 1: 1536x1024. Front H913 (89.2%), back H911 (89.0%).
+Margins >=15 px. Humanoid warnings: front right arm +7.3 deg, back left +7.4 deg. Span/H 0.81/0.82. Feet gap 0.20/0.19 H.
+Retry reasons: sagging arms, short span, slit opposite the canonical design.txt side, limited margins.
+Sheet 1 selected attempt 2: 1536x1024.
+Front bbox (21,93,761,955), H862 (84.2%), W740.
+Back bbox (780,93,1515,954), H861 (84.1%), W735.
+Margins >=21 px, measure no edge WARNING.
+Humanoid: front arm-left +3.0 deg, arm-right +4.7 deg WARN; back arm-left +5.2 deg WARN, arm-right +2.9 deg.
+Span/H front 0.86, back 0.85; hands about 20% from top; feet gap 0.19/0.20 H.
+Selected as improved best effort at two-generation cap. Arms still not perfectly horizontal; span is within numeric limits but below desired approximately 1 H.
+
+Sheet 2 attempt 1: H936 each (91.4%). Humanoid OK, sole span 0.13/0.12 H.
+Viewed contact, guides and both strips. Cross-view retry reasons: hands near 23% rather than 20%; capelet end near 31% rather than 28%; left profile incorrectly exposes thigh/slit.
+Sheet 2 selected attempt 2: 1536x1024.
+Left bbox (392,26,596,967), H941 (91.9%), W204.
+Right bbox (939,26,1144,967), H941 (91.9%), W205.
+Margins >=26 px, measure no edge WARNING.
+Humanoid OK: sole span 0.13 H both; span/H 0.22 both.
+Side height +9.23% relative to mean FB height 861.5; within 12% limit.
+split uniform side rescale factor 861.5/941 = 0.915515409 (reported 0.916).
+Final views 1024x1024, common sole placement row 952 (guides detected row 951), head top row90, shoulder/hand guide row261.
+
+Final visual checks performed on selected sheets, views/_contact.png, views/_guides.png and both 0-60 and 40-100 strips after retry.
+Order FRONT BACK LEFT RIGHT correct. True back, distinct opposite side profiles. All full figures, no cropped tips, empty hands. Profiles overlap boots, no stepping pose. Straight neutral stance, skirt covers knees so exact knee anatomy is unobservable.
+Style: broad painted clean indigo/cream masses and large fold shadows retained; no microtexture, scene, labels or watermark. Small cyan spots remain bright painted highlights, no bloom/rays. Existing bone points retained, no added body anatomy.
+Equipment stays on canonical anatomical sides: left pauldron and bone bundle; right lantern. Lantern has three visible stacked cyan circles in every visible view, matching concept but not the design.txt phrase 'two rows'. Bone bundle count is partly occluded and cannot be certified as identical. Shoulder lattice detail varies slightly between views.
+
+Final landmark table: visual measurements using 10% strip ticks, approximate +/-1-2 percentage points. Percent from hair top to soles. LEFT / RIGHT / FRONT / BACK / verdict.
+Hair top: 0 / 0 / 0 / 0 / aligned by uniform split.
+Collar: 12-16 / 12-16 / 12-17 / 12-15 / consistent; hood hides lower rear collar, hair hides nape.
+Capelet and lowered hood: 14-31 / 14-31 / 14-29 at lateral drapes / 14-28 / residual FAIL: side lower flap extends about 3% farther than back. Hood remains behind neck, shoulder and arm occlude near side.
+Pauldron: 13-22 near / hidden on far shoulder / 13-20 image-right / 13-20 image-left / anatomical side correct; side silhouette slightly deeper than FB.
+Hand row: about 22-23 / about 22-23 / about20 / about20 / residual FAIL: side hand below red line by about 2-3% H. Fingers look slightly curled/foreshortened, not conclusively fully flat.
+Corset: 18-38 / 18-38 / 18-37 / visible below cape 28-37 / consistent within visual tolerance.
+Belt: 33-39 / 33-39 / 33-40 / 33-39 / cross-view consistent, sits higher than design.txt 39-42 band.
+Front chain: mostly hidden / partly visible at front hip / 37-42 / occluded by torso / correct occlusion, simplified chain shape.
+Hip lantern: hidden far side / 39-55 / 38-54 image-left / 38-54 image-right / consistent within 1-2%; three cyan circles.
+Bone rods: 35-49 / hidden far side / 35-49 image-right / 35-49 image-left / consistent height/side; individual rod count uncertain due to overlap.
+Skirt hems: 82-92 / 82-92 / 82-92 / 82-92 / overall consistent pointed-panel lengths. Canon 90% is approximate, not horizontal hem.
+Skirt slit: closed / closed profile / narrow opening on anatomical right / hidden / previous incorrect left thigh exposure fixed; slit may be too closed in right profile.
+Boot ornament/top: concealed / concealed / visible roughly62-71 in slit / concealed / no reliable top/knee measurement under skirt. Existing design requested boot top55 but final mostly conceals it.
+Soles: 100 / 100 / 100 / 100 / aligned; concept heeled boots retained with toe and heel touching ground.
+
+Remaining deviations are reported, not silently waived: FB arm-angle warnings, side hand/shoulder correspondence, capelet lower edge, shortened arm span vs desired proportions, belt band vs design, minor lattice/rod detail uncertainty. Two generations per sheet exhausted; no further edits attempted.
+Final files: tpose_front_back.png; tpose_sides.png; views/front.png; views/back.png; views/left.png; views/right.png; views/_contact.png; views/_guides.png; views/_strip_0-60.png; views/_strip_40-100.png.
+All prompt/log/rejected sidecars remain under _work. QA composites remain in views as specified by skill.

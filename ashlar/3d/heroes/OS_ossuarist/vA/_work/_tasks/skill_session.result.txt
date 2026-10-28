@@ -1,0 +1,12 @@
+Đã xuất bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/views/right.png)
+
+Đã xem [contact sheet](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/views/_contact.png), guides và hai strips. **QA còn sai lệch:** tay trước/sau lệch 4,7–5,2°; tay góc nghiêng thấp khoảng 2–3% chiều cao; capelet góc nghiêng dài hơn nhẹ.
+
+Mỗi sheet tạo hai lượt để sửa tay, khe váy và độ khớp giữa các góc. Chiều cao sheet 1: **862/861 px**; sheet 2: **941/941 px**; hệ số thu góc nghiêng: **0,9155**.
+
+Giữ nguyên `design.txt` có sẵn theo skill. Prompt, ảnh loại, bảng QA và đường dẫn nguồn đầy đủ nằm trong [_work/tpose.log](/E:/Diablo2/ashlar/3d/heroes/OS_ossuarist/vA/_work/tpose.log). Session ảnh: `01a17b50-5b7b-7011-9bad-4b95e568d0be`.
