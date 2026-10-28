@@ -1,0 +1,6 @@
+HUD00_common_v1 — PASS, pending_user_review
+- Giữ nguyên tượng, globe, minimap, plate, caption, EXP; nền đen sạch.
+- Thanh: LMB RMB 1 2 3 4 | SPACE (2 vạch) Q (vữa phẳng, khoá) R (đèn) | F (bình đỏ, 3/4 vạch) T (mặt đá có khe sáng). Hết F1–F4, ô chạy, hai thanh vàng.
+- Nhỏ: icon SPACE là người lao tới, không hẳn là lộn nghiêng.
+- Grayscale: mức máu trong globe gần cùng độ sáng với kính rỗng -> mức máu khó đọc ở xám (vấn đề chung của globe, sửa khi làm bản production: sáng mặt chất lỏng/viền mức).
+- Lớp alpha: HUD00_common_v1_layer.png (2000x696), cắt bằng _brief/v4/cutout_layer.py; khớp vị trí base_user_layer.png.
