@@ -1,0 +1,3 @@
+L1_hud_layer_v2 — PASS, pending_user_review (chạy lại từ HUD00 + fixes + ảnh mẫu PS L1 v2; 2 lần timeout + lỗi mạng 15:05, chạy lại trong run_p2b)
+- Hết vòng đá tròn (zoom góc phải): đèn chụp sắt đứng giữa hai tay tượng, ray 5 nấc bên phải (nấc giữa sáng = Open), số dầu 64/100 dưới đèn. Ô R = icon đổi bấc, thanh HUSH-WOLF có vệt Exposed + pip đèn, 6 icon EX đúng E3. Mọi chữ giữ nguyên.
+- Lưu ý: bên trong đèn vẽ cây nến chứ không phải bình dầu; khi ghép bằng code dùng C_ex (oil fill + flame) đè lên.
