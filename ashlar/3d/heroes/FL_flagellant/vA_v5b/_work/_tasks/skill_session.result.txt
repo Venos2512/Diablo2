@@ -1,0 +1,12 @@
+Saved four views:
+
+- [front.png](/E:/Diablo2/ashlar/3d/heroes/FL_flagellant/vA_v5b/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/heroes/FL_flagellant/vA_v5b/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/heroes/FL_flagellant/vA_v5b/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/heroes/FL_flagellant/vA_v5b/views/right.png)
+
+Existing `design.txt` preserved. Prompts, rejected attempts, and [QA report](/E:/Diablo2/ashlar/3d/heroes/FL_flagellant/vA_v5b/_work/tpose.log) are under `_work/`.
+
+Front/back heights: **769/770 px**. Side heights: **915/916 px**, normalized by **0.8405×**.
+
+**Not a full QA pass:** slight arm slope, wide stance, and cloth-length mismatches remain after the front/back retry. The side retry stalled; the earlier side sheet was retained per the orchestrator’s note. Original generation session IDs/source paths could not be recovered.

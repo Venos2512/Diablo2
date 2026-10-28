@@ -1,0 +1,24 @@
+
+[2026-10-27 11:15] Orchestrator: Astra session hung on an extra sides retry (killed at the 1 h limit, no new file). Accepted the views split at 10:14 (front_back r2 + sides r1) after own QA of _guides.png: arms on the shoulder line, legs straight, LEFT wrist cord in FRONT image-right / BACK image-left, back covered, midriff only front/sides, lanterns at both hips in all views. Minor: panels hang slightly longer than design (front ~85 %).
+
+Parent verification of retained files, 2026-10-27:
+Existing design.txt preserved. Final pair is front/back retry 2 and side attempt 1, as external orchestrator note above specifies. No clean full-QA pass is claimed.
+measure: front 769px (75.1%), back 770px (75.2%); left 915px (89.4%), right 916px (89.5%); both sheets 1536x1024. Mean heights 769.5 and 915.5; side normalization factor 0.8405243. Initial side sheet is 18.97% larger; normalized by existing split tool. All figure edge margins exceed 12px.
+Outputs: views/front.png, back.png, left.png, right.png; 1024 square by split convention, common floor row 952. Parent visually inspected _contact.png, _guides.png, _strip_0-60.png and _strip_40-100.png. All four figures intact and ordered correctly.
+Numeric humanoid fb: 6 warnings. Front arms +5.1/+5.5deg, back +5.9/+4.6deg; front/back foot centres 0.26H (limit0.22); span/height0.92. Side check OK, soles span0.15H. Arms visually close to horizontal but slight slope remains; numeric warnings retained, not waived as clean pass.
+Retry record: fb r1 rejected for sagging arms (6-9deg), wide stance (0.28-0.29H), long front cloth and back-waist skin strip. fb r2 improved but retained warnings. Side r1 scale exceeds12% tolerance and cloth/knee landmarks mismatch. Side retry requested, but no replacement file accepted; external orchestrator retained side r1. No exact image-tool error was received by parent.
+Cross-view landmarks below are visual estimates from 10% strip ticks, tolerance about2 percentage points. Columns LEFT | RIGHT | FRONT | BACK | verdict:
+Bun top: 0 | 0 | 0 | 0 | aligned.
+Cape/hood: 14-28 | 14-28 | 15-27 | 14-29 | broadly consistent; rear hood hides upper corset.
+Corset lower edge: 33-34 | 33-34 | 35 | 36 | several-point drift; back skin covered.
+Bare midriff: 34-37 | 34-37 | 35-38 | hidden | correct front/sides-only visibility; height drift.
+Rope sash: 36-40 | 36-40 | 38-43 | 37-40 | front lower; canon41-45 not fully preserved.
+Hip lanterns: 40-49 | 40-49 | 41-51 | 40-51 | both hips present, near lantern occludes far in side view; minor height drift. Orange remains bright, no external bloom.
+Left wrist cord: near at21-24 | hidden far | image-right21-24 | image-left21-24 | anatomical side correct.
+Front cloth lower tip: about81 | about81 | about85 | hidden by body/rear cloth | FAIL against design70 and cross-view mismatch.
+Back cloth lower tip: about80 | about80 | hidden | about87 | FAIL cross-view endpoint mismatch.
+Knee/bandage upper edge: 70 | 70 | 72-73 | 72-73 | 2-3point mismatch.
+Bandage lower edge: 87-88 | 87-88 | 88-89 | 88-89 | broadly aligned.
+Boots/soles: 88-100 | 88-100 | 89-100 | 89-100 | common floor, side heels/feet overlap.
+Asymmetry additional limitation: sash front knot is near centre with only slight anatomical-left offset; strong offset not reliable. Handheld weapons removed. Clothing form shadows retained. Existing design proportions and clothing endpoints are not all met.
+Generation provenance: requested from Astra sub-agent /root/tpose; source image session paths pending its final record. Do not substitute guessed paths. Retained local sheet paths are the actual source for the four split exports.
