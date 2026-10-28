@@ -1,0 +1,11196 @@
+{
+ "scene": "act1Lychgate",
+ "mapId": "lychgate",
+ "label": "Lychgate → Churchyard",
+ "biome": "BIO-03",
+ "seed": 1103,
+ "generator": {
+  "note": "hand-authored plan (no generator); seeds: plan.seed and scatters[].seed; the procedural cards (grass/reed) rng(9091) in outdoorBuild (render time only)"
+ },
+ "units": "metres",
+ "coordinateSystem": "three.js right-handed, Y up. x = east, z = south (toward the default camera, which looks north), y = height above the ground datum (water level = 0 unless the plan says otherwise).",
+ "bounds": {
+  "x0": -108,
+  "z0": -84,
+  "x1": 108,
+  "z1": 76
+ },
+ "heightfield": {
+  "file": "terrain/heightmap.json",
+  "cell": 0.5,
+  "edge": {
+   "width": 12,
+   "y": -1.8
+  }
+ },
+ "heightOps": [
+  {
+   "kind": "base",
+   "y": 0.55
+  },
+  {
+   "kind": "hill",
+   "x": 36,
+   "z": -34,
+   "rx": 68,
+   "rz": 54,
+   "rot": -15,
+   "h": 12.2,
+   "power": 1
+  },
+  {
+   "kind": "hill",
+   "x": -2,
+   "z": -48,
+   "rx": 34,
+   "rz": 26,
+   "rot": 20,
+   "h": 3.2
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "circle": [
+     42,
+     -40,
+     9
+    ]
+   },
+   "y": 12.7,
+   "soft": 4
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "obb": [
+     46,
+     -22,
+     16,
+     7,
+     0
+    ]
+   },
+   "y": 9,
+   "soft": 0.45
+  },
+  {
+   "kind": "tilt",
+   "area": {
+    "poly": [
+     [
+      30,
+      9
+     ],
+     [
+      37,
+      4
+     ],
+     [
+      44,
+      -18
+     ],
+     [
+      39,
+      -19
+     ],
+     [
+      31,
+      -2
+     ],
+     [
+      25,
+      7
+     ]
+    ]
+   },
+   "from": [
+    28,
+    8,
+    1.6
+   ],
+   "to": [
+    43,
+    -18.5,
+    9
+   ],
+   "soft": 2.5
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "rect": [
+     -44,
+     28,
+     -26,
+     42
+    ]
+   },
+   "y": 0.62,
+   "soft": 4,
+   "strength": 0.8
+  },
+  {
+   "kind": "noise",
+   "amp": 0.18,
+   "scale": 9,
+   "seed": 4.2
+  },
+  {
+   "kind": "noise",
+   "amp": 0.55,
+   "scale": 26,
+   "seed": 9.1,
+   "area": {
+    "circle": [
+     36,
+     -34,
+     60
+    ]
+   },
+   "soft": 12
+  }
+ ],
+ "water": [
+  {
+   "id": "fen",
+   "label": "Black fen water (south and west)",
+   "levelY": 0,
+   "tint": "fen",
+   "wobble": 1.6,
+   "shelf": [
+    2.2,
+    0.32
+   ],
+   "drop": [
+    1.4,
+    1.5
+   ],
+   "bank": null,
+   "area": {
+    "poly": [
+     [
+      -108,
+      76
+     ],
+     [
+      -108,
+      -52
+     ],
+     [
+      -96,
+      -42
+     ],
+     [
+      -90,
+      -27
+     ],
+     [
+      -78,
+      -16
+     ],
+     [
+      -73,
+      -2
+     ],
+     [
+      -74,
+      12
+     ],
+     [
+      -80,
+      30
+     ],
+     [
+      -79,
+      46
+     ],
+     [
+      -70,
+      55
+     ],
+     [
+      -56,
+      66
+     ],
+     [
+      -30,
+      69
+     ],
+     [
+      -8,
+      66
+     ],
+     [
+      14,
+      70
+     ],
+     [
+      40,
+      66
+     ],
+     [
+      62,
+      60
+     ],
+     [
+      84,
+      56
+     ],
+     [
+      108,
+      52
+     ],
+     [
+      108,
+      76
+     ]
+    ]
+   }
+  },
+  {
+   "id": "fenNorth",
+   "label": "Black fen water (north)",
+   "levelY": 0,
+   "tint": "fen",
+   "wobble": 1.6,
+   "shelf": [
+    2.2,
+    0.32
+   ],
+   "drop": [
+    1.4,
+    1.5
+   ],
+   "bank": null,
+   "area": {
+    "poly": [
+     [
+      -108,
+      -84
+     ],
+     [
+      108,
+      -84
+     ],
+     [
+      108,
+      -78
+     ],
+     [
+      60,
+      -77
+     ],
+     [
+      20,
+      -78
+     ],
+     [
+      -20,
+      -76
+     ],
+     [
+      -60,
+      -72
+     ],
+     [
+      -90,
+      -60
+     ],
+     [
+      -108,
+      -52
+     ]
+    ]
+   }
+  },
+  {
+   "id": "fenEast",
+   "label": "Black fen water (east)",
+   "levelY": 0,
+   "tint": "fen",
+   "wobble": 1.6,
+   "shelf": [
+    2.2,
+    0.32
+   ],
+   "drop": [
+    1.4,
+    1.5
+   ],
+   "bank": null,
+   "area": {
+    "poly": [
+     [
+      108,
+      -84
+     ],
+     [
+      108,
+      76
+     ],
+     [
+      102,
+      56
+     ],
+     [
+      100,
+      20
+     ],
+     [
+      101,
+      -20
+     ],
+     [
+      103,
+      -60
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cut1",
+   "label": "Peat cutting (cut1)",
+   "levelY": 0.18,
+   "tint": "fen",
+   "wobble": 0.15,
+   "shelf": [
+    0.35,
+    0.3
+   ],
+   "drop": [
+    0.8,
+    0.25
+   ],
+   "bank": [
+    0.9,
+    0.9
+   ],
+   "reach": 2,
+   "area": {
+    "poly": [
+     [
+      46.77660329102255,
+      21.47452229291471
+     ],
+     [
+      56.55807929836061,
+      19.395405384737114
+     ],
+     [
+      57.22339670897745,
+      22.52547770708529
+     ],
+     [
+      47.44192070163939,
+      24.604594615262886
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cut2",
+   "label": "Peat cutting (cut2)",
+   "levelY": 0.18,
+   "tint": "fen",
+   "wobble": 0.15,
+   "shelf": [
+    0.35,
+    0.3
+   ],
+   "drop": [
+    0.8,
+    0.25
+   ],
+   "bank": [
+    0.9,
+    0.9
+   ],
+   "reach": 2,
+   "area": {
+    "poly": [
+     [
+      58.33503403922283,
+      12.140876851207938
+     ],
+     [
+      67.24744665789696,
+      10.888318942567349
+     ],
+     [
+      67.66496596077717,
+      13.859123148792062
+     ],
+     [
+      58.75255334210303,
+      15.111681057432651
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cut3",
+   "label": "Peat cutting (cut3)",
+   "levelY": 0.18,
+   "tint": "fen",
+   "wobble": 0.15,
+   "shelf": [
+    0.35,
+    0.3
+   ],
+   "drop": [
+    0.8,
+    0.25
+   ],
+   "bank": [
+    0.9,
+    0.9
+   ],
+   "reach": 2,
+   "area": {
+    "poly": [
+     [
+      70.7078279630295,
+      21.73440622990184
+     ],
+     [
+      81.64756881208052,
+      22.88421932584603
+     ],
+     [
+      81.2921720369705,
+      26.26559377009816
+     ],
+     [
+      70.35243118791948,
+      25.11578067415397
+     ]
+    ]
+   }
+  },
+  {
+   "id": "mere",
+   "label": "The village mere",
+   "levelY": 0.16,
+   "tint": "pond",
+   "wobble": 0.8,
+   "shelf": [
+    1.6,
+    0.22
+   ],
+   "drop": [
+    2.5,
+    0.45
+   ],
+   "bank": [
+    4,
+    0.3
+   ],
+   "area": {
+    "poly": [
+     [
+      -53,
+      48
+     ],
+     [
+      -45,
+      45.5
+     ],
+     [
+      -33,
+      46
+     ],
+     [
+      -25,
+      49
+     ],
+     [
+      -24,
+      54
+     ],
+     [
+      -30,
+      57.5
+     ],
+     [
+      -40,
+      58
+     ],
+     [
+      -49,
+      57
+     ],
+     [
+      -55,
+      53
+     ]
+    ]
+   }
+  }
+ ],
+ "waterNormalMap": {
+  "id": "biome-darkwood-water-n",
+  "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+  "ashlarSource": null,
+  "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+  "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+ },
+ "paths": [
+  {
+   "id": "lane",
+   "kind": "lane",
+   "label": "Village lane (cobble)",
+   "widthM": 3,
+   "surface": "stone",
+   "ribbon": "cobble",
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -66,
+     27
+    ],
+    [
+     -55,
+     30
+    ],
+    [
+     -43,
+     33.5
+    ],
+    [
+     -32,
+     33
+    ],
+    [
+     -20,
+     30
+    ],
+    [
+     -6,
+     27.5
+    ],
+    [
+     8,
+     25.5
+    ],
+    [
+     22,
+     21
+    ],
+    [
+     28,
+     9
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -66,
+     27
+    ],
+    [
+     -65.312,
+     27.188
+    ],
+    [
+     -63.937,
+     27.563
+    ],
+    [
+     -61.875,
+     28.125
+    ],
+    [
+     -59.125,
+     28.875
+    ],
+    [
+     -56.312,
+     29.656
+    ],
+    [
+     -53.437,
+     30.469
+    ],
+    [
+     -50.5,
+     31.313
+    ],
+    [
+     -47.5,
+     32.188
+    ],
+    [
+     -44.562,
+     32.813
+    ],
+    [
+     -41.687,
+     33.188
+    ],
+    [
+     -38.875,
+     33.313
+    ],
+    [
+     -36.125,
+     33.188
+    ],
+    [
+     -33.312,
+     32.906
+    ],
+    [
+     -30.437,
+     32.469
+    ],
+    [
+     -27.5,
+     31.875
+    ],
+    [
+     -24.5,
+     31.125
+    ],
+    [
+     -21.375,
+     30.406
+    ],
+    [
+     -18.125,
+     29.719
+    ],
+    [
+     -14.75,
+     29.063
+    ],
+    [
+     -11.25,
+     28.438
+    ],
+    [
+     -7.75,
+     27.844
+    ],
+    [
+     -4.25,
+     27.281
+    ],
+    [
+     -0.75,
+     26.75
+    ],
+    [
+     2.75,
+     26.25
+    ],
+    [
+     6.25,
+     25.594
+    ],
+    [
+     9.75,
+     24.781
+    ],
+    [
+     13.25,
+     23.813
+    ],
+    [
+     16.75,
+     22.688
+    ],
+    [
+     19.75,
+     21.094
+    ],
+    [
+     22.25,
+     19.031
+    ],
+    [
+     24.25,
+     16.5
+    ],
+    [
+     25.75,
+     13.5
+    ],
+    [
+     26.875,
+     11.25
+    ],
+    [
+     27.625,
+     9.75
+    ],
+    [
+     28,
+     9
+    ]
+   ]
+  },
+  {
+   "id": "gateLane",
+   "kind": "lane",
+   "label": "Lane to the lychgate (cobble)",
+   "widthM": 2.8,
+   "surface": "stone",
+   "ribbon": "cobble",
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -33,
+     33
+    ],
+    [
+     -29.5,
+     23
+    ],
+    [
+     -26,
+     13
+    ],
+    [
+     -24,
+     7
+    ],
+    [
+     -24,
+     3
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -33,
+     33
+    ],
+    [
+     -32.781,
+     32.375
+    ],
+    [
+     -32.344,
+     31.125
+    ],
+    [
+     -31.687,
+     29.25
+    ],
+    [
+     -30.812,
+     26.75
+    ],
+    [
+     -29.937,
+     24.25
+    ],
+    [
+     -29.062,
+     21.75
+    ],
+    [
+     -28.187,
+     19.25
+    ],
+    [
+     -27.312,
+     16.75
+    ],
+    [
+     -26.531,
+     14.5
+    ],
+    [
+     -25.844,
+     12.5
+    ],
+    [
+     -25.25,
+     10.75
+    ],
+    [
+     -24.75,
+     9.25
+    ],
+    [
+     -24.375,
+     7.875
+    ],
+    [
+     -24.125,
+     6.625
+    ],
+    [
+     -24,
+     5.5
+    ],
+    [
+     -24,
+     4.5
+    ],
+    [
+     -24,
+     3.75
+    ],
+    [
+     -24,
+     3.25
+    ],
+    [
+     -24,
+     3
+    ]
+   ]
+  },
+  {
+   "id": "churchPath",
+   "kind": "track",
+   "label": "Churchyard path (lychgate → church door; east lane round the Nameless Saint)",
+   "widthM": 2.2,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -24,
+     3
+    ],
+    [
+     -24,
+     -2
+    ],
+    [
+     -17,
+     -8
+    ],
+    [
+     -15.959,
+     -8.911
+    ],
+    [
+     -13.616,
+     -8.968
+    ],
+    [
+     -11.208,
+     -11.075
+    ],
+    [
+     -10.841,
+     -13.389
+    ],
+    [
+     -9,
+     -15
+    ],
+    [
+     -2,
+     -22
+    ],
+    [
+     4,
+     -27
+    ],
+    [
+     7.2,
+     -30
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -24,
+     3
+    ],
+    [
+     -24,
+     2.688
+    ],
+    [
+     -24,
+     2.063
+    ],
+    [
+     -24,
+     1.125
+    ],
+    [
+     -24,
+     -0.125
+    ],
+    [
+     -23.562,
+     -1.437
+    ],
+    [
+     -22.687,
+     -2.812
+    ],
+    [
+     -21.375,
+     -4.25
+    ],
+    [
+     -19.625,
+     -5.75
+    ],
+    [
+     -18.247,
+     -6.932
+    ],
+    [
+     -17.242,
+     -7.796
+    ],
+    [
+     -16.61,
+     -8.342
+    ],
+    [
+     -16.349,
+     -8.569
+    ],
+    [
+     -16.008,
+     -8.744
+    ],
+    [
+     -15.585,
+     -8.865
+    ],
+    [
+     -15.08,
+     -8.932
+    ],
+    [
+     -14.495,
+     -8.947
+    ],
+    [
+     -13.905,
+     -9.089
+    ],
+    [
+     -13.311,
+     -9.359
+    ],
+    [
+     -12.713,
+     -9.758
+    ],
+    [
+     -12.111,
+     -10.285
+    ],
+    [
+     -11.637,
+     -10.825
+    ],
+    [
+     -11.29,
+     -11.377
+    ],
+    [
+     -11.07,
+     -11.943
+    ],
+    [
+     -10.979,
+     -12.521
+    ],
+    [
+     -10.795,
+     -13.056
+    ],
+    [
+     -10.519,
+     -13.546
+    ],
+    [
+     -10.151,
+     -13.993
+    ],
+    [
+     -9.69,
+     -14.396
+    ],
+    [
+     -8.908,
+     -15.135
+    ],
+    [
+     -7.803,
+     -16.212
+    ],
+    [
+     -6.375,
+     -17.625
+    ],
+    [
+     -4.625,
+     -19.375
+    ],
+    [
+     -2.937,
+     -21
+    ],
+    [
+     -1.312,
+     -22.5
+    ],
+    [
+     0.25,
+     -23.875
+    ],
+    [
+     1.75,
+     -25.125
+    ],
+    [
+     3.075,
+     -26.25
+    ],
+    [
+     4.225,
+     -27.25
+    ],
+    [
+     5.2,
+     -28.125
+    ],
+    [
+     6,
+     -28.875
+    ],
+    [
+     6.6,
+     -29.437
+    ],
+    [
+     7,
+     -29.812
+    ],
+    [
+     7.2,
+     -30
+    ]
+   ]
+  },
+  {
+   "id": "saintLane",
+   "kind": "track",
+   "label": "West lane round the Nameless Saint",
+   "widthM": 1.8,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -15.959,
+     -8.911
+    ],
+    [
+     -15.592,
+     -11.225
+    ],
+    [
+     -13.184,
+     -13.332
+    ],
+    [
+     -10.841,
+     -13.389
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -15.959,
+     -8.911
+    ],
+    [
+     -15.936,
+     -9.056
+    ],
+    [
+     -15.89,
+     -9.345
+    ],
+    [
+     -15.821,
+     -9.779
+    ],
+    [
+     -15.73,
+     -10.357
+    ],
+    [
+     -15.51,
+     -10.923
+    ],
+    [
+     -15.163,
+     -11.475
+    ],
+    [
+     -14.689,
+     -12.015
+    ],
+    [
+     -14.087,
+     -12.542
+    ],
+    [
+     -13.489,
+     -12.94
+    ],
+    [
+     -12.895,
+     -13.211
+    ],
+    [
+     -12.305,
+     -13.353
+    ],
+    [
+     -11.72,
+     -13.368
+    ],
+    [
+     -11.28,
+     -13.378
+    ],
+    [
+     -10.987,
+     -13.385
+    ],
+    [
+     -10.841,
+     -13.389
+    ]
+   ]
+  },
+  {
+   "id": "summitPath",
+   "kind": "track",
+   "label": "Path round the church to the ossuary",
+   "widthM": 1.8,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     7.2,
+     -30
+    ],
+    [
+     6,
+     -36
+    ],
+    [
+     14,
+     -38.5
+    ],
+    [
+     26,
+     -40
+    ],
+    [
+     35,
+     -40.5
+    ],
+    [
+     38.6,
+     -40
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     7.2,
+     -30
+    ],
+    [
+     7.125,
+     -30.375
+    ],
+    [
+     6.975,
+     -31.125
+    ],
+    [
+     6.75,
+     -32.25
+    ],
+    [
+     6.45,
+     -33.75
+    ],
+    [
+     6.725,
+     -35.031
+    ],
+    [
+     7.575,
+     -36.094
+    ],
+    [
+     9,
+     -36.937
+    ],
+    [
+     11,
+     -37.562
+    ],
+    [
+     13.25,
+     -38.125
+    ],
+    [
+     15.75,
+     -38.625
+    ],
+    [
+     18.5,
+     -39.062
+    ],
+    [
+     21.5,
+     -39.437
+    ],
+    [
+     24.313,
+     -39.75
+    ],
+    [
+     26.938,
+     -40
+    ],
+    [
+     29.375,
+     -40.187
+    ],
+    [
+     31.625,
+     -40.312
+    ],
+    [
+     33.538,
+     -40.375
+    ],
+    [
+     35.113,
+     -40.375
+    ],
+    [
+     36.35,
+     -40.312
+    ],
+    [
+     37.25,
+     -40.187
+    ],
+    [
+     37.925,
+     -40.094
+    ],
+    [
+     38.375,
+     -40.031
+    ],
+    [
+     38.6,
+     -40
+    ]
+   ]
+  },
+  {
+   "id": "gravePath",
+   "kind": "track",
+   "label": "Grave walk (west)",
+   "widthM": 1.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -17,
+     -8
+    ],
+    [
+     -28,
+     -16
+    ],
+    [
+     -38,
+     -24
+    ],
+    [
+     -46,
+     -36
+    ],
+    [
+     -46,
+     -44
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -17,
+     -8
+    ],
+    [
+     -17.687,
+     -8.5
+    ],
+    [
+     -19.062,
+     -9.5
+    ],
+    [
+     -21.125,
+     -11
+    ],
+    [
+     -23.875,
+     -13
+    ],
+    [
+     -26.562,
+     -15
+    ],
+    [
+     -29.187,
+     -17
+    ],
+    [
+     -31.75,
+     -19
+    ],
+    [
+     -34.25,
+     -21
+    ],
+    [
+     -36.625,
+     -23.25
+    ],
+    [
+     -38.875,
+     -25.75
+    ],
+    [
+     -41,
+     -28.5
+    ],
+    [
+     -43,
+     -31.5
+    ],
+    [
+     -44.5,
+     -34.25
+    ],
+    [
+     -45.5,
+     -36.75
+    ],
+    [
+     -46,
+     -39
+    ],
+    [
+     -46,
+     -41
+    ],
+    [
+     -46,
+     -42.5
+    ],
+    [
+     -46,
+     -43.5
+    ],
+    [
+     -46,
+     -44
+    ]
+   ]
+  },
+  {
+   "id": "peatTrack",
+   "kind": "track",
+   "label": "Peat track (to the cuttings)",
+   "widthM": 2,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     20,
+     22
+    ],
+    [
+     32,
+     26
+    ],
+    [
+     44,
+     29
+    ],
+    [
+     56,
+     30
+    ],
+    [
+     68,
+     32
+    ],
+    [
+     82,
+     30
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     20,
+     22
+    ],
+    [
+     20.75,
+     22.25
+    ],
+    [
+     22.25,
+     22.75
+    ],
+    [
+     24.5,
+     23.5
+    ],
+    [
+     27.5,
+     24.5
+    ],
+    [
+     30.5,
+     25.438
+    ],
+    [
+     33.5,
+     26.313
+    ],
+    [
+     36.5,
+     27.125
+    ],
+    [
+     39.5,
+     27.875
+    ],
+    [
+     42.5,
+     28.5
+    ],
+    [
+     45.5,
+     29
+    ],
+    [
+     48.5,
+     29.375
+    ],
+    [
+     51.5,
+     29.625
+    ],
+    [
+     54.5,
+     29.938
+    ],
+    [
+     57.5,
+     30.313
+    ],
+    [
+     60.5,
+     30.75
+    ],
+    [
+     63.5,
+     31.25
+    ],
+    [
+     66.625,
+     31.5
+    ],
+    [
+     69.875,
+     31.5
+    ],
+    [
+     73.25,
+     31.25
+    ],
+    [
+     76.75,
+     30.75
+    ],
+    [
+     79.375,
+     30.375
+    ],
+    [
+     81.125,
+     30.125
+    ],
+    [
+     82,
+     30
+    ]
+   ]
+  },
+  {
+   "id": "terraceRamp",
+   "kind": "track",
+   "label": "Ramp to the vault terrace (hub)",
+   "widthM": 2.4,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     24,
+     15
+    ],
+    [
+     28,
+     8
+    ],
+    [
+     34,
+     -2
+    ],
+    [
+     39,
+     -12
+    ],
+    [
+     43,
+     -18.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     24,
+     15
+    ],
+    [
+     24.25,
+     14.563
+    ],
+    [
+     24.75,
+     13.688
+    ],
+    [
+     25.5,
+     12.375
+    ],
+    [
+     26.5,
+     10.625
+    ],
+    [
+     27.625,
+     8.688
+    ],
+    [
+     28.875,
+     6.563
+    ],
+    [
+     30.25,
+     4.25
+    ],
+    [
+     31.75,
+     1.75
+    ],
+    [
+     33.188,
+     -0.75
+    ],
+    [
+     34.563,
+     -3.25
+    ],
+    [
+     35.875,
+     -5.75
+    ],
+    [
+     37.125,
+     -8.25
+    ],
+    [
+     38.313,
+     -10.531
+    ],
+    [
+     39.438,
+     -12.594
+    ],
+    [
+     40.5,
+     -14.437
+    ],
+    [
+     41.5,
+     -16.062
+    ],
+    [
+     42.25,
+     -17.281
+    ],
+    [
+     42.75,
+     -18.094
+    ],
+    [
+     43,
+     -18.5
+    ]
+   ]
+  },
+  {
+   "id": "dike",
+   "kind": "dike",
+   "label": "Dike road to the Night Fens",
+   "widthM": 3.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 0.92,
+    "bank": 2.6
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -66,
+     27
+    ],
+    [
+     -75,
+     26
+    ],
+    [
+     -86,
+     23.5
+    ],
+    [
+     -97,
+     21.5
+    ],
+    [
+     -108,
+     20.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -66,
+     27
+    ],
+    [
+     -68.25,
+     26.75
+    ],
+    [
+     -72.75,
+     26.25
+    ],
+    [
+     -77.75,
+     25.375
+    ],
+    [
+     -83.25,
+     24.125
+    ],
+    [
+     -88.75,
+     23
+    ],
+    [
+     -94.25,
+     22
+    ],
+    [
+     -99.75,
+     21.25
+    ],
+    [
+     -105.25,
+     20.75
+    ],
+    [
+     -108,
+     20.5
+    ]
+   ]
+  },
+  {
+   "id": "w1",
+   "kind": "walkway",
+   "label": "Walkway across the mere to Edda's house",
+   "widthM": 1.8,
+   "surface": "wood",
+   "ribbon": null,
+   "deckY": 0.66,
+   "dike": null,
+   "asset": "A01.2",
+   "hidden": true,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -37,
+     43.2
+    ],
+    [
+     -38,
+     49
+    ],
+    [
+     -40,
+     54.5
+    ],
+    [
+     -41.2,
+     58.6
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -37,
+     43.2
+    ],
+    [
+     -38,
+     49
+    ],
+    [
+     -40,
+     54.5
+    ],
+    [
+     -41.2,
+     58.6
+    ]
+   ]
+  },
+  {
+   "id": "w2",
+   "kind": "walkway",
+   "label": "Walkway to the eel racks",
+   "widthM": 1.8,
+   "surface": "wood",
+   "ribbon": null,
+   "deckY": 0.66,
+   "dike": null,
+   "asset": "A01.2",
+   "hidden": true,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -23,
+     46
+    ],
+    [
+     -21.5,
+     52
+    ],
+    [
+     -17.5,
+     58
+    ],
+    [
+     -12,
+     61.5
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -23,
+     46
+    ],
+    [
+     -21.5,
+     52
+    ],
+    [
+     -17.5,
+     58
+    ],
+    [
+     -12,
+     61.5
+    ]
+   ]
+  },
+  {
+   "id": "w3",
+   "kind": "walkway",
+   "label": "Fishing jetty (west)",
+   "widthM": 1.8,
+   "surface": "wood",
+   "ribbon": null,
+   "deckY": 0.62,
+   "dike": null,
+   "asset": "A01.2",
+   "hidden": true,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -63,
+     49
+    ],
+    [
+     -67,
+     54
+    ],
+    [
+     -70.5,
+     58
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -63,
+     49
+    ],
+    [
+     -67,
+     54
+    ],
+    [
+     -70.5,
+     58
+    ]
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "ax": -37,
+   "az": 43.2,
+   "bx": -38,
+   "bz": 49,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w1",
+   "cap": true
+  },
+  {
+   "ax": -38,
+   "az": 49,
+   "bx": -40,
+   "bz": 54.5,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w1",
+   "cap": true
+  },
+  {
+   "ax": -40,
+   "az": 54.5,
+   "bx": -41.2,
+   "bz": 58.6,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w1",
+   "cap": true
+  },
+  {
+   "ax": -23,
+   "az": 46,
+   "bx": -21.5,
+   "bz": 52,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w2",
+   "cap": true
+  },
+  {
+   "ax": -21.5,
+   "az": 52,
+   "bx": -17.5,
+   "bz": 58,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w2",
+   "cap": true
+  },
+  {
+   "ax": -17.5,
+   "az": 58,
+   "bx": -12,
+   "bz": 61.5,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w2",
+   "cap": true
+  },
+  {
+   "ax": -23,
+   "az": 46,
+   "bx": -23.194028500029066,
+   "bz": 45.223885999883734,
+   "ya": 0.66,
+   "yb": 0.527823714970247,
+   "w": 1.8,
+   "kind": "ramp",
+   "path": "w2"
+  },
+  {
+   "ax": -63,
+   "az": 49,
+   "bx": -67,
+   "bz": 54,
+   "ya": 0.62,
+   "yb": 0.62,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w3",
+   "cap": true
+  },
+  {
+   "ax": -67,
+   "az": 54,
+   "bx": -70.5,
+   "bz": 58,
+   "ya": 0.62,
+   "yb": 0.62,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "w3",
+   "cap": true
+  },
+  {
+   "ax": -63,
+   "az": 49,
+   "bx": -62.500243961956464,
+   "bz": 48.375304952445575,
+   "ya": 0.62,
+   "yb": 0.48839028596878054,
+   "w": 1.8,
+   "kind": "ramp",
+   "path": "w3"
+  }
+ ],
+ "groundLayers": {
+  "note": "layer 0 = base everywhere; layers 1..6 are painted over the ones below by masks (terrain/splat0.png = layers 1..4 in R,G,B,A; terrain/splat1.png = layers 5..7 in R,G,B and wetness in A). Row 0 = z = originZ, column 0 = x = originX. Coverage = value / 255. Unblurred. Painters (plan order) are in paintRules.",
+  "splat": {
+   "size": 864,
+   "originX": -108,
+   "originZ": -112,
+   "extent": 216,
+   "smoothSlider": 0.8,
+   "files": [
+    "terrain/splat0.png",
+    "terrain/splat1.png"
+   ]
+  },
+  "layers": [
+   {
+    "layer": "BIO01_peat",
+    "tile": 4.5,
+    "textureId": "biome-BIO01_peat",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO01_peat",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO01_peat.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO01_peat-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO01_peat.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO01_peat-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO01_peat.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO01_peat-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-soil-damp",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-soil-damp",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-soil-damp-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-soil-damp-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-soil-damp-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass-dense",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass-dense",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-dense-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-dense-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-dense-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-dirt",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-dirt",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-dirt-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-dirt-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-dirt-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "tile": 3.5,
+    "textureId": "biome-BIO03_flint",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO03_flint",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO03_flint.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO03_flint-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO03_flint.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO03_flint-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO03_flint.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO03_flint-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-mud",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-mud",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-mud-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-mud-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-mud-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   }
+  ],
+  "paintRules": [
+   {
+    "layer": "DW_damp",
+    "kind": "height",
+    "range": [
+     -3,
+     1.3
+    ],
+    "soft": 1.4,
+    "value": 0.55,
+    "patchy": {
+     "scale": 7,
+     "cover": 0.55
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "kind": "water",
+    "band": [
+     -4,
+     5
+    ],
+    "soft": 1.6,
+    "value": 0.95,
+    "edge": {
+     "amp": 1.2,
+     "scale": 5
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "kind": "structures",
+    "assets": [
+     "A01.1",
+     "A15.2",
+     "A15.5",
+     "A15.6"
+    ],
+    "margin": 2.4,
+    "soft": 1.5,
+    "value": 0.7,
+    "edge": {
+     "amp": 0.8,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "height",
+    "range": [
+     1.1,
+     40
+    ],
+    "soft": 1.2,
+    "value": 1,
+    "edge": {
+     "amp": 1.6,
+     "scale": 7
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "area",
+    "area": {
+     "poly": [
+      [
+       -66,
+       10
+      ],
+      [
+       -34,
+       8
+      ],
+      [
+       -12,
+       12
+      ],
+      [
+       6,
+       14
+      ],
+      [
+       10,
+       46
+      ],
+      [
+       -10,
+       50
+      ],
+      [
+       -58,
+       44
+      ],
+      [
+       -68,
+       34
+      ]
+     ]
+    },
+    "soft": 2,
+    "value": 0.75,
+    "patchy": {
+     "scale": 9,
+     "cover": 0.55
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "area",
+    "area": {
+     "poly": [
+      [
+       -76,
+       -10
+      ],
+      [
+       -44,
+       0
+      ],
+      [
+       -24,
+       4
+      ],
+      [
+       10,
+       -6
+      ],
+      [
+       38,
+       -21
+      ],
+      [
+       56,
+       -26
+      ],
+      [
+       100,
+       -42
+      ],
+      [
+       100,
+       -78
+      ],
+      [
+       -76,
+       -70
+      ]
+     ]
+    },
+    "soft": 2.5,
+    "value": 0.85,
+    "patchy": {
+     "scale": 10,
+     "cover": 0.72
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "water",
+    "band": [
+     -40,
+     1.4
+    ],
+    "soft": 1.4,
+    "op": "sub",
+    "value": 1
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "slope",
+    "range": [
+     0.2,
+     3
+    ],
+    "value": 0.55,
+    "patchy": {
+     "scale": 8,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "water",
+    "band": [
+     1.2,
+     9
+    ],
+    "soft": 2,
+    "value": 0.7,
+    "patchy": {
+     "scale": 6,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "points",
+    "points": [
+     [
+      -62,
+      -12,
+      6
+     ],
+     [
+      -58,
+      -34,
+      6
+     ],
+     [
+      -30,
+      -60,
+      7
+     ],
+     [
+      6,
+      -66,
+      7
+     ],
+     [
+      58,
+      -60,
+      6
+     ],
+     [
+      70,
+      -40,
+      6
+     ],
+     [
+      -50,
+      6,
+      5
+     ]
+    ],
+    "soft": 2.2,
+    "value": 0.85,
+    "edge": {
+     "amp": 1.4,
+     "scale": 4
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "path",
+    "pathKind": [
+     "track",
+     "dike"
+    ],
+    "extra": 0.2,
+    "soft": 1.1,
+    "value": 0.95,
+    "edge": {
+     "amp": 0.45,
+     "scale": 2.5
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "structures",
+    "assets": [
+     "A16.3",
+     "A16.4",
+     "A16.5",
+     "A02.2",
+     "A02.3"
+    ],
+    "margin": 0.35,
+    "soft": 0.8,
+    "value": 0.85
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "structures",
+    "assets": [
+     "A01.1",
+     "A15.2",
+     "A15.5",
+     "A01.5"
+    ],
+    "margin": 1.2,
+    "soft": 1.3,
+    "value": 0.6,
+    "patchy": {
+     "scale": 3,
+     "cover": 0.65
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -45,
+      29,
+      -27,
+      41
+     ]
+    },
+    "soft": 2.5,
+    "value": 0.55,
+    "patchy": {
+     "scale": 4,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "structures",
+    "assets": [
+     "A15.1",
+     "A02.4",
+     "A02.1",
+     "N01"
+    ],
+    "margin": 1.8,
+    "soft": 1.4,
+    "value": 0.9,
+    "edge": {
+     "amp": 0.6,
+     "scale": 2.5
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "area",
+    "area": {
+     "circle": [
+      42,
+      -40,
+      7.5
+     ]
+    },
+    "soft": 2.4,
+    "value": 0.8,
+    "edge": {
+     "amp": 1.2,
+     "scale": 4
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "area",
+    "area": {
+     "obb": [
+      46,
+      -22,
+      15,
+      6,
+      0
+     ]
+    },
+    "soft": 1.4,
+    "value": 0.85
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "slope",
+    "range": [
+     0.55,
+     4
+    ],
+    "value": 0.6
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "path",
+    "pathKind": "lane",
+    "extra": 0.9,
+    "soft": 1.2,
+    "value": 0.8,
+    "edge": {
+     "amp": 0.7,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "water",
+    "band": [
+     -6,
+     1.2
+    ],
+    "soft": 1.4,
+    "value": 0.9,
+    "edge": {
+     "amp": 0.9,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "height",
+    "range": [
+     -3,
+     0.72
+    ],
+    "soft": 0.6,
+    "value": 0.75,
+    "patchy": {
+     "scale": 5,
+     "cover": 0.35
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "structures",
+    "assets": [
+     "A16.4",
+     "A16.5"
+    ],
+    "margin": 0.5,
+    "soft": 0.6,
+    "value": 0.9
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "path",
+    "pathKind": "walkway",
+    "extra": 0.4,
+    "soft": 1,
+    "value": 0.7
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "area",
+    "area": {
+     "poly": [
+      [
+       46,
+       16
+      ],
+      [
+       84,
+       16
+      ],
+      [
+       84,
+       30
+      ],
+      [
+       46,
+       30
+      ]
+     ]
+    },
+    "soft": 2.2,
+    "value": 0.45,
+    "patchy": {
+     "scale": 3,
+     "cover": 0.5
+    }
+   },
+   {
+    "layer": "wet",
+    "kind": "fill",
+    "value": 0.28
+   },
+   {
+    "layer": "wet",
+    "kind": "height",
+    "range": [
+     -3,
+     1
+    ],
+    "soft": 1.2,
+    "value": 0.7
+   },
+   {
+    "layer": "wet",
+    "kind": "water",
+    "band": [
+     -8,
+     3.5
+    ],
+    "soft": 1.6,
+    "value": 1
+   },
+   {
+    "layer": "wet",
+    "kind": "path",
+    "pathKind": "lane",
+    "extra": 1.2,
+    "soft": 1.2,
+    "value": 0.75
+   }
+  ],
+  "cobbleRoadTile": {
+   "albedo": {
+    "id": "darkwood-sty-green-cobble",
+    "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble.png",
+    "ashlarSource": null,
+    "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+    "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+   },
+   "normal": {
+    "id": "darkwood-sty-green-cobble-n",
+    "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble-n.webp",
+    "ashlarSource": null,
+    "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+    "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+   },
+   "note": "vertex-alpha cobble ribbon along the paths with ribbon: \"cobble\""
+  }
+ },
+ "cards": {
+  "grassCards": {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  "shorePlants": {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  "shoreAtlas": "2 x 2: 0 cattail, 1 tall reeds, 2 sedge, 3 horsetail"
+ },
+ "scatters": [
+  {
+   "asset": "A03.1",
+   "count": 900,
+   "seed": 31,
+   "area": {
+    "rect": [
+     -100,
+     -76,
+     100,
+     66
+    ]
+   },
+   "spacing": 1.1,
+   "band": null,
+   "scale": [
+    0.7,
+    1.25
+   ],
+   "height": [
+    0.5,
+    40
+   ],
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.2",
+   "count": 320,
+   "seed": 41,
+   "area": {
+    "rect": [
+     -108,
+     -84,
+     108,
+     76
+    ]
+   },
+   "spacing": 0.8,
+   "band": {
+    "water": [
+     -1.6,
+     0.9
+    ]
+   },
+   "scale": [
+    0.75,
+    1.3
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.3",
+   "count": 220,
+   "seed": 43,
+   "area": {
+    "rect": [
+     -108,
+     -84,
+     108,
+     76
+    ]
+   },
+   "spacing": 0.9,
+   "band": {
+    "water": [
+     -0.5,
+     2.6
+    ]
+   },
+   "scale": [
+    0.7,
+    1.2
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "N09",
+   "count": 30,
+   "seed": 51,
+   "area": {
+    "poly": [
+     [
+      -74,
+      -20
+     ],
+     [
+      -60,
+      6
+     ],
+     [
+      -40,
+      4
+     ],
+     [
+      -10,
+      -4
+     ],
+     [
+      30,
+      -20
+     ],
+     [
+      74,
+      -36
+     ],
+     [
+      86,
+      -54
+     ],
+     [
+      40,
+      -74
+     ],
+     [
+      -30,
+      -70
+     ],
+     [
+      -70,
+      -50
+     ]
+    ]
+   },
+   "spacing": 5,
+   "band": null,
+   "scale": [
+    0.9,
+    1.6
+   ],
+   "height": null,
+   "slope": 0.6,
+   "tag": null
+  },
+  {
+   "asset": "N09",
+   "count": 14,
+   "seed": 53,
+   "area": {
+    "poly": [
+     [
+      -74,
+      12
+     ],
+     [
+      -60,
+      10
+     ],
+     [
+      -8,
+      10
+     ],
+     [
+      24,
+      14
+     ],
+     [
+      26,
+      52
+     ],
+     [
+      -8,
+      56
+     ],
+     [
+      -60,
+      60
+     ],
+     [
+      -78,
+      46
+     ]
+    ]
+   },
+   "spacing": 6,
+   "band": null,
+   "scale": [
+    0.8,
+    1.3
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  }
+ ],
+ "lights": [
+  {
+   "id": "lychgateLamp",
+   "kind": "human",
+   "label": "Lychgate lamp (the threshold light, in the A16.6 lantern under the front tie beam)",
+   "x": -24,
+   "z": 3.9699999999999998,
+   "y": 2.07,
+   "color": "#e0a050",
+   "intensity": 9,
+   "range": 10,
+   "flicker": 1,
+   "real": true,
+   "glow": 0.3,
+   "seed": 1,
+   "night": {
+    "intensity": 3.2,
+    "range": 7,
+    "glow": 0.2
+   },
+   "yWorld": 2.5691761445999144,
+   "position": [
+    -24,
+    2.569,
+    3.97
+   ]
+  },
+  {
+   "id": "forge",
+   "kind": "human",
+   "label": "Brannoc's forge (the model hearth)",
+   "color": "#e8823a",
+   "intensity": 15,
+   "range": 9,
+   "flicker": 1.2,
+   "real": true,
+   "glow": 1.6,
+   "seed": 2,
+   "flag": "forge",
+   "x": -8.177,
+   "z": 32.575,
+   "y": 0.85,
+   "yWorld": 1.3701587677001954,
+   "position": [
+    -8.177,
+    1.37,
+    32.575
+   ]
+  },
+  {
+   "id": "square",
+   "kind": "human",
+   "label": "Windows round the square",
+   "x": -40,
+   "z": 27,
+   "y": 2.4,
+   "color": "#e0a050",
+   "intensity": 4,
+   "range": 9,
+   "flicker": 0.6,
+   "real": true,
+   "glow": 0,
+   "seed": 3,
+   "night": {
+    "intensity": 0.8
+   },
+   "yWorld": 2.965525949001312,
+   "position": [
+    -40,
+    2.966,
+    27
+   ]
+  },
+  {
+   "id": "edda",
+   "kind": "human",
+   "label": "Edda's window (the model window, +x wall)",
+   "color": "#e0a050",
+   "intensity": 4,
+   "range": 7,
+   "flicker": 0.6,
+   "real": true,
+   "glow": 0,
+   "seed": 4,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": -44.202,
+   "z": 60.826,
+   "y": 2.17,
+   "yWorld": 2.792010111808777,
+   "position": [
+    -44.202,
+    2.792,
+    60.826
+   ]
+  },
+  {
+   "id": "vault",
+   "kind": "human",
+   "label": "Candles at the vault door",
+   "x": 47.6,
+   "z": -23.9,
+   "y": 0.9,
+   "color": "#e8a858",
+   "intensity": 3.2,
+   "range": 6,
+   "flicker": 1,
+   "real": true,
+   "glow": 0.5,
+   "seed": 5,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "yWorld": 10.137344589233399,
+   "position": [
+    47.6,
+    10.137,
+    -23.9
+   ]
+  },
+  {
+   "id": "churchDoor",
+   "kind": "human",
+   "label": "Church door (Prologue: Gennet's lantern, the first warm light)",
+   "x": 6.6,
+   "z": -30.4,
+   "y": 1.7,
+   "color": "#e0a050",
+   "intensity": 5,
+   "range": 9,
+   "flicker": 1,
+   "real": true,
+   "glow": 0.7,
+   "seed": 6,
+   "night": {
+    "intensity": 14,
+    "range": 13,
+    "glow": 1.15
+   },
+   "yWorld": 11.798575592041015,
+   "position": [
+    6.6,
+    11.799,
+    -30.4
+   ]
+  },
+  {
+   "id": "osric",
+   "kind": "human",
+   "label": "Osric's fire basket (on the model)",
+   "color": "#e8903a",
+   "intensity": 6,
+   "range": 9,
+   "flicker": 1.1,
+   "real": true,
+   "glow": 1,
+   "seed": 7,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": -61.13,
+   "z": 22,
+   "y": 2.8,
+   "yWorld": 3.365266170501709,
+   "position": [
+    -61.13,
+    3.365,
+    22
+   ]
+  },
+  {
+   "id": "pipe",
+   "kind": "human",
+   "label": "Gennet's pipe ember",
+   "x": -28.6,
+   "z": 13.4,
+   "y": 1.5,
+   "color": "#ff7a2a",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 1.4,
+   "real": false,
+   "glow": 0.18,
+   "seed": 8,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "yWorld": 2.0431748032569885,
+   "position": [
+    -28.6,
+    2.043,
+    13.4
+   ]
+  },
+  {
+   "id": "sexton1",
+   "kind": "human",
+   "label": "Sexton's lamp (church; the model lantern)",
+   "color": "#e0a050",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 1,
+   "real": false,
+   "glow": 0.45,
+   "seed": 9,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": 4.1,
+   "z": -32.21,
+   "y": 1.95,
+   "yWorld": 11.609581798553462,
+   "position": [
+    4.1,
+    11.61,
+    -32.21
+   ]
+  },
+  {
+   "id": "sexton2",
+   "kind": "human",
+   "label": "Sexton's lamp (fresh grave; the model lantern)",
+   "color": "#e0a050",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 1,
+   "real": false,
+   "glow": 0.45,
+   "seed": 10,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": -30.835,
+   "z": -21.769,
+   "y": 1.95,
+   "yWorld": 2.5416831163930893,
+   "position": [
+    -30.835,
+    2.542,
+    -21.769
+   ]
+  },
+  {
+   "id": "gentleHouse",
+   "kind": "perfection",
+   "label": "The Gentle House window (still, far)",
+   "anchor": "N-GH",
+   "x": -360,
+   "z": -170,
+   "far": true,
+   "y": 9.2,
+   "color": "#f6b468",
+   "intensity": 0,
+   "range": 0,
+   "flicker": 0,
+   "real": false,
+   "glow": 8,
+   "flag": "gentleHouse",
+   "yWorld": 7.400000047683715,
+   "position": [
+    -360,
+    7.4,
+    -170
+   ]
+  }
+ ],
+ "blockers": [
+  {
+   "uid": 0,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     -25.75,
+     1.69
+    ],
+    [
+     -25.15,
+     1.69
+    ],
+    [
+     -25.15,
+     2.35
+    ],
+    [
+     -25.75,
+     2.35
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 4.299
+  },
+  {
+   "uid": 0,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     -22.84,
+     1.78
+    ],
+    [
+     -22.28,
+     1.78
+    ],
+    [
+     -22.28,
+     2.48
+    ],
+    [
+     -22.84,
+     2.48
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 4.299
+  },
+  {
+   "uid": 0,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     -25.75,
+     3.7
+    ],
+    [
+     -25.15,
+     3.7
+    ],
+    [
+     -25.15,
+     4.4
+    ],
+    [
+     -25.75,
+     4.4
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 4.299
+  },
+  {
+   "uid": 0,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     -22.86,
+     3.6
+    ],
+    [
+     -22.3,
+     3.6
+    ],
+    [
+     -22.3,
+     4.5
+    ],
+    [
+     -22.86,
+     4.5
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 4.299
+  },
+  {
+   "uid": 0,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     -25.65,
+     2.4
+    ],
+    [
+     -25.35,
+     2.4
+    ],
+    [
+     -25.35,
+     3.6
+    ],
+    [
+     -25.65,
+     3.6
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 4.299
+  },
+  {
+   "uid": 2,
+   "asset": "A15.1",
+   "polyXZ": [
+    [
+     8,
+     -35.345
+    ],
+    [
+     24,
+     -35.345
+    ],
+    [
+     24,
+     -24.655
+    ],
+    [
+     8,
+     -24.655
+    ]
+   ],
+   "y0": 10.099,
+   "y1": 19.969
+  },
+  {
+   "uid": 3,
+   "asset": "A02.4",
+   "polyXZ": [
+    [
+     44.971,
+     -42.69
+    ],
+    [
+     44.971,
+     -37.31
+    ],
+    [
+     39.029,
+     -37.31
+    ],
+    [
+     39.029,
+     -42.69
+    ]
+   ],
+   "y0": 13.017,
+   "y1": 19.647
+  },
+  {
+   "uid": 4,
+   "asset": "A02.5",
+   "polyXZ": [
+    [
+     -14.19,
+     -11.855
+    ],
+    [
+     -12.55,
+     -11.855
+    ],
+    [
+     -12.55,
+     -10.385
+    ],
+    [
+     -14.19,
+     -10.385
+    ]
+   ],
+   "y0": 0.786,
+   "y1": 5.086
+  },
+  {
+   "uid": 5,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     44.149,
+     -25.956
+    ],
+    [
+     47.851,
+     -25.956
+    ],
+    [
+     47.851,
+     -25.3
+    ],
+    [
+     44.149,
+     -25.3
+    ]
+   ],
+   "y0": 9.229,
+   "y1": 12.029
+  },
+  {
+   "uid": 5,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     44.8,
+     -25.956
+    ],
+    [
+     47.12,
+     -25.956
+    ],
+    [
+     47.12,
+     -25.21
+    ],
+    [
+     44.8,
+     -25.21
+    ]
+   ],
+   "y0": 9.229,
+   "y1": 12.029
+  },
+  {
+   "uid": 5,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     45.2,
+     -25.956
+    ],
+    [
+     46.75,
+     -25.956
+    ],
+    [
+     46.75,
+     -25.04
+    ],
+    [
+     45.2,
+     -25.04
+    ]
+   ],
+   "y0": 9.229,
+   "y1": 12.029
+  },
+  {
+   "uid": 6,
+   "asset": "A16.6",
+   "polyXZ": [
+    [
+     3.75,
+     -31.25
+    ],
+    [
+     3.75,
+     -31.75
+    ],
+    [
+     4.25,
+     -31.75
+    ],
+    [
+     4.25,
+     -31.25
+    ]
+   ],
+   "y0": 9.597,
+   "y1": 12.197
+  },
+  {
+   "uid": 7,
+   "asset": "A16.6",
+   "polyXZ": [
+    [
+     -31.842,
+     -21.592
+    ],
+    [
+     -31.409,
+     -21.842
+    ],
+    [
+     -31.159,
+     -21.409
+    ],
+    [
+     -31.592,
+     -21.159
+    ]
+   ],
+   "y0": 0.585,
+   "y1": 3.185
+  },
+  {
+   "uid": 11,
+   "asset": "glb:dungeon-prop-bone-pile",
+   "polyXZ": [
+    [
+     42.38,
+     -23.82
+    ],
+    [
+     43.42,
+     -24.42
+    ],
+    [
+     44.02,
+     -23.38
+    ],
+    [
+     42.98,
+     -22.78
+    ]
+   ],
+   "y0": 9,
+   "y1": 9.6
+  },
+  {
+   "uid": 12,
+   "asset": "glb:dungeon-prop-bone-pile",
+   "polyXZ": [
+    [
+     41.138,
+     -23.749
+    ],
+    [
+     40.349,
+     -23.462
+    ],
+    [
+     40.062,
+     -24.251
+    ],
+    [
+     40.851,
+     -24.538
+    ]
+   ],
+   "y0": 9,
+   "y1": 9.42
+  },
+  {
+   "uid": 13,
+   "asset": "A01.5",
+   "polyXZ": [
+    [
+     -39.191,
+     36.844
+    ],
+    [
+     -36.626,
+     35.91
+    ],
+    [
+     -35.809,
+     38.156
+    ],
+    [
+     -38.374,
+     39.09
+    ]
+   ],
+   "y0": 0.653,
+   "y1": 4.053
+  },
+  {
+   "uid": 14,
+   "asset": "A15.3",
+   "polyXZ": [
+    [
+     -28.8,
+     38.375
+    ],
+    [
+     -26.2,
+     38.375
+    ],
+    [
+     -26.2,
+     38.825
+    ],
+    [
+     -28.8,
+     38.825
+    ]
+   ],
+   "y0": 0.625,
+   "y1": 2.935
+  },
+  {
+   "uid": 15,
+   "asset": "A15.4",
+   "polyXZ": [
+    [
+     -20.186,
+     36.793
+    ],
+    [
+     -23.137,
+     37.867
+    ],
+    [
+     -23.814,
+     36.007
+    ],
+    [
+     -20.863,
+     34.933
+    ]
+   ],
+   "y0": 0.53,
+   "y1": 3.93
+  },
+  {
+   "uid": 16,
+   "asset": "A15.5",
+   "polyXZ": [
+    [
+     -46.996,
+     39.927
+    ],
+    [
+     -43.523,
+     37.922
+    ],
+    [
+     -42.558,
+     39.593
+    ],
+    [
+     -46.031,
+     41.598
+    ]
+   ],
+   "y0": 0.592,
+   "y1": 2.892
+  },
+  {
+   "uid": 17,
+   "asset": "A15.2",
+   "polyXZ": [
+    [
+     -8.672,
+     30.029
+    ],
+    [
+     -4.429,
+     34.272
+    ],
+    [
+     -7.328,
+     37.171
+    ],
+    [
+     -11.571,
+     32.928
+    ]
+   ],
+   "y0": 0.52,
+   "y1": 4.57
+  },
+  {
+   "uid": 18,
+   "asset": "A15.6",
+   "polyXZ": [
+    [
+     -63.73,
+     22.5
+    ],
+    [
+     -63.73,
+     19.5
+    ],
+    [
+     -60.27,
+     19.5
+    ],
+    [
+     -60.27,
+     22.5
+    ]
+   ],
+   "y0": 0.533,
+   "y1": 4.423
+  },
+  {
+   "uid": 19,
+   "asset": "N08",
+   "polyXZ": [
+    [
+     -47.773,
+     41.896
+    ],
+    [
+     -46.127,
+     40.946
+    ],
+    [
+     -45.227,
+     42.504
+    ],
+    [
+     -46.873,
+     43.454
+    ]
+   ],
+   "y0": 0.528,
+   "y1": 1.828
+  },
+  {
+   "uid": 20,
+   "asset": "N08",
+   "polyXZ": [
+    [
+     -61.121,
+     26.401
+    ],
+    [
+     -61.771,
+     24.615
+    ],
+    [
+     -60.079,
+     23.999
+    ],
+    [
+     -59.429,
+     25.785
+    ]
+   ],
+   "y0": 0.611,
+   "y1": 1.911
+  },
+  {
+   "uid": 21,
+   "asset": "N08",
+   "polyXZ": [
+    [
+     -3.399,
+     38.021
+    ],
+    [
+     -5.185,
+     38.671
+    ],
+    [
+     -5.801,
+     36.979
+    ],
+    [
+     -4.015,
+     36.329
+    ]
+   ],
+   "y0": 0.533,
+   "y1": 1.833
+  },
+  {
+   "uid": 26,
+   "asset": "A01.6",
+   "polyXZ": [
+    [
+     -16.151,
+     58.07
+    ],
+    [
+     -12.691,
+     56.072
+    ],
+    [
+     -11.849,
+     57.53
+    ],
+    [
+     -15.309,
+     59.528
+    ]
+   ],
+   "y0": 0.549,
+   "y1": 3.099
+  },
+  {
+   "uid": 27,
+   "asset": "A01.6",
+   "polyXZ": [
+    [
+     -10.147,
+     61.104
+    ],
+    [
+     -6.288,
+     60.07
+    ],
+    [
+     -5.853,
+     61.696
+    ],
+    [
+     -9.712,
+     62.73
+    ]
+   ],
+   "y0": 0.541,
+   "y1": 3.091
+  },
+  {
+   "uid": 28,
+   "asset": "A01.6",
+   "polyXZ": [
+    [
+     -70.176,
+     43.321
+    ],
+    [
+     -69.482,
+     39.387
+    ],
+    [
+     -67.824,
+     39.679
+    ],
+    [
+     -68.518,
+     43.613
+    ]
+   ],
+   "y0": 0.56,
+   "y1": 3.11
+  },
+  {
+   "uid": 29,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -33.2,
+     16.1
+    ],
+    [
+     -33.2,
+     11.7
+    ],
+    [
+     -29.9,
+     11.7
+    ],
+    [
+     -29.9,
+     16.1
+    ]
+   ],
+   "y0": 0.543,
+   "y1": 5.743
+  },
+  {
+   "uid": 29,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -29.9,
+     14.95
+    ],
+    [
+     -29.9,
+     14.15
+    ],
+    [
+     -28.5,
+     14.15
+    ],
+    [
+     -28.5,
+     14.95
+    ]
+   ],
+   "y0": 0.543,
+   "y1": 5.743
+  },
+  {
+   "uid": 30,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -49.1,
+     18.8
+    ],
+    [
+     -44.7,
+     18.8
+    ],
+    [
+     -44.7,
+     22.1
+    ],
+    [
+     -49.1,
+     22.1
+    ]
+   ],
+   "y0": 0.579,
+   "y1": 5.779
+  },
+  {
+   "uid": 30,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -47.95,
+     22.1
+    ],
+    [
+     -47.15,
+     22.1
+    ],
+    [
+     -47.15,
+     23.5
+    ],
+    [
+     -47.95,
+     23.5
+    ]
+   ],
+   "y0": 0.579,
+   "y1": 5.779
+  },
+  {
+   "uid": 31,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -53.9,
+     40.2
+    ],
+    [
+     -58.3,
+     40.2
+    ],
+    [
+     -58.3,
+     36.9
+    ],
+    [
+     -53.9,
+     36.9
+    ]
+   ],
+   "y0": 0.57,
+   "y1": 5.77
+  },
+  {
+   "uid": 31,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -55.05,
+     36.9
+    ],
+    [
+     -55.85,
+     36.9
+    ],
+    [
+     -55.85,
+     35.5
+    ],
+    [
+     -55.05,
+     35.5
+    ]
+   ],
+   "y0": 0.57,
+   "y1": 5.77
+  },
+  {
+   "uid": 32,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -15.959,
+     44.071
+    ],
+    [
+     -19.071,
+     47.182
+    ],
+    [
+     -21.404,
+     44.849
+    ],
+    [
+     -18.293,
+     41.737
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 5.709
+  },
+  {
+   "uid": 32,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -19.106,
+     42.55
+    ],
+    [
+     -19.672,
+     43.116
+    ],
+    [
+     -20.662,
+     42.126
+    ],
+    [
+     -20.096,
+     41.56
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 5.709
+  },
+  {
+   "uid": 33,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -6.1,
+     15.8
+    ],
+    [
+     -1.7,
+     15.8
+    ],
+    [
+     -1.7,
+     19.1
+    ],
+    [
+     -6.1,
+     19.1
+    ]
+   ],
+   "y0": 0.61,
+   "y1": 5.81
+  },
+  {
+   "uid": 33,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -4.95,
+     19.1
+    ],
+    [
+     -4.15,
+     19.1
+    ],
+    [
+     -4.15,
+     20.5
+    ],
+    [
+     -4.95,
+     20.5
+    ]
+   ],
+   "y0": 0.61,
+   "y1": 5.81
+  },
+  {
+   "uid": 34,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     9.1,
+     39.2
+    ],
+    [
+     4.7,
+     39.2
+    ],
+    [
+     4.7,
+     35.9
+    ],
+    [
+     9.1,
+     35.9
+    ]
+   ],
+   "y0": 0.481,
+   "y1": 5.681
+  },
+  {
+   "uid": 34,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     7.95,
+     35.9
+    ],
+    [
+     7.15,
+     35.9
+    ],
+    [
+     7.15,
+     34.5
+    ],
+    [
+     7.95,
+     34.5
+    ]
+   ],
+   "y0": 0.481,
+   "y1": 5.681
+  },
+  {
+   "uid": 35,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     21.919,
+     33.855
+    ],
+    [
+     18.108,
+     36.055
+    ],
+    [
+     16.458,
+     33.197
+    ],
+    [
+     20.269,
+     30.997
+    ]
+   ],
+   "y0": 0.582,
+   "y1": 5.782
+  },
+  {
+   "uid": 35,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     19.273,
+     31.572
+    ],
+    [
+     18.58,
+     31.972
+    ],
+    [
+     17.88,
+     30.76
+    ],
+    [
+     18.573,
+     30.36
+    ]
+   ],
+   "y0": 0.582,
+   "y1": 5.782
+  },
+  {
+   "uid": 36,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -62.2,
+     48.1
+    ],
+    [
+     -62.2,
+     43.7
+    ],
+    [
+     -58.9,
+     43.7
+    ],
+    [
+     -58.9,
+     48.1
+    ]
+   ],
+   "y0": 0.468,
+   "y1": 5.668
+  },
+  {
+   "uid": 36,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -58.9,
+     46.95
+    ],
+    [
+     -58.9,
+     46.15
+    ],
+    [
+     -57.5,
+     46.15
+    ],
+    [
+     -57.5,
+     46.95
+    ]
+   ],
+   "y0": 0.468,
+   "y1": 5.668
+  },
+  {
+   "uid": 37,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -40.779,
+     64.286
+    ],
+    [
+     -44.914,
+     62.781
+    ],
+    [
+     -43.785,
+     59.68
+    ],
+    [
+     -39.65,
+     61.185
+    ]
+   ],
+   "y0": 0.622,
+   "y1": 5.822
+  },
+  {
+   "uid": 37,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -40.731,
+     60.791
+    ],
+    [
+     -41.483,
+     60.518
+    ],
+    [
+     -41.004,
+     59.202
+    ],
+    [
+     -40.252,
+     59.476
+    ]
+   ],
+   "y0": 0.622,
+   "y1": 5.822
+  },
+  {
+   "uid": 38,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     46.726,
+     37.349
+    ],
+    [
+     42.591,
+     38.854
+    ],
+    [
+     41.462,
+     35.753
+    ],
+    [
+     45.597,
+     34.248
+    ]
+   ],
+   "y0": 0.629,
+   "y1": 5.829
+  },
+  {
+   "uid": 38,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     44.516,
+     34.641
+    ],
+    [
+     43.765,
+     34.915
+    ],
+    [
+     43.286,
+     33.599
+    ],
+    [
+     44.038,
+     33.326
+    ]
+   ],
+   "y0": 0.629,
+   "y1": 5.829
+  },
+  {
+   "uid": 39,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     69.686,
+     42.531
+    ],
+    [
+     65.353,
+     41.767
+    ],
+    [
+     65.926,
+     38.517
+    ],
+    [
+     70.259,
+     39.281
+    ]
+   ],
+   "y0": 0.53,
+   "y1": 5.73
+  },
+  {
+   "uid": 39,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     69.127,
+     39.082
+    ],
+    [
+     68.339,
+     38.943
+    ],
+    [
+     68.582,
+     37.564
+    ],
+    [
+     69.37,
+     37.703
+    ]
+   ],
+   "y0": 0.53,
+   "y1": 5.73
+  },
+  {
+   "uid": 51,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -29.4,
+     17.6
+    ],
+    [
+     -30.2,
+     17.6
+    ],
+    [
+     -30.2,
+     16.8
+    ],
+    [
+     -29.4,
+     16.8
+    ]
+   ],
+   "y0": 0.543,
+   "y1": 1.543
+  },
+  {
+   "uid": 52,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -44.2,
+     22.6
+    ],
+    [
+     -44.2,
+     21.8
+    ],
+    [
+     -43.4,
+     21.8
+    ],
+    [
+     -43.4,
+     22.6
+    ]
+   ],
+   "y0": 0.579,
+   "y1": 1.579
+  },
+  {
+   "uid": 53,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -52.4,
+     36.4
+    ],
+    [
+     -52.4,
+     37.2
+    ],
+    [
+     -53.2,
+     37.2
+    ],
+    [
+     -53.2,
+     36.4
+    ]
+   ],
+   "y0": 0.57,
+   "y1": 1.57
+  },
+  {
+   "uid": 54,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -22.111,
+     44.849
+    ],
+    [
+     -21.546,
+     45.414
+    ],
+    [
+     -22.111,
+     45.98
+    ],
+    [
+     -22.677,
+     45.414
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 1.509
+  },
+  {
+   "uid": 55,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -7.6,
+     19.6
+    ],
+    [
+     -7.6,
+     18.8
+    ],
+    [
+     -6.8,
+     18.8
+    ],
+    [
+     -6.8,
+     19.6
+    ]
+   ],
+   "y0": 0.61,
+   "y1": 1.61
+  },
+  {
+   "uid": 56,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     4.2,
+     35.4
+    ],
+    [
+     4.2,
+     36.2
+    ],
+    [
+     3.4,
+     36.2
+    ],
+    [
+     3.4,
+     35.4
+    ]
+   ],
+   "y0": 0.481,
+   "y1": 1.481
+  },
+  {
+   "uid": 57,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     21.318,
+     29.814
+    ],
+    [
+     21.718,
+     30.507
+    ],
+    [
+     21.025,
+     30.907
+    ],
+    [
+     20.625,
+     30.214
+    ]
+   ],
+   "y0": 0.582,
+   "y1": 1.582
+  },
+  {
+   "uid": 58,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -58.4,
+     43.2
+    ],
+    [
+     -59.2,
+     43.2
+    ],
+    [
+     -59.2,
+     42.4
+    ],
+    [
+     -58.4,
+     42.4
+    ]
+   ],
+   "y0": 0.468,
+   "y1": 1.468
+  },
+  {
+   "uid": 59,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     46.836,
+     33.265
+    ],
+    [
+     47.109,
+     34.017
+    ],
+    [
+     46.358,
+     34.291
+    ],
+    [
+     46.084,
+     33.539
+    ]
+   ],
+   "y0": 0.629,
+   "y1": 1.629
+  },
+  {
+   "uid": 60,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     65.52,
+     37.938
+    ],
+    [
+     65.381,
+     38.726
+    ],
+    [
+     64.594,
+     38.587
+    ],
+    [
+     64.733,
+     37.799
+    ]
+   ],
+   "y0": 0.53,
+   "y1": 1.53
+  },
+  {
+   "uid": 61,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -35.17,
+     14.8
+    ],
+    [
+     -35.17,
+     13.2
+    ],
+    [
+     -34.03,
+     13.2
+    ],
+    [
+     -34.03,
+     14.8
+    ]
+   ],
+   "y0": 0.542,
+   "y1": 1.202
+  },
+  {
+   "uid": 62,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -55.2,
+     42.17
+    ],
+    [
+     -56.8,
+     42.17
+    ],
+    [
+     -56.8,
+     41.03
+    ],
+    [
+     -55.2,
+     41.03
+    ]
+   ],
+   "y0": 0.556,
+   "y1": 1.216
+  },
+  {
+   "uid": 63,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -4.8,
+     13.83
+    ],
+    [
+     -3.2,
+     13.83
+    ],
+    [
+     -3.2,
+     14.97
+    ],
+    [
+     -4.8,
+     14.97
+    ]
+   ],
+   "y0": 0.607,
+   "y1": 1.267
+  },
+  {
+   "uid": 64,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     21.778,
+     36.211
+    ],
+    [
+     20.392,
+     37.011
+    ],
+    [
+     19.822,
+     36.024
+    ],
+    [
+     21.208,
+     35.224
+    ]
+   ],
+   "y0": 0.578,
+   "y1": 1.238
+  },
+  {
+   "uid": 65,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -42.674,
+     65.692
+    ],
+    [
+     -44.178,
+     65.145
+    ],
+    [
+     -43.788,
+     64.074
+    ],
+    [
+     -42.285,
+     64.621
+    ]
+   ],
+   "y0": 0.616,
+   "y1": 1.276
+  },
+  {
+   "uid": 66,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     68.064,
+     44.246
+    ],
+    [
+     66.488,
+     43.968
+    ],
+    [
+     66.686,
+     42.845
+    ],
+    [
+     68.262,
+     43.123
+    ]
+   ],
+   "y0": 0.525,
+   "y1": 1.185
+  },
+  {
+   "uid": 67,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     48.099,
+     18.409
+    ],
+    [
+     49.664,
+     18.076
+    ],
+    [
+     49.901,
+     19.191
+    ],
+    [
+     48.336,
+     19.524
+    ]
+   ],
+   "y0": 0.293,
+   "y1": 0.953
+  },
+  {
+   "uid": 68,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     54.028,
+     18.255
+    ],
+    [
+     55.454,
+     17.529
+    ],
+    [
+     55.972,
+     18.545
+    ],
+    [
+     54.546,
+     19.271
+    ]
+   ],
+   "y0": 0.353,
+   "y1": 1.013
+  },
+  {
+   "uid": 69,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     59.628,
+     9.347
+    ],
+    [
+     61.213,
+     9.124
+    ],
+    [
+     61.372,
+     10.253
+    ],
+    [
+     59.787,
+     10.476
+    ]
+   ],
+   "y0": 1.383,
+   "y1": 2.043
+  },
+  {
+   "uid": 70,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     65.541,
+     9.188
+    ],
+    [
+     67.014,
+     8.563
+    ],
+    [
+     67.459,
+     9.612
+    ],
+    [
+     65.986,
+     10.237
+    ]
+   ],
+   "y0": 1.302,
+   "y1": 1.962
+  },
+  {
+   "uid": 71,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     73.264,
+     20.149
+    ],
+    [
+     74.855,
+     20.317
+    ],
+    [
+     74.736,
+     21.451
+    ],
+    [
+     73.145,
+     21.283
+    ]
+   ],
+   "y0": 0.612,
+   "y1": 1.272
+  },
+  {
+   "uid": 72,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     79.121,
+     19.962
+    ],
+    [
+     80.701,
+     19.712
+    ],
+    [
+     80.879,
+     20.838
+    ],
+    [
+     79.299,
+     21.088
+    ]
+   ],
+   "y0": 0.544,
+   "y1": 1.204
+  },
+  {
+   "uid": 74,
+   "asset": "A01.6",
+   "polyXZ": [
+    [
+     85.518,
+     36.113
+    ],
+    [
+     84.824,
+     32.179
+    ],
+    [
+     86.482,
+     31.887
+    ],
+    [
+     87.176,
+     35.821
+    ]
+   ],
+   "y0": 0.47,
+   "y1": 3.02
+  },
+  {
+   "uid": 75,
+   "asset": "A16.5",
+   "polyXZ": [
+    [
+     -4.924,
+     -19.246
+    ],
+    [
+     -2.776,
+     -18.006
+    ],
+    [
+     -4.076,
+     -15.754
+    ],
+    [
+     -6.224,
+     -16.994
+    ]
+   ],
+   "y0": 2.721,
+   "y1": 3.871
+  },
+  {
+   "uid": 76,
+   "asset": "A16.4",
+   "polyXZ": [
+    [
+     -35.991,
+     -24.463
+    ],
+    [
+     -34.975,
+     -25.913
+    ],
+    [
+     -33.009,
+     -24.537
+    ],
+    [
+     -34.025,
+     -23.087
+    ]
+   ],
+   "y0": 0.464,
+   "y1": 1.284
+  },
+  {
+   "uid": 77,
+   "asset": "A02.6",
+   "polyXZ": [
+    [
+     -37.497,
+     -19.812
+    ],
+    [
+     -39.097,
+     -22.583
+    ],
+    [
+     -37.703,
+     -23.388
+    ],
+    [
+     -36.103,
+     -20.617
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 1.908
+  },
+  {
+   "uid": 78,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -47.681,
+     -6.211
+    ],
+    [
+     -47.541,
+     -7.005
+    ],
+    [
+     -46.319,
+     -6.789
+    ],
+    [
+     -46.459,
+     -5.995
+    ]
+   ],
+   "y0": 0.554,
+   "y1": 1.131
+  },
+  {
+   "uid": 79,
+   "asset": "N10",
+   "polyXZ": [
+    [
+     -48.58,
+     -3.928
+    ],
+    [
+     -49.059,
+     -4.289
+    ],
+    [
+     -48.62,
+     -4.872
+    ],
+    [
+     -48.141,
+     -4.511
+    ]
+   ],
+   "y0": 0.55,
+   "y1": 1.58
+  },
+  {
+   "uid": 80,
+   "asset": "A16.2",
+   "polyXZ": [
+    [
+     -48.307,
+     -49.764
+    ],
+    [
+     -47.219,
+     -50.271
+    ],
+    [
+     -46.712,
+     -49.183
+    ],
+    [
+     -47.8,
+     -48.676
+    ]
+   ],
+   "y0": 0.572,
+   "y1": 5.172
+  },
+  {
+   "uid": 81,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -45.553,
+     -47.917
+    ],
+    [
+     -44.331,
+     -48.362
+    ],
+    [
+     -43.647,
+     -46.483
+    ],
+    [
+     -44.869,
+     -46.038
+    ]
+   ],
+   "y0": 0.569,
+   "y1": 1.499
+  },
+  {
+   "uid": 82,
+   "asset": "A02.3",
+   "polyXZ": [
+    [
+     28.341,
+     -58.269
+    ],
+    [
+     31.296,
+     -58.79
+    ],
+    [
+     31.659,
+     -56.731
+    ],
+    [
+     28.704,
+     -56.21
+    ]
+   ],
+   "y0": 7.73,
+   "y1": 9.13
+  },
+  {
+   "uid": 83,
+   "asset": "A02.2",
+   "polyXZ": [
+    [
+     25.79,
+     -52.555
+    ],
+    [
+     25.339,
+     -55.115
+    ],
+    [
+     27.21,
+     -55.445
+    ],
+    [
+     27.661,
+     -52.885
+    ]
+   ],
+   "y0": 8.944,
+   "y1": 9.914
+  },
+  {
+   "uid": 84,
+   "asset": "A02.2",
+   "polyXZ": [
+    [
+     -22.107,
+     -30.392
+    ],
+    [
+     -20.115,
+     -32.063
+    ],
+    [
+     -18.893,
+     -30.608
+    ],
+    [
+     -20.885,
+     -28.937
+    ]
+   ],
+   "y0": 1.475,
+   "y1": 2.445
+  },
+  {
+   "uid": 85,
+   "asset": "A02.2",
+   "polyXZ": [
+    [
+     17.339,
+     -46.385
+    ],
+    [
+     17.79,
+     -48.945
+    ],
+    [
+     19.661,
+     -48.615
+    ],
+    [
+     19.21,
+     -46.055
+    ]
+   ],
+   "y0": 10.601,
+   "y1": 11.571
+  },
+  {
+   "uid": 86,
+   "asset": "A02.2",
+   "polyXZ": [
+    [
+     -13.747,
+     -6.591
+    ],
+    [
+     -11.909,
+     -4.753
+    ],
+    [
+     -13.253,
+     -3.409
+    ],
+    [
+     -15.091,
+     -5.247
+    ]
+   ],
+   "y0": 0.436,
+   "y1": 1.406
+  },
+  {
+   "uid": 87,
+   "asset": "A02.3",
+   "polyXZ": [
+    [
+     -28.495,
+     -37.448
+    ],
+    [
+     -27.469,
+     -40.267
+    ],
+    [
+     -25.505,
+     -39.552
+    ],
+    [
+     -26.531,
+     -36.733
+    ]
+   ],
+   "y0": 0.936,
+   "y1": 2.336
+  },
+  {
+   "uid": 88,
+   "asset": "A02.3",
+   "polyXZ": [
+    [
+     -7.296,
+     -39.29
+    ],
+    [
+     -4.341,
+     -38.769
+    ],
+    [
+     -4.704,
+     -36.71
+    ],
+    [
+     -7.659,
+     -37.231
+    ]
+   ],
+   "y0": 6.471,
+   "y1": 7.871
+  },
+  {
+   "uid": 89,
+   "asset": "A16.4",
+   "polyXZ": [
+    [
+     -2.988,
+     -8.593
+    ],
+    [
+     -1.85,
+     -9.949
+    ],
+    [
+     -0.012,
+     -8.407
+    ],
+    [
+     -1.15,
+     -7.051
+    ]
+   ],
+   "y0": 1.775,
+   "y1": 2.595
+  },
+  {
+   "uid": 90,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -17.027,
+     -24.313
+    ],
+    [
+     -16.13,
+     -25.065
+    ],
+    [
+     -14.973,
+     -23.687
+    ],
+    [
+     -15.87,
+     -22.935
+    ]
+   ],
+   "y0": 1.353,
+   "y1": 2.19
+  },
+  {
+   "uid": 91,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -13.592,
+     -26.833
+    ],
+    [
+     -12.639,
+     -27.633
+    ],
+    [
+     -11.408,
+     -26.167
+    ],
+    [
+     -12.361,
+     -25.367
+    ]
+   ],
+   "y0": 2.405,
+   "y1": 3.295
+  },
+  {
+   "uid": 92,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -10.157,
+     -29.353
+    ],
+    [
+     -9.147,
+     -30.201
+    ],
+    [
+     -7.843,
+     -28.647
+    ],
+    [
+     -8.853,
+     -27.799
+    ]
+   ],
+   "y0": 3.687,
+   "y1": 4.63
+  },
+  {
+   "uid": 93,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -23.268,
+     -16.155
+    ],
+    [
+     -22.373,
+     -17.222
+    ],
+    [
+     -20.732,
+     -15.845
+    ],
+    [
+     -21.627,
+     -14.778
+    ]
+   ],
+   "y0": 0.415,
+   "y1": 1.411
+  },
+  {
+   "uid": 94,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -26.099,
+     -13.135
+    ],
+    [
+     -25.323,
+     -14.059
+    ],
+    [
+     -23.901,
+     -12.865
+    ],
+    [
+     -24.677,
+     -11.941
+    ]
+   ],
+   "y0": 0.537,
+   "y1": 1.401
+  },
+  {
+   "uid": 95,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -29.667,
+     -10.643
+    ],
+    [
+     -28.843,
+     -11.624
+    ],
+    [
+     -27.333,
+     -10.357
+    ],
+    [
+     -28.157,
+     -9.376
+    ]
+   ],
+   "y0": 0.614,
+   "y1": 1.531
+  },
+  {
+   "uid": 96,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -33.108,
+     -32.564
+    ],
+    [
+     -31.934,
+     -33.242
+    ],
+    [
+     -30.892,
+     -31.436
+    ],
+    [
+     -32.066,
+     -30.758
+    ]
+   ],
+   "y0": 0.481,
+   "y1": 1.451
+  },
+  {
+   "uid": 97,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -29.957,
+     -34.987
+    ],
+    [
+     -28.943,
+     -35.572
+    ],
+    [
+     -28.043,
+     -34.013
+    ],
+    [
+     -29.057,
+     -33.428
+    ]
+   ],
+   "y0": 0.563,
+   "y1": 1.4
+  },
+  {
+   "uid": 98,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -27.017,
+     -37.518
+    ],
+    [
+     -25.94,
+     -38.14
+    ],
+    [
+     -24.983,
+     -36.482
+    ],
+    [
+     -26.06,
+     -35.86
+    ]
+   ],
+   "y0": 1.041,
+   "y1": 1.931
+  },
+  {
+   "uid": 99,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -41.179,
+     -11.727
+    ],
+    [
+     -40.728,
+     -12.966
+    ],
+    [
+     -38.821,
+     -12.273
+    ],
+    [
+     -39.272,
+     -11.034
+    ]
+   ],
+   "y0": 0.52,
+   "y1": 1.464
+  },
+  {
+   "uid": 100,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -42.245,
+     -16.212
+    ],
+    [
+     -41.769,
+     -17.521
+    ],
+    [
+     -39.755,
+     -16.788
+    ],
+    [
+     -40.231,
+     -15.479
+    ]
+   ],
+   "y0": 0.574,
+   "y1": 1.571
+  },
+  {
+   "uid": 101,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -37.079,
+     -7.25
+    ],
+    [
+     -36.666,
+     -8.385
+    ],
+    [
+     -34.921,
+     -7.75
+    ],
+    [
+     -35.334,
+     -6.615
+    ]
+   ],
+   "y0": 0.566,
+   "y1": 1.429
+  },
+  {
+   "uid": 102,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -10.802,
+     -43.359
+    ],
+    [
+     -9.54,
+     -43.582
+    ],
+    [
+     -9.198,
+     -41.641
+    ],
+    [
+     -10.46,
+     -41.418
+    ]
+   ],
+   "y0": 5.844,
+   "y1": 6.761
+  },
+  {
+   "uid": 103,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -14.849,
+     -44.909
+    ],
+    [
+     -13.514,
+     -45.145
+    ],
+    [
+     -13.151,
+     -43.091
+    ],
+    [
+     -14.486,
+     -42.855
+    ]
+   ],
+   "y0": 4.519,
+   "y1": 5.489
+  },
+  {
+   "uid": 104,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -18.732,
+     -46.285
+    ],
+    [
+     -17.58,
+     -46.488
+    ],
+    [
+     -17.268,
+     -44.715
+    ],
+    [
+     -18.42,
+     -44.512
+    ]
+   ],
+   "y0": 3.113,
+   "y1": 3.95
+  },
+  {
+   "uid": 105,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -22.779,
+     -47.835
+    ],
+    [
+     -21.554,
+     -48.051
+    ],
+    [
+     -21.221,
+     -46.165
+    ],
+    [
+     -22.446,
+     -45.949
+    ]
+   ],
+   "y0": 1.968,
+   "y1": 2.858
+  },
+  {
+   "uid": 106,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -1.157,
+     -14.353
+    ],
+    [
+     -0.147,
+     -15.201
+    ],
+    [
+     1.157,
+     -13.647
+    ],
+    [
+     0.147,
+     -12.799
+    ]
+   ],
+   "y0": 3.062,
+   "y1": 4.005
+  },
+  {
+   "uid": 107,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     1.778,
+     -19.873
+    ],
+    [
+     2.845,
+     -20.768
+    ],
+    [
+     4.222,
+     -19.127
+    ],
+    [
+     3.155,
+     -18.232
+    ]
+   ],
+   "y0": 5.905,
+   "y1": 6.901
+  },
+  {
+   "uid": 108,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -36.885,
+     -42.666
+    ],
+    [
+     -35.75,
+     -43.079
+    ],
+    [
+     -35.115,
+     -41.334
+    ],
+    [
+     -36.25,
+     -40.921
+    ]
+   ],
+   "y0": 0.492,
+   "y1": 1.355
+  },
+  {
+   "uid": 109,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -38.939,
+     -46.707
+    ],
+    [
+     -37.735,
+     -47.145
+    ],
+    [
+     -37.061,
+     -45.293
+    ],
+    [
+     -38.265,
+     -44.855
+    ]
+   ],
+   "y0": 0.468,
+   "y1": 1.384
+  },
+  {
+   "uid": 110,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     6.855,
+     -45.514
+    ],
+    [
+     7.091,
+     -46.849
+    ],
+    [
+     9.145,
+     -46.486
+    ],
+    [
+     8.909,
+     -45.151
+    ]
+   ],
+   "y0": 9.934,
+   "y1": 10.903
+  },
+  {
+   "uid": 111,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     9.512,
+     -49.58
+    ],
+    [
+     9.715,
+     -50.732
+    ],
+    [
+     11.488,
+     -50.42
+    ],
+    [
+     11.285,
+     -49.268
+    ]
+   ],
+   "y0": 9.559,
+   "y1": 10.396
+  },
+  {
+   "uid": 112,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     33.878,
+     -52.957
+    ],
+    [
+     35.122,
+     -52.957
+    ],
+    [
+     35.122,
+     -51.043
+    ],
+    [
+     33.878,
+     -51.043
+    ]
+   ],
+   "y0": 9.651,
+   "y1": 10.541
+  },
+  {
+   "uid": 113,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     35.841,
+     -55.514
+    ],
+    [
+     37.159,
+     -55.514
+    ],
+    [
+     37.159,
+     -53.486
+    ],
+    [
+     35.841,
+     -53.486
+    ]
+   ],
+   "y0": 8.805,
+   "y1": 9.748
+  },
+  {
+   "uid": 114,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -54.176,
+     -23.5
+    ],
+    [
+     -53.934,
+     -24.872
+    ],
+    [
+     -51.824,
+     -24.5
+    ],
+    [
+     -52.066,
+     -23.128
+    ]
+   ],
+   "y0": 0.617,
+   "y1": 1.613
+  },
+  {
+   "uid": 115,
+   "asset": "A16.3",
+   "polyXZ": [
+    [
+     -55.019,
+     -28.567
+    ],
+    [
+     -54.81,
+     -29.756
+    ],
+    [
+     -52.981,
+     -29.433
+    ],
+    [
+     -53.19,
+     -28.244
+    ]
+   ],
+   "y0": 0.574,
+   "y1": 1.438
+  },
+  {
+   "uid": 116,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     -64.125,
+     -15.912
+    ],
+    [
+     -60.385,
+     -15.912
+    ],
+    [
+     -60.385,
+     -12.513
+    ],
+    [
+     -64.125,
+     -12.513
+    ]
+   ],
+   "y0": 0.646,
+   "y1": 8.296
+  },
+  {
+   "uid": 117,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     -63.451,
+     -33.697
+    ],
+    [
+     -60.36,
+     -37.012
+    ],
+    [
+     -57.347,
+     -34.202
+    ],
+    [
+     -60.438,
+     -30.887
+    ]
+   ],
+   "y0": 0.591,
+   "y1": 9.861
+  },
+  {
+   "uid": 118,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     -47.884,
+     -61.588
+    ],
+    [
+     -48.163,
+     -65.582
+    ],
+    [
+     -44.532,
+     -65.836
+    ],
+    [
+     -44.253,
+     -61.842
+    ]
+   ],
+   "y0": 0.651,
+   "y1": 8.841
+  },
+  {
+   "uid": 119,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     -23.426,
+     -62.379
+    ],
+    [
+     -27.153,
+     -65.397
+    ],
+    [
+     -24.409,
+     -68.786
+    ],
+    [
+     -20.682,
+     -65.768
+    ]
+   ],
+   "y0": 0.555,
+   "y1": 10.365
+  },
+  {
+   "uid": 120,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     6.705,
+     -66.176
+    ],
+    [
+     2.479,
+     -65.582
+    ],
+    [
+     1.939,
+     -69.424
+    ],
+    [
+     6.165,
+     -70.018
+    ]
+   ],
+   "y0": 2.884,
+   "y1": 11.614
+  },
+  {
+   "uid": 121,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     34.785,
+     -70.644
+    ],
+    [
+     32.64,
+     -67.58
+    ],
+    [
+     29.855,
+     -69.53
+    ],
+    [
+     32,
+     -72.594
+    ]
+   ],
+   "y0": 3.766,
+   "y1": 11.416
+  },
+  {
+   "uid": 122,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     59.731,
+     -61.001
+    ],
+    [
+     60.674,
+     -56.568
+    ],
+    [
+     56.644,
+     -55.711
+    ],
+    [
+     55.702,
+     -60.144
+    ]
+   ],
+   "y0": 5.137,
+   "y1": 14.407
+  },
+  {
+   "uid": 123,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     71.104,
+     -44.927
+    ],
+    [
+     74.537,
+     -42.865
+    ],
+    [
+     72.662,
+     -39.744
+    ],
+    [
+     69.23,
+     -41.807
+    ]
+   ],
+   "y0": 4.957,
+   "y1": 13.147
+  },
+  {
+   "uid": 124,
+   "asset": "A16.1",
+   "polyXZ": [
+    [
+     -59.295,
+     3.394
+    ],
+    [
+     -54.685,
+     2.072
+    ],
+    [
+     -53.483,
+     6.263
+    ],
+    [
+     -58.094,
+     7.585
+    ]
+   ],
+   "y0": 0.54,
+   "y1": 10.35
+  },
+  {
+   "uid": 125,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -56.364,
+     53.766
+    ],
+    [
+     -55.42,
+     53.766
+    ],
+    [
+     -55.42,
+     55.206
+    ],
+    [
+     -56.364,
+     55.206
+    ]
+   ],
+   "y0": 0.491,
+   "y1": 5.891
+  },
+  {
+   "uid": 126,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -22.406,
+     57.21
+    ],
+    [
+     -21.908,
+     56.346
+    ],
+    [
+     -20.591,
+     57.106
+    ],
+    [
+     -21.09,
+     57.97
+    ]
+   ],
+   "y0": 0.58,
+   "y1": 6.28
+  },
+  {
+   "uid": 127,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -70.023,
+     34.481
+    ],
+    [
+     -70.548,
+     33.571
+    ],
+    [
+     -69.162,
+     32.771
+    ],
+    [
+     -68.637,
+     33.681
+    ]
+   ],
+   "y0": 0.539,
+   "y1": 6.539
+  },
+  {
+   "uid": 128,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     10.425,
+     52.273
+    ],
+    [
+     9.323,
+     52.273
+    ],
+    [
+     9.323,
+     50.593
+    ],
+    [
+     10.425,
+     50.593
+    ]
+   ],
+   "y0": 0.538,
+   "y1": 6.838
+  },
+  {
+   "uid": 129,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     58.47,
+     47.757
+    ],
+    [
+     57.893,
+     48.757
+    ],
+    [
+     56.369,
+     47.877
+    ],
+    [
+     56.946,
+     46.877
+    ]
+   ],
+   "y0": 0.518,
+   "y1": 7.118
+  },
+  {
+   "uid": 130,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     92.026,
+     43.447
+    ],
+    [
+     92.63,
+     44.493
+    ],
+    [
+     91.036,
+     45.413
+    ],
+    [
+     90.433,
+     44.367
+    ]
+   ],
+   "y0": 0.569,
+   "y1": 7.469
+  },
+  {
+   "uid": 131,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     83.514,
+     9.688
+    ],
+    [
+     84.774,
+     9.688
+    ],
+    [
+     84.774,
+     11.608
+    ],
+    [
+     83.514,
+     11.608
+    ]
+   ],
+   "y0": 0.686,
+   "y1": 7.886
+  },
+  {
+   "uid": 132,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     53.2,
+     -10.8
+    ],
+    [
+     54.8,
+     -10.8
+    ],
+    [
+     54.8,
+     -9.2
+    ],
+    [
+     53.2,
+     -9.2
+    ]
+   ],
+   "y0": 6.928,
+   "y1": 7.728
+  },
+  {
+   "uid": 133,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     60.552,
+     -23.23
+    ],
+    [
+     61.23,
+     -25.448
+    ],
+    [
+     63.448,
+     -24.77
+    ],
+    [
+     62.77,
+     -22.552
+    ]
+   ],
+   "y0": 8.299,
+   "y1": 9.459
+  },
+  {
+   "uid": 134,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     22.281,
+     -62.556
+    ],
+    [
+     20.556,
+     -63.719
+    ],
+    [
+     21.719,
+     -65.444
+    ],
+    [
+     23.444,
+     -64.281
+    ]
+   ],
+   "y0": 5.248,
+   "y1": 6.288
+  },
+  {
+   "uid": 135,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     -2.706,
+     -57.864
+    ],
+    [
+     -4.136,
+     -56.706
+    ],
+    [
+     -5.294,
+     -58.136
+    ],
+    [
+     -3.864,
+     -59.294
+    ]
+   ],
+   "y0": 5.148,
+   "y1": 6.068
+  },
+  {
+   "uid": 136,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     -57.558,
+     -45.041
+    ],
+    [
+     -56.959,
+     -43.558
+    ],
+    [
+     -58.442,
+     -42.959
+    ],
+    [
+     -59.041,
+     -44.442
+    ]
+   ],
+   "y0": 0.548,
+   "y1": 1.348
+  },
+  {
+   "uid": 137,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     68.743,
+     -49.054
+    ],
+    [
+     71.054,
+     -49.257
+    ],
+    [
+     71.257,
+     -46.946
+    ],
+    [
+     68.946,
+     -46.743
+    ]
+   ],
+   "y0": 4.727,
+   "y1": 5.887
+  },
+  {
+   "uid": 138,
+   "asset": "glb:dungeon-prop-flint-boulders",
+   "polyXZ": [
+    [
+     46.766,
+     -53.199
+    ],
+    [
+     47.199,
+     -55.234
+    ],
+    [
+     49.234,
+     -54.801
+    ],
+    [
+     48.801,
+     -52.766
+    ]
+   ],
+   "y0": 8.018,
+   "y1": 9.058
+  },
+  {
+   "uid": 144,
+   "asset": "glb:biome-prop-stump",
+   "polyXZ": [
+    [
+     -66.4,
+     43.6
+    ],
+    [
+     -65.6,
+     43.6
+    ],
+    [
+     -65.6,
+     44.4
+    ],
+    [
+     -66.4,
+     44.4
+    ]
+   ],
+   "y0": 0.533,
+   "y1": 1.033
+  },
+  {
+   "uid": 145,
+   "asset": "glb:biome-prop-stump",
+   "polyXZ": [
+    [
+     -12.557,
+     54.098
+    ],
+    [
+     -12.098,
+     53.443
+    ],
+    [
+     -11.443,
+     53.902
+    ],
+    [
+     -11.902,
+     54.557
+    ]
+   ],
+   "y0": 0.638,
+   "y1": 1.138
+  },
+  {
+   "uid": 146,
+   "asset": "glb:biome-prop-stump",
+   "polyXZ": [
+    [
+     23.761,
+     48.513
+    ],
+    [
+     23.487,
+     47.761
+    ],
+    [
+     24.239,
+     47.487
+    ],
+    [
+     24.513,
+     48.239
+    ]
+   ],
+   "y0": 0.567,
+   "y1": 1.067
+  },
+  {
+   "uid": 156,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -80.924,
+     -11.28
+    ],
+    [
+     -77.257,
+     -10.28
+    ],
+    [
+     -77.41,
+     -9.72
+    ],
+    [
+     -81.076,
+     -10.72
+    ]
+   ],
+   "y0": -1.78,
+   "y1": 0.619
+  },
+  {
+   "uid": 157,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -77.257,
+     -10.28
+    ],
+    [
+     -73.59,
+     -9.28
+    ],
+    [
+     -73.743,
+     -8.72
+    ],
+    [
+     -77.41,
+     -9.72
+    ]
+   ],
+   "y0": -0.245,
+   "y1": 1.272
+  },
+  {
+   "uid": 158,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -73.59,
+     -9.28
+    ],
+    [
+     -69.924,
+     -8.28
+    ],
+    [
+     -70.076,
+     -7.72
+    ],
+    [
+     -73.743,
+     -8.72
+    ]
+   ],
+   "y0": 0.403,
+   "y1": 1.773
+  },
+  {
+   "uid": 159,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -69.908,
+     -8.275
+    ],
+    [
+     -66.908,
+     -7.275
+    ],
+    [
+     -67.092,
+     -6.725
+    ],
+    [
+     -70.092,
+     -7.725
+    ]
+   ],
+   "y0": 0.507,
+   "y1": 1.877
+  },
+  {
+   "uid": 160,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -66.908,
+     -7.275
+    ],
+    [
+     -63.908,
+     -6.275
+    ],
+    [
+     -64.092,
+     -5.725
+    ],
+    [
+     -67.092,
+     -6.725
+    ]
+   ],
+   "y0": 0.556,
+   "y1": 1.926
+  },
+  {
+   "uid": 161,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -63.908,
+     -6.275
+    ],
+    [
+     -60.908,
+     -5.275
+    ],
+    [
+     -61.092,
+     -4.725
+    ],
+    [
+     -64.092,
+     -5.725
+    ]
+   ],
+   "y0": 0.572,
+   "y1": 1.942
+  },
+  {
+   "uid": 162,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -60.908,
+     -5.275
+    ],
+    [
+     -57.908,
+     -4.275
+    ],
+    [
+     -58.092,
+     -3.725
+    ],
+    [
+     -61.092,
+     -4.725
+    ]
+   ],
+   "y0": 0.583,
+   "y1": 1.953
+  },
+  {
+   "uid": 163,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -57.92,
+     -4.279
+    ],
+    [
+     -54.42,
+     -3.279
+    ],
+    [
+     -54.58,
+     -2.721
+    ],
+    [
+     -58.08,
+     -3.721
+    ]
+   ],
+   "y0": 0.58,
+   "y1": 1.95
+  },
+  {
+   "uid": 164,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -54.42,
+     -3.279
+    ],
+    [
+     -50.92,
+     -2.279
+    ],
+    [
+     -51.08,
+     -1.721
+    ],
+    [
+     -54.58,
+     -2.721
+    ]
+   ],
+   "y0": 0.566,
+   "y1": 1.936
+  },
+  {
+   "uid": 165,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -50.92,
+     -2.279
+    ],
+    [
+     -47.42,
+     -1.279
+    ],
+    [
+     -47.58,
+     -0.721
+    ],
+    [
+     -51.08,
+     -1.721
+    ]
+   ],
+   "y0": 0.494,
+   "y1": 1.864
+  },
+  {
+   "uid": 166,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -47.42,
+     -1.279
+    ],
+    [
+     -43.92,
+     -0.279
+    ],
+    [
+     -44.08,
+     0.279
+    ],
+    [
+     -47.58,
+     -0.721
+    ]
+   ],
+   "y0": 0.477,
+   "y1": 1.847
+  },
+  {
+   "uid": 167,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -43.939,
+     -0.284
+    ],
+    [
+     -40.439,
+     0.466
+    ],
+    [
+     -40.561,
+     1.034
+    ],
+    [
+     -44.061,
+     0.284
+    ]
+   ],
+   "y0": 0.498,
+   "y1": 1.868
+  },
+  {
+   "uid": 168,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -40.439,
+     0.466
+    ],
+    [
+     -36.939,
+     1.216
+    ],
+    [
+     -37.061,
+     1.784
+    ],
+    [
+     -40.561,
+     1.034
+    ]
+   ],
+   "y0": 0.52,
+   "y1": 1.89
+  },
+  {
+   "uid": 169,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -36.939,
+     1.216
+    ],
+    [
+     -33.439,
+     1.966
+    ],
+    [
+     -33.561,
+     2.534
+    ],
+    [
+     -37.061,
+     1.784
+    ]
+   ],
+   "y0": 0.569,
+   "y1": 1.939
+  },
+  {
+   "uid": 170,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -33.439,
+     1.966
+    ],
+    [
+     -29.939,
+     2.716
+    ],
+    [
+     -30.061,
+     3.284
+    ],
+    [
+     -33.561,
+     2.534
+    ]
+   ],
+   "y0": 0.567,
+   "y1": 1.937
+  },
+  {
+   "uid": 171,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -30,
+     2.71
+    ],
+    [
+     -25.7,
+     2.71
+    ],
+    [
+     -25.7,
+     3.29
+    ],
+    [
+     -30,
+     3.29
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 1.869
+  },
+  {
+   "uid": 172,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -22.3,
+     2.71
+    ],
+    [
+     -18,
+     2.71
+    ],
+    [
+     -18,
+     3.29
+    ],
+    [
+     -22.3,
+     3.29
+    ]
+   ],
+   "y0": 0.499,
+   "y1": 1.869
+  },
+  {
+   "uid": 173,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -18.08,
+     2.721
+    ],
+    [
+     -14.58,
+     1.721
+    ],
+    [
+     -14.42,
+     2.279
+    ],
+    [
+     -17.92,
+     3.279
+    ]
+   ],
+   "y0": 0.545,
+   "y1": 1.915
+  },
+  {
+   "uid": 174,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -14.58,
+     1.721
+    ],
+    [
+     -11.08,
+     0.721
+    ],
+    [
+     -10.92,
+     1.279
+    ],
+    [
+     -14.42,
+     2.279
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 1.88
+  },
+  {
+   "uid": 175,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -11.08,
+     0.721
+    ],
+    [
+     -7.58,
+     -0.279
+    ],
+    [
+     -7.42,
+     0.279
+    ],
+    [
+     -10.92,
+     1.279
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 1.88
+  },
+  {
+   "uid": 176,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -7.58,
+     -0.279
+    ],
+    [
+     -4.08,
+     -1.279
+    ],
+    [
+     -3.92,
+     -0.721
+    ],
+    [
+     -7.42,
+     0.279
+    ]
+   ],
+   "y0": 0.565,
+   "y1": 1.935
+  },
+  {
+   "uid": 177,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -4.098,
+     -1.273
+    ],
+    [
+     -0.598,
+     -2.523
+    ],
+    [
+     -0.402,
+     -1.977
+    ],
+    [
+     -3.902,
+     -0.727
+    ]
+   ],
+   "y0": 0.655,
+   "y1": 2.025
+  },
+  {
+   "uid": 178,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -0.598,
+     -2.523
+    ],
+    [
+     2.902,
+     -3.773
+    ],
+    [
+     3.098,
+     -3.227
+    ],
+    [
+     -0.402,
+     -1.977
+    ]
+   ],
+   "y0": 1.019,
+   "y1": 2.595
+  },
+  {
+   "uid": 179,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     2.902,
+     -3.773
+    ],
+    [
+     6.402,
+     -5.023
+    ],
+    [
+     6.598,
+     -4.477
+    ],
+    [
+     3.098,
+     -3.227
+    ]
+   ],
+   "y0": 1.717,
+   "y1": 3.422
+  },
+  {
+   "uid": 180,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     6.402,
+     -5.023
+    ],
+    [
+     9.902,
+     -6.273
+    ],
+    [
+     10.098,
+     -5.727
+    ],
+    [
+     6.598,
+     -4.477
+    ]
+   ],
+   "y0": 2.536,
+   "y1": 4.172
+  },
+  {
+   "uid": 181,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     9.886,
+     -6.267
+    ],
+    [
+     13.386,
+     -7.767
+    ],
+    [
+     13.614,
+     -7.233
+    ],
+    [
+     10.114,
+     -5.733
+    ]
+   ],
+   "y0": 3.279,
+   "y1": 5.077
+  },
+  {
+   "uid": 182,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     13.386,
+     -7.767
+    ],
+    [
+     16.886,
+     -9.267
+    ],
+    [
+     17.114,
+     -8.733
+    ],
+    [
+     13.614,
+     -7.233
+    ]
+   ],
+   "y0": 4.144,
+   "y1": 6.047
+  },
+  {
+   "uid": 183,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     16.886,
+     -9.267
+    ],
+    [
+     20.386,
+     -10.767
+    ],
+    [
+     20.614,
+     -10.233
+    ],
+    [
+     17.114,
+     -8.733
+    ]
+   ],
+   "y0": 5.115,
+   "y1": 7.146
+  },
+  {
+   "uid": 184,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     20.386,
+     -10.767
+    ],
+    [
+     23.886,
+     -12.267
+    ],
+    [
+     24.114,
+     -11.733
+    ],
+    [
+     20.614,
+     -10.233
+    ]
+   ],
+   "y0": 6.202,
+   "y1": 8.103
+  },
+  {
+   "uid": 185,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     23.851,
+     -12.249
+    ],
+    [
+     27.184,
+     -14.249
+    ],
+    [
+     27.483,
+     -13.751
+    ],
+    [
+     24.149,
+     -11.751
+    ]
+   ],
+   "y0": 7.148,
+   "y1": 9.284
+  },
+  {
+   "uid": 186,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     27.184,
+     -14.249
+    ],
+    [
+     30.517,
+     -16.249
+    ],
+    [
+     30.816,
+     -15.751
+    ],
+    [
+     27.483,
+     -13.751
+    ]
+   ],
+   "y0": 8.349,
+   "y1": 10.273
+  },
+  {
+   "uid": 187,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     30.517,
+     -16.249
+    ],
+    [
+     33.851,
+     -18.249
+    ],
+    [
+     34.149,
+     -17.751
+    ],
+    [
+     30.816,
+     -15.751
+    ]
+   ],
+   "y0": 9.328,
+   "y1": 11.115
+  },
+  {
+   "uid": 188,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     33.895,
+     -18.27
+    ],
+    [
+     37.495,
+     -19.67
+    ],
+    [
+     37.705,
+     -19.13
+    ],
+    [
+     34.105,
+     -17.73
+    ]
+   ],
+   "y0": 9.348,
+   "y1": 11.326
+  },
+  {
+   "uid": 189,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     54.426,
+     -25.78
+    ],
+    [
+     57.593,
+     -26.614
+    ],
+    [
+     57.74,
+     -26.053
+    ],
+    [
+     54.574,
+     -25.22
+    ]
+   ],
+   "y0": 9.5,
+   "y1": 10.945
+  },
+  {
+   "uid": 190,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     57.593,
+     -26.614
+    ],
+    [
+     60.76,
+     -27.447
+    ],
+    [
+     60.907,
+     -26.886
+    ],
+    [
+     57.74,
+     -26.053
+    ]
+   ],
+   "y0": 8.798,
+   "y1": 10.404
+  },
+  {
+   "uid": 191,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     60.76,
+     -27.447
+    ],
+    [
+     63.926,
+     -28.28
+    ],
+    [
+     64.074,
+     -27.72
+    ],
+    [
+     60.907,
+     -26.886
+    ]
+   ],
+   "y0": 8.072,
+   "y1": 9.672
+  },
+  {
+   "uid": 192,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     63.908,
+     -28.275
+    ],
+    [
+     66.908,
+     -29.275
+    ],
+    [
+     67.092,
+     -28.725
+    ],
+    [
+     64.092,
+     -27.725
+    ]
+   ],
+   "y0": 7.285,
+   "y1": 8.972
+  },
+  {
+   "uid": 193,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     66.908,
+     -29.275
+    ],
+    [
+     69.908,
+     -30.275
+    ],
+    [
+     70.092,
+     -29.725
+    ],
+    [
+     67.092,
+     -28.725
+    ]
+   ],
+   "y0": 6.381,
+   "y1": 8.167
+  },
+  {
+   "uid": 194,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     69.908,
+     -30.275
+    ],
+    [
+     72.908,
+     -31.275
+    ],
+    [
+     73.092,
+     -30.725
+    ],
+    [
+     70.092,
+     -29.725
+    ]
+   ],
+   "y0": 5.465,
+   "y1": 7.256
+  },
+  {
+   "uid": 195,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     72.908,
+     -31.275
+    ],
+    [
+     75.908,
+     -32.275
+    ],
+    [
+     76.092,
+     -31.725
+    ],
+    [
+     73.092,
+     -30.725
+    ]
+   ],
+   "y0": 4.598,
+   "y1": 6.315
+  },
+  {
+   "uid": 196,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     75.886,
+     -32.267
+    ],
+    [
+     79.386,
+     -33.767
+    ],
+    [
+     79.614,
+     -33.233
+    ],
+    [
+     76.114,
+     -31.733
+    ]
+   ],
+   "y0": 3.491,
+   "y1": 5.428
+  },
+  {
+   "uid": 197,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     79.386,
+     -33.767
+    ],
+    [
+     82.886,
+     -35.267
+    ],
+    [
+     83.114,
+     -34.733
+    ],
+    [
+     79.614,
+     -33.233
+    ]
+   ],
+   "y0": 2.599,
+   "y1": 4.348
+  },
+  {
+   "uid": 198,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     82.886,
+     -35.267
+    ],
+    [
+     86.386,
+     -36.767
+    ],
+    [
+     86.614,
+     -36.233
+    ],
+    [
+     83.114,
+     -34.733
+    ]
+   ],
+   "y0": 1.895,
+   "y1": 3.443
+  },
+  {
+   "uid": 199,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     86.386,
+     -36.767
+    ],
+    [
+     89.886,
+     -38.267
+    ],
+    [
+     90.114,
+     -37.733
+    ],
+    [
+     86.614,
+     -36.233
+    ]
+   ],
+   "y0": 1.328,
+   "y1": 2.74
+  },
+  {
+   "uid": 200,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     89.901,
+     -38.273
+    ],
+    [
+     93.568,
+     -39.606
+    ],
+    [
+     93.766,
+     -39.061
+    ],
+    [
+     90.099,
+     -37.727
+    ]
+   ],
+   "y0": 0.873,
+   "y1": 2.243
+  },
+  {
+   "uid": 201,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     93.568,
+     -39.606
+    ],
+    [
+     97.234,
+     -40.939
+    ],
+    [
+     97.432,
+     -40.394
+    ],
+    [
+     93.766,
+     -39.061
+    ]
+   ],
+   "y0": 0.504,
+   "y1": 1.874
+  },
+  {
+   "uid": 202,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     97.234,
+     -40.939
+    ],
+    [
+     100.901,
+     -42.273
+    ],
+    [
+     101.099,
+     -41.727
+    ],
+    [
+     97.432,
+     -40.394
+    ]
+   ],
+   "y0": -0.343,
+   "y1": 1.38
+  },
+  {
+   "uid": 203,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     100.908,
+     -42.275
+    ],
+    [
+     103.908,
+     -43.275
+    ],
+    [
+     104.092,
+     -42.725
+    ],
+    [
+     101.092,
+     -41.725
+    ]
+   ],
+   "y0": -1.209,
+   "y1": 0.538
+  },
+  {
+   "uid": 204,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     103.908,
+     -43.275
+    ],
+    [
+     106.908,
+     -44.275
+    ],
+    [
+     107.092,
+     -43.725
+    ],
+    [
+     104.092,
+     -42.725
+    ]
+   ],
+   "y0": -1.76,
+   "y1": -0.342
+  },
+  {
+   "uid": 205,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -72.727,
+     7.902
+    ],
+    [
+     -71.477,
+     11.402
+    ],
+    [
+     -72.023,
+     11.598
+    ],
+    [
+     -73.273,
+     8.098
+    ]
+   ],
+   "y0": 0.071,
+   "y1": 1.441
+  },
+  {
+   "uid": 206,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -71.477,
+     11.402
+    ],
+    [
+     -70.227,
+     14.902
+    ],
+    [
+     -70.773,
+     15.098
+    ],
+    [
+     -72.023,
+     11.598
+    ]
+   ],
+   "y0": 0.535,
+   "y1": 1.905
+  },
+  {
+   "uid": 207,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -70.227,
+     14.902
+    ],
+    [
+     -68.977,
+     18.402
+    ],
+    [
+     -69.523,
+     18.598
+    ],
+    [
+     -70.773,
+     15.098
+    ]
+   ],
+   "y0": 0.467,
+   "y1": 1.837
+  },
+  {
+   "uid": 208,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -68.977,
+     18.402
+    ],
+    [
+     -67.727,
+     21.902
+    ],
+    [
+     -68.273,
+     22.098
+    ],
+    [
+     -69.523,
+     18.598
+    ]
+   ],
+   "y0": 0.467,
+   "y1": 1.837
+  },
+  {
+   "uid": 209,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -67.732,
+     32.112
+    ],
+    [
+     -68.982,
+     35.112
+    ],
+    [
+     -69.518,
+     34.888
+    ],
+    [
+     -68.268,
+     31.888
+    ]
+   ],
+   "y0": 0.544,
+   "y1": 1.914
+  },
+  {
+   "uid": 210,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -68.982,
+     35.112
+    ],
+    [
+     -70.232,
+     38.112
+    ],
+    [
+     -70.768,
+     37.888
+    ],
+    [
+     -69.518,
+     34.888
+    ]
+   ],
+   "y0": 0.518,
+   "y1": 1.888
+  },
+  {
+   "uid": 211,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -70.232,
+     38.112
+    ],
+    [
+     -71.482,
+     41.112
+    ],
+    [
+     -72.018,
+     40.888
+    ],
+    [
+     -70.768,
+     37.888
+    ]
+   ],
+   "y0": 0.518,
+   "y1": 1.888
+  },
+  {
+   "uid": 212,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     -71.482,
+     41.112
+    ],
+    [
+     -72.732,
+     44.112
+    ],
+    [
+     -73.268,
+     43.888
+    ],
+    [
+     -72.018,
+     40.888
+    ]
+   ],
+   "y0": 0.559,
+   "y1": 1.929
+  },
+  {
+   "uid": 213,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     25,
+     -60.79
+    ],
+    [
+     28.333,
+     -60.79
+    ],
+    [
+     28.333,
+     -60.21
+    ],
+    [
+     25,
+     -60.21
+    ]
+   ],
+   "y0": 6.445,
+   "y1": 7.815
+  },
+  {
+   "uid": 214,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     28.333,
+     -60.79
+    ],
+    [
+     31.667,
+     -60.79
+    ],
+    [
+     31.667,
+     -60.21
+    ],
+    [
+     28.333,
+     -60.21
+    ]
+   ],
+   "y0": 6.445,
+   "y1": 7.815
+  },
+  {
+   "uid": 215,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     31.667,
+     -60.79
+    ],
+    [
+     35,
+     -60.79
+    ],
+    [
+     35,
+     -60.21
+    ],
+    [
+     31.667,
+     -60.21
+    ]
+   ],
+   "y0": 6.598,
+   "y1": 7.968
+  },
+  {
+   "uid": 216,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     35.29,
+     -60.5
+    ],
+    [
+     35.29,
+     -57.333
+    ],
+    [
+     34.71,
+     -57.333
+    ],
+    [
+     34.71,
+     -60.5
+    ]
+   ],
+   "y0": 6.722,
+   "y1": 8.649
+  },
+  {
+   "uid": 217,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     35.29,
+     -57.333
+    ],
+    [
+     35.29,
+     -54.167
+    ],
+    [
+     34.71,
+     -54.167
+    ],
+    [
+     34.71,
+     -57.333
+    ]
+   ],
+   "y0": 7.821,
+   "y1": 9.757
+  },
+  {
+   "uid": 218,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     35.29,
+     -54.167
+    ],
+    [
+     35.29,
+     -51
+    ],
+    [
+     34.71,
+     -51
+    ],
+    [
+     34.71,
+     -54.167
+    ]
+   ],
+   "y0": 8.93,
+   "y1": 10.827
+  },
+  {
+   "uid": 219,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     35,
+     -50.71
+    ],
+    [
+     31,
+     -50.71
+    ],
+    [
+     31,
+     -51.29
+    ],
+    [
+     35,
+     -51.29
+    ]
+   ],
+   "y0": 9.851,
+   "y1": 11.221
+  },
+  {
+   "uid": 220,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     24.71,
+     -51
+    ],
+    [
+     24.71,
+     -54.167
+    ],
+    [
+     25.29,
+     -54.167
+    ],
+    [
+     25.29,
+     -51
+    ]
+   ],
+   "y0": 8.889,
+   "y1": 10.683
+  },
+  {
+   "uid": 221,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     24.71,
+     -54.167
+    ],
+    [
+     24.71,
+     -57.333
+    ],
+    [
+     25.29,
+     -57.333
+    ],
+    [
+     25.29,
+     -54.167
+    ]
+   ],
+   "y0": 7.743,
+   "y1": 9.714
+  },
+  {
+   "uid": 222,
+   "asset": "A01.3",
+   "polyXZ": [
+    [
+     24.71,
+     -57.333
+    ],
+    [
+     24.71,
+     -60.5
+    ],
+    [
+     25.29,
+     -60.5
+    ],
+    [
+     25.29,
+     -57.333
+    ]
+   ],
+   "y0": 6.647,
+   "y1": 8.583
+  },
+  {
+   "uid": 223,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     38.041,
+     -26.024
+    ],
+    [
+     44.15,
+     -26.024
+    ],
+    [
+     44.15,
+     -25.274
+    ],
+    [
+     38.041,
+     -25.274
+    ]
+   ],
+   "y0": 9.184,
+   "y1": 12.533
+  },
+  {
+   "uid": 224,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     47.85,
+     -26.024
+    ],
+    [
+     53.96,
+     -26.024
+    ],
+    [
+     53.96,
+     -25.274
+    ],
+    [
+     47.85,
+     -25.274
+    ]
+   ],
+   "y0": 8.973,
+   "y1": 12.321
+  },
+  {
+   "uid": 225,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     37.476,
+     -19.4
+    ],
+    [
+     37.476,
+     -25.459
+    ],
+    [
+     38.227,
+     -25.459
+    ],
+    [
+     38.227,
+     -19.4
+    ]
+   ],
+   "y0": 8.744,
+   "y1": 12.44
+  },
+  {
+   "uid": 226,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     54.524,
+     -25.46
+    ],
+    [
+     54.524,
+     -18.5
+    ],
+    [
+     53.774,
+     -18.5
+    ],
+    [
+     53.774,
+     -25.46
+    ]
+   ],
+   "y0": 8.996,
+   "y1": 12.344
+  },
+  {
+   "uid": 227,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -52.016,
+     16.841
+    ],
+    [
+     -48.683,
+     16.507
+    ],
+    [
+     -48.651,
+     16.826
+    ],
+    [
+     -51.984,
+     17.159
+    ]
+   ],
+   "y0": 0.601,
+   "y1": 2.201
+  },
+  {
+   "uid": 228,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -48.683,
+     16.507
+    ],
+    [
+     -45.349,
+     16.174
+    ],
+    [
+     -45.317,
+     16.493
+    ],
+    [
+     -48.651,
+     16.826
+    ]
+   ],
+   "y0": 0.58,
+   "y1": 2.18
+  },
+  {
+   "uid": 229,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -45.349,
+     16.174
+    ],
+    [
+     -42.016,
+     15.841
+    ],
+    [
+     -41.984,
+     16.159
+    ],
+    [
+     -45.317,
+     16.493
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 2.11
+  },
+  {
+   "uid": 230,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -60.84,
+     33
+    ],
+    [
+     -60.84,
+     36
+    ],
+    [
+     -61.16,
+     36
+    ],
+    [
+     -61.16,
+     33
+    ]
+   ],
+   "y0": 0.572,
+   "y1": 2.172
+  },
+  {
+   "uid": 231,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -60.84,
+     36
+    ],
+    [
+     -60.84,
+     39
+    ],
+    [
+     -61.16,
+     39
+    ],
+    [
+     -61.16,
+     36
+    ]
+   ],
+   "y0": 0.552,
+   "y1": 2.152
+  },
+  {
+   "uid": 232,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -60.84,
+     39
+    ],
+    [
+     -60.84,
+     42
+    ],
+    [
+     -61.16,
+     42
+    ],
+    [
+     -61.16,
+     39
+    ]
+   ],
+   "y0": 0.501,
+   "y1": 2.101
+  },
+  {
+   "uid": 233,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     2.024,
+     40.842
+    ],
+    [
+     5.357,
+     41.342
+    ],
+    [
+     5.31,
+     41.658
+    ],
+    [
+     1.976,
+     41.158
+    ]
+   ],
+   "y0": 0.534,
+   "y1": 2.134
+  },
+  {
+   "uid": 234,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     5.357,
+     41.342
+    ],
+    [
+     8.69,
+     41.842
+    ],
+    [
+     8.643,
+     42.158
+    ],
+    [
+     5.31,
+     41.658
+    ]
+   ],
+   "y0": 0.525,
+   "y1": 2.125
+  },
+  {
+   "uid": 235,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     8.69,
+     41.842
+    ],
+    [
+     12.024,
+     42.342
+    ],
+    [
+     11.976,
+     42.658
+    ],
+    [
+     8.643,
+     42.158
+    ]
+   ],
+   "y0": 0.497,
+   "y1": 2.097
+  },
+  {
+   "uid": 236,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -10.016,
+     13.841
+    ],
+    [
+     -6.683,
+     13.507
+    ],
+    [
+     -6.651,
+     13.826
+    ],
+    [
+     -9.984,
+     14.159
+    ]
+   ],
+   "y0": 0.516,
+   "y1": 2.116
+  },
+  {
+   "uid": 237,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -6.683,
+     13.507
+    ],
+    [
+     -3.349,
+     13.174
+    ],
+    [
+     -3.317,
+     13.493
+    ],
+    [
+     -6.651,
+     13.826
+    ]
+   ],
+   "y0": 0.587,
+   "y1": 2.187
+  },
+  {
+   "uid": 238,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -3.349,
+     13.174
+    ],
+    [
+     -0.016,
+     12.841
+    ],
+    [
+     0.016,
+     13.159
+    ],
+    [
+     -3.317,
+     13.493
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 2.11
+  },
+  {
+   "uid": 239,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -25.969,
+     47.843
+    ],
+    [
+     -22.635,
+     48.51
+    ],
+    [
+     -22.698,
+     48.824
+    ],
+    [
+     -26.031,
+     48.157
+    ]
+   ],
+   "y0": 0.375,
+   "y1": 1.975
+  },
+  {
+   "uid": 240,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -22.635,
+     48.51
+    ],
+    [
+     -19.302,
+     49.176
+    ],
+    [
+     -19.365,
+     49.49
+    ],
+    [
+     -22.698,
+     48.824
+    ]
+   ],
+   "y0": 0.522,
+   "y1": 2.122
+  },
+  {
+   "uid": 241,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -19.302,
+     49.176
+    ],
+    [
+     -15.969,
+     49.843
+    ],
+    [
+     -16.031,
+     50.157
+    ],
+    [
+     -19.365,
+     49.49
+    ]
+   ],
+   "y0": 0.522,
+   "y1": 2.122
+  },
+  {
+   "uid": 242,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     37.84,
+     40
+    ],
+    [
+     37.84,
+     37
+    ],
+    [
+     38.16,
+     37
+    ],
+    [
+     38.16,
+     40
+    ]
+   ],
+   "y0": 0.538,
+   "y1": 2.138
+  },
+  {
+   "uid": 243,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     37.84,
+     37
+    ],
+    [
+     37.84,
+     34
+    ],
+    [
+     38.16,
+     34
+    ],
+    [
+     38.16,
+     37
+    ]
+   ],
+   "y0": 0.544,
+   "y1": 2.144
+  },
+  {
+   "uid": 244,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     37.84,
+     34
+    ],
+    [
+     37.84,
+     31
+    ],
+    [
+     38.16,
+     31
+    ],
+    [
+     38.16,
+     34
+    ]
+   ],
+   "y0": 0.505,
+   "y1": 2.105
+  },
+  {
+   "uid": 245,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     37.991,
+     30.84
+    ],
+    [
+     40.991,
+     30.674
+    ],
+    [
+     41.009,
+     30.993
+    ],
+    [
+     38.009,
+     31.16
+    ]
+   ],
+   "y0": 0.505,
+   "y1": 2.105
+  },
+  {
+   "uid": 246,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     40.991,
+     30.674
+    ],
+    [
+     43.991,
+     30.507
+    ],
+    [
+     44.009,
+     30.826
+    ],
+    [
+     41.009,
+     30.993
+    ]
+   ],
+   "y0": 0.554,
+   "y1": 2.154
+  },
+  {
+   "uid": 247,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     43.991,
+     30.507
+    ],
+    [
+     46.991,
+     30.34
+    ],
+    [
+     47.009,
+     30.66
+    ],
+    [
+     44.009,
+     30.826
+    ]
+   ],
+   "y0": 0.495,
+   "y1": 2.095
+  },
+  {
+   "uid": 248,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     62.007,
+     44.84
+    ],
+    [
+     65.007,
+     44.965
+    ],
+    [
+     64.993,
+     45.285
+    ],
+    [
+     61.993,
+     45.16
+    ]
+   ],
+   "y0": 0.485,
+   "y1": 2.085
+  },
+  {
+   "uid": 249,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     65.007,
+     44.965
+    ],
+    [
+     68.007,
+     45.09
+    ],
+    [
+     67.993,
+     45.41
+    ],
+    [
+     64.993,
+     45.285
+    ]
+   ],
+   "y0": 0.487,
+   "y1": 2.087
+  },
+  {
+   "uid": 250,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     68.007,
+     45.09
+    ],
+    [
+     71.007,
+     45.215
+    ],
+    [
+     70.993,
+     45.535
+    ],
+    [
+     67.993,
+     45.41
+    ]
+   ],
+   "y0": 0.459,
+   "y1": 2.059
+  },
+  {
+   "uid": 251,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     71.007,
+     45.215
+    ],
+    [
+     74.007,
+     45.34
+    ],
+    [
+     73.993,
+     45.66
+    ],
+    [
+     70.993,
+     45.535
+    ]
+   ],
+   "y0": 0.456,
+   "y1": 2.056
+  },
+  {
+   "uid": 264,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -70.044,
+     24.451
+    ],
+    [
+     -72.186,
+     24.08
+    ],
+    [
+     -72.099,
+     23.577
+    ],
+    [
+     -69.956,
+     23.949
+    ]
+   ],
+   "y0": 0.795,
+   "y1": 1.695
+  },
+  {
+   "uid": 265,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -72.186,
+     24.08
+    ],
+    [
+     -74.329,
+     23.708
+    ],
+    [
+     -74.242,
+     23.206
+    ],
+    [
+     -72.099,
+     23.577
+    ]
+   ],
+   "y0": 0.787,
+   "y1": 1.687
+  },
+  {
+   "uid": 266,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -74.329,
+     23.708
+    ],
+    [
+     -76.472,
+     23.337
+    ],
+    [
+     -76.385,
+     22.834
+    ],
+    [
+     -74.242,
+     23.206
+    ]
+   ],
+   "y0": 0.787,
+   "y1": 1.687
+  },
+  {
+   "uid": 267,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -76.472,
+     23.337
+    ],
+    [
+     -78.615,
+     22.966
+    ],
+    [
+     -78.528,
+     22.463
+    ],
+    [
+     -76.385,
+     22.834
+    ]
+   ],
+   "y0": 0.652,
+   "y1": 1.552
+  },
+  {
+   "uid": 268,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -78.615,
+     22.966
+    ],
+    [
+     -80.758,
+     22.594
+    ],
+    [
+     -80.671,
+     22.092
+    ],
+    [
+     -78.528,
+     22.463
+    ]
+   ],
+   "y0": 0.348,
+   "y1": 1.403
+  },
+  {
+   "uid": 269,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -80.758,
+     22.594
+    ],
+    [
+     -82.901,
+     22.223
+    ],
+    [
+     -82.814,
+     21.72
+    ],
+    [
+     -80.671,
+     22.092
+    ]
+   ],
+   "y0": 0.348,
+   "y1": 1.384
+  },
+  {
+   "uid": 270,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -82.901,
+     22.223
+    ],
+    [
+     -85.044,
+     21.851
+    ],
+    [
+     -84.956,
+     21.349
+    ],
+    [
+     -82.814,
+     21.72
+    ]
+   ],
+   "y0": 0.465,
+   "y1": 1.406
+  },
+  {
+   "uid": 271,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -85.046,
+     21.851
+    ],
+    [
+     -87.246,
+     21.451
+    ],
+    [
+     -87.154,
+     20.949
+    ],
+    [
+     -84.954,
+     21.349
+    ]
+   ],
+   "y0": 0.548,
+   "y1": 1.448
+  },
+  {
+   "uid": 272,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -91.646,
+     20.651
+    ],
+    [
+     -93.846,
+     20.251
+    ],
+    [
+     -93.754,
+     19.749
+    ],
+    [
+     -91.554,
+     20.149
+    ]
+   ],
+   "y0": 0.607,
+   "y1": 1.507
+  },
+  {
+   "uid": 273,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -93.846,
+     20.251
+    ],
+    [
+     -96.046,
+     19.851
+    ],
+    [
+     -95.954,
+     19.349
+    ],
+    [
+     -93.754,
+     19.749
+    ]
+   ],
+   "y0": 0.528,
+   "y1": 1.428
+  },
+  {
+   "uid": 274,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -96.032,
+     19.853
+    ],
+    [
+     -98.698,
+     19.52
+    ],
+    [
+     -98.635,
+     19.014
+    ],
+    [
+     -95.968,
+     19.347
+    ]
+   ],
+   "y0": 0.528,
+   "y1": 1.452
+  },
+  {
+   "uid": 275,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -98.698,
+     19.52
+    ],
+    [
+     -101.365,
+     19.186
+    ],
+    [
+     -101.302,
+     18.68
+    ],
+    [
+     -98.635,
+     19.014
+    ]
+   ],
+   "y0": 0.495,
+   "y1": 1.452
+  },
+  {
+   "uid": 276,
+   "asset": "A06.1-posts",
+   "polyXZ": [
+    [
+     -101.365,
+     19.186
+    ],
+    [
+     -104.032,
+     18.853
+    ],
+    [
+     -103.968,
+     18.347
+    ],
+    [
+     -101.302,
+     18.68
+    ]
+   ],
+   "y0": 0.401,
+   "y1": 1.399
+  }
+ ],
+ "markers": [
+  {
+   "kind": "encounter",
+   "id": "E1",
+   "x": -16,
+   "z": -20,
+   "r": 8,
+   "segment": "churchyard",
+   "label": "E1 · U01 ×5",
+   "monsters": [
+    {
+     "id": "U01",
+     "count": 5,
+     "standIn": "zombie"
+    }
+   ],
+   "note": "first fight past the lychgate, round Rite 1",
+   "y": 0.9542620778083801
+  },
+  {
+   "kind": "encounter",
+   "id": "E2",
+   "x": -37,
+   "z": -29,
+   "r": 6,
+   "segment": "churchyard",
+   "label": "E2 · U02 ×3 + U01 ×2",
+   "monsters": [
+    {
+     "id": "U02",
+     "count": 3,
+     "standIn": "skeleton"
+    },
+    {
+     "id": "U01",
+     "count": 2,
+     "standIn": "zombie"
+    }
+   ],
+   "y": 0.4356018602848053
+  },
+  {
+   "kind": "encounter",
+   "id": "E3",
+   "x": -12,
+   "z": -50,
+   "r": 4,
+   "segment": "churchyard",
+   "label": "E3 · U03 ×2 (bowmen)",
+   "monsters": [
+    {
+     "id": "U03",
+     "count": 2,
+     "standIn": "skeleton_archer"
+    }
+   ],
+   "note": "first ranged enemy: on the open west shoulder, clear sightlines down to the church path",
+   "y": 4.919821739196777
+  },
+  {
+   "kind": "encounter",
+   "id": "E4",
+   "x": -55,
+   "z": -18,
+   "r": 5,
+   "segment": "churchyard",
+   "label": "E4 · U04 ×2 (ghouls)",
+   "monsters": [
+    {
+     "id": "U04",
+     "count": 2,
+     "standIn": "spider"
+    }
+   ],
+   "y": 0.6361177563667297
+  },
+  {
+   "kind": "encounter",
+   "id": "E5",
+   "x": -44,
+   "z": -53,
+   "r": 6,
+   "segment": "churchyard",
+   "label": "E5 · W02 ×5 (gibbet crows)",
+   "monsters": [
+    {
+     "id": "W02",
+     "count": 5,
+     "standIn": "bat"
+    }
+   ],
+   "y": 0.5923029780387878
+  },
+  {
+   "kind": "encounter",
+   "id": "E6",
+   "x": 21,
+   "z": -50,
+   "r": 4,
+   "segment": "churchyard",
+   "label": "E6 · F01 ×2 (side: The Mortsafe Thieves)",
+   "monsters": [
+    {
+     "id": "F01",
+     "count": 2,
+     "standIn": "imp",
+     "single": true
+    }
+   ],
+   "note": "side quest; they run when seen",
+   "y": 10.108716011047363
+  },
+  {
+   "kind": "encounter",
+   "id": "E7",
+   "x": 40,
+   "z": -50,
+   "r": 5,
+   "segment": "churchyard",
+   "label": "E7 · U01 ×3 + U02 ×1",
+   "monsters": [
+    {
+     "id": "U01",
+     "count": 3,
+     "standIn": "zombie"
+    },
+    {
+     "id": "U02",
+     "count": 1,
+     "standIn": "skeleton"
+    }
+   ],
+   "y": 12.160179138183594
+  },
+  {
+   "kind": "rite",
+   "id": "R1",
+   "x": -4.5,
+   "z": -17.5,
+   "label": "Rite 1 · mộ trỗi dậy (mortsafe bẻ ra ngoài)",
+   "note": "by the path above the statue: the cage bent outward from inside",
+   "y": 2.7212576866149902
+  },
+  {
+   "kind": "rite",
+   "id": "R2",
+   "x": -34.5,
+   "z": -24.5,
+   "label": "Rite 2 · mộ mới, xe tang, đèn cột",
+   "note": "a spade in the earth, the hand cart, the sexton lamp",
+   "y": 0.4639090299606323
+  },
+  {
+   "kind": "rite",
+   "id": "R3",
+   "x": -47,
+   "z": -6.5,
+   "label": "Rite 3 · mộ trẻ con, nến hũ",
+   "note": "small grave under the edge yews; the vigil chair beside it (unmarked)",
+   "y": 0.5539376139640808
+  },
+  {
+   "kind": "rite",
+   "id": "R4",
+   "x": -44.6,
+   "z": -47.2,
+   "label": "Rite 4 · mộ dưới giá treo cổ",
+   "note": "tar post, empty cage, crows",
+   "y": 0.5693193745613099
+  },
+  {
+   "kind": "rite",
+   "id": "R5",
+   "x": 30,
+   "z": -57.5,
+   "label": "Rite 5 · lô mộ gia đình sau tường đá",
+   "note": "mismatched stones inside a low flint plot north of the summit",
+   "y": 7.729794025421143
+  },
+  {
+   "kind": "landmark",
+   "id": "L1",
+   "x": 42,
+   "z": -40,
+   "label": "Tháp ossuary (thấy từ gần hết map)",
+   "y": 13.016854286193848
+  },
+  {
+   "kind": "landmark",
+   "id": "L2",
+   "x": -24,
+   "z": 3,
+   "label": "Đèn lychgate (ngưỡng ánh sáng)",
+   "y": 0.49917614459991455
+  },
+  {
+   "kind": "landmark",
+   "id": "L3",
+   "x": 9,
+   "z": -30,
+   "label": "Nhà thờ đá lửa · tháp chuông",
+   "y": 10.098575592041016
+  },
+  {
+   "kind": "sightline",
+   "id": "S1",
+   "from": [
+    38,
+    -38,
+    1.7
+   ],
+   "target": "far:N-GH",
+   "label": "Đỉnh đồi → Gentle House (đích đến của act)",
+   "y": 0,
+   "fromP": [
+    38,
+    14.716854286193847,
+    -38
+   ],
+   "toP": [
+    -360,
+    45,
+    -170
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S2",
+   "from": [
+    6.5,
+    -30.5,
+    1.7
+   ],
+   "target": [
+    -24,
+    0,
+    3
+   ],
+   "targetLift": 2.5,
+   "label": "Bậc nhà thờ → đèn lychgate",
+   "y": 0,
+   "fromP": [
+    6.5,
+    11.798575592041015,
+    -30.5
+   ],
+   "toP": [
+    -24,
+    2.9991761445999146,
+    3
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S3",
+   "from": [
+    -36,
+    34,
+    1.7
+   ],
+   "target": [
+    42,
+    0,
+    -40
+   ],
+   "targetLift": 7.5,
+   "label": "Quảng trường → tháp ossuary",
+   "y": 0,
+   "fromP": [
+    -36,
+    2.3028192639350893,
+    34
+   ],
+   "toP": [
+    42,
+    20.516854286193848,
+    -40
+   ]
+  },
+  {
+   "kind": "sightline",
+   "id": "S4",
+   "from": [
+    -84,
+    23.5,
+    1.7
+   ],
+   "target": "far:N-GH",
+   "label": "Đê → Gentle House qua nước đen",
+   "y": 0,
+   "fromP": [
+    -84,
+    2.6200000166893007,
+    23.5
+   ],
+   "toP": [
+    -360,
+    45,
+    -170
+   ]
+  },
+  {
+   "kind": "vignette",
+   "id": "V1",
+   "x": -48.6,
+   "z": -4.4,
+   "unmarked": true,
+   "label": "Ghế canh + chăn gấp bên mộ trẻ con (không đánh dấu)",
+   "y": 0.5503499436378478
+  },
+  {
+   "kind": "vignette",
+   "id": "V2",
+   "x": -31.3,
+   "z": -21,
+   "label": "Bát sữa cho the Kind Ones dưới đèn người đào mộ",
+   "y": 0.5869726777076721
+  },
+  {
+   "kind": "vignette",
+   "id": "V3",
+   "x": 42.5,
+   "z": -22.5,
+   "remember": true,
+   "label": "REMEMBER (hub): trẻ con nhảy đếm sọ bên ossuary trong mưa",
+   "y": 9.198773384094238
+  },
+  {
+   "kind": "vignette",
+   "id": "V4",
+   "x": -3.6,
+   "z": -15.8,
+   "remember": true,
+   "label": "REMEMBER (churchyard): quỳ bên mộ trong mưa",
+   "y": 2.6392186355590828
+  },
+  {
+   "kind": "npc",
+   "id": "gennet",
+   "x": -28.4,
+   "z": 13.2,
+   "label": "Gennet Barrow (tẩu đỏ lửa ở cửa)",
+   "segment": "hub",
+   "y": 0.5431748032569885
+  },
+  {
+   "kind": "npc",
+   "id": "brannoc",
+   "x": -9.4,
+   "z": 30.6,
+   "label": "Brannoc (lò rèn)",
+   "segment": "hub",
+   "y": 0.5201587677001953
+  },
+  {
+   "kind": "npc",
+   "id": "osric",
+   "x": -59.8,
+   "z": 23.6,
+   "label": "Osric (trạm gác)",
+   "segment": "hub",
+   "y": 0.606009545326233
+  },
+  {
+   "kind": "npc",
+   "id": "nell",
+   "x": -43.2,
+   "z": 37.6,
+   "label": "Nell Coppercoin (sạp đồ tang)",
+   "segment": "hub",
+   "y": 0.6252405357360841
+  },
+  {
+   "kind": "npc",
+   "id": "tamsin",
+   "x": -27.4,
+   "z": 36.2,
+   "label": "Tamsin (bảng tên người ngủ)",
+   "segment": "hub",
+   "y": 0.6697827768325806
+  },
+  {
+   "kind": "npc",
+   "id": "children",
+   "x": 42.4,
+   "z": -21.6,
+   "label": "Trẻ con ×3 (đếm sọ)",
+   "segment": "hub",
+   "y": 9.170131912231446
+  },
+  {
+   "kind": "npc",
+   "id": "edda",
+   "x": -40.6,
+   "z": 58.4,
+   "label": "Edda (The Broth → Edda's Dream)",
+   "segment": "hub",
+   "y": 0.66
+  },
+  {
+   "kind": "npc",
+   "id": "gennetVigil",
+   "x": 6.2,
+   "z": -29,
+   "label": "Gennet + đèn lồng (Prologue · đêm)",
+   "segment": "churchyard",
+   "moods": [
+    "night"
+   ],
+   "y": 10.098575592041016
+  },
+  {
+   "kind": "exit",
+   "id": "X1",
+   "x": -104,
+   "z": 20.5,
+   "label": "→ The Night Fens (11.4) · đê",
+   "to": "fens",
+   "y": 0.9200000166893005
+  },
+  {
+   "kind": "exit",
+   "id": "X2",
+   "x": 46,
+   "z": -24.7,
+   "label": "→ Hầm nhà Barrow (One for the Footing)",
+   "to": "barrowVault",
+   "y": 9.23439884185791
+  },
+  {
+   "kind": "exit",
+   "id": "X3",
+   "x": -41.8,
+   "z": 59.4,
+   "label": "→ Edda's Dream (11.10, The Broth)",
+   "to": "eddasDream",
+   "y": 0.6220101118087769
+  }
+ ],
+ "segments": [
+  {
+   "id": "hub",
+   "kind": "hub",
+   "label": "Làng · quảng trường (hub)",
+   "spawn": [
+    -34.5,
+    35.5
+   ],
+   "view": "hub",
+   "route": [
+    [
+     -34.5,
+     35.5
+    ],
+    [
+     -44,
+     33.5
+    ],
+    [
+     -56,
+     30
+    ],
+    [
+     -66,
+     27
+    ],
+    [
+     -80,
+     25
+    ],
+    [
+     -96,
+     21.6
+    ]
+   ],
+   "spawnY": 0.6214625239372253
+  },
+  {
+   "id": "mere",
+   "kind": "hub",
+   "label": "Làng · bờ hồ, nhà Edda",
+   "spawn": [
+    -36.5,
+    42.5
+   ],
+   "view": "mere",
+   "route": [
+    [
+     -36.5,
+     42.5
+    ],
+    [
+     -37.6,
+     46
+    ],
+    [
+     -38.6,
+     51
+    ],
+    [
+     -40.5,
+     56
+    ],
+    [
+     -41.2,
+     58.4
+    ]
+   ],
+   "spawnY": 0.66
+  },
+  {
+   "id": "gate",
+   "kind": "hub",
+   "label": "Cổng lychgate (ngưỡng)",
+   "spawn": [
+    -24.5,
+    9.5
+   ],
+   "view": "lychgate",
+   "route": [
+    [
+     -24.5,
+     9.5
+    ],
+    [
+     -24,
+     5
+    ],
+    [
+     -24,
+     0
+    ],
+    [
+     -20,
+     -5
+    ],
+    [
+     -15.959,
+     -8.911
+    ],
+    [
+     -12.412,
+     -10.021
+    ],
+    [
+     -10.841,
+     -13.389
+    ],
+    [
+     -14.388,
+     -12.279
+    ],
+    [
+     -15.959,
+     -8.911
+    ],
+    [
+     -12.412,
+     -10.021
+    ],
+    [
+     -10.841,
+     -13.389
+    ],
+    [
+     -4,
+     -20
+    ],
+    [
+     3,
+     -26
+    ],
+    [
+     6.5,
+     -29.5
+    ]
+   ],
+   "spawnY": 0.5240272879600525
+  },
+  {
+   "id": "churchyard",
+   "kind": "wild",
+   "label": "Sân nhà thờ · giữa dốc",
+   "spawn": [
+    -15.5,
+    -10.5
+   ],
+   "view": "churchyard",
+   "route": [
+    [
+     -15.5,
+     -10.5
+    ],
+    [
+     -24,
+     -14
+    ],
+    [
+     -34,
+     -20
+    ],
+    [
+     -42,
+     -30
+    ],
+    [
+     -46,
+     -40
+    ],
+    [
+     -46,
+     -44
+    ]
+   ],
+   "spawnY": 0.6417280435562134
+  },
+  {
+   "id": "summit",
+   "kind": "wild",
+   "label": "Đỉnh đồi · tháp ossuary",
+   "spawn": [
+    36,
+    -44
+   ],
+   "view": "summit",
+   "route": [
+    [
+     36,
+     -44
+    ],
+    [
+     30,
+     -41
+    ],
+    [
+     20,
+     -39.4
+    ],
+    [
+     10,
+     -37.6
+    ],
+    [
+     6.8,
+     -33
+    ],
+    [
+     7,
+     -30.2
+    ]
+   ],
+   "spawnY": 12.937273979187012
+  },
+  {
+   "id": "terrace",
+   "kind": "hub",
+   "label": "Sân hầm Barrow (hub, dưới ossuary)",
+   "spawn": [
+    44,
+    -19.5
+   ],
+   "view": "vault",
+   "route": [
+    [
+     44,
+     -19.5
+    ],
+    [
+     41,
+     -14
+    ],
+    [
+     36,
+     -5
+    ],
+    [
+     30,
+     5
+    ],
+    [
+     25,
+     14
+    ],
+    [
+     18,
+     22.5
+    ],
+    [
+     6,
+     26
+    ]
+   ],
+   "spawnY": 9.119693756103516
+  },
+  {
+   "id": "fenroad",
+   "kind": "wild",
+   "label": "Đê ra Night Fens",
+   "spawn": [
+    -78,
+    25.6
+   ],
+   "view": "fenroad",
+   "route": [
+    [
+     -78,
+     25.6
+    ],
+    [
+     -70,
+     26.6
+    ],
+    [
+     -64,
+     27.4
+    ],
+    [
+     -56,
+     30
+    ],
+    [
+     -46,
+     33
+    ]
+   ],
+   "spawnY": 0.9200000166893005
+  }
+ ],
+ "spawns": [
+  {
+   "id": "hub",
+   "label": "Làng · quảng trường (hub)",
+   "x": -34.5,
+   "z": 35.5,
+   "y": 0.6214625239372253
+  },
+  {
+   "id": "mere",
+   "label": "Làng · bờ hồ, nhà Edda",
+   "x": -36.5,
+   "z": 42.5,
+   "y": 0.66
+  },
+  {
+   "id": "gate",
+   "label": "Cổng lychgate (ngưỡng)",
+   "x": -24.5,
+   "z": 9.5,
+   "y": 0.5240272879600525
+  },
+  {
+   "id": "churchyard",
+   "label": "Sân nhà thờ · giữa dốc",
+   "x": -15.5,
+   "z": -10.5,
+   "y": 0.6417280435562134
+  },
+  {
+   "id": "summit",
+   "label": "Đỉnh đồi · tháp ossuary",
+   "x": 36,
+   "z": -44,
+   "y": 12.937273979187012
+  },
+  {
+   "id": "terrace",
+   "label": "Sân hầm Barrow (hub, dưới ossuary)",
+   "x": 44,
+   "z": -19.5,
+   "y": 9.119693756103516
+  },
+  {
+   "id": "fenroad",
+   "label": "Đê ra Night Fens",
+   "x": -78,
+   "z": 25.6,
+   "y": 0.9200000166893005
+  }
+ ],
+ "views": {
+  "overview": {
+   "label": "Toàn cảnh (base map)",
+   "target": [
+    0,
+    1.8192204236984253,
+    -4
+   ],
+   "fit": [
+    216,
+    160
+   ],
+   "id": "overview"
+  },
+  "hub": {
+   "label": "Làng Lychgate (hub)",
+   "target": [
+    -32,
+    1.126122236251831,
+    34
+   ],
+   "dist": 50,
+   "pitch": 52,
+   "id": "hub"
+  },
+  "mere": {
+   "label": "Bờ hồ · lối ván · nhà Edda",
+   "target": [
+    -38,
+    0.030000001192092896,
+    52
+   ],
+   "dist": 30,
+   "pitch": 48,
+   "id": "mere"
+  },
+  "lychgate": {
+   "label": "Cổng lychgate (ngưỡng ánh sáng)",
+   "target": [
+    -24,
+    1.6991761445999145,
+    3
+   ],
+   "dist": 18,
+   "pitch": 36,
+   "lift": 1.2,
+   "id": "lychgate"
+  },
+  "churchyard": {
+   "label": "Sân nhà thờ (dốc mộ)",
+   "target": [
+    -18,
+    1.312946081161499,
+    -22
+   ],
+   "dist": 58,
+   "pitch": 52,
+   "id": "churchyard"
+  },
+  "rites": {
+   "label": "Năm mộ chưa yên (rite)",
+   "target": [
+    -12,
+    4.18855094909668,
+    -32
+   ],
+   "dist": 92,
+   "pitch": 60,
+   "id": "rites"
+  },
+  "church": {
+   "label": "Nhà thờ đá lửa · tượng không mặt",
+   "target": [
+    0,
+    6.658138275146484,
+    -22
+   ],
+   "dist": 34,
+   "pitch": 40,
+   "lift": 2,
+   "id": "church"
+  },
+  "summit": {
+   "label": "Đỉnh đồi · tháp ossuary",
+   "target": [
+    38,
+    15.016854286193848,
+    -40
+   ],
+   "dist": 34,
+   "pitch": 44,
+   "lift": 2,
+   "id": "summit"
+  },
+  "vault": {
+   "label": "Sân hầm Barrow · trẻ con đếm sọ",
+   "target": [
+    45,
+    10.130122184753418,
+    -21
+   ],
+   "dist": 22,
+   "pitch": 42,
+   "lift": 1,
+   "id": "vault"
+  },
+  "gibbet": {
+   "label": "Giá treo cổ + quạ (Rite 4)",
+   "target": [
+    -46,
+    2.108086585998535,
+    -48
+   ],
+   "dist": 22,
+   "pitch": 44,
+   "lift": 1.5,
+   "id": "gibbet"
+  },
+  "fenroad": {
+   "label": "Đê ra Night Fens",
+   "target": [
+    -84,
+    1.4200000166893005,
+    23
+   ],
+   "dist": 36,
+   "pitch": 46,
+   "id": "fenroad"
+  },
+  "gentle": {
+   "label": "Từ đỉnh đồi nhìn Gentle House (N-GH)",
+   "eye": [
+    36,
+    16.433718109130858,
+    -35
+   ],
+   "eyeLift": 3.4,
+   "look": [
+    -360,
+    45,
+    -170
+   ],
+   "fov": 30,
+   "id": "gentle"
+  },
+  "hubGentle": {
+   "label": "Từ làng nhìn qua nước đen tới Gentle House",
+   "eye": [
+    -60,
+    3.157985067367554,
+    58
+   ],
+   "eyeLift": 2.6,
+   "look": [
+    -360,
+    45,
+    -170
+   ],
+   "fov": 30,
+   "id": "hubGentle"
+  }
+ },
+ "rain": null,
+ "lighting": {
+  "default": "day",
+  "defaultNote": "scene setting mood = null opens PLAN.defaultMood (Play uses the same preset; there is no Play-only mood)",
+  "sceneDefaults": {
+   "look": 2,
+   "mood": null,
+   "spawn": null,
+   "smooth": 0.8,
+   "antiTiling": true,
+   "variationScale": 0.18,
+   "macro": 0.1,
+   "showWeights": false,
+   "puddles": 0.24,
+   "wetDarken": 0.5,
+   "blendContrast": 0.65,
+   "rain": 1,
+   "mist": 1,
+   "ritesDone": false,
+   "flicker": true,
+   "labels": false,
+   "encounters": false,
+   "rites": false,
+   "landmarks": false,
+   "vignettes": false,
+   "npcs": false,
+   "exits": false,
+   "legend": true,
+   "blockouts": true,
+   "props": true,
+   "cards": true,
+   "grassDensity": 1,
+   "monsters": true,
+   "subject": false,
+   "waterOpacity": 0.92,
+   "waterFlow": 1,
+   "smoke": true,
+   "smokeSpeed": 1,
+   "smokeInfo": false
+  },
+  "hemisphereBuildColors": {
+   "sky": "#a9b1a6",
+   "ground": "#4a3526",
+   "note": "initial THREE.HemisphereLight(0xa9b1a6, 0x4a3526, 1), replaced by the mood on apply"
+  },
+  "moods": {
+   "day": {
+    "label": "Act I · mưa phùn ban ngày",
+    "raw": {
+     "label": "Act I · mưa phùn ban ngày",
+     "sky": "#a9b1a6",
+     "ground": "#4a3526",
+     "hemi": 2.3,
+     "sun": {
+      "elev": 62,
+      "az": -150,
+      "intensity": 0.5,
+      "kelvin": 7000
+     },
+     "env": "hdri-overcast",
+     "envI": 0.4,
+     "toneMapping": "aces",
+     "exposure": 0.75,
+     "background": "#7d857b",
+     "fog": {
+      "enabled": true,
+      "color": "#8c958a",
+      "density": 0.016,
+      "falloff": 0.11,
+      "height": 0,
+      "start": 12,
+      "inscatter": 0
+     },
+     "grade": {
+      "vignette": 0.32,
+      "contrast": 1.05,
+      "saturation": 0.86,
+      "lift": 0,
+      "temperature": -0.02,
+      "tint": 0
+     },
+     "rain": 0.4,
+     "mist": 0.55,
+     "human": 0.7,
+     "perfection": 1,
+     "windows": 0.55,
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#a9b1a6",
+      "groundColor": "#4a3526",
+      "intensity": 2.3
+     },
+     "sun": {
+      "kelvin": 7000,
+      "color": "#f3f2ff",
+      "intensity": 0.5,
+      "elevDeg": 62,
+      "azDeg": -150,
+      "direction": [
+       -0.23474,
+       0.88295,
+       -0.40657
+      ],
+      "lightPosition": [
+       -28.168,
+       105.954,
+       -52.789
+      ],
+      "lightTarget": [
+       0,
+       0,
+       -4
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.4
+     },
+     "background": "#7d857b",
+     "skyTint": "#7d837a",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.75,
+      "fog": {
+       "enabled": true,
+       "height": 0,
+       "color": "#8c958a",
+       "density": 0.016,
+       "falloff": 0.11,
+       "start": 12,
+       "inscatter": 0
+      },
+      "grade": {
+       "vignette": 0.32,
+       "contrast": 1.05,
+       "saturation": 0.86,
+       "lift": 0,
+       "temperature": -0.02,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     },
+     "levels": {
+      "human": 0.7,
+      "perfection": 1,
+      "windows": 0.55
+     },
+     "rain": 0.4,
+     "mist": 0.55,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -24,
+        2.5692,
+        3.97
+       ],
+       "color": "#e0a050",
+       "intensity": 9,
+       "range": 10,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.3,
+       "levelScale": 0.7
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -8.177,
+        1.3702,
+        32.575
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 0.7
+      },
+      {
+       "id": "square",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -40,
+        2.9655,
+        27
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 9,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.7
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -44.202,
+        2.792,
+        60.826
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.7
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": true,
+       "position": [
+        47.6,
+        10.1373,
+        -23.9
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 0.7
+      },
+      {
+       "id": "churchDoor",
+       "kind": "human",
+       "on": true,
+       "position": [
+        6.6,
+        11.7986,
+        -30.4
+       ],
+       "color": "#e0a050",
+       "intensity": 5,
+       "range": 9,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.7,
+       "levelScale": 0.7
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -61.13,
+        3.3653,
+        22
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 0.7
+      },
+      {
+       "id": "pipe",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -28.6,
+        2.0432,
+        13.4
+       ],
+       "color": "#ff7a2a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1.4,
+       "glow": 0.18,
+       "levelScale": 0.7
+      },
+      {
+       "id": "sexton1",
+       "kind": "human",
+       "on": true,
+       "position": [
+        4.1,
+        11.6096,
+        -32.21
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 0.7
+      },
+      {
+       "id": "sexton2",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -30.835,
+        2.5417,
+        -21.769
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 0.7
+      },
+      {
+       "id": "gentleHouse",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -360,
+        7.4,
+        -170
+       ],
+       "color": "#f6b468",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 8,
+       "levelScale": 1
+      }
+     ]
+    }
+   },
+   "night": {
+    "label": "Prologue · đêm mưa",
+    "raw": {
+     "label": "Prologue · đêm mưa",
+     "sky": "#4e5f7a",
+     "ground": "#1c241f",
+     "hemi": 2.2,
+     "sun": {
+      "elev": 44,
+      "az": 160,
+      "intensity": 0.8,
+      "kelvin": 9000
+     },
+     "env": "hdri-night",
+     "envI": 0.12,
+     "toneMapping": "aces",
+     "exposure": 1.5,
+     "background": "#0e1317",
+     "rainTone": 0.4,
+     "fog": {
+      "enabled": true,
+      "color": "#1a2228",
+      "density": 0.016,
+      "falloff": 0.1,
+      "height": 0,
+      "start": 8,
+      "inscatter": 0
+     },
+     "grade": {
+      "vignette": 0.55,
+      "contrast": 1.1,
+      "saturation": 0.78,
+      "lift": 0,
+      "temperature": -0.05,
+      "tint": 0
+     },
+     "rain": 1,
+     "mist": 0.75,
+     "human": 1,
+     "perfection": 0,
+     "windows": 0.2,
+     "flags": {
+      "accent": false,
+      "graveCandles": false,
+      "gentleHouse": false,
+      "forge": false,
+      "gennetLantern": true
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#4e5f7a",
+      "groundColor": "#1c241f",
+      "intensity": 2.2
+     },
+     "sun": {
+      "kelvin": 9000,
+      "color": "#d2dfff",
+      "intensity": 0.8,
+      "elevDeg": 44,
+      "azDeg": 160,
+      "direction": [
+       0.24603,
+       0.69466,
+       -0.67596
+      ],
+      "lightPosition": [
+       29.523,
+       83.359,
+       -85.115
+      ],
+      "lightTarget": [
+       0,
+       0,
+       -4
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-night",
+      "intensity": 0.12
+     },
+     "background": "#0e1317",
+     "skyTint": "#364357",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 1.5,
+      "fog": {
+       "enabled": true,
+       "height": 0,
+       "color": "#1a2228",
+       "density": 0.016,
+       "falloff": 0.1,
+       "start": 8,
+       "inscatter": 0
+      },
+      "grade": {
+       "vignette": 0.55,
+       "contrast": 1.1,
+       "saturation": 0.78,
+       "lift": 0,
+       "temperature": -0.05,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": false,
+      "graveCandles": false,
+      "gentleHouse": false,
+      "forge": false,
+      "gennetLantern": true
+     },
+     "levels": {
+      "human": 1,
+      "perfection": 0,
+      "windows": 0.2
+     },
+     "rain": 1,
+     "mist": 0.75,
+     "rainTone": 0.4,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -24,
+        2.5692,
+        3.97
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 7,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.2,
+       "levelScale": 1
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -8.177,
+        1.3702,
+        32.575
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 1
+      },
+      {
+       "id": "square",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -40,
+        2.9655,
+        27
+       ],
+       "color": "#e0a050",
+       "intensity": 0.8,
+       "range": 9,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -44.202,
+        2.792,
+        60.826
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": false,
+       "position": [
+        47.6,
+        10.1373,
+        -23.9
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 1
+      },
+      {
+       "id": "churchDoor",
+       "kind": "human",
+       "on": true,
+       "position": [
+        6.6,
+        11.7986,
+        -30.4
+       ],
+       "color": "#e0a050",
+       "intensity": 14,
+       "range": 13,
+       "real": true,
+       "flicker": 1,
+       "glow": 1.15,
+       "levelScale": 1
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -61.13,
+        3.3653,
+        22
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 1
+      },
+      {
+       "id": "pipe",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -28.6,
+        2.0432,
+        13.4
+       ],
+       "color": "#ff7a2a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1.4,
+       "glow": 0.18,
+       "levelScale": 1
+      },
+      {
+       "id": "sexton1",
+       "kind": "human",
+       "on": false,
+       "position": [
+        4.1,
+        11.6096,
+        -32.21
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 1
+      },
+      {
+       "id": "sexton2",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -30.835,
+        2.5417,
+        -21.769
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 1
+      },
+      {
+       "id": "gentleHouse",
+       "kind": "perfection",
+       "on": false,
+       "position": [
+        -360,
+        7.4,
+        -170
+       ],
+       "color": "#f6b468",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 8,
+       "levelScale": 0
+      }
+     ]
+    }
+   },
+   "lookdev": {
+    "label": "Soi texture · sáng đều",
+    "raw": {
+     "label": "Soi texture · sáng đều",
+     "sky": "#c9d4e4",
+     "ground": "#3b352e",
+     "hemi": 2.4,
+     "sun": {
+      "elev": 50,
+      "az": -135,
+      "intensity": 1.1,
+      "kelvin": 5600
+     },
+     "env": "hdri-overcast",
+     "envI": 0.25,
+     "toneMapping": "aces",
+     "exposure": 0.2,
+     "background": "#30353a",
+     "fog": {
+      "enabled": false
+     },
+     "grade": {
+      "vignette": 0.2,
+      "contrast": 1.04,
+      "saturation": 1,
+      "lift": 0,
+      "temperature": 0,
+      "tint": 0
+     },
+     "rain": 0,
+     "mist": 0,
+     "human": 0.5,
+     "perfection": 1,
+     "windows": 0.4,
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#c9d4e4",
+      "groundColor": "#3b352e",
+      "intensity": 2.4
+     },
+     "sun": {
+      "kelvin": 5600,
+      "color": "#ffefe1",
+      "intensity": 1.1,
+      "elevDeg": 50,
+      "azDeg": -135,
+      "direction": [
+       -0.45452,
+       0.76604,
+       -0.45452
+      ],
+      "lightPosition": [
+       -54.542,
+       91.925,
+       -58.542
+      ],
+      "lightTarget": [
+       0,
+       0,
+       -4
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.25
+     },
+     "background": "#30353a",
+     "skyTint": "#98a0ac",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.2,
+      "fog": {
+       "enabled": false,
+       "height": 0
+      },
+      "grade": {
+       "vignette": 0.2,
+       "contrast": 1.04,
+       "saturation": 1,
+       "lift": 0,
+       "temperature": 0,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     },
+     "levels": {
+      "human": 0.5,
+      "perfection": 1,
+      "windows": 0.4
+     },
+     "rain": 0,
+     "mist": 0,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -24,
+        2.5692,
+        3.97
+       ],
+       "color": "#e0a050",
+       "intensity": 9,
+       "range": 10,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.3,
+       "levelScale": 0.5
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -8.177,
+        1.3702,
+        32.575
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 0.5
+      },
+      {
+       "id": "square",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -40,
+        2.9655,
+        27
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 9,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.5
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -44.202,
+        2.792,
+        60.826
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.5
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": true,
+       "position": [
+        47.6,
+        10.1373,
+        -23.9
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 0.5
+      },
+      {
+       "id": "churchDoor",
+       "kind": "human",
+       "on": true,
+       "position": [
+        6.6,
+        11.7986,
+        -30.4
+       ],
+       "color": "#e0a050",
+       "intensity": 5,
+       "range": 9,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.7,
+       "levelScale": 0.5
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -61.13,
+        3.3653,
+        22
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 0.5
+      },
+      {
+       "id": "pipe",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -28.6,
+        2.0432,
+        13.4
+       ],
+       "color": "#ff7a2a",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1.4,
+       "glow": 0.18,
+       "levelScale": 0.5
+      },
+      {
+       "id": "sexton1",
+       "kind": "human",
+       "on": true,
+       "position": [
+        4.1,
+        11.6096,
+        -32.21
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 0.5
+      },
+      {
+       "id": "sexton2",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -30.835,
+        2.5417,
+        -21.769
+       ],
+       "color": "#e0a050",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 1,
+       "glow": 0.45,
+       "levelScale": 0.5
+      },
+      {
+       "id": "gentleHouse",
+       "kind": "perfection",
+       "on": true,
+       "position": [
+        -360,
+        7.4,
+        -170
+       ],
+       "color": "#f6b468",
+       "intensity": 0,
+       "range": 0,
+       "real": false,
+       "flicker": 0,
+       "glow": 8,
+       "levelScale": 1
+      }
+     ]
+    }
+   }
+  },
+  "port": "resolved values are ported from scenes/act1Outdoor.js applyTime() and env/act1/outdoorBuild.js applyMood()/lightOn() by the export script (those files need THREE/DOM); raw = PLAN.moods as in the map file, read by node"
+ },
+ "environmentMaps": [
+  {
+   "id": "hdri-night",
+   "labFile": "lookdev-lab/assets/samples/moonless_golf_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/moonless_golf)"
+  },
+  {
+   "id": "hdri-overcast",
+   "labFile": "lookdev-lab/assets/samples/quarry_01_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/quarry_01)"
+  }
+ ],
+ "commonTextures": [
+  {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  {
+   "id": "biome-darkwood-water-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "darkwood-sty-green-cobble",
+   "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+  },
+  {
+   "id": "darkwood-sty-green-cobble-n",
+   "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+  }
+ ],
+ "notes": {
+  "hub": "Hub (11.2, an toàn, 15 phút qua nhiều lần ghé): \"ấm nhỏ biết giá của nó\" — nghèo, ướt, không phải làng fantasy ấm cúng. Nhà sàn trên than bùn ướt, lối ván qua mặt hồ, tường đá lửa vá, rào liễu, giếng, giá lờ lươn, lò rèn Brannoc, bảng tên người ngủ, chuông tang, sạp Nell, trạm gác Osric, hố cắt than bùn (nước đen) ở phía đông; nhánh poppy trên cửa là accent duy nhất.",
+  "churchyard": "Churchyard (11.3, wild, 20 phút, D2 C2): dốc từ cửa nhà thờ xuống cổng lychgate; mộ thấp, thủy tùng chỉ ở rìa, mortsafe, cụm bia lệch, xe tang, giá treo cổ hắc ín + quạ, tượng không mặt trên lối đi, nến hũ trên mộ. Năm mộ chưa yên (rite), mỗi chỗ một cảnh. Mưa phùn, ánh sáng xám không bóng; sau 5 rite: sương mỏng đi, quạ đậu lại."
+ }
+}

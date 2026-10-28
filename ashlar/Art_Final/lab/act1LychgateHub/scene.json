@@ -1,0 +1,5066 @@
+{
+ "scene": "act1LychgateHub",
+ "mapId": "lychgateHub",
+ "label": "Lychgate hub · walled (seed 21)",
+ "biome": "BIO-03",
+ "seed": 21,
+ "generator": {
+  "version": "hub-gen/2",
+  "hubPlanId": "gen-hub-64-s21",
+  "hubSeed": 21,
+  "attempt": 3,
+  "frozen": {
+   "from": "lookdev-lab/src/env/planGenHub.js",
+   "generator": "hub-gen/2",
+   "codeSha256_16": "26b66ea84542d6d4",
+   "at": "2026-10-23T16:05+07:00",
+   "why": "the layout the user picked (v2-seed-21.png, 15:55) — freeze so later generator edits never move it"
+  },
+  "hubPlanFile": "lookdev-lab/src/env/hubPlans/lychgate-s21.json",
+  "note": "FROZEN layout: the hub plan JSON above (referenced, not copied) is the generator output; placements.json is the resolved result of env/hubOutdoor.js hubToOutdoorPlan() + env/act1/outdoor.js evaluatePlan(). Other seeds: scatters[].seed; the procedural cards (grass/reed) rng(9091) in outdoorBuild (render time only)."
+ },
+ "units": "metres",
+ "coordinateSystem": "three.js right-handed, Y up. x = east, z = south (toward the default camera, which looks north), y = height above the ground datum (water level = 0 unless the plan says otherwise).",
+ "bounds": {
+  "x0": -32,
+  "z0": -32,
+  "x1": 32,
+  "z1": 32
+ },
+ "heightfield": {
+  "file": "terrain/heightmap.json",
+  "cell": 0.5,
+  "edge": {
+   "width": 4,
+   "y": -1.5
+  }
+ },
+ "heightOps": [
+  {
+   "kind": "base",
+   "y": 0.55
+  },
+  {
+   "kind": "noise",
+   "amp": 0.07,
+   "scale": 8,
+   "seed": 5.2,
+   "area": {
+    "rect": [
+     -18.34,
+     -20.28,
+     23.6,
+     20.24
+    ]
+   },
+   "soft": 4
+  },
+  {
+   "kind": "flatten",
+   "area": {
+    "circle": [
+     9.18,
+     5.2,
+     6.02
+    ]
+   },
+   "y": 0.55,
+   "soft": 3
+  }
+ ],
+ "water": [
+  {
+   "id": "fen",
+   "label": "Black fen water (all four sides)",
+   "levelY": 0,
+   "tint": "fen",
+   "wobble": 0.04,
+   "shelf": [
+    0.3,
+    0.3
+   ],
+   "drop": [
+    0.5,
+    1.5
+   ],
+   "bank": [
+    0.4,
+    2
+   ],
+   "area": {
+    "poly": [
+     [
+      14.6,
+      -32
+     ],
+     [
+      32,
+      -32
+     ],
+     [
+      32,
+      32
+     ],
+     [
+      -32,
+      32
+     ],
+     [
+      -32,
+      -32
+     ],
+     [
+      9.4,
+      -32
+     ],
+     [
+      9.4,
+      -24.4
+     ],
+     [
+      -22.46,
+      -24.4
+     ],
+     [
+      -22.46,
+      24.36
+     ],
+     [
+      27.72,
+      24.36
+     ],
+     [
+      27.72,
+      -24.4
+     ],
+     [
+      14.6,
+      -24.4
+     ]
+    ]
+   }
+  },
+  {
+   "id": "pond",
+   "label": "The inner pond",
+   "levelY": 0.2,
+   "tint": "pond",
+   "wobble": 0.3,
+   "shelf": [
+    0.6,
+    0.35
+   ],
+   "drop": [
+    1.2,
+    1.1
+   ],
+   "bank": [
+    3,
+    0.3
+   ],
+   "area": {
+    "poly": [
+     [
+      -6.21,
+      4.08
+     ],
+     [
+      -6.86,
+      4.77
+     ],
+     [
+      -7.75,
+      5.16
+     ],
+     [
+      -8.64,
+      4.92
+     ],
+     [
+      -9.47,
+      4.72
+     ],
+     [
+      -10.41,
+      4.49
+     ],
+     [
+      -10.92,
+      3.7
+     ],
+     [
+      -10.83,
+      2.72
+     ],
+     [
+      -11.25,
+      1.81
+     ],
+     [
+      -10.75,
+      0.92
+     ],
+     [
+      -10.15,
+      0.13
+     ],
+     [
+      -9.36,
+      -0.44
+     ],
+     [
+      -8.44,
+      -0.66
+     ],
+     [
+      -7.49,
+      -0.94
+     ],
+     [
+      -6.48,
+      -0.83
+     ],
+     [
+      -5.96,
+      0.04
+     ],
+     [
+      -5.22,
+      0.63
+     ],
+     [
+      -5.24,
+      1.62
+     ],
+     [
+      -5.04,
+      2.55
+     ],
+     [
+      -5.35,
+      3.51
+     ]
+    ]
+   }
+  },
+  {
+   "id": "pond-stilts",
+   "label": "The pond under Edda's house",
+   "levelY": 0.2,
+   "tint": "pond",
+   "wobble": 0.25,
+   "shelf": [
+    0.6,
+    0.35
+   ],
+   "drop": [
+    1.2,
+    1.1
+   ],
+   "bank": [
+    3,
+    0.3
+   ],
+   "area": {
+    "poly": [
+     [
+      -8.93,
+      -2.04
+     ],
+     [
+      -9.096,
+      -0.989
+     ],
+     [
+      -9.579,
+      -0.042
+     ],
+     [
+      -10.332,
+      0.711
+     ],
+     [
+      -11.279,
+      1.194
+     ],
+     [
+      -12.33,
+      1.36
+     ],
+     [
+      -13.381,
+      1.194
+     ],
+     [
+      -14.328,
+      0.711
+     ],
+     [
+      -15.081,
+      -0.042
+     ],
+     [
+      -15.564,
+      -0.989
+     ],
+     [
+      -15.73,
+      -2.04
+     ],
+     [
+      -15.564,
+      -3.091
+     ],
+     [
+      -15.081,
+      -4.038
+     ],
+     [
+      -14.328,
+      -4.791
+     ],
+     [
+      -13.381,
+      -5.274
+     ],
+     [
+      -12.33,
+      -5.44
+     ],
+     [
+      -11.279,
+      -5.274
+     ],
+     [
+      -10.332,
+      -4.791
+     ],
+     [
+      -9.579,
+      -4.038
+     ],
+     [
+      -9.096,
+      -3.091
+     ]
+    ]
+   }
+  }
+ ],
+ "waterNormalMap": {
+  "id": "biome-darkwood-water-n",
+  "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+  "ashlarSource": null,
+  "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+  "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+ },
+ "paths": [
+  {
+   "id": "route",
+   "kind": "lane",
+   "label": "The route: cobble lane, main gate → square → lychgate",
+   "widthM": 3,
+   "surface": "stone",
+   "ribbon": "cobble",
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -1.12,
+     23.24
+    ],
+    [
+     -1.78,
+     20.3
+    ],
+    [
+     -2.04,
+     17.06
+    ],
+    [
+     -1.12,
+     14.74
+    ],
+    [
+     1.52,
+     12.72
+    ],
+    [
+     4.03,
+     11.42
+    ],
+    [
+     6.72,
+     10.09
+    ],
+    [
+     9.24,
+     8.7
+    ],
+    [
+     11.89,
+     6.37
+    ],
+    [
+     12.83,
+     3.62
+    ],
+    [
+     12.76,
+     0.57
+    ],
+    [
+     12.28,
+     -2.53
+    ],
+    [
+     12,
+     -5.46
+    ],
+    [
+     12.01,
+     -8.29
+    ],
+    [
+     12.01,
+     -11.1
+    ],
+    [
+     12,
+     -13.67
+    ],
+    [
+     12,
+     -16.35
+    ],
+    [
+     12,
+     -19.08
+    ],
+    [
+     12,
+     -19.93
+    ],
+    [
+     12,
+     -22.08
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -1.12,
+     23.24
+    ],
+    [
+     -1.285,
+     22.505
+    ],
+    [
+     -1.615,
+     21.035
+    ],
+    [
+     -1.845,
+     19.49
+    ],
+    [
+     -1.975,
+     17.87
+    ],
+    [
+     -1.81,
+     16.48
+    ],
+    [
+     -1.35,
+     15.32
+    ],
+    [
+     -0.46,
+     14.235
+    ],
+    [
+     0.86,
+     13.225
+    ],
+    [
+     2.148,
+     12.395
+    ],
+    [
+     3.403,
+     11.745
+    ],
+    [
+     4.703,
+     11.087
+    ],
+    [
+     6.048,
+     10.423
+    ],
+    [
+     7.35,
+     9.743
+    ],
+    [
+     8.61,
+     9.048
+    ],
+    [
+     9.903,
+     8.118
+    ],
+    [
+     11.228,
+     6.953
+    ],
+    [
+     12.125,
+     5.683
+    ],
+    [
+     12.595,
+     4.308
+    ],
+    [
+     12.813,
+     2.858
+    ],
+    [
+     12.778,
+     1.333
+    ],
+    [
+     12.64,
+     -0.205
+    ],
+    [
+     12.4,
+     -1.755
+    ],
+    [
+     12.21,
+     -3.262
+    ],
+    [
+     12.07,
+     -4.727
+    ],
+    [
+     12.003,
+     -6.167
+    ],
+    [
+     12.008,
+     -7.582
+    ],
+    [
+     12.01,
+     -8.992
+    ],
+    [
+     12.01,
+     -10.397
+    ],
+    [
+     12.008,
+     -11.742
+    ],
+    [
+     12.003,
+     -13.027
+    ],
+    [
+     12,
+     -14.34
+    ],
+    [
+     12,
+     -15.68
+    ],
+    [
+     12,
+     -17.032
+    ],
+    [
+     12,
+     -18.397
+    ],
+    [
+     12,
+     -19.292
+    ],
+    [
+     12,
+     -19.717
+    ],
+    [
+     12,
+     -20.467
+    ],
+    [
+     12,
+     -21.542
+    ],
+    [
+     12,
+     -22.08
+    ]
+   ]
+  },
+  {
+   "id": "causeway",
+   "kind": "dike",
+   "label": "Causeway (dike road from the Night Fens)",
+   "widthM": 3.4,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 0.63,
+    "bank": 2.2
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -1.12,
+     34
+    ],
+    [
+     -1.12,
+     23.84
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -1.12,
+     34
+    ],
+    [
+     -1.12,
+     23.84
+    ]
+   ]
+  },
+  {
+   "id": "hill-lane-0",
+   "kind": "dike",
+   "label": "Hill lane (dike 1/3, rising)",
+   "widthM": 2.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 0.62,
+    "bank": 1.6
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     12,
+     -24.78
+    ],
+    [
+     12,
+     -28.53
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     12,
+     -24.78
+    ],
+    [
+     12,
+     -28.53
+    ]
+   ]
+  },
+  {
+   "id": "hill-lane-1",
+   "kind": "dike",
+   "label": "Hill lane (dike 2/3, rising)",
+   "widthM": 2.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 0.82,
+    "bank": 1.6
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     12,
+     -27.93
+    ],
+    [
+     12,
+     -31
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     12,
+     -27.93
+    ],
+    [
+     12,
+     -31
+    ]
+   ]
+  },
+  {
+   "id": "hill-lane-2",
+   "kind": "dike",
+   "label": "Hill lane (dike 3/3, rising)",
+   "widthM": 2.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": {
+    "crest": 1.02,
+    "bank": 1.6
+   },
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     12,
+     -29.4
+    ],
+    [
+     12,
+     -34
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     12,
+     -29.4
+    ],
+    [
+     12,
+     -34
+    ]
+   ]
+  },
+  {
+   "id": "lane-vault",
+   "kind": "track",
+   "label": "Packed track (lane-vault)",
+   "widthM": 1.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -19.61,
+     3.94
+    ],
+    [
+     -1.59,
+     15.91
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -19.61,
+     3.94
+    ],
+    [
+     -15.105,
+     6.933
+    ],
+    [
+     -6.095,
+     12.918
+    ],
+    [
+     -1.59,
+     15.91
+    ]
+   ]
+  },
+  {
+   "id": "lane-edda",
+   "kind": "track",
+   "label": "Packed track (lane-edda)",
+   "widthM": 1.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -4.98,
+     5.3
+    ],
+    [
+     1,
+     13.12
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -4.98,
+     5.3
+    ],
+    [
+     -3.485,
+     7.255
+    ],
+    [
+     -0.495,
+     11.165
+    ],
+    [
+     1,
+     13.12
+    ]
+   ]
+  },
+  {
+   "id": "lane-jetty",
+   "kind": "track",
+   "label": "Packed track (lane-jetty)",
+   "widthM": 1.6,
+   "surface": "packed",
+   "ribbon": null,
+   "deckY": null,
+   "dike": null,
+   "asset": null,
+   "hidden": false,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -5.79,
+     -1.56
+    ],
+    [
+     -4.98,
+     5.3
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -5.79,
+     -1.56
+    ],
+    [
+     -5.587,
+     0.155
+    ],
+    [
+     -5.182,
+     3.585
+    ],
+    [
+     -4.98,
+     5.3
+    ]
+   ]
+  },
+  {
+   "id": "walkway-edda",
+   "kind": "walkway",
+   "label": "Walkway across the pond to Edda's house",
+   "widthM": 1.8,
+   "surface": "wood",
+   "ribbon": null,
+   "deckY": 0.66,
+   "dike": null,
+   "asset": "A01.2",
+   "hidden": true,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -4.98,
+     5.3,
+     0.66
+    ],
+    [
+     -10.36,
+     -0.09,
+     0.66
+    ],
+    [
+     -12.22,
+     -1.936,
+     0.66
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -4.98,
+     5.3,
+     0.66
+    ],
+    [
+     -10.36,
+     -0.09,
+     0.66
+    ],
+    [
+     -12.22,
+     -1.936,
+     0.66
+    ]
+   ]
+  },
+  {
+   "id": "jetty",
+   "kind": "walkway",
+   "label": "Jetty into the pond",
+   "widthM": 1.8,
+   "surface": "wood",
+   "ribbon": null,
+   "deckY": 0.62,
+   "dike": null,
+   "asset": "A01.2",
+   "hidden": true,
+   "caps": true,
+   "pointsXZ": [
+    [
+     -5.79,
+     -1.56,
+     0.62
+    ],
+    [
+     -5.262,
+     2.081,
+     0.62
+    ]
+   ],
+   "smoothedPointsXZ": [
+    [
+     -5.79,
+     -1.56,
+     0.62
+    ],
+    [
+     -5.262,
+     2.081,
+     0.62
+    ]
+   ]
+  }
+ ],
+ "decks": [
+  {
+   "ax": -4.98,
+   "az": 5.3,
+   "bx": -10.36,
+   "bz": -0.09,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "walkway-edda",
+   "cap": true
+  },
+  {
+   "ax": -10.36,
+   "az": -0.09,
+   "bx": -12.22,
+   "bz": -1.936,
+   "ya": 0.66,
+   "yb": 0.66,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "walkway-edda",
+   "cap": true
+  },
+  {
+   "ax": -4.98,
+   "az": 5.3,
+   "bx": -4.414840060474939,
+   "bz": 5.866210422684031,
+   "ya": 0.66,
+   "yb": 0.5393737270078651,
+   "w": 1.8,
+   "kind": "ramp",
+   "path": "walkway-edda"
+  },
+  {
+   "ax": -12.22,
+   "az": -1.936,
+   "bx": -16.367735610469765,
+   "bz": -6.0525160951221375,
+   "ya": 0.66,
+   "yb": 0.5630097062335029,
+   "w": 1.8,
+   "kind": "ramp",
+   "path": "walkway-edda"
+  },
+  {
+   "ax": -5.79,
+   "az": -1.56,
+   "bx": -5.262,
+   "bz": 2.081,
+   "ya": 0.62,
+   "yb": 0.62,
+   "w": 1.8,
+   "kind": "deck",
+   "path": "jetty",
+   "cap": true
+  },
+  {
+   "ax": -5.79,
+   "az": -1.56,
+   "bx": -5.904811161586466,
+   "bz": -2.3517186351066686,
+   "ya": 0.62,
+   "yb": 0.5529226230899597,
+   "w": 1.8,
+   "kind": "ramp",
+   "path": "jetty"
+  }
+ ],
+ "groundLayers": {
+  "note": "layer 0 = base everywhere; layers 1..6 are painted over the ones below by masks (terrain/splat0.png = layers 1..4 in R,G,B,A; terrain/splat1.png = layers 5..7 in R,G,B and wetness in A). Row 0 = z = originZ, column 0 = x = originX. Coverage = value / 255. Unblurred. Painters (plan order) are in paintRules.",
+  "splat": {
+   "size": 640,
+   "originX": -32,
+   "originZ": -32,
+   "extent": 64,
+   "smoothSlider": 0.8,
+   "files": [
+    "terrain/splat0.png",
+    "terrain/splat1.png"
+   ]
+  },
+  "layers": [
+   {
+    "layer": "BIO01_peat",
+    "tile": 4.5,
+    "textureId": "biome-BIO01_peat",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO01_peat",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO01_peat.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO01_peat-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO01_peat.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO01_peat-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO01_peat.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO01_peat-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-soil-damp",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-soil-damp",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-soil-damp-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-soil-damp-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-soil-damp-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   },
+   {
+    "layer": "DW_dense",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-grass-dense",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-grass-dense",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "height": {
+      "id": "biome-darkwood-grass-dense-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "normal": {
+      "id": "biome-darkwood-grass-dense-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     },
+     "roughness": {
+      "id": "biome-darkwood-grass-dense-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+     }
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-dirt",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-dirt",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-dirt-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-dirt-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-dirt-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "tile": 3.5,
+    "textureId": "biome-BIO03_flint",
+    "maps": {
+     "albedo": {
+      "id": "biome-BIO03_flint",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO03_flint.png",
+      "note": "albedo: same image, the lab file is a WebP re-encode"
+     },
+     "height": {
+      "id": "biome-BIO03_flint-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-h.png",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO03_flint.png",
+      "note": "height: same map (8-bit, raised = bright), lab file is a PNG repack"
+     },
+     "normal": {
+      "id": "biome-BIO03_flint-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-n.webp",
+      "ashlarSource": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO03_flint.png",
+      "note": "OpenGL normal: same map; the lab file is a WebP re-encode with the tilt table of prepare-terrain-biomes-v1.py applied"
+     },
+     "roughness": {
+      "id": "biome-BIO03_flint-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-r.webp",
+      "ashlarSource": null,
+      "note": "roughness: derived by prepare-terrain-biomes-v1.py (no ashlar source): use the lab file",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-biomes-v1"
+     }
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "tile": 3.2,
+    "textureId": "biome-darkwood-mud",
+    "maps": {
+     "albedo": {
+      "id": "biome-darkwood-mud",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "height": {
+      "id": "biome-darkwood-mud-h",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-h.png",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "normal": {
+      "id": "biome-darkwood-mud-n",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-n.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     },
+     "roughness": {
+      "id": "biome-darkwood-mud-r",
+      "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-r.webp",
+      "ashlarSource": null,
+      "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+      "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+     }
+    }
+   }
+  ],
+  "paintRules": [
+   {
+    "layer": "DW_damp",
+    "kind": "height",
+    "range": [
+     -3,
+     0.7
+    ],
+    "soft": 1.2,
+    "value": 0.55,
+    "patchy": {
+     "scale": 6,
+     "cover": 0.55
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "kind": "water",
+    "band": [
+     -4,
+     3
+    ],
+    "soft": 1.4,
+    "value": 0.95,
+    "edge": {
+     "amp": 0.8,
+     "scale": 4
+    }
+   },
+   {
+    "layer": "DW_damp",
+    "kind": "structures",
+    "assets": [
+     "A01.1",
+     "A15.2",
+     "A15.5",
+     "A15.6"
+    ],
+    "margin": 2,
+    "soft": 1.4,
+    "value": 0.7,
+    "edge": {
+     "amp": 0.6,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "area",
+    "area": {
+     "rect": [
+      -18.34,
+      -20.28,
+      23.6,
+      20.24
+     ]
+    },
+    "soft": 3,
+    "value": 0.7,
+    "patchy": {
+     "scale": 7,
+     "cover": 0.5
+    }
+   },
+   {
+    "layer": "DW_grass",
+    "kind": "water",
+    "band": [
+     -40,
+     1.4
+    ],
+    "soft": 1.2,
+    "op": "sub",
+    "value": 1
+   },
+   {
+    "layer": "DW_dense",
+    "kind": "water",
+    "band": [
+     1,
+     7
+    ],
+    "soft": 1.6,
+    "value": 0.7,
+    "patchy": {
+     "scale": 5,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "path",
+    "pathKind": [
+     "track",
+     "dike"
+    ],
+    "extra": 0.2,
+    "soft": 0.9,
+    "value": 0.95,
+    "edge": {
+     "amp": 0.4,
+     "scale": 2.5
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "area",
+    "area": {
+     "circle": [
+      9.18,
+      5.2,
+      5.22
+     ]
+    },
+    "soft": 2.2,
+    "value": 0.55,
+    "patchy": {
+     "scale": 4,
+     "cover": 0.6
+    }
+   },
+   {
+    "layer": "DW_dirt",
+    "kind": "structures",
+    "assets": [
+     "A01.1",
+     "A15.2",
+     "A15.5",
+     "A01.5"
+    ],
+    "margin": 1.1,
+    "soft": 1.2,
+    "value": 0.6,
+    "patchy": {
+     "scale": 3,
+     "cover": 0.65
+    }
+   },
+   {
+    "layer": "BIO03_flint",
+    "kind": "structures",
+    "assets": [
+     "A02.1",
+     "N01",
+     "N02"
+    ],
+    "margin": 1.6,
+    "soft": 1.3,
+    "value": 0.9,
+    "edge": {
+     "amp": 0.5,
+     "scale": 2.5
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "path",
+    "pathKind": "lane",
+    "extra": 0.7,
+    "soft": 1.1,
+    "value": 0.75,
+    "edge": {
+     "amp": 0.6,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "water",
+    "band": [
+     -6,
+     1
+    ],
+    "soft": 1.2,
+    "value": 0.9,
+    "edge": {
+     "amp": 0.7,
+     "scale": 3
+    }
+   },
+   {
+    "layer": "DW_mud",
+    "kind": "path",
+    "pathKind": "walkway",
+    "extra": 0.4,
+    "soft": 1,
+    "value": 0.7
+   },
+   {
+    "layer": "wet",
+    "kind": "fill",
+    "value": 0.28
+   },
+   {
+    "layer": "wet",
+    "kind": "height",
+    "range": [
+     -3,
+     0.65
+    ],
+    "soft": 1,
+    "value": 0.7
+   },
+   {
+    "layer": "wet",
+    "kind": "water",
+    "band": [
+     -8,
+     3
+    ],
+    "soft": 1.4,
+    "value": 1
+   },
+   {
+    "layer": "wet",
+    "kind": "path",
+    "pathKind": "lane",
+    "extra": 1,
+    "soft": 1.1,
+    "value": 0.75
+   }
+  ],
+  "cobbleRoadTile": {
+   "albedo": {
+    "id": "darkwood-sty-green-cobble",
+    "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble.png",
+    "ashlarSource": null,
+    "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+    "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+   },
+   "normal": {
+    "id": "darkwood-sty-green-cobble-n",
+    "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble-n.webp",
+    "ashlarSource": null,
+    "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+    "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+   },
+   "note": "vertex-alpha cobble ribbon along the paths with ribbon: \"cobble\""
+  }
+ },
+ "cards": {
+  "grassCards": {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  "shorePlants": {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  "shoreAtlas": "2 x 2: 0 cattail, 1 tall reeds, 2 sedge, 3 horsetail"
+ },
+ "scatters": [
+  {
+   "asset": "A03.1",
+   "count": 260,
+   "seed": 31,
+   "area": {
+    "rect": [
+     -20.34,
+     -22.28,
+     25.6,
+     22.24
+    ]
+   },
+   "spacing": 1,
+   "band": null,
+   "scale": [
+    0.7,
+    1.25
+   ],
+   "height": [
+    0.5,
+    40
+   ],
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.2",
+   "count": 150,
+   "seed": 41,
+   "area": {
+    "rect": [
+     -32,
+     -32,
+     32,
+     32
+    ]
+   },
+   "spacing": 0.8,
+   "band": {
+    "water": [
+     -1.6,
+     0.9
+    ]
+   },
+   "scale": [
+    0.75,
+    1.3
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  },
+  {
+   "asset": "A03.3",
+   "count": 90,
+   "seed": 43,
+   "area": {
+    "rect": [
+     -32,
+     -32,
+     32,
+     32
+    ]
+   },
+   "spacing": 0.9,
+   "band": {
+    "water": [
+     -0.5,
+     2.6
+    ]
+   },
+   "scale": [
+    0.7,
+    1.2
+   ],
+   "height": null,
+   "slope": null,
+   "tag": null
+  }
+ ],
+ "lights": [
+  {
+   "id": "lychgateLamp",
+   "kind": "human",
+   "label": "Lychgate lamp (the threshold light, in the A16.6 lantern under the front tie beam)",
+   "x": 12,
+   "z": -22.31,
+   "yOn": {
+    "asset": "A16.6-lantern",
+    "ly": 0.15500000000000003
+   },
+   "color": "#e0a050",
+   "intensity": 9,
+   "range": 10,
+   "flicker": 1,
+   "real": true,
+   "glow": 0.3,
+   "seed": 1,
+   "night": {
+    "intensity": 3.2,
+    "range": 7,
+    "glow": 0.2
+   },
+   "yWorld": 2.5938029229640955,
+   "position": [
+    12,
+    2.594,
+    -22.31
+   ]
+  },
+  {
+   "id": "forge",
+   "kind": "human",
+   "label": "Brannoc's forge (the model hearth)",
+   "color": "#e8823a",
+   "intensity": 15,
+   "range": 9,
+   "flicker": 1.2,
+   "real": true,
+   "glow": 1.6,
+   "seed": 2,
+   "flag": "forge",
+   "x": 5.041,
+   "z": -5.101,
+   "yOn": {
+    "asset": "A15.2",
+    "ly": 0.85
+   },
+   "yWorld": 1.3663544027328491,
+   "position": [
+    5.041,
+    1.366,
+    -5.101
+   ]
+  },
+  {
+   "id": "osric",
+   "kind": "human",
+   "label": "Osric's fire basket (the threshold light inside the main gate)",
+   "color": "#e8903a",
+   "intensity": 6,
+   "range": 9,
+   "flicker": 1.1,
+   "real": true,
+   "glow": 1,
+   "seed": 7,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": -7.313,
+   "z": 18.565,
+   "yOn": {
+    "asset": "A15.6",
+    "ly": 2.8
+   },
+   "yWorld": 3.3456818542480464,
+   "position": [
+    -7.313,
+    3.346,
+    18.565
+   ]
+  },
+  {
+   "id": "edda",
+   "kind": "human",
+   "label": "Edda's window (the model window, +x wall)",
+   "color": "#e0a050",
+   "intensity": 4,
+   "range": 7,
+   "flicker": 0.6,
+   "real": true,
+   "glow": 0,
+   "seed": 4,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "x": -11.396,
+   "z": -4.358,
+   "yOn": {
+    "asset": "A01.1",
+    "ly": 2.17
+   },
+   "yWorld": 1.95,
+   "position": [
+    -11.396,
+    1.95,
+    -4.358
+   ]
+  },
+  {
+   "id": "window-cottage-1",
+   "kind": "human",
+   "label": "Window of Gennet Barrow's cottage (cottage-1)",
+   "color": "#e0a050",
+   "intensity": 3.2,
+   "range": 6,
+   "flicker": 0.6,
+   "real": true,
+   "glow": 0,
+   "seed": 11,
+   "night": {
+    "intensity": 0.7
+   },
+   "x": -15.218,
+   "z": -16.44,
+   "yOn": {
+    "asset": "A01.1",
+    "ly": 2.17
+   },
+   "yWorld": 2.695366412639618,
+   "position": [
+    -15.218,
+    2.695,
+    -16.44
+   ]
+  },
+  {
+   "id": "window-cottage-3",
+   "kind": "human",
+   "label": "Window of Stilt cottage (cottage-3)",
+   "color": "#e0a050",
+   "intensity": 3.2,
+   "range": 6,
+   "flicker": 0.6,
+   "real": true,
+   "glow": 0,
+   "seed": 12,
+   "night": {
+    "intensity": 0.7
+   },
+   "x": -11.947,
+   "z": 16.402,
+   "yOn": {
+    "asset": "A01.1",
+    "ly": 2.17
+   },
+   "yWorld": 2.693491890835762,
+   "position": [
+    -11.947,
+    2.693,
+    16.402
+   ]
+  },
+  {
+   "id": "vault",
+   "kind": "human",
+   "label": "Candles at the vault door",
+   "x": -19.639,
+   "z": 2.391,
+   "y": 0.9,
+   "color": "#e8a858",
+   "intensity": 3.2,
+   "range": 6,
+   "flicker": 1,
+   "real": true,
+   "glow": 0.5,
+   "seed": 5,
+   "moods": [
+    "day",
+    "lookdev"
+   ],
+   "yWorld": 1.43158272926116,
+   "position": [
+    -19.639,
+    1.432,
+    2.391
+   ]
+  }
+ ],
+ "blockers": [
+  {
+   "uid": 0,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.7,
+     -24.402
+    ],
+    [
+     -18.38,
+     -24.402
+    ],
+    [
+     -18.38,
+     -22.158
+    ],
+    [
+     -22.7,
+     -22.158
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 1,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.462,
+     -20.32
+    ],
+    [
+     -22.462,
+     -24.64
+    ],
+    [
+     -20.218,
+     -24.64
+    ],
+    [
+     -20.218,
+     -20.32
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 2,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -20.268,
+     -24.402
+    ],
+    [
+     -15.472,
+     -24.402
+    ],
+    [
+     -15.472,
+     -22.158
+    ],
+    [
+     -20.268,
+     -22.158
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 3,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -16.518,
+     -24.402
+    ],
+    [
+     -11.722,
+     -24.402
+    ],
+    [
+     -11.722,
+     -22.158
+    ],
+    [
+     -16.518,
+     -22.158
+    ]
+   ],
+   "y0": 0.507,
+   "y1": 3.826
+  },
+  {
+   "uid": 4,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -12.768,
+     -24.402
+    ],
+    [
+     -7.972,
+     -24.402
+    ],
+    [
+     -7.972,
+     -22.158
+    ],
+    [
+     -12.768,
+     -22.158
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 5,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -9.018,
+     -24.402
+    ],
+    [
+     -4.222,
+     -24.402
+    ],
+    [
+     -4.222,
+     -22.158
+    ],
+    [
+     -9.018,
+     -22.158
+    ]
+   ],
+   "y0": 0.505,
+   "y1": 3.824
+  },
+  {
+   "uid": 6,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -5.268,
+     -24.402
+    ],
+    [
+     -0.472,
+     -24.402
+    ],
+    [
+     -0.472,
+     -22.158
+    ],
+    [
+     -5.268,
+     -22.158
+    ]
+   ],
+   "y0": 0.506,
+   "y1": 3.825
+  },
+  {
+   "uid": 7,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -1.518,
+     -24.402
+    ],
+    [
+     3.278,
+     -24.402
+    ],
+    [
+     3.278,
+     -22.158
+    ],
+    [
+     -1.518,
+     -22.158
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 8,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     2.232,
+     -24.402
+    ],
+    [
+     7.028,
+     -24.402
+    ],
+    [
+     7.028,
+     -22.158
+    ],
+    [
+     2.232,
+     -22.158
+    ]
+   ],
+   "y0": 0.513,
+   "y1": 3.832
+  },
+  {
+   "uid": 9,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     5.972,
+     -24.402
+    ],
+    [
+     10.768,
+     -24.402
+    ],
+    [
+     10.768,
+     -22.158
+    ],
+    [
+     5.972,
+     -22.158
+    ]
+   ],
+   "y0": 0.514,
+   "y1": 3.833
+  },
+  {
+   "uid": 10,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     10.25,
+     -24.59
+    ],
+    [
+     10.85,
+     -24.59
+    ],
+    [
+     10.85,
+     -23.93
+    ],
+    [
+     10.25,
+     -23.93
+    ]
+   ],
+   "y0": 0.613,
+   "y1": 4.413
+  },
+  {
+   "uid": 10,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     13.16,
+     -24.5
+    ],
+    [
+     13.72,
+     -24.5
+    ],
+    [
+     13.72,
+     -23.8
+    ],
+    [
+     13.16,
+     -23.8
+    ]
+   ],
+   "y0": 0.613,
+   "y1": 4.413
+  },
+  {
+   "uid": 10,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     10.25,
+     -22.58
+    ],
+    [
+     10.85,
+     -22.58
+    ],
+    [
+     10.85,
+     -21.88
+    ],
+    [
+     10.25,
+     -21.88
+    ]
+   ],
+   "y0": 0.613,
+   "y1": 4.413
+  },
+  {
+   "uid": 10,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     13.14,
+     -22.68
+    ],
+    [
+     13.7,
+     -22.68
+    ],
+    [
+     13.7,
+     -21.78
+    ],
+    [
+     13.14,
+     -21.78
+    ]
+   ],
+   "y0": 0.613,
+   "y1": 4.413
+  },
+  {
+   "uid": 10,
+   "asset": "A02.1",
+   "polyXZ": [
+    [
+     10.35,
+     -23.88
+    ],
+    [
+     10.65,
+     -23.88
+    ],
+    [
+     10.65,
+     -22.68
+    ],
+    [
+     10.35,
+     -22.68
+    ]
+   ],
+   "y0": 0.613,
+   "y1": 4.413
+  },
+  {
+   "uid": 12,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     13.232,
+     -24.402
+    ],
+    [
+     18.028,
+     -24.402
+    ],
+    [
+     18.028,
+     -22.158
+    ],
+    [
+     13.232,
+     -22.158
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 13,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     16.982,
+     -24.402
+    ],
+    [
+     21.778,
+     -24.402
+    ],
+    [
+     21.778,
+     -22.158
+    ],
+    [
+     16.982,
+     -22.158
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 14,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     20.732,
+     -24.402
+    ],
+    [
+     25.528,
+     -24.402
+    ],
+    [
+     25.528,
+     -22.158
+    ],
+    [
+     20.732,
+     -22.158
+    ]
+   ],
+   "y0": 0.507,
+   "y1": 3.826
+  },
+  {
+   "uid": 15,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     23.64,
+     -24.402
+    ],
+    [
+     27.96,
+     -24.402
+    ],
+    [
+     27.96,
+     -22.158
+    ],
+    [
+     23.64,
+     -22.158
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 16,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.722,
+     -24.64
+    ],
+    [
+     27.722,
+     -20.32
+    ],
+    [
+     25.478,
+     -20.32
+    ],
+    [
+     25.478,
+     -24.64
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 17,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -22.181
+    ],
+    [
+     27.724,
+     -17.561
+    ],
+    [
+     25.48,
+     -17.559
+    ],
+    [
+     25.476,
+     -22.179
+    ]
+   ],
+   "y0": 0.505,
+   "y1": 3.824
+  },
+  {
+   "uid": 18,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -18.571
+    ],
+    [
+     27.724,
+     -13.951
+    ],
+    [
+     25.48,
+     -13.949
+    ],
+    [
+     25.476,
+     -18.569
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 19,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -14.961
+    ],
+    [
+     27.724,
+     -10.341
+    ],
+    [
+     25.48,
+     -10.339
+    ],
+    [
+     25.476,
+     -14.959
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 20,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -11.351
+    ],
+    [
+     27.724,
+     -6.731
+    ],
+    [
+     25.48,
+     -6.729
+    ],
+    [
+     25.476,
+     -11.349
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 21,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -7.741
+    ],
+    [
+     27.724,
+     -3.121
+    ],
+    [
+     25.48,
+     -3.119
+    ],
+    [
+     25.476,
+     -7.739
+    ]
+   ],
+   "y0": 0.512,
+   "y1": 3.831
+  },
+  {
+   "uid": 22,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -4.131
+    ],
+    [
+     27.724,
+     0.489
+    ],
+    [
+     25.48,
+     0.491
+    ],
+    [
+     25.476,
+     -4.129
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 23,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     -0.521
+    ],
+    [
+     27.724,
+     4.099
+    ],
+    [
+     25.48,
+     4.101
+    ],
+    [
+     25.476,
+     -0.519
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 24,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     3.089
+    ],
+    [
+     27.724,
+     7.709
+    ],
+    [
+     25.48,
+     7.711
+    ],
+    [
+     25.476,
+     3.091
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 25,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     6.699
+    ],
+    [
+     27.724,
+     11.319
+    ],
+    [
+     25.48,
+     11.321
+    ],
+    [
+     25.476,
+     6.701
+    ]
+   ],
+   "y0": 0.514,
+   "y1": 3.833
+  },
+  {
+   "uid": 26,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     10.309
+    ],
+    [
+     27.724,
+     14.929
+    ],
+    [
+     25.48,
+     14.931
+    ],
+    [
+     25.476,
+     10.311
+    ]
+   ],
+   "y0": 0.514,
+   "y1": 3.833
+  },
+  {
+   "uid": 27,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     13.919
+    ],
+    [
+     27.724,
+     18.539
+    ],
+    [
+     25.48,
+     18.541
+    ],
+    [
+     25.476,
+     13.921
+    ]
+   ],
+   "y0": 0.512,
+   "y1": 3.831
+  },
+  {
+   "uid": 28,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.72,
+     17.529
+    ],
+    [
+     27.724,
+     22.149
+    ],
+    [
+     25.48,
+     22.151
+    ],
+    [
+     25.476,
+     17.531
+    ]
+   ],
+   "y0": 0.511,
+   "y1": 3.83
+  },
+  {
+   "uid": 29,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.96,
+     24.362
+    ],
+    [
+     23.64,
+     24.362
+    ],
+    [
+     23.64,
+     22.118
+    ],
+    [
+     27.96,
+     22.118
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 30,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     27.722,
+     20.28
+    ],
+    [
+     27.722,
+     24.6
+    ],
+    [
+     25.478,
+     24.6
+    ],
+    [
+     25.478,
+     20.28
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 31,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     25.53,
+     24.358
+    ],
+    [
+     20.734,
+     24.366
+    ],
+    [
+     20.73,
+     22.122
+    ],
+    [
+     25.526,
+     22.114
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 32,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     21.77,
+     24.358
+    ],
+    [
+     16.974,
+     24.366
+    ],
+    [
+     16.97,
+     22.122
+    ],
+    [
+     21.766,
+     22.114
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 33,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     18.02,
+     24.358
+    ],
+    [
+     13.224,
+     24.366
+    ],
+    [
+     13.22,
+     22.122
+    ],
+    [
+     18.016,
+     22.114
+    ]
+   ],
+   "y0": 0.515,
+   "y1": 3.834
+  },
+  {
+   "uid": 34,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     14.26,
+     24.358
+    ],
+    [
+     9.464,
+     24.366
+    ],
+    [
+     9.46,
+     22.122
+    ],
+    [
+     14.256,
+     22.114
+    ]
+   ],
+   "y0": 0.514,
+   "y1": 3.833
+  },
+  {
+   "uid": 35,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     10.51,
+     24.358
+    ],
+    [
+     5.714,
+     24.366
+    ],
+    [
+     5.71,
+     22.122
+    ],
+    [
+     10.506,
+     22.114
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 36,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     6.75,
+     24.358
+    ],
+    [
+     1.954,
+     24.366
+    ],
+    [
+     1.95,
+     22.122
+    ],
+    [
+     6.746,
+     22.114
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 37,
+   "asset": "PAL.log2",
+   "polyXZ": [
+    [
+     2.42,
+     23.839
+    ],
+    [
+     1.34,
+     23.841
+    ],
+    [
+     1.34,
+     23.241
+    ],
+    [
+     2.42,
+     23.239
+    ]
+   ],
+   "y0": 0.52,
+   "y1": 4.719
+  },
+  {
+   "uid": 38,
+   "asset": "PAL.log2",
+   "polyXZ": [
+    [
+     2.42,
+     23.239
+    ],
+    [
+     1.34,
+     23.241
+    ],
+    [
+     1.34,
+     22.641
+    ],
+    [
+     2.42,
+     22.639
+    ]
+   ],
+   "y0": 0.518,
+   "y1": 4.717
+  },
+  {
+   "uid": 39,
+   "asset": "PAL.log2",
+   "polyXZ": [
+    [
+     -3.58,
+     23.839
+    ],
+    [
+     -4.66,
+     23.841
+    ],
+    [
+     -4.66,
+     23.241
+    ],
+    [
+     -3.58,
+     23.239
+    ]
+   ],
+   "y0": 0.533,
+   "y1": 4.732
+  },
+  {
+   "uid": 40,
+   "asset": "PAL.log2",
+   "polyXZ": [
+    [
+     -3.58,
+     23.239
+    ],
+    [
+     -4.66,
+     23.241
+    ],
+    [
+     -4.66,
+     22.641
+    ],
+    [
+     -3.58,
+     22.639
+    ]
+   ],
+   "y0": 0.529,
+   "y1": 4.728
+  },
+  {
+   "uid": 41,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -4.2,
+     24.358
+    ],
+    [
+     -8.996,
+     24.366
+    ],
+    [
+     -9,
+     22.122
+    ],
+    [
+     -4.204,
+     22.114
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 42,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -7.95,
+     24.358
+    ],
+    [
+     -12.746,
+     24.366
+    ],
+    [
+     -12.75,
+     22.122
+    ],
+    [
+     -7.954,
+     22.114
+    ]
+   ],
+   "y0": 0.506,
+   "y1": 3.825
+  },
+  {
+   "uid": 43,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -11.71,
+     24.358
+    ],
+    [
+     -16.506,
+     24.366
+    ],
+    [
+     -16.51,
+     22.122
+    ],
+    [
+     -11.714,
+     22.114
+    ]
+   ],
+   "y0": 0.512,
+   "y1": 3.831
+  },
+  {
+   "uid": 44,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -15.46,
+     24.358
+    ],
+    [
+     -20.256,
+     24.366
+    ],
+    [
+     -20.26,
+     22.122
+    ],
+    [
+     -15.464,
+     22.114
+    ]
+   ],
+   "y0": 0.512,
+   "y1": 3.831
+  },
+  {
+   "uid": 45,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -18.38,
+     24.362
+    ],
+    [
+     -22.7,
+     24.362
+    ],
+    [
+     -22.7,
+     22.118
+    ],
+    [
+     -18.38,
+     22.118
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 46,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.462,
+     24.6
+    ],
+    [
+     -22.462,
+     20.28
+    ],
+    [
+     -20.218,
+     20.28
+    ],
+    [
+     -20.218,
+     24.6
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 47,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     22.191
+    ],
+    [
+     -22.46,
+     17.147
+    ],
+    [
+     -20.216,
+     17.149
+    ],
+    [
+     -20.22,
+     22.193
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 48,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     18.241
+    ],
+    [
+     -22.46,
+     13.197
+    ],
+    [
+     -20.216,
+     13.199
+    ],
+    [
+     -20.22,
+     18.243
+    ]
+   ],
+   "y0": 0.51,
+   "y1": 3.829
+  },
+  {
+   "uid": 49,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     14.281
+    ],
+    [
+     -22.46,
+     9.237
+    ],
+    [
+     -20.216,
+     9.239
+    ],
+    [
+     -20.22,
+     14.283
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 50,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     -21.706,
+     9.756
+    ],
+    [
+     -21.702,
+     5.844
+    ],
+    [
+     -21.218,
+     5.844
+    ],
+    [
+     -21.222,
+     9.756
+    ]
+   ],
+   "y0": 0.544,
+   "y1": 3.352
+  },
+  {
+   "uid": 51,
+   "asset": "N02",
+   "polyXZ": [
+    [
+     -21.706,
+     2.026
+    ],
+    [
+     -21.702,
+     -1.886
+    ],
+    [
+     -21.218,
+     -1.886
+    ],
+    [
+     -21.222,
+     2.026
+    ]
+   ],
+   "y0": 0.542,
+   "y1": 3.35
+  },
+  {
+   "uid": 52,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     -21.877,
+     5.791
+    ],
+    [
+     -21.875,
+     2.089
+    ],
+    [
+     -21.219,
+     2.089
+    ],
+    [
+     -21.221,
+     5.791
+    ]
+   ],
+   "y0": 0.541,
+   "y1": 3.341
+  },
+  {
+   "uid": 52,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     -21.877,
+     5.14
+    ],
+    [
+     -21.875,
+     2.82
+    ],
+    [
+     -21.129,
+     2.82
+    ],
+    [
+     -21.131,
+     5.14
+    ]
+   ],
+   "y0": 0.541,
+   "y1": 3.341
+  },
+  {
+   "uid": 52,
+   "asset": "N01",
+   "polyXZ": [
+    [
+     -21.877,
+     4.74
+    ],
+    [
+     -21.875,
+     3.19
+    ],
+    [
+     -20.959,
+     3.19
+    ],
+    [
+     -20.961,
+     4.74
+    ]
+   ],
+   "y0": 0.541,
+   "y1": 3.341
+  },
+  {
+   "uid": 53,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     -1.369
+    ],
+    [
+     -22.46,
+     -6.413
+    ],
+    [
+     -20.216,
+     -6.411
+    ],
+    [
+     -20.22,
+     -1.367
+    ]
+   ],
+   "y0": 0.506,
+   "y1": 3.825
+  },
+  {
+   "uid": 54,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     -5.319
+    ],
+    [
+     -22.46,
+     -10.363
+    ],
+    [
+     -20.216,
+     -10.361
+    ],
+    [
+     -20.22,
+     -5.317
+    ]
+   ],
+   "y0": 0.509,
+   "y1": 3.828
+  },
+  {
+   "uid": 55,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     -9.279
+    ],
+    [
+     -22.46,
+     -14.323
+    ],
+    [
+     -20.216,
+     -14.321
+    ],
+    [
+     -20.22,
+     -9.277
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 56,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     -13.229
+    ],
+    [
+     -22.46,
+     -18.273
+    ],
+    [
+     -20.216,
+     -18.271
+    ],
+    [
+     -20.22,
+     -13.227
+    ]
+   ],
+   "y0": 0.503,
+   "y1": 3.822
+  },
+  {
+   "uid": 57,
+   "asset": "PAL.wall_a",
+   "polyXZ": [
+    [
+     -22.464,
+     -17.179
+    ],
+    [
+     -22.46,
+     -22.223
+    ],
+    [
+     -20.216,
+     -22.221
+    ],
+    [
+     -20.22,
+     -17.177
+    ]
+   ],
+   "y0": 0.508,
+   "y1": 3.827
+  },
+  {
+   "uid": 58,
+   "asset": "A15.6",
+   "polyXZ": [
+    [
+     -9.569,
+     17.179
+    ],
+    [
+     -7.544,
+     14.966
+    ],
+    [
+     -4.991,
+     17.301
+    ],
+    [
+     -7.016,
+     19.514
+    ]
+   ],
+   "y0": 0.546,
+   "y1": 4.436
+  },
+  {
+   "uid": 59,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -15.971,
+     -2.697
+    ],
+    [
+     -12.874,
+     -5.822
+    ],
+    [
+     -10.53,
+     -3.5
+    ],
+    [
+     -13.627,
+     -0.374
+    ]
+   ],
+   "y0": -0.22,
+   "y1": 4.98
+  },
+  {
+   "uid": 59,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -12.817,
+     -1.191
+    ],
+    [
+     -12.254,
+     -1.759
+    ],
+    [
+     -11.26,
+     -0.774
+    ],
+    [
+     -11.823,
+     -0.206
+    ]
+   ],
+   "y0": -0.22,
+   "y1": 4.98
+  },
+  {
+   "uid": 60,
+   "asset": "A01.6",
+   "polyXZ": [
+    [
+     -2.493,
+     -2.087
+    ],
+    [
+     1.105,
+     -0.349
+    ],
+    [
+     0.373,
+     1.167
+    ],
+    [
+     -3.225,
+     -0.571
+    ]
+   ],
+   "y0": 0.53,
+   "y1": 3.08
+  },
+  {
+   "uid": 61,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -5.989,
+     -4.29
+    ],
+    [
+     -6.483,
+     -5.217
+    ],
+    [
+     -5.07,
+     -5.969
+    ],
+    [
+     -4.577,
+     -5.042
+    ]
+   ],
+   "y0": 0.535,
+   "y1": 6.535
+  },
+  {
+   "uid": 62,
+   "asset": "A04.2",
+   "polyXZ": [
+    [
+     -13.18,
+     3.79
+    ],
+    [
+     -12.161,
+     4.043
+    ],
+    [
+     -12.547,
+     5.596
+    ],
+    [
+     -13.566,
+     5.343
+    ]
+   ],
+   "y0": 0.546,
+   "y1": 6.546
+  },
+  {
+   "uid": 63,
+   "asset": "A01.5",
+   "polyXZ": [
+    [
+     5.925,
+     2.136
+    ],
+    [
+     8.628,
+     2.517
+    ],
+    [
+     8.295,
+     4.884
+    ],
+    [
+     5.592,
+     4.503
+    ]
+   ],
+   "y0": 0.55,
+   "y1": 3.95
+  },
+  {
+   "uid": 64,
+   "asset": "A15.2",
+   "polyXZ": [
+    [
+     2.491,
+     -5.574
+    ],
+    [
+     7.994,
+     -7.966
+    ],
+    [
+     9.629,
+     -4.206
+    ],
+    [
+     4.126,
+     -1.814
+    ]
+   ],
+   "y0": 0.516,
+   "y1": 4.566
+  },
+  {
+   "uid": 65,
+   "asset": "A15.4",
+   "polyXZ": [
+    [
+     0.768,
+     8.356
+    ],
+    [
+     -0.007,
+     5.313
+    ],
+    [
+     1.912,
+     4.824
+    ],
+    [
+     2.687,
+     7.867
+    ]
+   ],
+   "y0": 0.552,
+   "y1": 3.952
+  },
+  {
+   "uid": 66,
+   "asset": "A15.3",
+   "polyXZ": [
+    [
+     12.357,
+     14.702
+    ],
+    [
+     14.698,
+     15.833
+    ],
+    [
+     14.503,
+     16.238
+    ],
+    [
+     12.162,
+     15.107
+    ]
+   ],
+   "y0": 0.555,
+   "y1": 2.865
+  },
+  {
+   "uid": 67,
+   "asset": "A15.5",
+   "polyXZ": [
+    [
+     18.884,
+     0.119
+    ],
+    [
+     22.495,
+     1.863
+    ],
+    [
+     21.656,
+     3.601
+    ],
+    [
+     18.045,
+     1.857
+    ]
+   ],
+   "y0": 0.538,
+   "y1": 2.838
+  },
+  {
+   "uid": 68,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -17.302,
+     -12.042
+    ],
+    [
+     -17.298,
+     -16.442
+    ],
+    [
+     -13.998,
+     -16.439
+    ],
+    [
+     -14.002,
+     -12.039
+    ]
+   ],
+   "y0": 0.525,
+   "y1": 5.725
+  },
+  {
+   "uid": 68,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -14.001,
+     -13.189
+    ],
+    [
+     -14,
+     -13.989
+    ],
+    [
+     -12.6,
+     -13.988
+    ],
+    [
+     -12.601,
+     -13.188
+    ]
+   ],
+   "y0": 0.525,
+   "y1": 5.725
+  },
+  {
+   "uid": 69,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -6.211,
+     -17.882
+    ],
+    [
+     -1.822,
+     -17.574
+    ],
+    [
+     -2.053,
+     -14.282
+    ],
+    [
+     -6.442,
+     -14.59
+    ]
+   ],
+   "y0": 0.553,
+   "y1": 5.753
+  },
+  {
+   "uid": 69,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -5.295,
+     -14.509
+    ],
+    [
+     -4.497,
+     -14.453
+    ],
+    [
+     -4.595,
+     -13.057
+    ],
+    [
+     -5.393,
+     -13.113
+    ]
+   ],
+   "y0": 0.553,
+   "y1": 5.753
+  },
+  {
+   "uid": 70,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -15.004,
+     12.616
+    ],
+    [
+     -11.042,
+     14.529
+    ],
+    [
+     -12.477,
+     17.501
+    ],
+    [
+     -16.439,
+     15.587
+    ]
+   ],
+   "y0": 0.523,
+   "y1": 5.723
+  },
+  {
+   "uid": 70,
+   "asset": "A01.1",
+   "polyXZ": [
+    [
+     -15.404,
+     16.087
+    ],
+    [
+     -14.684,
+     16.435
+    ],
+    [
+     -15.292,
+     17.696
+    ],
+    [
+     -16.013,
+     17.348
+    ]
+   ],
+   "y0": 0.523,
+   "y1": 5.723
+  },
+  {
+   "uid": 71,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     -9.055,
+     -6.451
+    ],
+    [
+     -8.609,
+     -7.115
+    ],
+    [
+     -7.945,
+     -6.669
+    ],
+    [
+     -8.391,
+     -6.005
+    ]
+   ],
+   "y0": 0.557,
+   "y1": 1.557
+  },
+  {
+   "uid": 72,
+   "asset": "N03",
+   "polyXZ": [
+    [
+     0.245,
+     -14.078
+    ],
+    [
+     1.028,
+     -14.245
+    ],
+    [
+     1.195,
+     -13.462
+    ],
+    [
+     0.412,
+     -13.295
+    ]
+   ],
+   "y0": 0.56,
+   "y1": 1.56
+  },
+  {
+   "uid": 73,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -10.912,
+     17.184
+    ],
+    [
+     -9.532,
+     17.993
+    ],
+    [
+     -10.108,
+     18.976
+    ],
+    [
+     -11.488,
+     18.167
+    ]
+   ],
+   "y0": 0.528,
+   "y1": 1.188
+  },
+  {
+   "uid": 74,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -18.953,
+     0.866
+    ],
+    [
+     -17.861,
+     -0.304
+    ],
+    [
+     -17.027,
+     0.474
+    ],
+    [
+     -18.119,
+     1.644
+    ]
+   ],
+   "y0": 0.517,
+   "y1": 1.177
+  },
+  {
+   "uid": 75,
+   "asset": "N04",
+   "polyXZ": [
+    [
+     -17.108,
+     1.819
+    ],
+    [
+     -16.326,
+     0.423
+    ],
+    [
+     -15.332,
+     0.981
+    ],
+    [
+     -16.114,
+     2.377
+    ]
+   ],
+   "y0": 0.535,
+   "y1": 1.195
+  },
+  {
+   "uid": 79,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -10.906,
+     -15.862
+    ],
+    [
+     -9.897,
+     -18.899
+    ],
+    [
+     -9.594,
+     -18.798
+    ],
+    [
+     -10.603,
+     -15.761
+    ]
+   ],
+   "y0": 0.515,
+   "y1": 2.115
+  },
+  {
+   "uid": 80,
+   "asset": "A01.4",
+   "polyXZ": [
+    [
+     -18.571,
+     13.889
+    ],
+    [
+     -16.923,
+     11.146
+    ],
+    [
+     -16.649,
+     11.311
+    ],
+    [
+     -18.297,
+     14.054
+    ]
+   ],
+   "y0": 0.535,
+   "y1": 2.135
+  },
+  {
+   "uid": 81,
+   "asset": "glb:dungeon-prop-bone-pile",
+   "polyXZ": [
+    [
+     -17.073,
+     9.453
+    ],
+    [
+     -16.893,
+     8.267
+    ],
+    [
+     -15.707,
+     8.447
+    ],
+    [
+     -15.887,
+     9.633
+    ]
+   ],
+   "y0": 0.539,
+   "y1": 1.139
+  }
+ ],
+ "markers": [
+  {
+   "kind": "npc",
+   "id": "osric",
+   "x": -4.74,
+   "z": 19.55,
+   "label": "Osric (watch post, inside the main gate)",
+   "segment": "hub",
+   "y": 0.5300320599079132
+  },
+  {
+   "kind": "npc",
+   "id": "brannoc",
+   "x": 7.66,
+   "z": -1.17,
+   "label": "Brannoc (the forge)",
+   "segment": "hub",
+   "y": 0.5510416204452515
+  },
+  {
+   "kind": "npc",
+   "id": "nell",
+   "x": 19.02,
+   "z": 4.44,
+   "label": "Nell Coppercoin (grave-goods stall)",
+   "segment": "hub",
+   "y": 0.5409477869987487
+  },
+  {
+   "kind": "npc",
+   "id": "tamsin",
+   "x": 12.51,
+   "z": 17.38,
+   "label": "Tamsin (sleeper name board)",
+   "segment": "hub",
+   "y": 0.565055036354065
+  },
+  {
+   "kind": "npc",
+   "id": "bell",
+   "x": 3.85,
+   "z": 5.94,
+   "label": "Mourning bell",
+   "segment": "hub",
+   "y": 0.550000011920929
+  },
+  {
+   "kind": "npc",
+   "id": "edda",
+   "x": -11.07,
+   "z": -0.8,
+   "label": "Edda (her stilt house over the pond)",
+   "segment": "hub",
+   "y": 0.66
+  },
+  {
+   "kind": "exit",
+   "id": "X1",
+   "x": -1.12,
+   "z": 31,
+   "label": "→ The Night Fens (the dike road)",
+   "to": "fens",
+   "y": 0.6299999952316284
+  },
+  {
+   "kind": "exit",
+   "id": "X2",
+   "x": 12,
+   "z": -31,
+   "label": "→ Churchyard (the hill lane)",
+   "to": "lychgate",
+   "y": 1.0199999809265137
+  },
+  {
+   "kind": "exit",
+   "id": "X3",
+   "x": -19.610000380481797,
+   "z": 3.94095559205288,
+   "label": "→ Hầm nhà Barrow (One for the Footing)",
+   "to": "barrowVault",
+   "y": 0.5338535585700124
+  },
+  {
+   "kind": "exit",
+   "id": "X4",
+   "x": -11.07,
+   "z": -0.8,
+   "label": "→ Edda's Dream (The Broth)",
+   "to": "eddasDream",
+   "y": 0.66
+  }
+ ],
+ "segments": [
+  {
+   "id": "hub",
+   "kind": "hub",
+   "label": "Cổng chính · đường đắp (hub có tường)",
+   "spawn": [
+    -1.12,
+    29
+   ],
+   "view": "gate",
+   "route": [
+    [
+     -1.12,
+     31
+    ],
+    [
+     -1.12,
+     28.41
+    ],
+    [
+     -1.12,
+     25.83
+    ],
+    [
+     -1.12,
+     23.24
+    ],
+    [
+     -1.78,
+     20.3
+    ],
+    [
+     -2.04,
+     17.06
+    ],
+    [
+     -1.12,
+     14.74
+    ],
+    [
+     1.52,
+     12.72
+    ],
+    [
+     4.03,
+     11.42
+    ],
+    [
+     6.72,
+     10.09
+    ],
+    [
+     9.24,
+     8.7
+    ],
+    [
+     11.89,
+     6.37
+    ],
+    [
+     12.83,
+     3.62
+    ],
+    [
+     12.76,
+     0.57
+    ],
+    [
+     12.28,
+     -2.53
+    ],
+    [
+     12,
+     -5.46
+    ],
+    [
+     12.01,
+     -8.29
+    ],
+    [
+     12.01,
+     -11.1
+    ],
+    [
+     12,
+     -13.67
+    ],
+    [
+     12,
+     -16.35
+    ],
+    [
+     12,
+     -19.08
+    ],
+    [
+     12,
+     -19.93
+    ]
+   ],
+   "spawnY": 0.6299999952316284
+  },
+  {
+   "id": "square",
+   "kind": "hub",
+   "label": "Quảng trường (giếng, chuông, sạp)",
+   "spawn": [
+    11.89,
+    6.37
+   ],
+   "view": "square",
+   "route": [
+    [
+     11.89,
+     6.37
+    ],
+    [
+     12,
+     -21.28
+    ]
+   ],
+   "spawnY": 0.550000011920929
+  }
+ ],
+ "spawns": [
+  {
+   "id": "hub",
+   "label": "Cổng chính · đường đắp (hub có tường)",
+   "x": -1.12,
+   "z": 29,
+   "y": 0.6299999952316284
+  },
+  {
+   "id": "square",
+   "label": "Quảng trường (giếng, chuông, sạp)",
+   "x": 11.89,
+   "z": 6.37,
+   "y": 0.550000011920929
+  }
+ ],
+ "views": {
+  "overview": {
+   "label": "Toàn cảnh (64 × 64 m)",
+   "target": [
+    2.63,
+    1.042607175207138,
+    -0.02
+   ],
+   "fit": [
+    64,
+    64
+   ],
+   "id": "overview"
+  },
+  "gate": {
+   "label": "Cổng chính (đường đắp, trạm Osric)",
+   "target": [
+    -1.12,
+    1.7929000421524044,
+    21.24
+   ],
+   "dist": 22,
+   "pitch": 40,
+   "lift": 1.2,
+   "id": "gate"
+  },
+  "square": {
+   "label": "Quảng trường (giếng, chuông, sạp, lò rèn)",
+   "target": [
+    9.18,
+    1.050000011920929,
+    5.2
+   ],
+   "dist": 26,
+   "pitch": 48,
+   "id": "square"
+  },
+  "lychgate": {
+   "label": "Cổng lychgate (ngưỡng ánh sáng)",
+   "target": [
+    12,
+    1.7611819744110107,
+    -22.28
+   ],
+   "dist": 16,
+   "pitch": 36,
+   "lift": 1.2,
+   "id": "lychgate"
+  },
+  "edda": {
+   "label": "Ao trong tường · lối ván · nhà Edda",
+   "target": [
+    -10.1,
+    1.1600000000000001,
+    1.1800000000000002
+   ],
+   "dist": 18,
+   "pitch": 46,
+   "id": "edda"
+  },
+  "vault": {
+   "label": "Cửa hầm Barrow (tường tây)",
+   "target": [
+    -19.14,
+    1.7356300237655637,
+    3.94
+   ],
+   "dist": 15,
+   "pitch": 34,
+   "yaw": 55,
+   "lift": 1.2,
+   "id": "vault"
+  }
+ },
+ "rain": null,
+ "lighting": {
+  "default": "day",
+  "defaultNote": "scene setting mood = null opens PLAN.defaultMood (Play uses the same preset; there is no Play-only mood)",
+  "sceneDefaults": {
+   "look": 2,
+   "mood": null,
+   "spawn": null,
+   "smooth": 0.8,
+   "antiTiling": true,
+   "variationScale": 0.18,
+   "macro": 0.1,
+   "showWeights": false,
+   "puddles": 0.24,
+   "wetDarken": 0.5,
+   "blendContrast": 0.65,
+   "rain": 1,
+   "mist": 1,
+   "ritesDone": false,
+   "flicker": true,
+   "labels": false,
+   "encounters": false,
+   "rites": false,
+   "landmarks": false,
+   "vignettes": false,
+   "npcs": false,
+   "exits": false,
+   "legend": true,
+   "blockouts": true,
+   "props": true,
+   "cards": true,
+   "grassDensity": 1,
+   "monsters": true,
+   "subject": false,
+   "waterOpacity": 0.92,
+   "waterFlow": 1,
+   "smoke": true,
+   "smokeSpeed": 1,
+   "smokeInfo": false
+  },
+  "hemisphereBuildColors": {
+   "sky": "#a9b1a6",
+   "ground": "#4a3526",
+   "note": "initial THREE.HemisphereLight(0xa9b1a6, 0x4a3526, 1), replaced by the mood on apply"
+  },
+  "moods": {
+   "day": {
+    "label": "Act I · mưa phùn ban ngày",
+    "raw": {
+     "label": "Act I · mưa phùn ban ngày",
+     "sky": "#a9b1a6",
+     "ground": "#4a3526",
+     "hemi": 2.3,
+     "sun": {
+      "elev": 62,
+      "az": -150,
+      "intensity": 0.5,
+      "kelvin": 7000
+     },
+     "env": "hdri-overcast",
+     "envI": 0.4,
+     "toneMapping": "aces",
+     "exposure": 0.75,
+     "background": "#7d857b",
+     "fog": {
+      "enabled": true,
+      "color": "#8c958a",
+      "density": 0.016,
+      "falloff": 0.11,
+      "height": 0,
+      "start": 12,
+      "inscatter": 0
+     },
+     "grade": {
+      "vignette": 0.32,
+      "contrast": 1.05,
+      "saturation": 0.86,
+      "lift": 0,
+      "temperature": -0.02,
+      "tint": 0
+     },
+     "rain": 0.4,
+     "mist": 0.55,
+     "human": 0.7,
+     "perfection": 1,
+     "windows": 0.55,
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#a9b1a6",
+      "groundColor": "#4a3526",
+      "intensity": 2.3
+     },
+     "sun": {
+      "kelvin": 7000,
+      "color": "#f3f2ff",
+      "intensity": 0.5,
+      "elevDeg": 62,
+      "azDeg": -150,
+      "direction": [
+       -0.23474,
+       0.88295,
+       -0.40657
+      ],
+      "lightPosition": [
+       -28.168,
+       105.954,
+       -48.789
+      ],
+      "lightTarget": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.4
+     },
+     "background": "#7d857b",
+     "skyTint": "#7d837a",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.75,
+      "fog": {
+       "enabled": true,
+       "height": 0,
+       "color": "#8c958a",
+       "density": 0.016,
+       "falloff": 0.11,
+       "start": 12,
+       "inscatter": 0
+      },
+      "grade": {
+       "vignette": 0.32,
+       "contrast": 1.05,
+       "saturation": 0.86,
+       "lift": 0,
+       "temperature": -0.02,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     },
+     "levels": {
+      "human": 0.7,
+      "perfection": 1,
+      "windows": 0.55
+     },
+     "rain": 0.4,
+     "mist": 0.55,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        12,
+        2.5938,
+        -22.31
+       ],
+       "color": "#e0a050",
+       "intensity": 9,
+       "range": 10,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.3,
+       "levelScale": 0.7
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": true,
+       "position": [
+        5.041,
+        1.3664,
+        -5.101
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 0.7
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -7.313,
+        3.3457,
+        18.565
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 0.7
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -11.396,
+        1.95,
+        -4.358
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.7
+      },
+      {
+       "id": "window-cottage-1",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -15.218,
+        2.6954,
+        -16.44
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.7
+      },
+      {
+       "id": "window-cottage-3",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -11.947,
+        2.6935,
+        16.402
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.7
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -19.639,
+        1.4316,
+        2.391
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 0.7
+      }
+     ]
+    }
+   },
+   "night": {
+    "label": "Prologue · đêm mưa",
+    "raw": {
+     "label": "Prologue · đêm mưa",
+     "sky": "#4e5f7a",
+     "ground": "#1c241f",
+     "hemi": 2.2,
+     "sun": {
+      "elev": 44,
+      "az": 160,
+      "intensity": 0.8,
+      "kelvin": 9000
+     },
+     "env": "hdri-night",
+     "envI": 0.12,
+     "toneMapping": "aces",
+     "exposure": 1.5,
+     "background": "#0e1317",
+     "rainTone": 0.4,
+     "fog": {
+      "enabled": true,
+      "color": "#1a2228",
+      "density": 0.016,
+      "falloff": 0.1,
+      "height": 0,
+      "start": 8,
+      "inscatter": 0
+     },
+     "grade": {
+      "vignette": 0.55,
+      "contrast": 1.1,
+      "saturation": 0.78,
+      "lift": 0,
+      "temperature": -0.05,
+      "tint": 0
+     },
+     "rain": 1,
+     "mist": 0.75,
+     "human": 1,
+     "perfection": 0,
+     "windows": 0.2,
+     "flags": {
+      "accent": false,
+      "graveCandles": false,
+      "gentleHouse": false,
+      "forge": false,
+      "gennetLantern": true
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#4e5f7a",
+      "groundColor": "#1c241f",
+      "intensity": 2.2
+     },
+     "sun": {
+      "kelvin": 9000,
+      "color": "#d2dfff",
+      "intensity": 0.8,
+      "elevDeg": 44,
+      "azDeg": 160,
+      "direction": [
+       0.24603,
+       0.69466,
+       -0.67596
+      ],
+      "lightPosition": [
+       29.523,
+       83.359,
+       -81.115
+      ],
+      "lightTarget": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-night",
+      "intensity": 0.12
+     },
+     "background": "#0e1317",
+     "skyTint": "#364357",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 1.5,
+      "fog": {
+       "enabled": true,
+       "height": 0,
+       "color": "#1a2228",
+       "density": 0.016,
+       "falloff": 0.1,
+       "start": 8,
+       "inscatter": 0
+      },
+      "grade": {
+       "vignette": 0.55,
+       "contrast": 1.1,
+       "saturation": 0.78,
+       "lift": 0,
+       "temperature": -0.05,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": false,
+      "graveCandles": false,
+      "gentleHouse": false,
+      "forge": false,
+      "gennetLantern": true
+     },
+     "levels": {
+      "human": 1,
+      "perfection": 0,
+      "windows": 0.2
+     },
+     "rain": 1,
+     "mist": 0.75,
+     "rainTone": 0.4,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        12,
+        2.5938,
+        -22.31
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 7,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.2,
+       "levelScale": 1
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": false,
+       "position": [
+        5.041,
+        1.3664,
+        -5.101
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 1
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -7.313,
+        3.3457,
+        18.565
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 1
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -11.396,
+        1.95,
+        -4.358
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "window-cottage-1",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -15.218,
+        2.6954,
+        -16.44
+       ],
+       "color": "#e0a050",
+       "intensity": 0.7,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "window-cottage-3",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -11.947,
+        2.6935,
+        16.402
+       ],
+       "color": "#e0a050",
+       "intensity": 0.7,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 1
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": false,
+       "position": [
+        -19.639,
+        1.4316,
+        2.391
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 1
+      }
+     ]
+    }
+   },
+   "lookdev": {
+    "label": "Soi texture · sáng đều",
+    "raw": {
+     "label": "Soi texture · sáng đều",
+     "sky": "#c9d4e4",
+     "ground": "#3b352e",
+     "hemi": 2.4,
+     "sun": {
+      "elev": 50,
+      "az": -135,
+      "intensity": 1.1,
+      "kelvin": 5600
+     },
+     "env": "hdri-overcast",
+     "envI": 0.25,
+     "toneMapping": "aces",
+     "exposure": 0.2,
+     "background": "#30353a",
+     "fog": {
+      "enabled": false
+     },
+     "grade": {
+      "vignette": 0.2,
+      "contrast": 1.04,
+      "saturation": 1,
+      "lift": 0,
+      "temperature": 0,
+      "tint": 0
+     },
+     "rain": 0,
+     "mist": 0,
+     "human": 0.5,
+     "perfection": 1,
+     "windows": 0.4,
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     }
+    },
+    "resolved": {
+     "hemisphere": {
+      "skyColor": "#c9d4e4",
+      "groundColor": "#3b352e",
+      "intensity": 2.4
+     },
+     "sun": {
+      "kelvin": 5600,
+      "color": "#ffefe1",
+      "intensity": 1.1,
+      "elevDeg": 50,
+      "azDeg": -135,
+      "direction": [
+       -0.45452,
+       0.76604,
+       -0.45452
+      ],
+      "lightPosition": [
+       -54.542,
+       91.925,
+       -54.542
+      ],
+      "lightTarget": [
+       0,
+       0,
+       0
+      ],
+      "castShadow": false,
+      "note": "THREE.DirectionalLight, no shadow; position = target + direction * 120"
+     },
+     "environment": {
+      "sample": "hdri-overcast",
+      "intensity": 0.25
+     },
+     "background": "#30353a",
+     "skyTint": "#98a0ac",
+     "post": {
+      "toneMapping": "aces",
+      "exposure": 0.2,
+      "fog": {
+       "enabled": false,
+       "height": 0
+      },
+      "grade": {
+       "vignette": 0.2,
+       "contrast": 1.04,
+       "saturation": 1,
+       "lift": 0,
+       "temperature": 0,
+       "tint": 0
+      }
+     },
+     "flags": {
+      "accent": true,
+      "graveCandles": true,
+      "gentleHouse": true,
+      "forge": true,
+      "gennetLantern": false
+     },
+     "levels": {
+      "human": 0.5,
+      "perfection": 1,
+      "windows": 0.4
+     },
+     "rain": 0,
+     "mist": 0,
+     "rainTone": 1,
+     "stars": 0,
+     "lights": [
+      {
+       "id": "lychgateLamp",
+       "kind": "human",
+       "on": true,
+       "position": [
+        12,
+        2.5938,
+        -22.31
+       ],
+       "color": "#e0a050",
+       "intensity": 9,
+       "range": 10,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.3,
+       "levelScale": 0.5
+      },
+      {
+       "id": "forge",
+       "kind": "human",
+       "on": true,
+       "position": [
+        5.041,
+        1.3664,
+        -5.101
+       ],
+       "color": "#e8823a",
+       "intensity": 15,
+       "range": 9,
+       "real": true,
+       "flicker": 1.2,
+       "glow": 1.6,
+       "levelScale": 0.5
+      },
+      {
+       "id": "osric",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -7.313,
+        3.3457,
+        18.565
+       ],
+       "color": "#e8903a",
+       "intensity": 6,
+       "range": 9,
+       "real": true,
+       "flicker": 1.1,
+       "glow": 1,
+       "levelScale": 0.5
+      },
+      {
+       "id": "edda",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -11.396,
+        1.95,
+        -4.358
+       ],
+       "color": "#e0a050",
+       "intensity": 4,
+       "range": 7,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.5
+      },
+      {
+       "id": "window-cottage-1",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -15.218,
+        2.6954,
+        -16.44
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.5
+      },
+      {
+       "id": "window-cottage-3",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -11.947,
+        2.6935,
+        16.402
+       ],
+       "color": "#e0a050",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 0.6,
+       "glow": 0,
+       "levelScale": 0.5
+      },
+      {
+       "id": "vault",
+       "kind": "human",
+       "on": true,
+       "position": [
+        -19.639,
+        1.4316,
+        2.391
+       ],
+       "color": "#e8a858",
+       "intensity": 3.2,
+       "range": 6,
+       "real": true,
+       "flicker": 1,
+       "glow": 0.5,
+       "levelScale": 0.5
+      }
+     ]
+    }
+   }
+  },
+  "port": "resolved values are ported from scenes/act1Outdoor.js applyTime() and env/act1/outdoorBuild.js applyMood()/lightOn() by the export script (those files need THREE/DOM); raw = PLAN.moods as in the map file, read by node"
+ },
+ "environmentMaps": [
+  {
+   "id": "hdri-night",
+   "labFile": "lookdev-lab/assets/samples/moonless_golf_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/moonless_golf)"
+  },
+  {
+   "id": "hdri-overcast",
+   "labFile": "lookdev-lab/assets/samples/quarry_01_1k.hdr",
+   "ashlarSource": null,
+   "note": "Poly Haven HDRI (CC0), not in ashlar/: use the lab file (or download https://polyhaven.com/a/quarry_01)"
+  }
+ ],
+ "commonTextures": [
+  {
+   "id": "biome-darkwood-grass-cards",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green"
+  },
+  {
+   "id": "biome-darkwood-water-n",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "biome-shore-plants",
+   "labFile": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2_green_ext",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2_green_ext"
+  },
+  {
+   "id": "darkwood-sty-green-cobble",
+   "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble.png",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+  },
+  {
+   "id": "darkwood-sty-green-cobble-n",
+   "labFile": "lookdev-lab/assets/samples/darkwood-sty-green-cobble-n.webp",
+   "ashlarSource": null,
+   "note": "processed in the lab (seam fix / flatten / keyed atlas / cut strip): no identical ashlar source, use the lab file. Origin: ashlar/art/textures/terrain-dark-wood/stylized2",
+   "ashlarOriginFolder": "ashlar/art/textures/terrain-dark-wood/stylized2"
+  }
+ ],
+ "notes": {
+  "hub": "Hub sinh từ gen-hub-64-s21 (hub-gen/2), đóng băng để map không đổi khi generator đổi."
+ }
+}
