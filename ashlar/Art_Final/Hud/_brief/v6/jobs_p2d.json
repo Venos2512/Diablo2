@@ -1,0 +1,40 @@
+[
+  {
+    "id": "C_pb_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\C_pb_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\C_pb_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\L1_hud_layer_v2.png",
+        "role": "approved PB HUD"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\ref_vesselA_statue.png",
+        "role": "approved vessel design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\ref_orient_C_br.png",
+        "role": "approved example of the right guardian on the correct side, another class, vessel on the left and statue on the right"
+      }
+    ]
+  },
+  {
+    "id": "C_os_r2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\C_os_r2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\C_os_r2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\L1_hud_layer_v2.png",
+        "role": "approved OS HUD"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\ref_vesselA_statue.png",
+        "role": "approved vessel design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\ref_orient_C_br.png",
+        "role": "approved example of the right guardian on the correct side, another class, vessel on the left and statue on the right"
+      }
+    ]
+  }
+]

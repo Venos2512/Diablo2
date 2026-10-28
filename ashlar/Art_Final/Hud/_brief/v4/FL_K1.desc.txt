@@ -1,0 +1,14 @@
+Use case: game-ui-kit sheet. Image 1 is the approved PC HUD layer of ASHLAR ("Until the Last"), an original dark-fantasy isometric action RPG, on black: style and material reference only. Match its hand-painted matte grey dressed stone, pale mortar joints, dark iron, its hooded stone guardian statues and its level of detail; do not copy its layout.
+
+SHEET: 16:9 landscape, flat dark warm grey backdrop (#2B2825), no environment, soft top-left light, clear form shading. Title at the top: "FL FLAGELLANT — CONTRITION VESSEL". Two rows, row heads "A" and "B" at the far left.
+Each row = one large CONTEXT cell at the left, then four smaller STATE cells labelled under them exactly "0", "30", "70", "100".
+CONTEXT cell: the right-hand hooded stone guardian statue from image 1 (same hood, same robe, same carved pedestal, facing image-left), but instead of a round stone ring it now holds THIS ROW'S VESSEL from the outside with both stone hands. The vessel shown at about 70 percent. A short stretch of the stone bar end runs off to the left. No numbers, no text in this cell.
+STATE cells: the vessel alone, same size and same angle in all four, showing the Contrition level.
+
+THE VESSEL'S JOB: it shows Contrition 0 to 100, a resource the Flagellant gains by paying her own blood. Heat rises through a chain: dull dark iron when empty, ember red-orange (#D0532A) when hot. The heat is light only, painted as a soft inner glow in the links, not glossy, no flames, no smoke. Its silhouette must be clearly NOT ROUND, so it never reads like the round life globe, even in grayscale.
+
+ROW A, "TEN-LINK NICHE": a tall narrow upright stone niche with a rounded top (about 1.7 times as tall as wide), a dark recess inside. In the recess hangs an iron chain of exactly TEN large links from an iron hook at the top. Heat fills from the bottom link upward: 0 = all ten links dull iron; 30 = bottom three links glowing ember; 70 = bottom seven glowing; 100 = all ten glowing, the top link brightest. One small mended crack held by a dark iron staple on the niche frame.
+ROW B, "COAL-BOX ARCH": a squat lidded iron coal box with a slotted lid (wider than tall), and an arch of exactly TEN large chain links standing over the box like a handle, both ends fixed to the box. Heat runs link by link from the left end over the top to the right end, and the slots in the lid glow more as the level rises: 0 = all dull; 30 = three links from the left; 70 = seven; 100 = all ten and the slots bright.
+
+Large, simple, readable shapes; at most one repair mark per vessel; no tiny engraving. Text: only the title, the row heads A and B, and the labels 0, 30, 70, 100.
+AVOID: round or globe-like vessel shapes, haloes or rings behind anything, crosses, skulls, blood, wounds, gore, chains on skin, flames, smoke, gold filigree, gemstones, glossy chrome, neon, bloom, spiky or scratchy rendering.

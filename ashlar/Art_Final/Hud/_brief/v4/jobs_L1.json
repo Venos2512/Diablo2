@@ -1,0 +1,67 @@
+[
+  {
+    "id": "FL_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: Contrition vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\ref_globe_wound.png",
+        "role": "design reference: life globe Wound state"
+      }
+    ]
+  },
+  {
+    "id": "PS_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: Breath vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_vesselA_pyrehymn.png",
+        "role": "design reference: Breath vessel while singing Pyre Hymn"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_socket_counters.png",
+        "role": "design reference: Hymn socket, Smoke-Shape pips, Long Song arc"
+      }
+    ]
+  },
+  {
+    "id": "PS_L1_v2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\L1_hud_layer_v2.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v2.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: Breath vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_vesselA_pyrehymn.png",
+        "role": "design reference: Breath vessel while singing Pyre Hymn"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_socket_counters.png",
+        "role": "design reference: Hymn socket, Smoke-Shape pips, Long Song arc"
+      }
+    ]
+  }
+]

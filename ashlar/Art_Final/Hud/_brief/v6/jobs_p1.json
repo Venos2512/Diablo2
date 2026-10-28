@@ -1,0 +1,136 @@
+[
+  {
+    "id": "PB_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\KIT_1_globe_vessels\\sheet.png",
+        "role": "older HUD kit sketch, one vessel only (see text)"
+      }
+    ]
+  },
+  {
+    "id": "PB_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\K2_counters_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\K2_counters_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "OS_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\KIT_1_globe_vessels\\sheet.png",
+        "role": "older HUD kit sketch, one vessel only (see text)"
+      }
+    ]
+  },
+  {
+    "id": "OS_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\K2_counters_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\K2_counters_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "BR_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\KIT_1_globe_vessels\\sheet.png",
+        "role": "older HUD kit sketch, one vessel only (see text)"
+      }
+    ]
+  },
+  {
+    "id": "BR_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\_work\\K2_counters_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\K2_counters_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "EX_K1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\_work\\K1_vessel_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\K1_vessel_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\KIT_1_globe_vessels\\sheet.png",
+        "role": "older HUD kit sketch, one vessel only (see text)"
+      }
+    ]
+  },
+  {
+    "id": "EX_K2",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\_work\\K2_counters_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\K2_counters_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\_work\\base_layer_black16x9.png",
+        "role": "style and material reference only"
+      }
+    ]
+  },
+  {
+    "id": "E2_icons",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\E2_icons.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E2_icons.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E_icons.png",
+        "role": "approved skill icon sheet (icon style, size, socket face)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD"
+      }
+    ]
+  },
+  {
+    "id": "E3_icons",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\E3_icons.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E3_icons.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E_icons.png",
+        "role": "approved skill icon sheet (icon style, size, socket face)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD"
+      }
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "A_bar",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\A_bar.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\A_bar.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD (bar parts reference)"
+      }
+    ]
+  },
+  {
+    "id": "G_plates",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\G_plates.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\G_plates.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD (plates reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v2.png",
+        "role": "approved Pyre-Singer HUD (counter plate reference)"
+      }
+    ]
+  },
+  {
+    "id": "B_globe",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\B_globe.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\B_globe.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD (left guardian and globe reference)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\K2_globe_v1.png",
+        "role": "approved life globe states"
+      }
+    ]
+  },
+  {
+    "id": "C_fl",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\C_fl.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\C_fl.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\L1_hud_layer_v1.png",
+        "role": "approved Flagellant HUD"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\_work\\ref_vesselA_statue.png",
+        "role": "approved Contrition vessel design"
+      }
+    ]
+  },
+  {
+    "id": "D_ps",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\D_ps.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\D_ps.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v2.png",
+        "role": "approved Pyre-Singer HUD"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_vesselA_statue.png",
+        "role": "approved Breath vessel design"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\_work\\ref_socket_counters.png",
+        "role": "approved socket, counters and party design"
+      }
+    ]
+  },
+  {
+    "id": "E_icons",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\E_icons.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E_icons.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\L1_hud_layer_v1.png",
+        "role": "approved Flagellant HUD (icons)"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v2.png",
+        "role": "approved Pyre-Singer HUD (icons)"
+      }
+    ]
+  },
+  {
+    "id": "F_fx",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\_work\\F_fx.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\F_fx.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_FL\\L1_hud_layer_v1.png",
+        "role": "approved Flagellant HUD"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PS\\L1_hud_layer_v2.png",
+        "role": "approved Pyre-Singer HUD"
+      }
+    ]
+  }
+]

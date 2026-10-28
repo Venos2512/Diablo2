@@ -1,0 +1,94 @@
+[
+  {
+    "id": "PB_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_PB\\_work\\ref_socket5_names.png",
+        "role": "design reference: Vow socket 5 and Names counter"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E2_icons.png",
+        "role": "approved skill icon sheet"
+      }
+    ]
+  },
+  {
+    "id": "OS_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_OS\\_work\\ref_strain_servants.png",
+        "role": "design reference: Strain gauge and servant counter"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E2_icons.png",
+        "role": "approved skill icon sheet"
+      }
+    ]
+  },
+  {
+    "id": "BR_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_BR\\_work\\ref_encrusted.png",
+        "role": "design reference: Encrusted pips under the target bar"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E3_icons.png",
+        "role": "approved skill icon sheet"
+      }
+    ]
+  },
+  {
+    "id": "EX_L1",
+    "promptPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\_work\\L1_hud_layer_v1.prompt.src.txt",
+    "outputPath": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\L1_hud_layer_v1.png",
+    "referenceImages": [
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\PC_B7_hooded\\HUD00_common_v1.png",
+        "role": "approved common HUD layer on black to edit"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\_work\\ref_vesselA_statue.png",
+        "role": "design reference: vessel held by the right statue"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\class_EX\\_work\\ref_wick_exposed.png",
+        "role": "design reference: wick key socket and Exposed nameplate"
+      },
+      {
+        "path": "E:\\Diablo2\\ashlar\\art\\hud\\dev\\_sheets\\E3_icons.png",
+        "role": "approved skill icon sheet"
+      }
+    ]
+  }
+]
