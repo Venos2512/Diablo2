@@ -1,0 +1,6908 @@
+{
+  "cell_px": 128,
+  "note": "footprint = columns x rows (w x h) on the Diablo II style inventory grid; icon_px = footprint * cell_px",
+  "items": [
+    {
+      "id": "A02",
+      "name": "Sexton's Coat",
+      "name_vi": "áo khoác của Gennet (thiết kế cũ Gennet's Coat, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-03_starting_armour.png",
+      "sheet_source": "ashlar/art/items/IT-03_starting_armour/sheet_d2_v1.png",
+      "icon": "A02_sextons_coat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 7,
+        "right": 8,
+        "top": 15,
+        "bottom": 6
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A03",
+      "name": "Riveted Jack",
+      "name_vi": "áo brigandine vá (thiết kế cũ Patched Brigandine, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-08_lychgate_armour.png",
+      "sheet_source": "ashlar/art/items/IT-08_lychgate_armour/sheet_d2_v1.png",
+      "icon": "A03_riveted_jack.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A04",
+      "name": "Oilcloth Coat",
+      "name_vi": "áo vải dầu (thiết kế cũ Oilskin Coat, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-08_lychgate_armour.png",
+      "sheet_source": "ashlar/art/items/IT-08_lychgate_armour/sheet_d2_v1.png",
+      "icon": "A04_oilcloth_coat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 7,
+        "right": 9,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A05",
+      "name": "Pall Cuirass",
+      "name_vi": "giáp ngực dòng Pall",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-13_pall_exhumer_armour.png",
+      "sheet_source": "ashlar/art/items/IT-13_pall_exhumer_armour/sheet_d2_v1.png",
+      "icon": "A05_pall_cuirass.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A06",
+      "name": "Sexton's Cowl",
+      "name_vi": "mũ trùm người giữ mộ",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-08_lychgate_armour.png",
+      "sheet_source": "ashlar/art/items/IT-08_lychgate_armour/sheet_d2_v1.png",
+      "icon": "A06_sextons_cowl.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A07",
+      "name": "Wide-Brim Hat",
+      "name_vi": "mũ rộng vành",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-13_pall_exhumer_armour.png",
+      "sheet_source": "ashlar/art/items/IT-13_pall_exhumer_armour/sheet_d2_v1.png",
+      "icon": "A07_wide_brim_hat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 43,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A08",
+      "name": "Ash-Veil",
+      "name_vi": "mạng tro",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-16_late_class_gear.png",
+      "sheet_source": "ashlar/art/items/IT-16_late_class_gear/sheet_d2_v2.png",
+      "icon": "A08_ash_veil.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2",
+      "footprint_override": "user decision 2026-10-26: template says 2x2"
+    },
+    {
+      "id": "A09",
+      "name": "Pall Great-Helm",
+      "name_vi": "mũ trụ dòng Pall",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-13_pall_exhumer_armour.png",
+      "sheet_source": "ashlar/art/items/IT-13_pall_exhumer_armour/sheet_d2_v1.png",
+      "icon": "A09_pall_great_helm.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 7
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A10",
+      "name": "Work Gloves",
+      "name_vi": "găng đào mộ (thiết kế cũ Gravedigger's Gloves, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-03_starting_armour.png",
+      "sheet_source": "ashlar/art/items/IT-03_starting_armour/sheet_d2_v1.png",
+      "icon": "A10_work_gloves.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A11",
+      "name": "Nailed Gauntlet",
+      "name_vi": "găng sắt đóng đinh",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-07_shields_heavy.png",
+      "sheet_source": "ashlar/art/items/IT-07_shields_heavy/sheet_d2_v1.png",
+      "icon": "A11_nailed_gauntlet.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A12",
+      "name": "Peat Boots",
+      "name_vi": "ủng thợ cắt than bùn (thiết kế cũ Peat-Cutter's Boots, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-03_starting_armour.png",
+      "sheet_source": "ashlar/art/items/IT-03_starting_armour/sheet_d2_v1.png",
+      "icon": "A12_peat_boots.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 1,
+        "right": 21,
+        "top": 51,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A13",
+      "name": "Iron-Shod Sabatons",
+      "name_vi": "giày sắt",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-07_shields_heavy.png",
+      "sheet_source": "ashlar/art/items/IT-07_shields_heavy/sheet_d2_v1.png",
+      "icon": "A13_iron_shod_sabatons.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A14",
+      "name": "Sexton's Belt",
+      "name_vi": "thắt lưng đồ nghề (thiết kế cũ Sexton's Tool Belt, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-08_lychgate_armour.png",
+      "sheet_source": "ashlar/art/items/IT-08_lychgate_armour/sheet_d2_v1.png",
+      "icon": "A14_sextons_belt.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A15",
+      "name": "Cord Belt",
+      "name_vi": "dây mười nút (thiết kế cũ Ten-Knot Cord, base §2.16)",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-13_pall_exhumer_armour.png",
+      "sheet_source": "ashlar/art/items/IT-13_pall_exhumer_armour/sheet_d2_v1.png",
+      "icon": "A15_cord_belt.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 9,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A16",
+      "name": "Tanner's Jerkin",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A16_tanners_jerkin.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A17",
+      "name": "Fen Byrnie",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A17_fen_byrnie.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A18",
+      "name": "Iron-patched Hauberk",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A18_iron_patched_hauberk.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 9,
+        "right": 10,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A19",
+      "name": "Grave-chain Shirt",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A19_grave_chain_shirt.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 3,
+        "right": 7,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A20",
+      "name": "Leather Cap",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A20_leather_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A21",
+      "name": "Boar-tusk Cap",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A21_boar_tusk_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A22",
+      "name": "Kettle Cap",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A22_kettle_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A23",
+      "name": "Tusked Helm",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A23_tusked_helm.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A24",
+      "name": "Kettle Helm",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A24_kettle_helm.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 10,
+        "right": 12,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A25",
+      "name": "Barred Helm",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A25_barred_helm.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A26",
+      "name": "Ash-veil",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A26_ash_veil.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A27",
+      "name": "Grey Veil",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-37_helms_veils.png",
+      "sheet_source": "ashlar/art/items/IT-37_helms_veils/sheet_d2_v2.png",
+      "icon": "A27_grey_veil.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A28",
+      "name": "Hedger's Gloves",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "A28_hedgers_gloves.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 5,
+        "right": 2,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A29",
+      "name": "Ringed Gloves",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "A29_ringed_gloves.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A30",
+      "name": "Clogs",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "A30_clogs.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A31",
+      "name": "Ringed Boots",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "A31_ringed_boots.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "A32",
+      "name": "Rope Belt",
+      "name_vi": "",
+      "category": "A",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-36_body_armour.png",
+      "sheet_source": "ashlar/art/items/IT-36_body_armour/sheet_d2_v1.png",
+      "icon": "A32_rope_belt.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C04",
+      "name": "Reading Candle",
+      "name_vi": "nến đọc đồ (identify)",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-09_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-09_small_goods/sheet_d2_v1.png",
+      "icon": "C04_reading_candle.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C10",
+      "name": "Thin Draught",
+      "name_vi": "ngụm loãng",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C10_thin_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C11",
+      "name": "Small Draught",
+      "name_vi": "ngụm nhỏ",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C11_small_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C12",
+      "name": "Draught",
+      "name_vi": "ngụm",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C12_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C13",
+      "name": "Long Draught",
+      "name_vi": "ngụm dài",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C13_long_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C14",
+      "name": "Deep Draught",
+      "name_vi": "ngụm sâu",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C14_deep_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C15",
+      "name": "Waking Draught",
+      "name_vi": "ngụm tỉnh",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C15_waking_draught.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C16",
+      "name": "Great Waking Draught",
+      "name_vi": "ngụm tỉnh lớn",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C16_great_waking.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C17",
+      "name": "Second-wind Draught",
+      "name_vi": "ngụm lấy hơi",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C17_second_wind.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C18",
+      "name": "Brine Wash",
+      "name_vi": "nước rửa muối",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C18_brine_wash.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C19",
+      "name": "Ember Tea",
+      "name_vi": "trà than",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-21_draughts.png",
+      "sheet_source": "ashlar/art/items/IT-21_draughts/sheet_d2_v4.png",
+      "icon": "C19_ember_tea.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 10,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C20",
+      "name": "Lychgate Rubbing",
+      "name_vi": "bản rập cổng lychgate",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "C20_lychgate_rubbing.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C21",
+      "name": "Book of Rubbings",
+      "name_vi": "sổ bản rập",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "C21_book_of_rubbings.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C22",
+      "name": "Candle-box",
+      "name_vi": "hộp nến",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "C22_candle_box.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C23",
+      "name": "Arrow Sheaf",
+      "name_vi": "bó tên",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "C23_arrow_sheaf.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "C24",
+      "name": "Quarrel Case",
+      "name_vi": "hộp tên nỏ",
+      "category": "C",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "C24_quarrel_case.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E01",
+      "name": "LIGHT",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E01_light.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E03",
+      "name": "REST",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E03_rest.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E04",
+      "name": "LOW",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E04_low.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E05",
+      "name": "WAITS",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E05_waits.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E06",
+      "name": "NO",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E06_no.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E07",
+      "name": "SALT",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E07_salt.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "E08",
+      "name": "ASH",
+      "name_vi": "",
+      "category": "E",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-23_words_lead.png",
+      "sheet_source": "ashlar/art/items/IT-23_words_lead/sheet_d2_v1.png",
+      "icon": "E08_ash.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "G01",
+      "name": "Coin",
+      "name_vi": "tiền",
+      "category": "G",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-05_consumables_coin.png",
+      "sheet_source": "ashlar/art/items/IT-05_consumables_coin/sheet_d2_r2.png",
+      "icon": "G01_coin.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "G03",
+      "name": "Grave-Goods Bundle",
+      "name_vi": "gói đồ tuỳ táng",
+      "category": "G",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-05_consumables_coin.png",
+      "sheet_source": "ashlar/art/items/IT-05_consumables_coin/sheet_d2_r2.png",
+      "icon": "G03_grave_goods_bundle.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H01",
+      "name": "The Bride's Veil",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H01_the_brides_veil.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H02",
+      "name": "Joss's Halo",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H02_josss_halo.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H03",
+      "name": "A Shard of the Kind Mirror",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H03_kind_mirror_shard.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H04",
+      "name": "The Glass Stag's Antler",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H04_glass_stags_antler.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H05",
+      "name": "A Coal From the Ember-Pot",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H05_coal_from_the_ember_pot.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 3,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H06",
+      "name": "Mortar-Day Ash",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-27_hallowed.png",
+      "sheet_source": "ashlar/art/items/IT-27_hallowed/sheet_d2_v2.png",
+      "icon": "H06_mortar_day_ash.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H07",
+      "name": "The Night-Watch Hanger",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H07_the_night_watch_hanger.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H08",
+      "name": "Grave-board",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H08_grave_board.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H09",
+      "name": "Bog-oak Knot",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H09_bog_oak_knot.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H10",
+      "name": "Magpie",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H10_magpie.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 23,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H11",
+      "name": "Gristle",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H11_gristle.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H12",
+      "name": "The Millennial Taper",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H12_the_millennial_taper.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H13",
+      "name": "The Tolling Iron",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H13_the_tolling_iron.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H14",
+      "name": "The Coffin-Nailer",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H14_the_coffin_nailer.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H15",
+      "name": "The Pyre-walker's Staff",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H15_the_pyre_walkers_staff.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H16",
+      "name": "The Corpse-washer's Gloves",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H16_the_corpse_washers_gloves.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H17",
+      "name": "Hearth-clogs",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H17_hearth_clogs.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 1,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H18",
+      "name": "Fen-moon",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H18_fen_moon.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H19",
+      "name": "The Crow-scarer",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H19_the_crow_scarer.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H20",
+      "name": "The Mourner's Coat",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H20_the_mourners_coat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H21",
+      "name": "The Wake-cord",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H21_the_wake_cord.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H22",
+      "name": "The Coffin-nail Ring",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-40_hallowed_small_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-40_hallowed_small_weapons/sheet_d2_v1.png",
+      "icon": "H22_the_coffin_nail_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H23",
+      "name": "Ice in the Ruts",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H23_ice_in_the_ruts.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H24",
+      "name": "The Burning Stake",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H24_the_burning_stake.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H25",
+      "name": "The Running Bier",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H25_the_running_bier.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H26",
+      "name": "The Last Spadeful",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H26_the_last_spadeful.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H27",
+      "name": "The Great Candle-iron",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H27_the_great_candle_iron.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H28",
+      "name": "Marsh-gall",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "footprint_str": "1x4",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H28_marsh_gall.png",
+      "icon_px": {
+        "w": 128,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H29",
+      "name": "Rook-shot",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H29_rook_shot.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 12,
+        "right": 17,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H30",
+      "name": "Dusk-ward",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H30_dusk_ward.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H31",
+      "name": "Thornfist",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H31_thornfist.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 1,
+        "right": 5,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H32",
+      "name": "The Bog-runner's Boots",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H32_the_bog_runners_boots.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 1,
+        "right": 2,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H33",
+      "name": "The Gap-finder",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H33_the_gap_finder.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H34",
+      "name": "Poppy-reaper",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H34_poppy_reaper.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H35",
+      "name": "Lampless",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "footprint_str": "1x4",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H35_lampless.png",
+      "icon_px": {
+        "w": 128,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H36",
+      "name": "The Eel-Reeve's Fork",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H36_the_eel_reeves_fork.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H37",
+      "name": "The Fire-carrier's Coat",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H37_the_fire_carriers_coat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H38",
+      "name": "The Fen-adder Cord",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H38_the_fen_adder_cord.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H39",
+      "name": "First Frost",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H39_first_frost.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H40",
+      "name": "The Snipe-bow",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H40_the_snipe_bow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H41",
+      "name": "The Weir-gate",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H41_the_weir_gate.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H42",
+      "name": "Red Shavings",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-43_hallowed_axes_bows.png",
+      "sheet_source": "ashlar/art/items/IT-43_hallowed_axes_bows/sheet_d2_v1.png",
+      "icon": "H42_red_shavings.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H43",
+      "name": "Wreck-wood",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-41_hallowed_blades_wands.png",
+      "sheet_source": "ashlar/art/items/IT-41_hallowed_blades_wands/sheet_d2_v2.png",
+      "icon": "H43_wreck_wood.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H44",
+      "name": "Make-Way",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-44_hallowed_poles_shields.png",
+      "sheet_source": "ashlar/art/items/IT-44_hallowed_poles_shields/sheet_d2_v1.png",
+      "icon": "H44_make_way.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H45",
+      "name": "The Steeple-cap",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-45_hallowed_heads_hands_feet.png",
+      "sheet_source": "ashlar/art/items/IT-45_hallowed_heads_hands_feet/sheet_d2_v2.png",
+      "icon": "H45_the_steeple_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H46",
+      "name": "The Deserter's Jerkin",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H46_the_deserters_jerkin.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "H47",
+      "name": "Marsh-light",
+      "name_vi": "",
+      "category": "H",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-42_hallowed_armour.png",
+      "sheet_source": "ashlar/art/items/IT-42_hallowed_armour/sheet_d2_v2.png",
+      "icon": "H47_marsh_light.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J01",
+      "name": "Severin's Promise",
+      "name_vi": "Lời hứa của Severin",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-04_relics_act1.png",
+      "sheet_source": "ashlar/art/items/IT-04_relics_act1/sheet_d2_v1.png",
+      "icon": "J01_severins_promise.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J02",
+      "name": "Bone Ring",
+      "name_vi": "nhẫn xương",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-09_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-09_small_goods/sheet_d2_v1.png",
+      "icon": "J02_bone_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J03",
+      "name": "Mason's-Mark Signet",
+      "name_vi": "nhẫn ấn dấu thợ đá",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-17_rings_materials.png",
+      "sheet_source": "ashlar/art/items/IT-17_rings_materials/sheet_d2_v3.png",
+      "icon": "J03_masons_signet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J04",
+      "name": "Wedge Pendant",
+      "name_vi": "mặt dây Wedge",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-14_sepulcra_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+      "icon": "J04_wedge_pendant.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J05",
+      "name": "Cracked Wedge",
+      "name_vi": "Wedge nứt Odilian",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-14_sepulcra_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+      "icon": "J05_cracked_wedge.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J06",
+      "name": "Bell-Bronze Pendant",
+      "name_vi": "mặt đồng chuông",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-14_sepulcra_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+      "icon": "J06_bell_bronze_pendant.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J07",
+      "name": "Salt-Glass Ring",
+      "name_vi": "nhẫn kính muối",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-17_rings_materials.png",
+      "sheet_source": "ashlar/art/items/IT-17_rings_materials/sheet_d2_v3.png",
+      "icon": "J07_salt_glass_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J08",
+      "name": "Flint Ring",
+      "name_vi": "nhẫn đá lửa",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J08_flint_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J09",
+      "name": "Peat-Wood Ring",
+      "name_vi": "nhẫn gỗ than bùn",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J09_peat_wood_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J10",
+      "name": "Hammered Iron Ring",
+      "name_vi": "nhẫn sắt gò",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J10_hammered_iron_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J11",
+      "name": "Flint Pendant",
+      "name_vi": "mặt dây đá lửa",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J11_flint_pendant.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 1,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J12",
+      "name": "Bog-Oak Amulet",
+      "name_vi": "amulet sồi đầm lầy",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J12_bog_oak_amulet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 1,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "J13",
+      "name": "Caged Flint Amulet",
+      "name_vi": "amulet lồng đá lửa",
+      "category": "J",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-28_dolmoor_jewellery.png",
+      "sheet_source": "ashlar/art/items/IT-28_dolmoor_jewellery/sheet_d2_v1.png",
+      "icon": "J13_caged_flint_amulet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 1,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K01",
+      "name": "Ossuary Grille Key",
+      "name_vi": "chìa song sắt ossuary",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-11_keys.png",
+      "sheet_source": "ashlar/art/items/IT-11_keys/sheet_d2_v1.png",
+      "icon": "K01_ossuary_grille_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K02",
+      "name": "Barrow Vault Key",
+      "name_vi": "chìa hầm nhà Barrow",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-11_keys.png",
+      "sheet_source": "ashlar/art/items/IT-11_keys/sheet_d2_v1.png",
+      "icon": "K02_barrow_vault_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 4,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K03",
+      "name": "Gentle House Gate Key",
+      "name_vi": "chìa cổng Gentle House",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-11_keys.png",
+      "sheet_source": "ashlar/art/items/IT-11_keys/sheet_d2_v1.png",
+      "icon": "K03_gentle_house_gate_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K04",
+      "name": "Chancery Ledger Key",
+      "name_vi": "chìa phòng sổ Chancery",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-14_sepulcra_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+      "icon": "K04_chancery_ledger_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K05",
+      "name": "Bell-Pit Key",
+      "name_vi": "chìa hầm chuông",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-14_sepulcra_small_goods.png",
+      "sheet_source": "ashlar/art/items/IT-14_sepulcra_small_goods/sheet_d2_v1.png",
+      "icon": "K05_bell_pit_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "K06",
+      "name": "Sexton's Key",
+      "name_vi": "chìa người giữ mộ",
+      "category": "K",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-22_rubbings_keys_ammo.png",
+      "sheet_source": "ashlar/art/items/IT-22_rubbings_keys_ammo/sheet_d2_v2.png",
+      "icon": "K06_sextons_key.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O01",
+      "name": "Old Coffin-lid",
+      "name_vi": "nắp quan tài cũ",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "O01_old_coffin_lid.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 1,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O02",
+      "name": "Pall Coffin-Lid",
+      "name_vi": "khiên nắp quan tài",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-07_shields_heavy.png",
+      "sheet_source": "ashlar/art/items/IT-07_shields_heavy/sheet_d2_v1.png",
+      "icon": "O02_pall_coffin_lid.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O03",
+      "name": "Branding Iron",
+      "name_vi": "sắt nung",
+      "category": "O",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-02_class_offhands.png",
+      "sheet_source": "ashlar/art/items/IT-02_class_offhands/sheet_d2_v1.png",
+      "icon": "O03_branding_iron.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O04",
+      "name": "Bone Box",
+      "name_vi": "hòm thánh tích (thiết kế cũ Reliquary, base §2.16)",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-02_class_offhands.png",
+      "sheet_source": "ashlar/art/items/IT-02_class_offhands/sheet_d2_v1.png",
+      "icon": "O04_bone_box.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O05",
+      "name": "Brine-Flask",
+      "name_vi": "bình nước biển",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-02_class_offhands.png",
+      "sheet_source": "ashlar/art/items/IT-02_class_offhands/sheet_d2_v1.png",
+      "icon": "O05_brine_flask.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 51,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O06",
+      "name": "Hooded Lantern",
+      "name_vi": "đèn có chụp",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-02_class_offhands.png",
+      "sheet_source": "ashlar/art/items/IT-02_class_offhands/sheet_d2_v1.png",
+      "icon": "O06_hooded_lantern.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 23,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O07",
+      "name": "Mortsafe-Grille Shield",
+      "name_vi": "khiên song sắt chắn mộ",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-07_shields_heavy.png",
+      "sheet_source": "ashlar/art/items/IT-07_shields_heavy/sheet_d2_v1.png",
+      "icon": "O07_mortsafe_grille_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O08",
+      "name": "Pickling Jar",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "O08_pickling_jar.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O09",
+      "name": "Sea-flask",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "O09_sea_flask.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 2,
+        "right": 8,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O10",
+      "name": "Peat-smoked Jar",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "O10_peat_smoked_jar.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 1,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O11",
+      "name": "Tin Reliquary",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O11_tin_reliquary.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O12",
+      "name": "Pine Lid",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O12_pine_lid.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O13",
+      "name": "Elm Lid",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O13_elm_lid.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O14",
+      "name": "Board Shield",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O14_board_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O15",
+      "name": "Wicker Shield",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O15_wicker_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O16",
+      "name": "Door-shield",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-38_lids_reliquary_shields.png",
+      "sheet_source": "ashlar/art/items/IT-38_lids_reliquary_shields/sheet_d2_v1.png",
+      "icon": "O16_door_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O17",
+      "name": "Nail Shield",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "O17_nail_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "O18",
+      "name": "Mantlet",
+      "name_vi": "",
+      "category": "O",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-39_shields_gloves_boots.png",
+      "sheet_source": "ashlar/art/items/IT-39_shields_gloves_boots/sheet_d2_v1.png",
+      "icon": "O18_mantlet.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q01",
+      "name": "The Book of Laid Names",
+      "name_vi": "Sổ Tên Người Nằm",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-04_relics_act1.png",
+      "sheet_source": "ashlar/art/items/IT-04_relics_act1/sheet_d2_v1.png",
+      "icon": "Q01_book_of_laid_names.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 2
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q02",
+      "name": "Oldest Volume of the Book",
+      "name_vi": "tập cổ nhất",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-10_act1_quest.png",
+      "sheet_source": "ashlar/art/items/IT-10_act1_quest/sheet_d2_v1.png",
+      "icon": "Q02_oldest_volume.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q03",
+      "name": "Edda's Broth Bowl",
+      "name_vi": "bát nước dùng của Edda",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-10_act1_quest.png",
+      "sheet_source": "ashlar/art/items/IT-10_act1_quest/sheet_d2_v1.png",
+      "icon": "Q03_eddas_broth_bowl.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 2,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q04",
+      "name": "The Ferryman's Tin",
+      "name_vi": "hộp xu của người lái đò",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-04_relics_act1.png",
+      "sheet_source": "ashlar/art/items/IT-04_relics_act1/sheet_d2_v1.png",
+      "icon": "Q04_ferrymans_tin.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 2,
+        "right": 28,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q05",
+      "name": "Cup of Poppy Tea",
+      "name_vi": "chén trà anh túc",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-10_act1_quest.png",
+      "sheet_source": "ashlar/art/items/IT-10_act1_quest/sheet_d2_v1.png",
+      "icon": "Q05_cup_of_poppy_tea.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q06",
+      "name": "Shroud Bill of Sale",
+      "name_vi": "biên lai mua vải liệm",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "Q06_shroud_bill_of_sale.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q08",
+      "name": "The Unedited Testament",
+      "name_vi": "Kinh văn chưa sửa",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-15_act2_relics_quest.png",
+      "sheet_source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+      "icon": "Q08_unedited_testament.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q09",
+      "name": "On the Term",
+      "name_vi": "báo cáo về kỳ hạn",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-15_act2_relics_quest.png",
+      "sheet_source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+      "icon": "Q09_on_the_term.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q10",
+      "name": "The Iron Halo",
+      "name_vi": "Vương miện sắt",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-15_act2_relics_quest.png",
+      "sheet_source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+      "icon": "Q10_the_iron_halo.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q11",
+      "name": "Ignatia's Broken Seal",
+      "name_vi": "ấn Exhumer bẻ đôi",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-15_act2_relics_quest.png",
+      "sheet_source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+      "icon": "Q11_ignatias_broken_seal.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 1,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q12",
+      "name": "Nareh's Contraband",
+      "name_vi": "\"tội lỗi\" lậu",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "Q12_narehs_contraband.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 12
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q13",
+      "name": "The Chipped Cup",
+      "name_vi": "chén mẻ của Nareh",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "Q13_the_chipped_cup.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q14",
+      "name": "Whispering-Crystal",
+      "name_vi": "đá thì thầm",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "Q14_whispering_crystal.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q15",
+      "name": "The Salt Crown",
+      "name_vi": "vương miện muối",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "Q15_the_salt_crown.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q16",
+      "name": "Mila's Music Box",
+      "name_vi": "hộp nhạc của Mila",
+      "category": "Q",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "Q16_milas_music_box.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 39,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q17",
+      "name": "The Living Flower",
+      "name_vi": "bông hoa sống",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "Q17_the_living_flower.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q18",
+      "name": "Severin's Letter",
+      "name_vi": "thư của Severin",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "Q18_severins_letter.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 2,
+        "right": 6,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q19",
+      "name": "Maelys's Candle Stub",
+      "name_vi": "mẩu nến của Maelys",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "Q19_maelyss_candle.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "Q20",
+      "name": "The Pear",
+      "name_vi": "quả lê",
+      "category": "Q",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "Q20_the_pear.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "R01",
+      "name": "Osric's Lantern",
+      "name_vi": "đèn của Osric",
+      "category": "R",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-04_relics_act1.png",
+      "sheet_source": "ashlar/art/items/IT-04_relics_act1/sheet_d2_v1.png",
+      "icon": "R01_osrics_lantern.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "R02",
+      "name": "The Tongueless Bell",
+      "name_vi": "Chuông không lưỡi",
+      "category": "R",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-15_act2_relics_quest.png",
+      "sheet_source": "ashlar/art/items/IT-15_act2_relics_quest/sheet_d2_v2.png",
+      "icon": "R02_the_tongueless_bell.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "R03",
+      "name": "The Inkman's Mark",
+      "name_vi": "dấu của Inkman",
+      "category": "R",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-18_act3_quest.png",
+      "sheet_source": "ashlar/art/items/IT-18_act3_quest/sheet_d2_v1.png",
+      "icon": "R03_the_inkmans_mark.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "R04",
+      "name": "Silver Coffin-Nail",
+      "name_vi": "đinh quan tài bạc",
+      "category": "R",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-19_act4_5_epilogue.png",
+      "sheet_source": "ashlar/art/items/IT-19_act4_5_epilogue/sheet_d2_v2.png",
+      "icon": "R04_silver_coffin_nail.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S01",
+      "name": "Crumbled Jet",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S01_crumbled_jet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S02",
+      "name": "Crumbled Rimestone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S02_crumbled_rimestone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S03",
+      "name": "Crumbled Sea-Glass",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S03_crumbled_sea_glass.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S04",
+      "name": "Crumbled Kilnstone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S04_crumbled_kilnstone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S05",
+      "name": "Crumbled Lych-Quartz",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S05_crumbled_lych_quartz.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S06",
+      "name": "Crumbled Thunder-Egg",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S06_crumbled_thunder_egg.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S07",
+      "name": "Crumbled Knucklebone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "S07_crumbled_knucklebone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S08",
+      "name": "Rough Jet",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S08_rough_jet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S09",
+      "name": "Rough Rimestone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S09_rough_rimestone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S10",
+      "name": "Rough Sea-Glass",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S10_rough_sea_glass.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S11",
+      "name": "Rough Kilnstone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S11_rough_kilnstone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S12",
+      "name": "Rough Lych-Quartz",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S12_rough_lych_quartz.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S13",
+      "name": "Rough Thunder-Egg",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S13_rough_thunder_egg.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "S14",
+      "name": "Rough Knucklebone",
+      "name_vi": "",
+      "category": "S",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-25_stones_rough.png",
+      "sheet_source": "ashlar/art/items/IT-25_stones_rough/sheet_d2_v1.png",
+      "icon": "S14_rough_knucklebone.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "T01",
+      "name": "Tessera (jewel)",
+      "name_vi": "",
+      "category": "T",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-24_stones_crumbled.png",
+      "sheet_source": "ashlar/art/items/IT-24_stones_crumbled/sheet_d2_v1.png",
+      "icon": "T01_tessera.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V01",
+      "name": "Wax Heart Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V01_wax_heart.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V02",
+      "name": "Wax Eye Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V02_wax_eye.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V03",
+      "name": "Wax Lung Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V03_wax_lung.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V04",
+      "name": "Wax Foot Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V04_wax_foot.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V05",
+      "name": "Silver Heart Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V05_silver_heart.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V06",
+      "name": "Silver Eye Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V06_silver_eye.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V07",
+      "name": "Silver Lung Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V07_silver_lung.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V08",
+      "name": "Silver Foot Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-26_votives.png",
+      "sheet_source": "ashlar/art/items/IT-26_votives/sheet_d2_v2.png",
+      "icon": "V08_silver_foot.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V09",
+      "name": "Tin Heart Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "V09_tin_heart.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V10",
+      "name": "Tin Eye Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "V10_tin_eye.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V11",
+      "name": "Tin Lung Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "V11_tin_lung.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "V12",
+      "name": "Tin Foot Votive",
+      "name_vi": "",
+      "category": "V",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "V12_tin_foot.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W01",
+      "name": "Iron Candle-Stand",
+      "name_vi": "giá nến sắt làm chùy",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "W01_iron_candle_stand.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W02",
+      "name": "Winged Mace",
+      "name_vi": "chùy cánh",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-06_brannoc_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-06_brannoc_weapons/sheet_d2_v1.png",
+      "icon": "W02_winged_mace.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W03",
+      "name": "Carrying Pole",
+      "name_vi": "đòn khiêng (thiết kế cũ Bier-Pole, base §2.16)",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-06_brannoc_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-06_brannoc_weapons/sheet_d2_v1.png",
+      "icon": "W03_carrying_pole.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W04",
+      "name": "Bell-rope Cosh",
+      "name_vi": "dùi cui dây chuông",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "W04_bell_rope_cosh.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W05",
+      "name": "Knotted Scourge",
+      "name_vi": "roi xích",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-12_ansel_crane_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-12_ansel_crane_weapons/sheet_d2_v2.png",
+      "icon": "W05_knotted_scourge.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W06",
+      "name": "Sexton's Bone-Hook",
+      "name_vi": "móc xương của người giữ mộ",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "W06_bone_hook.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 8,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W07",
+      "name": "Bone-Wand",
+      "name_vi": "đũa xương",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-16_late_class_gear.png",
+      "sheet_source": "ashlar/art/items/IT-16_late_class_gear/sheet_d2_v2.png",
+      "icon": "W07_bone_wand.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W08",
+      "name": "Reed Sickle",
+      "name_vi": "liềm cắt sậy",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-06_brannoc_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-06_brannoc_weapons/sheet_d2_v1.png",
+      "icon": "W08_reed_sickle.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W10",
+      "name": "Driftwood Staff",
+      "name_vi": "gậy gỗ trôi dạt",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-16_late_class_gear.png",
+      "sheet_source": "ashlar/art/items/IT-16_late_class_gear/sheet_d2_v2.png",
+      "icon": "W10_driftwood_staff.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 8,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W12",
+      "name": "Exhumer's Spade",
+      "name_vi": "xẻng Exhumer",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-12_ansel_crane_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-12_ansel_crane_weapons/sheet_d2_v2.png",
+      "icon": "W12_exhumers_spade.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 37,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W13",
+      "name": "Exhumer's Crossbow",
+      "name_vi": "nỏ Exhumer",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-12_ansel_crane_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-12_ansel_crane_weapons/sheet_d2_v2.png",
+      "icon": "W13_exhumers_crossbow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 42,
+        "right": 56,
+        "top": 0,
+        "bottom": 2
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W14",
+      "name": "Votive Torch",
+      "name_vi": "đuốc lễ",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-01_prologue_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-01_prologue_weapons/sheet_d2_v1.png",
+      "icon": "W14_votive_torch.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 3
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W15",
+      "name": "Pyre-Staff",
+      "name_vi": "gậy giàn thiêu",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-16_late_class_gear.png",
+      "sheet_source": "ashlar/art/items/IT-16_late_class_gear/sheet_d2_v2.png",
+      "icon": "W15_pyre_staff.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 29,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W16",
+      "name": "Fen-Axe",
+      "name_vi": "rìu lửa đá (thiết kế cũ Flint Hand-Axe, base §2.16)",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-06_brannoc_weapons.png",
+      "sheet_source": "ashlar/art/items/IT-06_brannoc_weapons/sheet_d2_v1.png",
+      "icon": "W16_fen_axe.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W17",
+      "name": "Grave-watch Crossbow",
+      "name_vi": "nỏ canh mộ",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "W17_grave_watch_crossbow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 10,
+        "right": 9,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W18",
+      "name": "Salt-rod",
+      "name_vi": "que muối",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-20_starting_kit.png",
+      "sheet_source": "ashlar/art/items/IT-20_starting_kit/sheet_d2_v1.png",
+      "icon": "W18_salt_rod.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W19",
+      "name": "Hatchet",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W19_hatchet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W20",
+      "name": "Felling Axe",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W20_felling_axe.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W21",
+      "name": "Wright's Axe",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W21_wrights_axe.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W22",
+      "name": "Twin-bit Axe",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W22_twin_bit_axe.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W23",
+      "name": "Knobstick",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W23_knobstick.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W24",
+      "name": "Verger's Mace",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W24_vergers_mace.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W25",
+      "name": "Hobnail Cosh",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-29_axes_clubs.png",
+      "sheet_source": "ashlar/art/items/IT-29_axes_clubs/sheet_d2_v2.png",
+      "icon": "W25_hobnail_cosh.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W26",
+      "name": "Candle-iron",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W26_candle_iron.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W27",
+      "name": "Thornhead Mace",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W27_thornhead_mace.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W28",
+      "name": "Beadle's Mace",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W28_beadles_mace.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W29",
+      "name": "Hanger",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W29_hanger.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W30",
+      "name": "Reed-cutter",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W30_reed_cutter.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W31",
+      "name": "Watchman's Sword",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W31_watchmans_sword.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 25,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W32",
+      "name": "Double-grip Sword",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "footprint_str": "1x4",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W32_double_grip_sword.png",
+      "icon_px": {
+        "w": 128,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W33",
+      "name": "Flint Sword",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W33_flint_sword.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W34",
+      "name": "Hedger's Blade",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-30_maces_swords.png",
+      "sheet_source": "ashlar/art/items/IT-30_maces_swords/sheet_d2_v1.png",
+      "icon": "W34_hedgers_blade.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W35",
+      "name": "Barrow Sword",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W35_barrow_sword.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W36",
+      "name": "Lych-knife",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W36_lych_knife.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W37",
+      "name": "Reaping Hook",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W37_reaping_hook.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W38",
+      "name": "Ash Pole",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W38_ash_pole.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W39",
+      "name": "Churchyard Scythe",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W39_churchyard_scythe.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W40",
+      "name": "Walking Staff",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W40_walking_staff.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W41",
+      "name": "Torch-staff",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "footprint_str": "1x4",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W41_torch_staff.png",
+      "icon_px": {
+        "w": 128,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W42",
+      "name": "Bog-oak Staff",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "footprint_str": "1x4",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W42_bog_oak_staff.png",
+      "icon_px": {
+        "w": 128,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W43",
+      "name": "Willow Wand",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W43_willow_wand.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W44",
+      "name": "Driftwood Wand",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-32_poles_staves_wands.png",
+      "sheet_source": "ashlar/art/items/IT-32_poles_staves_wands/sheet_d2_v1.png",
+      "icon": "W44_driftwood_wand.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W45",
+      "name": "Poacher's Crossbow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W45_poachers_crossbow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W46",
+      "name": "Watch Crossbow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W46_watch_crossbow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W47",
+      "name": "Fowler's Bow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W47_fowlers_bow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W48",
+      "name": "Reed Bow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W48_reed_bow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W49",
+      "name": "Yew Bow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W49_yew_bow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W50",
+      "name": "Horn Bow",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-33_bows_crossbows.png",
+      "sheet_source": "ashlar/art/items/IT-33_bows_crossbows/sheet_d2_v1.png",
+      "icon": "W50_horn_bow.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W51",
+      "name": "Eel Gig",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "W51_eel_gig.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W52",
+      "name": "Boar Spear",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "W52_boar_spear.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W53",
+      "name": "Eel Fork",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 4
+      },
+      "footprint_str": "2x4",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "W53_eel_fork.png",
+      "icon_px": {
+        "w": 256,
+        "h": 512
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W54",
+      "name": "Weighted Gig",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "W54_weighted_gig.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W55",
+      "name": "Throwing Stake",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-34_spears_tin_votives.png",
+      "sheet_source": "ashlar/art/items/IT-34_spears_tin_votives/sheet_d2_v1.png",
+      "icon": "W55_throwing_stake.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W56",
+      "name": "Punch-knife",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "W56_punch_knife.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W57",
+      "name": "Cuff-blade",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "W57_cuff_blade.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W58",
+      "name": "Bill-hooks",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "W58_bill_hooks.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W59",
+      "name": "Lead Knuckles",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-35_claws_brine_flasks.png",
+      "sheet_source": "ashlar/art/items/IT-35_claws_brine_flasks/sheet_d2_v1.png",
+      "icon": "W59_lead_knuckles.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W60",
+      "name": "Throwing Nails",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W60_throwing_nails.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W61",
+      "name": "Throwing Hatchet",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W61_throwing_hatchet.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "W62",
+      "name": "Mortsafe Spikes",
+      "name_vi": "",
+      "category": "W",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "footprint_str": "1x2",
+      "sheet": "IT-31_long_swords_knives.png",
+      "sheet_source": "ashlar/art/items/IT-31_long_swords_knives/sheet_d2_v1.png",
+      "icon": "W62_mortsafe_spikes.png",
+      "icon_px": {
+        "w": 128,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X01",
+      "name": "The Fowlers' Fleece",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X01_the_fowlers_fleece.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 5,
+        "right": 7,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X02",
+      "name": "The Fowlers' Belt",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X02_the_fowlers_belt.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 2
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X03",
+      "name": "The Wrights' Boots",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X03_the_wrights_boots.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X04",
+      "name": "The Wrights' Shield",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X04_the_wrights_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X05",
+      "name": "The Wrights' Apron",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X05_the_wrights_apron.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "heuristic"
+    },
+    {
+      "id": "X06",
+      "name": "The Diggers' Lamp-cap",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X06_the_diggers_lamp_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X07",
+      "name": "The Diggers' Spade",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-46_coursed_fowlers_wrights_diggers.png",
+      "sheet_source": "ashlar/art/items/IT-46_coursed_fowlers_wrights_diggers/sheet_d2_v2.png",
+      "icon": "X07_the_diggers_spade.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X08",
+      "name": "The Watchmen's Shield",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X08_the_watchmens_shield.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X09",
+      "name": "The Watchmen's Grip",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X09_the_watchmens_grip.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X10",
+      "name": "The Clerks' Cap",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X10_the_clerks_cap.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X11",
+      "name": "The Sisters' Gloves",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X11_the_sisters_gloves.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X12",
+      "name": "The Sisters' Girdle",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "footprint_str": "2x1",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X12_the_sisters_girdle.png",
+      "icon_px": {
+        "w": 256,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X13",
+      "name": "The Knights' Sword",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X13_the_knights_sword.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 1
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X14",
+      "name": "The Knights' Helm",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "footprint_str": "2x2",
+      "sheet": "IT-47_coursed_watch_clerks_sisters_knights.png",
+      "sheet_source": "ashlar/art/items/IT-47_coursed_watch_clerks_sisters_knights/sheet_d2_v2.png",
+      "icon": "X14_the_knights_helm.png",
+      "icon_px": {
+        "w": 256,
+        "h": 256
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X15",
+      "name": "The Ringers' Door",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X15_the_ringers_door.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X16",
+      "name": "The Ringers' Medal",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X16_the_ringers_medal.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X17",
+      "name": "The Ringers' Clapper",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X17_the_ringers_clapper.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X18",
+      "name": "The Choir's Mail",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X18_the_choirs_mail.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X19",
+      "name": "The Choir's Pitch-pipe",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X19_the_choirs_pitch_pipe.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X20",
+      "name": "The Choir's Ring",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-48_coursed_ringers_choir.png",
+      "sheet_source": "ashlar/art/items/IT-48_coursed_ringers_choir/sheet_d2_v1.png",
+      "icon": "X20_the_choirs_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X21",
+      "name": "The Saints' Blade",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 3
+      },
+      "footprint_str": "1x3",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X21_the_saints_blade.png",
+      "icon_px": {
+        "w": 128,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X22",
+      "name": "The Saints' Byrnie",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X22_the_saints_byrnie.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X23",
+      "name": "The Saints' Ring",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X23_the_saints_ring.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X24",
+      "name": "The Saints' Locket",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X24_the_saints_locket.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 2,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X25",
+      "name": "The Decoy-men's Coat",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 2,
+        "h": 3
+      },
+      "footprint_str": "2x3",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X25_the_decoy_mens_coat.png",
+      "icon_px": {
+        "w": 256,
+        "h": 384
+      },
+      "sticks_out_px": {
+        "left": 4,
+        "right": 3,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    },
+    {
+      "id": "X26",
+      "name": "The Decoy-men's Whistle",
+      "name_vi": "",
+      "category": "X",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "footprint_str": "1x1",
+      "sheet": "IT-49_coursed_saints_decoymen.png",
+      "sheet_source": "ashlar/art/items/IT-49_coursed_saints_decoymen/sheet_d2_v1.png",
+      "icon": "X26_the_decoy_mens_whistle.png",
+      "icon_px": {
+        "w": 128,
+        "h": 128
+      },
+      "sticks_out_px": {
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "bottom": 0
+      },
+      "matte": "ben2"
+    }
+  ],
+  "skipped": []
+}
