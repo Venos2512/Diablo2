@@ -1,0 +1,12 @@
+[12:21:29] EX_exhumer_vA: multi-view slots filled from /e/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views
+[12:21:37] EX_exhumer_vA: Generate 100 pressed (credits 2323 -> 2223), tab D6D0A58E276B89058E6B16FF6B46E0D7
+[12:22:07] EX_exhumer_vA: mesh done; new models: 926c5ecf-a9a6-4b16-aa10-96c48ec2053b 6423b238-ce65-483a-8761-d0a9db907806 86e130ca-a54c-4fd3-9067-6a81616fb844 42adbc72-b80a-451d-b98f-098c790103f2
+[12:23:42] EX_exhumer_vA: variants (index uuid faces) in _shots/variants.txt:
+[12:27:51] EX_exhumer_vA: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/86e130ca-a54c-4fd3-9067-6a81616fb844 faces 6313
+[12:28:11] EX_exhumer_vA: smart uv saved
+[12:29:27] EX_exhumer_vA: texture 4K done (busy0=true 28s; four views re-uploaded)
+[12:29:54] EX_exhumer_vA: pbr done (credits 1418 -> 1313)
+[12:36:11] EX_exhumer_vA: export GLB,4kCurrent
+[12:59:24] EX_exhumer_vA: variant 2 chosen: https://studio.tripo3d.ai/workspace/generate/86e130ca-a54c-4fd3-9067-6a81616fb844 faces 6313
+[12:50:30] EX_exhumer_vA: exported /e/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/EX_exhumer_vA.glb (20928 KB, browser-level download via E:/tmp_hero_tripo/dlexport.mjs; page downloads had stopped saving)
+[12:50:40] EX_exhumer_vA: GLB check: {"file": "EX_exhumer_vA.glb", "MB": 21.4, "meshes": 1, "tris": 10886, "materials": [["base", "mr", "normal"]], "images": ["JPEG 4096x4096", "PNG 4096x4096", "JPEG 4096x4096"], "skins": 0, "anims": 0, "min": [-0.5, 0.0, -0.17], "max": [0.5, 0.962, 0.17]}

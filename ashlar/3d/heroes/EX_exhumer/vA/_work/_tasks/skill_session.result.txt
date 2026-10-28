@@ -1,0 +1,16 @@
+Đã hoàn tất bước 1–5; giữ nguyên `design.txt` có sẵn theo skill.
+
+Bốn ảnh 1024×1024:
+
+- [front.png](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views/front.png)
+- [back.png](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views/back.png)
+- [left.png](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views/left.png)
+- [right.png](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views/right.png)
+
+[Contact sheet](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/views/_contact.png) · [Báo cáo QA và nguồn ảnh](/E:/Diablo2/ashlar/3d/heroes/EX_exhumer/vA/_work/tpose.log)
+
+Sheet 1 cao **717 px**; sheet 2 **868–869 px**, thu về **0,826×** khi tách. Mỗi sheet sửa một lần: sheet 1 thiếu tay BACK; sheet 2 quá lớn, lệch chân và bàn tay cuộn.
+
+**Chưa đạt QA hoàn toàn:** chân FRONT/BACK còn rộng, tay lệch khoảng 5°, bàn tay góc bên chưa mở rõ; một số chi tiết trang phục lệch nhẹ. Đã lưu mọi sai lệch, prompt và ảnh loại trong `_work/`.
+
+Session nguồn: `01a17b50-55e8-7731-9f63-85cc656518b3`; đường dẫn từng ảnh nguồn có trong log.

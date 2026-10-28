@@ -1,0 +1,56 @@
+﻿EX EXHUMER A - T-pose report
+Date: 2026-10-27
+Status: Steps 1-5 completed; delivered best attempts within two-generations-per-sheet limit. NOT a clean QA PASS.
+Design: existing design.txt read and preserved verbatim as required by skill. No brief.md present. Concept viewed. HUMANOID yes.
+Generation: built-in image_gen only, four calls total. No artwork painted or repaired by code. Existing tpose_tools.py used for measurement/cropping/normalization/guides.
+Session/source directory: C:/Users/HLC_2021/.codex/generated_images/01a17b50-55e8-7731-9f63-85cc656518b3/
+FB attempt 1 source: exec-6228c12a-c168-4acd-aa00-b1b12e2d6aac.png
+Rejected copy: _work/_rejected/front_back_attempt1.png
+Reason: BACK missing left forearm/hand at the panel boundary; wide stance; oversized layout.
+FB attempt 2 source: exec-74919380-671f-4ff9-8903-5bb27b6e18f6.png
+Selected: tpose_front_back.png. Full figures and all arm tips visible; true BACK; body-worn left lantern/quiver and right pouch correctly placed. Weapons removed.
+Sides attempt 1 source: exec-68203900-560e-4af3-93e7-2ecedd9885f0.png
+Rejected copy: _work/_rejected/sides_attempt1.png
+Reason: height 866/868px versus FB 717px, >12% mismatch; staggered feet; hand looks curled/fistlike. Numeric sides heuristic passed despite visible pose faults.
+Sides attempt 2 source: exec-3b829075-d3a2-423f-9714-4a1a405479d3.png
+Selected: tpose_sides.png. Feet overlap much better, true opposite profiles and correct accessory sides. Scale request ignored; hands still curled/fistlike. Both sheets exhausted their single retry; no further generation performed.
+
+MEASUREMENTS (1536x1024 sheets)
+FB FRONT bbox (21,131,767,848), height 717px, 70.02%, width 746px.
+FB BACK bbox (780,131,1515,848), height 717px, 70.02%, width 735px.
+FB outer margins minimum 21px; no measure WARNING.
+Sides LEFT bbox (336,40,618,908), height 868px, 84.77%, width 282px.
+Sides RIGHT bbox (913,39,1190,908), height 869px, 84.86%, width 277px.
+Sides margins minimum 39px; no measure WARNING.
+Sides mean height 868.5px = 21.13% larger than FB; split tool reported uniform side scale 0.826. Height ratios 717/868=0.8260; 717/869=0.8251.
+Output: four 1024x1024 canvases, common sole row 952 (guides identifies last foreground row 951), head top row 235, hand guide row 384 (21%). No body-part-only scaling.
+
+HUMANOID numerical checks
+FRONT span/height 1.04; left arm +1.6 degrees, right +4.9 degrees WARN; hands at 21%; foot centre gap 0.26H WARN (>0.22).
+BACK span/height 1.03; left arm +5.3 degrees WARN, right +1.7 degrees; hands at 21%; foot centre gap 0.26H WARN.
+SIDES: sole width 0.18H each, heuristic OK. This does not prove hands open or exact leg pose.
+Viewed _contact.png, _guides.png, _strip_0-60.png, _strip_40-100.png after split. Correct order FRONT BACK LEFT RIGHT, shared head/sole heights, no clipping. Front/back shoulders broadly level but sleeve contours/arms not perfectly horizontal; front feet slightly outward; side knees slightly bent, small residual far-toe outline; side hands not convincingly open/flat.
+
+CROSS-VIEW LANDMARK TABLE
+Percentages below are visual estimates from viewed strips with 10% ticks, approximately +/-2 percentage points, not automated feature detection. 0=hat top, 100=soles. Side views used as depth/height reference.
+Feature | LEFT | RIGHT | FRONT | BACK | verdict
+Hat brim | 6-11 | 6-11 | 6-10 | 6-10 | height broadly matches; crown patch visible in multiple directions and brim hardware varies, exact 3D patch extent unresolved
+Collar | 11-19 | 11-19 | 11-22 | 9-17 | back collar top slightly high, silhouette differences; approximate only
+Cream scarf | 16-23 front edge | 16-23 front edge | 14-23 | hidden | correct occlusion
+Hands/shoulder line | 21 | 21 | 21 | 21 | height matches, but side fingers appear curled; front/back arm warnings above
+Lantern body | 24-33 | hidden | 22-31 | hidden | correct anatomical side and occlusion; LEFT about 2% lower; amber too bright relative no-glow instruction, no external halo
+Chest straps | 18-36 | 18-36 | 18-33 | X 15-34 | X and side continuity broadly plausible; exact fittings differ
+Belt | 36-42 | 36-42 | 34-41 | 34-41 | side about 2% lower; double crossing waist straps maintained
+Left quiver | 38-50 | hidden | 36-49 | 36-49 at image-left | correct side; side slightly lower; approximately four bolt heads, fine counts partly occluded in back
+Right pouch | hidden | 39-49 | 38-47 image-left | 38-47 image-right | correct side; side pouch lower and more rectangular
+Coat front panel corner | 66-69 | 66-69 | 65-66 | hidden | approximate, slight side mismatch
+Longest coat tips | 87 | 87 | 85-86 | 85-86 | side tails about 1-2% longer; design requested 78-82, all longer than notes
+Back slit | rear profile occludes | rear profile occludes | N/A | starts 48, ends 85 | begins above design note 55%; cross-view depth plausible but note deviation
+Boot top/knee straps | 73-80 | 73-80 | 72-80 | partly under coat | heights close; side lower-leg buckle detail differs from FB
+Soles | 100 | 100 | 100 | 100 | aligned
+
+ART DIRECTION QA
+Moderate stylized hand-painted look and clean broad surfaces retained; bottle green/brown/brass/cream palette; clear fold shadows; no text, weapons, watermark or scenery. Neutral grey backdrop with mild shading/contact shadow. No prohibited content. Lantern amber remains bright rather than fully unlit. Surface/material identity broadly retained, but exact accessory geometry, hat patch continuity and buckle details not fully consistent. Do not describe as fully production-approved.
+
+Final files: design.txt (preserved), tpose_front_back.png, tpose_sides.png, views/front.png, views/back.png, views/left.png, views/right.png, views/_contact.png, views/_guides.png and the two required QA strips.
+All prompt/template text and rejected generations retained under _work/. No Tripo upload/generation, rigging or animation performed.
