@@ -1,0 +1,800 @@
+{
+ "title": "Art_Final/Texture: every texture / HDR the map JSONs in Art_Final/lab reference",
+ "note": "Copies of the files lookdev-lab loads (the originals are untouched). `file` is relative to Art_Final/Texture; the map JSONs use the same path with a \"Texture/\" prefix. `source` = the repo file it was copied from; `derivedFrom` = the ashlar/art image it is a re-encode of (same picture; the lab applies a normal-map tilt table or a repack, so the lab file is what the maps expect).",
+ "updated": "2026-10-27",
+ "files": [
+  {
+   "file": "lab/choice-hands/choice-keyart.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-keyart.webp",
+   "sha256": "887dddbe61edd5ce73632daf5806be70eb686176ba02b91aa3b6e322f7a7cee0",
+   "bytes": 112854,
+   "derivedFrom": "ashlar/art/heroes/_shared/choice_hands/keyart.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-a-h.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-a-h.webp",
+   "sha256": "3dd1520e692d90820878ad3721dc25a6e40b396623f39945cc69d17598fe6c88",
+   "bytes": 52290,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/height1024/W_skull_wall_a.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-a-n.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-a-n.webp",
+   "sha256": "82cd112e986e3a437eb935e17fa6957f7edb18336e09e8af8bb87ff8613a934e",
+   "bytes": 172308,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/normal1024/W_skull_wall_a.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-a.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-a.webp",
+   "sha256": "95bc4c79bdc70caae19a46b1a3f0da3307962b02f6561652f3e8d44fc0782f88",
+   "bytes": 105380,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/albedo1024/W_skull_wall_a.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-b-h.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-b-h.webp",
+   "sha256": "8b8f5dc9f9fa2db1968e83fd619f4a228e0de9ebca2645e0e78132a408678037",
+   "bytes": 53786,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/height1024/W_skull_wall_b.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-b-n.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-b-n.webp",
+   "sha256": "852fcd37707f1532c3e343da693155c8db7c804426f27e2bded8456f1d8dfc5e",
+   "bytes": 172438,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/normal1024/W_skull_wall_b.png"
+  },
+  {
+   "file": "lab/choice-hands/choice-wall-b.webp",
+   "source": "lookdev-lab/assets/choice-hands/choice-wall-b.webp",
+   "sha256": "0b132d56ed92586b210ff10832ee0340e08cacae98356eddedc3f8ff22907de3",
+   "bytes": 106394,
+   "derivedFrom": "ashlar/art/textures/wall-ossuary-v1/albedo1024/W_skull_wall_b.png"
+  },
+  {
+   "file": "lab/samples/darkwood-sty-green-cobble-n.webp",
+   "source": "lookdev-lab/assets/samples/darkwood-sty-green-cobble-n.webp",
+   "sha256": "e4d63e6f28034b932463b6f5eab438e6f085695764424236658dc94c0850ed77",
+   "bytes": 345036
+  },
+  {
+   "file": "lab/samples/darkwood-sty-green-cobble.png",
+   "source": "lookdev-lab/assets/samples/darkwood-sty-green-cobble.png",
+   "sha256": "86b545a5e6ec4091da7bab1a8dcdbf85f49c8daaea0e6c7a8258dcde70195aed",
+   "bytes": 719663
+  },
+  {
+   "file": "lab/samples/moonless_golf_1k.hdr",
+   "source": "lookdev-lab/assets/samples/moonless_golf_1k.hdr",
+   "sha256": "4f597078024bd81429431e872d466d8808653ad62a8bc8c61d8052af7466c3aa",
+   "bytes": 1672754
+  },
+  {
+   "file": "lab/samples/quarry_01_1k.hdr",
+   "source": "lookdev-lab/assets/samples/quarry_01_1k.hdr",
+   "sha256": "a3101f0ae89ed847dbed88da3ffa3ddb17b5acf8063099b26ceae08f640eea9b",
+   "bytes": 1477951
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO01_peat-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-h.png",
+   "sha256": "77ddf330ad70634472a0bc2314b975c099fd5bfaea1077be992caf8cc4010500",
+   "bytes": 336864,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO01_peat.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO01_peat-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-n.webp",
+   "sha256": "33e674f0adc9410b43dc033e977ef286f4ee2ffdc7376ff3056d7229e72f0847",
+   "bytes": 727238,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO01_peat.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO01_peat-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat-r.webp",
+   "sha256": "8d69c92b7a4b56d245a13963fcc6d2a273ebf8f3fdc14bc88459554a0d6022ac",
+   "bytes": 824
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO01_peat.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO01_peat.webp",
+   "sha256": "0b7e9140762ba14d1a67c19268b175d0b429f572d2fd5de9e6d8079cf10dbf50",
+   "bytes": 116742,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO01_peat.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO02_meadow-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-h.png",
+   "sha256": "7473508f5d7420ef45e0c4e1ee6f902589aaf2e80384b9f0bbee5eb7197085de",
+   "bytes": 342603,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO02_meadow.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO02_meadow-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-n.webp",
+   "sha256": "d85c70ed6b12a470a6d308d12e8fbc4e3732184d3d668778a22dfdc2709a5c51",
+   "bytes": 769966,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO02_meadow.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO02_meadow-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow-r.webp",
+   "sha256": "379c7f8d215825c5e81253d4a67cb1d3746e17a041a28afbe185299816a21327",
+   "bytes": 1396
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO02_meadow.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO02_meadow.webp",
+   "sha256": "a503483be7fc7990dfc9966a8fdcdabd6be6283c3112ac5b11b91f2939c45dfb",
+   "bytes": 132970,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO02_meadow.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO03_flint-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-h.png",
+   "sha256": "79ea60e3b2280fbe9e8419ad8a942edd634812a9b0299c1c2eed5be28fcad17f",
+   "bytes": 291103,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO03_flint.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO03_flint-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-n.webp",
+   "sha256": "abf4b69d7c4dd6dcd93ef4ed06db7d1344f5805dd97a780a9fad2bc46850e9ed",
+   "bytes": 653298,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO03_flint.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO03_flint-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint-r.webp",
+   "sha256": "bdab6ec38aeacdc299b92242f41e58467bbf333fb317f34fb4d53086e3de81ee",
+   "bytes": 1004
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO03_flint.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO03_flint.webp",
+   "sha256": "aa7cd393f28fa077d55f91d1ac75d65b10da5432c65cea4925c3ebc9adfef88a",
+   "bytes": 179588,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO03_flint.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_garden-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_garden-h.png",
+   "sha256": "6f52f4f3aeb8af8359b0da377364b4da502d33605f1b2864e60361bdd9d2b4ce",
+   "bytes": 351836,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO04_garden.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_garden-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_garden-n.webp",
+   "sha256": "2335ac2aa8ecda58d34e513ba226e79499342eaa14c685c35e0b6e6b62f299af",
+   "bytes": 809264,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO04_garden.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_garden-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_garden-r.webp",
+   "sha256": "dc6df8bfe0e3bdc3f1743fc4eaa5fb2442d5ef84c71cac6951d58e60c2df213e",
+   "bytes": 1274
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_garden.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_garden.webp",
+   "sha256": "44835be64f6cc60255d07fd056f61dd18fbb5b0d0ace3d9020412778eae22ed6",
+   "bytes": 67792,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO04_garden.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_ossuary-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_ossuary-h.png",
+   "sha256": "aca24424407ffb8bedd9a95e1f637d44a07ad7e19c037f0983b5afced694ed7d",
+   "bytes": 426886,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO04_ossuary.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_ossuary-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_ossuary-n.webp",
+   "sha256": "3e496c9576764e2f4f176ae5bf4274624e6b72a1ed7e6bc4016528ec3f3dad0a",
+   "bytes": 868408,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO04_ossuary.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_ossuary-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_ossuary-r.webp",
+   "sha256": "f41d44d4f001bae73ac5ccdc62eef0bba2a05e25b5f3eaa7590cbca8eee7acec",
+   "bytes": 1464
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO04_ossuary.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO04_ossuary.webp",
+   "sha256": "a2d122cf0a29f02457bf9586ca30ecbb248f198157d07eb415808820e8faba00",
+   "bytes": 172522,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO04_ossuary.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO05_lime-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-h.png",
+   "sha256": "8ea79405ed9d51e2ce81637ac3086df88310b4ac63b62b0a0b170637fb6734aa",
+   "bytes": 321630,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO05_lime.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO05_lime-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-n.webp",
+   "sha256": "935731e8899cf87292a0d885b5ec037589abf1a70936f703a08086b906b2d8f8",
+   "bytes": 406960,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO05_lime.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO05_lime-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime-r.webp",
+   "sha256": "fc37d4b6287839ed6ad5eb9bc0b4d81792a9e56a38c1d79aab29fa6da8307641",
+   "bytes": 1028
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO05_lime.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO05_lime.webp",
+   "sha256": "38f29abc63b06824ecfd3db7d8b54855e3f8bee28ccaab18772928c8369ac4b6",
+   "bytes": 142990,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO05_lime.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO06_flint_spoil-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-h.png",
+   "sha256": "59c02ffb2bea1a5e6b4535e10a55a4e402e71d14ffb6af4ad0bf461d0d5e26b0",
+   "bytes": 339202,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO06_flint_spoil.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO06_flint_spoil-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-n.webp",
+   "sha256": "8f0e9433ca2d2c137820a7292cdaad488b7faf582bf42ef17ed7dbff82ab1d60",
+   "bytes": 809184,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO06_flint_spoil.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO06_flint_spoil-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil-r.webp",
+   "sha256": "176924febcb5642edd7425326bde02d6cbf9625e370f6ef0ccf0a223c923f025",
+   "bytes": 888
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO06_flint_spoil.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO06_flint_spoil.webp",
+   "sha256": "8438fb61dac80535f03166448378f3d10742819ba8c1e107004deb89112a1a60",
+   "bytes": 176230,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO06_flint_spoil.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO07_limestone-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-h.png",
+   "sha256": "07f0604bd4175d6c770df6a3f262665d3b7bbc9db6cedc7c189c5a424da90f5e",
+   "bytes": 334910,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO07_limestone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO07_limestone-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-n.webp",
+   "sha256": "86cee2fbe8af26e7babb91400c11f72da83d06ea5eec327f8d19ffd73c0a9ff3",
+   "bytes": 807472,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO07_limestone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO07_limestone-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone-r.webp",
+   "sha256": "50d4fadbaf22819533100981de6fa6a1155ac6f67f87ad2a0ffc736396314ea4",
+   "bytes": 936
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO07_limestone.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO07_limestone.webp",
+   "sha256": "d0adbdfbda97f4c578e8dfd750aca60f2f04ff0b1e9eecd59d9a1cac13d8c1de",
+   "bytes": 290642,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO07_limestone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO08_nave-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-h.png",
+   "sha256": "85963ad9a4fd143d53ab49838f1e499b8bd7e42f7d435c1811cc6aff0aee2c45",
+   "bytes": 253191,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO08_nave.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO08_nave-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-n.webp",
+   "sha256": "c118ce6814962e9b87fa0a08fd1064c20e84dd7848ee54af79bdee6ef25df878",
+   "bytes": 551044,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO08_nave.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO08_nave-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave-r.webp",
+   "sha256": "dd05c3ce11641601b2efe655ec37f00deca9443c6bcdcb8b83e7d52755e91cdf",
+   "bytes": 870
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO08_nave.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO08_nave.webp",
+   "sha256": "b8817df1e2e90d6d0942ebd94637c6362b58d88d216b028c41f2a3620179d159",
+   "bytes": 210812,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO08_nave.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO12_dark_planks-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO12_dark_planks-h.png",
+   "sha256": "1cddef26416dc1122d8c27c63eb69efb055724b14ef3d808763d8cc84335e738",
+   "bytes": 274837,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO12_dark_planks.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO12_dark_planks-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO12_dark_planks-n.webp",
+   "sha256": "da00856095b34a206e476922e55d341c70678165445cd524647365a8aabc22b4",
+   "bytes": 443754,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO12_dark_planks.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO12_dark_planks-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO12_dark_planks-r.webp",
+   "sha256": "d968ddc522f00947e3922262aefdd1949a74b2092139917efdac695784be45b9",
+   "bytes": 806
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO12_dark_planks.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO12_dark_planks.webp",
+   "sha256": "3776b37752b68758750d76472f72b0aafa8ee1e8e91f280d3ccc32a6ea637b2d",
+   "bytes": 886444,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO12_dark_planks.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO19_coastal_rock-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO19_coastal_rock-h.png",
+   "sha256": "ccb102e8464d64c2c65a9382e4f627fafcd463dc2b9804c9b455e8750ba07515",
+   "bytes": 348852,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO19_coastal_rock.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO19_coastal_rock-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO19_coastal_rock-n.webp",
+   "sha256": "c549af184c3fcea637beddc60eef4762f25f9fef9eafc5302f88c7f5d6385edf",
+   "bytes": 751886,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO19_coastal_rock.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO19_coastal_rock-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO19_coastal_rock-r.webp",
+   "sha256": "2522dbad8b5f8fc1f62f024dc70a07c8f3fb1dec90c5a39da36ed36ad0e2bad6",
+   "bytes": 1140
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO19_coastal_rock.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO19_coastal_rock.webp",
+   "sha256": "5de82fc53ba9a1fdc496d9ea50d1b31d4890ecf0e2814367bcd717b116795f2c",
+   "bytes": 119952,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO19_coastal_rock.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO24_keystone-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO24_keystone-h.png",
+   "sha256": "1543ebf9262ff4c82026b77fc8e017bd5e9c492978dbb902d589a61effccf780",
+   "bytes": 264700,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO24_keystone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO24_keystone-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO24_keystone-n.webp",
+   "sha256": "597df88103990d57d905c43104c098a2a5a327acfeccc3d14a0831af937479f0",
+   "bytes": 629390,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO24_keystone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO24_keystone-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO24_keystone-r.webp",
+   "sha256": "7dd7344aff722a77d3efa0af539887ee5eb6032bcebc45f849247ac0f90d3d88",
+   "bytes": 908
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO24_keystone.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO24_keystone.webp",
+   "sha256": "bb0f25d2e3fa11fb5166c5bf1465566b06ebc70763945ee11baff4bb1aaf23ff",
+   "bytes": 113738,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO24_keystone.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_cradle-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-h.png",
+   "sha256": "a5ac3f4129f1877df31985dc69fc64dd2cc4d11b71b1ed93a158fc6e415757f4",
+   "bytes": 363044,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO27_cradle.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_cradle-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-n.webp",
+   "sha256": "f1e1b9d80ebd88043f810683dc69e495286d868db080730ea0b87a36783b443e",
+   "bytes": 474072,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO27_cradle.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_cradle-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle-r.webp",
+   "sha256": "f23cbb319f27c7ed8f6b6f396162b121e23301af223ba74a8309a3867c63f196",
+   "bytes": 1230
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_cradle.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_cradle.webp",
+   "sha256": "7fba1288503bfd1e4cc6e0a1e6c865df5da654f21f6c8346a7fddb523f0b76c6",
+   "bytes": 121000,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO27_cradle.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_vault-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-h.png",
+   "sha256": "5166fe4512a408a1b7fd94f0d9ae6ccc5143e718781e8c6c29e0ae1e13c3cbe5",
+   "bytes": 339032,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/height1024/BIO27_vault.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_vault-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-n.webp",
+   "sha256": "6ef0bcdba499c0bbcd4507760792a2ef2a2d0f0b2d490a90eda56054a090a600",
+   "bytes": 628298,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/normal1024/BIO27_vault.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_vault-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault-r.webp",
+   "sha256": "89dc9a221cf299f76ba06f39f82c77c6dd942d1bc13fd7d2dc6fb4b099331fdb",
+   "bytes": 1284
+  },
+  {
+   "file": "lab/terrain-biomes/biome-BIO27_vault.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-BIO27_vault.webp",
+   "sha256": "fe53d95b766bbe541769c5e7dafa018649b8c871ff0797c3e5d76e83740884db",
+   "bytes": 108832,
+   "derivedFrom": "ashlar/art/textures/terrain-biomes-v1/albedo1024/BIO27_vault.png"
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-dirt-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-h.png",
+   "sha256": "ef9cc722bf3ec7528e10fb3242e2a8b07446d049297754d2a2e7b2786d8d0fd0",
+   "bytes": 589293
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-dirt-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-n.webp",
+   "sha256": "01c9de56622cc4839ddf237a63d9b1afca4016d37880cffa6e260a1272af97ac",
+   "bytes": 696412
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-dirt-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt-r.webp",
+   "sha256": "e370bdce7060f293bb7c6b60cac295c8f86677a629ffa41bf7edd8b18d5f1251",
+   "bytes": 21342
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-dirt.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-dirt.webp",
+   "sha256": "8328d88cc32584f01ccd3105bbe1b01e7239ce12195a4ad3a1d483d2ccb8742e",
+   "bytes": 73264
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-cards.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-cards.png",
+   "sha256": "6134335075323abbaf6eb443db51cf0309c17055c063e6d44854d708a8d03814",
+   "bytes": 1054778
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-dense-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-h.png",
+   "sha256": "fdda5f1f225071f8254779eb8639d518d07e832ff13b728f10063ac5d92c5e60",
+   "bytes": 542152
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-dense-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-n.webp",
+   "sha256": "544d283ed294be2abd21d893f3bc95e3f0ab15500d1483f1287075ec895f4143",
+   "bytes": 592614
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-dense-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense-r.webp",
+   "sha256": "a89b20832ef196b328b5fc5b7da750f0213016a602231d0ce44235a743781036",
+   "bytes": 2002
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-dense.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-dense.webp",
+   "sha256": "a0eba0261047744f85393b69ee616f29a260b52a03b763100c4a0fbf537c3070",
+   "bytes": 109636
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-h.png",
+   "sha256": "a867f45f850637beb25344e9178a4ba453c0e653648fbd67a0fd1e3415f04128",
+   "bytes": 523711
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-n.webp",
+   "sha256": "7e25d94d65e91bb00fd4045ab08756d4a2ee4a8acd819e72954fdff313fc0de5",
+   "bytes": 546784
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-r.webp",
+   "sha256": "fdea20454d777a291c53ed215bbd68b594c8b401d018f03b1814891c3e10972a",
+   "bytes": 16062
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-sparse-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-h.png",
+   "sha256": "d6beacfce8420687dbeed5dbcdedbd9f0804c41af50d1b74f4bc35ac2b1879d8",
+   "bytes": 509360
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-sparse-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-n.webp",
+   "sha256": "439716b3ec4831e48b9a01ac15586811ca802336ec474ee57b6be8f5569b26ec",
+   "bytes": 547606
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-sparse-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse-r.webp",
+   "sha256": "fd339eaf58b4dc74b273590ea5223845bf0d9b04a69473b9305b1fe210c32200",
+   "bytes": 1754
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass-sparse.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass-sparse.webp",
+   "sha256": "76230257f5eb2e176c352957a6cd5581e8d1719ec4f97f6ee85ddc4174ee4f8e",
+   "bytes": 123550
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-grass.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-grass.webp",
+   "sha256": "59f40ae250c39d8db0e791fdc783f75c8e79d862f49fbeb2de6462fb8eb760d8",
+   "bytes": 118274
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-mud-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-h.png",
+   "sha256": "38a8e1bc2319748039a9c15c4f5cb259de421456464cd502eca01da1d7698629",
+   "bytes": 521444
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-mud-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-n.webp",
+   "sha256": "d67e31efaea49ec1f8cb4752de56b3d6096571fbaaa1cb21664bb4fb48fd06e3",
+   "bytes": 849080
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-mud-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud-r.webp",
+   "sha256": "7e8ccf19d02f3fb6a76eaf310f734826c96dafe20928ee6fdd51be7e834a964d",
+   "bytes": 29406
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-mud.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-mud.webp",
+   "sha256": "38fca6fedd22b983d1812c8bc3349713a761349510950702af610b6cba624c35",
+   "bytes": 91016
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-soil-damp-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-h.png",
+   "sha256": "41670d3740b3cc8731f6270fe1f5b5c69d336fd0878d4d1df0deec76e2a8b0c6",
+   "bytes": 588492
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-soil-damp-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-n.webp",
+   "sha256": "990a845cae6ec99db4000b3f217509be2812c3690d88d712aa06ca77e92ec461",
+   "bytes": 696274
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-soil-damp-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp-r.webp",
+   "sha256": "cda188a0a1c93f72f201e17e0f82ff9a67b8c06c8cbe830a92ac9ec9c34ed7d7",
+   "bytes": 2778
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-soil-damp.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-soil-damp.webp",
+   "sha256": "992366f70258feff54e0d290b8fd54a42a0b6e40226adb1df3665751f070cf10",
+   "bytes": 104236
+  },
+  {
+   "file": "lab/terrain-biomes/biome-darkwood-water-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-darkwood-water-n.webp",
+   "sha256": "2bb5ffb33734d3b065f9548fc620bbc0b080342af66ce807a3655b7df46ab6b3",
+   "bytes": 404464
+  },
+  {
+   "file": "lab/terrain-biomes/biome-shore-plants.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/biome-shore-plants.webp",
+   "sha256": "33f8442b03c833a68cf89022625b18d27c5aba60244300443c2363208926c062",
+   "bytes": 899614
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-clay-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-clay-h.png",
+   "sha256": "463c783a092fa2388ca5ddacae659b3565463be3c0f5b1521bf7600cce220cc3",
+   "bytes": 376867
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-clay-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-clay-n.webp",
+   "sha256": "001baa2c1d9eedd93d102f721cff925bcd49f19575c14b529d865a73cdc425fc",
+   "bytes": 719560
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-clay-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-clay-r.webp",
+   "sha256": "88f45ffeab11bca68c68c38fe7d04a0cf97ae90ea513826b96e05c68016cb24d",
+   "bytes": 1184
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-clay.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-clay.webp",
+   "sha256": "ec7934df104947dc17b41dab478beedac26a290126a2cc414248774d12981f3a",
+   "bytes": 150132
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-floor-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-floor-h.png",
+   "sha256": "7cfd56d68c1b803796ee8240c054df2e708949b13cf1fc101f7d479f8e73eb0d",
+   "bytes": 258371
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-floor-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-floor-n.webp",
+   "sha256": "424bc562e151a606a5401a12aced2b4749b6e450692b0c697f34456fd1282c57",
+   "bytes": 631780
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-floor-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-floor-r.webp",
+   "sha256": "dad6eb71109c6c7ba254b9c9e9b3dca8adacc3f40add7fad6d6b30a9f588ee12",
+   "bytes": 850
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-floor.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-floor.webp",
+   "sha256": "765b7c9d865b364851854cd7452f00ccd1b35b5e39dc40c0e6feae2552dd8427",
+   "bytes": 195028
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-flowstone-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-flowstone-h.png",
+   "sha256": "d5c44200f6aadf25fa230e82491a34b15f07289aa0cc0af789cd09c81685d249",
+   "bytes": 241907
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-flowstone-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-flowstone-n.webp",
+   "sha256": "5c94e37de51164db21b150e800d4c0bfef01fdade8473087cd451c274f55a47a",
+   "bytes": 397844
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-flowstone-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-flowstone-r.webp",
+   "sha256": "89abaab10bb9d7756c3942df1d0ed550f8992dd3944996cb22052fc035c14c1c",
+   "bytes": 988
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-flowstone.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-flowstone.webp",
+   "sha256": "894cefe7130e6e6a857e9a498130eef5f931330175b8a31bce8dc7a882e4ae99",
+   "bytes": 222368
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-rubble-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-rubble-h.png",
+   "sha256": "c11414751e69bb5832d818e2c3908ebafb1c88e26daae99697166f467c5dc36b",
+   "bytes": 302879
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-rubble-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-rubble-n.webp",
+   "sha256": "fcfc494eada0efb4821f23d2c9755d280d608929da538eaa534f1fad962e1235",
+   "bytes": 795606
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-rubble-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-rubble-r.webp",
+   "sha256": "e5840b57b736fcec70a44d70ad72fe89e49da8fcaa8845783244e8356ebae32e",
+   "bytes": 1180
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-cave-rubble.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-cave-rubble.webp",
+   "sha256": "1ffb7dc8eb35ff3f27e09f7c93e9c6c5b374c955d6e8fcaa798a74244db80cf5",
+   "bytes": 262374
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-damp-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-h.png",
+   "sha256": "5c4d3c465e11be505fc1d6a4e13b9ae8e8aed7d3e45e3c2ed6e8d17bdce438f7",
+   "bytes": 320022
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-damp-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-n.webp",
+   "sha256": "c108a0ae3eed031984f5fee57a8e8d7acbab1d5c5faea8a3afb7f2937703ebb7",
+   "bytes": 665258
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-damp-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp-r.webp",
+   "sha256": "089cf0a1bb251114ea1dd410c3fd488869979e609e13fbcf6b40ffe4a6306863",
+   "bytes": 1208
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-damp.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-damp.webp",
+   "sha256": "521899c44394c9aa7abaeef5c863229ec72c3db15b17fd82b2eb7c707d5788df",
+   "bytes": 123356
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-dust-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-h.png",
+   "sha256": "883cc1d7c919e385e83dd5035a413855deee5b3c6c57ec7e34399e72c0af421b",
+   "bytes": 353590
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-dust-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-n.webp",
+   "sha256": "a90fa9688c27b34b40e6d3283e5799260c438d776f48d44391ed44c1d719e3ab",
+   "bytes": 532152
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-dust-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust-r.webp",
+   "sha256": "e043ad448a9338dda75e4e9e83e48d1da2ace1e33c70af23a239a72d326d8faa",
+   "bytes": 990
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-dust.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-dust.webp",
+   "sha256": "ea1c11153a12e04101f0ad3dbea69623fa73c97f6326bc8593074adcb6365edb",
+   "bytes": 206570
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-rubble-h.png",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-h.png",
+   "sha256": "cc6ec241e9644b80fcce6388651e630631109e43720887eb9e79908cc879f6ea",
+   "bytes": 335932
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-rubble-n.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-n.webp",
+   "sha256": "fc91d4d2aee40e4f1074d30e6d939bd2036c242c3b9f025e539943c07ed8135f",
+   "bytes": 787418
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-rubble-r.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble-r.webp",
+   "sha256": "4e849b84d83b12a2c719f8ce71c5f093a69ba7bba54bc2f5adce0cfc2299356c",
+   "bytes": 1260
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-crypt-rubble.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-crypt-rubble.webp",
+   "sha256": "3e42ee0d0904b3f2b95622d54670e455d1269e0e522bc0313c281c4ed5de3564",
+   "bytes": 208814
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-decals-cave.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-decals-cave.webp",
+   "sha256": "d2564c03b9621202246a16bf9cb48f43c65a8c1476dd7bdecd45f348d89af3cc",
+   "bytes": 1181810
+  },
+  {
+   "file": "lab/terrain-biomes/dungeon-decals-crypt.webp",
+   "source": "lookdev-lab/assets/terrain-biomes/dungeon-decals-crypt.webp",
+   "sha256": "0160cc2b80b5f597267b30c0753f5305203dc7376d8719c4c86c5afa1a73fa6c",
+   "bytes": 1335140
+  }
+ ]
+}
