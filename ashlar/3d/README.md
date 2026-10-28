@@ -91,7 +91,6 @@ Lô prop (Tripo một ảnh mỗi vật):
 | [FL chain-flail A](heroes/FL_flagellant/vA_v5b/weapons/chain_flail/) | `FL_chain_flail_vA.glb`, 20,5 MB | 10.108 | theo sheet; GLB nguồn 1 m | chưa | 2026-10-27, một ảnh, variant 2 (5546 faces). Hai xích, hai quả gai, dựng cứng nằm ngang như concept; xích treo cần cắt/rig trong engine. Chưa socket/rig. `_shots/final_views.png` |
 | [FL branding iron A](heroes/FL_flagellant/vA_v5b/weapons/branding_iron/) | `FL_branding_iron_vA.glb`, 13,9 MB | 10.220 | theo sheet; GLB nguồn 1 m | chưa | 2026-10-27, một ảnh, variant 0 (5420 faces). Sắt nung đầu nút ba vòng; màu cam nung là màu vẽ, lửa/phát sáng làm bằng hiệu ứng. Chưa socket/rig. `_shots/final_views.png` |
 | [D02 Kiln-Shaman ladle](act-01/monsters/D02_kiln_shaman/weapons/ladle/) | `D02_kiln_shaman_ladle.glb`, 11,7 MB | 11.180 | gậy ~0,75H (sheet); GLB nguồn 1 m | chưa | 2026-10-22, nhánh một ảnh: ảnh cắt từ cột WEAPON/PROP của concept (không có ảnh Astra), v1 (6400 faces). Muôi đất nung nứt trên cán gỗ quấn dây; không lửa. Chưa socket/rig. `brief.md`, `_shots/final_views.png` |
-| [D03 Kiln-Bull glaive](act-01/monsters/D03_kiln_bull/weapons/glaive/) | `D03_kiln_bull_glaive.glb`, 10,3 MB | 10.390 | ~1,5H (sheet); GLB nguồn 1 m | chưa | 2026-10-26, nhánh một ảnh: ảnh cắt từ cột WEAPON của concept vE r3, v1 (5752 faces). Glaive sắt lưỡi cong; mép lưỡi trên hơi có khía. Chưa socket/rig. `brief.md`, `_shots/final_views.png` |
 | [F01 Body-Snatcher spade](act-01/monsters/F01_body_snatcher/weapons/spade/) | `F01_body_snatcher_spade.glb`, 16,4 MB | 10.807 | cán ~0,5H (sheet); GLB nguồn 1 m | chưa | 2026-10-22, nhánh một ảnh: ảnh cắt từ cột WEAPON/PROP của concept (không có ảnh Astra), v1 (5787 faces). Xẻng cán chữ D, lưỡi sắt mòn. Chưa socket/rig. `brief.md`, `_shots/final_views.png` |
 | [F01 Body-Snatcher sack](act-01/monsters/F01_body_snatcher/weapons/sack/) | `F01_body_snatcher_sack.glb`, 8,8 MB | 9.937 | rộng ~0,5H (sheet); GLB nguồn 1 m | chưa | 2026-10-22, nhánh một ảnh: ảnh cắt từ cột WEAPON/PROP của concept (không có ảnh Astra), v1 (5839 faces). Bao xác buộc ruy băng đỏ; đáy phẳng. Chưa socket/rig. `brief.md`, `_shots/final_views.png` |
 | [F02 Poppy Nurse needle](act-01/monsters/F02_poppy_nurse/weapons/needle/) | `F02_poppy_nurse_needle.glb`, 12,6 MB | 10.193 | dài ~1,05H (sheet); GLB nguồn 1 m | chưa | 2026-10-22, nhánh một ảnh: ảnh cắt từ cột WEAPON/PROP của concept (không có ảnh Astra), v2 (5525 faces). Kim bạc rất mảnh; nhìn ngang Tripo thêm vây nhỏ dưới mũi, thân hơi lượn. Chưa socket/rig. `brief.md`, `_shots/final_views.png` |
@@ -111,7 +110,6 @@ Lô prop (Tripo một ảnh mỗi vật):
 | [B04 Willow Bride A](act-01/monsters/B04_willow_bride/) | `B04_willow_bride.glb`, 17,2 MB | 10.005 | ~1H, đuôi rễ rộng ~1H | chưa | 2026-10-22, variant 1 (5506 faces). Phần dưới là khối rễ thay chân (như váy dài) |
 | [B05 Hospice Mother A](act-01/monsters/B05_hospice_mother/) | `B05_hospice_mother.glb`, 16,7 MB | 8.357 | ~3H (canon 2,75H) | chưa | 2026-10-22, variant 0 (5313 faces). 8 tay (4 cặp) dang ngang. Dựng từ **hai góc trước + sau** (góc bên của Astra vẽ tay vươn ra trước, chưa sửa được vì Codex hết hạn mức); độ dày áo do Tripo đoán. Đèn đêm xích dựng riêng (chưa làm, cần ảnh Astra) |
 | [D02 Kiln-Shaman A](act-01/monsters/D02_kiln_shaman/) | `D02_kiln_shaman.glb`, 20,0 MB | 10.647 | canon đỉnh nồi 0,47H (sheet vẽ 0,77H) | chưa | 2026-10-22, variant 0 (6201 faces). Gậy muôi dựng riêng: [`weapons/D02_kiln_shaman_ladle`](act-01/monsters/D02_kiln_shaman/weapons/ladle/) |
-| [D03 Kiln-Bull E](act-01/monsters/D03_kiln_bull/) | `D03_kiln_bull.glb`, 17,0 MB | 10.807 | 1,40H (đỉnh sừng) | chưa | 2026-10-26, concept vE/concept_r3_kiln (bò Hell Bovine D2 + lò nung sau lưng), variant 2 (6276 faces); bỏ variant 1 (mảng phẳng thừa). T-pose: tay xệ 5–8°, đuôi/vạt sau lệch nhẹ giữa các góc; cửa lò sau lưng texture thành hai vòm. Glaive dựng riêng: [`weapons/glaive`](act-01/monsters/D03_kiln_bull/weapons/glaive/) |
 | [D04 Tithe-Thief A](act-01/monsters/D04_tithe_thief/) | `D04_tithe_thief.glb`, 27,4 MB | 9.791 | canon 0,50H (sheet 0,68H) | chưa | 2026-10-22, variant 1 (5881 faces). **Base color 8192²** (tài khoản đổi mặc định sang 8K, 30 credit); thân hơi nghiêng dưới bao |
 | [F01 Body-Snatcher A](act-01/monsters/F01_body_snatcher/) | `F01_body_snatcher.glb`, 14,3 MB | 9.909 | ~1H | chưa | 2026-10-22, variant 0 (5734 faces), dựng lại cùng ngày: variant 2 cũ hỏng bàn tay trái (ngón xoắn dính cục), GLB cũ ở `_work/_rejected/`, so tay ở `_shots/hand_fix_before_after.png`. Xẻng và bao xác dựng riêng: [`F01_body_snatcher_spade`](act-01/monsters/F01_body_snatcher/weapons/spade/), [`F01_body_snatcher_sack`](act-01/monsters/F01_body_snatcher/weapons/sack/) |
 | [F02 Poppy Nurse A](act-01/monsters/F02_poppy_nurse/) | `F02_poppy_nurse.glb`, 15,8 MB | 9.978 | khăn trùm 1,08H | chưa | 2026-10-22, variant 2 (5438 faces). Kim dài bạc dựng riêng: [`F02_poppy_nurse_needle`](act-01/monsters/F02_poppy_nurse/weapons/needle/) |
@@ -310,46 +308,6 @@ QA nhanh 23/10 (so `final_views.png` với `concept.png`): 38 ổn, 44 có ghi c
 | [A25.6 Tamsin's lantern](act-01/environments/A25_garden_roots_and_tending/A25_6_tamsin_lantern/) | 3,5 MB | 24.145 | 0,3 m × 0,6 m, cao 1 m | R33 v0, 8K | `act1-a25-6-tamsin-lantern.glb` | Quay về phía camera như trong ảnh; đèn treo bằng móc trên cành. |
 
 Credit: 5.115 cho 34 lần dựng (R01–R33 và R31r), tính theo log từng bước.
-
-### Prop: `act-01/environments/<nhóm>/<vật>/` kit v2 (nhóm bổ sung A26–A33; lô dựng ở `act-01/_batches/kit_v2/`, 27/10)
-
-Concept: sheet perspective của A26–A32 và concept A33 (không có turnaround). 22 ảnh hàng cho 60 asset (A26–A33 và G15–G17), duyệt ở `act-01/_batches/kit_v2/ROWS_QA.md`. Cách dựng giống kit v1: Tripo Studio dựng cả hàng một lượt (Smart Mesh một ảnh, 4 variant, Smart UV, texture, PBR), rồi `_tools/split_rows.py` (bản sao của kit v1, chạy được cho cả hai act) tách mỗi vật thành một GLB: mặt trước quay +z, pivot giữa đáy, cạnh dài nhất 1, texture riêng cắt từ atlas của hàng. Tham số ở `_tools/rows.json`, số đo ở `rows/<hàng>/_split/split.json`. Hàng R34 gom cả ba waypoint, nên G15.1 nằm ở cây Act II (mục kế tiếp).
-
-Dừng giữa chừng vì hết credit (27/10): mới xong hàng R34 và GR01. R35, GR02, GR03 đã có mesh nhưng chưa texture; 17 hàng còn lại chưa dựng. Tiến độ, variant, credit và cách làm tiếp: `act-01/_batches/kit_v2/TRIPO_PROGRESS.md`. Ảnh tổng: `act-01/_batches/kit_v2/_review/act1_kit_v2_gapfill.png`. Chưa có bản trong lab.
-
-| Vật | GLB | Tam giác | Kích thước thật | Hàng | Ghi chú |
-| --- | --- | --- | --- | --- | --- |
-| [A31.6 Wayside ossuary (waypoint)](act-01/environments/A31_old_face_and_ossuaries/A31_6_wayside_ossuary/) | 5,4 MB | 5.703 | 1,8 m × 1,8 m, cao 2,8 m | R34 v0, 8K | Ổn. Mặt sau là tường đá trơn (Tripo tự đoán). |
-| [A33.1 Waypoint altar](act-01/environments/A33_waypoint_altar/A33_1_waypoint_altar/) | 8,2 MB | 9.586 | 4,2 m × 4,2 m, cao 3,05 m | R34 v0, 8K | Tượng, cột đèn và bệ là mảnh rời (giữ cả). Bệ không vuông: sâu hơn rộng khoảng 1,25 lần, một cạnh hơi vát. |
-
-### Prop: `act-02/environments/<nhóm>/<vật>/` kit v1 (nhóm bổ sung G15–G17, đủ 18/18; lô dựng ở `act-02/_batches/kit_v1/`, 27–28/10)
-
-Cùng lô và cùng công cụ với kit v2 Act I ở trên (ảnh hàng GR01–GR07 trong `act-02/_batches/kit_v1/rows/`, công cụ tách ở `act-01/_batches/kit_v2/_tools/`). Ảnh tổng: `act-02/_batches/kit_v1/_review/act2_kit_v1_gapfill.png`. Chưa có bản trong lab.
-
-| Vật | GLB | Tam giác | Kích thước thật | Hàng | Ghi chú |
-| --- | --- | --- | --- | --- | --- |
-| [G15.1 Sepulcra ossuary (waypoint)](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_1_sepulcra_ossuary/) | 7,9 MB | 15.800 | 3 m × 1,5 m, cao 4 m | R34 v0, 8K | Dày hơn spec: sâu khoảng 2,6 m khi cao 4 m. Mặt sau lặp lại hốc sọ của mặt trước. Giá đèn và đèn là mảnh rời (giữ cả). |
-| [G15.2 Exhumer watch post](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_2_exhumer_watch_post/) | 4,6 MB | 8.646 | 3 m × 2 m, cao 2,8 m | GR05 v0, 4K | Ổn, giống concept. |
-| [G15.3 Old Vellum's star table](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_3_old_vellum_star_table/) | 2,4 MB | 8.415 | 2 m × 1,2 m, cao 1,8 m | GR05 v0, 4K | Bàn và ghế đẩu là hai mảnh rời (giữ cả). |
-| [G15.4 Archsexton's street pulpit](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_4_archsexton_street_pulpit/) | 3,2 MB | 3.937 | 2,4 m × 2 m, cao 3,2 m | GR05 v0, 4K | Ổn, giống concept. |
-| [G15.5 Wall face of Sepulcra](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_5_sepulcra_wall_face/) | 25,5 MB | 26.526 | 6 m × 2 m, cao 8 m | GR04 v0, 4K | Ổn, giống concept. |
-| [G15.6 Ash drift and soot gutter](act-02/environments/G15_lowcourse_ossuary_and_wall/G15_6_ash_drift_soot_gutter/) | 1,2 MB | 10.682 | 3 m × 2 m, cao 0,5 m | GR05 v0, 4K | Mảng tro mỏng sát nền. |
-| [G16.1 The Nameless Saint colossus](act-02/environments/G16_cathedral_colossus_and_after/G16_1_nameless_saint_colossus/) | 24,6 MB | 16.747 | 10 m × 9 m, cao 14 m | GR01 v2, 4K | Giống concept. Thanh đá trên vai là hai mảnh rời (giữ cả). Thấp hơn spec: cao khoảng 9,1 m khi rộng 10 m. |
-| [G16.2 Cathedral organ](act-02/environments/G16_cathedral_colossus_and_after/G16_2_cathedral_organ/) | 10,1 MB | 22.651 | 6 m × 2,5 m, cao 9 m | GR02 v2, 4K | Nhiều chóp nhọn như concept. |
-| [G16.3 Cathedral west portal](act-02/environments/G16_cathedral_colossus_and_after/G16_3_cathedral_west_portal/) | 5 MB | 7.145 | 7 m × 2,5 m, cao 10 m | GR02 v2, 4K | Bước tách tự xoay 22,3°: kiểm hướng mặt trước khi đặt. |
-| [G16.4 Choir screen](act-02/environments/G16_cathedral_colossus_and_after/G16_4_choir_screen/) | 3,6 MB | 13.307 | 6 m × 1 m, cao 5 m | GR03 v3, 4K | Ổn, giống concept. |
-| [G16.5 Open-roof vault bay](act-02/environments/G16_cathedral_colossus_and_after/G16_5_open_roof_vault_bay/) | 18,1 MB | 18.901 | 8 m × 4 m, cao 12 m | GR03 v3, 4K | Đống đổ nát và dầm gỗ là mảnh rời (giữ cả). |
-| [G16.6 Fresh mortar patch](act-02/environments/G16_cathedral_colossus_and_after/G16_6_fresh_mortar_patch/) | 2,5 MB | 3.871 | 3 m × 0,6 m, cao 3 m | GR04 v0, 4K | Ổn, giống concept. |
-| [G17.1 Cinder-Clan barricade](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_1_cinder_clan_barricade/) | 4,7 MB | 18.163 | 4 m × 1,5 m, cao 1,8 m | GR06 v1, 4K | Ổn, giống concept. |
-| [G17.2 Cinder-Clan fire pot](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_2_cinder_clan_fire_pot/) | 1,9 MB | 2.710 | 1,6 m × 1,6 m, cao 1,3 m | GR06 v1, 4K | Ổn, giống concept. |
-| [G17.3 Collapsing rope bridge](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_3_collapsing_rope_bridge/) | 7,9 MB | 21.262 | 1,4 m × 6 m, cao 1,6 m | GR07 v1, 4K | Nghiêng 7,4° sau bước cân bằng (cầu võng). |
-| [G17.4 Kneeler procession litter](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_4_kneeler_procession_litter/) | 5,1 MB | 9.290 | 1,4 m × 3 m, cao 2,2 m | GR07 v1, 4K | Ổn, giống concept. |
-| [G17.5 Snowbound pilgrim cart](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_5_snowbound_pilgrim_cart/) | 3,2 MB | 5.964 | 2,4 m × 1,4 m, cao 1,4 m | GR06 v1, 4K | Ổn, giống concept. |
-| [G17.6 Sepulcra street goods](act-02/environments/G17_pilgrim_road_and_stair_extras/G17_6_sepulcra_street_goods/) | 2,5 MB | 4.790 | 2 m × 1,2 m, cao 1,3 m | GR06 v1, 4K | Ổn, giống concept. |
-
-Credit lô 27/10: 600 (5 lượt Generate, hoàn thiện R34 và GR01); số dư 2.423 → 833 vì một thread khác tiêu song song khoảng 990.
-
-28/10: GR02–GR07 dựng lại từ đầu trên tài khoản artprojecthorus (Chrome profile riêng `tripo-cdp-horus`, cổng 9334; mesh GR02/GR03 của lượt 27/10 nằm ở tài khoản cũ nên bỏ). Polycount 15.000, texture 4K. 630 credit cho 6 hàng (25.200 → 24.570). Tripo lỗi máy chủ khoảng 15 phút giữa lô; các bước lỡ được chạy lại, không trả tiền hai lần.
 
 ## Bản dùng ở nơi khác
 
