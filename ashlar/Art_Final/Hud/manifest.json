@@ -1,0 +1,3225 @@
+{
+ "title": "ASHLAR HUD pack: all six classes (FL, PS, PB, OS, BR, EX) + common parts",
+ "updated": "2026-10-27",
+ "rule": "copies; sources stay in ashlar/art/hud (see source). Not approved yet: the user is the final gate.",
+ "canvas": {
+  "codex_output": [
+   1672,
+   941
+  ],
+  "full": [
+   2000,
+   1125
+  ],
+  "layer": [
+   2000,
+   696
+  ],
+  "layer_y_in_full": 214,
+  "note": "Codex draws 16:9 at 1672x941; cutout_layer.py scales to 2000x1125 and cuts the 2000x696 layer at y=214"
+ },
+ "counts": {
+  "files": 374,
+  "sidecar": 311,
+  "concept_sheet": 12,
+  "hud_mockup_black": 12,
+  "hud_layer_alpha": 7,
+  "reference": 13,
+  "template": 1,
+  "base_layer_alpha": 1,
+  "sprite_sheet_green": 15,
+  "sprite_sheet_black": 2
+ },
+ "files": [
+  {
+   "file": "_brief/v4/FL_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/FL_K1.desc.txt",
+   "bytes": 2874,
+   "sha256": "2914476ce317e69ff0a9fd7ffed9398f3edd9d9992afc303b43625e9ee0ba19f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/FL_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/FL_K2.desc.txt",
+   "bytes": 2769,
+   "sha256": "52c1813437d4cdbaafb0af289e7584475d89f717fb350112a57e7c9848b7e7a3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/FL_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/FL_L1.desc.txt",
+   "bytes": 3257,
+   "sha256": "69d8a0a3961326ff32283d5c19b326bdf5299022d7c46b56db453ce9d32dee21",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/HUD00.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/HUD00.desc.txt",
+   "bytes": 3062,
+   "sha256": "6eea3d40aa92ba0bce2870a7ea0f1438ab145dfe11840418a9be88cbf335f280",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/PS_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/PS_K1.desc.txt",
+   "bytes": 3121,
+   "sha256": "453123a0af70482d3da85c0ec7c51b4d762e02741d1023a5ceedd6a0d5721797",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/PS_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/PS_K2.desc.txt",
+   "bytes": 2588,
+   "sha256": "a596dbc18da6d5413ffc8f8155f4129edd4c55243a19b363fca021d454b55f79",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/PS_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v4/PS_L1.desc.txt",
+   "bytes": 3547,
+   "sha256": "ba7c789cbc34516d1b0609318fc656308929ab4e5b4a46094ef670061c319353",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/PS_L1_v2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v4/PS_L1_v2.fixes.txt",
+   "bytes": 366,
+   "sha256": "b08d719e2eba9e09e4e5bc57d6a69ffe4d0a763c5feefc0c49c99da6c2ed24af",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/cutout_layer.py",
+   "source": "ashlar/art/hud/_brief/v4/cutout_layer.py",
+   "bytes": 1103,
+   "sha256": "822f0f0d4a3f69a367226b38fcff0b855185fa85038fc45e8ef787fdba8266e9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/jobs.json",
+   "source": "ashlar/art/hud/_brief/v4/jobs.json",
+   "bytes": 2103,
+   "sha256": "d76d965c0c8eb3fa45bf4cc4d9e8f1a031266fa1ed83da69fddefea816364ae9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/jobs_L1.json",
+   "source": "ashlar/art/hud/_brief/v4/jobs_L1.json",
+   "bytes": 2736,
+   "sha256": "164659edbc97d8acb1f9701b60f75a677b577a5cc55933677a1bab09c4fb4ca8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/run1.log",
+   "source": "ashlar/art/hud/_brief/v4/run1.log",
+   "bytes": 2657,
+   "sha256": "35909d8843343bce11c7939d7ded9abb45cf6965dee02767d48662acd8220685",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/run2.log",
+   "source": "ashlar/art/hud/_brief/v4/run2.log",
+   "bytes": 1178,
+   "sha256": "320e7f3bc49d991ed063f15feaf87502537b89a7e687e1cb3f0704d0fd633812",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v4/run3.log",
+   "source": "ashlar/art/hud/_brief/v4/run3.log",
+   "bytes": 694,
+   "sha256": "ffe7ad7ad61d2d153d0640957a44e67a3d5c956df708701ede9968485b0eabe6",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/A_bar.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/A_bar.body.txt",
+   "bytes": 1165,
+   "sha256": "084499b813e29c3e7cc740074e3f51882411f378bf27d7e4a8f042d0751161b3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/A_bar.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/A_bar.desc.txt",
+   "bytes": 2279,
+   "sha256": "06a5029b57a36d566500d2eaf0f2c02c65b8271eaa87e05458d36c55950c99c9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/B_globe.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/B_globe.body.txt",
+   "bytes": 1464,
+   "sha256": "3cf6da0267c95bbc3da98062962eb1fe9491cd39101884bbf6f4faa2579d6269",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/B_globe.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/B_globe.desc.txt",
+   "bytes": 2578,
+   "sha256": "d726eab3646b207e611cd7cab4f7aa9a27f7448d706c71d70b6ee81c5c4bdfa1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/B_globe_r2.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/B_globe_r2.body.txt",
+   "bytes": 1204,
+   "sha256": "ad41e1f17d1ca945e9713d7c83c040733239051d3b844bae00419d7d08646693",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/C_fl.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/C_fl.body.txt",
+   "bytes": 1028,
+   "sha256": "a674265dc3b83e3f4a4e6001eacb6a6f24e23f7c64888afa03beb4c05edb5e77",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/C_fl.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/C_fl.desc.txt",
+   "bytes": 2142,
+   "sha256": "5d9518cc85caf13a65bc471373fd2f49a21551b12001649ba7317f4d198735c2",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/D_ps.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/D_ps.body.txt",
+   "bytes": 1513,
+   "sha256": "e618fe0cb5c1b8c15dbc28a81c48927ba43ab0fb1bf769bb077ec9aaccbffeeb",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/D_ps.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/D_ps.desc.txt",
+   "bytes": 2627,
+   "sha256": "72befaccfef7655f780694b68d08eaf9255f4b3983b31cadf68deefd00a36204",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/E_icons.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/E_icons.body.txt",
+   "bytes": 1419,
+   "sha256": "5c8e009c973506bf7721356bb9702fcf55ad263ca529526bdefb1f42bbfd1651",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/E_icons.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/E_icons.desc.txt",
+   "bytes": 2533,
+   "sha256": "8b431397d6114fa9fb2ae43abde08880d4c33fc14512013ebfb090420ad4e345",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/F_fx.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/F_fx.body.txt",
+   "bytes": 1057,
+   "sha256": "b48a47a31da6ba0327569e2c94a0bcec4476ccc5ce32d67778af1ef9f809bc7c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/F_fx.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/F_fx.desc.txt",
+   "bytes": 1790,
+   "sha256": "c3da08e8993762c04f534ddaa4fe52ea8c7a6bdcc863242a5548e9444ad05841",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/G_plates.body.txt",
+   "source": "ashlar/art/hud/_brief/v5/G_plates.body.txt",
+   "bytes": 983,
+   "sha256": "ec781df021292dc1e7f60856d9b3f9d10d380f2e4d1a83073f17b8d6f3f83ef9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/G_plates.desc.txt",
+   "source": "ashlar/art/hud/_brief/v5/G_plates.desc.txt",
+   "bytes": 2097,
+   "sha256": "3a11744f0cfa0f8212cda6fd1eaf7acf4dd7c213eb97d128c8dca88f92e80459",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/QA.md",
+   "source": "ashlar/art/hud/_brief/v5/QA.md",
+   "bytes": 2045,
+   "sha256": "3ad87fdaa34f135616584eeceb6d1afe9aeef87e217c08948f29186079e45589",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/_head_black.txt",
+   "source": "ashlar/art/hud/_brief/v5/_head_black.txt",
+   "bytes": 733,
+   "sha256": "c7f8c8b6837896660445e4b516d22ca9c58270b03f48539d8f5dbd95620a393e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/_head_green.txt",
+   "source": "ashlar/art/hud/_brief/v5/_head_green.txt",
+   "bytes": 1114,
+   "sha256": "432a88bb69e54e420bcd96567b35c82c50d7644b18123c2fb2476e621f01597e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/jobs.json",
+   "source": "ashlar/art/hud/_brief/v5/jobs.json",
+   "bytes": 3852,
+   "sha256": "3b8d9eccc2957e57b74df2b76c61f1bfbd63a127c790055c4bda056e45c5ea4c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/jobs_r2.json",
+   "source": "ashlar/art/hud/_brief/v5/jobs_r2.json",
+   "bytes": 574,
+   "sha256": "034874d6d6bf1325e0da02e68075f6d1fd77a866e33f234a62d3808e60645cfe",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/run1.log",
+   "source": "ashlar/art/hud/_brief/v5/run1.log",
+   "bytes": 2213,
+   "sha256": "5e5b591c5bdaaa5d569ec1aedcbdef899c41b17d91f2cc6bd6afc19de1d4efc5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/run2.log",
+   "source": "ashlar/art/hud/_brief/v5/run2.log",
+   "bytes": 3624,
+   "sha256": "5d67f6cd808b53429a96f8b7261f48865d357de4bce6341813ff38090fdc02cd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v5/run3_B_r2.log",
+   "source": "ashlar/art/hud/_brief/v5/run3_B_r2.log",
+   "bytes": 697,
+   "sha256": "7011b48989dd5fd2f004d63bbdae850cad17e357ae8b0ccef1bd073b804065cd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/BR_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/BR_K1.desc.txt",
+   "bytes": 3232,
+   "sha256": "30800b39ca388858c0dfcb9027f132e65fb32125f91922240819eb20e1e4f7a3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/BR_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/BR_K2.desc.txt",
+   "bytes": 2528,
+   "sha256": "a634fc01c50770aea5f231ce0b9bdaacf0aba1a907b9bcfe7f94aea746a65300",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/BR_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/BR_L1.desc.txt",
+   "bytes": 3109,
+   "sha256": "1dd3c741daed101b89cee87ae81c7f6712d0aa892aeed9835f4f736a652dcb24",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/BR_L1_v2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/BR_L1_v2.fixes.txt",
+   "bytes": 537,
+   "sha256": "9cd09f22bb7e48069c0b829ebc8d373b71f8925138333ab9b5d9f9a83c11827a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_br.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_br.body.txt",
+   "bytes": 1863,
+   "sha256": "a763a97eff0916a3119faea37a1e73959b1c8fef5f8faa3978ff27fc2d107297",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_br.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_br.desc.txt",
+   "bytes": 2977,
+   "sha256": "30b447d2310a59496e1fd1939d39c78282654a6eb3f4813901a8c1ab0db94834",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_ex.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_ex.body.txt",
+   "bytes": 1570,
+   "sha256": "7c1a01a17c7acdd0cf72649a124489970eb1df382a7b550b753b6909b01e9cc7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_ex.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_ex.desc.txt",
+   "bytes": 2684,
+   "sha256": "cef3cedb681611b258c0c7233d6d64c021aa21c3136e69f35dadec31d9ce8359",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_os.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_os.body.txt",
+   "bytes": 1789,
+   "sha256": "f0597f6267846b89cd4d8496b2634020883c11cd84506f79918a6dbc7bcf0101",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_os.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_os.desc.txt",
+   "bytes": 2903,
+   "sha256": "54052a75fb62f0f462b088f6f2e3cb44ff0c3a96f8534800be8505ae9149ee92",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_os_r2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_os_r2.fixes.txt",
+   "bytes": 687,
+   "sha256": "11a4d978977ec9af9e587dbbf2d3befa7d7103f5765deedfef43a7c81496f884",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_pb.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_pb.body.txt",
+   "bytes": 1416,
+   "sha256": "9bd5f577109858efe718be59610531073b96f2168e7400bbbe7f4d72008afac3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_pb.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_pb.desc.txt",
+   "bytes": 2530,
+   "sha256": "9018cc8a1f22d7e550d927a3e3b207e43446f6e5294490a5eb23c992568ff3ff",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/C_pb_r2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/C_pb_r2.fixes.txt",
+   "bytes": 674,
+   "sha256": "0b6746ed20859ec48f9481f1a39490e3d28445ef304aa929cdd0b51979ee3df6",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/E2_icons.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/E2_icons.body.txt",
+   "bytes": 1978,
+   "sha256": "a967adee9520a981b06cb38c355a31657aa10b950fa7f6b590dd52ddbb7f77ce",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/E2_icons.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/E2_icons.desc.txt",
+   "bytes": 3092,
+   "sha256": "248e4f4d52241520ed5bb42b75a3f9f59f4824f5c99b0e31e6e46ef899e7a3a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/E3_icons.body.txt",
+   "source": "ashlar/art/hud/_brief/v6/E3_icons.body.txt",
+   "bytes": 1932,
+   "sha256": "68285a2c6d5ec98e4318a24beaa75997ef8e7e17be27eb53f1dcb2adf45159c7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/E3_icons.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/E3_icons.desc.txt",
+   "bytes": 3046,
+   "sha256": "0709407f8c47b5f53a1a2b9af6d1b4d74d1f12de620cbd66b19e8cca160fd175",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/EX_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/EX_K1.desc.txt",
+   "bytes": 3302,
+   "sha256": "a6ef57b922c3000d313a24e331747b2fa10be9353f9777ba671f62dce0b2460b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/EX_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/EX_K2.desc.txt",
+   "bytes": 2526,
+   "sha256": "818ea9c32ae7f114c86de1a95fc15d63ab4faaa48a24d87e92e19aa083faa076",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/EX_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/EX_L1.desc.txt",
+   "bytes": 3181,
+   "sha256": "8ea81aaa19cbfeac05b9970d4542c80b58e3feeca4f83e160082e31cc6f2f3f0",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/EX_L1_v2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/EX_L1_v2.fixes.txt",
+   "bytes": 387,
+   "sha256": "cb07b4c169dec84fd5d9e4074048094f673346174582040528ff730e9d270ec0",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/F2_fx.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/F2_fx.desc.txt",
+   "bytes": 1941,
+   "sha256": "8dab19baade82df7b62626927b7c62a67f32b61a34105f80ddc1f9140bd923d5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/OS_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/OS_K1.desc.txt",
+   "bytes": 3247,
+   "sha256": "8b57244d0650372ce4754e04d11863e29fc3eed81569b6f163a89ff2f74ba823",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/OS_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/OS_K2.desc.txt",
+   "bytes": 2653,
+   "sha256": "4046a01babe31877cb280d6ecea76ccf11d51aa1f3250ee87b98e481b2b1175b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/OS_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/OS_L1.desc.txt",
+   "bytes": 3546,
+   "sha256": "ea755269cbbfa2fa9d2f683a4d348bcb501be0e260f0860e31584c16e89ba70d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/OS_L1_v2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/OS_L1_v2.fixes.txt",
+   "bytes": 694,
+   "sha256": "a80ebec1271bd32aa347c7c06384f7bec641c3139b8d545334593ea1c54d38aa",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/PB_K1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/PB_K1.desc.txt",
+   "bytes": 3225,
+   "sha256": "bc5aaff5df31ddfbaadffd1b7c260a7c898d5a7aeae37da5ba4e3c98b32a5618",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/PB_K2.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/PB_K2.desc.txt",
+   "bytes": 2680,
+   "sha256": "7af630ca7df6bfff450e8a4d272cf1f2804123ea1de092aa8dc09a15c32e0d05",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/PB_L1.desc.txt",
+   "source": "ashlar/art/hud/_brief/v6/PB_L1.desc.txt",
+   "bytes": 3445,
+   "sha256": "0ab08df0393b82ceb5ee6df677d4a3236ddcb92c888d2d4fed05b52d310c3aa1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/PB_L1_v2.fixes.txt",
+   "source": "ashlar/art/hud/_brief/v6/PB_L1_v2.fixes.txt",
+   "bytes": 387,
+   "sha256": "cb07b4c169dec84fd5d9e4074048094f673346174582040528ff730e9d270ec0",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/QA.md",
+   "source": "ashlar/art/hud/_brief/v6/QA.md",
+   "bytes": 6656,
+   "sha256": "656906b45a41b8456e739bc94aa708d24011fc37fa87766b0b6c0b91492d8f3e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p1.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p1.json",
+   "bytes": 5097,
+   "sha256": "bacaf5495f721e870fd4d146e73954e607eafbfa7011054b4f40ff9f63226432",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2a.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2a.json",
+   "bytes": 3660,
+   "sha256": "e339f4af678a4fb3cb88e0ce2cff6850eec1a1aa1cc82c8bb40fddab9e6f6bec",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2a_v2.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2a_v2.json",
+   "bytes": 4448,
+   "sha256": "632b1b77b0a3fb7a13c011e73aac45041ae2dfd97af2238ee2c11de3f9359f8d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2b.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2b.json",
+   "bytes": 2081,
+   "sha256": "7a408b550f2161f23253191cc476e642dc87454696967d060bc4bff403f80aef",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2b_run.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2b_run.json",
+   "bytes": 3193,
+   "sha256": "cc8350ad331dc10c3cffc7f2efe001e8637abc54d1a684907204b2506a9b67e9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2c.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2c.json",
+   "bytes": 524,
+   "sha256": "092edc14578491498b1c1ac615fa409d4a63fe1c23901c0426c547e305b889e9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/jobs_p2d.json",
+   "source": "ashlar/art/hud/_brief/v6/jobs_p2d.json",
+   "bytes": 1557,
+   "sha256": "72eec9e1628c57356ebef5a97b5b48ef39d39acfdbcaabed2ca5bf8e51d2a257",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p1.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p1.log",
+   "bytes": 5130,
+   "sha256": "bad8554104d50d22e86ee27d1ec051fc9c6694f5899adb50d08726c0e16b497b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2a.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2a.log",
+   "bytes": 2172,
+   "sha256": "442e4a1b74f605da65699ff45a964949603838f3dae2253f347530512c012577",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2a_v2.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2a_v2.log",
+   "bytes": 3335,
+   "sha256": "61b5a05822e189988d5fa2794229038275fb88592a06bf3be8807092865b2f73",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2a_v2_ex.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2a_v2_ex.log",
+   "bytes": 1777,
+   "sha256": "a4c5de6bf0a8fd23ae0341790e7c3fd206843f416c93f179c4521b90cb44881b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2b.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2b.log",
+   "bytes": 2636,
+   "sha256": "b036b6121bb755bf5e8e8d7db5a7f53193915ca76f2e7b115df0f6db482e690f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2c.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2c.log",
+   "bytes": 679,
+   "sha256": "2c0d11b93dde9cbb32d29770f37ba365ee96ab4e97c9fcdf4e6ce6f750a945b3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "_brief/v6/run_p2d.log",
+   "source": "ashlar/art/hud/_brief/v6/run_p2d.log",
+   "bytes": 1180,
+   "sha256": "72747e89499fad70db1b5e3ec129a3fdd09baf889eb4418510c41bd513fcc895",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_BR/K1_vessel_v1.png",
+   "bytes": 2138768,
+   "sha256": "965d9c62ad301f284a0bdbc888d85cbcfd85bfa4cbf0321f29e0cc2a87bbc66e",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "BR",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_BR/_work/qa_K1_v1.txt",
+   "note": "Salinity vessel: A = tall flat bottle (picked), B = salt jar."
+  },
+  {
+   "file": "class_BR/K2_counters_v1.png",
+   "source": "ashlar/art/hud/class_BR/K2_counters_v1.png",
+   "bytes": 2079603,
+   "sha256": "b544d1dbe00321c354fb749d15b53b84ffde5713a84e1ae50bb6a72f8430f695",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "BR",
+   "status": "PASS, pending_user_review",
+   "qa": "class_BR/_work/qa_K2_v1.txt",
+   "note": "Encrusted / Crystallized / Corroded marks, Steeped icons, brine pool and salt crust decals."
+  },
+  {
+   "file": "class_BR/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_BR/L1_hud_layer_v1.png",
+   "bytes": 997419,
+   "sha256": "3e3092b9f61aa70a97f6441bbb6c63044d18d9308f576af96b312eb8645c4c00",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "BR",
+   "status": "FAIL (replaced by v2)",
+   "qa": "class_BR/_work/qa_L1_v1.txt",
+   "note": "Old round globe ring left behind the vessel. Kept for history only."
+  },
+  {
+   "file": "class_BR/L1_hud_layer_v2.png",
+   "source": "ashlar/art/hud/class_BR/L1_hud_layer_v2.png",
+   "bytes": 1173370,
+   "sha256": "28bde42d66d869eb05ba655967102f3d9be0cf1c87278dba56c3a004f1baa685",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "BR",
+   "status": "PASS, pending_user_review",
+   "qa": "class_BR/_work/qa_L1_v2.txt",
+   "note": "Brinecaller HUD on black: tall bottle mostly grey-green salt over a thin water band, Encrusted pips under the target bar, 6 BR icons."
+  },
+  {
+   "file": "class_BR/L1_hud_layer_v2_layer.png",
+   "source": "ashlar/art/hud/class_BR/L1_hud_layer_v2_layer.png",
+   "bytes": 1031180,
+   "sha256": "9512b97f057d72b1af6c10e97567867b44c9dd30ea5406e5c2cc34e73360f314",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "BR",
+   "status": "PASS, pending_user_review",
+   "qa": "class_BR/_work/qa_L1_v2.txt",
+   "note": "Alpha cut of BR-L1 v2."
+  },
+  {
+   "file": "class_BR/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_BR/_work/K1_vessel_v1.generation.log",
+   "bytes": 8045,
+   "sha256": "dc3fe9f66a7b5fc266709e1d9a5d9ec1849198f4c624ceb5316ae9c2c897786e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 5413,
+   "sha256": "53ed7502d4685f267b96054d4492b1dce388d2aa63f6cf5fe22fe5aa3ae978ba",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 5413,
+   "sha256": "53ed7502d4685f267b96054d4492b1dce388d2aa63f6cf5fe22fe5aa3ae978ba",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "b0677b5177ba516cb2a84e02f3ee936cdee03a87be7fde7ce9f51d2c1396ca2f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K1_vessel_v1.task.txt",
+   "bytes": 6374,
+   "sha256": "9d89e422d035590ee851a3b6ad8c6c6dcfeebf8640138a4c50926f00a4324e5c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K2_counters_v1.generation.log",
+   "source": "ashlar/art/hud/class_BR/_work/K2_counters_v1.generation.log",
+   "bytes": 7286,
+   "sha256": "8f6e68537456757c642a06bd0b853540cfb1c81f8a8dd5e0076bb25577d50790",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K2_counters_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K2_counters_v1.prompt.src.txt",
+   "bytes": 4649,
+   "sha256": "ff44246b2cb1ea2c4a008ff38465ede9d90f149e5c742e50956e2d13224ffb72",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K2_counters_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K2_counters_v1.prompt.txt",
+   "bytes": 4649,
+   "sha256": "ff44246b2cb1ea2c4a008ff38465ede9d90f149e5c742e50956e2d13224ffb72",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K2_counters_v1.result.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K2_counters_v1.result.txt",
+   "bytes": 124,
+   "sha256": "f018378f6ab29781b91b1ef48fb6f75fa3cf848d12b9b860cc325a77ea216800",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/K2_counters_v1.task.txt",
+   "source": "ashlar/art/hud/class_BR/_work/K2_counters_v1.task.txt",
+   "bytes": 5610,
+   "sha256": "330aec7bdd364f3c1ddfe466197fa7e4e1e691902c2ead7e8825aae53915c7bd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8036,
+   "sha256": "171d503209e98e0c115c80a995c6868228705991f408147efbd3efcdf48dc619",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5402,
+   "sha256": "c055fe9f4e54fa16c85fb35f4ab483a01fb530bdfe6bc11f73a212f8ba1e191a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5402,
+   "sha256": "c055fe9f4e54fa16c85fb35f4ab483a01fb530bdfe6bc11f73a212f8ba1e191a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "75a38df0f2234f68ca2c516c782097aefaea38c17eb651c1d8d3c08290bf708e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6359,
+   "sha256": "e8e4b9132529ecf12f1ae28db5b987df100d748dee9d9d21a3c8f3e6bf1142c8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v2.generation.log",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v2.generation.log",
+   "bytes": 8476,
+   "sha256": "9015ff77adbd603c0ccf8e0a06a0171e21e321bb814b295f57296d5c2d3cc6d4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v2.prompt.src.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v2.prompt.src.txt",
+   "bytes": 6037,
+   "sha256": "e5a6b472ae1f9a6b0e5b754690202981b6c598d776d540114db3e0e366bbf849",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v2.prompt.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v2.prompt.txt",
+   "bytes": 6037,
+   "sha256": "e5a6b472ae1f9a6b0e5b754690202981b6c598d776d540114db3e0e366bbf849",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/L1_hud_layer_v2.task.txt",
+   "source": "ashlar/art/hud/class_BR/_work/L1_hud_layer_v2.task.txt",
+   "bytes": 6998,
+   "sha256": "8065f7f8bbb443fe0457269381cd758575c889900a7d7ce229d6bf4af2d6b177",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_BR/_work/qa_K1_v1.txt",
+   "bytes": 481,
+   "sha256": "712cd93c6c8d939d0e0747dba840904e470f206667b5951824e77d8b0ae62280",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_BR/_work/qa_K2_v1.txt",
+   "bytes": 355,
+   "sha256": "a9c728fdfb188f41429a2df8ce5731baa11ac778387045d370b8df16a52bfa3f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_BR/_work/qa_L1_v1.txt",
+   "bytes": 208,
+   "sha256": "ef5845f700b7c03acf23d7fc71a8c1d53d20890dfb140de5db31133de230ab1c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/qa_L1_v2.txt",
+   "source": "ashlar/art/hud/class_BR/_work/qa_L1_v2.txt",
+   "bytes": 295,
+   "sha256": "085c38840c34bfd4dce12aa76ae7ec9a9adab447d04ebe436ce638d9aa9680b1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_BR/_work/ref_encrusted.png",
+   "source": "ashlar/art/hud/class_BR/_work/ref_encrusted.png",
+   "bytes": 255482,
+   "sha256": "246528d7dd9f6554cffce9c32243b7b4e58d79a91c26ddaa9864e842e9353365",
+   "px": [
+    1060,
+    180
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "BR",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K2 Encrusted marks."
+  },
+  {
+   "file": "class_BR/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_BR/_work/ref_vesselA_statue.png",
+   "bytes": 286509,
+   "sha256": "14b6c27b871643f33af80acc40b6b1e155d2530887781b9f1d6e093c8d51bde3",
+   "px": [
+    505,
+    400
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "BR",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex for L1."
+  },
+  {
+   "file": "class_EX/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_EX/K1_vessel_v1.png",
+   "bytes": 1907873,
+   "sha256": "7c4f8d70e0ada4da32830c16e7cee4b48355436305c0f98bbf84c760b6cbc8e7",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "EX",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_EX/_work/qa_K1_v1.txt",
+   "note": "Wick vessel: A = hooded lantern with 5-notch rail (picked), B = grave lamp."
+  },
+  {
+   "file": "class_EX/K2_counters_v1.png",
+   "source": "ashlar/art/hud/class_EX/K2_counters_v1.png",
+   "bytes": 1584934,
+   "sha256": "df40d75909d251388de8350bed80c0b79fd99753d2ae524f68e23c19bb5dc019",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "EX",
+   "status": "PASS, pending_user_review",
+   "qa": "class_EX/_work/qa_K2_v1.txt",
+   "note": "R wick key 3 states, Hooded token, Unseen Strike, Exposed nameplate, traps 2/3."
+  },
+  {
+   "file": "class_EX/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_EX/L1_hud_layer_v1.png",
+   "bytes": 1076091,
+   "sha256": "aab2ecdaf723c71ee2c75b839397a343c7d485bc2a4c4da5f3303dfe245d0484",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "EX",
+   "status": "FAIL (replaced by v2)",
+   "qa": "class_EX/_work/qa_L1_v1.txt",
+   "note": "Old round globe ring left behind the vessel. Kept for history only."
+  },
+  {
+   "file": "class_EX/L1_hud_layer_v2.png",
+   "source": "ashlar/art/hud/class_EX/L1_hud_layer_v2.png",
+   "bytes": 982483,
+   "sha256": "3110f377b5d69248c588b8dee27e21eea0751e1bfdd51650af3bd0fa5d04ced7",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "EX",
+   "status": "PASS, pending_user_review",
+   "qa": "class_EX/_work/qa_L1_v2.txt",
+   "note": "Exhumer HUD on black: hooded lantern (rail at Open), oil 64/100, R = change wick icon, Exposed wash + pip on the target bar, 6 EX icons. Lantern shows a candle: use C_ex parts in game."
+  },
+  {
+   "file": "class_EX/L1_hud_layer_v2_layer.png",
+   "source": "ashlar/art/hud/class_EX/L1_hud_layer_v2_layer.png",
+   "bytes": 988879,
+   "sha256": "d439085c8efa5360378745ce097b48849b6f8b628ad2d6aad67cd40046a4f6fb",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "EX",
+   "status": "PASS, pending_user_review",
+   "qa": "class_EX/_work/qa_L1_v2.txt",
+   "note": "Alpha cut of EX-L1 v2."
+  },
+  {
+   "file": "class_EX/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_EX/_work/K1_vessel_v1.generation.log",
+   "bytes": 8129,
+   "sha256": "3ded5c1ea617f8aca2cae61e14e958e21e341abf515b924e07a60c2cb4fc26c5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 5483,
+   "sha256": "a066da0d3db46bb39b173a8b8590c2c6836bc4812d60e2a5bd1a8c4a768a6046",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 5483,
+   "sha256": "a066da0d3db46bb39b173a8b8590c2c6836bc4812d60e2a5bd1a8c4a768a6046",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "f55ce9982e6f9de3b91d0955511d520d1ee9bf9ecf2e275179b111dcff9ffe62",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K1_vessel_v1.task.txt",
+   "bytes": 6443,
+   "sha256": "13db006cee1acbde70b914bc93498c43bffa90d7d79eaa11411a5f75a73ec099",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K2_counters_v1.generation.log",
+   "source": "ashlar/art/hud/class_EX/_work/K2_counters_v1.generation.log",
+   "bytes": 7279,
+   "sha256": "1356b594c6f30fbd1ecedb834e7e3f2d2691f10488754301d2d2e1d474f1ec20",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K2_counters_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K2_counters_v1.prompt.src.txt",
+   "bytes": 4647,
+   "sha256": "91a43317d84d240ddc4ce11bba88cdc32e586484be9459c9b5d266d7e24cc2de",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K2_counters_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K2_counters_v1.prompt.txt",
+   "bytes": 4647,
+   "sha256": "91a43317d84d240ddc4ce11bba88cdc32e586484be9459c9b5d266d7e24cc2de",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K2_counters_v1.result.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K2_counters_v1.result.txt",
+   "bytes": 124,
+   "sha256": "0013ece3340835d413f215c224836b1dc7207e5138a38bf09d680097ea965b05",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/K2_counters_v1.task.txt",
+   "source": "ashlar/art/hud/class_EX/_work/K2_counters_v1.task.txt",
+   "bytes": 5605,
+   "sha256": "b6cd262a6b817ff644f55320e17fa99c22b0b1f758f85ebf4ff2ce9115d74e5b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8116,
+   "sha256": "f96bcb56f95393ca20bca82f0c9cad0645d9aef61708d3eb981027200dd5971b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5476,
+   "sha256": "944bfb02df2f986ae6f11144f9d24cded2ba79b8e991cf37dec61f1d352f556d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5476,
+   "sha256": "944bfb02df2f986ae6f11144f9d24cded2ba79b8e991cf37dec61f1d352f556d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "13ab215a8239577b1a36ce7170a96a6c691eb53c9be3e26b6fd8459b88fe77a1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6434,
+   "sha256": "9119b344801d124fce36261a3952d931a996961a9e27d3e3a130a57ef624c1db",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.generation.attempt2.log",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.generation.attempt2.log",
+   "bytes": 10243,
+   "sha256": "a6947033f296efa42ca7cd84616268959361b2f22d69a866be9de44d23bda955",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.generation.log",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.generation.log",
+   "bytes": 8624,
+   "sha256": "25ff1c8cf850c81b36b6aafba86759cdf975df41ee9de4e146691f686109f7f8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.prompt.src.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.prompt.src.txt",
+   "bytes": 5959,
+   "sha256": "34e2da25ffcfbf482d23f03b00dd3ea5126e20eb7bdfa085eb8319f3b61c9c98",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.prompt.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.prompt.txt",
+   "bytes": 5959,
+   "sha256": "34e2da25ffcfbf482d23f03b00dd3ea5126e20eb7bdfa085eb8319f3b61c9c98",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.result.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.result.txt",
+   "bytes": 124,
+   "sha256": "3a4701a20c129ef6cc27e43b95b7446cc43c6a801a897f903b4f6ddf8a6d94d3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/L1_hud_layer_v2.task.txt",
+   "source": "ashlar/art/hud/class_EX/_work/L1_hud_layer_v2.task.txt",
+   "bytes": 6920,
+   "sha256": "aeb8a88b3ead95539fc4aac80c8dc21accb0d0fa95edf07958539a220e64f033",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_EX/_work/qa_K1_v1.txt",
+   "bytes": 557,
+   "sha256": "26a8509e933f6d917bb3a062ab6b938a21b61f14f51a39dd7e3a9d0faa3306cf",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_EX/_work/qa_K2_v1.txt",
+   "bytes": 335,
+   "sha256": "9ad2351c5f14ab089e7fd2a883d3873fbab7ca17bbca27bb0622503842d822bd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_EX/_work/qa_L1_v1.txt",
+   "bytes": 157,
+   "sha256": "f93d4c8fb8ab6732363a7774e68a1c75f80fd1e17ae48ac3e37e0e2a9d5f084e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/qa_L1_v2.txt",
+   "source": "ashlar/art/hud/class_EX/_work/qa_L1_v2.txt",
+   "bytes": 613,
+   "sha256": "eacc8e9fec4674d5a1daa2f62869c2c88499f74c4daf4a30ffcbe0937231d44d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_EX/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_EX/_work/ref_vesselA_statue.png",
+   "bytes": 257212,
+   "sha256": "75a3b37108cd7f84938dbcc81b40821d6effed0dd5076966d291ae1c24cbc2c4",
+   "px": [
+    485,
+    375
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "EX",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex for L1."
+  },
+  {
+   "file": "class_EX/_work/ref_wick_exposed.png",
+   "source": "ashlar/art/hud/class_EX/_work/ref_wick_exposed.png",
+   "bytes": 685797,
+   "sha256": "453a216a3dba06854b152b5075f6ba2749324dcf3d4032da4b8769be03d111d3",
+   "px": [
+    1310,
+    525
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "EX",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K2 wick key + Exposed nameplate."
+  },
+  {
+   "file": "class_FL/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_FL/K1_vessel_v1.png",
+   "bytes": 1923693,
+   "sha256": "4740d6f5a6b1614c186f49bcd7d828badf92287961ca557a1cfa38333af2390f",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "FL",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_FL/_work/qa_K1_v1.txt",
+   "note": "Contrition vessel: A = niche with 10 chain links (picked), B = ember box + chain arch."
+  },
+  {
+   "file": "class_FL/K2_globe_v1.png",
+   "source": "ashlar/art/hud/class_FL/K2_globe_v1.png",
+   "bytes": 1811460,
+   "sha256": "8245829c96e7addfc259495739dca99827686be087bd134387f9722d6c6504a3",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "FL",
+   "status": "PASS, pending_user_review",
+   "qa": "class_FL/_work/qa_K2_v1.txt",
+   "note": "Globe states: FULL, WOUND, HEALING, FLOOR 10%, SHORED, REDUCED IMAGERY + 3 story states."
+  },
+  {
+   "file": "class_FL/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_FL/L1_hud_layer_v1.png",
+   "bytes": 970472,
+   "sha256": "61631a9a33df0c2a3ea4b22a5355010bc070dae2629004e949f2893d7ea0c679",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "FL",
+   "status": "PASS, pending_user_review",
+   "qa": "class_FL/_work/qa_L1_v1.txt",
+   "note": "Flagellant HUD on black: chain niche vessel, Wound globe, 6 FL icons, no slot 5."
+  },
+  {
+   "file": "class_FL/L1_hud_layer_v1_layer.png",
+   "source": "ashlar/art/hud/class_FL/L1_hud_layer_v1_layer.png",
+   "bytes": 995334,
+   "sha256": "bbc1a218226fc22a7d3e4581da93d1f5321952f0a468a2cc204c4e757693ad0a",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "FL",
+   "status": "PASS, pending_user_review",
+   "qa": "class_FL/_work/qa_L1_v1.txt",
+   "note": "Alpha cut of FL-L1."
+  },
+  {
+   "file": "class_FL/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_FL/_work/K1_vessel_v1.generation.log",
+   "bytes": 7626,
+   "sha256": "aaf0fbdde2b0380712130875e944a997b8e4bb7f50036b8635a3db43f134632c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 4995,
+   "sha256": "e13832e057155c5daa7943fb43bb6a1c8ed88bd2947105d5293031b151c47e06",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 4995,
+   "sha256": "e13832e057155c5daa7943fb43bb6a1c8ed88bd2947105d5293031b151c47e06",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "913d52ab53dff6e9212f12c7525a96a685a9cf4fdf3f7f9bc55c8269b0ab98c3",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K1_vessel_v1.task.txt",
+   "bytes": 5955,
+   "sha256": "86c9383f3d34515fda457256ec7b74d8b80a883dfb50c0117b31528c1cbd33a5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K2_globe_v1.generation.log",
+   "source": "ashlar/art/hud/class_FL/_work/K2_globe_v1.generation.log",
+   "bytes": 7520,
+   "sha256": "e580f825d7b348a350fd280536b4b9bb4931e0c0395f1f19fe03939df57c564c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K2_globe_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K2_globe_v1.prompt.src.txt",
+   "bytes": 4890,
+   "sha256": "9c8b256372748a5bd165c5e3c683102fc6e7cf378f878729be003ba160b3943d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K2_globe_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K2_globe_v1.prompt.txt",
+   "bytes": 4890,
+   "sha256": "9c8b256372748a5bd165c5e3c683102fc6e7cf378f878729be003ba160b3943d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K2_globe_v1.result.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K2_globe_v1.result.txt",
+   "bytes": 124,
+   "sha256": "ff59e9c9aa96690d8b3d37289439a364495419a2e6aa01803dab19a35653aefb",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/K2_globe_v1.task.txt",
+   "source": "ashlar/art/hud/class_FL/_work/K2_globe_v1.task.txt",
+   "bytes": 5852,
+   "sha256": "e6b73250ac2a6da1d410129d0d3a8d53659d796f291090ddcc745de8c344dfe9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_FL/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8147,
+   "sha256": "4b6b150174d8f55adb6e36c0c56a6c9b54299ff17221bb2f2c0bf5fe9fff13b6",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_FL/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5511,
+   "sha256": "1e520403a91e136c28df09167e8c943c11cf8123c74ebe022c4268c73404a1c5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_FL/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5511,
+   "sha256": "1e520403a91e136c28df09167e8c943c11cf8123c74ebe022c4268c73404a1c5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_FL/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "5bd9007445fa91342de0b02e4addf3c2a3cef19e0f4424c0133c9ae15a8eea5f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_FL/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6469,
+   "sha256": "47e4a5f4b4e2a094320b19f8b032c1247c411eeee63aa14ea42c46bc87e344b9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_FL/_work/qa_K1_v1.txt",
+   "bytes": 503,
+   "sha256": "a60ddb4837551884690992150d9c0ef2f1dabba23c1c65866cd1aa957c0ef748",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_FL/_work/qa_K2_v1.txt",
+   "bytes": 548,
+   "sha256": "e14c055972634acd358153853ae17d34b516a99bc2985fb74c19581a69e13110",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_FL/_work/qa_L1_v1.txt",
+   "bytes": 541,
+   "sha256": "d38f43840c67318f92b64f6c5ade5b392aa9777bc7f96714a7b4b5738dc732eb",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_FL/_work/ref_globe_wound.png",
+   "source": "ashlar/art/hud/class_FL/_work/ref_globe_wound.png",
+   "bytes": 113963,
+   "sha256": "80cf37dc9c494b9839ea31041f05e341b7f8b01a92bffca364b57507083cd353",
+   "px": [
+    290,
+    270
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "FL",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of the K2 WOUND globe given to Codex for L1."
+  },
+  {
+   "file": "class_FL/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_FL/_work/ref_vesselA_statue.png",
+   "bytes": 277934,
+   "sha256": "b92cf310786153a10c2d455dd81e02e6ceccafbc6ac48f2733f4b8b38c0e73fc",
+   "px": [
+    520,
+    400
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "FL",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex for L1."
+  },
+  {
+   "file": "class_OS/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_OS/K1_vessel_v1.png",
+   "bytes": 2056232,
+   "sha256": "1fac4a01219066652605f085ce084e7c49fb7574673a1575cd02217da6b258f5",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "OS",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_OS/_work/qa_K1_v1.txt",
+   "note": "Souls vessel: A = 8-niche reliquary tower (picked), B = niche chest."
+  },
+  {
+   "file": "class_OS/K2_counters_v1.png",
+   "source": "ashlar/art/hud/class_OS/K2_counters_v1.png",
+   "bytes": 1693084,
+   "sha256": "0cd1fa466d46197ed9612867e06ffc56cc49e8e03a9583fac986dcc50b47bfbc",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "OS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_OS/_work/qa_K2_v1.txt",
+   "note": "Strain gauge 4 states, servants 2/3, Willing/Frightened, Promise Kept."
+  },
+  {
+   "file": "class_OS/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_OS/L1_hud_layer_v1.png",
+   "bytes": 1095341,
+   "sha256": "6982733fcf4f4c5baf259cf3abaf8d5d0238b26e7fbe0e515fed9b91f4e468fd",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "OS",
+   "status": "FAIL (replaced by v2)",
+   "qa": "class_OS/_work/qa_L1_v1.txt",
+   "note": "Old round globe ring left behind the vessel. Kept for history only."
+  },
+  {
+   "file": "class_OS/L1_hud_layer_v2.png",
+   "source": "ashlar/art/hud/class_OS/L1_hud_layer_v2.png",
+   "bytes": 1171630,
+   "sha256": "7357ca54720137cd35698266982cbbc1ffd12a8d5930e8e3bf087f5c4fa62151",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "OS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_OS/_work/qa_L1_v2.txt",
+   "note": "Ossuarist HUD on black: 8-niche reliquary, 4/5 souls lit, faint Strain crack, servants 2/3 on the plate, 6 OS icons."
+  },
+  {
+   "file": "class_OS/L1_hud_layer_v2_layer.png",
+   "source": "ashlar/art/hud/class_OS/L1_hud_layer_v2_layer.png",
+   "bytes": 1053571,
+   "sha256": "9491a2cafde2690a5c370f363afc302219d032d92c5fe6364385ad4da2c7d36f",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "OS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_OS/_work/qa_L1_v2.txt",
+   "note": "Alpha cut of OS-L1 v2."
+  },
+  {
+   "file": "class_OS/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_OS/_work/K1_vessel_v1.generation.log",
+   "bytes": 8075,
+   "sha256": "20c99ae2d79895848f634f05d74fbcd5067e0e98401e0a5149f5edd66d50ce09",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 5428,
+   "sha256": "adb40478c033a54da4f6a12e442211da9936431d634d3840e3d4f1641b345260",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 5428,
+   "sha256": "adb40478c033a54da4f6a12e442211da9936431d634d3840e3d4f1641b345260",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "7311556ea202fe7af494998678de920d8188a03754e80ff97a3561db08e722de",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K1_vessel_v1.task.txt",
+   "bytes": 6388,
+   "sha256": "fde62ba0cec30c81a3b34df8d865ec2f418dae54c8842cf986411e04fd10366d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K2_counters_v1.generation.log",
+   "source": "ashlar/art/hud/class_OS/_work/K2_counters_v1.generation.log",
+   "bytes": 7409,
+   "sha256": "33d4d8ff59aadc899c3e25fba8edba243f2cc29aa50c3331eae8098ef7a2f595",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K2_counters_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K2_counters_v1.prompt.src.txt",
+   "bytes": 4774,
+   "sha256": "2bcfe981c7142dc0a3a2f0ed2b9b2d5a9dd10600a2be92a86d68b475ae2e6a64",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K2_counters_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K2_counters_v1.prompt.txt",
+   "bytes": 4774,
+   "sha256": "2bcfe981c7142dc0a3a2f0ed2b9b2d5a9dd10600a2be92a86d68b475ae2e6a64",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K2_counters_v1.result.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K2_counters_v1.result.txt",
+   "bytes": 124,
+   "sha256": "8fa7b60ecfc076e87a9588ba14f9e5d82f7f99f33a94e5dd40f1dcdbb31e42bf",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/K2_counters_v1.task.txt",
+   "source": "ashlar/art/hud/class_OS/_work/K2_counters_v1.task.txt",
+   "bytes": 5732,
+   "sha256": "4403146e8536c50c54b61bd0bb68bf8fb21d9b2ebe1b961143393813f199734a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8459,
+   "sha256": "a5d800fa459376a3b5e2d9ef312cbc622ea95104248e27de67465bb636deab94",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5836,
+   "sha256": "e078ea6359083f18c0b37ca6c34a6bd2be27bf12c93d012ab0218f36bd2e2aae",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5836,
+   "sha256": "e078ea6359083f18c0b37ca6c34a6bd2be27bf12c93d012ab0218f36bd2e2aae",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "8bdf23ebe093a30c2c4f6c884db3b19ed9d01cc8bb754e4b51071ec4fb2200f8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6794,
+   "sha256": "8eeec7b8c0906e5f1503309626b3160de9bf772f812ef6195a728b8f8ab65ee8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v2.generation.log",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v2.generation.log",
+   "bytes": 9320,
+   "sha256": "d015849601524a6189ba3e4206989a9d6113ac174c10ece0497482e917323c63",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v2.prompt.src.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v2.prompt.src.txt",
+   "bytes": 6630,
+   "sha256": "9962a625f13438f2ffa791067c6ba50c007f6428cb2dba41e5ff901f2c0ab6a0",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v2.prompt.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v2.prompt.txt",
+   "bytes": 6630,
+   "sha256": "9962a625f13438f2ffa791067c6ba50c007f6428cb2dba41e5ff901f2c0ab6a0",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v2.result.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v2.result.txt",
+   "bytes": 124,
+   "sha256": "08ea56318a4d3747b11f56cd944cf20e7c8a8aa75bfe1f863a3b0e9dbe90ac8b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/L1_hud_layer_v2.task.txt",
+   "source": "ashlar/art/hud/class_OS/_work/L1_hud_layer_v2.task.txt",
+   "bytes": 7593,
+   "sha256": "038b9959e43a6408625eb801213be3dd7e35362b3022ed2a80e16205b4374f61",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_OS/_work/qa_K1_v1.txt",
+   "bytes": 506,
+   "sha256": "e042814fdbb9480ccd58a05f0e18eea4eec1b434bfa01cae7eec0b9229d6c411",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_OS/_work/qa_K2_v1.txt",
+   "bytes": 278,
+   "sha256": "5db35afaee67437eff4e6789f1a793000e65ee4afa71fdaf0627a72fa73b3213",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_OS/_work/qa_L1_v1.txt",
+   "bytes": 231,
+   "sha256": "8be758b919c0d7bb4b1e5d207c21cb859f6b3009e091905277913900ae9c2b8e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/qa_L1_v2.txt",
+   "source": "ashlar/art/hud/class_OS/_work/qa_L1_v2.txt",
+   "bytes": 320,
+   "sha256": "ebfc52de61f27c65867a54692b8dd91e4f84745974533b858a1a606d22bce36a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_OS/_work/ref_strain_servants.png",
+   "source": "ashlar/art/hud/class_OS/_work/ref_strain_servants.png",
+   "bytes": 597668,
+   "sha256": "c63cf080a390ca28487fc59a1bc29b93ab9eb00cb92426a155b0c8b3cab79ca2",
+   "px": [
+    1135,
+    450
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "OS",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K2 Strain gauge + servant tokens."
+  },
+  {
+   "file": "class_OS/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_OS/_work/ref_vesselA_statue.png",
+   "bytes": 250334,
+   "sha256": "40dcd8220ca7a75b996ffd04c472cce0f76a85fc02975ad04cf88551fa1c84f3",
+   "px": [
+    495,
+    375
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "OS",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex for L1."
+  },
+  {
+   "file": "class_PB/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_PB/K1_vessel_v1.png",
+   "bytes": 1811066,
+   "sha256": "b725ec87f700c047920e0a2a093bff0cf81c220a404039ff808ab6057e173f44",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "PB",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_PB/_work/qa_K1_v1.txt",
+   "note": "Burden vessel: A = standing coffin frame (picked), B = bier with poles."
+  },
+  {
+   "file": "class_PB/K2_counters_v1.png",
+   "source": "ashlar/art/hud/class_PB/K2_counters_v1.png",
+   "bytes": 1764081,
+   "sha256": "67b488a6f0ec175dbba88b38aab3c19cd59e38a3767fd9ed1ba577836334eb1f",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "PB",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PB/_work/qa_K2_v1.txt",
+   "note": "Vow socket 4 states, Names tally 6/10, Burden states, Heaviest Coffin lock."
+  },
+  {
+   "file": "class_PB/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_PB/L1_hud_layer_v1.png",
+   "bytes": 1033314,
+   "sha256": "2f6f55d77083a58da8bf04d91f70e41b87a94c284f6c072d29cec1122b5c39cc",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "PB",
+   "status": "FAIL (replaced by v2)",
+   "qa": "class_PB/_work/qa_L1_v1.txt",
+   "note": "Old round globe ring left behind the vessel. Kept for history only."
+  },
+  {
+   "file": "class_PB/L1_hud_layer_v2.png",
+   "source": "ashlar/art/hud/class_PB/L1_hud_layer_v2.png",
+   "bytes": 1398187,
+   "sha256": "e19afcc8a637ef60f64c91e75c0d1cbf4e931d66aed07fd04561b626ea01807b",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "PB",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PB/_work/qa_L1_v2.txt",
+   "note": "Pallbearer HUD on black: coffin frame ~2/3 mortar, slot 5 No One Alone (Vow) with silver rim, NAMES plate 6/10, 6 PB icons."
+  },
+  {
+   "file": "class_PB/L1_hud_layer_v2_layer.png",
+   "source": "ashlar/art/hud/class_PB/L1_hud_layer_v2_layer.png",
+   "bytes": 1051112,
+   "sha256": "13f768afbbb277b213bae500491cac56fe3f8b846bfad884679cb7e2fa1ac9dc",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "PB",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PB/_work/qa_L1_v2.txt",
+   "note": "Alpha cut of PB-L1 v2."
+  },
+  {
+   "file": "class_PB/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_PB/_work/K1_vessel_v1.generation.log",
+   "bytes": 8043,
+   "sha256": "de2e8aa69bb2189b71715fe2ded5bc3624be1f908dbd8b447c04cac1a5aee74d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 5406,
+   "sha256": "95c6bdf9d324d17612b853cf802e123e8c1ce11efef693e97ace3d06e5ece0d9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 5406,
+   "sha256": "95c6bdf9d324d17612b853cf802e123e8c1ce11efef693e97ace3d06e5ece0d9",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "dad1fafd9fb44b0167d881dc1825c7cc3678b60ac549046df80b27ee40214897",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K1_vessel_v1.task.txt",
+   "bytes": 6366,
+   "sha256": "3b64cb2165095eaed06c1eb1316da516b1c85ceb477fc4df41fbac694b9232a8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K2_counters_v1.generation.log",
+   "source": "ashlar/art/hud/class_PB/_work/K2_counters_v1.generation.log",
+   "bytes": 7439,
+   "sha256": "c9a6c492c9e6687fcc90611faceb106c08494f844e7c62f4c015202880347e49",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K2_counters_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K2_counters_v1.prompt.src.txt",
+   "bytes": 4801,
+   "sha256": "8ed48dec544e6be9994a4ee8887e38b8f20fc1823e33dda5e17f9f9791d805fa",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K2_counters_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K2_counters_v1.prompt.txt",
+   "bytes": 4801,
+   "sha256": "8ed48dec544e6be9994a4ee8887e38b8f20fc1823e33dda5e17f9f9791d805fa",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K2_counters_v1.result.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K2_counters_v1.result.txt",
+   "bytes": 124,
+   "sha256": "92c7c319cb3407ceaecf3f549cedcd6e9496b6e2a9d02cd1321c4e4d512be254",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/K2_counters_v1.task.txt",
+   "source": "ashlar/art/hud/class_PB/_work/K2_counters_v1.task.txt",
+   "bytes": 5763,
+   "sha256": "cf5b84a3eec7f61caa3adf00737512fbbb9a6360b5212cdedd4e2afd10bec205",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8370,
+   "sha256": "7987cbd27a41193e51cf25a0e30dcc782bc88e014791779c0e3d181b553d61a8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5733,
+   "sha256": "c3ae798d97fc89da4d90352e77507d0ee09b593d34835a58ced4fe836185e8b7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5733,
+   "sha256": "c3ae798d97fc89da4d90352e77507d0ee09b593d34835a58ced4fe836185e8b7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "d2987b02b0be05b4f72906c90f4fc2788f9ddec9dc50cfac1f234fd1e3a8759c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6691,
+   "sha256": "652f59d2bc62f531b7df0813661c76f36922787ffd344a569450165922149d06",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v2.generation.log",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v2.generation.log",
+   "bytes": 8682,
+   "sha256": "ac23c1b2be499cec5b2cf3d389b669004517c0ae24b8e31142e2e2fb0c9292c4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v2.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v2.prompt.src.txt",
+   "bytes": 6216,
+   "sha256": "58a397df72981759d1fd7caa8b7f814ab0f54e40033ff84d76c74daeb03e2d2e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v2.prompt.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v2.prompt.txt",
+   "bytes": 6216,
+   "sha256": "58a397df72981759d1fd7caa8b7f814ab0f54e40033ff84d76c74daeb03e2d2e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/L1_hud_layer_v2.task.txt",
+   "source": "ashlar/art/hud/class_PB/_work/L1_hud_layer_v2.task.txt",
+   "bytes": 7177,
+   "sha256": "a2a115aab273a8fccc309c792169be28773d1445d6a739d63580ed3898932574",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_PB/_work/qa_K1_v1.txt",
+   "bytes": 459,
+   "sha256": "ea20cc21cd9b782420e5c885b6d6dee72b409bda5df046eb487e4f7052802b91",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_PB/_work/qa_K2_v1.txt",
+   "bytes": 445,
+   "sha256": "e3fc1cbb3b33694329fbf786275df8d9318653a90f1262682add131bc7d9300f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_PB/_work/qa_L1_v1.txt",
+   "bytes": 157,
+   "sha256": "f93d4c8fb8ab6732363a7774e68a1c75f80fd1e17ae48ac3e37e0e2a9d5f084e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/qa_L1_v2.txt",
+   "source": "ashlar/art/hud/class_PB/_work/qa_L1_v2.txt",
+   "bytes": 354,
+   "sha256": "d44b65cdad47574f21ed91c2d7515f93c79ffbcc61249995b0c600581c8e7786",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PB/_work/ref_socket5_names.png",
+   "source": "ashlar/art/hud/class_PB/_work/ref_socket5_names.png",
+   "bytes": 690956,
+   "sha256": "224547aa5d9472525c6fd776f3f2535ebc2d1e6934674f309e8933772376f021",
+   "px": [
+    1245,
+    470
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "PB",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K2 slot 5 Vow + Names counter."
+  },
+  {
+   "file": "class_PB/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_PB/_work/ref_vesselA_statue.png",
+   "bytes": 235628,
+   "sha256": "599a0bb965a70cc70472b0acd1e2030a06bebfddbe1c2a58158103ce3d0909fc",
+   "px": [
+    480,
+    365
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "PB",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex for L1."
+  },
+  {
+   "file": "class_PS/K1_vessel_v1.png",
+   "source": "ashlar/art/hud/class_PS/K1_vessel_v1.png",
+   "bytes": 1911052,
+   "sha256": "8a1b02ff8683558c778f266f43ffda03d785c2e67899ae3939ca167a99f6112c",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "PS",
+   "status": "PASS, pending_user_review; user picked A",
+   "qa": "class_PS/_work/qa_K1_v1.txt",
+   "note": "Breath vessel: A = split-log pyre cage (picked), B = crescent."
+  },
+  {
+   "file": "class_PS/K2_counters_v1.png",
+   "source": "ashlar/art/hud/class_PS/K2_counters_v1.png",
+   "bytes": 1719639,
+   "sha256": "7fe2e8c29a2309a700beed686964ed3520ed14e7c95fb44493faf3c69d85d26a",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "concept_sheet",
+   "class": "PS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PS/_work/qa_K2_v1.txt",
+   "note": "Slot 5 Hymn states, Smoke-Shape, Long Song, Courage, party frames, Last Verse."
+  },
+  {
+   "file": "class_PS/L1_hud_layer_v1.png",
+   "source": "ashlar/art/hud/class_PS/L1_hud_layer_v1.png",
+   "bytes": 1213786,
+   "sha256": "d5a79aa80eabb1e68dd61b64ba8c00d1774c0ecdb09dcb959693f2f2711a2933",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "PS",
+   "status": "FAIL (replaced by v2)",
+   "qa": "class_PS/_work/qa_L1_v1.txt",
+   "note": "Old globe ring left behind the cage, log tips burning. Kept for history only."
+  },
+  {
+   "file": "class_PS/L1_hud_layer_v2.png",
+   "source": "ashlar/art/hud/class_PS/L1_hud_layer_v2.png",
+   "bytes": 1179313,
+   "sha256": "99b7b86ed102f885eb3d8a1ac77f04598f0371f46e0d43840c0e4f93f3d48757",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "PS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PS/_work/qa_L1_v2.txt",
+   "note": "Pyre-Singer HUD on black: free-standing pyre cage, slot 5 Hymn singing, 6 PS icons, counter plate."
+  },
+  {
+   "file": "class_PS/L1_hud_layer_v2_layer.png",
+   "source": "ashlar/art/hud/class_PS/L1_hud_layer_v2_layer.png",
+   "bytes": 1043501,
+   "sha256": "97edfd68cb330f1d0c12f8023521bdb4566f060c9130ba3e83ce19154b4691d4",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "PS",
+   "status": "PASS, pending_user_review",
+   "qa": "class_PS/_work/qa_L1_v2.txt",
+   "note": "Alpha cut of PS-L1 v2."
+  },
+  {
+   "file": "class_PS/_work/K1_vessel_v1.generation.log",
+   "source": "ashlar/art/hud/class_PS/_work/K1_vessel_v1.generation.log",
+   "bytes": 7869,
+   "sha256": "a808010ccd4dd1a93b2ce041b24846063ce59b34ba7fc9d4042665a720f3beb7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K1_vessel_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K1_vessel_v1.prompt.src.txt",
+   "bytes": 5242,
+   "sha256": "99ee95c4c8f3d198a3285ea566f1b7ab7c4e05390bd95d2fc96b8d52d001bee5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K1_vessel_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K1_vessel_v1.prompt.txt",
+   "bytes": 5242,
+   "sha256": "99ee95c4c8f3d198a3285ea566f1b7ab7c4e05390bd95d2fc96b8d52d001bee5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K1_vessel_v1.result.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K1_vessel_v1.result.txt",
+   "bytes": 124,
+   "sha256": "200b0a9443a55b4b484c51791e3ad0e0ff99efc402021277db2c70f88ec80d08",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K1_vessel_v1.task.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K1_vessel_v1.task.txt",
+   "bytes": 6203,
+   "sha256": "6e253b6c9cf385f43492a84bd79397a9f3a8dfd8f3658c22bc1b1c54179f338d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K2_counters_v1.generation.log",
+   "source": "ashlar/art/hud/class_PS/_work/K2_counters_v1.generation.log",
+   "bytes": 7337,
+   "sha256": "ccaaf03b6244f6ddd3d2c97e9f7616f003a1bab9e997131a632e656189a61e34",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K2_counters_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K2_counters_v1.prompt.src.txt",
+   "bytes": 4709,
+   "sha256": "95a455d07264caf04b358bd15206d3e84198e80081c3644c785fbb09fa0c5bf1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K2_counters_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K2_counters_v1.prompt.txt",
+   "bytes": 4709,
+   "sha256": "95a455d07264caf04b358bd15206d3e84198e80081c3644c785fbb09fa0c5bf1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K2_counters_v1.result.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K2_counters_v1.result.txt",
+   "bytes": 124,
+   "sha256": "ac4c0b46cc18055aaa842b86d72837c75a45e3934c7289a5204c14832b50f53a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/K2_counters_v1.task.txt",
+   "source": "ashlar/art/hud/class_PS/_work/K2_counters_v1.task.txt",
+   "bytes": 5671,
+   "sha256": "968b17deb8f3c0943a3302685d645708180c8144331858abeb7925ebbb4a2632",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v1.generation.log",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v1.generation.log",
+   "bytes": 8527,
+   "sha256": "520d2f10c58fed836f3d9b7c011e34e329ecbb877d416b16ae252670063ddc0f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v1.prompt.src.txt",
+   "bytes": 5886,
+   "sha256": "5443a9f05fa1d8db2f59b0726b5985105bb6b9e4a8efca8bcc2012e338fdd4a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v1.prompt.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v1.prompt.txt",
+   "bytes": 5886,
+   "sha256": "5443a9f05fa1d8db2f59b0726b5985105bb6b9e4a8efca8bcc2012e338fdd4a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v1.result.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v1.result.txt",
+   "bytes": 124,
+   "sha256": "ef2b46e5dcef8927eab5239f2f7a108c5d3cb7853f2a309d72ca9bf3c726ba05",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v1.task.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v1.task.txt",
+   "bytes": 6844,
+   "sha256": "7b4b7dbfca4d4978f04b7fabf98b95bf3db66bdaf183719f901630d7b9fb5140",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v2.generation.log",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v2.generation.log",
+   "bytes": 8900,
+   "sha256": "851bff3a158550718df97f6ff654b6b817b0cc8c408f8f04a6f25828ca16a6a8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v2.prompt.src.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v2.prompt.src.txt",
+   "bytes": 6264,
+   "sha256": "225b1aaf32a613a97dbf136371e4c3fd336be1b2c377d2de235a3a2fe8e3d464",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v2.prompt.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v2.prompt.txt",
+   "bytes": 6264,
+   "sha256": "225b1aaf32a613a97dbf136371e4c3fd336be1b2c377d2de235a3a2fe8e3d464",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v2.result.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v2.result.txt",
+   "bytes": 124,
+   "sha256": "755ab9f0d273a262aa42fbb3fbdf29314fd332b70236de73174353bf6cb54f9c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/L1_hud_layer_v2.task.txt",
+   "source": "ashlar/art/hud/class_PS/_work/L1_hud_layer_v2.task.txt",
+   "bytes": 7226,
+   "sha256": "66346ce67fd30e630767404907a837378942d831e97f2c455d8b3c13136df67b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/qa_K1_v1.txt",
+   "source": "ashlar/art/hud/class_PS/_work/qa_K1_v1.txt",
+   "bytes": 493,
+   "sha256": "7529bed1694fc5245b0228781a5569dbab7b178004e7104f13b2c224d8198a46",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/qa_K2_v1.txt",
+   "source": "ashlar/art/hud/class_PS/_work/qa_K2_v1.txt",
+   "bytes": 376,
+   "sha256": "bad67bb622c5ef9ec5680027d4b71eac8df99cc02ec6bc42b0ac567c2bd0b114",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/qa_L1_v1.txt",
+   "source": "ashlar/art/hud/class_PS/_work/qa_L1_v1.txt",
+   "bytes": 176,
+   "sha256": "662879a8be5f367ea970eac72795905ec94e46a18eb018fdafab9b163489e630",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/qa_L1_v2.txt",
+   "source": "ashlar/art/hud/class_PS/_work/qa_L1_v2.txt",
+   "bytes": 515,
+   "sha256": "de4b5b431501205dad7bbdaf8c2f67d22609cf4c206a6153edd3925638a0ae5a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "class_PS/_work/ref_socket_counters.png",
+   "source": "ashlar/art/hud/class_PS/_work/ref_socket_counters.png",
+   "bytes": 792237,
+   "sha256": "7ca5fccd69bf3b6ef53a31c2fdd0ac8c33d7be2964414c2fb11e6596f8b4552b",
+   "px": [
+    1180,
+    600
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "PS",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K2 slot 5 / counters / party."
+  },
+  {
+   "file": "class_PS/_work/ref_vesselA_pyrehymn.png",
+   "source": "ashlar/art/hud/class_PS/_work/ref_vesselA_pyrehymn.png",
+   "bytes": 77433,
+   "sha256": "9c8f4b0466c51fc212eefeee9731972b7b76673ad07070d4bacc510e90ebd669",
+   "px": [
+    220,
+    250
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "PS",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of the K1 Pyre Hymn state."
+  },
+  {
+   "file": "class_PS/_work/ref_vesselA_statue.png",
+   "source": "ashlar/art/hud/class_PS/_work/ref_vesselA_statue.png",
+   "bytes": 235161,
+   "sha256": "cbe4a81153980e3780e244f083519be15a53ab30ad9398034ed209c9552031a0",
+   "px": [
+    470,
+    360
+   ],
+   "alpha": false,
+   "kind": "reference",
+   "class": "PS",
+   "status": "crop",
+   "qa": null,
+   "note": "Crop of K1 option A given to Codex."
+  },
+  {
+   "file": "common/HUD00_common_v1.png",
+   "source": "ashlar/art/hud/PC_B7_hooded/HUD00_common_v1.png",
+   "bytes": 960918,
+   "sha256": "47c23e18c12f3c85f8b994205170e75e80cfb72f8b277e20ce34250887f7bf04",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "hud_mockup_black",
+   "class": "common",
+   "status": "PASS, pending_user_review",
+   "qa": "common/_work/qa_HUD00_v1.txt",
+   "note": "Common bar on black 16:9: LMB RMB 1-4 | SPACE Q R | F T, globe, minimap, plates, caption, EXP."
+  },
+  {
+   "file": "common/HUD00_common_v1_layer.png",
+   "source": "ashlar/art/hud/PC_B7_hooded/HUD00_common_v1_layer.png",
+   "bytes": 1003563,
+   "sha256": "9360bb90d71d4149984055bd11f56fa4aeed65ccf828c1ecc23be0babab0405c",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "hud_layer_alpha",
+   "class": "common",
+   "status": "PASS, pending_user_review",
+   "qa": "common/_work/qa_HUD00_v1.txt",
+   "note": "Alpha cut of HUD00 at the base layer position (cutout_layer.py)."
+  },
+  {
+   "file": "common/_work/HUD00_common_v1.generation.log",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/HUD00_common_v1.generation.log",
+   "bytes": 7868,
+   "sha256": "134f05c07ac78103ba189e76b49cba1acf85346234d23b6d91dd7604a3e63290",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/_work/HUD00_common_v1.prompt.src.txt",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/HUD00_common_v1.prompt.src.txt",
+   "bytes": 5215,
+   "sha256": "edb5eb1d5dec7bc672b8c6044cc0773499747d15e06a548e461a8a656d5c3e2a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/_work/HUD00_common_v1.prompt.txt",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/HUD00_common_v1.prompt.txt",
+   "bytes": 5215,
+   "sha256": "edb5eb1d5dec7bc672b8c6044cc0773499747d15e06a548e461a8a656d5c3e2a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/_work/HUD00_common_v1.result.txt",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/HUD00_common_v1.result.txt",
+   "bytes": 124,
+   "sha256": "9f006ff2b5e6b6668b87279370f6adec713a74b1d2a97bdaffa493e3db992762",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/_work/HUD00_common_v1.task.txt",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/HUD00_common_v1.task.txt",
+   "bytes": 6178,
+   "sha256": "7ad14fbe6eb5365a8e117cbeea04fb0841a18b5248c6a35544bcea75f7834c49",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/_work/base_layer_black16x9.png",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/base_layer_black16x9.png",
+   "bytes": 891372,
+   "sha256": "65b5647f84ac4aff5261c8c07e8fd09acf1c62150232974346da09bd7a159d67",
+   "px": [
+    2000,
+    1125
+   ],
+   "alpha": false,
+   "kind": "template",
+   "class": "common",
+   "status": "tool",
+   "qa": null,
+   "note": "base_user_layer on black 2000x1125 at y=214, the canvas Codex draws on."
+  },
+  {
+   "file": "common/_work/qa_HUD00_v1.txt",
+   "source": "ashlar/art/hud/PC_B7_hooded/_work/qa_HUD00_v1.txt",
+   "bytes": 738,
+   "sha256": "8deaf546a01cacaee3042e0fa1cb70727c6a9391926ad5659c5e6cd71274eaac",
+   "kind": "sidecar"
+  },
+  {
+   "file": "common/base_user_layer.png",
+   "source": "ashlar/art/hud/PC_B7_hooded/base_user_layer.png",
+   "bytes": 1477947,
+   "sha256": "d054386acdddce9223e27f8d1f34fac6984f95474492af36742bab0dc27f08e2",
+   "px": [
+    2000,
+    696
+   ],
+   "alpha": true,
+   "kind": "base_layer_alpha",
+   "class": "common",
+   "status": "user_made",
+   "qa": null,
+   "note": "User's cut-out bottom HUD (hooded statue pair), the base every class layer is drawn on."
+  },
+  {
+   "file": "dev/_sheets/A_bar.png",
+   "source": "ashlar/art/hud/dev/_sheets/A_bar.png",
+   "bytes": 1456999,
+   "sha256": "e31f2a19d6657b6bc72e8dbf1507e60a6dd9ab17f3e18d52f6555470ec51f4e2",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "common",
+   "status": "PASS, pending_user_review",
+   "qa": "_brief/v5/QA.md",
+   "note": "Bottom bar parts: empty bar, socket, label plate, divider, locked face, pips, EXP trough + fill, level keystone."
+  },
+  {
+   "file": "dev/_sheets/B_globe.png",
+   "source": "ashlar/art/hud/dev/_sheets/B_globe.png",
+   "bytes": 1622014,
+   "sha256": "584e255c65dd4920b19e0aff8a75faab516a6a2669f1b160f840aee2a69a9dc5",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "common",
+   "status": "PASS rows 1+3; row 2 FAIL (use B_globe_r2)",
+   "qa": "_brief/v5/QA.md",
+   "note": "Left guardian + ring, globe layers, cracks, shored course, staple, wedge, liquid surface."
+  },
+  {
+   "file": "dev/_sheets/B_globe_r2.png",
+   "source": "ashlar/art/hud/dev/_sheets/B_globe_r2.png",
+   "bytes": 1350041,
+   "sha256": "0524c24e0cfbfa7ada51a37092264e90ca1e36093abf1db92ba1c5af9455a1d1",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "common",
+   "status": "PASS, pending_user_review",
+   "qa": "_brief/v5/QA.md",
+   "note": "Globe fill discs only (back, life, mortar, threaded, wound), flat, 322 px."
+  },
+  {
+   "file": "dev/_sheets/C_br.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_br.png",
+   "bytes": 2006046,
+   "sha256": "965036c9a0218146c71812d06968d2741f9082ce01416727082226c97e0ecb61",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "BR",
+   "status": "PASS, pending_user_review; code: mask water/salt fills to the bottle inside, merge stray foam bits",
+   "qa": "_brief/v6/QA.md",
+   "note": "Right guardian with empty bottle, bottle back, water fill, salt fill, encrusted pip full/empty, lye drop, crystal end caps, brine pool + salt crust decals."
+  },
+  {
+   "file": "dev/_sheets/C_ex.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_ex.png",
+   "bytes": 1717052,
+   "sha256": "e8ed126bbc4194f7aad9d7acd62f6593acbd812ee0314e57f528875770b58205",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "EX",
+   "status": "PASS, pending_user_review; code: mask oil fill, despill flame tips",
+   "qa": "_brief/v6/QA.md",
+   "note": "Right guardian with unlit lantern, oil fill, iron hood, wick slider lit/dark, 3 flames, hooded token, exposed pip, grave trap pip set/empty, counter plate."
+  },
+  {
+   "file": "dev/_sheets/C_fl.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_fl.png",
+   "bytes": 1667178,
+   "sha256": "ff2cffafcf8cb394bef73205ec4b8545d699e48c088cd277d1e615b24d4d4b86",
+   "px": [
+    1672,
+    940
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "FL",
+   "status": "PASS, pending_user_review",
+   "qa": "_brief/v5/QA.md",
+   "note": "Right guardian with empty Contrition niche, hook, cold/hot chain links face-on and edge-on."
+  },
+  {
+   "file": "dev/_sheets/C_os.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_os.png",
+   "bytes": 1728222,
+   "sha256": "1fbe2511c2ae656770b43c6e0f0adf212c5463835da81c102e55a0d61177c39c",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "OS",
+   "status": "FAIL el. 1 mirrored (use C_os_r2); other parts usable",
+   "qa": "_brief/v6/QA.md",
+   "note": "First OS sheet: guardian on the wrong side; cracks drawn as whole pilasters."
+  },
+  {
+   "file": "dev/_sheets/C_os_r2.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_os_r2.png",
+   "bytes": 1722316,
+   "sha256": "116a390adc1e285bb6aaa4fda32b70ce1e5a3594e944fdd0f132f971794cfc37",
+   "px": [
+    1672,
+    940
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "OS",
+   "status": "PASS, pending_user_review; code: fill keyed crack interiors dark",
+   "qa": "_brief/v6/QA.md",
+   "note": "Right guardian with empty 8-niche reliquary (correct side), lit niche, 3 crack overlays, breach gap, strain gauge, servant token lit/empty, counter plate."
+  },
+  {
+   "file": "dev/_sheets/C_pb.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_pb.png",
+   "bytes": 1757403,
+   "sha256": "2051fae0035265be701ad20dbe3d7fac8f950fe4d2cca9331214b1cdb7eb7869",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "PB",
+   "status": "FAIL el. 1 mirrored (use C_pb_r2); other parts usable",
+   "qa": "_brief/v6/QA.md",
+   "note": "First PB sheet: guardian drawn on the wrong side (statue left of the frame)."
+  },
+  {
+   "file": "dev/_sheets/C_pb_r2.png",
+   "source": "ashlar/art/hud/dev/_sheets/C_pb_r2.png",
+   "bytes": 1769464,
+   "sha256": "a257fed97168169c36de54950d9f3d55542a78ce5482c6056f90dd5bc75b0571",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "PB",
+   "status": "PASS, pending_user_review",
+   "qa": "_brief/v6/QA.md",
+   "note": "Right guardian with empty coffin frame (correct side), coffin fill 8 courses, thin capstone, names tally slab raised/sunk, names plate, vow rim, 2 iron bands."
+  },
+  {
+   "file": "dev/_sheets/D_ps.png",
+   "source": "ashlar/art/hud/dev/_sheets/D_ps.png",
+   "bytes": 1684770,
+   "sha256": "b88ef3c86de7b11bb9a439fdd6b57b0ab3dde44e25e6bc858f33ccad127300b0",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "PS",
+   "status": "PASS, pending_user_review; code fixes: lit ring segment, open hand",
+   "qa": "_brief/v5/QA.md",
+   "note": "Right guardian with empty pyre cage, drain arrow, smoke/Long Song/courage pips, party frame, holding-on ring, target bracket."
+  },
+  {
+   "file": "dev/_sheets/E2_icons.png",
+   "source": "ashlar/art/hud/dev/_sheets/E2_icons.png",
+   "bytes": 1764200,
+   "sha256": "00afbdb041256948b9237254ecbf8a18fe0ea3212244125e10052bffa7ae658f",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "PB+OS",
+   "status": "PASS, pending_user_review; normalise to one square",
+   "qa": "_brief/v6/QA.md",
+   "note": "13 skill icons: 7 PB (incl. slot 5 Vow), 6 OS."
+  },
+  {
+   "file": "dev/_sheets/E3_icons.png",
+   "source": "ashlar/art/hud/dev/_sheets/E3_icons.png",
+   "bytes": 1734325,
+   "sha256": "a795d5901558b6d789eab7db83a289e3286e9b5fd091eae006e756d4d4e6a1cc",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "BR+EX",
+   "status": "PASS, pending_user_review; normalise; tight key (teal near green)",
+   "qa": "_brief/v6/QA.md",
+   "note": "13 skill icons: 6 BR, 6 EX + R change-wick icon."
+  },
+  {
+   "file": "dev/_sheets/E_icons.png",
+   "source": "ashlar/art/hud/dev/_sheets/E_icons.png",
+   "bytes": 1760195,
+   "sha256": "1e7579bfc2c7cf2b433c522071967b5e13a65c6b3a35c9a07b580f1f1126baa7",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "FL+PS",
+   "status": "PASS, pending_user_review; normalise to one square",
+   "qa": "_brief/v5/QA.md",
+   "note": "17 skill icons: 6 FL, 6 PS, Hymn, Dodge, lantern, Draught, Open a Face."
+  },
+  {
+   "file": "dev/_sheets/F2_fx.png",
+   "source": "ashlar/art/hud/dev/_sheets/F2_fx.png",
+   "bytes": 926156,
+   "sha256": "42da263f3b8d9cec09103db594ac871e1b79aa32e4d1e3a167bb8b2c4f507b46",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_black",
+   "class": "PB+OS+BR+EX",
+   "status": "PASS, pending_user_review; rebuild half rim from closed rim",
+   "qa": "_brief/v6/QA.md",
+   "note": "Light effects on black: soul light, breach light, weeping sheen, beacon halo, vow rim closed/half, exposed wash, salt glints."
+  },
+  {
+   "file": "dev/_sheets/F_fx.png",
+   "source": "ashlar/art/hud/dev/_sheets/F_fx.png",
+   "bytes": 978180,
+   "sha256": "140aa2425be22d4ee147ea9fbaffa6f7b0f84104c6c88302839711dcd928f505",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_black",
+   "class": "FL+PS",
+   "status": "PASS, pending_user_review; rebuild half rim from closed rim",
+   "qa": "_brief/v5/QA.md",
+   "note": "Light effects on black for additive blending: glass highlight, vapour, embers, frost, socket rims, glows."
+  },
+  {
+   "file": "dev/_sheets/G_plates.png",
+   "source": "ashlar/art/hud/dev/_sheets/G_plates.png",
+   "bytes": 1375355,
+   "sha256": "446351c519465ac7eaf4ebc7c3e01a12a1d0563189c3cfb2f4f1c9977b4eb430",
+   "px": [
+    1672,
+    941
+   ],
+   "alpha": false,
+   "kind": "sprite_sheet_green",
+   "class": "common",
+   "status": "PASS, pending_user_review",
+   "qa": "_brief/v5/QA.md",
+   "note": "Quest plate, target nameplate frame + fill, minimap ring, area/caption/attribute plates, spark, number plate, counter plate."
+  },
+  {
+   "file": "dev/_sheets/_work/A_bar.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/A_bar.generation.log",
+   "bytes": 7154,
+   "sha256": "9dc32fa0f8b602446817e5046dc5c9ecb73c8b770e138862945668575b7a2d6e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/A_bar.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/A_bar.prompt.src.txt",
+   "bytes": 4408,
+   "sha256": "768d5f8f51a3a20b9cc377cb974f845acbbbd82c449a26706cb632505e157d84",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/A_bar.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/A_bar.prompt.txt",
+   "bytes": 4408,
+   "sha256": "768d5f8f51a3a20b9cc377cb974f845acbbbd82c449a26706cb632505e157d84",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/A_bar.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/A_bar.result.txt",
+   "bytes": 124,
+   "sha256": "b3900952c435fb7103698e6afa609c48dcfcc3b510c00d8f76625c95ec3f2bde",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/A_bar.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/A_bar.task.txt",
+   "bytes": 5360,
+   "sha256": "9d9d125a47ec4f5ced54e316f794ec4865c12df160f62b9b1391345b13b94a5c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe.generation.log",
+   "bytes": 7382,
+   "sha256": "122c7e6201d46d45b494a5416f00b930f7421c4120598a41c77fdd8416561e0f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe.prompt.src.txt",
+   "bytes": 4759,
+   "sha256": "42a92c681aa0dd2bfd85c0d0f9b8037d14e237410f0bafabb0bc6b8838c6bd34",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe.prompt.txt",
+   "bytes": 4759,
+   "sha256": "42a92c681aa0dd2bfd85c0d0f9b8037d14e237410f0bafabb0bc6b8838c6bd34",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe.result.txt",
+   "bytes": 124,
+   "sha256": "8dfc13d48f0924a0671707dde008ba974679267f9a44f85891cb59d10154a5f7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe.task.txt",
+   "bytes": 5711,
+   "sha256": "82ce4e546b21e47c5b93ceeb08231b34fd9257828c46bdaec6180cd3e1cf01d4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe_r2.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe_r2.generation.log",
+   "bytes": 7131,
+   "sha256": "cdb854dc33e6d1b25ac202ce3ff642123382af655d8793c04f257420cdfc97ed",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe_r2.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe_r2.prompt.src.txt",
+   "bytes": 4510,
+   "sha256": "5b023191725b57779ea07e0f3cc47998a20710bad88d8bdc62ea719dbfe6ba7a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe_r2.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe_r2.prompt.txt",
+   "bytes": 4510,
+   "sha256": "5b023191725b57779ea07e0f3cc47998a20710bad88d8bdc62ea719dbfe6ba7a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe_r2.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe_r2.result.txt",
+   "bytes": 124,
+   "sha256": "3d06bc45c9de850579e924402e8a6f1c8dadbbf29ec7d0d90847e372cb94d999",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/B_globe_r2.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/B_globe_r2.task.txt",
+   "bytes": 5450,
+   "sha256": "9b1de79efe914233bfffe57643cddccc5ade531392e8223c4794adf9bdb22312",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_br.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_br.generation.log",
+   "bytes": 7745,
+   "sha256": "8fd22d522499e12fd48955e35caeb24323a12f42cfba3461f5dd3e1bd41ae83e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_br.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_br.prompt.src.txt",
+   "bytes": 5114,
+   "sha256": "f97946f2e7d6be2bf61599aa3558b6dbb81ba08422c1d1360ce55911d2345d27",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_br.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_br.prompt.txt",
+   "bytes": 5114,
+   "sha256": "f97946f2e7d6be2bf61599aa3558b6dbb81ba08422c1d1360ce55911d2345d27",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_br.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_br.result.txt",
+   "bytes": 124,
+   "sha256": "816ea150c086b2377a3b74f86964fd55fe63dadfe6ca7be897a1c401c5a6a1b2",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_br.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_br.task.txt",
+   "bytes": 6066,
+   "sha256": "6fbfb5c2dc2772bef0aa4f0775bf4483ecf4413f229ba4a9437424e89fceaba1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_ex.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_ex.generation.log",
+   "bytes": 7517,
+   "sha256": "0a7aa3302347160b30a77a0602654486557521358730e61b49df8411fab0eb47",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_ex.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_ex.prompt.src.txt",
+   "bytes": 4821,
+   "sha256": "dcca8aafd11f9a0e47c034e5b549f91056b711da5cb653a51240cc7c33011b5d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_ex.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_ex.prompt.txt",
+   "bytes": 4821,
+   "sha256": "dcca8aafd11f9a0e47c034e5b549f91056b711da5cb653a51240cc7c33011b5d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_ex.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_ex.task.txt",
+   "bytes": 5773,
+   "sha256": "eaf6e0da5fa0c8d6259f24f5e4388f99400e81a6a2e22cff511af86d5bdc8db8",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_fl.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_fl.generation.log",
+   "bytes": 7090,
+   "sha256": "83c156f7231c77e3018f8728f9123168f3e363ca97035f531508181186e1a663",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_fl.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_fl.prompt.src.txt",
+   "bytes": 4298,
+   "sha256": "995ea5a5983ce65af638e99b3506475e89e1a4494e1b7fea699deb0f01fe1d59",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_fl.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_fl.prompt.txt",
+   "bytes": 4298,
+   "sha256": "995ea5a5983ce65af638e99b3506475e89e1a4494e1b7fea699deb0f01fe1d59",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_fl.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_fl.result.txt",
+   "bytes": 124,
+   "sha256": "887146934964af0db7a6138e8bac7fde38cb04b9659120a194c578a3fc160b47",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_fl.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_fl.task.txt",
+   "bytes": 5249,
+   "sha256": "0b6ac72c82579977b0ffbafb820f3274566bf812677ac4113a43171bbb4bb505",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os.generation.log",
+   "bytes": 7675,
+   "sha256": "26cd255d75d09222fdd5a25b29a9d5769c88c89cea1c87d8695aed275b3b19ce",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os.prompt.src.txt",
+   "bytes": 5040,
+   "sha256": "0912e5f4658580d5b13682766896aebda79bfdb609eabd218667c657044b4650",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os.prompt.txt",
+   "bytes": 5040,
+   "sha256": "0912e5f4658580d5b13682766896aebda79bfdb609eabd218667c657044b4650",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os.result.txt",
+   "bytes": 124,
+   "sha256": "6abc4ad02fb3473e3d9ebb2510688f6a1708cf23c230588784889dc40c9a0fcd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os.task.txt",
+   "bytes": 5992,
+   "sha256": "3da1aa344d21767c8a4a2ad14555878332233cf635b8e21c081649ebceb2f755",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os_r2.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os_r2.generation.log",
+   "bytes": 8509,
+   "sha256": "d7c1e3fe689f0b78062dfdb2ad6e220e06a87458f7c4c9e98ec77dae662a7cfb",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os_r2.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os_r2.prompt.src.txt",
+   "bytes": 5870,
+   "sha256": "0ce3eda3a49efa91e7d7f61e1f622a4f95f2bf67e90bbde6da2aefb3483ebe26",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os_r2.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os_r2.prompt.txt",
+   "bytes": 5870,
+   "sha256": "0ce3eda3a49efa91e7d7f61e1f622a4f95f2bf67e90bbde6da2aefb3483ebe26",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os_r2.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os_r2.result.txt",
+   "bytes": 124,
+   "sha256": "2fdf23dc4ad2f82aa57a4ba0ef499a8a13cbd0e1cb890f956c0fde188ab9b0de",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_os_r2.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_os_r2.task.txt",
+   "bytes": 6827,
+   "sha256": "e2c75b8b1ec7455ec77a394d73ff1f09a49abb47ffd765a87a536984d7a11408",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb.generation.log",
+   "bytes": 7303,
+   "sha256": "1cfed36bda94c329795d79aeda765bad3c18aecd8e87f7ca102666c1d9265b5b",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb.prompt.src.txt",
+   "bytes": 4667,
+   "sha256": "a227f9b17422dd5ae7f788f7333ed2cd56dd99edc9adc3d40a67de5beb63151f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb.prompt.txt",
+   "bytes": 4667,
+   "sha256": "a227f9b17422dd5ae7f788f7333ed2cd56dd99edc9adc3d40a67de5beb63151f",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb.result.txt",
+   "bytes": 124,
+   "sha256": "37128910e03b43d874d965066bb9ac35cee888416b3290db53fa8fe1f40583b7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb.task.txt",
+   "bytes": 5618,
+   "sha256": "0bcc117498268216160080d3420a1d269853e4265f3c237895d8064e2b0b4726",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb_r2.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb_r2.generation.log",
+   "bytes": 8120,
+   "sha256": "5e681efaf1f896d4bad409f702027d1c1e4c2508c88861cb6fd8a10f4de8f4a2",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb_r2.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb_r2.prompt.src.txt",
+   "bytes": 5484,
+   "sha256": "4e61481573d3599609bb4b09fca76800c76bc1b4b11f06ef1d45a2c2ffaed02c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb_r2.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb_r2.prompt.txt",
+   "bytes": 5484,
+   "sha256": "4e61481573d3599609bb4b09fca76800c76bc1b4b11f06ef1d45a2c2ffaed02c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb_r2.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb_r2.result.txt",
+   "bytes": 124,
+   "sha256": "a3ca6ad04a92b870f194a5265ed8e6d1eb3387e42642eca430a63b54b7beebcf",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/C_pb_r2.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/C_pb_r2.task.txt",
+   "bytes": 6440,
+   "sha256": "ef3ba7edf620c472c51e3b7e635df1d65ae9232ed92353c0749def3659e68ea1",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/D_ps.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/D_ps.generation.log",
+   "bytes": 7552,
+   "sha256": "273ca99b4013ce6cc7abf431269c29485488ce5d07977e57206b4dd5faf984e6",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/D_ps.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/D_ps.prompt.src.txt",
+   "bytes": 4834,
+   "sha256": "09a835f105ba761c9b1798360112653475ef4f29923eba9db8006f76edfaa455",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/D_ps.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/D_ps.prompt.txt",
+   "bytes": 4834,
+   "sha256": "09a835f105ba761c9b1798360112653475ef4f29923eba9db8006f76edfaa455",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/D_ps.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/D_ps.result.txt",
+   "bytes": 124,
+   "sha256": "8baaf839ac11939fd8696cabf4889c3a179f51cee9a8b179d552eca27b7434ef",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/D_ps.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/D_ps.task.txt",
+   "bytes": 5786,
+   "sha256": "397c02b2ee5fd25a90c68fb32d096a859c91237c88cb2035305bf5ca570e3249",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E2_icons.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E2_icons.generation.log",
+   "bytes": 7903,
+   "sha256": "871237ef210ec642fa663786eb88cae19bab8eb077314324c7aca79082d1cd79",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E2_icons.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E2_icons.prompt.src.txt",
+   "bytes": 5268,
+   "sha256": "4b47b9669ea52e7d328d09ee4c63f09d0d0973bcf2c9ad96cc6d836f817d9ade",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E2_icons.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E2_icons.prompt.txt",
+   "bytes": 5268,
+   "sha256": "4b47b9669ea52e7d328d09ee4c63f09d0d0973bcf2c9ad96cc6d836f817d9ade",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E2_icons.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E2_icons.result.txt",
+   "bytes": 124,
+   "sha256": "a8fe5a02e8963b5085a37a1378ee53187c9d17929c9d3694ddb7936891ffd447",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E2_icons.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E2_icons.task.txt",
+   "bytes": 6221,
+   "sha256": "a1dd7c3dfee1755a5d4ac42382c94d9fa52d0140671055ac033ff075c93b6cd2",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E3_icons.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E3_icons.generation.log",
+   "bytes": 7860,
+   "sha256": "8877e7c16bd7f9bc00b4660dcb5bdb9a34ccb51ec2b694f8ffa48e4a2b7e0e51",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E3_icons.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E3_icons.prompt.src.txt",
+   "bytes": 5222,
+   "sha256": "e32f4301545a2d711ae002ebdf54985eb64d870d00da4a63727ff3d2cf679e84",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E3_icons.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E3_icons.prompt.txt",
+   "bytes": 5222,
+   "sha256": "e32f4301545a2d711ae002ebdf54985eb64d870d00da4a63727ff3d2cf679e84",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E3_icons.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E3_icons.result.txt",
+   "bytes": 124,
+   "sha256": "bdff0516c1d9b652e6d59867520594a72b2b1a9f1dd49e7154fa54025ac204e7",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E3_icons.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E3_icons.task.txt",
+   "bytes": 6175,
+   "sha256": "4b6313362110ad216aa801eca4b690155be092b5623b35453dc770e8ca6bc83d",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E_icons.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E_icons.generation.log",
+   "bytes": 7312,
+   "sha256": "d81f8d03c957321ba139b5fbac3c16392c0b93a0c64e8e8862a332f6f2a2a6c6",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E_icons.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E_icons.prompt.src.txt",
+   "bytes": 4696,
+   "sha256": "b8280ae95450e0932a7e9b93499b890ac202ed72a64271db282fdb075824f3a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E_icons.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E_icons.prompt.txt",
+   "bytes": 4696,
+   "sha256": "b8280ae95450e0932a7e9b93499b890ac202ed72a64271db282fdb075824f3a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E_icons.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E_icons.result.txt",
+   "bytes": 124,
+   "sha256": "8960f525b8ad2a9cd576f3a0599dc79f3541c43e4b912c4b53221531d0d69480",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/E_icons.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/E_icons.task.txt",
+   "bytes": 5649,
+   "sha256": "a83f40d98f5f9fd7782cbfbb0a528c9fb15f6979442e24a458cd4de836a4e794",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F2_fx.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F2_fx.generation.log",
+   "bytes": 6724,
+   "sha256": "7e5c35b276bb9e49df05c7391f078b3af74a70bcaa535fa0ac60ff5e3761e1a4",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F2_fx.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F2_fx.prompt.src.txt",
+   "bytes": 4088,
+   "sha256": "cfd1814721c216fca53a856c0ffeea8329f9b46fb7c5c7478582a1d3f2bbea8a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F2_fx.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F2_fx.prompt.txt",
+   "bytes": 4088,
+   "sha256": "cfd1814721c216fca53a856c0ffeea8329f9b46fb7c5c7478582a1d3f2bbea8a",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F2_fx.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F2_fx.result.txt",
+   "bytes": 124,
+   "sha256": "17899a3034ee2b56cc794ee4839f1a598d26763be76dffd0faaab34d35def23e",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F2_fx.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F2_fx.task.txt",
+   "bytes": 5039,
+   "sha256": "eac9752bb52b9d0884e896fdb1aa631b89a353a881632a74e11d3ba3c1304604",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F_fx.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F_fx.generation.log",
+   "bytes": 6554,
+   "sha256": "4a554308e1783529a1204ed976a23541036d3efbcbe76e166d6f6aedf5013fd5",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F_fx.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F_fx.prompt.src.txt",
+   "bytes": 3937,
+   "sha256": "0845b412288de9512041cde7f44589436a88a15302b54800e86b77e1e7ad2616",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F_fx.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F_fx.prompt.txt",
+   "bytes": 3937,
+   "sha256": "0845b412288de9512041cde7f44589436a88a15302b54800e86b77e1e7ad2616",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F_fx.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F_fx.result.txt",
+   "bytes": 124,
+   "sha256": "542cae89397e20eed0b9d37ad0f039f5228732040682aa2699f50cab63bf2227",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/F_fx.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/F_fx.task.txt",
+   "bytes": 4888,
+   "sha256": "ef0a1578967cb7799b86e08adcd254d7f70c3447aabf7c267b9c983a1affaad2",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/G_plates.generation.log",
+   "source": "ashlar/art/hud/dev/_sheets/_work/G_plates.generation.log",
+   "bytes": 7201,
+   "sha256": "a384e02d1b3d63eaf80984fdadde10e4ef55f5f997b5f965b2de4dd81118d251",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/G_plates.prompt.src.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/G_plates.prompt.src.txt",
+   "bytes": 4285,
+   "sha256": "8e372d09a4178070681e0387c4df9d6420611c75af7f8c71b22c472580423bfd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/G_plates.prompt.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/G_plates.prompt.txt",
+   "bytes": 4285,
+   "sha256": "8e372d09a4178070681e0387c4df9d6420611c75af7f8c71b22c472580423bfd",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/G_plates.result.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/G_plates.result.txt",
+   "bytes": 124,
+   "sha256": "e8df5bd5838028ccfc01a6f39fbbf42d82d994e9fed3702b81838484fd388444",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/G_plates.task.txt",
+   "source": "ashlar/art/hud/dev/_sheets/_work/G_plates.task.txt",
+   "bytes": 5237,
+   "sha256": "a086597af819b1f73b5cf81959da33733bfeb4c3a09b80c2d49b31e4d8a1741c",
+   "kind": "sidecar"
+  },
+  {
+   "file": "dev/_sheets/_work/ref_orient_C_br.png",
+   "source": "ashlar/art/hud/dev/_sheets/_work/ref_orient_C_br.png",
+   "bytes": 443976,
+   "sha256": "1f22c1b9350a663bb691f6a0c260f6237acee2882312b467af195b689f49f5a6",
+   "px": [
+    610,
+    560
+   ],
+   "alpha": false,
+   "kind": "sidecar"
+  }
+ ]
+}
