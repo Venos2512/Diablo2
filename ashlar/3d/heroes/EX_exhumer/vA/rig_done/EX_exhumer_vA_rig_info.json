@@ -1,0 +1,167 @@
+{
+ "asset_id": "EX_exhumer_vA",
+ "rig": "EX_exhumer_vA_Rig",
+ "exported": "2026-10-29T10:15:03",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\heroes\\EX_exhumer\\vA\\rig\\EX_exhumer_vA_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 64,
+  "deform": 54,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "EX_exhumer_vA_Accessory": {
+   "role": "Accessory",
+   "verts": 658
+  },
+  "EX_exhumer_vA_Body": {
+   "role": "Body",
+   "verts": 5019
+  }
+ },
+ "weight_health": {
+  "EX_exhumer_vA_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "EX_exhumer_vA_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "lantern_01",
+   "lantern_02"
+  ],
+  [
+   "robe_coat_FL_01",
+   "robe_coat_FL_02",
+   "robe_coat_FL_03",
+   "robe_coat_FL_04"
+  ],
+  [
+   "robe_coat_L_01",
+   "robe_coat_L_02",
+   "robe_coat_L_03",
+   "robe_coat_L_04"
+  ],
+  [
+   "robe_coat_BL_01",
+   "robe_coat_BL_02",
+   "robe_coat_BL_03",
+   "robe_coat_BL_04"
+  ],
+  [
+   "robe_coat_FR_01",
+   "robe_coat_FR_02",
+   "robe_coat_FR_03",
+   "robe_coat_FR_04"
+  ],
+  [
+   "robe_coat_R_01",
+   "robe_coat_R_02",
+   "robe_coat_R_03",
+   "robe_coat_R_04"
+  ],
+  [
+   "robe_coat_BR_01",
+   "robe_coat_BR_02",
+   "robe_coat_BR_03",
+   "robe_coat_BR_04"
+  ],
+  [
+   "pouch_01"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1886
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1834
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1065
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.092
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1886
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1834
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1065
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.092
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "EX_exhumer_vA_rig.fbx",
+  "textures": [
+   "textures/EX_exhumer_vA_basecolor.jpg.jpg",
+   "textures/EX_exhumer_vA_normal.jpg.jpg",
+   "textures/EX_exhumer_vA_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "EX_exhumer_vA_rig.glb",
+  "blend": "EX_exhumer_vA_rig.blend",
+  "springbones": "EX_exhumer_vA_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 64,
+  "meshes": 2,
+  "verts": 5677,
+  "skinned": 2,
+  "ok": true
+ }
+}

@@ -1,0 +1,193 @@
+{
+ "chains": [
+  {
+   "root": "robe_coat_FL_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_coat_L_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_coat_BL_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_coat_FR_01",
+   "enabled": true,
+   "stiffness": 1.5,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_coat_R_01",
+   "enabled": true,
+   "stiffness": 1.6,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "robe_coat_BR_01",
+   "enabled": true,
+   "stiffness": 1.7,
+   "collide": true,
+   "layer": 0,
+   "drag": 0.45,
+   "gravity": 0.4,
+   "hitRadius": 0.06,
+   "endLength": 0.1,
+   "wind": 1.0
+  },
+  {
+   "root": "lantern_01",
+   "enabled": true,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.04,
+   "endLength": 0.06,
+   "collide": true,
+   "wind": 0.3
+  },
+  {
+   "root": "quiver_01",
+   "enabled": true,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.04,
+   "endLength": 0.06,
+   "collide": true,
+   "wind": 0.3
+  },
+  {
+   "root": "pouch_01",
+   "enabled": true,
+   "stiffness": 0.8,
+   "drag": 0.3,
+   "gravity": 0.8,
+   "hitRadius": 0.04,
+   "endLength": 0.06,
+   "collide": true,
+   "wind": 0.3
+  }
+ ],
+ "colliders": [
+  {
+   "bone": "pelvis",
+   "type": "sphere",
+   "radius": 0.13
+  },
+  {
+   "bone": "spine_01",
+   "type": "capsule",
+   "radius": 0.12
+  },
+  {
+   "bone": "spine_02",
+   "type": "capsule",
+   "radius": 0.13
+  },
+  {
+   "bone": "L_Thigh",
+   "type": "capsule",
+   "radius": 0.085
+  },
+  {
+   "bone": "R_Thigh",
+   "type": "capsule",
+   "radius": 0.086
+  },
+  {
+   "bone": "L_Calf",
+   "type": "capsule",
+   "radius": 0.08
+  },
+  {
+   "bone": "R_Calf",
+   "type": "capsule",
+   "radius": 0.08
+  },
+  {
+   "bone": "L_Calf",
+   "type": "sphere",
+   "radius": 0.08,
+   "offset": [
+    -0.0,
+    0.0437,
+    -0.0
+   ]
+  },
+  {
+   "bone": "R_Calf",
+   "type": "sphere",
+   "radius": 0.08,
+   "offset": [
+    0.0,
+    0.0437,
+    0.0
+   ]
+  }
+ ],
+ "links": [
+  [
+   "robe_coat_FL_01",
+   "robe_coat_L_01"
+  ],
+  [
+   "robe_coat_L_01",
+   "robe_coat_BL_01"
+  ],
+  [
+   "robe_coat_BR_01",
+   "robe_coat_R_01"
+  ],
+  [
+   "robe_coat_R_01",
+   "robe_coat_FR_01"
+  ]
+ ],
+ "wind": {
+  "enabled": true,
+  "strength": 0.3,
+  "dir": 0,
+  "turbulence": 1,
+  "gust": 0.4
+ },
+ "rig": "EX_exhumer_vA_Rig",
+ "saved": "2026-10-29 08:54:27"
+}
