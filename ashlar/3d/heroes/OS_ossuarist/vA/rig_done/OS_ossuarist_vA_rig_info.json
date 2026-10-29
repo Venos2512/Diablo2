@@ -1,0 +1,172 @@
+{
+ "asset_id": "OS_ossuarist_vA",
+ "rig": "OS_ossuarist_vA_Rig",
+ "exported": "2026-10-29T11:12:08",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\heroes\\OS_ossuarist\\vA\\rig\\OS_ossuarist_vA_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 67,
+  "deform": 55,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "L_hand_socket",
+   "fx_hand_R",
+   "R_weapon_attach",
+   "R_hand_socket"
+  ]
+ },
+ "parts": {
+  "OS_ossuarist_vA_Accessory": {
+   "role": "Accessory",
+   "verts": 1037
+  },
+  "OS_ossuarist_vA_Body": {
+   "role": "Body",
+   "verts": 4623
+  }
+ },
+ "weight_health": {
+  "OS_ossuarist_vA_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "OS_ossuarist_vA_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "cape_L_01",
+   "cape_L_02"
+  ],
+  [
+   "cape_R_01",
+   "cape_R_02"
+  ],
+  [
+   "cape_B_01",
+   "cape_B_02"
+  ],
+  [
+   "lantern_01",
+   "lantern_02"
+  ],
+  [
+   "robe_skirt_LF_01",
+   "robe_skirt_LF_02",
+   "robe_skirt_LF_03"
+  ],
+  [
+   "robe_skirt_LB_01",
+   "robe_skirt_LB_02",
+   "robe_skirt_LB_03"
+  ],
+  [
+   "robe_skirt_RF_01",
+   "robe_skirt_RF_02",
+   "robe_skirt_RF_03"
+  ],
+  [
+   "robe_skirt_RB_01",
+   "robe_skirt_RB_02",
+   "robe_skirt_RB_03"
+  ],
+  [
+   "robe_skirt_B_01",
+   "robe_skirt_B_02",
+   "robe_skirt_B_03"
+  ],
+  [
+   "robe_skirt_F_01",
+   "robe_skirt_F_02",
+   "robe_skirt_F_03"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1648
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0798
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1096
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0724
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1648
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0798
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1096
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0724
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "OS_ossuarist_vA_rig.fbx",
+  "textures": [
+   "textures/OS_ossuarist_vA_basecolor.jpg.jpg",
+   "textures/OS_ossuarist_vA_normal.jpg.jpg",
+   "textures/OS_ossuarist_vA_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "OS_ossuarist_vA_rig.glb",
+  "blend": "OS_ossuarist_vA_rig.blend",
+  "springbones": "OS_ossuarist_vA_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 67,
+  "meshes": 2,
+  "verts": 5660,
+  "skinned": 2,
+  "ok": true
+ }
+}
