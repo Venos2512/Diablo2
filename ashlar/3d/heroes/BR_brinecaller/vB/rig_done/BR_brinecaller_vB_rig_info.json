@@ -1,0 +1,147 @@
+{
+ "asset_id": "BR_brinecaller_vB",
+ "rig": "BR_brinecaller_vB_Rig",
+ "exported": "2026-10-29T12:49:21",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\heroes\\BR_brinecaller\\vB\\rig\\BR_brinecaller_vB_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 51,
+  "deform": 41,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "fx_hand_R",
+   "R_weapon_attach"
+  ]
+ },
+ "parts": {
+  "BR_brinecaller_vB_Accessory": {
+   "role": "Accessory",
+   "verts": 1416
+  },
+  "BR_brinecaller_vB_Body": {
+   "role": "Body",
+   "verts": 4213
+  }
+ },
+ "weight_health": {
+  "BR_brinecaller_vB_Accessory": {
+   "max_influences": 1,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "BR_brinecaller_vB_Body": {
+   "max_influences": 5,
+   "not_normalised": 63,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_skirt_F_01",
+   "robe_skirt_F_02",
+   "robe_skirt_F_03"
+  ],
+  [
+   "robe_skirt_FL_01",
+   "robe_skirt_FL_02",
+   "robe_skirt_FL_03"
+  ],
+  [
+   "robe_skirt_L_01",
+   "robe_skirt_L_02",
+   "robe_skirt_L_03"
+  ],
+  [
+   "robe_skirt_BL_01",
+   "robe_skirt_BL_02",
+   "robe_skirt_BL_03"
+  ],
+  [
+   "flask_01"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1679
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0747
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0835
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0762
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.1679
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.0747
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0835
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.0762
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "BR_brinecaller_vB_rig.fbx",
+  "textures": [
+   "textures/BR_brinecaller_vB_basecolor.jpg.jpg",
+   "textures/BR_brinecaller_vB_normal.jpg.jpg",
+   "textures/BR_brinecaller_vB_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "BR_brinecaller_vB_rig.glb",
+  "blend": "BR_brinecaller_vB_rig.blend",
+  "springbones": "BR_brinecaller_vB_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 51,
+  "meshes": 2,
+  "verts": 5629,
+  "skinned": 2,
+  "ok": true
+ }
+}
