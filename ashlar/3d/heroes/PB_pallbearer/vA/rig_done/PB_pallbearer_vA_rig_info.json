@@ -1,0 +1,150 @@
+{
+ "asset_id": "PB_pallbearer_vA",
+ "rig": "PB_pallbearer_vA_Rig",
+ "exported": "2026-10-29T10:52:14",
+ "source_blend": "D:\\Claude\\Diablo2\\ashlar\\3d\\heroes\\PB_pallbearer\\vA\\rig\\PB_pallbearer_vA_rig.blend",
+ "units": "m",
+ "blender_axes": "Z up, character faces -Y",
+ "fbx_axes": "Y up, -Z forward (Unity)",
+ "deform_only": false,
+ "bones": {
+  "total": 59,
+  "deform": 47,
+  "sockets": [
+   "root",
+   "ground",
+   "hit_origin",
+   "cog",
+   "fx_chest",
+   "fx_head",
+   "fx_hand_L",
+   "L_weapon_attach",
+   "L_hand_socket",
+   "fx_hand_R",
+   "R_weapon_attach",
+   "R_hand_socket"
+  ]
+ },
+ "parts": {
+  "PB_pallbearer_vA_Accessory": {
+   "role": "Accessory",
+   "verts": 1486
+  },
+  "PB_pallbearer_vA_Body": {
+   "role": "Body",
+   "verts": 4445
+  }
+ },
+ "weight_health": {
+  "PB_pallbearer_vA_Accessory": {
+   "max_influences": 2,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  },
+  "PB_pallbearer_vA_Body": {
+   "max_influences": 4,
+   "not_normalised": 0,
+   "on_non_deform": 0
+  }
+ },
+ "spring_chains": [
+  [
+   "robe_cape_L_01",
+   "robe_cape_L_02",
+   "robe_cape_L_03"
+  ],
+  [
+   "robe_cape_BL_01",
+   "robe_cape_BL_02",
+   "robe_cape_BL_03"
+  ],
+  [
+   "robe_tabardF_F_01",
+   "robe_tabardF_F_02",
+   "robe_tabardF_F_03"
+  ],
+  [
+   "robe_tabardB_B_01",
+   "robe_tabardB_B_02",
+   "robe_tabardB_B_03"
+  ],
+  [
+   "lantern_01",
+   "lantern_02"
+  ]
+ ],
+ "leg_colliders": [
+  {
+   "bone": "L_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.208
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1224
+  },
+  {
+   "bone": "L_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1294
+  },
+  {
+   "bone": "L_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1
+  },
+  {
+   "bone": "R_Thigh",
+   "t0": 0.15,
+   "t1": 1.0,
+   "radius": 0.208
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 0.0,
+   "radius": 0.1224
+  },
+  {
+   "bone": "R_Calf",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1294
+  },
+  {
+   "bone": "R_Foot",
+   "t0": 0.0,
+   "t1": 1.0,
+   "radius": 0.1
+  }
+ ],
+ "notes": [
+  "Twist bones (*_twist) are not driven by Unity Humanoid: add a Rotation Constraint or script (forearm twist ~50% of hand roll) or bake them into the clips.",
+  "Cloth has no thigh weights: it follows the legs only with SkirtPusher.cs or spring-bone colliders placed on leg_colliders."
+ ],
+ "files": {
+  "model_fbx": "PB_pallbearer_vA_rig.fbx",
+  "textures": [
+   "textures/PB_pallbearer_vA_basecolor.jpg.jpg",
+   "textures/PB_pallbearer_vA_normal.jpg.jpg",
+   "textures/PB_pallbearer_vA_rm.png.png"
+  ],
+  "clips": [],
+  "model_glb": "PB_pallbearer_vA_rig.glb",
+  "blend": "PB_pallbearer_vA_rig.blend",
+  "springbones": "PB_pallbearer_vA_springbones.json"
+ },
+ "reimport_check": {
+  "armatures": 1,
+  "bones": 59,
+  "meshes": 2,
+  "verts": 5931,
+  "skinned": 2,
+  "ok": true
+ }
+}
